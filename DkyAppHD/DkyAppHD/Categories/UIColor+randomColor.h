@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (randomColor)
+@interface UIColor (RandomColor)
 /*
  生成随机颜色
  */

@@ -23,7 +23,7 @@
 /**
  *  数字转化 没隔三位 逗号隔开 123,456,78
  *
- *  @param parameter num 要转化的数字
+ *  @param num 要转化的数字
  *   返回处理好的数字字符串
  */
 +(NSString *)countNumAndChangeformat:(NSString *)num;

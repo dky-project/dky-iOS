@@ -1,0 +1,52 @@
+//
+//  PrefixHeader.pch
+//  DkyAppHD
+//
+//  Created by 胡金丽 on 2016/12/29.
+//  Copyright © 2016年 haKim. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "MBProgressHUD.h"
+#import "UIColor+RandomColor.h"
+#import "UIColor+Utility.h"
+#import "UIImage+Color.h"
+#import "Masonry.h"
+#import "MJExtension.h"
+#import "NSString+Utility.h"
+#import "UIButton+Custom.h"
+#import "MBProgressHUD+Utility.h"
+#endif
+
+
+#ifdef DEBUG
+#define DLog(FORMAT, ...) fprintf(stderr, "%s:%zd\t%s\n", [[[NSString stringWithUTF8String: __FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String]);
+#else
+# define DLog(...);
+
+#define WeakSelf(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+#endif
+
+
+#ifdef DEBUG
+
+#define DeallocFun()      - (void)dealloc{ \
+DLog(@"++++++++*********\n%@ dealloc\n*********++++++++",self); \
+}
+
+#else
+#define DeallocFun();
+
+#endif
+
+
+#endif /* PrefixHeader_pch */

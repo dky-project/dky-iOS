@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 nextlabs. All rights reserved.
 //
 
-#import "UIColor+randomColor.h"
+#import "UIColor+RandomColor.h"
 
-@implementation UIColor (randomColor)
+@implementation UIColor (RandomColor)
 
 +(UIColor *)randomColor{
     static BOOL seed = NO;
