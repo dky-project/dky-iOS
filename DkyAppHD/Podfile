@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+inhibit_all_warnings!
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'DkyAppHD' do
+
+pod 'SDWebImage'
+pod 'MJRefresh'
+pod 'AFNetworking'
+pod 'Masonry'
+pod 'IQKeyboardManager'
+pod 'SAMKeychain'
+pod 'MJExtension'
+pod 'TTTAttributedLabel'
+pod 'YYCategories'
+
+end

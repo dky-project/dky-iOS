@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		157E3D5E49F6D5353573ED36 /* libPods-DkyAppHD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
 		EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AD1E14E45200B4C568 /* Assets.xcassets */; };
 		EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */; };
@@ -36,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
+		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
 		EBABE89E1E14E45200B4C568 /* DkyAppHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DkyAppHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBABE8AB1E14E45200B4C568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBABE8AD1E14E45200B4C568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				157E3D5E49F6D5353573ED36 /* libPods-DkyAppHD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +85,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		801E36D74F282E89EAC268B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		865CA2E2546CC342B10B0D09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */,
+				3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EBABE8951E14E45200B4C568 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +109,8 @@
 				EBABE8BA1E14E45200B4C568 /* DkyAppHDTests */,
 				EBABE8C51E14E45200B4C568 /* DkyAppHDUITests */,
 				EBABE89F1E14E45200B4C568 /* Products */,
+				865CA2E2546CC342B10B0D09 /* Pods */,
+				801E36D74F282E89EAC268B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,9 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBABE8CB1E14E45200B4C568 /* Build configuration list for PBXNativeTarget "DkyAppHD" */;
 			buildPhases = (
+				A5773C82527C7FF0791061E6 /* [CP] Check Pods Manifest.lock */,
 				EBABE89A1E14E45200B4C568 /* Sources */,
 				EBABE89B1E14E45200B4C568 /* Frameworks */,
 				EBABE89C1E14E45200B4C568 /* Resources */,
+				CCFECB3AB6E169336AFCFEA2 /* [CP] Embed Pods Frameworks */,
+				48C46EF2B7A9F61D98108952 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -354,6 +381,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48C46EF2B7A9F61D98108952 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5773C82527C7FF0791061E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CCFECB3AB6E169336AFCFEA2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EBABE89A1E14E45200B4C568 /* Sources */ = {
@@ -509,6 +584,7 @@
 		};
 		EBABE8CC1E14E45200B4C568 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W398QN8ZGP;
@@ -522,6 +598,7 @@
 		};
 		EBABE8CD1E14E45200B4C568 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W398QN8ZGP;
