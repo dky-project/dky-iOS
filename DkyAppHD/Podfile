@@ -13,5 +13,7 @@ pod 'SAMKeychain'
 pod 'MJExtension'
 pod 'TTTAttributedLabel'
 pod 'YYCategories'
+pod 'MBProgressHUD'
+pod 'SVProgressHUD'
 
 end
