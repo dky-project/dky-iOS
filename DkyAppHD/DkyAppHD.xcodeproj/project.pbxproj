@@ -16,6 +16,9 @@
 		263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC14D1E1555E7002FBB50 /* UIColor+Utility.m */; };
 		263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1511E1555E7002FBB50 /* UIImage+Color.m */; };
 		263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1531E1555E7002FBB50 /* UIView+TWExtension.m */; };
+		263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */; };
+		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
+		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
 		EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AD1E14E45200B4C568 /* Assets.xcassets */; };
 		EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */; };
@@ -63,6 +66,13 @@
 		263CC1631E15568A002FBB50 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		263CC1641E155909002FBB50 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		263CC1651E15598C002FBB50 /* GlobalEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalEnum.h; sourceTree = "<group>"; };
+		263CC1661E155A41002FBB50 /* DKYHttpUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpUrl.h; sourceTree = "<group>"; };
+		263CC1671E155A7E002FBB50 /* DKYHttpRequestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpRequestResult.h; sourceTree = "<group>"; };
+		263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestResult.m; sourceTree = "<group>"; };
+		263CC16A1E155B04002FBB50 /* DKYHttpRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpRequestTool.h; sourceTree = "<group>"; };
+		263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestTool.m; sourceTree = "<group>"; };
+		263CC1731E155CED002FBB50 /* DKYHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpRequestManager.h; sourceTree = "<group>"; };
+		263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestManager.m; sourceTree = "<group>"; };
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +253,13 @@
 		EBABE8DE1E150E2B00B4C568 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				263CC1661E155A41002FBB50 /* DKYHttpUrl.h */,
+				263CC1671E155A7E002FBB50 /* DKYHttpRequestResult.h */,
+				263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */,
+				263CC16A1E155B04002FBB50 /* DKYHttpRequestTool.h */,
+				263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */,
+				263CC1731E155CED002FBB50 /* DKYHttpRequestManager.h */,
+				263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -494,9 +511,12 @@
 				263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
+				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
+				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
+				263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */,
 				EBABE8DA1E150CA600B4C568 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
