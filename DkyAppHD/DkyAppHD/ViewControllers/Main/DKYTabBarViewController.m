@@ -50,6 +50,9 @@
     DKYTabBar *customTabBar = [[DKYTabBar alloc] initWithFrame:CGRectZero];
     // 更换系统自带的tabbar
     [self setValue:customTabBar forKeyPath:@"tabBar"];
+    
+    // 设置选中的颜色
+    customTabBar.selectedBackgrounColor = [UIColor randomColor];
 }
 
 - (void)addAllChildVcs
