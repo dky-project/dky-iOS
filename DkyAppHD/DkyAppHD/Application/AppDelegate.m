@@ -18,6 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 键盘处理
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = NO;
+    manager.enableAutoToolbar = YES;
+    manager.shouldShowTextFieldPlaceholder = NO;
+    manager.toolbarTintColor = [UIColor colorWithHex:0x0074fb];
     
     DKYGuidenceViewController *guidenceVC = (DKYGuidenceViewController*)[UIStoryboard viewControllerWithClass:[DKYGuidenceViewController class]];
     

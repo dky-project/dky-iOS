@@ -32,6 +32,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 处理旋转
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{

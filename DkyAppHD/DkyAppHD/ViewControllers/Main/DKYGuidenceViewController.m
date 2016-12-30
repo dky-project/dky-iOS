@@ -50,8 +50,8 @@
     DKYLoginViewController *loginVc = (DKYLoginViewController*)[UIStoryboard viewControllerWithClass:[DKYLoginViewController class]];
     
     [self wxs_presentViewController:loginVc makeTransition:^(WXSTransitionProperty *transition) {
-        transition.animationType = WXSTransitionAnimationTypeSysPageCurlFromBottom;
-        transition.animationTime = 1.2;
+        transition.animationType = WXSTransitionAnimationTypeInsideThenPush;
+        transition.animationTime = 1.0;
     } completion:^{
         
     }];
