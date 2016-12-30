@@ -40,6 +40,7 @@
 		EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95119E1E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m */; };
 		EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511A01E164444008708EF /* WXSTransitionManager.m */; };
 		EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511A21E164444008708EF /* WXSTransitionProperty.m */; };
+		EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511B61E16659C008708EF /* NSObject+Extension.m */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
 		EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AD1E14E45200B4C568 /* Assets.xcassets */; };
 		EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */; };
@@ -140,6 +141,9 @@
 		EB9511A11E164444008708EF /* WXSTransitionProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSTransitionProperty.h; sourceTree = "<group>"; };
 		EB9511A21E164444008708EF /* WXSTransitionProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSTransitionProperty.m; sourceTree = "<group>"; };
 		EB9511A31E164444008708EF /* WXSTypedefConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSTypedefConfig.h; sourceTree = "<group>"; };
+		EB9511B41E165C8E008708EF /* DKYRotatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRotatable.h; sourceTree = "<group>"; };
+		EB9511B51E16659C008708EF /* NSObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extension.h"; sourceTree = "<group>"; };
+		EB9511B61E16659C008708EF /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extension.m"; sourceTree = "<group>"; };
 		EBABE89E1E14E45200B4C568 /* DkyAppHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DkyAppHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBABE8AB1E14E45200B4C568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBABE8AD1E14E45200B4C568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				263CC1531E1555E7002FBB50 /* UIView+TWExtension.m */,
 				EB95117B1E162E31008708EF /* UIStoryboard+Utility.h */,
 				EB95117C1E162E31008708EF /* UIStoryboard+Utility.m */,
+				EB9511B51E16659C008708EF /* NSObject+Extension.h */,
+				EB9511B61E16659C008708EF /* NSObject+Extension.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 			children = (
 				EB9510851E160321008708EF /* DKYTabBar.h */,
 				EB9510861E160321008708EF /* DKYTabBar.m */,
+				EB9511B41E165C8E008708EF /* DKYRotatable.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -688,6 +695,7 @@
 				263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */,
 				EB9511AE1E164444008708EF /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
+				EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */,
 				EB9511A71E164444008708EF /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				EB9511AC1E164444008708EF /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */,

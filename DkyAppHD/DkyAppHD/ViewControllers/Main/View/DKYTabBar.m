@@ -32,6 +32,9 @@
     // 设置所有tabbarButton的frame
     [self setupAllTabBarButtonsFrame];
     
+    self.itemWidth = [UIApplication sharedApplication].keyWindow.frame.size.width / self.items.count;
+    DLog(@"self.itemWidth = %@",@(self.itemWidth));
+    
     self.selectionIndicatorImage = self.mySelectionIndicatorImage;
 }
 
@@ -40,7 +43,7 @@
     
     if(self.items.count <= 0) return;
     
-    self.itemWidth = kScreenWidth / self.items.count;
+    self.itemWidth = [UIApplication sharedApplication].keyWindow.frame.size.width / self.items.count;
 }
 
 - (void)setSelectedBackgrounColor:(UIColor *)selectedBackgrounColor{
@@ -51,6 +54,18 @@
     _mySelectionIndicatorImage = [UIImage imageWithColor:selectedBackgrounColor size:CGSizeMake(self.itemWidth, self.tw_height)];
     self.selectionIndicatorImage = self.mySelectionIndicatorImage;
 }
+
+- (void)rotate:(BOOL)landscape{
+    [self setNeedsLayout];
+    if (landscape) { // 横屏
+        
+    } else { // 竖屏
+        
+    }
+
+}
+
+#pragma private method
 
 - (void)setupAllTabBarButtonsFrame
 {
@@ -97,11 +112,8 @@
 #pragma mark - get & set method
 
 - (UIImage*)mySelectionIndicatorImage{
-    if(_mySelectionIndicatorImage == nil){
-        UIColor *color = self.selectedBackgrounColor ? self.selectedBackgrounColor : [UIColor clearColor];
-        _mySelectionIndicatorImage = [UIImage imageWithColor:color size:CGSizeMake(self.itemWidth, self.tw_height)];
-    }
-    
+    UIColor *color = self.selectedBackgrounColor ? self.selectedBackgrounColor : [UIColor clearColor];
+    _mySelectionIndicatorImage = [UIImage imageWithColor:color size:CGSizeMake(self.itemWidth, self.tw_height)];
     return _mySelectionIndicatorImage;
 }
 

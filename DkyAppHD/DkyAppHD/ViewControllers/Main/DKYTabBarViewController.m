@@ -33,13 +33,19 @@
 }
 
 #pragma mark - 处理旋转
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+#pragma mark - 屏幕翻转就会调用
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    DLog(@"size = %@",NSStringFromCGSize(size));
+    // 记录当前是横屏还是竖屏
+    BOOL isLandscape = isLandscape(size);
     
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    // 翻转的时间
+    CGFloat duration = [coordinator transitionDuration];
+    
+    [UIView animateWithDuration:duration animations:^{
+        DKYTabBar *tabbar = (DKYTabBar*)self.tabBar;
+        [tabbar rotate:isLandscape];
+    }];
 }
 
 #pragma mark - UI
@@ -52,6 +58,12 @@
     
     // 创建自定义tabbar
     [self addCustomTabBar];
+    
+//    [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:0];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+    [self viewWillTransitionToSize:CGSizeMake(self.view.tw_width, self.view.tw_height) withTransitionCoordinator:nil];
+#pragma clang diagnostic pop
 }
 
 - (void)addCustomTabBar

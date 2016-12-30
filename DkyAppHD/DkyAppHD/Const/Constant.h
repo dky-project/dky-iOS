@@ -27,10 +27,6 @@
 #define IS_IOS_6_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
 #define IS_IOS_7_OR_PREVIOUS ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0)
 
-//device screen size
-#define kScreenWidth               [[UIScreen mainScreen] bounds].size.width
-#define kScreenHeight              [[UIScreen mainScreen] bounds].size.height
-
 #define kTabBarHeight              (49)
 #define kNavigationBarHeight       (64)
 
@@ -42,6 +38,7 @@
 
 #define kOnePixLine         (1.0/[UIScreen mainScreen].scale)
 
+#define isLandscape(size)   [self isLandscape:size];
 
 // Block 类型定义
 

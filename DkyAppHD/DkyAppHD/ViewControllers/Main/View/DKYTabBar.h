@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DKYTabBar : UITabBar
+
+@interface DKYTabBar : UITabBar<DKYRotatable>
 
 @property (nonatomic, strong) UIColor *selectedBackgrounColor;
 
