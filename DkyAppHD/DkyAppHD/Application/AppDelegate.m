@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DKYGuidenceViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    DKYGuidenceViewController *guidenceVC = (DKYGuidenceViewController*)[UIStoryboard viewControllerWithClass:[DKYGuidenceViewController class]];
+    
+    self.window.rootViewController = guidenceVC;
+    self.window.backgroundColor = [UIColor clearColor];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

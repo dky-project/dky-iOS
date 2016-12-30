@@ -107,4 +107,6 @@
     childVc.view.backgroundColor = [UIColor randomColor];
 }
 
+DeallocFun()
+
 @end

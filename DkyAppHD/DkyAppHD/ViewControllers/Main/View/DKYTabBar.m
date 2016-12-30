@@ -36,7 +36,6 @@
 }
 
 - (void)setItems:(NSArray<UITabBarItem *> *)items animated:(BOOL)animated{
-    DLog(@"%s",__func__);
     [super setItems:items animated:animated];
     
     if(self.items.count <= 0) return;
