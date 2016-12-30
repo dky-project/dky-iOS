@@ -62,7 +62,6 @@
     } else { // 竖屏
         
     }
-
 }
 
 #pragma private method
