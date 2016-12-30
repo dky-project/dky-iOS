@@ -19,6 +19,8 @@
 		263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */; };
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
+		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
+		EB9510871E160321008708EF /* DKYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9510861E160321008708EF /* DKYTabBar.m */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
 		EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AD1E14E45200B4C568 /* Assets.xcassets */; };
 		EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */; };
@@ -76,6 +78,10 @@
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
+		EB95107A1E15FA27008708EF /* DKYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTabBarViewController.h; sourceTree = "<group>"; };
+		EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTabBarViewController.m; sourceTree = "<group>"; };
+		EB9510851E160321008708EF /* DKYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTabBar.h; sourceTree = "<group>"; };
+		EB9510861E160321008708EF /* DKYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTabBar.m; sourceTree = "<group>"; };
 		EBABE89E1E14E45200B4C568 /* DkyAppHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DkyAppHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBABE8AB1E14E45200B4C568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBABE8AD1E14E45200B4C568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +166,53 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EB9510791E15F9F8008708EF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EB95107A1E15FA27008708EF /* DKYTabBarViewController.h */,
+				EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */,
+				EB9510811E1602C7008708EF /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EB95107D1E15FC2C008708EF /* OrderInquiry */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OrderInquiry;
+			sourceTree = "<group>";
+		};
+		EB95107E1E15FC2C008708EF /* CustomOrder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomOrder;
+			sourceTree = "<group>";
+		};
+		EB95107F1E15FC2C008708EF /* SampleQuery */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SampleQuery;
+			sourceTree = "<group>";
+		};
+		EB9510801E15FC2C008708EF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EB9510811E1602C7008708EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB9510851E160321008708EF /* DKYTabBar.h */,
+				EB9510861E160321008708EF /* DKYTabBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EBABE8951E14E45200B4C568 = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				EBABE8AD1E14E45200B4C568 /* Assets.xcassets */,
-				EBABE8AA1E14E45200B4C568 /* Main.storyboard */,
 				EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */,
 				EBABE8B21E14E45200B4C568 /* Info.plist */,
 			);
@@ -239,6 +291,7 @@
 				EBABE8D81E150CA600B4C568 /* ViewController.h */,
 				EBABE8D91E150CA600B4C568 /* ViewController.m */,
 				263CC1631E15568A002FBB50 /* PrefixHeader.pch */,
+				EBABE8AA1E14E45200B4C568 /* Main.storyboard */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -281,6 +334,11 @@
 		EBABE8E11E150E5700B4C568 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB9510791E15F9F8008708EF /* Main */,
+				EB9510801E15FC2C008708EF /* Home */,
+				EB95107F1E15FC2C008708EF /* SampleQuery */,
+				EB95107E1E15FC2C008708EF /* CustomOrder */,
+				EB95107D1E15FC2C008708EF /* OrderInquiry */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -510,6 +568,8 @@
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
 				263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
+				EB9510871E160321008708EF /* DKYTabBar.m in Sources */,
+				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
@@ -559,6 +619,7 @@
 				EBABE8AB1E14E45200B4C568 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */ = {

@@ -15,11 +15,11 @@
 {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.labelText = text;
+    hud.label.text = text;
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
     hud.mode = MBProgressHUDModeCustomView;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:1.0];
+    [hud hideAnimated:YES afterDelay:1.0];
 }
 
 #pragma mark 显示错误信息
@@ -36,9 +36,9 @@
 + (MBProgressHUD *)showMessage:(NSString *)message toView:(UIView *)view {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.labelText = message;
+    hud.label.text = message;
     hud.removeFromSuperViewOnHide = YES;
-    hud.dimBackground = YES;
+    hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.minSize = CGSizeMake(100, 100);
     return hud;
 }
@@ -53,13 +53,12 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.mode = MBProgressHUDModeText;
-    hud.detailsLabelText= message;
-    hud.detailsLabelFont = [UIFont systemFontOfSize:16];
-    //hud.color = [UIColor colorWithHex:0x4d4d4d];
-    hud.color = [UIColor colorWithWhite:0.1 alpha:0.7];
+    hud.detailsLabel.text= message;
+    hud.detailsLabel.font = [UIFont systemFontOfSize:16];
+    hud.bezelView.color = [UIColor colorWithWhite:0.1 alpha:0.7];
     hud.minSize = CGSizeMake(180, 49);
-    hud.cornerRadius = 10.0;
-    [hud hide:YES afterDelay:1.7];
+    hud.bezelView.layer.cornerRadius = 10.0;
+    [hud hideAnimated:YES afterDelay:1.7];
     return hud;
 }
 

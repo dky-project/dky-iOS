@@ -7,7 +7,7 @@
 //
 
 #ifndef DKYHttpUrl_h
-#define DkyHttpUrl_h
+#define DKYHttpUrl_h
 
 #define BASE_URL     @"https:"
 
