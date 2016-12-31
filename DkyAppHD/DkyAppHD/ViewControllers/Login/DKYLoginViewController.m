@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topOffsetCst1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topOffsetCst2;
 
 @end
 
@@ -46,6 +48,26 @@
     }];
 }
 
+#pragma mark - 屏幕翻转就会调用
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    DLog(@"size = %@",NSStringFromCGSize(size));
+    // 记录当前是横屏还是竖屏
+    BOOL isLandscape = isLandscape(size);
+    
+    // 翻转的时间
+    CGFloat duration = [coordinator transitionDuration];
+    
+    [UIView animateWithDuration:duration animations:^{
+        if(isLandscape){
+            self.topOffsetCst1.constant = 200 * 0.75;
+            self.topOffsetCst2.constant = 236 * 0.75;
+        }else{
+            self.topOffsetCst1.constant = 200;
+            self.topOffsetCst2.constant = 236;
+        }
+    }];
+}
+
 #pragma mark - Ui
 
 - (void)commonInit{
@@ -54,6 +76,11 @@
     [self setupTextField];
     
     [self setupLoginBtn];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+    [self viewWillTransitionToSize:CGSizeMake(self.view.tw_width, self.view.tw_height) withTransitionCoordinator:nil];
+#pragma clang diagnostic pop
 }
 
 - (void)setupTextField{
