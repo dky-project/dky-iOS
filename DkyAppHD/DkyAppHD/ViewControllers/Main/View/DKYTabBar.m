@@ -10,7 +10,13 @@
 
 @interface DKYTabBar ()
 
-@property (nonatomic, strong) UIImage *mySelectionIndicatorImage;
+// 横屏选中的背景色
+@property (nonatomic, strong) UIImage *landscapeImage;
+
+// 竖屏选中的背景色
+@property (nonatomic, strong) UIImage *portraitImage;
+
+@property (nonatomic, assign) BOOL landscape;
 
 @end
 
@@ -29,13 +35,14 @@
 {
     [super layoutSubviews];
     
+    self.itemWidth = [UIApplication sharedApplication].keyWindow.frame.size.width / self.items.count;
+    
     // 设置所有tabbarButton的frame
     [self setupAllTabBarButtonsFrame];
     
-    self.itemWidth = [UIApplication sharedApplication].keyWindow.frame.size.width / self.items.count;
     DLog(@"self.itemWidth = %@",@(self.itemWidth));
     
-    self.selectionIndicatorImage = self.mySelectionIndicatorImage;
+    self.selectionIndicatorImage = [self getSelectionIndicatorImage];
 }
 
 - (void)setItems:(NSArray<UITabBarItem *> *)items animated:(BOOL)animated{
@@ -51,17 +58,18 @@
     
     if(!selectedBackgrounColor || self.itemWidth == 0 || self.tw_width == 0) return;
     
-    _mySelectionIndicatorImage = [UIImage imageWithColor:selectedBackgrounColor size:CGSizeMake(self.itemWidth, self.tw_height)];
-    self.selectionIndicatorImage = self.mySelectionIndicatorImage;
+    if(self.landscape){
+        self.landscapeImage = [UIImage imageWithColor:selectedBackgrounColor size:CGSizeMake(self.itemWidth, self.tw_height)];
+        self.portraitImage = nil;
+    }else{
+        self.landscapeImage = nil;
+        self.portraitImage = [UIImage imageWithColor:selectedBackgrounColor size:CGSizeMake(self.itemWidth, self.tw_height)];
+    }
 }
 
 - (void)rotate:(BOOL)landscape{
+    self.landscape = landscape;
     [self setNeedsLayout];
-    if (landscape) { // 横屏
-        
-    } else { // 竖屏
-        
-    }
 }
 
 #pragma private method
@@ -108,12 +116,21 @@
 //    tabBarButton.tw_y = areaY;
 }
 
-#pragma mark - get & set method
-
-- (UIImage*)mySelectionIndicatorImage{
+- (UIImage*)getSelectionIndicatorImage{
     UIColor *color = self.selectedBackgrounColor ? self.selectedBackgrounColor : [UIColor clearColor];
-    _mySelectionIndicatorImage = [UIImage imageWithColor:color size:CGSizeMake(self.itemWidth, self.tw_height)];
-    return _mySelectionIndicatorImage;
+    UIImage *image = nil;
+    if(self.landscape){
+        if(!self.landscapeImage){
+            self.landscapeImage = [UIImage imageWithColor:color size:CGSizeMake(self.itemWidth, self.tw_height)];
+        }
+        image = self.landscapeImage;
+    }else{
+        if(!self.portraitImage){
+            self.portraitImage = [UIImage imageWithColor:color size:CGSizeMake(self.itemWidth, self.tw_height)];
+        }
+        image = self.portraitImage;
+    }
+    return image;
 }
 
 @end

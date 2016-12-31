@@ -564,7 +564,7 @@
 				TargetAttributes = {
 					EBABE89D1E14E45200B4C568 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 7278D8PMGS;
+						DevelopmentTeam = W398QN8ZGP;
 						ProvisioningStyle = Automatic;
 					};
 					EBABE8B61E14E45200B4C568 = {
@@ -869,7 +869,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7278D8PMGS;
+				DEVELOPMENT_TEAM = W398QN8ZGP;
 				GCC_PREFIX_HEADER = ./DkyAppHD/PrefixHeader.pch;
 				INFOPLIST_FILE = DkyAppHD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -885,7 +885,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7278D8PMGS;
+				DEVELOPMENT_TEAM = W398QN8ZGP;
 				GCC_PREFIX_HEADER = ./DkyAppHD/PrefixHeader.pch;
 				INFOPLIST_FILE = DkyAppHD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
