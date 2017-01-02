@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DKYGuidenceViewController.h"
+#import "DKYTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,10 +28,15 @@
     manager.shouldShowTextFieldPlaceholder = NO;
     manager.toolbarTintColor = [UIColor colorWithHex:0x0074fb];
     
-    DKYGuidenceViewController *guidenceVC = (DKYGuidenceViewController*)[UIStoryboard viewControllerWithClass:[DKYGuidenceViewController class]];
-    
-    self.window.rootViewController = guidenceVC;
-//    self.window.backgroundColor = [UIColor whiteColor];
+    if([[DKYAccountManager sharedInstance] isLogin]){
+        DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
+        self.window.rootViewController = mainVc;
+    }else{
+        DKYGuidenceViewController *guidenceVC = (DKYGuidenceViewController*)[UIStoryboard viewControllerWithClass:[DKYGuidenceViewController class]];
+        
+        self.window.rootViewController = guidenceVC;
+        //    self.window.backgroundColor = [UIColor whiteColor];
+    }
     [self.window makeKeyAndVisible];
     
     return YES;

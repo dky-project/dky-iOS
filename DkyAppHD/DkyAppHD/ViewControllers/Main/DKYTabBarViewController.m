@@ -10,11 +10,12 @@
 #import "DKYTabBar.h"
 #import "DKYHomeViewController.h"
 #import "DKYNavigationController.h"
+#import "DKYSampleQueryViewController.h"
 
 @interface DKYTabBarViewController ()<UITabBarControllerDelegate>
 
 @property (nonatomic, weak) DKYHomeViewController *homeVc;
-@property (nonatomic, weak) UIViewController *sampleQueryVc;
+@property (nonatomic, weak) DKYSampleQueryViewController *sampleQueryVc;
 @property (nonatomic, weak) UIViewController *customOrderVc;
 @property (nonatomic, weak) UIViewController *orderInquiryVc;
 
@@ -91,7 +92,7 @@
     [self addOneChlildVc:homeVc title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
     self.homeVc = homeVc;
     
-    UIViewController *sampleQueryVc = [[UIViewController alloc] init];
+    DKYSampleQueryViewController *sampleQueryVc = [[DKYSampleQueryViewController alloc] init];
     [self addOneChlildVc:sampleQueryVc title:@"样衣查询" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
     self.sampleQueryVc = sampleQueryVc;
     

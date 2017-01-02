@@ -38,6 +38,7 @@
 #pragma mark - action method
 
 - (void)loginBtnClicked:(UIButton*)sender{
+    [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
     DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
     
     [self wxs_presentViewController:mainVc makeTransition:^(WXSTransitionProperty *transition) {
