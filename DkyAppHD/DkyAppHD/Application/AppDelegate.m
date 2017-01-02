@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DKYGuidenceViewController.h"
 #import "DKYTabBarViewController.h"
+#import "DKYConfigManager.h"
 
 @interface AppDelegate ()
 
@@ -19,14 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    // 键盘处理
-    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
-    manager.enable = YES;
-    manager.shouldResignOnTouchOutside = YES;
-    manager.shouldToolbarUsesTextFieldTintColor = NO;
-    manager.enableAutoToolbar = YES;
-    manager.shouldShowTextFieldPlaceholder = NO;
-    manager.toolbarTintColor = [UIColor colorWithHex:0x0074fb];
+    
+    // 全局配置
+    [DKYConfigManager config];
     
     if([[DKYAccountManager sharedInstance] isLogin]){
         DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];

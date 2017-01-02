@@ -25,6 +25,7 @@
 		26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0CA1E1A2492008EE55F /* DKYNavigationController.m */; };
 		26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */; };
 		26DAD0D21E1A32D0008EE55F /* DKYAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0D11E1A32D0008EE55F /* DKYAccountManager.m */; };
+		26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0D41E1A4188008EE55F /* DKYConfigManager.m */; };
 		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
 		EB9510871E160321008708EF /* DKYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9510861E160321008708EF /* DKYTabBar.m */; };
 		EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511791E162D33008708EF /* DKYGuidenceViewController.m */; };
@@ -113,6 +114,8 @@
 		26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKYSampleQueryViewController.m; path = DkyAppHD/ViewControllers/Main/DKYSampleQueryViewController.m; sourceTree = SOURCE_ROOT; };
 		26DAD0D01E1A32D0008EE55F /* DKYAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYAccountManager.h; sourceTree = "<group>"; };
 		26DAD0D11E1A32D0008EE55F /* DKYAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAccountManager.m; sourceTree = "<group>"; };
+		26DAD0D31E1A4188008EE55F /* DKYConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYConfigManager.h; sourceTree = "<group>"; };
+		26DAD0D41E1A4188008EE55F /* DKYConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYConfigManager.m; sourceTree = "<group>"; };
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 			children = (
 				26DAD0D01E1A32D0008EE55F /* DKYAccountManager.h */,
 				26DAD0D11E1A32D0008EE55F /* DKYAccountManager.m */,
+				26DAD0D31E1A4188008EE55F /* DKYConfigManager.h */,
+				26DAD0D41E1A4188008EE55F /* DKYConfigManager.m */,
 			);
 			path = "Manager&Tool";
 			sourceTree = "<group>";
@@ -739,6 +744,7 @@
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
+				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */,

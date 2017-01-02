@@ -37,6 +37,7 @@
 #import "UIViewController+Utlity.h"
 #import "DKYAccountManager.h"
 #import "MJRefresh.h"
+#import "SVProgressHUD.h"
 #endif
 
 
