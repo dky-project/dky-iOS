@@ -26,6 +26,9 @@
 		26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */; };
 		26DAD0D21E1A32D0008EE55F /* DKYAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0D11E1A32D0008EE55F /* DKYAccountManager.m */; };
 		26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0D41E1A4188008EE55F /* DKYConfigManager.m */; };
+		26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0D71E1A45EB008EE55F /* DKYHUDTool.m */; };
+		26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */; };
+		26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */; };
 		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
 		EB9510871E160321008708EF /* DKYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9510861E160321008708EF /* DKYTabBar.m */; };
 		EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511791E162D33008708EF /* DKYGuidenceViewController.m */; };
@@ -116,6 +119,11 @@
 		26DAD0D11E1A32D0008EE55F /* DKYAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAccountManager.m; sourceTree = "<group>"; };
 		26DAD0D31E1A4188008EE55F /* DKYConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYConfigManager.h; sourceTree = "<group>"; };
 		26DAD0D41E1A4188008EE55F /* DKYConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYConfigManager.m; sourceTree = "<group>"; };
+		26DAD0D61E1A45EB008EE55F /* DKYHUDTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHUDTool.h; sourceTree = "<group>"; };
+		26DAD0D71E1A45EB008EE55F /* DKYHUDTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHUDTool.m; sourceTree = "<group>"; };
+		26DAD0D91E1A47F9008EE55F /* DKYSampleQueryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKYSampleQueryViewCell.h; path = "DkyAppHD/Manager&Tool/DKYSampleQueryViewCell.h"; sourceTree = SOURCE_ROOT; };
+		26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKYSampleQueryViewCell.m; path = "DkyAppHD/Manager&Tool/DKYSampleQueryViewCell.m"; sourceTree = SOURCE_ROOT; };
+		26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DKYSampleQueryViewCell.xib; path = "DkyAppHD/Manager&Tool/DKYSampleQueryViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -254,8 +262,20 @@
 				26DAD0D11E1A32D0008EE55F /* DKYAccountManager.m */,
 				26DAD0D31E1A4188008EE55F /* DKYConfigManager.h */,
 				26DAD0D41E1A4188008EE55F /* DKYConfigManager.m */,
+				26DAD0D61E1A45EB008EE55F /* DKYHUDTool.h */,
+				26DAD0D71E1A45EB008EE55F /* DKYHUDTool.m */,
 			);
 			path = "Manager&Tool";
+			sourceTree = "<group>";
+		};
+		26DAD0DE1E1A4804008EE55F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26DAD0D91E1A47F9008EE55F /* DKYSampleQueryViewCell.h */,
+				26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */,
+				26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		801E36D74F282E89EAC268B3 /* Frameworks */ = {
@@ -308,6 +328,7 @@
 			children = (
 				26DAD0CC1E1A2F82008EE55F /* DKYSampleQueryViewController.h */,
 				26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */,
+				26DAD0DE1E1A4804008EE55F /* View */,
 			);
 			path = SampleQuery;
 			sourceTree = "<group>";
@@ -661,6 +682,7 @@
 				EBABE8E71E15120500B4C568 /* Localization.strings in Resources */,
 				263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */,
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
+				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
 				EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,6 +762,7 @@
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
 				EB9511AA1E164444008708EF /* WXSTransitionManager+CoverAnimation.m in Sources */,
+				26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
@@ -770,6 +793,7 @@
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
 				26DAD0C51E1A1ACC008EE55F /* DKYHomeViewController.m in Sources */,
+				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EB9511A51E164444008708EF /* UIViewController+WXSTransition.m in Sources */,
 				26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */,
 				263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "DKYSampleQueryViewController.h"
+#import "DKYSampleQueryViewCell.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -40,9 +41,9 @@
 - (void)commonInit{
     self.navigationItem.title = nil;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-    [self.navigationController.navigationBar lt_setTranslationY:-44];
-    [self hideNavigantionBarBottomLine:YES];
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
     
     [self setupCollectionView];
 }
@@ -64,6 +65,9 @@
     [self.view addSubview:collectionView];
     
     [collectionView registerClass:[UICollectionViewCell class]forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([DKYSampleQueryViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([DKYSampleQueryViewCell class])];
+    
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.view.mas_top).with.offset(20);
@@ -113,8 +117,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor randomColor];
+    DKYSampleQueryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYSampleQueryViewCell class]) forIndexPath:indexPath];
     return cell;
 }
 

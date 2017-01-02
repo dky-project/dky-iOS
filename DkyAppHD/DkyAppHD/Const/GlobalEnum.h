@@ -14,5 +14,10 @@ typedef NS_ENUM(NSInteger, DkyHttpResponseCode) {
     DkyHttpResponseCode_Unset = 0,
 };
 
-
+// HUD 底层实现类型
+typedef NS_ENUM(NSInteger, DkyHUDUnderType) {
+    DkyHUDUnderType_Unset = 0,
+    DkyHUDUnderType_SVProgressHUD = 1,
+    DkyHUDUnderType_MBProgressHUD = 2,
+};
 #endif /* GlobalEnum_h */

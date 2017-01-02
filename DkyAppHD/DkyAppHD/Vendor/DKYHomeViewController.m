@@ -35,11 +35,11 @@
 - (void)commonInit{
     self.navigationItem.title = nil;
     
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-    [self.navigationController.navigationBar lt_setTranslationY:-44];
-    [self hideNavigantionBarBottomLine:YES];
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
     
-    self.view.backgroundColor = [UIColor randomColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 @end

@@ -38,6 +38,8 @@
 #import "DKYAccountManager.h"
 #import "MJRefresh.h"
 #import "SVProgressHUD.h"
+#import "GlobalEnum.h"
+#import "DKYHUDTool.h"
 #endif
 
 

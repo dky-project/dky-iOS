@@ -26,7 +26,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.itemWidth = [UIApplication sharedApplication].keyWindow.frame.size.width / 4;
     }
     return self;
 }

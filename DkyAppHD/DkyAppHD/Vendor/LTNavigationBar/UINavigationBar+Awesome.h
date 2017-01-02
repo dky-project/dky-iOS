@@ -13,4 +13,9 @@
 - (void)lt_setElementsAlpha:(CGFloat)alpha;
 - (void)lt_setTranslationY:(CGFloat)translationY;
 - (void)lt_reset;
+
+// 状态栏的背景色
+- (void)tw_setStatusBackgroundColor:(UIColor *)backgroundColor;
+// 去掉导航栏下面的黑线
+- (void)tw_hideNavigantionBarBottomLine:(BOOL)hide;
 @end
