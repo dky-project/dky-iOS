@@ -30,7 +30,7 @@
     DKYGuidenceViewController *guidenceVC = (DKYGuidenceViewController*)[UIStoryboard viewControllerWithClass:[DKYGuidenceViewController class]];
     
     self.window.rootViewController = guidenceVC;
-    self.window.backgroundColor = [UIColor clearColor];
+//    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;

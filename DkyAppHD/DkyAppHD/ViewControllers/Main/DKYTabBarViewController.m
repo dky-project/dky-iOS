@@ -8,10 +8,12 @@
 
 #import "DKYTabBarViewController.h"
 #import "DKYTabBar.h"
+#import "DKYHomeViewController.h"
+#import "DKYNavigationController.h"
 
 @interface DKYTabBarViewController ()<UITabBarControllerDelegate>
 
-@property (nonatomic, weak) UIViewController *homeVc;
+@property (nonatomic, weak) DKYHomeViewController *homeVc;
 @property (nonatomic, weak) UIViewController *sampleQueryVc;
 @property (nonatomic, weak) UIViewController *customOrderVc;
 @property (nonatomic, weak) UIViewController *orderInquiryVc;
@@ -44,7 +46,9 @@
     
     [UIView animateWithDuration:duration animations:^{
         DKYTabBar *tabbar = (DKYTabBar*)self.tabBar;
-        [tabbar rotate:isLandscape];
+        if([tabbar respondsToSelector:@selector(rotate:)]){
+            [tabbar rotate:isLandscape];
+        }
     }];
 }
 
@@ -53,11 +57,13 @@
 - (void)commonInit{
     self.delegate = self;
     
+    // 创建自定义tabbar
+    [self addCustomTabBar];
+    
     // 添加所有的子控制器
     [self addAllChildVcs];
     
-    // 创建自定义tabbar
-    [self addCustomTabBar];
+    self.tabBar.tintColor = [UIColor blackColor];
     
 //    [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:0];
 #pragma clang diagnostic push
@@ -74,21 +80,23 @@
     [self setValue:customTabBar forKeyPath:@"tabBar"];
     
     // 设置选中的颜色
-    customTabBar.selectedBackgrounColor = [UIColor randomColor];
+    customTabBar.selectedBackgrounColor = [UIColor whiteColor];
+    
+    [customTabBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0xE1E1E1]]];
 }
 
 - (void)addAllChildVcs
 {
-    UIViewController *homeVc = [[UIViewController alloc] init];
+    DKYHomeViewController *homeVc = [[DKYHomeViewController alloc] init];
     [self addOneChlildVc:homeVc title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
     self.homeVc = homeVc;
     
     UIViewController *sampleQueryVc = [[UIViewController alloc] init];
-    [self addOneChlildVc:sampleQueryVc title:@"样衣查询" imageName:@"tabbar_message_center" selectedImageName:@"tabbar_message_center_selected"];
+    [self addOneChlildVc:sampleQueryVc title:@"样衣查询" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
     self.sampleQueryVc = sampleQueryVc;
     
     UIViewController *customOrderVc = [[UIViewController alloc] init];
-    [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
+    [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_message_center" selectedImageName:@"tabbar_message_center_selected"];
     self.customOrderVc = customOrderVc;
     
     UIViewController *orderInquiryVc = [[UIViewController alloc] init];
@@ -106,27 +114,26 @@
     
     // 设置tabBarItem的普通文字颜色
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
-    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:10];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor colorWithHex:0x353535];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     
     // 设置tabBarItem的选中文字颜色
     NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
-    selectedTextAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    selectedTextAttrs[NSForegroundColorAttributeName] = [UIColor colorWithHex:0x515151];
     [childVc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     
     // 设置选中的图标
     UIImage *selectedImage = [UIImage imageNamed:selectedImageName];
     // 声明这张图片用原图(别渲染)
-    selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+    selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     childVc.tabBarItem.selectedImage = selectedImage;
     
     // 添加为tabbar控制器的子控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    DKYNavigationController *nav = [[DKYNavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
-    
-    // 测试方法
-    childVc.view.backgroundColor = [UIColor randomColor];
 }
 
 DeallocFun()

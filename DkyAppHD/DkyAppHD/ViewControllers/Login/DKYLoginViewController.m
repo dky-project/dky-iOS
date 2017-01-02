@@ -42,7 +42,7 @@
     
     [self wxs_presentViewController:mainVc makeTransition:^(WXSTransitionProperty *transition) {
         transition.animationType = WXSTransitionAnimationTypeBrickOpenHorizontal;
-        transition.animationTime = 1.2;
+        transition.animationTime = 1.0;
     } completion:^{
         
     }];

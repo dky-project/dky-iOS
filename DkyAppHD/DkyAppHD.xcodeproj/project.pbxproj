@@ -19,6 +19,11 @@
 		263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */; };
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
+		26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */; };
+		26DAD0C51E1A1ACC008EE55F /* DKYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C41E1A1ACC008EE55F /* DKYHomeViewController.m */; };
+		26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C71E1A1C30008EE55F /* UIViewController+Utlity.m */; };
+		26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0CA1E1A2492008EE55F /* DKYNavigationController.m */; };
+		26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */; };
 		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
 		EB9510871E160321008708EF /* DKYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9510861E160321008708EF /* DKYTabBar.m */; };
 		EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511791E162D33008708EF /* DKYGuidenceViewController.m */; };
@@ -95,6 +100,16 @@
 		263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestTool.m; sourceTree = "<group>"; };
 		263CC1731E155CED002FBB50 /* DKYHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpRequestManager.h; sourceTree = "<group>"; };
 		263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestManager.m; sourceTree = "<group>"; };
+		26DAD0C01E1A1923008EE55F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		26DAD0C31E1A1ACC008EE55F /* DKYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKYHomeViewController.h; path = DkyAppHD/Vendor/DKYHomeViewController.h; sourceTree = SOURCE_ROOT; };
+		26DAD0C41E1A1ACC008EE55F /* DKYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKYHomeViewController.m; path = DkyAppHD/Vendor/DKYHomeViewController.m; sourceTree = SOURCE_ROOT; };
+		26DAD0C61E1A1C30008EE55F /* UIViewController+Utlity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utlity.h"; sourceTree = "<group>"; };
+		26DAD0C71E1A1C30008EE55F /* UIViewController+Utlity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utlity.m"; sourceTree = "<group>"; };
+		26DAD0C91E1A2492008EE55F /* DKYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYNavigationController.h; sourceTree = "<group>"; };
+		26DAD0CA1E1A2492008EE55F /* DKYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYNavigationController.m; sourceTree = "<group>"; };
+		26DAD0CC1E1A2F82008EE55F /* DKYSampleQueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKYSampleQueryViewController.h; path = DkyAppHD/ViewControllers/Main/DKYSampleQueryViewController.h; sourceTree = SOURCE_ROOT; };
+		26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKYSampleQueryViewController.m; path = DkyAppHD/ViewControllers/Main/DKYSampleQueryViewController.m; sourceTree = SOURCE_ROOT; };
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,8 +226,19 @@
 				EB95117C1E162E31008708EF /* UIStoryboard+Utility.m */,
 				EB9511B51E16659C008708EF /* NSObject+Extension.h */,
 				EB9511B61E16659C008708EF /* NSObject+Extension.m */,
+				26DAD0C61E1A1C30008EE55F /* UIViewController+Utlity.h */,
+				26DAD0C71E1A1C30008EE55F /* UIViewController+Utlity.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		26DAD0BF1E1A1923008EE55F /* LTNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				26DAD0C01E1A1923008EE55F /* UINavigationBar+Awesome.h */,
+				26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */,
+			);
+			path = LTNavigationBar;
 			sourceTree = "<group>";
 		};
 		801E36D74F282E89EAC268B3 /* Frameworks */ = {
@@ -239,6 +265,8 @@
 				EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */,
 				EB9511781E162D33008708EF /* DKYGuidenceViewController.h */,
 				EB9511791E162D33008708EF /* DKYGuidenceViewController.m */,
+				26DAD0C91E1A2492008EE55F /* DKYNavigationController.h */,
+				26DAD0CA1E1A2492008EE55F /* DKYNavigationController.m */,
 				EB9510811E1602C7008708EF /* View */,
 			);
 			path = Main;
@@ -261,6 +289,8 @@
 		EB95107F1E15FC2C008708EF /* SampleQuery */ = {
 			isa = PBXGroup;
 			children = (
+				26DAD0CC1E1A2F82008EE55F /* DKYSampleQueryViewController.h */,
+				26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */,
 			);
 			path = SampleQuery;
 			sourceTree = "<group>";
@@ -268,6 +298,8 @@
 		EB9510801E15FC2C008708EF /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				26DAD0C31E1A1ACC008EE55F /* DKYHomeViewController.h */,
+				26DAD0C41E1A1ACC008EE55F /* DKYHomeViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -445,6 +477,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				26DAD0BF1E1A1923008EE55F /* LTNavigationBar */,
 				EB9511821E164444008708EF /* WXSTransition */,
 			);
 			path = Vendor;
@@ -690,6 +723,9 @@
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
 				EB9511AA1E164444008708EF /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
+				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
+				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
+				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */,
@@ -713,7 +749,9 @@
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
+				26DAD0C51E1A1ACC008EE55F /* DKYHomeViewController.m in Sources */,
 				EB9511A51E164444008708EF /* UIViewController+WXSTransition.m in Sources */,
+				26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */,
 				263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */,
 				EB9511A61E164444008708EF /* UIViewController+WXSTransitionProperty.m in Sources */,
 				EBABE8DA1E150CA600B4C568 /* AppDelegate.m in Sources */,
