@@ -26,7 +26,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.itemWidth = kScreenWidth / 4;
         self.itemPositioning = UITabBarItemPositioningFill;
     }
     return self;

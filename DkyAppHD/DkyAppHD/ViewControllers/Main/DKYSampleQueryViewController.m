@@ -8,10 +8,13 @@
 
 #import "DKYSampleQueryViewController.h"
 #import "DKYSampleQueryViewCell.h"
+#import "DKYSearchView.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
+
+@property (nonatomic, weak) DKYSearchView *searchView;
 
 // 测试数据
 @property (nonatomic, assign) NSInteger sampleCount;
@@ -46,6 +49,8 @@
     [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
     
     [self setupCollectionView];
+    
+    [self setupSearchView];
 }
 
 - (void)setupCollectionView{
@@ -78,6 +83,18 @@
     
     self.collectionView = collectionView;
     [self setupRefreshControl];
+}
+
+- (void)setupSearchView{
+    DKYSearchView *view = [[DKYSearchView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:view];
+    self.searchView = view;
+    
+    self.searchView.tw_width = 66;
+    self.searchView.tw_height = 66;
+    self.searchView.layer.cornerRadius = self.searchView.tw_height / 2.0;
+    self.searchView.tw_x  = 14;
+    self.searchView.tw_y = 34;
 }
 
 -(void)setupRefreshControl{
