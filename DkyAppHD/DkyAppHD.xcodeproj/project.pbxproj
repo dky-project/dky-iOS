@@ -68,6 +68,7 @@
 		EBC300531E1CA0C700F602E6 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3004A1E1CA0C700F602E6 /* SDCollectionViewCell.m */; };
 		EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3004C1E1CA0C700F602E6 /* SDCycleScrollView.m */; };
 		EBC300551E1CA0C700F602E6 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3004E1E1CA0C700F602E6 /* UIView+SDExtension.m */; };
+		EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300571E1CB06700F602E6 /* DKYFiltrateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +215,8 @@
 		EBC3004C1E1CA0C700F602E6 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
 		EBC3004D1E1CA0C700F602E6 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		EBC3004E1E1CA0C700F602E6 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		EBC300561E1CB06700F602E6 /* DKYFiltrateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYFiltrateView.h; sourceTree = "<group>"; };
+		EBC300571E1CB06700F602E6 /* DKYFiltrateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYFiltrateView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +303,8 @@
 				26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */,
 				2622B96E1E1BEF54006CE866 /* DKYSearchView.h */,
 				2622B96F1E1BEF54006CE866 /* DKYSearchView.m */,
+				EBC300561E1CB06700F602E6 /* DKYFiltrateView.h */,
+				EBC300571E1CB06700F602E6 /* DKYFiltrateView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -826,6 +831,7 @@
 				26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
+				EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,

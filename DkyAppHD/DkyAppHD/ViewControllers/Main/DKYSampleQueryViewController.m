@@ -9,12 +9,17 @@
 #import "DKYSampleQueryViewController.h"
 #import "DKYSampleQueryViewCell.h"
 #import "DKYSearchView.h"
+#import "DKYFiltrateView.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
 
 @property (nonatomic, weak) DKYSearchView *searchView;
+
+@property (nonatomic, weak) DKYFiltrateView *filtrateView;
+
+@property (nonatomic, weak) UIButton *backgroundBtn;
 
 // 测试数据
 @property (nonatomic, assign) NSInteger sampleCount;
@@ -39,6 +44,54 @@
     return UIStatusBarStyleLightContent;
 }
 
+
+#pragma mark - action method
+
+- (void)backgroundBtnClicked:(UIButton*)sender{
+    [self hideBackgroundMask:YES animated:YES];
+    [self hideFilterView:YES animated:YES];
+}
+
+#pragma mark - private method
+
+- (void)hideBackgroundMask:(BOOL)hide animated:(BOOL)animated{
+    if(!animated){
+        self.backgroundBtn.alpha = hide ? 0.0 : 1.0;
+        return;
+    }
+    [UIView animateWithDuration:0.7 animations:^{
+        self.backgroundBtn.alpha = hide ? 0.0 : 1.0;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)hideFilterView:(BOOL)hide animated:(BOOL)animated{
+    CGRect frame = CGRectZero;
+    if(!hide) {
+        // 显示
+        [self.view bringSubviewToFront:self.filtrateView];
+        [self.view bringSubviewToFront:self.searchView];
+        frame = CGRectMake(26, 48, kScreenWidth - 26 * 2, 290);
+        self.filtrateView.alpha = hide ? 0.0 : 1.0;
+    }else{
+        frame = CGRectMake(self.searchView.centerX, self.searchView.centerY, 0, 0);
+    }
+    
+    if(!animated){
+        self.filtrateView.frame = frame;
+        self.filtrateView.alpha = hide ? 0.0 : 1.0;
+        return;
+    }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.filtrateView.frame = frame;
+        self.filtrateView.alpha = hide ? 0.0 : 1.0;
+    } completion:^(BOOL finished) {
+    }];
+}
+
+
 #pragma mark - UI
 
 - (void)commonInit{
@@ -50,7 +103,9 @@
     
     [self setupCollectionView];
     
+    [self setupBackgroundBtn];
     [self setupSearchView];
+    [self setupFiltrateView];
 }
 
 - (void)setupCollectionView{
@@ -95,12 +150,50 @@
     self.searchView.layer.cornerRadius = self.searchView.tw_height / 2.0;
     self.searchView.tw_x  = 14;
     self.searchView.tw_y = 34;
+    
+    WeakSelf(weakSelf);
+    self.searchView.searchBtnClicked = ^(DKYSearchView *searchView){
+        [weakSelf hideBackgroundMask:NO animated:YES];
+        [weakSelf hideFilterView:NO animated:YES];
+    };
+}
+
+- (void)setupFiltrateView{
+    DKYFiltrateView *view = [[DKYFiltrateView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:view];
+    self.filtrateView = view;
+
+//    WeakSelf(weakSelf);
+//    [self.filtrateView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(weakSelf.view.mas_top).with.offset(48);
+//        make.left.equalTo(weakSelf.view.mas_left).with.offset(26);
+//        make.right.equalTo(weakSelf.view.mas_right).with.offset(-26);
+//        make.height.mas_equalTo(290);
+//    }];
+    
+    self.filtrateView.frame = CGRectMake(26, 48, kScreenWidth - 26 * 2, 290);
+    [self hideFilterView:YES animated:NO];
+}
+
+- (void)setupBackgroundBtn{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(backgroundBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    self.backgroundBtn = btn;
+
+    self.backgroundBtn.backgroundColor = [UIColor colorWithHex:0x000000 alpha:0.65];
+    
+    [self.backgroundBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
+    
+    [self hideBackgroundMask:YES animated:NO];
 }
 
 -(void)setupRefreshControl{
     WeakSelf(weakSelf);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.sampleCount = 20;
             [weakSelf.collectionView.mj_header endRefreshing];
             [weakSelf.collectionView reloadData];
@@ -110,7 +203,7 @@
     self.collectionView.mj_header = header;
     
     MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(){
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.sampleCount += 20;
             [weakSelf.collectionView.mj_footer endRefreshing];
             [weakSelf.collectionView reloadData];

@@ -34,7 +34,9 @@
 #pragma mark - action method
 
 - (void)searchBtnClicked:(UIButton*)sender{
-    
+    if(self.searchBtnClicked){
+        self.searchBtnClicked(self);
+    }
 }
 
 #pragma mark - UI

@@ -10,4 +10,6 @@
 
 @interface DKYSearchView : UIView
 
+@property (nonatomic, copy) BlockWithSender searchBtnClicked;
+
 @end
