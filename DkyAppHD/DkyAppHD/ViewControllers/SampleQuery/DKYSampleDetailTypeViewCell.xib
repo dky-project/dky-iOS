@@ -26,12 +26,14 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmy-rW-ZBC">
                         <rect key="frame" x="0.0" y="456" width="768" height="69"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="69" id="JMZ-2f-og2"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Bmy-rW-ZBC" secondAttribute="bottom" id="4Yz-ZS-1eK"/>
                     <constraint firstItem="ZlO-9W-GKp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Afs-Nd-5ej"/>
                     <constraint firstItem="Bmy-rW-ZBC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rpp-zx-wMY"/>
                     <constraint firstAttribute="trailing" secondItem="Bmy-rW-ZBC" secondAttribute="trailing" id="jmj-Zj-Rzu"/>
@@ -42,7 +44,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="sampleImageView" destination="ZlO-9W-GKp" id="Fe3-rQ-3Ym"/>
-                <outlet property="sampleTypeLabel" destination="Bmy-rW-ZBC" id="JbJ-KY-PR1"/>
+                <outlet property="sampleTypeLabel" destination="Bmy-rW-ZBC" id="yz1-Xp-6zz"/>
             </connections>
             <point key="canvasLocation" x="34" y="53.5"/>
         </tableViewCell>

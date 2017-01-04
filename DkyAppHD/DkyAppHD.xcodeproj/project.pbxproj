@@ -80,6 +80,10 @@
 		EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300781E1CE6A500F602E6 /* UIViewController+SwipeBack.m */; };
 		EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */; };
 		EBC3007F1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */; };
+		EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300821E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m */; };
+		EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300841E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m */; };
+		EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */; };
+		EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +255,14 @@
 		EBC3007B1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailTypeViewCell.h; sourceTree = "<group>"; };
 		EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailTypeViewCell.m; sourceTree = "<group>"; };
 		EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYSampleDetailTypeViewCell.xib; sourceTree = "<group>"; };
+		EBC300811E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
+		EBC300821E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
+		EBC300831E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
+		EBC300841E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
+		EBC300851E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		EBC300871E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
+		EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -590,6 +602,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */,
 				EBC300731E1CE6A500F602E6 /* SwipeBack */,
 				EBC300691E1CD8FE00F602E6 /* TWBaseViewController */,
 				EBC3005C1E1CCC0A00F602E6 /* JXTAlertManager */,
@@ -722,6 +735,21 @@
 				EBC300781E1CE6A500F602E6 /* UIViewController+SwipeBack.m */,
 			);
 			path = SwipeBack;
+			sourceTree = "<group>";
+		};
+		EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				EBC300811E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.h */,
+				EBC300821E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m */,
+				EBC300831E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.h */,
+				EBC300841E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m */,
+				EBC300851E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.h */,
+				EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */,
+				EBC300871E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.h */,
+				EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */,
+			);
+			path = "UITableView-FDTemplateLayoutCell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -924,6 +952,7 @@
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
 				EBC300551E1CA0C700F602E6 /* UIView+SDExtension.m in Sources */,
 				EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */,
+				EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
 				EB9511AA1E164444008708EF /* WXSTransitionManager+CoverAnimation.m in Sources */,
@@ -953,6 +982,7 @@
 				EB9511AF1E164444008708EF /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
+				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
@@ -968,8 +998,10 @@
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
 				EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */,
+				EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
+				EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				EBC3006F1E1CD8FE00F602E6 /* TWNavBtnItem.m in Sources */,
 				EBC300531E1CA0C700F602E6 /* SDCollectionViewCell.m in Sources */,
 				EB9511A51E164444008708EF /* UIViewController+WXSTransition.m in Sources */,

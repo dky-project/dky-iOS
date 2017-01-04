@@ -48,10 +48,13 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
     tableView.showsVerticalScrollIndicator = NO;
+
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([DKYSampleDetailTypeViewCell class]) bundle:nil];
+    
+    [tableView registerNib:nib forCellReuseIdentifier:NSStringFromClass([DKYSampleDetailTypeViewCell class])];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    
     self.tableView = tableView;
     [self.view addSubview:tableView];
     tableView.backgroundColor = [UIColor colorWithHex:0xEFEFF5];
@@ -69,17 +72,48 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 525;
+    NSString *identifier = nil;
+    switch (indexPath.row) {
+        case 0:
+            identifier = NSStringFromClass([DKYSampleDetailTypeViewCell class]);
+            break;
+            
+        default:
+            identifier = NSStringFromClass([UITableViewCell class]);
+            break;
+    }
+    return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(id cell) {
+        // Configure this cell with data, same as what you've done in "-tableView:cellForRowAtIndexPath:"
+        
+    }];
 }
+
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DKYSampleDetailTypeViewCell *cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
+    UITableViewCell *cell = nil;
+    switch (indexPath.row) {
+        case 0:{
+            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
+        }
+            break;
+        case 1:{
+            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
+        }
+            break;
+        case 2:{
+            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 

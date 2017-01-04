@@ -32,6 +32,10 @@
     return cell;
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{

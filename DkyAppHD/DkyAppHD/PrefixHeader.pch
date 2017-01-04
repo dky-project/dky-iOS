@@ -42,6 +42,7 @@
 #import "DKYHUDTool.h"
 #import "JXTAlertManagerHeader.h"
 #import "TWBaseViewController.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 #endif
 
 
