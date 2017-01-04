@@ -40,6 +40,7 @@
 #import "SVProgressHUD.h"
 #import "GlobalEnum.h"
 #import "DKYHUDTool.h"
+#import "JXTAlertManagerHeader.h"
 #endif
 
 

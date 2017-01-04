@@ -27,6 +27,8 @@
 #define IS_IOS_6_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
 #define IS_IOS_7_OR_PREVIOUS ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0)
 
+#define isiPad  ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+
 #define kTabBarHeight              (49)
 #define kNavigationBarHeight       (64)
 

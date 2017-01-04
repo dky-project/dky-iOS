@@ -69,6 +69,9 @@
 		EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3004C1E1CA0C700F602E6 /* SDCycleScrollView.m */; };
 		EBC300551E1CA0C700F602E6 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3004E1E1CA0C700F602E6 /* UIView+SDExtension.m */; };
 		EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300571E1CB06700F602E6 /* DKYFiltrateView.m */; };
+		EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3005A1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m */; };
+		EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3005F1E1CCC0A00F602E6 /* JXTAlertController.m */; };
+		EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300621E1CCC0A00F602E6 /* JXTAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +220,13 @@
 		EBC3004E1E1CA0C700F602E6 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		EBC300561E1CB06700F602E6 /* DKYFiltrateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYFiltrateView.h; sourceTree = "<group>"; };
 		EBC300571E1CB06700F602E6 /* DKYFiltrateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYFiltrateView.m; sourceTree = "<group>"; };
+		EBC300591E1CC2ED00F602E6 /* DKYFiltrateOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYFiltrateOptionView.h; sourceTree = "<group>"; };
+		EBC3005A1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYFiltrateOptionView.m; sourceTree = "<group>"; };
+		EBC3005E1E1CCC0A00F602E6 /* JXTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertController.h; sourceTree = "<group>"; };
+		EBC3005F1E1CCC0A00F602E6 /* JXTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertController.m; sourceTree = "<group>"; };
+		EBC300611E1CCC0A00F602E6 /* JXTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertView.h; sourceTree = "<group>"; };
+		EBC300621E1CCC0A00F602E6 /* JXTAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertView.m; sourceTree = "<group>"; };
+		EBC300631E1CCC0A00F602E6 /* JXTAlertManagerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertManagerHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +315,8 @@
 				2622B96F1E1BEF54006CE866 /* DKYSearchView.m */,
 				EBC300561E1CB06700F602E6 /* DKYFiltrateView.h */,
 				EBC300571E1CB06700F602E6 /* DKYFiltrateView.m */,
+				EBC300591E1CC2ED00F602E6 /* DKYFiltrateOptionView.h */,
+				EBC3005A1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -547,6 +559,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				EBC3005C1E1CCC0A00F602E6 /* JXTAlertManager */,
 				EBC3003F1E1CA0C700F602E6 /* SDCycleScrollView */,
 				26DAD0BF1E1A1923008EE55F /* LTNavigationBar */,
 				EB9511821E164444008708EF /* WXSTransition */,
@@ -625,6 +638,34 @@
 				EBC300481E1CA0C700F602E6 /* TAPageControl.m */,
 			);
 			path = PageControl;
+			sourceTree = "<group>";
+		};
+		EBC3005C1E1CCC0A00F602E6 /* JXTAlertManager */ = {
+			isa = PBXGroup;
+			children = (
+				EBC3005D1E1CCC0A00F602E6 /* AlertController */,
+				EBC300601E1CCC0A00F602E6 /* AlertView */,
+				EBC300631E1CCC0A00F602E6 /* JXTAlertManagerHeader.h */,
+			);
+			path = JXTAlertManager;
+			sourceTree = "<group>";
+		};
+		EBC3005D1E1CCC0A00F602E6 /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				EBC3005E1E1CCC0A00F602E6 /* JXTAlertController.h */,
+				EBC3005F1E1CCC0A00F602E6 /* JXTAlertController.m */,
+			);
+			path = AlertController;
+			sourceTree = "<group>";
+		};
+		EBC300601E1CCC0A00F602E6 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				EBC300611E1CCC0A00F602E6 /* JXTAlertView.h */,
+				EBC300621E1CCC0A00F602E6 /* JXTAlertView.m */,
+			);
+			path = AlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -826,6 +867,7 @@
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
 				EBC300551E1CA0C700F602E6 /* UIView+SDExtension.m in Sources */,
 				EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */,
+				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
 				EB9511AA1E164444008708EF /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */,
@@ -850,6 +892,7 @@
 				EB9510871E160321008708EF /* DKYTabBar.m in Sources */,
 				EB9511B01E164444008708EF /* WXSTransitionManager+TypeTool.m in Sources */,
 				EB9511AF1E164444008708EF /* WXSTransitionManager+SystermAnimation.m in Sources */,
+				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
@@ -862,6 +905,7 @@
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
+				EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EBC300531E1CA0C700F602E6 /* SDCollectionViewCell.m in Sources */,
 				EB9511A51E164444008708EF /* UIViewController+WXSTransition.m in Sources */,

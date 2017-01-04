@@ -18,4 +18,6 @@
 @property (assign, nonatomic) CGPoint tw_origin;
 @property (copy, nonatomic) NSString *tw_frame;
 
+- (UIViewController*)viewController;
+
 @end
