@@ -226,5 +226,42 @@
             </objects>
             <point key="canvasLocation" x="1479.6875" y="107.8125"/>
         </scene>
+        <!--Sample Detail View Controller-->
+        <scene sceneID="mFd-dO-RoZ">
+            <objects>
+                <viewController storyboardIdentifier="DKYSampleDetailViewController" id="XMW-OD-Sfm" customClass="DKYSampleDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Nw-xD-UlD"/>
+                        <viewControllerLayoutGuide type="bottom" id="fPN-GO-ZsJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6dK-OJ-Qu3">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WZe-Us-CT0">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XMW-OD-Sfm" id="Lqi-5I-ryR"/>
+                                    <outlet property="delegate" destination="XMW-OD-Sfm" id="WCP-aG-c0l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fPN-GO-ZsJ" firstAttribute="top" secondItem="WZe-Us-CT0" secondAttribute="bottom" id="1hY-OL-vyS"/>
+                            <constraint firstItem="WZe-Us-CT0" firstAttribute="top" secondItem="6dK-OJ-Qu3" secondAttribute="top" id="5Jt-ia-4mR"/>
+                            <constraint firstAttribute="trailing" secondItem="WZe-Us-CT0" secondAttribute="trailing" id="CCx-PJ-L5n"/>
+                            <constraint firstItem="WZe-Us-CT0" firstAttribute="leading" secondItem="6dK-OJ-Qu3" secondAttribute="leading" id="haA-aR-xzM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="WZe-Us-CT0" id="PhJ-Fi-Fah"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ftB-kw-y7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2167.96875" y="179.8828125"/>
+        </scene>
     </scenes>
 </document>

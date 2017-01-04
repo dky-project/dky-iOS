@@ -12,4 +12,6 @@
 
 + (instancetype)sampleDetailTypeViewCellWithTableView:(UITableView *)tableView;
 
+@property (nonatomic, strong) NSObject *model;
+
 @end

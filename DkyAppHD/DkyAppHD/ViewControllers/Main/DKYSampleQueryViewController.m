@@ -251,7 +251,8 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    DKYSampleDetailViewController *vc = [[DKYSampleDetailViewController alloc] init];
+//    DKYSampleDetailViewController *vc = [[DKYSampleDetailViewController alloc] init];
+    DKYSampleDetailViewController *vc = (DKYSampleDetailViewController*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController class]];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
