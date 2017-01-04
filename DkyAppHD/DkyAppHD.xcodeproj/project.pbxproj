@@ -78,6 +78,8 @@
 		EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300711E1CDC8500F602E6 /* DKYSampleDetailViewController.m */; };
 		EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300761E1CE6A500F602E6 /* UINavigationController+SwipeBack.m */; };
 		EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300781E1CE6A500F602E6 /* UIViewController+SwipeBack.m */; };
+		EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */; };
+		EBC3007F1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +248,9 @@
 		EBC300761E1CE6A500F602E6 /* UINavigationController+SwipeBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+SwipeBack.m"; sourceTree = "<group>"; };
 		EBC300771E1CE6A500F602E6 /* UIViewController+SwipeBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SwipeBack.h"; sourceTree = "<group>"; };
 		EBC300781E1CE6A500F602E6 /* UIViewController+SwipeBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SwipeBack.m"; sourceTree = "<group>"; };
+		EBC3007B1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailTypeViewCell.h; sourceTree = "<group>"; };
+		EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailTypeViewCell.m; sourceTree = "<group>"; };
+		EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYSampleDetailTypeViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +341,9 @@
 				EBC300571E1CB06700F602E6 /* DKYFiltrateView.m */,
 				EBC300591E1CC2ED00F602E6 /* DKYFiltrateOptionView.h */,
 				EBC3005A1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m */,
+				EBC3007B1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.h */,
+				EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */,
+				EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -830,6 +838,7 @@
 			files = (
 				EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */,
 				EBABE8E71E15120500B4C568 /* Localization.strings in Resources */,
+				EBC3007F1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib in Resources */,
 				263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */,
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
 				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
@@ -947,6 +956,7 @@
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
+				EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */,
 				EB9511AD1E164444008708EF /* WXSTransitionManager+PageAnimation.m in Sources */,
 				EB9511A81E164444008708EF /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
