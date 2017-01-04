@@ -10,6 +10,7 @@
 #import "DKYSampleQueryViewCell.h"
 #import "DKYSearchView.h"
 #import "DKYFiltrateView.h"
+#import "DKYSampleDetailViewController.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -38,6 +39,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController.navigationBar lt_reset];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -97,9 +108,6 @@
 - (void)commonInit{
     self.navigationItem.title = nil;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
-    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
     
     [self setupCollectionView];
     
@@ -243,7 +251,8 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    DKYSampleDetailViewController *vc = [[DKYSampleDetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

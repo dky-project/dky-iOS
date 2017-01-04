@@ -72,6 +72,12 @@
 		EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3005A1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m */; };
 		EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3005F1E1CCC0A00F602E6 /* JXTAlertController.m */; };
 		EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300621E1CCC0A00F602E6 /* JXTAlertView.m */; };
+		EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300671E1CD4F900F602E6 /* DKYBaseViewController.m */; };
+		EBC3006E1E1CD8FE00F602E6 /* TWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3006B1E1CD8FE00F602E6 /* TWBaseViewController.m */; };
+		EBC3006F1E1CD8FE00F602E6 /* TWNavBtnItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3006D1E1CD8FE00F602E6 /* TWNavBtnItem.m */; };
+		EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300711E1CDC8500F602E6 /* DKYSampleDetailViewController.m */; };
+		EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300761E1CE6A500F602E6 /* UINavigationController+SwipeBack.m */; };
+		EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300781E1CE6A500F602E6 /* UIViewController+SwipeBack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +233,19 @@
 		EBC300611E1CCC0A00F602E6 /* JXTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertView.h; sourceTree = "<group>"; };
 		EBC300621E1CCC0A00F602E6 /* JXTAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertView.m; sourceTree = "<group>"; };
 		EBC300631E1CCC0A00F602E6 /* JXTAlertManagerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertManagerHeader.h; sourceTree = "<group>"; };
+		EBC300661E1CD4F900F602E6 /* DKYBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYBaseViewController.h; sourceTree = "<group>"; };
+		EBC300671E1CD4F900F602E6 /* DKYBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYBaseViewController.m; sourceTree = "<group>"; };
+		EBC3006A1E1CD8FE00F602E6 /* TWBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWBaseViewController.h; sourceTree = "<group>"; };
+		EBC3006B1E1CD8FE00F602E6 /* TWBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWBaseViewController.m; sourceTree = "<group>"; };
+		EBC3006C1E1CD8FE00F602E6 /* TWNavBtnItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWNavBtnItem.h; sourceTree = "<group>"; };
+		EBC3006D1E1CD8FE00F602E6 /* TWNavBtnItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWNavBtnItem.m; sourceTree = "<group>"; };
+		EBC300701E1CDC8500F602E6 /* DKYSampleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailViewController.h; sourceTree = "<group>"; };
+		EBC300711E1CDC8500F602E6 /* DKYSampleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailViewController.m; sourceTree = "<group>"; };
+		EBC300741E1CE6A500F602E6 /* SwipeBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeBack.h; sourceTree = "<group>"; };
+		EBC300751E1CE6A500F602E6 /* UINavigationController+SwipeBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+SwipeBack.h"; sourceTree = "<group>"; };
+		EBC300761E1CE6A500F602E6 /* UINavigationController+SwipeBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+SwipeBack.m"; sourceTree = "<group>"; };
+		EBC300771E1CE6A500F602E6 /* UIViewController+SwipeBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SwipeBack.h"; sourceTree = "<group>"; };
+		EBC300781E1CE6A500F602E6 /* UIViewController+SwipeBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SwipeBack.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +366,8 @@
 				EB9511791E162D33008708EF /* DKYGuidenceViewController.m */,
 				26DAD0C91E1A2492008EE55F /* DKYNavigationController.h */,
 				26DAD0CA1E1A2492008EE55F /* DKYNavigationController.m */,
+				EBC300661E1CD4F900F602E6 /* DKYBaseViewController.h */,
+				EBC300671E1CD4F900F602E6 /* DKYBaseViewController.m */,
 				EB9510811E1602C7008708EF /* View */,
 			);
 			path = Main;
@@ -371,6 +392,8 @@
 			children = (
 				26DAD0CC1E1A2F82008EE55F /* DKYSampleQueryViewController.h */,
 				26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */,
+				EBC300701E1CDC8500F602E6 /* DKYSampleDetailViewController.h */,
+				EBC300711E1CDC8500F602E6 /* DKYSampleDetailViewController.m */,
 				26DAD0DE1E1A4804008EE55F /* View */,
 			);
 			path = SampleQuery;
@@ -559,6 +582,8 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				EBC300731E1CE6A500F602E6 /* SwipeBack */,
+				EBC300691E1CD8FE00F602E6 /* TWBaseViewController */,
 				EBC3005C1E1CCC0A00F602E6 /* JXTAlertManager */,
 				EBC3003F1E1CA0C700F602E6 /* SDCycleScrollView */,
 				26DAD0BF1E1A1923008EE55F /* LTNavigationBar */,
@@ -666,6 +691,29 @@
 				EBC300621E1CCC0A00F602E6 /* JXTAlertView.m */,
 			);
 			path = AlertView;
+			sourceTree = "<group>";
+		};
+		EBC300691E1CD8FE00F602E6 /* TWBaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBC3006A1E1CD8FE00F602E6 /* TWBaseViewController.h */,
+				EBC3006B1E1CD8FE00F602E6 /* TWBaseViewController.m */,
+				EBC3006C1E1CD8FE00F602E6 /* TWNavBtnItem.h */,
+				EBC3006D1E1CD8FE00F602E6 /* TWNavBtnItem.m */,
+			);
+			path = TWBaseViewController;
+			sourceTree = "<group>";
+		};
+		EBC300731E1CE6A500F602E6 /* SwipeBack */ = {
+			isa = PBXGroup;
+			children = (
+				EBC300741E1CE6A500F602E6 /* SwipeBack.h */,
+				EBC300751E1CE6A500F602E6 /* UINavigationController+SwipeBack.h */,
+				EBC300761E1CE6A500F602E6 /* UINavigationController+SwipeBack.m */,
+				EBC300771E1CE6A500F602E6 /* UIViewController+SwipeBack.h */,
+				EBC300781E1CE6A500F602E6 /* UIViewController+SwipeBack.m */,
+			);
+			path = SwipeBack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -880,12 +928,14 @@
 				EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */,
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
+				EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */,
 				26DAD0D21E1A32D0008EE55F /* DKYAccountManager.m in Sources */,
 				EB9511AE1E164444008708EF /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
 				EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */,
+				EBC3006E1E1CD8FE00F602E6 /* TWBaseViewController.m in Sources */,
 				EB9511A71E164444008708EF /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				EB9511AC1E164444008708EF /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */,
@@ -895,18 +945,22 @@
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,
+				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
 				EB9511AD1E164444008708EF /* WXSTransitionManager+PageAnimation.m in Sources */,
 				EB9511A81E164444008708EF /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
+				EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */,
 				EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */,
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
 				EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
+				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
+				EBC3006F1E1CD8FE00F602E6 /* TWNavBtnItem.m in Sources */,
 				EBC300531E1CA0C700F602E6 /* SDCollectionViewCell.m in Sources */,
 				EB9511A51E164444008708EF /* UIViewController+WXSTransition.m in Sources */,
 				26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */,

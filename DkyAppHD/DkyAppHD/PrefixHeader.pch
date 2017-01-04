@@ -41,6 +41,7 @@
 #import "GlobalEnum.h"
 #import "DKYHUDTool.h"
 #import "JXTAlertManagerHeader.h"
+#import "TWBaseViewController.h"
 #endif
 
 
