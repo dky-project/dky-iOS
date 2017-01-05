@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *hintLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *designDescriptionLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *genderLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *allTypeLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *collarTypeLabel;
 
 @end
 @implementation DKYSampleDetailTypeViewCell
@@ -55,6 +58,42 @@
     [attrName addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHex:0x606060] range:range];
     [attrName addAttribute:NSBaselineOffsetAttributeName value:@4 range:range];
     self.sampleTypeLabel.attributedText = attrName;
+    
+    [self.genderLabel setText:self.genderLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    [self.allTypeLabel setText:self.allTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    [self.collarTypeLabel setText:self.collarTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    [self.hintLabel setText:self.hintLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    DLog(@"self.designDescriptionLabel.text = %@",self.designDescriptionLabel.text)
+    [self.designDescriptionLabel setText:self.designDescriptionLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+}
+
+#pragma mark - private method
+- (void)formatMutableAttributedString:(NSMutableAttributedString*)mutableAttributedString{
+    NSRange range = [mutableAttributedString.string rangeOfString:@":"];
+    if(range.location != NSNotFound){
+        range = NSMakeRange(range.location + 1, mutableAttributedString.string.length - range.location - 1);
+        [mutableAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:range];
+        [mutableAttributedString addAttribute:(NSString*)kCTForegroundColorAttributeName value:(id)[UIColor colorWithHex:0x666666].CGColor range:range];
+    }
 }
 
 #pragma mark - UI
@@ -65,17 +104,11 @@
     self.hintLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
     self.hintLabel.lineSpacing = 5.0;
     self.hintLabel.numberOfLines = 0;
-    [self.hintLabel setText:self.hintLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-        return mutableAttributedString;
-    }];
 
     
     self.designDescriptionLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
     self.designDescriptionLabel.lineSpacing = 5.0;
     self.designDescriptionLabel.numberOfLines = 0;
-    [self.designDescriptionLabel setText:self.hintLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-        return mutableAttributedString;
-    }];
 }
 
 @end
