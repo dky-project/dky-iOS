@@ -44,6 +44,7 @@
 #import "TWBaseViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "TTTAttributedLabel.h"
+#import "iCarousel.h"
 #endif
 
 
