@@ -118,7 +118,7 @@
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vqC-zC-j8v">
-                        <rect key="frame" x="0.0" y="947" width="768" height="756"/>
+                        <rect key="frame" x="0.0" y="947" width="768" height="755"/>
                     </imageView>
                 </subviews>
                 <constraints>
