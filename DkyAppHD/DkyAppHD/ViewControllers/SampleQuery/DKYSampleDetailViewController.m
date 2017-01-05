@@ -44,45 +44,18 @@
 }
 
 - (void)setupTableView{
-//    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-//    tableView.delegate = self;
-//    tableView.dataSource = self;
-//    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    tableView.showsVerticalScrollIndicator = NO;
-//
-//    UINib *nib = [UINib nibWithNibName:NSStringFromClass([DKYSampleDetailTypeViewCell class]) bundle:nil];
-//    
-//    [tableView registerNib:nib forCellReuseIdentifier:NSStringFromClass([DKYSampleDetailTypeViewCell class])];
-//    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-//    nib = [UINib nibWithNibName:NSStringFromClass([MKJTableViewCell class]) bundle:nil];
-//    [tableView registerNib:nib forCellReuseIdentifier:NSStringFromClass([MKJTableViewCell class])];
-//    
-//    self.tableView = tableView;
-//    [self.view addSubview:tableView];
-//    tableView.backgroundColor = [UIColor colorWithHex:0xEFEFF5];
-//    
-//    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
-//    }];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.backgroundColor = [UIColor colorWithHex:0xEFEFF5];
     
     NSString *identify = NSStringFromClass([DKYSampleDetailTypeViewCell class]);
     [self.tableView registerNib:[UINib nibWithNibName:identify bundle:nil] forCellReuseIdentifier:identify];
-    
-//    UINib *nib = [UINib nibWithNibName:NSStringFromClass([MKJTableViewCell class]) bundle:nil];
-//    [self.tableView registerNib:nib forCellReuseIdentifier:NSStringFromClass([MKJTableViewCell class])];
 }
-
-//- (void)configCell:(MKJTableViewCell *)cell indexpath:(NSIndexPath *)index{
-//    cell.headImageView.image = [UIImage imageWithColor:[UIColor randomColor]];
-//    cell.userName.text = @"哈哈哈";
-//    cell.mainImageView.image = [UIImage imageNamed:@"test1"];
-//    cell.descLabel.text = @"阿凡达方法方面的的发放的卷发家里发呆事实上事实上事实上事实上事实上事实上事实上事实上事实上发的顶顶顶顶顶大";
-//}
 
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

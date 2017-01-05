@@ -24,7 +24,6 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SVProgressHUD (2.1.2)
-  - TTTAttributedLabel (2.0.0)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
@@ -39,7 +38,6 @@ DEPENDENCIES:
   - SAMKeychain
   - SDWebImage
   - SVProgressHUD
-  - TTTAttributedLabel
   - YYCategories
 
 SPEC CHECKSUMS:
@@ -52,9 +50,8 @@ SPEC CHECKSUMS:
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 8cd250250a749d979a3f283ce536ab312d133ad4
+PODFILE CHECKSUM: 757feba46933876c4ae06ea37769de2a5fabadea
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.0.1

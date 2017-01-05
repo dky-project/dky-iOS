@@ -43,6 +43,7 @@
 #import "JXTAlertManagerHeader.h"
 #import "TWBaseViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "TTTAttributedLabel.h"
 #endif
 
 

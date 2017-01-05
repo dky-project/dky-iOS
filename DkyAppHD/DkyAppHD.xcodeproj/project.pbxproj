@@ -29,6 +29,7 @@
 		26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0D71E1A45EB008EE55F /* DKYHUDTool.m */; };
 		26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */; };
 		26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */; };
+		EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */; };
 		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
 		EB9510871E160321008708EF /* DKYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9510861E160321008708EF /* DKYTabBar.m */; };
 		EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511791E162D33008708EF /* DKYGuidenceViewController.m */; };
@@ -151,6 +152,8 @@
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
+		EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		EB95107A1E15FA27008708EF /* DKYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTabBarViewController.h; sourceTree = "<group>"; };
 		EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTabBarViewController.m; sourceTree = "<group>"; };
 		EB9510851E160321008708EF /* DKYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTabBar.h; sourceTree = "<group>"; };
@@ -375,6 +378,15 @@
 				3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB6B06B01E1E14AD00F2F108 /* TTTAttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */,
+				EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */,
+			);
+			path = TTTAttributedLabel;
 			sourceTree = "<group>";
 		};
 		EB9510791E15F9F8008708EF /* Main */ = {
@@ -602,6 +614,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				EB6B06B01E1E14AD00F2F108 /* TTTAttributedLabel */,
 				EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */,
 				EBC300731E1CE6A500F602E6 /* SwipeBack */,
 				EBC300691E1CD8FE00F602E6 /* TWBaseViewController */,
@@ -918,7 +931,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CCFECB3AB6E169336AFCFEA2 /* [CP] Embed Pods Frameworks */ = {
@@ -962,6 +975,7 @@
 				EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
+				EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */,
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
 				EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */,
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
