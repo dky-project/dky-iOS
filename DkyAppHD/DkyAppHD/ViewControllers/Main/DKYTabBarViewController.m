@@ -38,7 +38,7 @@
 #pragma mark - 处理旋转
 #pragma mark - 屏幕翻转就会调用
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    DLog(@"size = %@",NSStringFromCGSize(size));
+//    DLog(@"size = %@",NSStringFromCGSize(size));
     // 记录当前是横屏还是竖屏
     BOOL isLandscape = isLandscape(size);
     

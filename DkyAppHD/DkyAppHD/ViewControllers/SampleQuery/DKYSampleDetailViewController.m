@@ -44,12 +44,12 @@
 }
 
 - (void)setupTableView{
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.backgroundColor = [UIColor colorWithHex:0xEFEFF5];
-    
     NSString *identify = NSStringFromClass([DKYSampleDetailTypeViewCell class]);
     [self.tableView registerNib:[UINib nibWithNibName:identify bundle:nil] forCellReuseIdentifier:identify];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource

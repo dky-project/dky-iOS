@@ -44,8 +44,8 @@
 }
 
 - (void)setModel:(NSObject *)model{
-    self.sampleImageView.image = [UIImage imageWithColor:[UIColor randomColor]];
-    self.detailImageView.image = [UIImage imageWithColor:[UIColor randomColor] size:CGSizeMake(kScreenWidth, 500)];
+    self.sampleImageView.image = [UIImage imageNamed:@"image1"];
+    self.detailImageView.image = [UIImage imageNamed:@"image2"];
     
     NSString *name = @"款号：DKY0000";
     self.sampleTypeLabel.text = name;
@@ -79,7 +79,7 @@
         return mutableAttributedString;
     }];
     
-    DLog(@"self.designDescriptionLabel.text = %@",self.designDescriptionLabel.text)
+//    DLog(@"self.designDescriptionLabel.text = %@",self.designDescriptionLabel.text)
     [self.designDescriptionLabel setText:self.designDescriptionLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
