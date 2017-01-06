@@ -7,6 +7,7 @@
 //
 
 #import "DKYHomeViewController.h"
+#import "DKYHomeItemView.h"
 
 @interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource>
 
@@ -30,6 +31,40 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+
+#pragma mark - private method
+- (UIView*)createItemViewWithIndex:(NSInteger)index{
+    UIView *view = nil;
+    switch (index) {
+        case 0:{
+            view = [DKYHomeItemView homeItemView];
+        }
+            break;
+            
+        default:
+            view = [DKYHomeItemView homeItemView];
+            break;
+    }
+    return view;
+}
+
+- (UIView*)checkItemViewClass:(UIView *)view index:(NSInteger)index{
+    if(view == nil) return [self createItemViewWithIndex:index];
+
+    switch (index) {
+        case 0:{
+            if(![view isKindOfClass:[DKYHomeItemView class]]){
+                return [self createItemViewWithIndex:index];
+            }
+        }
+            break;
+            
+        default:
+            view = [DKYHomeItemView homeItemView];
+            break;
+    }
+    return view;
 }
 
 #pragma mark - UI
@@ -74,11 +109,7 @@
 
 #pragma mark - iCarousel代理
 -(UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
-    if (view == nil) {
-        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 384)];
-    }
-    view.backgroundColor = [UIColor randomColor];
-    return view;
+    return [self checkItemViewClass:view index:index];
 }
 
 -(CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform{
