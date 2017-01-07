@@ -108,6 +108,7 @@
     view.pagingEnabled = YES;
     view.type = iCarouselTypeCustom;
     view.vertical = YES;
+    view.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
 //    view.numberOfVisibleItems = 4;
     self.iCarousel = view;
     [view scrollToItemAtIndex:1 animated:NO];

@@ -29,7 +29,9 @@
 }
 
 - (void)hideReadMoreBtn:(BOOL)hide{
-    self.readMoreBtn.hidden = hide;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.readMoreBtn.alpha = hide ? 0.0 : 1.0;
+    }];
 }
 
 //- (void)setTransform:(CGAffineTransform)transform{
@@ -53,7 +55,7 @@
     self.imageView.autoresizingMask = NO;
     
     [self.readMoreBtn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0xE3DFD1]] forState:UIControlStateNormal];
-    self.readMoreBtn.hidden = YES;
+    self.readMoreBtn.alpha = 0.0;
 }
 
 @end

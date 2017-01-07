@@ -21,10 +21,14 @@
     [self commonInit];
 }
 
+- (void)setItemModel:(NSObject *)itemModel{
+    self.imageView.image = (UIImage*)itemModel;
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
-    self.imageView.image = [UIImage imageWithColor:[UIColor randomColor]];
+//    self.imageView.image = [UIImage imageWithColor:[UIColor randomColor]];
     
 }
 

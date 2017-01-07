@@ -22,6 +22,8 @@
 
 @property (nonatomic, weak) UIButton *backgroundBtn;
 
+@property (nonatomic, strong) NSMutableArray *samples;
+
 // 测试数据
 @property (nonatomic, assign) NSInteger sampleCount;
 
@@ -123,6 +125,12 @@
     [self setupBackgroundBtn];
     [self setupSearchView];
     [self setupFiltrateView];
+    
+    for (int i = 1; i < 6; ++i) {
+        NSString *imageName = [NSString stringWithFormat:@"sampleImage%@",@(i)];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [self.samples addObject:image];
+    }
 }
 
 - (void)setupCollectionView{
@@ -247,6 +255,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYSampleQueryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYSampleQueryViewCell class]) forIndexPath:indexPath];
+    cell.itemModel = [self.samples randomObject];
     return cell;
 }
 
@@ -265,6 +274,16 @@
 //    DKYSampleDetailViewController *vc = [[DKYSampleDetailViewController alloc] init];
     DKYSampleDetailViewController *vc = (DKYSampleDetailViewController*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController class]];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+#pragma mark - get & set method
+
+- (NSMutableArray*)samples{
+    if(_samples == nil){
+        _samples = [NSMutableArray array];
+    }
+    return _samples;
 }
 
 

@@ -10,4 +10,6 @@
 
 @interface DKYSampleQueryViewCell : UICollectionViewCell
 
+@property (nonatomic, strong) NSObject *itemModel;
+
 @end
