@@ -13,6 +13,8 @@
 
 @property (nonatomic,weak) iCarousel *iCarousel;
 
+@property (nonatomic, weak) id<DKYHomeItemDelegate> previousItemView;
+
 @end
 
 @implementation DKYHomeViewController
@@ -104,6 +106,18 @@
 
 - (void)carouselCurrentItemIndexDidChange:(__unused iCarousel *)carousel
 {
+//    CATransform3D transform = CATransform3DIdentity;
+//    CATransform3DScale(transform, 1.0, 0.5, 1);
+//    transform = CATransform3DInvert(transform);
+//    [self.previousItemView updateTransform:transform];
+//    
+    [self.previousItemView hideReadMoreBtn:YES];
+    
+    id<DKYHomeItemDelegate> itemView = (id<DKYHomeItemDelegate>)carousel.currentItemView;
+    if([itemView respondsToSelector:@selector(hideReadMoreBtn:)]){
+        [itemView hideReadMoreBtn:NO];
+    }
+    self.previousItemView = itemView;
     NSLog(@"Index: %@", @(self.iCarousel.currentItemIndex));
 }
 

@@ -20,6 +20,7 @@
 		263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */; };
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
+		267CED471E20E93100ED5872 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED461E20E93100ED5872 /* iCarousel.m */; };
 		26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */; };
 		26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C71E1A1C30008EE55F /* UIViewController+Utlity.m */; };
 		26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0CA1E1A2492008EE55F /* DKYNavigationController.m */; };
@@ -134,6 +135,9 @@
 		263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestTool.m; sourceTree = "<group>"; };
 		263CC1731E155CED002FBB50 /* DKYHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpRequestManager.h; sourceTree = "<group>"; };
 		263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestManager.m; sourceTree = "<group>"; };
+		267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemDelegate.h; sourceTree = "<group>"; };
+		267CED451E20E93100ED5872 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		267CED461E20E93100ED5872 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		26DAD0C01E1A1923008EE55F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		26DAD0C61E1A1C30008EE55F /* UIViewController+Utlity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utlity.h"; sourceTree = "<group>"; };
@@ -327,6 +331,15 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		267CED441E20E93100ED5872 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				267CED451E20E93100ED5872 /* iCarousel.h */,
+				267CED461E20E93100ED5872 /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 		26DAD0BF1E1A1923008EE55F /* LTNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +457,7 @@
 				EB41AC491E1F9DF60015A7CF /* DKYHomeItemView.h */,
 				EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */,
 				EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */,
+				267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -622,6 +636,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				267CED441E20E93100ED5872 /* iCarousel */,
 				EB6B06B01E1E14AD00F2F108 /* TTTAttributedLabel */,
 				EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */,
 				EBC300731E1CE6A500F602E6 /* SwipeBack */,
@@ -1026,6 +1041,7 @@
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
 				EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */,
+				267CED471E20E93100ED5872 /* iCarousel.m in Sources */,
 				EBC3006F1E1CD8FE00F602E6 /* TWNavBtnItem.m in Sources */,
 				EBC300531E1CA0C700F602E6 /* SDCollectionViewCell.m in Sources */,
 				EB9511A51E164444008708EF /* UIViewController+WXSTransition.m in Sources */,

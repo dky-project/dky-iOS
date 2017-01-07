@@ -45,6 +45,7 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "TTTAttributedLabel.h"
 #import "iCarousel.h"
+#import "DKYHomeItemDelegate.h"
 #endif
 
 

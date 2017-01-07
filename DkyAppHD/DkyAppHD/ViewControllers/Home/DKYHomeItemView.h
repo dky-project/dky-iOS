@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DKYHomeItemDelegate.h"
 
 @interface DKYHomeItemView : UIView
 
 + (instancetype)homeItemView;
+
 
 @end
