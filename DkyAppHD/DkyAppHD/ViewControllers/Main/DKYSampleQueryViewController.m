@@ -45,12 +45,19 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
-    self.navigationController.navigationBar.userInteractionEnabled = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [self.navigationController.navigationBar lt_reset];
     self.navigationController.navigationBar.userInteractionEnabled = YES;
+    self.navigationController.navigationBar.alpha = 1.0;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    self.navigationController.navigationBar.userInteractionEnabled = NO;
+    self.navigationController.navigationBar.alpha = 0;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
