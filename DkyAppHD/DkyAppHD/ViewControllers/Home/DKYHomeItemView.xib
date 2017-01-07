@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Wu-nC-bc4">
-                    <rect key="frame" x="383.5" y="0.0" width="384.5" height="384"/>
+                    <rect key="frame" x="384" y="0.0" width="384" height="384"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipT-Vt-ciM">
-                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="384"/>
+                    <rect key="frame" x="0.0" y="0.0" width="384" height="384"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCESSTORIES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-oT-oWE">
                             <rect key="frame" x="137" y="25" width="110" height="15"/>
@@ -38,13 +38,13 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nor again is there any who loves or pursures or designs." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLp-MJ-GT6" customClass="TTTAttributedLabel">
-                            <rect key="frame" x="75" y="116" width="234.5" height="36"/>
+                            <rect key="frame" x="75" y="116" width="234" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKQ-b3-cUP">
-                            <rect key="frame" x="0.0" y="324" width="384.5" height="60"/>
+                            <rect key="frame" x="0.0" y="324" width="384" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="FN3-Xn-tQN"/>
                             </constraints>
@@ -74,7 +74,7 @@
             <constraints>
                 <constraint firstItem="9Wu-nC-bc4" firstAttribute="width" secondItem="ipT-Vt-ciM" secondAttribute="width" id="2qC-Bv-AJ7"/>
                 <constraint firstItem="9Wu-nC-bc4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RZl-Y1-H9f"/>
-                <constraint firstItem="9Wu-nC-bc4" firstAttribute="leading" secondItem="ipT-Vt-ciM" secondAttribute="trailing" constant="-1" id="em4-2S-5kf"/>
+                <constraint firstItem="9Wu-nC-bc4" firstAttribute="leading" secondItem="ipT-Vt-ciM" secondAttribute="trailing" id="em4-2S-5kf"/>
                 <constraint firstItem="ipT-Vt-ciM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gNb-Nf-axN"/>
                 <constraint firstItem="ipT-Vt-ciM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="m1e-2R-1OM"/>
                 <constraint firstAttribute="trailing" secondItem="9Wu-nC-bc4" secondAttribute="trailing" id="tnY-nS-Uhp"/>
