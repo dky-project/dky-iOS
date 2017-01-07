@@ -21,6 +21,8 @@
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
 		267CED471E20E93100ED5872 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED461E20E93100ED5872 /* iCarousel.m */; };
+		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
+		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
 		26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */; };
 		26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C71E1A1C30008EE55F /* UIViewController+Utlity.m */; };
 		26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0CA1E1A2492008EE55F /* DKYNavigationController.m */; };
@@ -138,6 +140,9 @@
 		267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemDelegate.h; sourceTree = "<group>"; };
 		267CED451E20E93100ED5872 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		267CED461E20E93100ED5872 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		267CED4A1E20EF2E00ED5872 /* DKYHomeItemTwoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemTwoView.h; sourceTree = "<group>"; };
+		267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemTwoView.m; sourceTree = "<group>"; };
+		267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemTwoView.xib; sourceTree = "<group>"; };
 		26DAD0C01E1A1923008EE55F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		26DAD0C61E1A1C30008EE55F /* UIViewController+Utlity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utlity.h"; sourceTree = "<group>"; };
@@ -340,6 +345,20 @@
 			path = iCarousel;
 			sourceTree = "<group>";
 		};
+		267CED481E20EEF400ED5872 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB41AC491E1F9DF60015A7CF /* DKYHomeItemView.h */,
+				EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */,
+				EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */,
+				267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */,
+				267CED4A1E20EF2E00ED5872 /* DKYHomeItemTwoView.h */,
+				267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */,
+				267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		26DAD0BF1E1A1923008EE55F /* LTNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,10 +473,7 @@
 			children = (
 				EBC3003C1E1CA05300F602E6 /* DKYHomeViewController.h */,
 				EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */,
-				EB41AC491E1F9DF60015A7CF /* DKYHomeItemView.h */,
-				EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */,
-				EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */,
-				267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */,
+				267CED481E20EEF400ED5872 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -902,6 +918,7 @@
 			files = (
 				EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */,
 				EBABE8E71E15120500B4C568 /* Localization.strings in Resources */,
+				267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */,
 				EBC3007F1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib in Resources */,
 				263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */,
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
@@ -1019,6 +1036,7 @@
 				EB9511B01E164444008708EF /* WXSTransitionManager+TypeTool.m in Sources */,
 				EB9511AF1E164444008708EF /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
+				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,

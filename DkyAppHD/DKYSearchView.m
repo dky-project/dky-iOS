@@ -45,6 +45,9 @@
     self.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
     
     [self setupSearchBtn];
+    
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(searchBtnClicked:)];
+//    [self addGestureRecognizer:tap];
 }
 
 - (void)setupSearchBtn{
@@ -57,6 +60,11 @@
     [btn setImage:[UIImage imageNamed:@"tabbar_discover"] forState:UIControlStateNormal];
     [self addSubview:btn];
     self.searchBtn = btn;
+    
+//    [self.searchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.mas_equalTo(UIEdgeInsetsZero);
+//    }];
+    
     btn.bounds = CGRectMake(0, 0, 56, 56);
 }
 

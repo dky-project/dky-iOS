@@ -45,10 +45,12 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
+    self.navigationController.navigationBar.userInteractionEnabled = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [self.navigationController.navigationBar lt_reset];
+    self.navigationController.navigationBar.userInteractionEnabled = YES;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -81,8 +83,8 @@
     CGRect frame = CGRectZero;
     if(!hide) {
         // 显示
-        [self.view bringSubviewToFront:self.filtrateView];
-        [self.view bringSubviewToFront:self.searchView];
+        [self.filtrateView.superview bringSubviewToFront:self.filtrateView];
+        [self.searchView.superview bringSubviewToFront:self.searchView];
         frame = CGRectMake(26, 48, kScreenWidth - 26 * 2, 290);
         self.filtrateView.alpha = hide ? 0.0 : 1.0;
     }else{
@@ -150,6 +152,7 @@
 
 - (void)setupSearchView{
     DKYSearchView *view = [[DKYSearchView alloc] initWithFrame:CGRectZero];
+//    [[UIApplication sharedApplication].keyWindow addSubview:view];
     [self.view addSubview:view];
     self.searchView = view;
     
@@ -168,6 +171,7 @@
 
 - (void)setupFiltrateView{
     DKYFiltrateView *view = [[DKYFiltrateView alloc] initWithFrame:CGRectZero];
+//    [[UIApplication sharedApplication].keyWindow addSubview:view];
     [self.view addSubview:view];
     self.filtrateView = view;
 

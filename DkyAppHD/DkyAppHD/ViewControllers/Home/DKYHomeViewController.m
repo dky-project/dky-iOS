@@ -8,6 +8,7 @@
 
 #import "DKYHomeViewController.h"
 #import "DKYHomeItemView.h"
+#import "DKYHomeItemTwoView.h"
 
 @interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource>
 
@@ -39,8 +40,14 @@
 - (UIView*)createItemViewWithIndex:(NSInteger)index{
     UIView *view = nil;
     switch (index) {
-        case 0:{
+        case 0:
+        case 2:{
             view = [DKYHomeItemView homeItemView];
+        }
+            break;
+        case 1:
+        case 3:{
+            view = [DKYHomeItemTwoView homeItemTwoView];
         }
             break;
             
@@ -55,7 +62,16 @@
     if(view == nil) return [self createItemViewWithIndex:index];
 
     switch (index) {
-        case 0:{
+        case 0:
+        case 2:{
+            if(![view isKindOfClass:[DKYHomeItemView class]]){
+                return [self createItemViewWithIndex:index];
+            }
+        }
+            break;
+            
+        case 1:
+        case 3:{
             if(![view isKindOfClass:[DKYHomeItemView class]]){
                 return [self createItemViewWithIndex:index];
             }
