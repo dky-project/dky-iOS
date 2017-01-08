@@ -63,6 +63,15 @@
 		EB9790501E22118500E2985C /* WGBDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97904F1E22118500E2985C /* WGBDatePickerView.m */; };
 		EB9790561E22158100E2985C /* UUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790531E22158100E2985C /* UUDatePicker.m */; };
 		EB9790571E22158100E2985C /* UUDatePicker_DateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790551E22158100E2985C /* UUDatePicker_DateModel.m */; };
+		EB97906A1E221B6F00E2985C /* MMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97905A1E221B6F00E2985C /* MMAlertView.m */; };
+		EB97906B1E221B6F00E2985C /* MMDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97905C1E221B6F00E2985C /* MMDateView.m */; };
+		EB97906C1E221B6F00E2985C /* MMPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97905E1E221B6F00E2985C /* MMPinView.m */; };
+		EB97906D1E221B6F00E2985C /* MMPopupCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790601E221B6F00E2985C /* MMPopupCategory.m */; };
+		EB97906E1E221B6F00E2985C /* MMPopupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790631E221B6F00E2985C /* MMPopupItem.m */; };
+		EB97906F1E221B6F00E2985C /* MMPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790651E221B6F00E2985C /* MMPopupView.m */; };
+		EB9790701E221B6F00E2985C /* MMPopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790671E221B6F00E2985C /* MMPopupWindow.m */; };
+		EB9790711E221B6F00E2985C /* MMSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790691E221B6F00E2985C /* MMSheetView.m */; };
+		EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790741E221C0D00E2985C /* DKYDatePickerView.m */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
 		EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AD1E14E45200B4C568 /* Assets.xcassets */; };
 		EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */; };
@@ -231,6 +240,25 @@
 		EB9790531E22158100E2985C /* UUDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUDatePicker.m; sourceTree = "<group>"; };
 		EB9790541E22158100E2985C /* UUDatePicker_DateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker_DateModel.h; sourceTree = "<group>"; };
 		EB9790551E22158100E2985C /* UUDatePicker_DateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUDatePicker_DateModel.m; sourceTree = "<group>"; };
+		EB9790591E221B6F00E2985C /* MMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAlertView.h; sourceTree = "<group>"; };
+		EB97905A1E221B6F00E2985C /* MMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAlertView.m; sourceTree = "<group>"; };
+		EB97905B1E221B6F00E2985C /* MMDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDateView.h; sourceTree = "<group>"; };
+		EB97905C1E221B6F00E2985C /* MMDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDateView.m; sourceTree = "<group>"; };
+		EB97905D1E221B6F00E2985C /* MMPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPinView.h; sourceTree = "<group>"; };
+		EB97905E1E221B6F00E2985C /* MMPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPinView.m; sourceTree = "<group>"; };
+		EB97905F1E221B6F00E2985C /* MMPopupCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPopupCategory.h; sourceTree = "<group>"; };
+		EB9790601E221B6F00E2985C /* MMPopupCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPopupCategory.m; sourceTree = "<group>"; };
+		EB9790611E221B6F00E2985C /* MMPopupDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPopupDefine.h; sourceTree = "<group>"; };
+		EB9790621E221B6F00E2985C /* MMPopupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPopupItem.h; sourceTree = "<group>"; };
+		EB9790631E221B6F00E2985C /* MMPopupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPopupItem.m; sourceTree = "<group>"; };
+		EB9790641E221B6F00E2985C /* MMPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPopupView.h; sourceTree = "<group>"; };
+		EB9790651E221B6F00E2985C /* MMPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPopupView.m; sourceTree = "<group>"; };
+		EB9790661E221B6F00E2985C /* MMPopupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPopupWindow.h; sourceTree = "<group>"; };
+		EB9790671E221B6F00E2985C /* MMPopupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPopupWindow.m; sourceTree = "<group>"; };
+		EB9790681E221B6F00E2985C /* MMSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSheetView.h; sourceTree = "<group>"; };
+		EB9790691E221B6F00E2985C /* MMSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSheetView.m; sourceTree = "<group>"; };
+		EB9790731E221C0D00E2985C /* DKYDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDatePickerView.h; sourceTree = "<group>"; };
+		EB9790741E221C0D00E2985C /* DKYDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDatePickerView.m; sourceTree = "<group>"; };
 		EBABE89E1E14E45200B4C568 /* DkyAppHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DkyAppHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBABE8AB1E14E45200B4C568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBABE8AD1E14E45200B4C568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -587,6 +615,39 @@
 			path = UUDatePicker;
 			sourceTree = "<group>";
 		};
+		EB9790581E221B6F00E2985C /* MMPopupView */ = {
+			isa = PBXGroup;
+			children = (
+				EB9790591E221B6F00E2985C /* MMAlertView.h */,
+				EB97905A1E221B6F00E2985C /* MMAlertView.m */,
+				EB97905B1E221B6F00E2985C /* MMDateView.h */,
+				EB97905C1E221B6F00E2985C /* MMDateView.m */,
+				EB97905D1E221B6F00E2985C /* MMPinView.h */,
+				EB97905E1E221B6F00E2985C /* MMPinView.m */,
+				EB97905F1E221B6F00E2985C /* MMPopupCategory.h */,
+				EB9790601E221B6F00E2985C /* MMPopupCategory.m */,
+				EB9790611E221B6F00E2985C /* MMPopupDefine.h */,
+				EB9790621E221B6F00E2985C /* MMPopupItem.h */,
+				EB9790631E221B6F00E2985C /* MMPopupItem.m */,
+				EB9790641E221B6F00E2985C /* MMPopupView.h */,
+				EB9790651E221B6F00E2985C /* MMPopupView.m */,
+				EB9790661E221B6F00E2985C /* MMPopupWindow.h */,
+				EB9790671E221B6F00E2985C /* MMPopupWindow.m */,
+				EB9790681E221B6F00E2985C /* MMSheetView.h */,
+				EB9790691E221B6F00E2985C /* MMSheetView.m */,
+			);
+			path = MMPopupView;
+			sourceTree = "<group>";
+		};
+		EB9790721E221BDA00E2985C /* ViewTools */ = {
+			isa = PBXGroup;
+			children = (
+				EB9790731E221C0D00E2985C /* DKYDatePickerView.h */,
+				EB9790741E221C0D00E2985C /* DKYDatePickerView.m */,
+			);
+			path = ViewTools;
+			sourceTree = "<group>";
+		};
 		EBABE8951E14E45200B4C568 = {
 			isa = PBXGroup;
 			children = (
@@ -702,6 +763,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				EB9790581E221B6F00E2985C /* MMPopupView */,
 				EB9790511E22158100E2985C /* UUDatePicker */,
 				EB97904D1E22118500E2985C /* WGBDatePickerView */,
 				267CED441E20E93100ED5872 /* iCarousel */,
@@ -726,6 +788,7 @@
 				EB95107E1E15FC2C008708EF /* CustomOrder */,
 				EB95107D1E15FC2C008708EF /* OrderInquiry */,
 				EB95117E1E16408C008708EF /* Login */,
+				EB9790721E221BDA00E2985C /* ViewTools */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1062,6 +1125,7 @@
 				EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */,
 				EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
+				EB97906B1E221B6F00E2985C /* MMDateView.m in Sources */,
 				EB9790501E22118500E2985C /* WGBDatePickerView.m in Sources */,
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
 				EB9511AA1E164444008708EF /* WXSTransitionManager+CoverAnimation.m in Sources */,
@@ -1071,10 +1135,13 @@
 				EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
+				EB9790711E221B6F00E2985C /* MMSheetView.m in Sources */,
 				EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */,
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
 				EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */,
+				EB97906E1E221B6F00E2985C /* MMPopupItem.m in Sources */,
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
+				EB97906F1E221B6F00E2985C /* MMPopupView.m in Sources */,
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
@@ -1089,12 +1156,15 @@
 				EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */,
 				EB9510871E160321008708EF /* DKYTabBar.m in Sources */,
 				EB9511B01E164444008708EF /* WXSTransitionManager+TypeTool.m in Sources */,
+				EB9790701E221B6F00E2985C /* MMPopupWindow.m in Sources */,
+				EB97906D1E221B6F00E2985C /* MMPopupCategory.m in Sources */,
 				EB9511AF1E164444008708EF /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				EB9790491E21EAF500E2985C /* DKYOrderInquiryHeaderView.m in Sources */,
 				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
+				EB97906A1E221B6F00E2985C /* MMAlertView.m in Sources */,
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
@@ -1105,6 +1175,7 @@
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
+				EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
 				EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */,
 				EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */,
@@ -1126,6 +1197,7 @@
 				EBABE8DA1E150CA600B4C568 /* AppDelegate.m in Sources */,
 				EB9790451E21E4E500E2985C /* DKYOrderInquiryViewController.m in Sources */,
 				EB9511811E1640A5008708EF /* DKYLoginViewController.m in Sources */,
+				EB97906C1E221B6F00E2985C /* MMPinView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

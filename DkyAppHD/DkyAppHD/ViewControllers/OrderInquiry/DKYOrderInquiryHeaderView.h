@@ -16,4 +16,11 @@
 
 @property (nonatomic, copy) BlockWithSender auditStatusBlock;
 
+@property (weak, nonatomic) IBOutlet UITextField *sampleTextField;
+@property (weak, nonatomic) IBOutlet UIButton *findBtn;
+@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *batchPreviewBtn;
+@property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *auditStatusLabel;
+
 @end

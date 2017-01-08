@@ -20,4 +20,16 @@ typedef NS_ENUM(NSInteger, DkyHUDUnderType) {
     DkyHUDUnderType_SVProgressHUD = 1,
     DkyHUDUnderType_MBProgressHUD = 2,
 };
+
+// Btn type
+typedef NS_ENUM(NSInteger, DkyButtonStatusType) {
+    DkyButtonStatusType_Unset = 0,
+    DkyButtonStatusType_Confirm,
+    DkyButtonStatusType_Done,
+    
+    
+    
+    DkyButtonStatusType_Cancel = 1000,
+};
+
 #endif /* GlobalEnum_h */

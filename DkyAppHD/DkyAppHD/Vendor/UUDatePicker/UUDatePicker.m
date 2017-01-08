@@ -215,7 +215,7 @@
 {
     if (self.datePickerStyle == UUDateStyle_YearMonthDayHourMinute){
         if (isIOS7) {
-            [self creatValuePointXs:@[@"80",@"135",@"190",@"245",@"300"]
+            [self creatValuePointXs:@[@"300",@"355",@"410",@"465",@"520"]
                           withNames:@[@"年",@"月",@"日",@"时",@"分"]];
         }
         return 5;

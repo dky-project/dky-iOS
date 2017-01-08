@@ -46,6 +46,8 @@
 
 typedef void(^BlockWithSender)(id sender);
 
+typedef void(^BlockWithSenderAndType)(id sender, NSInteger type);
+
 // 信号量为1的，模拟互斥锁
 #define Lock() dispatch_semaphore_wait(self->_lock, DISPATCH_TIME_FOREVER)
 #define Unlock() dispatch_semaphore_signal(self->_lock)

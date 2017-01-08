@@ -9,6 +9,10 @@
 #import "DKYOrderInquiryViewController.h"
 #import "DKYOrderInquiryHeaderView.h"
 #import "WGBDatePickerView.h"
+#import "DKYDatePickerView.h"
+#import "MMPopupItem.h"
+#import "MMSheetView.h"
+#import "MMPopupWindow.h"
 
 @interface DKYOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
 
@@ -31,6 +35,34 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - private method
+
+- (void)showFaxDateSelectedPicker{
+    //        DKYDatePickerView *pic = [[DKYDatePickerView alloc] init];
+    //        pic.doneBlock = ^(DKYDatePickerView *picker, DkyButtonStatusType type){
+    //            DLog(@"%@",picker.selectedDate);
+    //        };
+    //        [pic show];
+    [self.datePickView show];
+}
+
+- (void)showAuditStatusSelectedPicker{
+    MMPopupItemHandler block = ^(NSInteger index){
+        DLog(@"clickd %@ button",@(index));
+    };
+    NSArray *items =
+    @[MMItemMake(@"审核中", MMItemTypeNormal, block),
+      MMItemMake(@"审核成功", MMItemTypeNormal, block),
+      MMItemMake(@"审核失败", MMItemTypeNormal, block),
+      MMItemMake(@"未审核", MMItemTypeHighlight, block)];
+    
+    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"审核状态"
+                                                          items:items];
+//    sheetView.attachedView = self.view;
+    [MMPopupWindow sharedWindow].touchWildToHide = YES;
+    [sheetView show];
 }
 
 #pragma mark - UI
@@ -66,8 +98,13 @@
     
     
     header.faxDateBlock = ^(id sender){
-        [weakSelf.datePickView show];
+        [weakSelf showFaxDateSelectedPicker];
     };
+    
+    header.auditStatusBlock = ^(id sender){
+        [weakSelf showAuditStatusSelectedPicker];
+    };
+
 }
 
 
@@ -126,6 +163,7 @@
 //确定时间
 - (void)determine:(NSDate *)date{
     DLog(@"选中时间 = %@",[self.datePickView stringFromDate:date]);
+    self.headerView.faxDateLabel.text = [NSString stringWithFormat:@"   %@",[self.datePickView stringFromDate:date]];
 }
 
 #pragma mark - get & set method
