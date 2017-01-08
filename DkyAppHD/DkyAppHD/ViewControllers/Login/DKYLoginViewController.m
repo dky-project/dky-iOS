@@ -9,6 +9,7 @@
 #import "DKYLoginViewController.h"
 #import "DKYTabBarViewController.h"
 #import "UINavigationController+WXSTransition.h"
+#import "DKYLoginUserRequestParameter.h"
 
 @interface DKYLoginViewController ()
 
@@ -35,23 +36,66 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 网络接口
+- (void)login{
+    [DKYHUDTool showWithStatus:@"Login..."];
+    WeakSelf(weakSelf);
+    DKYLoginUserRequestParameter *p = [[DKYLoginUserRequestParameter alloc] init];
+    p.email = self.userNameTextField.text;
+    p.password = self.passwordTextField.text;
+    
+#pragma warning - 去掉延时代码
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[DKYHttpRequestManager sharedInstance] LoginUserWithParameter:p Success:^(NSInteger statusCode, id data) {
+            [DKYHUDTool dismiss];
+            DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+            DkyHttpResponseCode retCode = [result.code integerValue];
+            if (retCode == DkyHttpResponseCode_Success) {
+                [weakSelf loginSuccessful];
+            }else if (retCode == DkyHttpResponseCode_NotLogin) {
+                // 用户未登录,弹出登录页面
+                [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            }else{
+                NSString *retMsg = result.msg;
+                [DKYHUDTool showErrorWithStatus:retMsg];
+            }
+        } failure:^(NSError *error) {
+            [DKYHUDTool dismiss];
+            [DKYHUDTool showErrorWithStatus:kNetworkError];
+        }];
+    });
+}
+
+#pragma mark - private method
+
+- (void)loginSuccessful{
+    DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
+    
+    [self wxs_presentViewController:mainVc makeTransition:^(WXSTransitionProperty *transition) {
+        transition.animationType = WXSTransitionAnimationTypeBrickOpenHorizontal;
+        transition.animationTime = 1.0;
+    } completion:^{
+        
+    }];
+}
+
 #pragma mark - action method
 
 - (void)loginBtnClicked:(UIButton*)sender{
-    [DKYHUDTool showWithStatus:@"Login..."];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [DKYHUDTool dismiss];
-        [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
-        DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
-        
-        [self wxs_presentViewController:mainVc makeTransition:^(WXSTransitionProperty *transition) {
-            transition.animationType = WXSTransitionAnimationTypeBrickOpenHorizontal;
-            transition.animationTime = 1.0;
-        } completion:^{
-            
-        }];
-    });
-    
+    [self login];
+//    [DKYHUDTool showWithStatus:@"Login..."];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [DKYHUDTool dismiss];
+////        [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
+//        DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
+//        
+//        [self wxs_presentViewController:mainVc makeTransition:^(WXSTransitionProperty *transition) {
+//            transition.animationType = WXSTransitionAnimationTypeBrickOpenHorizontal;
+//            transition.animationTime = 1.0;
+//        } completion:^{
+//            
+//        }];
+//    });
 }
 
 #pragma mark - 屏幕翻转就会调用
@@ -87,6 +131,10 @@
 #pragma clang diagnostic ignored "-Wnonnull"
     [self viewWillTransitionToSize:CGSizeMake(self.view.tw_width, self.view.tw_height) withTransitionCoordinator:nil];
 #pragma clang diagnostic pop
+    
+    
+    self.userNameTextField.text = @"nea@burgeon.com.cn";
+    self.passwordTextField.text = @"bos20";
 }
 
 - (void)setupTextField{

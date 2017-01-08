@@ -14,6 +14,7 @@
     // SVProgressHUD 配置
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
+    [SVProgressHUD setMinimumDismissTimeInterval:2.0];
     
     // 键盘处理
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
@@ -23,6 +24,10 @@
     manager.enableAutoToolbar = YES;
     manager.shouldShowTextFieldPlaceholder = NO;
     manager.toolbarTintColor = [UIColor colorWithHex:0x0074fb];
+    
+    // SDWebimage
+    SDImageCache * cache = [SDImageCache sharedImageCache];
+    cache.maxCacheAge = 60 * 60 * 24 * 365;
 }
 
 @end

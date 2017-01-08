@@ -10,12 +10,15 @@
 #import "DKYTabBarViewController.h"
 #import "UINavigationController+WXSTransition.h"
 #import "DKYLoginViewController.h"
+#import "DKYBootImageModel.h"
 
 @interface DKYGuidenceViewController ()<CAAnimationDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgrondImageView;
 @property (weak, nonatomic) IBOutlet UILabel *orderingSystemLabel;
 @property (weak, nonatomic) IBOutlet UIView *touchToContinueView;
+
+@property (nonatomic, strong) DKYBootImageModel *bootImageModel;
 
 @end
 
@@ -26,11 +29,42 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
+    
+    [self queryBootImageFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 网络请求
+- (void)queryBootImageFromServer{
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] queryValidUrlWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            NSArray *array = result.data;
+            weakSelf.bootImageModel = [ DKYBootImageModel mj_objectWithKeyValues:[array firstObject]];
+            [weakSelf updateBootImage];
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+#pragma mark - private method
+- (void)updateBootImage{
+    NSURL *imageUrl = [NSURL URLWithString:self.bootImageModel.imageurl];
+    [self.backgrondImageView sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"guidence_back_placeholder"]];
 }
 
 #pragma mark - action method

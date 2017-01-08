@@ -13,6 +13,7 @@
 #import "MMPopupItem.h"
 #import "MMSheetView.h"
 #import "MMPopupWindow.h"
+#import "DKYOrderInfoHeaderView.h"
 
 @interface DKYOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
 
@@ -104,7 +105,6 @@
     header.auditStatusBlock = ^(id sender){
         [weakSelf showAuditStatusSelectedPicker];
     };
-
 }
 
 
@@ -135,6 +135,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 60.0;
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    DKYOrderInfoHeaderView *header = [DKYOrderInfoHeaderView orderInfoHeaderViewWithTableView:tableView];
+    return header;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

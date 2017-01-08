@@ -8,13 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+//{
+//    "code": 200,
+//    "msg": "成功",
+//    "data": [],
+//    "success": true
+//}
+
 @interface DKYHttpRequestResult : NSObject
 
-@property (nonatomic, strong) NSNumber *retCode;
+@property (nonatomic, strong) NSNumber *code;
 
-@property (nonatomic, copy) NSString *retMsg;
+@property (nonatomic, copy) NSString *msg;
 
 @property (nonatomic, strong) id data;
+
+@property (nonatomic, assign, getter=isSuccess) BOOL success;
 
 @property (nonatomic, strong) NSNumber *totalCount;
 

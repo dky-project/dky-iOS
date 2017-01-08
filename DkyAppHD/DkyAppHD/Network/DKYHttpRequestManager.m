@@ -7,6 +7,7 @@
 //
 
 #import "DKYHttpRequestManager.h"
+#import "DKYHttpRequestParameter.h"
 
 static DKYHttpRequestManager *sharedInstance = nil;
 
@@ -18,6 +19,36 @@ static DKYHttpRequestManager *sharedInstance = nil;
 
 @implementation DKYHttpRequestManager
 
+- (void)queryValidUrlWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithNoAuthorizationToken:kQueryValidUrl withParameter:parameter Success:success failure:failure];
+}
+
+- (void)LoginUserWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithNoAuthorizationToken:kLoginUserUrl withParameter:parameter Success:success failure:failure];
+}
+
+
+#pragma mark - private method
+- (void)p_doPostWithNoAuthorizationToken:(NSString*)url withParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    NSDictionary *pDict = nil;
+    if(parameter){
+        pDict = parameter.mj_keyValues;
+    }
+    
+    [self.httpRequestTool doPost:url
+                           hDict:nil
+                      parameters:pDict
+                    successBlock:^(NSInteger statusCode, id data) {
+                        if(success){
+                            success(statusCode,data);
+                        }
+                    }
+                      errorBlock:^(NSError *error) {
+                          if(failure){
+                              failure(error);
+                          }
+                      }];
+}
 
 #pragma mark - 单例模式，获取DJDHttpRequestManager
 +(instancetype)sharedInstance

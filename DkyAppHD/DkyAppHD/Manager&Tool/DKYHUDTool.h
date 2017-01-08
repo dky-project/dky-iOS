@@ -16,6 +16,10 @@
 
 + (void)showWithStatus:(NSString*)status;
 
++ (void)showErrorWithStatus:(NSString*)status;
+
++ (void)showSuccessWithStatus:(NSString*)status;
+
 + (void)dismiss;
 
 @property (nonatomic, assign) DkyHUDUnderType HUDUnderType;

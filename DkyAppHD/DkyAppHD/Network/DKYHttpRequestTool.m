@@ -86,7 +86,7 @@
   successBlock:(DKYHttpRequestSuccessBlock)successblock
     errorBlock:(DKYHttpRequestErrorBlock)errorblock
 {
-    DLog(@"post url --- %@%@ \n post data--- %@",BASE_URL,urlString,pDict);
+    DLog(@"%@post url = %@%@ \npost data = %@%@",kLogStart,BASE_URL,urlString,pDict,kLogEnd);
     //填充HTTP custom header
     if (hDict !=nil) {
         NSArray *keys = [hDict allKeys];
@@ -101,7 +101,7 @@
                  progress:^(NSProgress * _Nonnull uploadProgress) {
                      
                  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                     DLog(@"response data for url --- %@  %@",urlString,responseObject);
+                     DLog(@"%@post url = %@%@ \npost data = %@%@",kLogStart,BASE_URL,urlString,responseObject,kLogEnd);
                      if (successblock) {
                          NSHTTPURLResponse *res = (NSHTTPURLResponse*)task.response;
                          successblock(res.statusCode,responseObject);

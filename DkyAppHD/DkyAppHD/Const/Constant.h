@@ -52,4 +52,8 @@ typedef void(^BlockWithSenderAndType)(id sender, NSInteger type);
 #define Lock() dispatch_semaphore_wait(self->_lock, DISPATCH_TIME_FOREVER)
 #define Unlock() dispatch_semaphore_signal(self->_lock)
 
+//消息通知
+#define kUserNotLoginNotification @"UserNotLoginNotification"
+
+
 #endif /* Constant_h */

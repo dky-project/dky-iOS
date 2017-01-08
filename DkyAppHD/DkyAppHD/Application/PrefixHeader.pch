@@ -46,6 +46,11 @@
 #import "TTTAttributedLabel.h"
 #import "iCarousel.h"
 #import "DKYHomeItemDelegate.h"
+#import "DKYHttpRequestManager.h"
+#import "DKYConstString.h"
+#import "DKYHttpRequestResult.h"
+#import "UIImageView+WebCache.h"
+#import "YYCache.h"
 #endif
 
 

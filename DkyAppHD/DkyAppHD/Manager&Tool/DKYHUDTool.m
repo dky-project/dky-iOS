@@ -26,4 +26,12 @@
     [SVProgressHUD dismiss];
 }
 
++ (void)showErrorWithStatus:(NSString*)status{
+    [SVProgressHUD showErrorWithStatus:status];
+}
+
++ (void)showSuccessWithStatus:(NSString*)status{
+    [SVProgressHUD showSuccessWithStatus:status];
+}
+
 @end

@@ -12,6 +12,10 @@
 // http 请求返回结果定义 retCode
 typedef NS_ENUM(NSInteger, DkyHttpResponseCode) {
     DkyHttpResponseCode_Unset = 0,
+    DkyHttpResponseCode_Success = 200,
+    
+    
+    DkyHttpResponseCode_NotLogin = -200,
 };
 
 // HUD 底层实现类型
