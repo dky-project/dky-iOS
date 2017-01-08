@@ -10,4 +10,7 @@
 
 @implementation DKYBootImageModel
 
+// NSCoding Implementation
+MJExtensionCodingImplementation
+
 @end

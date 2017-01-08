@@ -36,6 +36,7 @@ static DKYAccountManager *sharedInstance = nil;
 }
 
 - (NSString*)getAccessToken{
+    return nil;
     NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:kSSKeychainAccessToken];
     return accessToken;
 }

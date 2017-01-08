@@ -84,6 +84,7 @@
 		EB9790951E2245A000E2985C /* YYCache+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790931E2245A000E2985C /* YYCache+Utility.m */; };
 		EB9790971E22466200E2985C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9790961E22466200E2985C /* libsqlite3.tbd */; };
 		EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790991E2246F800E2985C /* DKYLoginUserRequestParameter.m */; };
+		EB97909D1E224CEE00E2985C /* SDWebImageManager+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97909C1E224CEE00E2985C /* SDWebImageManager+Utility.m */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
 		EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AD1E14E45200B4C568 /* Assets.xcassets */; };
 		EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */; };
@@ -293,6 +294,8 @@
 		EB9790961E22466200E2985C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		EB9790981E2246F800E2985C /* DKYLoginUserRequestParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYLoginUserRequestParameter.h; sourceTree = "<group>"; };
 		EB9790991E2246F800E2985C /* DKYLoginUserRequestParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYLoginUserRequestParameter.m; sourceTree = "<group>"; };
+		EB97909B1E224CEE00E2985C /* SDWebImageManager+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+Utility.h"; sourceTree = "<group>"; };
+		EB97909C1E224CEE00E2985C /* SDWebImageManager+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+Utility.m"; sourceTree = "<group>"; };
 		EBABE89E1E14E45200B4C568 /* DkyAppHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DkyAppHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBABE8AB1E14E45200B4C568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBABE8AD1E14E45200B4C568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 		263CC1381E1555E7002FBB50 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				EB97909B1E224CEE00E2985C /* SDWebImageManager+Utility.h */,
+				EB97909C1E224CEE00E2985C /* SDWebImageManager+Utility.m */,
 				EB9790941E2245A000E2985C /* YYCache+Utility.h */,
 				EB9790931E2245A000E2985C /* YYCache+Utility.m */,
 				EB9790841E22421400E2985C /* Foundation+Log.m */,
@@ -1235,6 +1240,7 @@
 				26DAD0D21E1A32D0008EE55F /* DKYAccountManager.m in Sources */,
 				EB9511AE1E164444008708EF /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
+				EB97909D1E224CEE00E2985C /* SDWebImageManager+Utility.m in Sources */,
 				EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */,
 				EBC3006E1E1CD8FE00F602E6 /* TWBaseViewController.m in Sources */,
 				EB9511A71E164444008708EF /* WXSPercentDrivenInteractiveTransition.m in Sources */,

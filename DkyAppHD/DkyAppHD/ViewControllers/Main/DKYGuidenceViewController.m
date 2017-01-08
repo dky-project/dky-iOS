@@ -12,6 +12,8 @@
 #import "DKYLoginViewController.h"
 #import "DKYBootImageModel.h"
 
+static NSString *const kPreviousBootImageModelKey = @"kPreviousBootImageModelKey";
+
 @interface DKYGuidenceViewController ()<CAAnimationDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgrondImageView;
@@ -19,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *touchToContinueView;
 
 @property (nonatomic, strong) DKYBootImageModel *bootImageModel;
+@property (nonatomic, strong) UIImage *placeholderImage;
 
 @end
 
@@ -48,6 +51,7 @@
             NSArray *array = result.data;
             weakSelf.bootImageModel = [ DKYBootImageModel mj_objectWithKeyValues:[array firstObject]];
             [weakSelf updateBootImage];
+            [[YYCache defaultCache] setObject:(id<NSCoding>)weakSelf.bootImageModel forKey:kPreviousBootImageModelKey];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -64,7 +68,7 @@
 #pragma mark - private method
 - (void)updateBootImage{
     NSURL *imageUrl = [NSURL URLWithString:self.bootImageModel.imageurl];
-    [self.backgrondImageView sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"guidence_back_placeholder"]];
+    [self.backgrondImageView sd_setImageWithURL:imageUrl placeholderImage:self.placeholderImage];
 }
 
 #pragma mark - action method
@@ -106,6 +110,16 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchContinue:)];
     [self.touchToContinueView addGestureRecognizer:tap];
+    
+    self.placeholderImage = [UIImage imageNamed:@"guidence_back_placeholder"];
+    
+    self.bootImageModel = (DKYBootImageModel*)[[YYCache defaultCache] objectForKey:kPreviousBootImageModelKey];
+    if(self.bootImageModel && self.bootImageModel.imageurl.length > 0){
+        UIImage *image = [[SDWebImageManager sharedManager] diskImageForUrl:self.bootImageModel.imageurl];
+        if(image){
+            self.placeholderImage = image;
+        }
+    }
 }
 
 #pragma mark - CAAnimationDelegate

@@ -51,6 +51,8 @@
             DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
             DkyHttpResponseCode retCode = [result.code integerValue];
             if (retCode == DkyHttpResponseCode_Success) {
+                [[DKYAccountManager sharedInstance] saveAccessToken:result.data];
+                [DKYHUDTool showSuccessWithStatus:@"登录成功"];
                 [weakSelf loginSuccessful];
             }else if (retCode == DkyHttpResponseCode_NotLogin) {
                 // 用户未登录,弹出登录页面

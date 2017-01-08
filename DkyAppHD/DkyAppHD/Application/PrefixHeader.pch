@@ -51,6 +51,8 @@
 #import "DKYHttpRequestResult.h"
 #import "UIImageView+WebCache.h"
 #import "YYCache.h"
+#import "YYCache+Utility.h"
+#import "SDWebImageManager+Utility.h"
 #endif
 
 
