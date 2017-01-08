@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,7 +32,7 @@
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCESSTORIES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKA-lC-1cE">
-                            <rect key="frame" x="137" y="25" width="110" height="15"/>
+                            <rect key="frame" x="137" y="70" width="110" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="hGQ-Fa-d3X"/>
                             </constraints>
@@ -41,14 +41,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAP-2H-P3J" userLabel="line">
-                            <rect key="frame" x="137" y="65" width="110" height="1"/>
+                            <rect key="frame" x="137" y="115" width="110" height="1"/>
                             <color key="backgroundColor" red="0.69019607839999997" green="0.6705882353" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="9UM-is-a12"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nor again is there any who loves or pursures or designs." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDj-bf-AHP" customClass="TTTAttributedLabel">
-                            <rect key="frame" x="75" y="116" width="234.5" height="36"/>
+                            <rect key="frame" x="75" y="146" width="234.5" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -58,13 +58,13 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Kg4-ro-Xln" secondAttribute="trailing" id="Cyw-0Z-aYH"/>
                         <constraint firstItem="Kg4-ro-Xln" firstAttribute="leading" secondItem="ipT-Vt-ciM" secondAttribute="leading" id="Dlc-YF-1ce"/>
-                        <constraint firstItem="wAP-2H-P3J" firstAttribute="top" secondItem="cKA-lC-1cE" secondAttribute="bottom" constant="25" id="LBR-GD-hEP"/>
-                        <constraint firstItem="HDj-bf-AHP" firstAttribute="top" secondItem="wAP-2H-P3J" secondAttribute="bottom" constant="50" id="PTf-5d-Tb6"/>
+                        <constraint firstItem="wAP-2H-P3J" firstAttribute="top" secondItem="cKA-lC-1cE" secondAttribute="bottom" constant="30" id="LBR-GD-hEP"/>
+                        <constraint firstItem="HDj-bf-AHP" firstAttribute="top" secondItem="wAP-2H-P3J" secondAttribute="bottom" constant="30" id="PTf-5d-Tb6"/>
                         <constraint firstAttribute="bottom" secondItem="Kg4-ro-Xln" secondAttribute="bottom" id="SNv-Do-6BV"/>
                         <constraint firstItem="wAP-2H-P3J" firstAttribute="width" secondItem="cKA-lC-1cE" secondAttribute="width" id="Y2P-p0-Sky"/>
                         <constraint firstItem="cKA-lC-1cE" firstAttribute="centerX" secondItem="ipT-Vt-ciM" secondAttribute="centerX" id="joO-US-rpA"/>
                         <constraint firstItem="wAP-2H-P3J" firstAttribute="centerX" secondItem="ipT-Vt-ciM" secondAttribute="centerX" id="kYp-hN-M1z"/>
-                        <constraint firstItem="cKA-lC-1cE" firstAttribute="top" secondItem="ipT-Vt-ciM" secondAttribute="top" constant="25" id="uw4-Yj-xct"/>
+                        <constraint firstItem="cKA-lC-1cE" firstAttribute="top" secondItem="ipT-Vt-ciM" secondAttribute="top" constant="70" id="uw4-Yj-xct"/>
                         <constraint firstItem="HDj-bf-AHP" firstAttribute="leading" secondItem="ipT-Vt-ciM" secondAttribute="leading" constant="75" id="wnJ-ui-ifw"/>
                         <constraint firstAttribute="trailing" secondItem="HDj-bf-AHP" secondAttribute="trailing" constant="75" id="y8t-bF-Zdw"/>
                     </constraints>

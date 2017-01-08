@@ -15,4 +15,6 @@
 
 - (void)updateTransform:(CATransform3D)transform;
 
+- (void)updateFrame:(BOOL)sacle;
+
 @end

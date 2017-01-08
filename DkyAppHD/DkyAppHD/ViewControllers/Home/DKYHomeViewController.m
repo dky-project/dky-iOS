@@ -43,11 +43,19 @@
         case 0:
         case 2:{
             view = [DKYHomeItemView homeItemView];
+            if(index == 0){
+                id<DKYHomeItemDelegate> itemView = (id<DKYHomeItemDelegate>)view;
+                self.previousItemView = itemView;
+            }
         }
             break;
         case 1:
         case 3:{
             view = [DKYHomeItemTwoView homeItemTwoView];
+            if(index == 1){
+                id<DKYHomeItemDelegate> itemView = (id<DKYHomeItemDelegate>)view;
+                [itemView updateFrame:NO];
+            }
         }
             break;
             
@@ -129,10 +137,12 @@
 //    [self.previousItemView updateTransform:transform];
 //    
     [self.previousItemView hideReadMoreBtn:YES];
+    [self.previousItemView updateFrame:YES];
     
     id<DKYHomeItemDelegate> itemView = (id<DKYHomeItemDelegate>)carousel.currentItemView;
     if([itemView respondsToSelector:@selector(hideReadMoreBtn:)]){
         [itemView hideReadMoreBtn:NO];
+        [itemView updateFrame:NO];
     }
     self.previousItemView = itemView;
     NSLog(@"Index: %@", @(self.iCarousel.currentItemIndex));

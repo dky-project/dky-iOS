@@ -49,6 +49,17 @@
 //
 //}
 
+- (void)updateFrame:(BOOL)scale{
+    // scale yes 缩小
+    if(scale){
+        self.titleLabel.layer.transform  = CATransform3DScale(CATransform3DIdentity, 1.0, 2.0, 1.0);
+        self.contentLabel.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.0, 2.0, 1.0);
+    }else{
+        self.titleLabel.layer.transform  = CATransform3DIdentity;
+        self.contentLabel.layer.transform = CATransform3DIdentity;
+    }
+}
+
 #pragma mark - UI
 - (void)commonInit{
     self.imageView.image = [UIImage imageNamed:@"homeImage2"];

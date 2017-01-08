@@ -351,10 +351,10 @@
 				EB41AC491E1F9DF60015A7CF /* DKYHomeItemView.h */,
 				EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */,
 				EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */,
-				267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */,
 				267CED4A1E20EF2E00ED5872 /* DKYHomeItemTwoView.h */,
 				267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */,
 				267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */,
+				267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
