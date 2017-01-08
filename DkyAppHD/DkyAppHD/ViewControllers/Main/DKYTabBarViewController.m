@@ -11,13 +11,14 @@
 #import "DKYHomeViewController.h"
 #import "DKYNavigationController.h"
 #import "DKYSampleQueryViewController.h"
+#import "DKYOrderInquiryViewController.h"
 
 @interface DKYTabBarViewController ()<UITabBarControllerDelegate>
 
 @property (nonatomic, weak) DKYHomeViewController *homeVc;
 @property (nonatomic, weak) DKYSampleQueryViewController *sampleQueryVc;
 @property (nonatomic, weak) UIViewController *customOrderVc;
-@property (nonatomic, weak) UIViewController *orderInquiryVc;
+@property (nonatomic, weak) DKYOrderInquiryViewController *orderInquiryVc;
 
 @end
 
@@ -100,7 +101,7 @@
     [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_message_center" selectedImageName:@"tabbar_message_center_selected"];
     self.customOrderVc = customOrderVc;
     
-    UIViewController *orderInquiryVc = [[UIViewController alloc] init];
+    DKYOrderInquiryViewController *orderInquiryVc = [[DKYOrderInquiryViewController alloc] init];
     [self addOneChlildVc:orderInquiryVc title:@"订单查询" imageName:@"tabbar_profile" selectedImageName:@"tabbar_profile_selected"];
     self.orderInquiryVc = orderInquiryVc;
 }
