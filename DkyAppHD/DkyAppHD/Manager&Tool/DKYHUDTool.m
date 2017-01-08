@@ -34,4 +34,12 @@
     [SVProgressHUD showSuccessWithStatus:status];
 }
 
++ (void)showInfoWithStatus:(NSString*)status{
+    [SVProgressHUD showInfoWithStatus:status];
+}
+
++ (MBProgressHUD *)showInformation:(NSString*)message toView:(UIView *)view{
+    return [MBProgressHUD showInformation:message toView:view];
+}
+
 @end

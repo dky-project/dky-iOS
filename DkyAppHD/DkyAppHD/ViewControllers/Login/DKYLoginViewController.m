@@ -81,9 +81,25 @@
     }];
 }
 
+- (BOOL)checkLoginStatus{
+    if(self.userNameTextField.text.length == 0){
+        [DKYHUDTool showInformation:@"登录名不能为空" toView:self.view];
+        return NO;
+    }
+    
+    if(self.passwordTextField.text.length == 0){
+        [DKYHUDTool showInformation:@"密码不能为空" toView:self.view];
+        return NO;
+    }
+    
+    return YES;
+}
+
 #pragma mark - action method
 
 - (void)loginBtnClicked:(UIButton*)sender{
+    if(![self checkLoginStatus]) return;
+    
     [self login];
 //    [DKYHUDTool showWithStatus:@"Login..."];
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

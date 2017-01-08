@@ -20,7 +20,11 @@
 
 + (void)showSuccessWithStatus:(NSString*)status;
 
++ (void)showInfoWithStatus:(NSString*)status;
+
 + (void)dismiss;
+
++ (MBProgressHUD *)showInformation:(NSString*)message toView:(UIView *)view;
 
 @property (nonatomic, assign) DkyHUDUnderType HUDUnderType;
 @end

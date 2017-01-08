@@ -10,28 +10,6 @@
 
 @implementation MBProgressHUD (Utility)
 
-#pragma mark 显示信息
-+ (void)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
-{
-    if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.label.text = text;
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
-    hud.mode = MBProgressHUDModeCustomView;
-    hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:1.0];
-}
-
-#pragma mark 显示错误信息
-+ (void)showError:(NSString *)error toView:(UIView *)view{
-    [self show:error icon:@"error.png" view:view];
-}
-
-+ (void)showSuccess:(NSString *)success toView:(UIView *)view
-{
-    [self show:success icon:@"success.png" view:view];
-}
-
 #pragma mark 显示一些信息
 + (MBProgressHUD *)showMessage:(NSString *)message toView:(UIView *)view {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
@@ -54,12 +32,36 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.mode = MBProgressHUDModeText;
     hud.detailsLabel.text= message;
-    hud.detailsLabel.font = [UIFont systemFontOfSize:16];
-    hud.bezelView.color = [UIColor colorWithWhite:0.1 alpha:0.7];
-    hud.minSize = CGSizeMake(180, 49);
-    hud.bezelView.layer.cornerRadius = 10.0;
+    hud.detailsLabel.font = [UIFont systemFontOfSize:15];
+    hud.minSize = CGSizeMake(180, 40);
+    hud.bezelView.layer.cornerRadius = 5;
     [hud hideAnimated:YES afterDelay:1.7];
+    
+    //    hud.bezelView.color = [UIColor colorWithWhite:0.1 alpha:0.7];
+    
     return hud;
+}
+
+#pragma mark 显示信息
++ (void)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
+{
+    if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.label.text = text;
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hideAnimated:YES afterDelay:1.0];
+}
+
+#pragma mark 显示错误信息
++ (void)showError:(NSString *)error toView:(UIView *)view{
+    [self show:error icon:@"error.png" view:view];
+}
+
++ (void)showSuccess:(NSString *)success toView:(UIView *)view
+{
+    [self show:success icon:@"success.png" view:view];
 }
 
 + (void)showSuccess:(NSString *)success
