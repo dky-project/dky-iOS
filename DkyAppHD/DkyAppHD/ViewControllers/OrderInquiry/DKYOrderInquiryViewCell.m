@@ -121,13 +121,13 @@
     self.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
     
     [self setupRectImageView];
-//    [self setupOrderNumberLabel];
-//    [self setupSerialNumberLabel];
-//    [self setupSourceOfSampleLabel];
-//    [self setupClientLabel];
-//    [self setupFaxDateLabel];
-//    [self setupStyleLabel];
-//    [self setupSizeLabel];
+    [self setupOrderNumberLabel];
+    [self setupSerialNumberLabel];
+    [self setupSourceOfSampleLabel];
+    [self setupClientLabel];
+    [self setupFaxDateLabel];
+    [self setupStyleLabel];
+    [self setupSizeLabel];
     [self setupLengthLabel];
     
 }
@@ -182,8 +182,7 @@
     [label sizeToFit];
     
     [self.contentView addSubview:label];
-    self.faxDateLabel = label;
-    
+
     label.text = name;
     return label;
 }

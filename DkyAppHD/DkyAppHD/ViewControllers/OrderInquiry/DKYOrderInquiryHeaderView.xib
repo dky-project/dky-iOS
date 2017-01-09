@@ -144,80 +144,16 @@
                                 <constraint firstAttribute="width" constant="11" id="mJR-BQ-jiw"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="序号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXn-61-srU">
-                            <rect key="frame" x="81" y="23.5" width="25" height="14.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="编号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syI-dE-vui">
-                            <rect key="frame" x="166" y="23" width="25" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来源样衣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buf-RB-pR3">
-                            <rect key="frame" x="236" y="23" width="50" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyd-yd-rGT">
-                            <rect key="frame" x="331" y="23" width="25" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="传真日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmM-nS-daE">
-                            <rect key="frame" x="401" y="22" width="50" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="式样" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xU-U4-XDO">
-                            <rect key="frame" x="496" y="22" width="25" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIn-Kb-8r9">
-                            <rect key="frame" x="591" y="23" width="13" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BH-vj-eWb">
-                            <rect key="frame" x="674" y="23" width="13" height="14"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="eIn-Kb-8r9" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="0CO-S9-uUf"/>
-                        <constraint firstItem="7BH-vj-eWb" firstAttribute="leading" secondItem="eIn-Kb-8r9" secondAttribute="trailing" constant="70" id="48W-VV-O7i"/>
-                        <constraint firstItem="7BH-vj-eWb" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="4dm-mK-Gb1"/>
-                        <constraint firstItem="8xU-U4-XDO" firstAttribute="leading" secondItem="hmM-nS-daE" secondAttribute="trailing" constant="45" id="8qD-Ur-TIN"/>
-                        <constraint firstItem="AXn-61-srU" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="A86-CM-ZK7"/>
-                        <constraint firstItem="syI-dE-vui" firstAttribute="leading" secondItem="AXn-61-srU" secondAttribute="trailing" constant="60" id="Aaz-4Q-eFP"/>
-                        <constraint firstItem="hmM-nS-daE" firstAttribute="leading" secondItem="oyd-yd-rGT" secondAttribute="trailing" constant="45" id="AwN-aW-J3R"/>
-                        <constraint firstItem="hmM-nS-daE" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="KKI-4p-xdc"/>
-                        <constraint firstItem="AXn-61-srU" firstAttribute="leading" secondItem="Mqn-JB-hkv" secondAttribute="trailing" constant="48" id="Kxo-Qg-hdv"/>
-                        <constraint firstItem="buf-RB-pR3" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="PUY-kg-bhL"/>
-                        <constraint firstItem="eIn-Kb-8r9" firstAttribute="leading" secondItem="8xU-U4-XDO" secondAttribute="trailing" constant="70" id="RiH-xu-WTM"/>
                         <constraint firstItem="Mqn-JB-hkv" firstAttribute="leading" secondItem="LVu-jE-9bc" secondAttribute="leading" constant="22" id="W3X-do-GtM"/>
-                        <constraint firstItem="buf-RB-pR3" firstAttribute="leading" secondItem="syI-dE-vui" secondAttribute="trailing" constant="45" id="a2k-OI-636"/>
-                        <constraint firstItem="syI-dE-vui" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="ak9-vj-Jhg"/>
-                        <constraint firstItem="oyd-yd-rGT" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="bEO-Vo-0kq"/>
                         <constraint firstItem="Mqn-JB-hkv" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="dPu-Em-cfL"/>
-                        <constraint firstItem="oyd-yd-rGT" firstAttribute="leading" secondItem="buf-RB-pR3" secondAttribute="trailing" constant="45" id="ffr-Ag-pbU"/>
-                        <constraint firstItem="8xU-U4-XDO" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="gmJ-3p-Uoc"/>
                         <constraint firstAttribute="height" constant="60" id="oiu-Ar-U6Q"/>
                     </constraints>
                     <connections>
-                        <outlet property="clientLabel" destination="oyd-yd-rGT" id="VHn-FF-FIk"/>
-                        <outlet property="faxDateLabel" destination="hmM-nS-daE" id="9FM-Yk-pYD"/>
                         <outlet property="imageView" destination="Mqn-JB-hkv" id="smc-6T-Xpm"/>
-                        <outlet property="lengthLabel" destination="7BH-vj-eWb" id="Fbu-tO-aZn"/>
-                        <outlet property="orderNumberLabel" destination="AXn-61-srU" id="27u-xB-KIv"/>
                         <outlet property="rectImageView" destination="Mqn-JB-hkv" id="vNu-kY-kmY"/>
-                        <outlet property="serialNumberLabel" destination="syI-dE-vui" id="Z1r-ol-MVM"/>
-                        <outlet property="sizeLabel" destination="eIn-Kb-8r9" id="52a-2y-cY5"/>
-                        <outlet property="sourceOfSampleLabel" destination="buf-RB-pR3" id="o9T-92-h9h"/>
-                        <outlet property="styleLabel" destination="8xU-U4-XDO" id="vz0-JT-PV1"/>
                     </connections>
                 </view>
             </subviews>

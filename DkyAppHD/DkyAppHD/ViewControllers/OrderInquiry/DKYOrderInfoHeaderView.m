@@ -78,16 +78,99 @@
     UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
     image = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
     self.imageView.image = image;
-
-    [self.orderNumberLabel sizeToFit];
-    [self.serialNumberLabel sizeToFit];
-    [self.sourceOfSampleLabel sizeToFit];
-    [self.clientLabel sizeToFit];
-    [self.faxDateLabel sizeToFit];
-    [self.styleLabel sizeToFit];
-    [self.sizeLabel sizeToFit];
-    [self.lengthLabel sizeToFit];
     
+    [self setupOrderNumberLabel];
+    [self setupSerialNumberLabel];
+    [self setupSourceOfSampleLabel];
+    [self setupClientLabel];
+    [self setupFaxDateLabel];
+    [self setupStyleLabel];
+    [self setupSizeLabel];
+    [self setupLengthLabel];
+}
+
+- (void)setupOrderNumberLabel{
+    WeakSelf(weakSelf);
+    self.orderNumberLabel = [self createLabelWithName:@"序号"];
+    [self.orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.imageView.mas_right).with.offset(48);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupSerialNumberLabel{
+    WeakSelf(weakSelf);
+    self.serialNumberLabel = [self createLabelWithName:@"编号"];
+    [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(60);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupSourceOfSampleLabel{
+    WeakSelf(weakSelf);
+    self.sourceOfSampleLabel = [self createLabelWithName:@"来源样衣"];
+    [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.serialNumberLabel.mas_right).with.offset(45);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupClientLabel{
+    WeakSelf(weakSelf);
+    self.clientLabel = [self createLabelWithName:@"客户"];
+    [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(45);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupFaxDateLabel{
+    WeakSelf(weakSelf);
+    self.faxDateLabel = [self createLabelWithName:@"传真日期"];
+    [self.faxDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.clientLabel.mas_right).with.offset(45);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupStyleLabel{
+    WeakSelf(weakSelf);
+    self.styleLabel = [self createLabelWithName:@"式样"];
+    [self.styleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.faxDateLabel.mas_right).with.offset(45);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupSizeLabel{
+    WeakSelf(weakSelf);
+    self.sizeLabel = [self createLabelWithName:@"大"];
+    [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleLabel.mas_right).with.offset(70);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupLengthLabel{
+    WeakSelf(weakSelf);
+    self.lengthLabel = [self createLabelWithName:@"长"];
+    [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(70);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (UILabel*)createLabelWithName:(NSString*)name{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont systemFontOfSize:12];
+    label.textAlignment = NSTextAlignmentCenter;
+    [label sizeToFit];
+    
+    [self addSubview:label];
+    label.text = name;
+    return label;
 }
 
 @end
