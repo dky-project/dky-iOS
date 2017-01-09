@@ -11,6 +11,8 @@
 
 @interface DKYSampleQueryViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *sampleNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sampleIdLabel;
 
 @end
 
@@ -26,6 +28,8 @@
     _itemModel = itemModel;
     NSURL *imageUrl = [NSURL URLWithString:itemModel.imgUrl1];
     [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
+    self.sampleNameLabel.text = itemModel.name;
+    self.sampleIdLabel.text = itemModel.sampleId;
 }
 
 #pragma mark - UI

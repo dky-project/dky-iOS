@@ -10,4 +10,8 @@
 
 @implementation DKYSampleModel
 
+- (void)mj_keyValuesDidFinishConvertingToObject{
+    self.sampleId = [NSString stringWithFormat:@"%@",@(self.mProductId)];
+}
+
 @end

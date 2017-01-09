@@ -14,4 +14,7 @@
 @property (nonatomic, assign) NSInteger mProductId;
 @property (nonatomic, copy) NSString * name;
 
+// 客户端自己的属性
+@property (nonatomic, copy) NSString *sampleId;
+
 @end
