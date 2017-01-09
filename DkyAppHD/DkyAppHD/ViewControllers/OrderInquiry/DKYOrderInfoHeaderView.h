@@ -12,4 +12,14 @@
 
 + (instancetype)orderInfoHeaderViewWithTableView:(UITableView *)tableView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *rectImageView;
+@property (weak, nonatomic) IBOutlet UILabel *orderNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sourceOfSampleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *clientLabel;
+@property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *styleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
+
 @end

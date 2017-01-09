@@ -18,13 +18,23 @@
 @implementation DKYOrderInfoHeaderView
 
 + (instancetype)orderInfoHeaderViewWithTableView:(UITableView *)tableView{
-    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil].lastObject;
+//    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil].lastObject;
+    return [[DKYOrderInfoHeaderView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)awakeFromNib{
     [super awakeFromNib];
     
     [self commonInit];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -68,6 +78,16 @@
     UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
     image = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
     self.imageView.image = image;
+
+    [self.orderNumberLabel sizeToFit];
+    [self.serialNumberLabel sizeToFit];
+    [self.sourceOfSampleLabel sizeToFit];
+    [self.clientLabel sizeToFit];
+    [self.faxDateLabel sizeToFit];
+    [self.styleLabel sizeToFit];
+    [self.sizeLabel sizeToFit];
+    [self.lengthLabel sizeToFit];
+    
 }
 
 @end

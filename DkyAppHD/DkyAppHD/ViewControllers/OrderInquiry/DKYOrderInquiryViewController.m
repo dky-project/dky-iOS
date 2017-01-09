@@ -14,11 +14,14 @@
 #import "MMSheetView.h"
 #import "MMPopupWindow.h"
 #import "DKYOrderInfoHeaderView.h"
+#import "DKYOrderInquiryViewCell.h"
 
 @interface DKYOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, weak) DKYOrderInquiryHeaderView *headerView;
+
+@property (nonatomic, strong) DKYOrderInfoHeaderView *sectionHeaderView;
 
 @property (nonatomic,strong) WGBDatePickerView *datePickView;
 
@@ -96,7 +99,7 @@
     }];
     
     DKYOrderInquiryHeaderView *header = [DKYOrderInquiryHeaderView orderInquiryHeaderView];
-    header.bounds = CGRectMake(0, 0, kScreenWidth, 240);
+    header.bounds = CGRectMake(0, 0, kScreenWidth, 300);
     self.tableView.tableHeaderView = header;
     self.headerView = header;
     
@@ -132,32 +135,26 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return 50;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 60.0;
+    return CGFLOAT_MIN;
 }
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    DKYOrderInfoHeaderView *header = [DKYOrderInfoHeaderView orderInfoHeaderViewWithTableView:tableView];
-    return header;
+    return nil;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellID = @"testCellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
-    cell.textLabel.text = @"测试数据";
+    DKYOrderInquiryViewCell *cell = [DKYOrderInquiryViewCell orderInquiryViewCellWithTableView:tableView];
+    cell.headerView = self.headerView;
     return cell;
 }
 
@@ -186,6 +183,14 @@
         _datePickView.title =@"传真日期";
     }
     return _datePickView;
+}
+
+- (DKYOrderInfoHeaderView*)sectionHeaderView{
+    if(_sectionHeaderView == nil){
+        DKYOrderInfoHeaderView *header = [DKYOrderInfoHeaderView orderInfoHeaderViewWithTableView:nil];
+        self.sectionHeaderView = header;
+    }
+    return _sectionHeaderView;
 }
 
 @end

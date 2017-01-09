@@ -39,6 +39,7 @@
 		EB506C351E23706F002A1423 /* DKYHomeArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C2F1E23706F002A1423 /* DKYHomeArticleModel.m */; };
 		EB506C361E23706F002A1423 /* DKYPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C311E23706F002A1423 /* DKYPageModel.m */; };
 		EB506C371E23706F002A1423 /* DKYSampleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C331E23706F002A1423 /* DKYSampleModel.m */; };
+		EB506C3D1E237AA7002A1423 /* DKYOrderInquiryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C3C1E237AA7002A1423 /* DKYOrderInquiryViewCell.m */; };
 		EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */; };
 		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
 		EB9510871E160321008708EF /* DKYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9510861E160321008708EF /* DKYTabBar.m */; };
@@ -207,6 +208,8 @@
 		EB506C311E23706F002A1423 /* DKYPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYPageModel.m; sourceTree = "<group>"; };
 		EB506C321E23706F002A1423 /* DKYSampleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleModel.h; sourceTree = "<group>"; };
 		EB506C331E23706F002A1423 /* DKYSampleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleModel.m; sourceTree = "<group>"; };
+		EB506C3B1E237AA7002A1423 /* DKYOrderInquiryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInquiryViewCell.h; sourceTree = "<group>"; };
+		EB506C3C1E237AA7002A1423 /* DKYOrderInquiryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInquiryViewCell.m; sourceTree = "<group>"; };
 		EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		EB95107A1E15FA27008708EF /* DKYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTabBarViewController.h; sourceTree = "<group>"; };
@@ -691,6 +694,8 @@
 				EB97907A1E22371B00E2985C /* DKYOrderInfoHeaderView.h */,
 				EB97907B1E22371B00E2985C /* DKYOrderInfoHeaderView.m */,
 				EB97907D1E22373500E2985C /* DKYOrderInfoHeaderView.xib */,
+				EB506C3B1E237AA7002A1423 /* DKYOrderInquiryViewCell.h */,
+				EB506C3C1E237AA7002A1423 /* DKYOrderInquiryViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1302,6 +1307,7 @@
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
 				EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */,
 				EB9511AD1E164444008708EF /* WXSTransitionManager+PageAnimation.m in Sources */,
+				EB506C3D1E237AA7002A1423 /* DKYOrderInquiryViewCell.m in Sources */,
 				EB9511A81E164444008708EF /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				EB506C351E23706F002A1423 /* DKYHomeArticleModel.m in Sources */,
 				EB9790571E22158100E2985C /* UUDatePicker_DateModel.m in Sources */,

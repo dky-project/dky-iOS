@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DKYOrderInfoHeaderView.h"
 
 @interface DKYOrderInquiryHeaderView : UIView
 
@@ -22,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *batchPreviewBtn;
 @property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *auditStatusLabel;
+@property (weak, nonatomic) IBOutlet DKYOrderInfoHeaderView *bottomHeaderView;
 
 @end
