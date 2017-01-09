@@ -52,6 +52,9 @@
 - (void)showAuditStatusSelectedPicker{
     MMPopupItemHandler block = ^(NSInteger index){
         DLog(@"clickd %@ button",@(index));
+        if(index == 3){
+            [[DKYAccountManager sharedInstance] deleteAccesToken];
+        }
     };
     NSArray *items =
     @[MMItemMake(@"审核中", MMItemTypeNormal, block),

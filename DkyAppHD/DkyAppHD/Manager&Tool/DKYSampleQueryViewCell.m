@@ -7,6 +7,7 @@
 //
 
 #import "DKYSampleQueryViewCell.h"
+#import "DKYSampleModel.h"
 
 @interface DKYSampleQueryViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -21,8 +22,10 @@
     [self commonInit];
 }
 
-- (void)setItemModel:(NSObject *)itemModel{
-    self.imageView.image = (UIImage*)itemModel;
+- (void)setItemModel:(DKYSampleModel *)itemModel{
+    _itemModel = itemModel;
+    NSURL *imageUrl = [NSURL URLWithString:itemModel.imgUrl1];
+    [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
 }
 
 #pragma mark - UI

@@ -59,6 +59,11 @@ static DKYAccountManager *sharedInstance = nil;
     return accessToken;
 }
 
+- (void)deleteAccesToken{
+    [[YYCache defaultCache] removeObjectForKey:kSSKeychainAccessTokenWithNoBearer];
+    [[YYCache defaultCache] removeObjectForKey:kSSKeychainAccessToken];
+}
+
 - (BOOL)isLogin{
     NSString *accessToken = [self getAccessToken];
     

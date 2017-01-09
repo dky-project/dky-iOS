@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYSampleModel;
 @interface DKYSampleQueryViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) NSObject *itemModel;
+@property (nonatomic, strong) DKYSampleModel *itemModel;
 
 @end

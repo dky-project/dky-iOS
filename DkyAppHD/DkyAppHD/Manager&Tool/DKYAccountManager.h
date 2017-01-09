@@ -16,5 +16,6 @@
 
 - (void)saveAccessToken:(NSString*)accessToken;
 - (NSString*)getAccessToken;
+- (void)deleteAccesToken;
 - (BOOL)isLogin;
 @end

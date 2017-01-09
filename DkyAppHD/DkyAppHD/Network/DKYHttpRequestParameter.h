@@ -31,4 +31,8 @@
 @property (nonatomic, copy) NSString *net;
 @property (nonatomic, copy) NSString *appid;
 
+// 分页用到的参数
+@property (nonatomic, strong) NSNumber *pageSize;
+@property (nonatomic, strong) NSNumber *pageNo;
+
 @end

@@ -25,6 +25,10 @@
 
 @property (nonatomic, strong) NSMutableArray *samples;
 
+@property (nonatomic, assign) NSInteger pageNum;
+
+
+
 // 测试数据
 @property (nonatomic, assign) NSInteger sampleCount;
 
@@ -37,8 +41,6 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
-    
-    [self getProductPageFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,8 +74,12 @@
 #pragma mark - 网络请求
 - (void)getProductPageFromServer{
     WeakSelf(weakSelf);
-    [DKYHUDTool show];
-    [[DKYHttpRequestManager sharedInstance] productPageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    self.pageNum = 1;
+    p.pageNo = @(self.pageNum);
+    p.pageSize = @(kPageSize);
+
+    [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
@@ -81,6 +87,8 @@
             NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.samples removeAllObjects];
             [weakSelf.samples addObjectsFromArray:samples];
+            [weakSelf.collectionView.mj_header endRefreshing];
+            [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -88,9 +96,37 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
-        [DKYHUDTool dismiss];
     } failure:^(NSError *error) {
-        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)loadMoreProductPageFromServer{
+    WeakSelf(weakSelf);
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    NSInteger pageNum = self.pageNum;
+    p.pageNo = @(++pageNum);
+    p.pageSize = @(kPageSize);
+    
+    [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf.samples addObjectsFromArray:samples];
+            weakSelf.pageNum++;
+            [weakSelf.collectionView.mj_footer endRefreshing];
+            [weakSelf.collectionView reloadData];
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
@@ -155,11 +191,11 @@
     [self setupSearchView];
     [self setupFiltrateView];
     
-    for (int i = 1; i < 6; ++i) {
-        NSString *imageName = [NSString stringWithFormat:@"sampleImage%@",@(i)];
-        UIImage *image = [UIImage imageNamed:imageName];
-        [self.samples addObject:image];
-    }
+//    for (int i = 1; i < 6; ++i) {
+//        NSString *imageName = [NSString stringWithFormat:@"sampleImage%@",@(i)];
+//        UIImage *image = [UIImage imageNamed:imageName];
+//        [self.samples addObject:image];
+//    }
 }
 
 - (void)setupCollectionView{
@@ -250,9 +286,7 @@
     WeakSelf(weakSelf);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.sampleCount = 20;
-            [weakSelf.collectionView.mj_header endRefreshing];
-            [weakSelf.collectionView reloadData];
+            [weakSelf getProductPageFromServer];
         });
     }];
     header.lastUpdatedTimeKey = [NSString stringWithFormat:@"%@Key",[self class]];
@@ -260,9 +294,7 @@
     
     MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(){
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.sampleCount += 20;
-            [weakSelf.collectionView.mj_footer endRefreshing];
-            [weakSelf.collectionView reloadData];
+            [weakSelf loadMoreProductPageFromServer];
         });
     }];
     footer.automaticallyHidden = YES;
@@ -278,13 +310,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.sampleCount;
+    return self.samples.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYSampleQueryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYSampleQueryViewCell class]) forIndexPath:indexPath];
-    cell.itemModel = [self.samples randomObject];
+    cell.itemModel = [self.samples objectOrNilAtIndex:indexPath.item];
     return cell;
 }
 

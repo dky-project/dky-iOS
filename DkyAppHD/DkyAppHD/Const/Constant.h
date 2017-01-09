@@ -32,7 +32,7 @@
 #define kTabBarHeight              (49)
 #define kNavigationBarHeight       (64)
 
-#define PageSize @"20"
+#define kPageSize                   (20)
 #define iOS_VER [[[UIDevice currentDevice] systemVersion] floatValue]
 
 #define WeakSelf(weakSelf)      __weak __typeof(&*self)weakSelf = self;
