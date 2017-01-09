@@ -20,8 +20,14 @@
 // 接口
 #define kQueryValidUrl                  @"boot/queryValid"              // 查询启动页
 
+// 首页
+#define kArticlePageUrl                 @"article/page"                 // 首页
 
 
+// 样衣查询
+#define kProductPageUrl                 @"product/page"                 // 样衣查询
+
+// 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
 
 #endif /* DKYHttpUrl_h */

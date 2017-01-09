@@ -51,9 +51,11 @@
             DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
             DkyHttpResponseCode retCode = [result.code integerValue];
             if (retCode == DkyHttpResponseCode_Success) {
-                [[DKYAccountManager sharedInstance] saveAccessToken:result.data];
                 [DKYHUDTool showSuccessWithStatus:@"登录成功"];
-                [weakSelf loginSuccessful];
+                [[DKYAccountManager sharedInstance] saveAccessToken:result.data];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weakSelf loginSuccessful];
+                });
             }else if (retCode == DkyHttpResponseCode_NotLogin) {
                 // 用户未登录,弹出登录页面
                 [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -139,7 +141,7 @@
 #pragma mark - Ui
 
 - (void)commonInit{
-    self.backgroundInageView.image = [UIImage imageWithColor:[UIColor randomColor]];
+    self.backgroundInageView.image = [UIImage imageNamed:@"guidence_back_placeholder"];
     
     [self setupTextField];
     

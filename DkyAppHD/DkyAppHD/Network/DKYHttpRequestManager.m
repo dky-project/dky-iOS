@@ -23,12 +23,50 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithNoAuthorizationToken:kQueryValidUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)articlePageWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kArticlePageUrl withParameter:parameter Success:success failure:failure];
+}
+
+- (void)productPageWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kProductPageUrl withParameter:parameter Success:success failure:failure];
+}
+
 - (void)LoginUserWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithNoAuthorizationToken:kLoginUserUrl withParameter:parameter Success:success failure:failure];
 }
 
 
 #pragma mark - private method
+- (void)p_doPostWithAuthorizationToken:(NSString*)url withParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    NSDictionary *pDict = nil;
+    if(parameter){
+        pDict = [parameter mj_keyValues];
+    }
+    
+    NSDictionary *hDict = nil;
+    NSString *accessTokenWithBearer = [[DKYAccountManager sharedInstance] getAccessToken];
+    if (accessTokenWithBearer)
+    {
+        DLog(@"Authorization = %@",accessTokenWithBearer);
+        hDict = @{@"Authorization":accessTokenWithBearer};
+    }
+    
+    [self.httpRequestTool doPost:url
+                           hDict:hDict
+                      parameters:pDict
+                    successBlock:^(NSInteger statusCode, id data) {
+                        if(success){
+                            success(statusCode,data);
+                        }
+                    }
+                      errorBlock:^(NSError *error) {
+                          if(failure){
+                              failure(error);
+                          }
+                      }];
+}
+
+
 - (void)p_doPostWithNoAuthorizationToken:(NSString*)url withParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     NSDictionary *pDict = nil;
     if(parameter){

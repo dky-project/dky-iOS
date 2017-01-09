@@ -43,6 +43,40 @@
     return self;
 }
 
+- (void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    DLog(@"frame = %@",NSStringFromCGRect(self.frame));
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(48, self.tw_height - 0.5)];
+    [path addLineToPoint:CGPointMake(self.tw_width - 48, self.tw_height - 1)];
+//    [[UIColor colorWithHex:0x666666] setStroke];
+    [[UIColor redColor] setStroke];
+    
+    [path setLineWidth:1];
+//    [path setLineJoinStyle:kCGLineJoinRound];
+//    [path setLineCapStyle:kCGLineCapButt];
+//    
+//    CGFloat lengths[2] = { 3, 1 };
+//    CGContextSetLineDash(context, 0, lengths, 2);
+    [path stroke];
+    
+//    //设置虚线颜色
+//    CGContextSetStrokeColorWithColor(currentContext, [UIColor colorWithHex:0x666666].CGColor);
+//    //设置虚线宽度
+//    CGContextSetLineWidth(currentContext, 1);
+//    //设置虚线绘制起点
+//    CGContextMoveToPoint(currentContext, 0, 0);
+//    //设置虚线绘制终点
+//    CGContextAddLineToPoint(currentContext, self.frame.origin.x + self.frame.size.width, 0);
+//    //设置虚线排列的宽度间隔:下面的arr中的数字表示先绘制3个点再绘制1个点
+//    CGFloat arr[] = {3,1};
+//    //下面最后一个参数“2”代表排列的个数。
+//    CGContextSetLineDash(currentContext, 0, arr, 2);
+//    CGContextDrawPath(currentContext, kCGPathStroke);
+}
+
 #pragma mark - action method
 
 - (void)faxDateLabelTapped:(UITapGestureRecognizer*)ges{
@@ -66,8 +100,6 @@
     placeholderView.backgroundColor = [UIColor whiteColor];
     self.clientTextField.leftViewMode = UITextFieldViewModeAlways;
     self.clientTextField.leftView = placeholderView;
-    
-    self.clientTextField.inputView = self.datePicker;
     
     placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     placeholderView.backgroundColor = [UIColor whiteColor];

@@ -28,8 +28,7 @@
 #pragma mark - UI
 
 - (void)commonInit{
-//    self.imageView.image = [UIImage imageWithColor:[UIColor randomColor]];
-    
+
 }
 
 @end

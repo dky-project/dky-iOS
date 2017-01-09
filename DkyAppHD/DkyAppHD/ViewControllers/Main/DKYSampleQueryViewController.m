@@ -11,6 +11,7 @@
 #import "DKYSearchView.h"
 #import "DKYFiltrateView.h"
 #import "DKYSampleDetailViewController.h"
+#import "DKYSampleModel.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -36,6 +37,8 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
+    
+    [self getProductPageFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +69,32 @@
     return UIStatusBarStyleLightContent;
 }
 
+#pragma mark - 网络请求
+- (void)getProductPageFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    [[DKYHttpRequestManager sharedInstance] productPageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf.samples removeAllObjects];
+            [weakSelf.samples addObjectsFromArray:samples];
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
 
 #pragma mark - action method
 

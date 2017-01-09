@@ -120,8 +120,6 @@ static NSString* const defaultRightBtnTitle = @"返回";
     
     flexSpacer.width = (self.leftBtnItem.offetX - 16);  // left btn 的x坐标为10,
     [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects:flexSpacer,leftItem, nil]];
-    
-//    btn.backgroundColor = [UIColor randomColor];
 }
 
 - (void)setupRightButton
@@ -182,7 +180,6 @@ static NSString* const defaultRightBtnTitle = @"返回";
     
     flexSpacer.width = (self.rightBtnItem.offetX - 16);  // right btn 的x坐标为10,
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:flexSpacer,rightItem, nil]];
-    //btn.backgroundColor = [UIColor randomColor];
 }
 
 #pragma mark - 导航栏上按钮action 时间

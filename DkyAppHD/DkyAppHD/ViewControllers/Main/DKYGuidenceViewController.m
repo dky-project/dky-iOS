@@ -98,8 +98,6 @@ static NSString *const kPreviousBootImageModelKey = @"kPreviousBootImageModelKey
 #pragma mark - Ui
 
 - (void)commonInit{
-    self.backgrondImageView.image = [UIImage imageWithColor:[UIColor randomColor]];
-    
     NSDictionary *dict = @{NSForegroundColorAttributeName : self.orderingSystemLabel.textColor,
                            NSFontAttributeName : self.orderingSystemLabel.font};
     NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] initWithString:self.orderingSystemLabel.text attributes:dict];

@@ -9,12 +9,15 @@
 #import "DKYHomeViewController.h"
 #import "DKYHomeItemView.h"
 #import "DKYHomeItemTwoView.h"
+#import "DKYHomeArticleModel.h"
 
 @interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource>
 
 @property (nonatomic,weak) iCarousel *iCarousel;
 
 @property (nonatomic, weak) id<DKYHomeItemDelegate> previousItemView;
+
+@property (nonatomic, strong) NSMutableArray *articels;
 
 @end
 
@@ -25,6 +28,8 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
+    
+    [self getArticalPageFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +39,33 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+
+#pragma mark - 网络请求
+- (void)getArticalPageFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    [[DKYHttpRequestManager sharedInstance] articlePageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            [weakSelf.articels removeAllObjects];
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            NSArray *articles = [DKYHomeArticleModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf.articels addObjectsFromArray:articles];
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
 }
 
 #pragma mark - private method
@@ -172,6 +204,15 @@
 
 -(NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
     return 4;
+}
+
+#pragma mark - get & set method
+
+- (NSMutableArray*)articels{
+    if(_articels == nil){
+        _articels = [NSMutableArray array];
+    }
+    return _articels;
 }
 
 @end

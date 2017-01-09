@@ -19,6 +19,14 @@ static  NSString* const kSSKeychainAccessTokenWithNoBearer = @"DkyAccessTokenWit
 
 static DKYAccountManager *sharedInstance = nil;
 
+@interface DKYAccountManager ()
+
+@property (nonatomic, copy) NSString *accessToken;
+
+@property (nonatomic, copy) NSString *accessTokenWithBearer;
+
+@end
+
 @implementation DKYAccountManager
 
 - (void)saveUserAccountInfo:(NSDictionary*)userInfo{
@@ -26,18 +34,28 @@ static DKYAccountManager *sharedInstance = nil;
 }
 
 - (void)saveAccessToken:(NSString*)accessToken{
-    [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:kSSKeychainAccessTokenWithNoBearer];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:kSSKeychainAccessTokenWithNoBearer];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//
+//    [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:kSSKeychainAccessToken];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.accessToken = accessToken;
+    [[YYCache defaultCache] setObject:self.accessToken forKey:kSSKeychainAccessTokenWithNoBearer];
     
     accessToken = [NSString stringWithFormat:@"Bearer %@",accessToken];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:kSSKeychainAccessToken];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.accessTokenWithBearer = accessToken;
+    [[YYCache defaultCache] setObject:self.accessTokenWithBearer forKey:kSSKeychainAccessToken];
 }
 
 - (NSString*)getAccessToken{
-    return nil;
-    NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:kSSKeychainAccessToken];
+//    NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:kSSKeychainAccessToken];
+    NSString *accessToken = (NSString*)[[YYCache defaultCache] objectForKey:kSSKeychainAccessToken];
+    return accessToken;
+}
+
+- (NSString*)getAccessTokenWithNoBearer{
+//    NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:kSSKeychainAccessTokenWithNoBearer];
+    NSString *accessToken = (NSString*)[[YYCache defaultCache] objectForKey:kSSKeychainAccessTokenWithNoBearer];
     return accessToken;
 }
 

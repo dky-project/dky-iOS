@@ -53,6 +53,7 @@
 #import "YYCache.h"
 #import "YYCache+Utility.h"
 #import "SDWebImageManager+Utility.h"
+#import "DKYPageModel.h"
 #endif
 
 
