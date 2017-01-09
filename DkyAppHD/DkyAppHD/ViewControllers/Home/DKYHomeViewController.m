@@ -48,6 +48,7 @@
     WeakSelf(weakSelf);
     [DKYHUDTool show];
     [[DKYHttpRequestManager sharedInstance] articlePageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
@@ -63,7 +64,6 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
-        [DKYHUDTool dismiss];
     } failure:^(NSError *error) {
         [DKYHUDTool dismiss];
         DLog(@"Error = %@",error.description);

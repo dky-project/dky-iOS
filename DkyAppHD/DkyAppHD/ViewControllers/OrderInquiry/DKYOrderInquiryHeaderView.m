@@ -57,6 +57,12 @@
     }
 }
 
+- (IBAction)batchPreviewBtnClicked:(UIButton *)sender {
+    if(self.batchPreviewBtnClicked){
+        self.batchPreviewBtnClicked(self);
+    }
+}
+
 #pragma mark - UI
 
 - (void)commonInit{

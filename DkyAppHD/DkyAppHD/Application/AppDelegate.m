@@ -21,6 +21,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // 假登陆
+    [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
+    
     // 全局配置
     [DKYConfigManager config];
     

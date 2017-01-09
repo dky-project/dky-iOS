@@ -82,12 +82,12 @@
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
+        [weakSelf.collectionView.mj_header endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.samples removeAllObjects];
             [weakSelf.samples addObjectsFromArray:samples];
-            [weakSelf.collectionView.mj_header endRefreshing];
             [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
@@ -98,6 +98,7 @@
         }
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
+        [weakSelf.collectionView.mj_header endRefreshing];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
@@ -112,12 +113,12 @@
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
+        [weakSelf.collectionView.mj_footer endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.samples addObjectsFromArray:samples];
             weakSelf.pageNum++;
-            [weakSelf.collectionView.mj_footer endRefreshing];
             [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
@@ -128,6 +129,7 @@
         }
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
+        [weakSelf.collectionView.mj_footer endRefreshing];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }

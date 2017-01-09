@@ -15,6 +15,8 @@
 #import "MMPopupWindow.h"
 #import "DKYOrderInfoHeaderView.h"
 #import "DKYOrderInquiryViewCell.h"
+#import "DKYOrderBrowseViewController.h"
+#import "DKYOrderBrowseView.h"
 
 @interface DKYOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
 
@@ -72,6 +74,18 @@
     [sheetView show];
 }
 
+- (void)showOrderPreview{
+//    DKYOrderBrowseViewController *vc = [[DKYOrderBrowseViewController alloc] init];
+//    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    vc.modalPresentationStyle = UIModalPresentationPopover;
+//    vc.preferredContentSize = CGSizeMake(514, 610);
+//    UIPopoverPresentationController *popover = vc.popoverPresentationController;
+//    popover.sourceView = self.view;
+//    [self presentViewController:vc animated:YES completion:nil];
+    
+    [DKYOrderBrowseView show];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
@@ -110,6 +124,10 @@
     
     header.auditStatusBlock = ^(id sender){
         [weakSelf showAuditStatusSelectedPicker];
+    };
+    
+    header.batchPreviewBtnClicked = ^(id sender){
+        [weakSelf showOrderPreview];
     };
 }
 

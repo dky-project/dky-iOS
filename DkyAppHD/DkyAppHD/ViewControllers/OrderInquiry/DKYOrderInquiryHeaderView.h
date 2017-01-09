@@ -17,6 +17,8 @@
 
 @property (nonatomic, copy) BlockWithSender auditStatusBlock;
 
+@property (nonatomic, copy) BlockWithSender batchPreviewBtnClicked;
+
 @property (weak, nonatomic) IBOutlet UITextField *sampleTextField;
 @property (weak, nonatomic) IBOutlet UIButton *findBtn;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
