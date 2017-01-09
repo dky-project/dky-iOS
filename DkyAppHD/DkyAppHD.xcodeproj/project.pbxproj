@@ -34,9 +34,11 @@
 		26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */; };
 		EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */; };
 		EB41AC4D1E1F9E7F0015A7CF /* DKYHomeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */; };
-		EB506C1B1E233474002A1423 /* DKYPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C1A1E233474002A1423 /* DKYPageModel.m */; };
-		EB506C221E23351D002A1423 /* DKYSampleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C211E23351D002A1423 /* DKYSampleModel.m */; };
-		EB506C251E2346E2002A1423 /* DKYHomeArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C241E2346E2002A1423 /* DKYHomeArticleModel.m */; };
+		EB506C2A1E236D22002A1423 /* DKYHomeCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C291E236D22002A1423 /* DKYHomeCellTableViewCell.m */; };
+		EB506C341E23706F002A1423 /* DKYBootImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C2D1E23706F002A1423 /* DKYBootImageModel.m */; };
+		EB506C351E23706F002A1423 /* DKYHomeArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C2F1E23706F002A1423 /* DKYHomeArticleModel.m */; };
+		EB506C361E23706F002A1423 /* DKYPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C311E23706F002A1423 /* DKYPageModel.m */; };
+		EB506C371E23706F002A1423 /* DKYSampleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C331E23706F002A1423 /* DKYSampleModel.m */; };
 		EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */; };
 		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
 		EB9510871E160321008708EF /* DKYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9510861E160321008708EF /* DKYTabBar.m */; };
@@ -78,7 +80,6 @@
 		EB9790781E222A7900E2985C /* DKYHttpRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790771E222A7900E2985C /* DKYHttpRequestParameter.m */; };
 		EB97907C1E22371B00E2985C /* DKYOrderInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97907B1E22371B00E2985C /* DKYOrderInfoHeaderView.m */; };
 		EB97907E1E22373500E2985C /* DKYOrderInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB97907D1E22373500E2985C /* DKYOrderInfoHeaderView.xib */; };
-		EB9790831E22415B00E2985C /* DKYBootImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790821E22415B00E2985C /* DKYBootImageModel.m */; };
 		EB9790851E22421400E2985C /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790841E22421400E2985C /* Foundation+Log.m */; };
 		EB97908F1E22459300E2985C /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790881E22459300E2985C /* YYCache.m */; };
 		EB9790901E22459300E2985C /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97908A1E22459300E2985C /* YYDiskCache.m */; };
@@ -196,12 +197,16 @@
 		EB41AC491E1F9DF60015A7CF /* DKYHomeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemView.h; sourceTree = "<group>"; };
 		EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemView.m; sourceTree = "<group>"; };
 		EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemView.xib; sourceTree = "<group>"; };
-		EB506C191E233474002A1423 /* DKYPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYPageModel.h; sourceTree = "<group>"; };
-		EB506C1A1E233474002A1423 /* DKYPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYPageModel.m; sourceTree = "<group>"; };
-		EB506C201E23351D002A1423 /* DKYSampleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleModel.h; sourceTree = "<group>"; };
-		EB506C211E23351D002A1423 /* DKYSampleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleModel.m; sourceTree = "<group>"; };
-		EB506C231E2346E2002A1423 /* DKYHomeArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeArticleModel.h; sourceTree = "<group>"; };
-		EB506C241E2346E2002A1423 /* DKYHomeArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeArticleModel.m; sourceTree = "<group>"; };
+		EB506C281E236D22002A1423 /* DKYHomeCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeCellTableViewCell.h; sourceTree = "<group>"; };
+		EB506C291E236D22002A1423 /* DKYHomeCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeCellTableViewCell.m; sourceTree = "<group>"; };
+		EB506C2C1E23706F002A1423 /* DKYBootImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYBootImageModel.h; sourceTree = "<group>"; };
+		EB506C2D1E23706F002A1423 /* DKYBootImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYBootImageModel.m; sourceTree = "<group>"; };
+		EB506C2E1E23706F002A1423 /* DKYHomeArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeArticleModel.h; sourceTree = "<group>"; };
+		EB506C2F1E23706F002A1423 /* DKYHomeArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeArticleModel.m; sourceTree = "<group>"; };
+		EB506C301E23706F002A1423 /* DKYPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYPageModel.h; sourceTree = "<group>"; };
+		EB506C311E23706F002A1423 /* DKYPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYPageModel.m; sourceTree = "<group>"; };
+		EB506C321E23706F002A1423 /* DKYSampleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleModel.h; sourceTree = "<group>"; };
+		EB506C331E23706F002A1423 /* DKYSampleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleModel.m; sourceTree = "<group>"; };
 		EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		EB95107A1E15FA27008708EF /* DKYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTabBarViewController.h; sourceTree = "<group>"; };
@@ -287,8 +292,6 @@
 		EB97907A1E22371B00E2985C /* DKYOrderInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInfoHeaderView.h; sourceTree = "<group>"; };
 		EB97907B1E22371B00E2985C /* DKYOrderInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInfoHeaderView.m; sourceTree = "<group>"; };
 		EB97907D1E22373500E2985C /* DKYOrderInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderInfoHeaderView.xib; sourceTree = "<group>"; };
-		EB9790811E22415B00E2985C /* DKYBootImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYBootImageModel.h; sourceTree = "<group>"; };
-		EB9790821E22415B00E2985C /* DKYBootImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYBootImageModel.m; sourceTree = "<group>"; };
 		EB9790841E22421400E2985C /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		EB9790871E22459300E2985C /* YYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCache.h; sourceTree = "<group>"; };
 		EB9790881E22459300E2985C /* YYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCache.m; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 				267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */,
 				267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */,
 				267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */,
+				EB506C281E236D22002A1423 /* DKYHomeCellTableViewCell.h */,
+				EB506C291E236D22002A1423 /* DKYHomeCellTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -515,40 +520,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		EB506C1C1E2334E2002A1423 /* 启动 */ = {
+		EB506C2B1E23706F002A1423 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB9790811E22415B00E2985C /* DKYBootImageModel.h */,
-				EB9790821E22415B00E2985C /* DKYBootImageModel.m */,
+				EB506C381E237080002A1423 /* 启动 */,
+				EB506C391E23708A002A1423 /* Home */,
+				EB506C3A1E237098002A1423 /* 样衣查询 */,
+				EB506C301E23706F002A1423 /* DKYPageModel.h */,
+				EB506C311E23706F002A1423 /* DKYPageModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EB506C381E237080002A1423 /* 启动 */ = {
+			isa = PBXGroup;
+			children = (
+				EB506C2C1E23706F002A1423 /* DKYBootImageModel.h */,
+				EB506C2D1E23706F002A1423 /* DKYBootImageModel.m */,
 			);
 			name = "启动";
 			sourceTree = "<group>";
 		};
-		EB506C1D1E2334EB002A1423 /* 首页 */ = {
+		EB506C391E23708A002A1423 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				EB506C231E2346E2002A1423 /* DKYHomeArticleModel.h */,
-				EB506C241E2346E2002A1423 /* DKYHomeArticleModel.m */,
+				EB506C2E1E23706F002A1423 /* DKYHomeArticleModel.h */,
+				EB506C2F1E23706F002A1423 /* DKYHomeArticleModel.m */,
 			);
-			name = "首页";
+			name = Home;
 			sourceTree = "<group>";
 		};
-		EB506C1E1E2334F5002A1423 /* 样衣查询 */ = {
+		EB506C3A1E237098002A1423 /* 样衣查询 */ = {
 			isa = PBXGroup;
 			children = (
-				EB506C201E23351D002A1423 /* DKYSampleModel.h */,
-				EB506C211E23351D002A1423 /* DKYSampleModel.m */,
+				EB506C321E23706F002A1423 /* DKYSampleModel.h */,
+				EB506C331E23706F002A1423 /* DKYSampleModel.m */,
 			);
 			name = "样衣查询";
-			sourceTree = "<group>";
-		};
-		EB506C1F1E233500002A1423 /* 通用 */ = {
-			isa = PBXGroup;
-			children = (
-				EB506C191E233474002A1423 /* DKYPageModel.h */,
-				EB506C1A1E233474002A1423 /* DKYPageModel.m */,
-			);
-			name = "通用";
 			sourceTree = "<group>";
 		};
 		EB6B06B01E1E14AD00F2F108 /* TTTAttributedLabel */ = {
@@ -749,17 +757,6 @@
 			path = Parameter;
 			sourceTree = "<group>";
 		};
-		EB9790801E22414400E2985C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EB506C1C1E2334E2002A1423 /* 启动 */,
-				EB506C1D1E2334EB002A1423 /* 首页 */,
-				EB506C1E1E2334F5002A1423 /* 样衣查询 */,
-				EB506C1F1E233500002A1423 /* 通用 */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		EB9790861E22459300E2985C /* YYCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,9 +799,9 @@
 			children = (
 				EBABE8D41E150C8000B4C568 /* Application */,
 				EBABE8E11E150E5700B4C568 /* ViewControllers */,
+				EB506C2B1E23706F002A1423 /* Model */,
 				26DAD0CF1E1A322F008EE55F /* Manager&Tool */,
 				EBABE8DE1E150E2B00B4C568 /* Network */,
-				EBABE8DD1E150E2B00B4C568 /* Models */,
 				EBABE8DF1E150E2B00B4C568 /* Utils */,
 				EBABE8E51E15106100B4C568 /* Const */,
 				263CC1381E1555E7002FBB50 /* Categories */,
@@ -859,18 +856,10 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		EBABE8DD1E150E2B00B4C568 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		EBABE8DE1E150E2B00B4C568 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				EB97907F1E22414400E2985C /* Parameter */,
-				EB9790801E22414400E2985C /* Model */,
 				263CC1661E155A41002FBB50 /* DKYHttpUrl.h */,
 				263CC1671E155A7E002FBB50 /* DKYHttpRequestResult.h */,
 				263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */,
@@ -1265,10 +1254,12 @@
 				EB9790501E22118500E2985C /* WGBDatePickerView.m in Sources */,
 				EB97908F1E22459300E2985C /* YYCache.m in Sources */,
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
+				EB506C371E23706F002A1423 /* DKYSampleModel.m in Sources */,
 				EB9511AA1E164444008708EF /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
+				EB506C341E23706F002A1423 /* DKYBootImageModel.m in Sources */,
 				EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
@@ -1312,8 +1303,8 @@
 				EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */,
 				EB9511AD1E164444008708EF /* WXSTransitionManager+PageAnimation.m in Sources */,
 				EB9511A81E164444008708EF /* WXSTransitionManager+BoomAnimation.m in Sources */,
+				EB506C351E23706F002A1423 /* DKYHomeArticleModel.m in Sources */,
 				EB9790571E22158100E2985C /* UUDatePicker_DateModel.m in Sources */,
-				EB506C1B1E233474002A1423 /* DKYPageModel.m in Sources */,
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
@@ -1322,6 +1313,7 @@
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
 				EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */,
 				EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */,
+				EB506C361E23706F002A1423 /* DKYPageModel.m in Sources */,
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
@@ -1329,9 +1321,9 @@
 				EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
-				EB506C251E2346E2002A1423 /* DKYHomeArticleModel.m in Sources */,
 				EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				267CED471E20E93100ED5872 /* iCarousel.m in Sources */,
+				EB506C2A1E236D22002A1423 /* DKYHomeCellTableViewCell.m in Sources */,
 				EBC3006F1E1CD8FE00F602E6 /* TWNavBtnItem.m in Sources */,
 				EBC300531E1CA0C700F602E6 /* SDCollectionViewCell.m in Sources */,
 				EB9511A51E164444008708EF /* UIViewController+WXSTransition.m in Sources */,
@@ -1340,11 +1332,9 @@
 				263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */,
 				EB9790851E22421400E2985C /* Foundation+Log.m in Sources */,
 				EB9511A61E164444008708EF /* UIViewController+WXSTransitionProperty.m in Sources */,
-				EB506C221E23351D002A1423 /* DKYSampleModel.m in Sources */,
 				EBABE8DA1E150CA600B4C568 /* AppDelegate.m in Sources */,
 				EB9790451E21E4E500E2985C /* DKYOrderInquiryViewController.m in Sources */,
 				EB9511811E1640A5008708EF /* DKYLoginViewController.m in Sources */,
-				EB9790831E22415B00E2985C /* DKYBootImageModel.m in Sources */,
 				EB97906C1E221B6F00E2985C /* MMPinView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

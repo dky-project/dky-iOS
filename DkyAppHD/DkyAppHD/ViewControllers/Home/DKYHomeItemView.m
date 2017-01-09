@@ -7,6 +7,7 @@
 //
 
 #import "DKYHomeItemView.h"
+#import "DKYHomeArticleModel.h"
 
 @interface DKYHomeItemView ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -32,6 +33,16 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.readMoreBtn.alpha = hide ? 0.0 : 1.0;
     }];
+}
+
+- (void)setItemModel:(DKYHomeArticleModel *)itemModel{
+    _itemModel = itemModel;
+    
+    NSURL *imageUrl = [NSURL URLWithString:itemModel.imageurl];
+    
+    [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
+    self.titleLabel.text = itemModel.title;
+    self.contentLabel.text = itemModel.decription;
 }
 
 //- (void)setTransform:(CGAffineTransform)transform{

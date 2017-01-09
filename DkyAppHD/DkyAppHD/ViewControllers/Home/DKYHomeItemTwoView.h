@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "DKYHomeItemDelegate.h"
 
+@class DKYHomeArticleModel;
 @interface DKYHomeItemTwoView : UIView
 
 + (instancetype)homeItemTwoView;
 
+@property (nonatomic, strong) DKYHomeArticleModel *itemModel;
 
 @end

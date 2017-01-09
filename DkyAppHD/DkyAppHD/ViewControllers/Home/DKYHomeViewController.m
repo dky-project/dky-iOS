@@ -10,10 +10,12 @@
 #import "DKYHomeItemView.h"
 #import "DKYHomeItemTwoView.h"
 #import "DKYHomeArticleModel.h"
+#import "DKYHomeCellTableViewCell.h"
 
-@interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource>
+@interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,weak) iCarousel *iCarousel;
+@property (nonatomic, weak) UITableView *tableView;
 
 @property (nonatomic, weak) id<DKYHomeItemDelegate> previousItemView;
 
@@ -53,6 +55,7 @@
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *articles = [DKYHomeArticleModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.articels addObjectsFromArray:articles];
+            [weakSelf.iCarousel reloadData];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -71,57 +74,42 @@
 #pragma mark - private method
 - (UIView*)createItemViewWithIndex:(NSInteger)index{
     UIView *view = nil;
-    switch (index) {
-        case 0:
-        case 2:{
-            view = [DKYHomeItemView homeItemView];
-            if(index == 0){
-                id<DKYHomeItemDelegate> itemView = (id<DKYHomeItemDelegate>)view;
-                self.previousItemView = itemView;
-            }
+    if(index % 2 == 0){
+        view = [DKYHomeItemView homeItemView];
+        if(index == 0){
+            id<DKYHomeItemDelegate> itemView = (id<DKYHomeItemDelegate>)view;
+            self.previousItemView = itemView;
         }
-            break;
-        case 1:
-        case 3:{
-            view = [DKYHomeItemTwoView homeItemTwoView];
-            if(index == 1){
-                id<DKYHomeItemDelegate> itemView = (id<DKYHomeItemDelegate>)view;
-                [itemView updateFrame:NO];
-            }
+    }else{
+        view = [DKYHomeItemTwoView homeItemTwoView];
+        if(index == 1){
+            id<DKYHomeItemDelegate> itemView = (id<DKYHomeItemDelegate>)view;
+            [itemView updateFrame:NO];
         }
-            break;
-            
-        default:
-            view = [DKYHomeItemView homeItemView];
-            break;
     }
     return view;
 }
 
 - (UIView*)checkItemViewClass:(UIView *)view index:(NSInteger)index{
-    if(view == nil) return [self createItemViewWithIndex:index];
-
-    switch (index) {
-        case 0:
-        case 2:{
-            if(![view isKindOfClass:[DKYHomeItemView class]]){
-                return [self createItemViewWithIndex:index];
-            }
-        }
-            break;
-            
-        case 1:
-        case 3:{
-            if(![view isKindOfClass:[DKYHomeItemView class]]){
-                return [self createItemViewWithIndex:index];
-            }
-        }
-            break;
-            
-        default:
-            view = [DKYHomeItemView homeItemView];
-            break;
+    if(view == nil){
+        view = [self createItemViewWithIndex:index];
     }
+    
+    if(index % 2 == 0){
+        if(![view isKindOfClass:[DKYHomeItemView class]]){
+            view = [self createItemViewWithIndex:index];
+        }
+        DKYHomeItemView *homeItemView = (DKYHomeItemView*)view;
+        homeItemView.itemModel = [self.articels objectAtIndex:index];
+    }else{
+        if(![view isKindOfClass:[DKYHomeItemTwoView class]]){
+            view = [self createItemViewWithIndex:index];
+        }
+        DKYHomeItemTwoView *homeItemView = (DKYHomeItemTwoView*)view;
+        homeItemView.itemModel = [self.articels objectAtIndex:index];
+    }
+
+    
     return view;
 }
 
@@ -129,6 +117,7 @@
 
 - (void)commonInit{
     self.navigationItem.title = nil;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
@@ -137,6 +126,27 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupiCarousel];
+//    [self setupTableView];
+}
+
+- (void)setupTableView{
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView = tableView;
+    [self.view addSubview:tableView];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    WeakSelf(weakSelf);
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.view.mas_top).with.offset(20);
+        make.left.equalTo(weakSelf.view.mas_left).with.offset(0);
+        make.right.equalTo(weakSelf.view.mas_right).with.offset(0);
+        make.bottom.equalTo(weakSelf.view.mas_bottom).with.offset(0);
+    }];
 }
 
 - (void)setupiCarousel{
@@ -151,7 +161,7 @@
     view.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
 //    view.numberOfVisibleItems = 4;
     self.iCarousel = view;
-    [view scrollToItemAtIndex:1 animated:NO];
+//    [view scrollToItemAtIndex:1 animated:NO];
 }
 
 #pragma mark iCarousel taps
@@ -203,7 +213,29 @@
 }
 
 -(NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
-    return 4;
+    return self.articels.count;
+}
+
+#pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kScreenHeight - 20;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DKYHomeCellTableViewCell *cell = [DKYHomeCellTableViewCell homeCellWithTableView:tableView delegate:self];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 #pragma mark - get & set method

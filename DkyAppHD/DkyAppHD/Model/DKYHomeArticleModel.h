@@ -23,10 +23,11 @@
 @interface DKYHomeArticleModel : NSObject
 
 @property (nonatomic, copy) NSString * creationdate;
-@property (nonatomic, copy) NSString * Decription;
+@property (nonatomic, copy) NSString * decription;
 @property (nonatomic, assign) NSInteger idField;
 @property (nonatomic, copy) NSString * isactive;
 @property (nonatomic, copy) NSString * jumpurl;
+@property (nonatomic, copy) NSString *imageurl;
 @property (nonatomic, copy) NSString * modifieddate;
 @property (nonatomic, assign) NSInteger modifierid;
 @property (nonatomic, assign) NSInteger ownerid;

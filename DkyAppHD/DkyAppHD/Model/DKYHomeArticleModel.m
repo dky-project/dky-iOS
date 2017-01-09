@@ -10,8 +10,8 @@
 
 @implementation DKYHomeArticleModel
 
-+ (NSDictionary*)mj_replacedKeyFromPropertyName{
-    return @{@"Description" : @"description"};
-}
+//+ (NSDictionary*)mj_replacedKeyFromPropertyName{
+//    return @{@"Description" : @"description"};
+//}
 
 @end
