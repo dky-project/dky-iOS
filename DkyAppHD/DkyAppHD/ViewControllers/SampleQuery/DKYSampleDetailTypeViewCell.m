@@ -13,7 +13,6 @@
 @interface DKYSampleDetailTypeViewCell ()<SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sampleTypeLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *hintLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *designDescriptionLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *genderLabel;
@@ -53,8 +52,6 @@
     if(model == nil) return;
     
     self.cycleScrollView.imageURLStringsGroup = model.imgList;
-    
-    self.detailImageView.image = [UIImage imageNamed:@"image2"];
     
     NSString *name = [NSString stringWithFormat:@"款号：%@",model.name];
     self.sampleTypeLabel.text = name;

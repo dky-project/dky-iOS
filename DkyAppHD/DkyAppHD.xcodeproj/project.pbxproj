@@ -112,6 +112,7 @@
 		EBABE8DB1E150CA600B4C568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABE8D71E150CA600B4C568 /* main.m */; };
 		EBABE8DC1E150CA600B4C568 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABE8D91E150CA600B4C568 /* ViewController.m */; };
 		EBABE8E71E15120500B4C568 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8E61E15120500B4C568 /* Localization.strings */; };
+		EBBD5A721E25160F00037B85 /* DKYQueryPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */; };
 		EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */; };
 		EBC3004F1E1CA0C700F602E6 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300421E1CA0C700F602E6 /* TAAbstractDotView.m */; };
 		EBC300501E1CA0C700F602E6 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300441E1CA0C700F602E6 /* TAAnimatedDotView.m */; };
@@ -365,6 +366,8 @@
 		EBABE8D81E150CA600B4C568 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EBABE8D91E150CA600B4C568 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EBABE8E61E15120500B4C568 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localization.strings; sourceTree = "<group>"; };
+		EBBD5A701E25160F00037B85 /* DKYQueryPriceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYQueryPriceModel.h; sourceTree = "<group>"; };
+		EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYQueryPriceModel.m; sourceTree = "<group>"; };
 		EBC3003C1E1CA05300F602E6 /* DKYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeViewController.h; sourceTree = "<group>"; };
 		EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeViewController.m; sourceTree = "<group>"; };
 		EBC300411E1CA0C700F602E6 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -602,6 +605,8 @@
 				EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */,
 				EB9BBBA51E24D42100939007 /* DKYSampleProductInfoModel.h */,
 				EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */,
+				EBBD5A701E25160F00037B85 /* DKYQueryPriceModel.h */,
+				EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */,
 			);
 			name = "样衣查询";
 			sourceTree = "<group>";
@@ -1400,6 +1405,7 @@
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
 				EB9790901E22459300E2985C /* YYDiskCache.m in Sources */,
+				EBBD5A721E25160F00037B85 /* DKYQueryPriceModel.m in Sources */,
 				EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
 				EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */,

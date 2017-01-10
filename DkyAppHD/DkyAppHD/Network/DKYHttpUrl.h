@@ -26,10 +26,14 @@
 
 // 样衣查询
 #define kProductPageUrl                 @"product/page"                 // 样衣查询
-#define kGetProductInfoUrl              @"product/getProductInfo"       // 样衣详细信息查询
 
 #define kGetSexEnumUrl                  @"dimNew/getSexEnum"            // 性别列表
 #define kGetBigClassEnumUrl             @"dimNew/getBigClassEnum"       // 大类
+
+
+#define kGetProductInfoUrl              @"product/getProductInfo"       // 样衣详细信息查询
+#define kQueryPriceListUrl              @"product/queryPriceList"       // queryPriceList
+#define kQueryValueListUrl              @"roduct/queryValueList"        // 查询胸围、衣长、肩宽、袖长列表
 
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
