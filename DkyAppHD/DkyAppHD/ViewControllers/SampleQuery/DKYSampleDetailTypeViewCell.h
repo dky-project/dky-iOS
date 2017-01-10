@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYSampleProductInfoModel;
 @interface DKYSampleDetailTypeViewCell : UITableViewCell
 
 + (instancetype)sampleDetailTypeViewCellWithTableView:(UITableView *)tableView;
 
-@property (nonatomic, strong) NSObject *model;
+@property (nonatomic, strong) DKYSampleProductInfoModel *model;
 
 @end

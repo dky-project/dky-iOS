@@ -15,16 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1703"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="768" height="1702"/>
+                <rect key="frame" x="0.0" y="0.0" width="768" height="1703"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZlO-9W-GKp">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="458"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="458" id="sW8-hE-Jm9"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tm4-Ob-2an">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tm4-Ob-2an">
                         <rect key="frame" x="0.0" y="482" width="768" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="highlightedColor"/>
@@ -37,7 +31,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所有类别 : 羊绒针织" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-VJ-uwo" customClass="TTTAttributedLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所属类别 : 羊绒针织" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-VJ-uwo" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="411" y="38" width="126" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
@@ -54,18 +48,18 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示 : 香奈儿品牌,秉承创始人嘉柏丽尔·香奈儿女士划时代的创新理念与前瞻创意,成为现代女性美学的风向标" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="197-iU-atV" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="101" width="662" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示 : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="197-iU-atV" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="53" y="101" width="662" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计说明 : 无论时尚精品、香水与美容品、腕表与高级珠宝,都致力于为女性塑造自由、优雅、与众不同的风格。敬请访问Inside CHANEL,了解香奈儿女士的生平传奇与品牌的非凡历程。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzJ-yK-w3r" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="150" width="662" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计说明 : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzJ-yK-w3r" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="53" y="133" width="662" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="样衣默认信息" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51g-zn-OPJ">
-                                <rect key="frame" x="53" y="199" width="86" height="17"/>
+                                <rect key="frame" x="53" y="165" width="86" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -120,24 +114,31 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vqC-zC-j8v">
                         <rect key="frame" x="0.0" y="947" width="768" height="755"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Y1-nO-2o0">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="458"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="458" id="fhp-6F-KTi"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Tm4-Ob-2an" secondAttribute="trailing" id="ABQ-dA-5Cv"/>
+                    <constraint firstItem="2Y1-nO-2o0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BTd-fm-bk6"/>
                     <constraint firstItem="Tm4-Ob-2an" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NnB-60-atJ"/>
                     <constraint firstItem="1xs-9r-LOJ" firstAttribute="top" secondItem="bp6-Ax-xct" secondAttribute="bottom" id="QyY-h2-Sys"/>
                     <constraint firstItem="bp6-Ax-xct" firstAttribute="top" secondItem="Tm4-Ob-2an" secondAttribute="bottom" constant="24" id="SAo-Ym-w1V"/>
-                    <constraint firstItem="ZlO-9W-GKp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="W1J-18-fNf"/>
+                    <constraint firstItem="2Y1-nO-2o0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aBd-05-qce"/>
                     <constraint firstAttribute="trailing" secondItem="bp6-Ax-xct" secondAttribute="trailing" id="aEi-6O-krw"/>
                     <constraint firstItem="1xs-9r-LOJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eYf-Z6-oJx"/>
                     <constraint firstAttribute="trailing" secondItem="vqC-zC-j8v" secondAttribute="trailing" id="iNM-Nc-ZEI"/>
                     <constraint firstItem="bp6-Ax-xct" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lhp-j4-oBT"/>
                     <constraint firstAttribute="bottom" secondItem="vqC-zC-j8v" secondAttribute="bottom" id="oRr-tE-mcA"/>
-                    <constraint firstAttribute="trailing" secondItem="ZlO-9W-GKp" secondAttribute="trailing" id="ogw-86-lBb"/>
-                    <constraint firstItem="ZlO-9W-GKp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="q43-Gi-9g4"/>
+                    <constraint firstItem="Tm4-Ob-2an" firstAttribute="top" secondItem="2Y1-nO-2o0" secondAttribute="bottom" constant="24" id="rF3-tQ-sAb"/>
                     <constraint firstItem="vqC-zC-j8v" firstAttribute="top" secondItem="1xs-9r-LOJ" secondAttribute="bottom" constant="-42" id="tsr-j0-BxP"/>
+                    <constraint firstAttribute="trailing" secondItem="2Y1-nO-2o0" secondAttribute="trailing" id="u0q-r6-0qR"/>
                     <constraint firstItem="vqC-zC-j8v" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xSg-ts-RlE"/>
                     <constraint firstAttribute="trailing" secondItem="1xs-9r-LOJ" secondAttribute="trailing" id="yFX-J5-y0p"/>
-                    <constraint firstItem="Tm4-Ob-2an" firstAttribute="top" secondItem="ZlO-9W-GKp" secondAttribute="bottom" constant="24" id="ydZ-2w-8am"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -147,7 +148,7 @@
                 <outlet property="detailImageView" destination="vqC-zC-j8v" id="MDR-NC-ltl"/>
                 <outlet property="genderLabel" destination="h7K-1n-5Gl" id="mYR-Tt-a6U"/>
                 <outlet property="hintLabel" destination="197-iU-atV" id="SDP-Mz-RIS"/>
-                <outlet property="sampleImageView" destination="ZlO-9W-GKp" id="Fe3-rQ-3Ym"/>
+                <outlet property="placehlderView" destination="2Y1-nO-2o0" id="Q61-co-LjC"/>
                 <outlet property="sampleTypeLabel" destination="Tm4-Ob-2an" id="voe-Cp-pz2"/>
             </connections>
             <point key="canvasLocation" x="34" y="52.5"/>

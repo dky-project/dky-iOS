@@ -373,17 +373,13 @@
 -(void)setupRefreshControl{
     WeakSelf(weakSelf);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf doHttpRequest];
-        });
+        [weakSelf doHttpRequest];
     }];
     header.lastUpdatedTimeKey = [NSString stringWithFormat:@"%@Key",[self class]];
     self.collectionView.mj_header = header;
     
     MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(){
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf loadMoreProductPageFromServer];
-        });
+        [weakSelf loadMoreProductPageFromServer];
     }];
     footer.automaticallyHidden = YES;
     self.collectionView.mj_footer = footer;

@@ -7,9 +7,10 @@
 //
 
 #import "DKYSampleDetailTypeViewCell.h"
+#import "SDCycleScrollView.h"
+#import "DKYSampleProductInfoModel.h"
 
-@interface DKYSampleDetailTypeViewCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *sampleImageView;
+@interface DKYSampleDetailTypeViewCell ()<SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sampleTypeLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
@@ -18,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *genderLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *allTypeLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *collarTypeLabel;
+@property (weak, nonatomic) IBOutlet UIView *placehlderView;
+
+@property (nonatomic, weak) SDCycleScrollView *cycleScrollView;
 
 @end
 @implementation DKYSampleDetailTypeViewCell
@@ -43,11 +47,16 @@
     [super layoutSubviews];
 }
 
-- (void)setModel:(NSObject *)model{
-    self.sampleImageView.image = [UIImage imageNamed:@"image1"];
+- (void)setModel:(DKYSampleProductInfoModel *)model{
+    _model = model;
+    
+    if(model == nil) return;
+    
+    self.cycleScrollView.imageURLStringsGroup = model.imgList;
+    
     self.detailImageView.image = [UIImage imageNamed:@"image2"];
     
-    NSString *name = @"款号：DKY0000";
+    NSString *name = [NSString stringWithFormat:@"款号：%@",model.name];
     self.sampleTypeLabel.text = name;
     NSDictionary *dict = @{NSFontAttributeName : self.sampleTypeLabel.font,
                            NSForegroundColorAttributeName : self.sampleTypeLabel.textColor};
@@ -59,10 +68,13 @@
     [attrName addAttribute:NSBaselineOffsetAttributeName value:@4 range:range];
     self.sampleTypeLabel.attributedText = attrName;
     
+    self.genderLabel.text = [NSString stringWithFormat:@"性别 : %@",model.mDimNew13Text];
     [self.genderLabel setText:self.genderLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
     }];
+    
+    self.allTypeLabel.text = [NSString stringWithFormat:@"所属类别 : %@",model.mptbelongtypeText];
     
     [self.allTypeLabel setText:self.allTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
@@ -74,17 +86,35 @@
         return mutableAttributedString;
     }];
     
+    self.hintLabel.text = [NSString stringWithFormat:@"温馨提示 : %@",model.description3];
+    
     [self.hintLabel setText:self.hintLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
     }];
     
-//    DLog(@"self.designDescriptionLabel.text = %@",self.designDescriptionLabel.text)
+
+    self.designDescriptionLabel.text = [NSString stringWithFormat:@"设计说明 : %@",model.description5];
     [self.designDescriptionLabel setText:self.designDescriptionLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
     }];
 }
+
+#pragma mark - SDCycleScrollViewDelegate
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    DLog(@"---点击了第%ld张图片", (long)index);
+}
+
+//- (void)next:(UIBarButtonItem*)sender{
+//    [self.bannerView scrollToNextPage];
+//}
+//
+//- (void)prev:(UIBarButtonItem*)sender{
+//    [self.bannerView scrollTopreviousPage];
+//}
 
 #pragma mark - private method
 - (void)formatMutableAttributedString:(NSMutableAttributedString*)mutableAttributedString{
@@ -109,6 +139,30 @@
     self.designDescriptionLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
     self.designDescriptionLabel.lineSpacing = 5.0;
     self.designDescriptionLabel.numberOfLines = 0;
+    
+    [self setupBannerView];
+}
+
+- (void)setupBannerView{
+//    self.bannerView.delegate = self;
+//    self.bannerView.pageControlStyle = SDCycleScrollViewPageContolStyleClassic;
+//    self.bannerView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+//    self.bannerView.autoScroll = NO;
+//    self.bannerView.localizationImageNamesGroup = imageNames;
+    
+    
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero shouldInfiniteLoop:NO imageNamesGroup:nil];
+    
+    cycleScrollView.delegate = self;
+    cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleClassic;
+    [self.placehlderView addSubview:cycleScrollView];
+    cycleScrollView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    cycleScrollView.autoScroll = NO;
+    cycleScrollView.backgroundColor = [UIColor whiteColor];
+    self.cycleScrollView = cycleScrollView;
+    [self.cycleScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
 }
 
 @end

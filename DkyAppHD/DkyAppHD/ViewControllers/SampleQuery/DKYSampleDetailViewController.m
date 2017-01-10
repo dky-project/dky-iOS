@@ -17,6 +17,9 @@
 
 @property (nonatomic, strong) DKYSampleProductInfoModel *sampleProductInfo;
 
+@property (nonatomic, strong) dispatch_group_t group;
+
+
 @end
 
 @implementation DKYSampleDetailViewController
@@ -27,7 +30,7 @@
     
     [self commonInit];
     
-    [self getProductInfoFromServer];
+    [self doHttpRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +48,7 @@
 
 - (void)getProductInfoFromServer{
     WeakSelf(weakSelf);
+    dispatch_group_enter(self.group);
     DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
     p.Id = @(self.sampleModel.mProductId);
     
@@ -60,16 +64,30 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
+        dispatch_group_leave(weakSelf.group);
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
     }];
 
+}
+
+- (void)doHttpRequest{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    [self getProductInfoFromServer];
+    
+    dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
+        [DKYHUDTool dismiss];
+        [weakSelf.tableView reloadData];
+    });
 }
 
 #pragma mark - UI
 
 - (void)commonInit{
+    self.group = dispatch_group_create();
     [self setupCustomTitle:@"产品详情"];
     
     [self setupTableView];
@@ -93,6 +111,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = nil;
+    WeakSelf(weakSelf);
     switch (indexPath.row) {
         case 0:
             identifier = NSStringFromClass([DKYSampleDetailTypeViewCell class]);
@@ -105,33 +124,33 @@
     return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(id cell) {
         // Configure this cell with data, same as what you've done in "-tableView:cellForRowAtIndexPath:"
         DKYSampleDetailTypeViewCell *newCell = (DKYSampleDetailTypeViewCell*)cell;
-        newCell.model = [[NSObject alloc] init];
+        newCell.model = weakSelf.sampleProductInfo;
     }];
 }
 
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;
-    switch (indexPath.row) {
-        case 0:{
-            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
-        }
-            break;
-        case 1:{
-            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
-        }
-            break;
-        case 2:{
-            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
-        }
-            break;
-            
-        default:
-            break;
-    }
+    UITableViewCell *cell = cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
+//    switch (indexPath.row) {
+//        case 0:{
+//            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
+//        }
+//            break;
+//        case 1:{
+//            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
+//        }
+//            break;
+//        case 2:{
+//            cell = [DKYSampleDetailTypeViewCell sampleDetailTypeViewCellWithTableView:tableView];
+//        }
+//            break;
+//            
+//        default:
+//            break;
+//    }
     DKYSampleDetailTypeViewCell *newCell = (DKYSampleDetailTypeViewCell*)cell;
-    newCell.model = [[NSObject alloc] init];
+    newCell.model = self.sampleProductInfo;
     return cell;
 }
 
