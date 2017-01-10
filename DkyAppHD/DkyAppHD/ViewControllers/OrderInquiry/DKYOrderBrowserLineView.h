@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYOrderBrowserLineItemModel;
 @interface DKYOrderBrowserLineView : UIView
 
+@property (nonatomic, strong) DKYOrderBrowserLineItemModel *itemModel;
 @end
