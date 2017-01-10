@@ -26,6 +26,10 @@
 
 // 样衣查询
 #define kProductPageUrl                 @"product/page"                 // 样衣查询
+#define kGetProductInfoUrl              @"product/getProductInfo"       // 样衣详细信息查询
+
+#define kGetSexEnumUrl                  @"dimNew/getSexEnum"            // 性别列表
+#define kGetBigClassEnumUrl             @"dimNew/getBigClassEnum"       // 大类
 
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆

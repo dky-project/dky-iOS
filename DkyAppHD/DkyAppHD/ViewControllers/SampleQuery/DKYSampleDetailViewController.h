@@ -8,6 +8,9 @@
 
 #import "TWBaseViewController.h"
 
+@class DKYSampleModel;
 @interface DKYSampleDetailViewController : TWBaseViewController
+
+@property (nonatomic, strong) DKYSampleModel *sampleModel;
 
 @end

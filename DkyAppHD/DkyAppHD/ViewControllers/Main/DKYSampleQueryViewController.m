@@ -12,6 +12,9 @@
 #import "DKYFiltrateView.h"
 #import "DKYSampleDetailViewController.h"
 #import "DKYSampleModel.h"
+#import "DKYSexEnumModel.h"
+#import "DKYBigClassEnumModel.h"
+#import "DKYSampleQueryParameter.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -27,7 +30,11 @@
 
 @property (nonatomic, assign) NSInteger pageNum;
 
+@property (nonatomic, strong) dispatch_group_t group;
 
+@property (nonatomic, strong) NSArray *sexEnums;
+
+@property (nonatomic, strong) NSArray *bigClassEnums;
 
 // 测试数据
 @property (nonatomic, assign) NSInteger sampleCount;
@@ -74,21 +81,23 @@
 #pragma mark - 网络请求
 - (void)getProductPageFromServer{
     WeakSelf(weakSelf);
-    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    dispatch_group_enter(self.group);
+    DKYSampleQueryParameter *p = [[DKYSampleQueryParameter alloc] init];
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
     p.pageSize = @(kPageSize);
+    p.mDimNew11Id = self.filtrateView.selectedBigClas;
+    p.mDimNew13Id = self.filtrateView.selectedSex;
 
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
-        [weakSelf.collectionView.mj_header endRefreshing];
+        
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.samples removeAllObjects];
             [weakSelf.samples addObjectsFromArray:samples];
-            [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -96,19 +105,22 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
+        dispatch_group_leave(weakSelf.group);
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
-        [weakSelf.collectionView.mj_header endRefreshing];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
     }];
 }
 
 - (void)loadMoreProductPageFromServer{
     WeakSelf(weakSelf);
-    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    DKYSampleQueryParameter *p = [[DKYSampleQueryParameter alloc] init];
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
+    p.mDimNew11Id = self.filtrateView.selectedBigClas;
+    p.mDimNew13Id = self.filtrateView.selectedSex;
     
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -134,11 +146,84 @@
     }];
 }
 
+- (void)getSexEnumFromServer{
+    WeakSelf(weakSelf);
+    dispatch_group_enter(self.group);
+    
+    [[DKYHttpRequestManager sharedInstance] getSexEnumWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        [weakSelf.collectionView.mj_header endRefreshing];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.sexEnums = [DKYSexEnumModel mj_objectArrayWithKeyValuesArray:result.data];
+            
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        dispatch_group_leave(weakSelf.group);
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [weakSelf.collectionView.mj_header endRefreshing];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
+    }];
+    
+}
+
+- (void)getBigClassEnumFromServer{
+    WeakSelf(weakSelf);
+    dispatch_group_enter(self.group);
+    
+    [[DKYHttpRequestManager sharedInstance] getBigClassEnumWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        [weakSelf.collectionView.mj_header endRefreshing];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.bigClassEnums = [DKYBigClassEnumModel mj_objectArrayWithKeyValuesArray:result.data];
+            
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        dispatch_group_leave(weakSelf.group);
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [weakSelf.collectionView.mj_header endRefreshing];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
+    }];
+}
+
+- (void)doHttpRequest{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    [self getProductPageFromServer];
+    [self getSexEnumFromServer];
+    [self getBigClassEnumFromServer];
+    
+    dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
+        [DKYHUDTool dismiss];
+        [weakSelf.collectionView.mj_header endRefreshing];
+        [weakSelf.collectionView reloadData];
+        weakSelf.filtrateView.sexEnums = weakSelf.sexEnums;
+        weakSelf.filtrateView.bigClassEnums = weakSelf.bigClassEnums;
+    });
+}
+
 #pragma mark - action method
 
 - (void)backgroundBtnClicked:(UIButton*)sender{
     [self hideBackgroundMask:YES animated:YES];
     [self hideFilterView:YES animated:YES];
+    
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 #pragma mark - private method
@@ -186,6 +271,7 @@
 - (void)commonInit{
     self.navigationItem.title = nil;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.group = dispatch_group_create();
     
     [self setupCollectionView];
     
@@ -288,7 +374,7 @@
     WeakSelf(weakSelf);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf getProductPageFromServer];
+            [weakSelf doHttpRequest];
         });
     }];
     header.lastUpdatedTimeKey = [NSString stringWithFormat:@"%@Key",[self class]];
@@ -336,6 +422,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 //    DKYSampleDetailViewController *vc = [[DKYSampleDetailViewController alloc] init];
     DKYSampleDetailViewController *vc = (DKYSampleDetailViewController*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController class]];
+    vc.sampleModel = [self.samples objectOrNilAtIndex:indexPath.item];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -22,7 +22,8 @@
     // Override point for customization after application launch.
     
     // 假登陆
-    [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
+//    [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
+//    [[DKYAccountManager sharedInstance] deleteAccesToken];
     
     // 全局配置
     [DKYConfigManager config];

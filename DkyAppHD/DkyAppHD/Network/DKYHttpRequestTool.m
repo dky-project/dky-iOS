@@ -56,6 +56,7 @@
  successBlock:(DKYHttpRequestSuccessBlock)successblock
    errorBlock:(DKYHttpRequestErrorBlock)errorblock
 {
+    DLog(@"%@post url = %@%@ \npost data = %@%@",kLogStart,BASE_URL,urlString,pDict,kLogEnd);
     //填充HTTP custom header
     if (hDict !=nil) {
         NSArray *keys = [hDict allKeys];
@@ -68,6 +69,7 @@
     [self.httpClient GET:urlString parameters:pDict progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        DLog(@"%@post url = %@%@ \npost data = %@%@",kLogStart,BASE_URL,urlString,responseObject,kLogEnd);
         if (successblock) {
             NSHTTPURLResponse *res = (NSHTTPURLResponse*)task.response;
             successblock(res.statusCode,responseObject);
@@ -86,7 +88,7 @@
   successBlock:(DKYHttpRequestSuccessBlock)successblock
     errorBlock:(DKYHttpRequestErrorBlock)errorblock
 {
-    DLog(@"%@post url = %@%@ \npost data = %@%@",kLogStart,BASE_URL,urlString,pDict,kLogEnd);
+    DLog(@"%@Get url = %@%@ \nGost parameter = %@%@",kLogStart,BASE_URL,urlString,pDict,kLogEnd);
     //填充HTTP custom header
     if (hDict !=nil) {
         NSArray *keys = [hDict allKeys];
@@ -101,7 +103,7 @@
                  progress:^(NSProgress * _Nonnull uploadProgress) {
                      
                  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                     DLog(@"%@post url = %@%@ \npost data = %@%@",kLogStart,BASE_URL,urlString,responseObject,kLogEnd);
+                     DLog(@"%@Get url = %@%@ \nGet response = %@%@",kLogStart,BASE_URL,urlString,responseObject,kLogEnd);
                      if (successblock) {
                          NSHTTPURLResponse *res = (NSHTTPURLResponse*)task.response;
                          successblock(res.statusCode,responseObject);

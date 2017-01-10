@@ -8,12 +8,16 @@
 
 #import "DKYFiltrateView.h"
 #import "DKYFiltrateOptionView.h"
+#import "DKYSexEnumModel.h"
+#import "DKYBigClassEnumModel.h"
 
 @interface DKYFiltrateView ()
 
 @property (nonatomic, weak) UILabel *filterConditionLabel;
 
 @property (nonatomic, weak) UIButton *oneKeyClearBtn;
+
+@property (nonatomic, strong) NSMutableArray *optionViews;
 
 @end
 
@@ -31,28 +35,55 @@
 #pragma mark - action method
 
 - (void)oneKeyClearBtnClicked:(UIButton*)sender{
-    
+    for (DKYFiltrateOptionView *op in self.optionViews) {
+        op.selectedOption = @"";
+    }
+    self.selectedBigClas = nil;
+    self.selectedSex = nil;
 }
 
 - (void)optionViewTaped:(DKYFiltrateOptionView*)optionView{
+    WeakSelf(weakSelf);
     UIViewController *vc = [self viewController];
+    
+    NSArray *array = nil;
+    
+    if([optionView.title isEqualToString:@"性别"]){
+        NSMutableArray *marr = [NSMutableArray arrayWithCapacity:self.sexEnums.count];
+        for (DKYSexEnumModel *model in self.sexEnums) {
+            [marr addObject:model.attribname];
+        }
+        array = [marr copy];
+    }else{
+        NSMutableArray *marr = [NSMutableArray arrayWithCapacity:self.bigClassEnums.count];
+        for (DKYBigClassEnumModel *model in self.bigClassEnums) {
+            [marr addObject:model.attribname];
+        }
+        array = [marr copy];
+    }
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
     [vc jxt_showActionSheetWithTitle:nil
                              message:optionView.title
                    appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
-                       alertMaker.
-                       addActionCancelTitle(@"cancel").
-                       addActionDefaultTitle(@"1").
-                       addActionDefaultTitle(@"2").
-                       addActionDefaultTitle(@"3");
+                       for (NSString *op in array) {
+                           alertMaker.addActionDefaultTitle(op);
+                       }
+                       alertMaker.addActionCancelTitle(@"cancel");
                    } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
                        
                        if ([action.title isEqualToString:@"cancel"]) {
                            DLog(@"cancel");
-                       }
-                       else if ([action.title isEqualToString:@"1"]) {
-                           DLog(@"1");
+                       }else{
+                           if([optionView.title isEqualToString:@"性别"]){
+                               DKYSexEnumModel *model = [weakSelf.sexEnums objectOrNilAtIndex:buttonIndex];
+                               weakSelf.selectedSex = @(model.Id);
+                           }else{
+                               DKYBigClassEnumModel *model = [weakSelf.bigClassEnums objectOrNilAtIndex:buttonIndex];
+                               weakSelf.selectedBigClas = @(model.Id);
+                           }
+                           optionView.selectedOption = [array objectOrNilAtIndex:buttonIndex];
                        }
                    } sourceView:optionView];
 #pragma clang diagnostic pop
@@ -67,8 +98,8 @@
     [self setupFilterConditionLabel];
     [self setupOneKeyClearBtn];
     
-    
-    [self test];
+    [self setupOpentionView];
+//    [self test];
 }
 
 - (void)setupFilterConditionLabel{
@@ -114,6 +145,36 @@
 //    btn.frame =  CGRectMake(512, 20, 171, 31);
 }
 
+- (void)setupOpentionView{
+    WeakSelf(weakSelf);
+    DKYFiltrateOptionView *opention1 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention1];
+    [opention1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(171, 171));
+        make.left.mas_equalTo(30);
+        make.bottom.mas_equalTo(-28);
+    }];
+    opention1.title = @"性别";
+    opention1.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
+    DKYFiltrateOptionView *opention2 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention2];
+    [opention2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(171, 171));
+        make.left.mas_equalTo(opention1.mas_right).with.offset(70);
+        make.bottom.mas_equalTo(opention1);
+    }];
+    opention2.title = @"大类";
+    opention2.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
+    [self.optionViews addObject:opention1];
+    [self.optionViews addObject:opention2];
+}
+
 - (void)test{
     WeakSelf(weakSelf);
     DKYFiltrateOptionView *opention1 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
@@ -142,18 +203,27 @@
         [weakSelf optionViewTaped:view];
     };
     
-    DKYFiltrateOptionView *opention3 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
-    [self addSubview:opention3];
-    [opention3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(171, 171));
-        make.left.mas_equalTo(opention2.mas_right).with.offset(70);
-        make.bottom.mas_equalTo(opention1);
-    }];
-    opention3.title = @"式样";
-    opention3.selectedOption = @"DKY0082";
-    opention3.optionViewTaped = ^(DKYFiltrateOptionView *view){
-        [weakSelf optionViewTaped:view];
-    };
+//    DKYFiltrateOptionView *opention3 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+//    [self addSubview:opention3];
+//    [opention3 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(171, 171));
+//        make.left.mas_equalTo(opention2.mas_right).with.offset(70);
+//        make.bottom.mas_equalTo(opention1);
+//    }];
+//    opention3.title = @"式样";
+//    opention3.selectedOption = @"DKY0082";
+//    opention3.optionViewTaped = ^(DKYFiltrateOptionView *view){
+//        [weakSelf optionViewTaped:view];
+//    };
+}
+
+#pragma mark - get & set method
+
+- (NSMutableArray*)optionViews{
+    if(_optionViews == nil){
+        _optionViews = [NSMutableArray array];
+    }
+    return _optionViews;
 }
 
 @end

@@ -71,8 +71,6 @@
     [self addSubview:label];
     self.titleLabel = label;
     
-    label.text = @"原料";
-    
     WeakSelf(weakSelf);
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf).with.offset(19);
@@ -88,8 +86,6 @@
     
     [self addSubview:label];
     self.contentLabel = label;
-    
-    label.text = @"全部";
     
     WeakSelf(weakSelf);
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {

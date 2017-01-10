@@ -35,4 +35,7 @@
 @property (nonatomic, strong) NSNumber *pageSize;
 @property (nonatomic, strong) NSNumber *pageNo;
 
+// id
+@property (nonatomic, strong) NSNumber *Id;
+
 @end

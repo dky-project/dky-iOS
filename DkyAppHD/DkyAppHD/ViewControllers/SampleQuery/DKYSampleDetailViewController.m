@@ -8,10 +8,14 @@
 
 #import "DKYSampleDetailViewController.h"
 #import "DKYSampleDetailTypeViewCell.h"
+#import "DKYSampleModel.h"
+#import "DKYSampleProductInfoModel.h"
 
 @interface DKYSampleDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, weak)IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) DKYSampleProductInfoModel *sampleProductInfo;
 
 @end
 
@@ -22,6 +26,8 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
+    
+    [self getProductInfoFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +39,32 @@
     [super viewWillAppear:animated];
     
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+}
+
+#pragma mark - 网络请求
+
+- (void)getProductInfoFromServer{
+    WeakSelf(weakSelf);
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    p.Id = @(self.sampleModel.mProductId);
+    
+    [[DKYHttpRequestManager sharedInstance] getProductInfoWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.sampleProductInfo = [DKYSampleProductInfoModel mj_objectWithKeyValues:result.data];
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+
 }
 
 #pragma mark - UI
