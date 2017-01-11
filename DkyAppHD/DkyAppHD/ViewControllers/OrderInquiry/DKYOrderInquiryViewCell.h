@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-@class DKYOrderInquiryHeaderView;
+@class DKYOrderInquiryHeaderView,DKYOrderItemModel;
 @interface DKYOrderInquiryViewCell : UITableViewCell
 
 + (instancetype)orderInquiryViewCellWithTableView:(UITableView *)tableView;
 
 @property (nonatomic, weak) DKYOrderInquiryHeaderView *headerView;
+
+@property (nonatomic, strong) DKYOrderItemModel *itemModel;
 
 @end

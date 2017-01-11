@@ -33,5 +33,11 @@
 @property (nonatomic, copy) NSString * pdt;
 @property (nonatomic, copy) NSString * xwValue;
 @property (nonatomic, copy) NSString * ycValue;
+@property (nonatomic, assign) NSInteger no1;
+
+// 客户端自己属性
+@property (nonatomic, copy) NSString *displayID;
+@property (nonatomic, copy) NSString *displayNo1;
+@property (nonatomic, copy) NSString *displayFaxDate;
 
 @end

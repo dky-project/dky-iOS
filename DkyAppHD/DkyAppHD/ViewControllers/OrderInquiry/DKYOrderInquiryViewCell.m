@@ -9,6 +9,7 @@
 #import "DKYOrderInquiryViewCell.h"
 #import "DKYOrderInquiryHeaderView.h"
 #import "DKYOrderInfoHeaderView.h"
+#import "DKYOrderItemModel.h"
 
 @interface DKYOrderInquiryViewCell ()
 
@@ -43,6 +44,19 @@
         [self commonInit];
     }
     return self;
+}
+
+- (void)setItemModel:(DKYOrderItemModel *)itemModel{
+    _itemModel = itemModel;
+    
+    self.orderNumberLabel.text = itemModel.displayID;
+    self.serialNumberLabel.text = itemModel.displayNo1;
+    self.sourceOfSampleLabel.text = itemModel.pdt;
+    self.clientLabel.text = itemModel.customer;
+    self.faxDateLabel.text = itemModel.displayFaxDate;
+    self.styleLabel.text = itemModel.mDimNew12Text;
+    self.sizeLabel.text = itemModel.xwValue;
+    self.lengthLabel.text = itemModel.ycValue;
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -143,35 +157,35 @@
 }
 
 - (void)setupOrderNumberLabel{
-    self.orderNumberLabel = [self createLabelWithName:@"001"];
+    self.orderNumberLabel = [self createLabelWithName:@""];
 }
 
 - (void)setupSerialNumberLabel{
-    self.serialNumberLabel = [self createLabelWithName:@"DKY0378"];
+    self.serialNumberLabel = [self createLabelWithName:@""];
 }
 
 - (void)setupSourceOfSampleLabel{
-    self.sourceOfSampleLabel = [self createLabelWithName:@"门店"];
+    self.sourceOfSampleLabel = [self createLabelWithName:@""];
 }
 
 - (void)setupClientLabel{
-    self.clientLabel = [self createLabelWithName:@"张三"];
+    self.clientLabel = [self createLabelWithName:@""];
 }
 
 - (void)setupFaxDateLabel{
-    self.faxDateLabel = [self createLabelWithName:@"16/05/14"];
+    self.faxDateLabel = [self createLabelWithName:@""];
 }
 
 - (void)setupStyleLabel{
-    self.styleLabel = [self createLabelWithName:@"圆领V"];
+    self.styleLabel = [self createLabelWithName:@""];
 }
 
 - (void)setupSizeLabel{
-    self.sizeLabel = [self createLabelWithName:@"M"];
+    self.sizeLabel = [self createLabelWithName:@""];
 }
 
 - (void)setupLengthLabel{
-    self.lengthLabel = [self createLabelWithName:@"87cm"];
+    self.lengthLabel = [self createLabelWithName:@""];
 }
 
 - (UILabel*)createLabelWithName:(NSString*)name{

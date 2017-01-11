@@ -109,12 +109,12 @@
     p.pageSize = @(kPageSize);
     p.czDate = self.czDate;
     p.customer = self.customer;
-    p.isapprove = @(self.selectedOrderAuditStatusModel.statusCode);
+    p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
     
     [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
-        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYOrderItemModel mj_objectArrayWithKeyValuesArray:page.items];
@@ -131,6 +131,7 @@
         //        dispatch_group_leave(weakSelf.group);
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
+        [weakSelf.tableView.mj_footer endRefreshing];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
         //        dispatch_group_leave(weakSelf.group);
     }];
@@ -311,6 +312,7 @@
 {
     DKYOrderInquiryViewCell *cell = [DKYOrderInquiryViewCell orderInquiryViewCellWithTableView:tableView];
     cell.headerView = self.headerView;
+    cell.itemModel = [self.orders objectOrNilAtIndex:indexPath.row];
     return cell;
 }
 
