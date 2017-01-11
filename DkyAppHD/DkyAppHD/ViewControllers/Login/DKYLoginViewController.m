@@ -59,6 +59,7 @@
             }else if (retCode == DkyHttpResponseCode_NotLogin) {
                 // 用户未登录,弹出登录页面
                 [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+                [DKYHUDTool showErrorWithStatus:result.msg];
             }else{
                 NSString *retMsg = result.msg;
                 [DKYHUDTool showErrorWithStatus:retMsg];

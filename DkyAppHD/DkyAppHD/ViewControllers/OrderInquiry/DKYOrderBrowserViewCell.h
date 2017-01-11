@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class DKYOrderItemDetailModel;
 @interface DKYOrderBrowserViewCell : UITableViewCell
 
 + (instancetype)orderBrowserViewCellWithTableView:(UITableView *)tableView;
+
+@property (nonatomic, strong) DKYOrderItemDetailModel *itemModel;
 
 @end

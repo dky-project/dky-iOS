@@ -20,6 +20,7 @@
 #import "DKYOrderItemModel.h"
 #import "DKYOrderAuditStatusModel.h"
 #import "DKYOrderInquiryParameter.h"
+#import "DKYOrderItemDetailModel.h"
 
 @interface DKYOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
 
@@ -41,6 +42,9 @@
 @property (nonatomic, copy) NSString *czDate;
 @property (nonatomic, copy) NSString *customer;
 @property (nonatomic, copy) NSString *pdt;
+
+// 批量预览的数据
+@property (nonatomic, strong) NSArray *detailOrders;
 
 @end
 
@@ -86,6 +90,7 @@
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
         }else{
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
@@ -124,6 +129,7 @@
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
         }else{
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
@@ -134,6 +140,34 @@
         [weakSelf.tableView.mj_footer endRefreshing];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
         //        dispatch_group_leave(weakSelf.group);
+    }];
+}
+
+- (void)productApproveInfoListFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    p.ids = @[@3282];
+    
+    [[DKYHttpRequestManager sharedInstance] productApproveInfoListWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.detailOrders = [DKYOrderItemDetailModel mj_objectArrayWithKeyValuesArray:result.data];
+            [weakSelf showOrderPreview];
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
 
@@ -180,7 +214,8 @@
 //    popover.sourceView = self.view;
 //    [self presentViewController:vc animated:YES completion:nil];
     [self.view endEditing:YES];
-    [DKYOrderBrowseView show];
+    DKYOrderBrowseView *browseView = [DKYOrderBrowseView show];
+    browseView.detailOrders = self.detailOrders;
 }
 
 #pragma mark - UI
@@ -224,7 +259,7 @@
     };
     
     header.batchPreviewBtnClicked = ^(id sender){
-        [weakSelf showOrderPreview];
+        [weakSelf productApproveInfoListFromServer];
     };
     
     header.findBtnClicked = ^(id sender){

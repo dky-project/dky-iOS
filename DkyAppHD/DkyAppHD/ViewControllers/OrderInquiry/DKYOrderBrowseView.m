@@ -52,6 +52,12 @@
     [self.popup dismiss:YES];
 }
 
+- (void)setDetailOrders:(NSArray *)detailOrders{
+    _detailOrders = [detailOrders copy];
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark - action method
 
 - (void)closeBtnClicked:(UIButton*)sender{
@@ -120,7 +126,7 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.detailOrders.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -131,6 +137,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
+    cell.itemModel = [self.detailOrders objectOrNilAtIndex:indexPath.row];
     return cell;
 }
 

@@ -14,4 +14,6 @@
 
 - (void)dismiss;
 
+@property (nonatomic, strong) NSArray *detailOrders;
+
 @end

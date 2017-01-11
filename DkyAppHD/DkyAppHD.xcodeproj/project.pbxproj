@@ -109,6 +109,8 @@
 		EB97F2C41E25FC4B00BDC705 /* DKYOrderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C31E25FC4B00BDC705 /* DKYOrderItemModel.m */; };
 		EB97F2C71E26018F00BDC705 /* DKYOrderAuditStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C61E26018F00BDC705 /* DKYOrderAuditStatusModel.m */; };
 		EB97F2CA1E26092E00BDC705 /* DKYOrderInquiryParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C91E26092E00BDC705 /* DKYOrderInquiryParameter.m */; };
+		EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2CC1E2629E200BDC705 /* DKYOrderItemDetailModel.m */; };
+		EB97F2D01E26533500BDC705 /* DKYCustomOrderUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2CF1E26533500BDC705 /* DKYCustomOrderUIViewController.m */; };
 		EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */; };
 		EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA01E24CD3F00939007 /* DKYSexEnumModel.m */; };
 		EB9BBBA41E24CFC000939007 /* DKYBigClassEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */; };
@@ -373,6 +375,10 @@
 		EB97F2C61E26018F00BDC705 /* DKYOrderAuditStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderAuditStatusModel.m; sourceTree = "<group>"; };
 		EB97F2C81E26092E00BDC705 /* DKYOrderInquiryParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInquiryParameter.h; sourceTree = "<group>"; };
 		EB97F2C91E26092E00BDC705 /* DKYOrderInquiryParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInquiryParameter.m; sourceTree = "<group>"; };
+		EB97F2CB1E2629E200BDC705 /* DKYOrderItemDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderItemDetailModel.h; sourceTree = "<group>"; };
+		EB97F2CC1E2629E200BDC705 /* DKYOrderItemDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderItemDetailModel.m; sourceTree = "<group>"; };
+		EB97F2CE1E26533500BDC705 /* DKYCustomOrderUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderUIViewController.h; sourceTree = "<group>"; };
+		EB97F2CF1E26533500BDC705 /* DKYCustomOrderUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderUIViewController.m; sourceTree = "<group>"; };
 		EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserLineItemModel.h; sourceTree = "<group>"; };
 		EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserLineItemModel.m; sourceTree = "<group>"; };
 		EB9BBB9F1E24CD3F00939007 /* DKYSexEnumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSexEnumModel.h; sourceTree = "<group>"; };
@@ -698,6 +704,8 @@
 		EB95107E1E15FC2C008708EF /* CustomOrder */ = {
 			isa = PBXGroup;
 			children = (
+				EB97F2CE1E26533500BDC705 /* DKYCustomOrderUIViewController.h */,
+				EB97F2CF1E26533500BDC705 /* DKYCustomOrderUIViewController.m */,
 			);
 			path = CustomOrder;
 			sourceTree = "<group>";
@@ -932,6 +940,8 @@
 				EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */,
 				EB97F2C21E25FC4B00BDC705 /* DKYOrderItemModel.h */,
 				EB97F2C31E25FC4B00BDC705 /* DKYOrderItemModel.m */,
+				EB97F2CB1E2629E200BDC705 /* DKYOrderItemDetailModel.h */,
+				EB97F2CC1E2629E200BDC705 /* DKYOrderItemDetailModel.m */,
 				EB97F2C51E26018F00BDC705 /* DKYOrderAuditStatusModel.h */,
 				EB97F2C61E26018F00BDC705 /* DKYOrderAuditStatusModel.m */,
 			);
@@ -1469,6 +1479,7 @@
 				EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */,
 				EB9510871E160321008708EF /* DKYTabBar.m in Sources */,
 				EB9511B01E164444008708EF /* WXSTransitionManager+TypeTool.m in Sources */,
+				EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */,
 				EB506C401E23A8B8002A1423 /* DKYOrderBrowseViewController.m in Sources */,
 				EB9790921E22459300E2985C /* YYMemoryCache.m in Sources */,
 				EB9790701E221B6F00E2985C /* MMPopupWindow.m in Sources */,
@@ -1483,6 +1494,7 @@
 				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				EB97906A1E221B6F00E2985C /* MMAlertView.m in Sources */,
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,
+				EB97F2D01E26533500BDC705 /* DKYCustomOrderUIViewController.m in Sources */,
 				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
 				EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */,

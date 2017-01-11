@@ -38,6 +38,7 @@
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询
+#define kProductApproveInfoListUrl      @"productApprove/productApproveInfoList"  // 订单详细信息查询
 
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆

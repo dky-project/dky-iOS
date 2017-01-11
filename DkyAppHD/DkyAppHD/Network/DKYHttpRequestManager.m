@@ -57,7 +57,9 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithAuthorizationToken:kProductApproveUrl withParameter:parameter Success:success failure:failure];
 }
 
-
+- (void)productApproveInfoListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kProductApproveInfoListUrl withParameter:parameter Success:success failure:failure];
+}
 
 
 - (void)LoginUserWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{

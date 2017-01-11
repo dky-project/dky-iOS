@@ -38,4 +38,7 @@
 // id
 @property (nonatomic, strong) NSNumber *Id;
 
+// ids
+@property (nonatomic, strong) NSArray *ids;
+
 @end
