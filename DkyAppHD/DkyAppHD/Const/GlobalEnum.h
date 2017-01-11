@@ -32,7 +32,6 @@ typedef NS_ENUM(NSInteger, DkyButtonStatusType) {
     DkyButtonStatusType_Done,
     
     
-    
     DkyButtonStatusType_Cancel = 1000,
 };
 

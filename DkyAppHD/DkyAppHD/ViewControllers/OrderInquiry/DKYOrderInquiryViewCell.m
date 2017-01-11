@@ -23,6 +23,11 @@
 @property (weak, nonatomic) UILabel *sizeLabel;
 @property (weak, nonatomic) UILabel *lengthLabel;
 
+// image
+@property (nonatomic, strong) UIImage *normalImage;
+
+@property (nonatomic, copy) UIImage *selectedImage;
+
 @end
 
 @implementation DKYOrderInquiryViewCell
@@ -57,6 +62,8 @@
     self.styleLabel.text = itemModel.mDimNew12Text;
     self.sizeLabel.text = itemModel.xwValue;
     self.lengthLabel.text = itemModel.ycValue;
+    
+    self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -150,8 +157,11 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
     
     UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
-    image = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
-    imageView.image = image;
+    self.normalImage = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
+    
+    self.selectedImage = [UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(11, 11)];
+    
+    imageView.image = self.normalImage;
     [self.contentView addSubview:imageView];
     self.rectImageView = imageView;
 }

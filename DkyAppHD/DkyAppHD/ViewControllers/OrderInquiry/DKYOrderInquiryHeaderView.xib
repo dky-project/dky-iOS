@@ -208,6 +208,7 @@
                 <outlet property="deleteBtn" destination="qLf-gH-Fi0" id="cNw-Ea-3tO"/>
                 <outlet property="faxDateLabel" destination="tal-Lv-NTY" id="kCh-ZY-6uA"/>
                 <outlet property="findBtn" destination="3bz-49-2Wg" id="3CZ-LF-1Wz"/>
+                <outlet property="headerView" destination="LVu-jE-9bc" id="Gfu-G6-HBj"/>
                 <outlet property="sampleTextField" destination="O2t-wJ-4aY" id="YN2-uz-Yfq"/>
             </connections>
         </view>

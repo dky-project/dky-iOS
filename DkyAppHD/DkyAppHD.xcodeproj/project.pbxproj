@@ -936,10 +936,10 @@
 		EB9BBB9B1E2470F200939007 /* 订单查询 */ = {
 			isa = PBXGroup;
 			children = (
-				EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */,
-				EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */,
 				EB97F2C21E25FC4B00BDC705 /* DKYOrderItemModel.h */,
 				EB97F2C31E25FC4B00BDC705 /* DKYOrderItemModel.m */,
+				EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */,
+				EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */,
 				EB97F2CB1E2629E200BDC705 /* DKYOrderItemDetailModel.h */,
 				EB97F2CC1E2629E200BDC705 /* DKYOrderItemDetailModel.m */,
 				EB97F2C51E26018F00BDC705 /* DKYOrderAuditStatusModel.h */,

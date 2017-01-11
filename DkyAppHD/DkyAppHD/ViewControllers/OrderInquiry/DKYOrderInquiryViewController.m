@@ -44,6 +44,8 @@
 @property (nonatomic, copy) NSString *pdt;
 
 // 批量预览的数据
+@property (nonatomic, strong) NSMutableArray *selectedOrders;
+
 @property (nonatomic, strong) NSArray *detailOrders;
 
 @end
@@ -147,7 +149,12 @@
     WeakSelf(weakSelf);
     [DKYHUDTool show];
     DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
-    p.ids = @[@3282];
+    
+    NSMutableArray *mids = [NSMutableArray arrayWithCapacity:self.detailOrders.count];
+    for (DKYOrderItemModel *item in self.selectedOrders) {
+        [mids addObject:@(item.Id)];
+    }
+    p.ids = [mids copy];
     
     [[DKYHttpRequestManager sharedInstance] productApproveInfoListWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -259,6 +266,10 @@
     };
     
     header.batchPreviewBtnClicked = ^(id sender){
+        if(weakSelf.selectedOrders.count == 0){
+            [DKYHUDTool showInfoWithStatus:@"请至少选择一条订单记录"];
+            return ;
+        }
         [weakSelf productApproveInfoListFromServer];
     };
     
@@ -283,6 +294,19 @@
         weakSelf.czDate = nil;
         weakSelf.customer = nil;
         weakSelf.pdt = nil;
+    };
+    
+    header.headerView.taped = ^(id sender,BOOL selected){
+        for (DKYOrderItemModel *item in self.orders) {
+            item.selected = selected;
+            if(item.selected){
+                [weakSelf.selectedOrders addObject:item];
+            }else{
+                [weakSelf.selectedOrders removeObject:item];
+            }
+        }
+        
+        [weakSelf.tableView reloadData];
     };
     
     [self setupRefreshControl];
@@ -352,7 +376,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DKYOrderItemModel *itemModel = [self.orders objectOrNilAtIndex:indexPath.row];
+    itemModel.selected = !itemModel.selected;
     
+    if(itemModel.selected){
+        [self.selectedOrders addObject:itemModel];
+    }else{
+        [self.selectedOrders removeObject:itemModel];
+    }
+    
+    [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark- <WGBDatePickerViewDelegate>
@@ -405,4 +438,12 @@
     }
     return _orderAuditStatusModels;
 }
+
+- (NSMutableArray*)selectedOrders{
+    if(_selectedOrders == nil){
+        _selectedOrders = [NSMutableArray array];
+    }
+    return _selectedOrders;
+}
+
 @end

@@ -12,6 +12,12 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+@property (nonatomic, assign) BOOL selected;
+
+// image
+@property (nonatomic, strong) UIImage *normalImage;
+
+@property (nonatomic, copy) UIImage *selectedImage;
 
 @end
 
@@ -55,29 +61,19 @@
     CGFloat lengths[2] = { 3, 1 };
     CGContextSetLineDash(context, 0, lengths, 2);
     [path stroke];
-    
-    //    //设置虚线颜色
-    //    CGContextSetStrokeColorWithColor(currentContext, [UIColor colorWithHex:0x666666].CGColor);
-    //    //设置虚线宽度
-    //    CGContextSetLineWidth(currentContext, 1);
-    //    //设置虚线绘制起点
-    //    CGContextMoveToPoint(currentContext, 0, 0);
-    //    //设置虚线绘制终点
-    //    CGContextAddLineToPoint(currentContext, self.frame.origin.x + self.frame.size.width, 0);
-    //    //设置虚线排列的宽度间隔:下面的arr中的数字表示先绘制3个点再绘制1个点
-    //    CGFloat arr[] = {3,1};
-    //    //下面最后一个参数“2”代表排列的个数。
-    //    CGContextSetLineDash(currentContext, 0, arr, 2);
-    //    CGContextDrawPath(currentContext, kCGPathStroke);
 }
 
 #pragma mark - UI
 
 - (void)commonInit{
     self.backgroundColor = [UIColor colorWithHex:0xEBEBEB];
+    
     UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
-    image = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
-    self.imageView.image = image;
+    self.normalImage = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
+    
+    self.selectedImage = [UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(11, 11)];
+    
+    self.imageView.image = self.normalImage;
     
     [self setupOrderNumberLabel];
     [self setupSerialNumberLabel];
@@ -87,6 +83,16 @@
     [self setupStyleLabel];
     [self setupSizeLabel];
     [self setupLengthLabel];
+    
+    WeakSelf(weakSelf);
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        weakSelf.selected = !weakSelf.selected;
+        weakSelf.imageView.image = weakSelf.selected ? weakSelf.selectedImage : weakSelf.normalImage;
+        if(weakSelf.taped){
+            weakSelf.taped(weakSelf,weakSelf.selected);
+        }
+    }];
+    [self addGestureRecognizer:tap];
 }
 
 - (void)setupOrderNumberLabel{

@@ -31,5 +31,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *auditStatusLabel;
 @property (weak, nonatomic) IBOutlet DKYOrderInfoHeaderView *bottomHeaderView;
+@property (weak, nonatomic) IBOutlet DKYOrderInfoHeaderView *headerView;
 
 @end

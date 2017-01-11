@@ -39,5 +39,6 @@
 @property (nonatomic, copy) NSString *displayID;
 @property (nonatomic, copy) NSString *displayNo1;
 @property (nonatomic, copy) NSString *displayFaxDate;
+@property (nonatomic, assign) BOOL selected;
 
 @end

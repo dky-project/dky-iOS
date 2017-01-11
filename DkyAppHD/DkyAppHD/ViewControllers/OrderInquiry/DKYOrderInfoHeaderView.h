@@ -22,4 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 
+@property (nonatomic, copy) BlockWithSenderAndBOOL taped;
+
 @end
