@@ -31,18 +31,26 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithAuthorizationToken:kProductPageUrl withParameter:parameter Success:success failure:failure];
 }
 
-- (void)getProductInfoWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
-//    [self p_doGetWithAuthorizationToken:kGetProductInfoUrl withParameter:parameter Success:success failure:failure];
-    [self p_doPostWithAuthorizationToken:kGetProductInfoUrl withParameter:parameter Success:success failure:failure];
-    
-}
-
 - (void)getSexEnumWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithAuthorizationToken:kGetSexEnumUrl withParameter:parameter Success:success failure:failure];
 }
 
 - (void)getBigClassEnumWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithAuthorizationToken:kGetBigClassEnumUrl withParameter:parameter Success:success failure:failure];
+}
+
+- (void)getProductInfoWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+//    [self p_doGetWithAuthorizationToken:kGetProductInfoUrl withParameter:parameter Success:success failure:failure];
+    [self p_doPostWithAuthorizationToken:kGetProductInfoUrl withParameter:parameter Success:success failure:failure];
+    
+}
+
+- (void)queryPriceListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kQueryPriceListUrl withParameter:parameter Success:success failure:failure];
+}
+
+- (void)queryValueWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kQueryValueListUrl withParameter:parameter Success:success failure:failure];
 }
 
 - (void)LoginUserWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{

@@ -20,4 +20,9 @@
  */
 @property (nonatomic, strong) NSNumber *mDimNew13Id;
 
+/**
+ * ID
+ */
+@property (nonatomic, strong) NSNumber *mProductId;
+
 @end

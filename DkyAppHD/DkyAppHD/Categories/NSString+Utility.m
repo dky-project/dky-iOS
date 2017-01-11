@@ -34,6 +34,29 @@
     return NO;
 }
 
+//格式化年化收益
++(NSString *)formatRateStringWithRate:(CGFloat)rate
+{
+    NSString *rateStr = [NSString stringWithFormat:@"%.2f",rate];
+    NSRange range = [rateStr rangeOfString:@"."];
+    NSInteger location = range.location;
+    if(location != NSNotFound)
+    {
+        while (rateStr.length > location) {
+            NSString *lastChar = [rateStr substringWithRange:NSMakeRange(rateStr.length-1, 1)];
+            if ([lastChar isEqualToString:@"0"] || [lastChar isEqualToString:@"."]) {
+                rateStr = [rateStr substringToIndex:rateStr.length-1];
+            }
+            else
+            {
+                break;
+            }
+        }
+        return rateStr;
+    }
+    return [NSString stringWithFormat:@"%.0f",rate];
+}
+
 //添加url后的参数
 + (NSString *)addQueryStringToUrl:(NSString *)url params:(NSDictionary *)params
 {

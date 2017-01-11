@@ -55,6 +55,7 @@
 #import "SDWebImageManager+Utility.h"
 #import "DKYPageModel.h"
 #import "DKYHttpRequestParameter.h"
+#import "NSString+Utility.h"
 #endif
 
 

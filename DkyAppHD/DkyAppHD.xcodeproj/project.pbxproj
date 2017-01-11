@@ -98,6 +98,14 @@
 		EB9790971E22466200E2985C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9790961E22466200E2985C /* libsqlite3.tbd */; };
 		EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790991E2246F800E2985C /* DKYLoginUserRequestParameter.m */; };
 		EB97909D1E224CEE00E2985C /* SDWebImageManager+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97909C1E224CEE00E2985C /* SDWebImageManager+Utility.m */; };
+		EB97F2B71E25C36A00BDC705 /* DQCanEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2A91E25C36A00BDC705 /* DQCanEditCell.m */; };
+		EB97F2B81E25C36A00BDC705 /* DQCanEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2AB1E25C36A00BDC705 /* DQCanEditTableViewCell.m */; };
+		EB97F2B91E25C36A00BDC705 /* DQFormCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2AD1E25C36A00BDC705 /* DQFormCollectionViewCell.m */; };
+		EB97F2BA1E25C36A00BDC705 /* DQTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2AF1E25C36A00BDC705 /* DQTableViewCell.m */; };
+		EB97F2BB1E25C36A00BDC705 /* DQFormCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2B21E25C36A00BDC705 /* DQFormCollectionView.m */; };
+		EB97F2BC1E25C36A00BDC705 /* DQFormHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2B41E25C36A00BDC705 /* DQFormHeader.m */; };
+		EB97F2BD1E25C36A00BDC705 /* DQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2B61E25C36A00BDC705 /* DQTextField.m */; };
+		EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C01E25EB4B00BDC705 /* DKYSampleValueInfoModel.m */; };
 		EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */; };
 		EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA01E24CD3F00939007 /* DKYSexEnumModel.m */; };
 		EB9BBBA41E24CFC000939007 /* DKYBigClassEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */; };
@@ -339,6 +347,23 @@
 		EB9790991E2246F800E2985C /* DKYLoginUserRequestParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYLoginUserRequestParameter.m; sourceTree = "<group>"; };
 		EB97909B1E224CEE00E2985C /* SDWebImageManager+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+Utility.h"; sourceTree = "<group>"; };
 		EB97909C1E224CEE00E2985C /* SDWebImageManager+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+Utility.m"; sourceTree = "<group>"; };
+		EB97F2A81E25C36A00BDC705 /* DQCanEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQCanEditCell.h; sourceTree = "<group>"; };
+		EB97F2A91E25C36A00BDC705 /* DQCanEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQCanEditCell.m; sourceTree = "<group>"; };
+		EB97F2AA1E25C36A00BDC705 /* DQCanEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQCanEditTableViewCell.h; sourceTree = "<group>"; };
+		EB97F2AB1E25C36A00BDC705 /* DQCanEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQCanEditTableViewCell.m; sourceTree = "<group>"; };
+		EB97F2AC1E25C36A00BDC705 /* DQFormCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQFormCollectionViewCell.h; sourceTree = "<group>"; };
+		EB97F2AD1E25C36A00BDC705 /* DQFormCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQFormCollectionViewCell.m; sourceTree = "<group>"; };
+		EB97F2AE1E25C36A00BDC705 /* DQTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQTableViewCell.h; sourceTree = "<group>"; };
+		EB97F2AF1E25C36A00BDC705 /* DQTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQTableViewCell.m; sourceTree = "<group>"; };
+		EB97F2B11E25C36A00BDC705 /* DQFormCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQFormCollectionView.h; sourceTree = "<group>"; };
+		EB97F2B21E25C36A00BDC705 /* DQFormCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQFormCollectionView.m; sourceTree = "<group>"; };
+		EB97F2B31E25C36A00BDC705 /* DQFormHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQFormHeader.h; sourceTree = "<group>"; };
+		EB97F2B41E25C36A00BDC705 /* DQFormHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQFormHeader.m; sourceTree = "<group>"; };
+		EB97F2B51E25C36A00BDC705 /* DQTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQTextField.h; sourceTree = "<group>"; };
+		EB97F2B61E25C36A00BDC705 /* DQTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQTextField.m; sourceTree = "<group>"; };
+		EB97F2BE1E25C38500BDC705 /* DQHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQHeader.h; sourceTree = "<group>"; };
+		EB97F2BF1E25EB4B00BDC705 /* DKYSampleValueInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleValueInfoModel.h; sourceTree = "<group>"; };
+		EB97F2C01E25EB4B00BDC705 /* DKYSampleValueInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleValueInfoModel.m; sourceTree = "<group>"; };
 		EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserLineItemModel.h; sourceTree = "<group>"; };
 		EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserLineItemModel.m; sourceTree = "<group>"; };
 		EB9BBB9F1E24CD3F00939007 /* DKYSexEnumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSexEnumModel.h; sourceTree = "<group>"; };
@@ -607,6 +632,8 @@
 				EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */,
 				EBBD5A701E25160F00037B85 /* DKYQueryPriceModel.h */,
 				EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */,
+				EB97F2BF1E25EB4B00BDC705 /* DKYSampleValueInfoModel.h */,
+				EB97F2C01E25EB4B00BDC705 /* DKYSampleValueInfoModel.m */,
 			);
 			name = "样衣查询";
 			sourceTree = "<group>";
@@ -849,6 +876,44 @@
 			path = YYCache;
 			sourceTree = "<group>";
 		};
+		EB97F2A61E25C36A00BDC705 /* DQCanEditTablForm */ = {
+			isa = PBXGroup;
+			children = (
+				EB97F2BE1E25C38500BDC705 /* DQHeader.h */,
+				EB97F2A71E25C36A00BDC705 /* Cell */,
+				EB97F2B01E25C36A00BDC705 /* View */,
+			);
+			path = DQCanEditTablForm;
+			sourceTree = "<group>";
+		};
+		EB97F2A71E25C36A00BDC705 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EB97F2A81E25C36A00BDC705 /* DQCanEditCell.h */,
+				EB97F2A91E25C36A00BDC705 /* DQCanEditCell.m */,
+				EB97F2AA1E25C36A00BDC705 /* DQCanEditTableViewCell.h */,
+				EB97F2AB1E25C36A00BDC705 /* DQCanEditTableViewCell.m */,
+				EB97F2AC1E25C36A00BDC705 /* DQFormCollectionViewCell.h */,
+				EB97F2AD1E25C36A00BDC705 /* DQFormCollectionViewCell.m */,
+				EB97F2AE1E25C36A00BDC705 /* DQTableViewCell.h */,
+				EB97F2AF1E25C36A00BDC705 /* DQTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EB97F2B01E25C36A00BDC705 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB97F2B11E25C36A00BDC705 /* DQFormCollectionView.h */,
+				EB97F2B21E25C36A00BDC705 /* DQFormCollectionView.m */,
+				EB97F2B31E25C36A00BDC705 /* DQFormHeader.h */,
+				EB97F2B41E25C36A00BDC705 /* DQFormHeader.m */,
+				EB97F2B51E25C36A00BDC705 /* DQTextField.h */,
+				EB97F2B61E25C36A00BDC705 /* DQTextField.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EB9BBB9B1E2470F200939007 /* 订单查询 */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,6 +1034,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				EB97F2A61E25C36A00BDC705 /* DQCanEditTablForm */,
 				EB506C411E23B24C002A1423 /* KLCPopup */,
 				EB9790861E22459300E2985C /* YYCache */,
 				EB9790581E221B6F00E2985C /* MMPopupView */,
@@ -1330,7 +1396,9 @@
 				EBC300501E1CA0C700F602E6 /* TAAnimatedDotView.m in Sources */,
 				EB506C471E23B24C002A1423 /* TWBackgroundView.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,
+				EB97F2B91E25C36A00BDC705 /* DQFormCollectionViewCell.m in Sources */,
 				EB9BBBAA1E24DA6100939007 /* DKYSampleQueryParameter.m in Sources */,
+				EB97F2BB1E25C36A00BDC705 /* DQFormCollectionView.m in Sources */,
 				EBC3004F1E1CA0C700F602E6 /* TAAbstractDotView.m in Sources */,
 				EB95117D1E162E31008708EF /* UIStoryboard+Utility.m in Sources */,
 				EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */,
@@ -1345,6 +1413,7 @@
 				EB9790501E22118500E2985C /* WGBDatePickerView.m in Sources */,
 				EB97908F1E22459300E2985C /* YYCache.m in Sources */,
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
+				EB97F2BD1E25C36A00BDC705 /* DQTextField.m in Sources */,
 				EB9BBBA41E24CFC000939007 /* DKYBigClassEnumModel.m in Sources */,
 				EB506C371E23706F002A1423 /* DKYSampleModel.m in Sources */,
 				EB9511AA1E164444008708EF /* WXSTransitionManager+CoverAnimation.m in Sources */,
@@ -1363,6 +1432,8 @@
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
 				EB9790781E222A7900E2985C /* DKYHttpRequestParameter.m in Sources */,
 				EB97906F1E221B6F00E2985C /* MMPopupView.m in Sources */,
+				EB97F2B81E25C36A00BDC705 /* DQCanEditTableViewCell.m in Sources */,
+				EB97F2BA1E25C36A00BDC705 /* DQTableViewCell.m in Sources */,
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
@@ -1370,6 +1441,7 @@
 				263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */,
 				26DAD0D21E1A32D0008EE55F /* DKYAccountManager.m in Sources */,
 				EB9511AE1E164444008708EF /* WXSTransitionManager+SpreadAnimation.m in Sources */,
+				EB97F2BC1E25C36A00BDC705 /* DQFormHeader.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
 				EB97909D1E224CEE00E2985C /* SDWebImageManager+Utility.m in Sources */,
 				EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */,
@@ -1404,6 +1476,7 @@
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
+				EB97F2B71E25C36A00BDC705 /* DQCanEditCell.m in Sources */,
 				EB9790901E22459300E2985C /* YYDiskCache.m in Sources */,
 				EBBD5A721E25160F00037B85 /* DKYQueryPriceModel.m in Sources */,
 				EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */,
@@ -1415,6 +1488,7 @@
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
+				EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */,
 				EB506C461E23B24C002A1423 /* KLCPopup.m in Sources */,
 				EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */,
 				EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */,

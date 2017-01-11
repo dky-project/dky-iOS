@@ -37,5 +37,5 @@
 + (NSString *)jsonStringFromObject:(id)object;
 
 
-
++ (NSString*)formatRateStringWithRate:(CGFloat)rate;
 @end

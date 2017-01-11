@@ -32,8 +32,8 @@
 
 
 #define kGetProductInfoUrl              @"product/getProductInfo"       // 样衣详细信息查询
-#define kQueryPriceListUrl              @"product/queryPriceList"       // queryPriceList
-#define kQueryValueListUrl              @"roduct/queryValueList"        // 查询胸围、衣长、肩宽、袖长列表
+#define kQueryPriceListUrl              @"product/queryPriceList"       // 查询价格列表
+#define kQueryValueListUrl              @"product/queryValueList"        // 查询胸围、衣长、肩宽、袖长列表
 
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
