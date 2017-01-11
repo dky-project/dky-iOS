@@ -233,29 +233,24 @@
     [self setupCustomTitle:@"订单查询"];
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     
+    [self setupHeaderView];
     [self setupTableView];
 }
 
-- (void)setupTableView{
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    tableView.showsVerticalScrollIndicator = NO;
-    tableView.backgroundColor = [UIColor whiteColor];
-    self.tableView = tableView;
-    [self.view addSubview:tableView];
-    
+- (void)setupHeaderView{
     WeakSelf(weakSelf);
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(weakSelf.view);
-    }];
-    
     DKYOrderInquiryHeaderView *header = [DKYOrderInquiryHeaderView orderInquiryHeaderView];
-    header.bounds = CGRectMake(0, 0, kScreenWidth, 300);
-    self.tableView.tableHeaderView = header;
+//    header.bounds = CGRectMake(0, 0, kScreenWidth, 300);
+//    self.tableView.tableHeaderView = header;
+    [self.view addSubview:header];
     self.headerView = header;
     
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view);
+        make.right.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.view);
+        make.height.mas_equalTo(300);
+    }];
     
     header.faxDateBlock = ^(id sender){
         [weakSelf showFaxDateSelectedPicker];
@@ -308,6 +303,27 @@
         
         [weakSelf.tableView reloadData];
     };
+
+}
+
+- (void)setupTableView{
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView = tableView;
+    [self.view addSubview:tableView];
+    
+    WeakSelf(weakSelf);
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view);
+        make.right.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.headerView.mas_bottom);
+        make.bottom.mas_equalTo(weakSelf.view);
+    }];
+    
     
     [self setupRefreshControl];
 }
