@@ -18,8 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="768" height="349"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单编号：60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfD-2h-hVY">
-                        <rect key="frame" x="339.5" y="33" width="89" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单编号：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfD-2h-hVY">
+                        <rect key="frame" x="348.5" y="33" width="71.5" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="cLs-Ig-7Jd"/>
                         </constraints>

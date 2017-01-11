@@ -54,6 +54,9 @@
     
     if(!itemModel) return;
     
+    NSString *orderNum = [NSString stringWithFormat:@"订单编号：%@",itemModel.displayNo1];
+    self.orderNumberLabel.text = orderNum;
+    
     self.line1.itemModel.firstContent = itemModel.jgNo;
     self.line1.itemModel.secondContent = itemModel.displayFhDate;
     self.line1.itemModel = self.line1.itemModel;
