@@ -106,6 +106,9 @@
 		EB97F2BC1E25C36A00BDC705 /* DQFormHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2B41E25C36A00BDC705 /* DQFormHeader.m */; };
 		EB97F2BD1E25C36A00BDC705 /* DQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2B61E25C36A00BDC705 /* DQTextField.m */; };
 		EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C01E25EB4B00BDC705 /* DKYSampleValueInfoModel.m */; };
+		EB97F2C41E25FC4B00BDC705 /* DKYOrderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C31E25FC4B00BDC705 /* DKYOrderItemModel.m */; };
+		EB97F2C71E26018F00BDC705 /* DKYOrderAuditStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C61E26018F00BDC705 /* DKYOrderAuditStatusModel.m */; };
+		EB97F2CA1E26092E00BDC705 /* DKYOrderInquiryParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C91E26092E00BDC705 /* DKYOrderInquiryParameter.m */; };
 		EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */; };
 		EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA01E24CD3F00939007 /* DKYSexEnumModel.m */; };
 		EB9BBBA41E24CFC000939007 /* DKYBigClassEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */; };
@@ -364,6 +367,12 @@
 		EB97F2BE1E25C38500BDC705 /* DQHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQHeader.h; sourceTree = "<group>"; };
 		EB97F2BF1E25EB4B00BDC705 /* DKYSampleValueInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleValueInfoModel.h; sourceTree = "<group>"; };
 		EB97F2C01E25EB4B00BDC705 /* DKYSampleValueInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleValueInfoModel.m; sourceTree = "<group>"; };
+		EB97F2C21E25FC4B00BDC705 /* DKYOrderItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderItemModel.h; sourceTree = "<group>"; };
+		EB97F2C31E25FC4B00BDC705 /* DKYOrderItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderItemModel.m; sourceTree = "<group>"; };
+		EB97F2C51E26018F00BDC705 /* DKYOrderAuditStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderAuditStatusModel.h; sourceTree = "<group>"; };
+		EB97F2C61E26018F00BDC705 /* DKYOrderAuditStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderAuditStatusModel.m; sourceTree = "<group>"; };
+		EB97F2C81E26092E00BDC705 /* DKYOrderInquiryParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInquiryParameter.h; sourceTree = "<group>"; };
+		EB97F2C91E26092E00BDC705 /* DKYOrderInquiryParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInquiryParameter.m; sourceTree = "<group>"; };
 		EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserLineItemModel.h; sourceTree = "<group>"; };
 		EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserLineItemModel.m; sourceTree = "<group>"; };
 		EB9BBB9F1E24CD3F00939007 /* DKYSexEnumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSexEnumModel.h; sourceTree = "<group>"; };
@@ -857,6 +866,8 @@
 				EB9790991E2246F800E2985C /* DKYLoginUserRequestParameter.m */,
 				EB9BBBA81E24DA6100939007 /* DKYSampleQueryParameter.h */,
 				EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */,
+				EB97F2C81E26092E00BDC705 /* DKYOrderInquiryParameter.h */,
+				EB97F2C91E26092E00BDC705 /* DKYOrderInquiryParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -919,6 +930,10 @@
 			children = (
 				EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */,
 				EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */,
+				EB97F2C21E25FC4B00BDC705 /* DKYOrderItemModel.h */,
+				EB97F2C31E25FC4B00BDC705 /* DKYOrderItemModel.m */,
+				EB97F2C51E26018F00BDC705 /* DKYOrderAuditStatusModel.h */,
+				EB97F2C61E26018F00BDC705 /* DKYOrderAuditStatusModel.m */,
 			);
 			name = "订单查询";
 			sourceTree = "<group>";
@@ -1445,6 +1460,8 @@
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
 				EB97909D1E224CEE00E2985C /* SDWebImageManager+Utility.m in Sources */,
 				EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */,
+				EB97F2C41E25FC4B00BDC705 /* DKYOrderItemModel.m in Sources */,
+				EB97F2CA1E26092E00BDC705 /* DKYOrderInquiryParameter.m in Sources */,
 				EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */,
 				EBC3006E1E1CD8FE00F602E6 /* TWBaseViewController.m in Sources */,
 				EB9511A71E164444008708EF /* WXSPercentDrivenInteractiveTransition.m in Sources */,
@@ -1461,6 +1478,7 @@
 				EB9790491E21EAF500E2985C /* DKYOrderInquiryHeaderView.m in Sources */,
 				EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */,
 				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,
+				EB97F2C71E26018F00BDC705 /* DKYOrderAuditStatusModel.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				EB97906A1E221B6F00E2985C /* MMAlertView.m in Sources */,

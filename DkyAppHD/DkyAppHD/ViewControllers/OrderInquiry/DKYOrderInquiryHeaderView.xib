@@ -100,6 +100,9 @@
                             <state key="normal" title="查找">
                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="findBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="cFj-6e-v95"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fe1-Xj-lBX">
                             <rect key="frame" x="598" y="31" width="120" height="38"/>
@@ -125,6 +128,9 @@
                             <state key="normal" title="删除">
                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="deleteBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Z1g-z1-G5H"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -19,7 +19,12 @@
 
 @property (nonatomic, copy) BlockWithSender batchPreviewBtnClicked;
 
+@property (nonatomic, copy) BlockWithSender findBtnClicked;
+
+@property (nonatomic, copy) BlockWithSender deleteBtnClicked;
+
 @property (weak, nonatomic) IBOutlet UITextField *sampleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *clientTextField;
 @property (weak, nonatomic) IBOutlet UIButton *findBtn;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UIButton *batchPreviewBtn;

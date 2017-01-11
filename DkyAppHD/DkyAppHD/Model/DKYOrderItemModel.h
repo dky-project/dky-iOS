@@ -1,0 +1,37 @@
+//
+//  DKYOrderItemModel.h
+//  DkyAppHD
+//
+//  Created by HaKim on 17/1/11.
+//  Copyright © 2017年 haKim. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+//{
+//    "id": 14485,
+//    "pdt": "J86",
+//    "customer": "刘传君",
+//    "czDate": "2016-10-09",
+//    "mDimNew12Text": "套衫",
+//    "mDimNew15Text": "单面",
+//    "mDimNew16Text": "12G",
+//    "mDimNew17Text": "26S",
+//    "xwValue": "85",
+//    "ycValue": "62"
+//}
+
+@interface DKYOrderItemModel : NSObject
+
+@property (nonatomic, copy) NSString * customer;
+@property (nonatomic, copy) NSString * czDate;
+@property (nonatomic, assign) NSInteger Id;
+@property (nonatomic, copy) NSString * mDimNew12Text;
+@property (nonatomic, copy) NSString * mDimNew15Text;
+@property (nonatomic, copy) NSString * mDimNew16Text;
+@property (nonatomic, copy) NSString * mDimNew17Text;
+@property (nonatomic, copy) NSString * pdt;
+@property (nonatomic, copy) NSString * xwValue;
+@property (nonatomic, copy) NSString * ycValue;
+
+@end

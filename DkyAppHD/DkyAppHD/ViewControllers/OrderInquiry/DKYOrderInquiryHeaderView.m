@@ -11,9 +11,6 @@
 
 @interface DKYOrderInquiryHeaderView ()
 
-@property (weak, nonatomic) IBOutlet UITextField *clientTextField;
-
-
 @property (nonatomic, strong) UUDatePicker *datePicker;
 
 @end
@@ -60,6 +57,18 @@
 - (IBAction)batchPreviewBtnClicked:(UIButton *)sender {
     if(self.batchPreviewBtnClicked){
         self.batchPreviewBtnClicked(self);
+    }
+}
+
+- (IBAction)findBtnClicked:(UIButton *)sender {
+    if(self.findBtnClicked){
+        self.findBtnClicked(self);
+    }
+}
+
+- (IBAction)deleteBtnClicked:(UIButton *)sender {
+    if(self.deleteBtnClicked){
+        self.deleteBtnClicked(self);
     }
 }
 
