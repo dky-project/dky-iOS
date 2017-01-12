@@ -11,11 +11,13 @@
 #import "DKYHomeItemTwoView.h"
 #import "DKYHomeArticleModel.h"
 #import "DKYHomeCellTableViewCell.h"
+#import "TWLineLayout.h"
 
-@interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource,UITableViewDelegate,UITableViewDataSource>
+@interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic,weak) iCarousel *iCarousel;
 @property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, weak) UICollectionView *collectionView;
 
 @property (nonatomic, weak) id<DKYHomeItemDelegate> previousItemView;
 
@@ -37,6 +39,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController.navigationBar lt_reset];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -120,11 +138,7 @@
     self.navigationItem.title = nil;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
-    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor randomColor];
     
     [self setupiCarousel];
 //    [self setupTableView];
@@ -163,6 +177,31 @@
 //    view.numberOfVisibleItems = 4;
     self.iCarousel = view;
 //    [view scrollToItemAtIndex:1 animated:NO];
+}
+
+- (void)setupCollectionView{
+    // 创建布局
+    TWLineLayout *layout = [[TWLineLayout alloc] init];
+    
+    // 创建CollectionView
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    collectionView.dataSource = self;
+    collectionView.delegate = self;
+    collectionView.backgroundColor = [UIColor clearColor];
+    collectionView.showsHorizontalScrollIndicator = NO;
+    collectionView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:collectionView];
+    self.collectionView = collectionView;
+    
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    
+    WeakSelf(weakSelf);
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view);
+        make.right.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.view).with.offset(20);
+        make.bottom.mas_equalTo(weakSelf.view);
+    }];
 }
 
 #pragma mark iCarousel taps
@@ -238,6 +277,24 @@
 {
     
 }
+
+#pragma mark - <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionView class]) forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor randomColor];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DLog(@"idnexPath = %@",indexPath);
+}
+
 
 #pragma mark - get & set method
 

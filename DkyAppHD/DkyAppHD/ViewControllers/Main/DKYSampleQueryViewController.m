@@ -58,7 +58,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -275,6 +274,8 @@
 - (void)commonInit{
     self.navigationItem.title = nil;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
+    
     self.group = dispatch_group_create();
     
     [self setupCollectionView];

@@ -150,6 +150,7 @@
 		EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300841E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m */; };
 		EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */; };
 		EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */; };
+		EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694981E271C7900F365C3 /* TWLineLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -457,6 +458,8 @@
 		EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		EBC300871E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
 		EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
+		EBD694971E271C7900F365C3 /* TWLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLineLayout.h; sourceTree = "<group>"; };
+		EBD694981E271C7900F365C3 /* TWLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLineLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +543,8 @@
 				267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */,
 				EB506C281E236D22002A1423 /* DKYHomeCellTableViewCell.h */,
 				EB506C291E236D22002A1423 /* DKYHomeCellTableViewCell.m */,
+				EBD694971E271C7900F365C3 /* TWLineLayout.h */,
+				EBD694981E271C7900F365C3 /* TWLineLayout.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1425,6 +1430,7 @@
 				EB9BBBAA1E24DA6100939007 /* DKYSampleQueryParameter.m in Sources */,
 				EB97F2BB1E25C36A00BDC705 /* DQFormCollectionView.m in Sources */,
 				EBC3004F1E1CA0C700F602E6 /* TAAbstractDotView.m in Sources */,
+				EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */,
 				EB95117D1E162E31008708EF /* UIStoryboard+Utility.m in Sources */,
 				EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */,
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
