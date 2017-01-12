@@ -91,19 +91,19 @@
 - (void)addAllChildVcs
 {
     DKYHomeViewController *homeVc = [[DKYHomeViewController alloc] init];
-    [self addOneChlildVc:homeVc title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
+    [self addOneChlildVc:homeVc title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home"];
     self.homeVc = homeVc;
     
     DKYSampleQueryViewController *sampleQueryVc = [[DKYSampleQueryViewController alloc] init];
-    [self addOneChlildVc:sampleQueryVc title:@"样衣查询" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
+    [self addOneChlildVc:sampleQueryVc title:@"样衣查询" imageName:@"tabbar_sample" selectedImageName:@"tabbar_sample"];
     self.sampleQueryVc = sampleQueryVc;
     
     DKYCustomOrderUIViewController *customOrderVc = [[DKYCustomOrderUIViewController alloc] init];
-    [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_message_center" selectedImageName:@"tabbar_message_center_selected"];
+    [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_customOrder" selectedImageName:@"tabbar_customOrder"];
     self.customOrderVc = customOrderVc;
     
     DKYOrderInquiryViewController *orderInquiryVc = [[DKYOrderInquiryViewController alloc] init];
-    [self addOneChlildVc:orderInquiryVc title:@"订单查询" imageName:@"tabbar_profile" selectedImageName:@"tabbar_profile_selected"];
+    [self addOneChlildVc:orderInquiryVc title:@"订单查询" imageName:@"tabbar_order" selectedImageName:@"tabbar_order"];
     self.orderInquiryVc = orderInquiryVc;
 }
 
@@ -113,7 +113,7 @@
     childVc.title = title;
     
     // 设置图标
-    childVc.tabBarItem.image = [UIImage imageNamed:imageName];
+    childVc.tabBarItem.image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     // 设置tabBarItem的普通文字颜色
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
@@ -129,9 +129,9 @@
     // 设置选中的图标
     UIImage *selectedImage = [UIImage imageNamed:selectedImageName];
     // 声明这张图片用原图(别渲染)
-//    selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
-    selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//    selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     childVc.tabBarItem.selectedImage = selectedImage;
     
     // 添加为tabbar控制器的子控制器

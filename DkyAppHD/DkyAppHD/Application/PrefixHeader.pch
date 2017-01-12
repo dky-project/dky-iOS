@@ -56,6 +56,10 @@
 #import "DKYPageModel.h"
 #import "DKYHttpRequestParameter.h"
 #import "NSString+Utility.h"
+#import "RxWebViewNavigationViewController.h"
+#import "RxWebViewController.h"
+#import "DKYWebViewController.h"
+#import "TOWebViewController.h"
 #endif
 
 

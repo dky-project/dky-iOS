@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "下单-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tabbar_discover_selected@2x.png",
+      "filename" : "下单-1.png",
       "scale" : "2x"
     },
     {

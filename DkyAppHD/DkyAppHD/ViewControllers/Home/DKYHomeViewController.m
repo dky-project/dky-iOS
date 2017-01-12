@@ -14,6 +14,7 @@
 #import "TWLineLayout.h"
 #import "DKYHomeItemViewCell.h"
 #import "DKYHomeItemTwoViewCell.h"
+#import "DKYHomeArticleDetailModel.h"
 
 @interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,TWLineLayoutDelegate>
 
@@ -105,7 +106,8 @@
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
- 
+            DKYHomeArticleDetailModel *detailModel = [DKYHomeArticleDetailModel mj_objectWithKeyValues:result.data];
+            [weakSelf goToWebviewController:detailModel.jumpurl];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -161,6 +163,22 @@
 
     
     return view;
+}
+
+- (void)goToWebviewController:(NSString*)url{
+    NSURL *URL = nil;
+    if([url isKindOfClass:[NSString class]]){
+        if(![url hasPrefix:@"http"]){
+            url = [NSString stringWithFormat:@"http://%@",url];
+        }
+        URL = [NSURL URLWithString:url];
+    }
+    
+    DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
+    [self.navigationController pushViewController:webViewController animated:YES];
+    
+//    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:URL];
+//    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 #pragma mark - UI

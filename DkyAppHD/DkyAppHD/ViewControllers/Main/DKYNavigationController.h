@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DKYNavigationController : UINavigationController
+@interface DKYNavigationController : RxWebViewNavigationViewController
 
 @end
