@@ -8,6 +8,8 @@
 
 #import "TWLineLayout.h"
 
+static const CGFloat ACTIVE_DISTANCE = 0.0f; //Distance of given cell from center of visible rect
+
 @implementation TWLineLayout
 
 - (instancetype)init
@@ -36,11 +38,11 @@
     [super prepareLayout];
     
     // 水平滚动
-    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     // 设置内边距
-    CGFloat inset = (self.collectionView.frame.size.width - self.itemSize.width) * 0.5;
-    self.sectionInset = UIEdgeInsetsMake(0, inset, 0, inset);
+    CGFloat inset = (self.collectionView.frame.size.height - self.itemSize.height) * 0.5;
+    self.sectionInset = UIEdgeInsetsMake(inset, 0, inset, 0);
 }
 
 /**
@@ -58,15 +60,15 @@
     NSArray *array = [super layoutAttributesForElementsInRect:rect];
     
     // 计算collectionView最中心点的x值
-    CGFloat centerX = self.collectionView.contentOffset.x + self.collectionView.frame.size.width * 0.5;
+    CGFloat centerY = self.collectionView.contentOffset.y + self.collectionView.frame.size.height * 0.5;
     
     // 在原有布局属性的基础上，进行微调
     for (UICollectionViewLayoutAttributes *attrs in array) {
         // cell的中心点x 和 collectionView最中心点的x值 的间距
-        CGFloat delta = ABS(attrs.center.x - centerX);
+        CGFloat delta = ABS(attrs.center.y - centerY);
         
         // 根据间距值 计算 cell的缩放比例
-        CGFloat scale = 1 - delta * 0.2 / self.collectionView.frame.size.width;
+        CGFloat scale = 1 - delta * 0.2 / self.collectionView.frame.size.height;
         
         // 设置缩放比例
         attrs.transform = CGAffineTransformMakeScale(scale, scale);
@@ -76,7 +78,22 @@
         id<TWLineLayoutDelegate> cell = (id)[self.collectionView cellForItemAtIndexPath:indexPath];
         if(cell){
             if([cell respondsToSelector:@selector(setMaskViewAlpha:)]){
-                [cell setMaskViewAlpha:delta * 0.2 / self.collectionView.frame.size.width];
+                [cell setMaskViewAlpha:delta * 0.2 / self.collectionView.frame.size.height];
+            }
+        }
+        
+        CGRect visibleRect;
+        visibleRect.origin = self.collectionView.contentOffset;
+        visibleRect.size = self.collectionView.bounds.size;
+        CGRect frame = attrs.frame;
+        if (CGRectIntersectsRect(frame, rect)) {
+            
+            CGFloat visibleY = CGRectGetMidY(visibleRect);
+            CGFloat centerY = attrs.center.y;
+            CGFloat distance = visibleY - centerY;
+            // Make sure given cell is center
+            if (ABS(distance) == ACTIVE_DISTANCE) {
+                [self.mydelegate collectionView:self.collectionView layout:self cellCenteredAtIndexPath:attrs.indexPath];
             }
         }
     }
@@ -91,28 +108,28 @@
 {
     // 计算出最终显示的矩形框
     CGRect rect;
-    rect.origin.y = 0;
-    rect.origin.x = proposedContentOffset.x;
+    rect.origin.y = proposedContentOffset.y;
+    rect.origin.x = 0;
     rect.size = self.collectionView.frame.size;
     
     // 获得super已经计算好的布局属性
     NSArray *array = [super layoutAttributesForElementsInRect:rect];
     
     // 计算collectionView最中心点的x值
-    CGFloat centerX = proposedContentOffset.x + self.collectionView.frame.size.width * 0.5;
+    CGFloat centerY = proposedContentOffset.y + self.collectionView.frame.size.height * 0.5;
     
     // 存放最小的间距值
     CGFloat minDelta = MAXFLOAT;
     UICollectionViewLayoutAttributes *centerAttr = nil;
     for (UICollectionViewLayoutAttributes *attrs in array) {
-        if (ABS(minDelta) > ABS(attrs.center.x - centerX)) {
-            minDelta = attrs.center.x - centerX;
+        if (ABS(minDelta) > ABS(attrs.center.y - centerY)) {
+            minDelta = attrs.center.y - centerY;
             centerAttr = attrs;
         }
     }
     
     // 修改原有的偏移量
-    proposedContentOffset.x += minDelta;
+    proposedContentOffset.y += minDelta;
     return proposedContentOffset;
 }
 

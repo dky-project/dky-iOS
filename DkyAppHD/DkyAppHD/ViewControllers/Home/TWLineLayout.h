@@ -13,8 +13,18 @@
 @optional
 - (void)setMaskViewAlpha:(CGFloat)alpha;
 
+- (void)hideReadMoreBtn:(BOOL)hide;
+
+/** Informs delegate about location of centered cell in grid.
+ *  Delegate should use this location 'indexPath' information to
+ *   adjust it's conten associated with this cell.
+ *   @param indexPath of cell in collection view which is centered.
+ */
+
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout cellCenteredAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface TWLineLayout : UICollectionViewFlowLayout
 
+@property (nonatomic, weak) id<TWLineLayoutDelegate> mydelegate;
 @end

@@ -151,6 +151,10 @@
 		EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */; };
 		EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694981E271C7900F365C3 /* TWLineLayout.m */; };
+		EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */; };
+		EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */; };
+		EBD694A21E27629D00F365C3 /* DKYHomeItemTwoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694A01E27629D00F365C3 /* DKYHomeItemTwoViewCell.m */; };
+		EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD694A11E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -460,6 +464,12 @@
 		EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 		EBD694971E271C7900F365C3 /* TWLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLineLayout.h; sourceTree = "<group>"; };
 		EBD694981E271C7900F365C3 /* TWLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLineLayout.m; sourceTree = "<group>"; };
+		EBD6949A1E272DB000F365C3 /* DKYHomeItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemViewCell.h; sourceTree = "<group>"; };
+		EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemViewCell.m; sourceTree = "<group>"; };
+		EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemViewCell.xib; sourceTree = "<group>"; };
+		EBD6949F1E27629D00F365C3 /* DKYHomeItemTwoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemTwoViewCell.h; sourceTree = "<group>"; };
+		EBD694A01E27629D00F365C3 /* DKYHomeItemTwoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemTwoViewCell.m; sourceTree = "<group>"; };
+		EBD694A11E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemTwoViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,6 +544,12 @@
 		267CED481E20EEF400ED5872 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EBD6949A1E272DB000F365C3 /* DKYHomeItemViewCell.h */,
+				EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */,
+				EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */,
+				EBD6949F1E27629D00F365C3 /* DKYHomeItemTwoViewCell.h */,
+				EBD694A01E27629D00F365C3 /* DKYHomeItemTwoViewCell.m */,
+				EBD694A11E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib */,
 				EB41AC491E1F9DF60015A7CF /* DKYHomeItemView.h */,
 				EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */,
 				EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */,
@@ -1339,6 +1355,7 @@
 				EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */,
 				EBABE8E71E15120500B4C568 /* Localization.strings in Resources */,
 				267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */,
+				EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */,
 				EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */,
 				EB506C4F1E23BD81002A1423 /* DKYOrderBrowserViewCell.xib in Resources */,
 				EB97904B1E21EB4200E2985C /* DKYOrderInquiryHeaderView.xib in Resources */,
@@ -1346,6 +1363,7 @@
 				EB97907E1E22373500E2985C /* DKYOrderInfoHeaderView.xib in Resources */,
 				263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */,
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
+				EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */,
 				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
 				EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */,
 				EB41AC4D1E1F9E7F0015A7CF /* DKYHomeItemView.xib in Resources */,
@@ -1458,6 +1476,7 @@
 				EB9790711E221B6F00E2985C /* MMSheetView.m in Sources */,
 				EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */,
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
+				EBD694A21E27629D00F365C3 /* DKYHomeItemTwoViewCell.m in Sources */,
 				EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */,
 				EB97906E1E221B6F00E2985C /* MMPopupItem.m in Sources */,
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
@@ -1496,6 +1515,7 @@
 				EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */,
 				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,
 				EB97F2C71E26018F00BDC705 /* DKYOrderAuditStatusModel.m in Sources */,
+				EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				EB97906A1E221B6F00E2985C /* MMAlertView.m in Sources */,

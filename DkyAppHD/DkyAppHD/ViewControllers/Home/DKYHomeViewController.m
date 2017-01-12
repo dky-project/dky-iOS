@@ -12,8 +12,10 @@
 #import "DKYHomeArticleModel.h"
 #import "DKYHomeCellTableViewCell.h"
 #import "TWLineLayout.h"
+#import "DKYHomeItemViewCell.h"
+#import "DKYHomeItemTwoViewCell.h"
 
-@interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,TWLineLayoutDelegate>
 
 @property (nonatomic,weak) iCarousel *iCarousel;
 @property (nonatomic, weak) UITableView *tableView;
@@ -22,6 +24,8 @@
 @property (nonatomic, weak) id<DKYHomeItemDelegate> previousItemView;
 
 @property (nonatomic, strong) NSMutableArray *articels;
+
+@property (nonatomic, copy) NSIndexPath *prevIndex;
 
 @end
 
@@ -32,8 +36,6 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
-    
-    [self getArticalPageFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,8 +66,9 @@
 #pragma mark - 网络请求
 - (void)getArticalPageFromServer{
     WeakSelf(weakSelf);
-    [DKYHUDTool show];
+//    [DKYHUDTool show];
     [[DKYHttpRequestManager sharedInstance] articlePageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        [weakSelf.collectionView.mj_header endRefreshing];
         [DKYHUDTool dismiss];
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
@@ -74,7 +77,7 @@
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *articles = [DKYHomeArticleModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.articels addObjectsFromArray:articles];
-            [weakSelf.iCarousel reloadData];
+            [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -85,6 +88,7 @@
         }
     } failure:^(NSError *error) {
         [DKYHUDTool dismiss];
+        [weakSelf.collectionView.mj_header endRefreshing];
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
@@ -138,10 +142,9 @@
     self.navigationItem.title = nil;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.view.backgroundColor = [UIColor randomColor];
-    
-    [self setupiCarousel];
+//    [self setupiCarousel];
 //    [self setupTableView];
+    [self setupCollectionView];
 }
 
 - (void)setupTableView{
@@ -182,18 +185,28 @@
 - (void)setupCollectionView{
     // 创建布局
     TWLineLayout *layout = [[TWLineLayout alloc] init];
+    CGSize size = CGSizeMake(kScreenWidth, 384);
+    layout.itemSize = size;
+    layout.minimumInteritemSpacing = 2;
+    layout.mydelegate = self;
     
     // 创建CollectionView
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.dataSource = self;
     collectionView.delegate = self;
-    collectionView.backgroundColor = [UIColor clearColor];
+    collectionView.backgroundColor = [UIColor colorWithHex:0xEEEEEE];;
     collectionView.showsHorizontalScrollIndicator = NO;
     collectionView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:collectionView];
     self.collectionView = collectionView;
     
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([DKYHomeItemViewCell class]) bundle:nil];
+    [collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass([DKYHomeItemViewCell class])];
+    
+    nib = [UINib nibWithNibName:NSStringFromClass([DKYHomeItemTwoViewCell class]) bundle:nil];
+    [collectionView registerNib:nib forCellWithReuseIdentifier:NSStringFromClass([DKYHomeItemTwoViewCell class])];
     
     WeakSelf(weakSelf);
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -202,6 +215,25 @@
         make.top.mas_equalTo(weakSelf.view).with.offset(20);
         make.bottom.mas_equalTo(weakSelf.view);
     }];
+    
+    [self setupRefreshControl];
+}
+
+-(void)setupRefreshControl{
+    WeakSelf(weakSelf);
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
+        [weakSelf getArticalPageFromServer];
+    }];
+    header.lastUpdatedTimeKey = [NSString stringWithFormat:@"%@Key",[self class]];
+    self.collectionView.mj_header = header;
+    
+    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(){
+        
+    }];
+    footer.automaticallyHidden = YES;
+    self.collectionView.mj_footer = footer;
+    
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 #pragma mark iCarousel taps
@@ -286,15 +318,33 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionView class]) forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor randomColor];
-    return cell;
+    if(indexPath.item % 2 == 0){
+        DKYHomeItemViewCell *cell = (DKYHomeItemViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYHomeItemViewCell class]) forIndexPath:indexPath];
+        cell.itemModel = [self.articels objectOrNilAtIndex:0];
+        return cell;
+    }else{
+        DKYHomeItemTwoViewCell *cell = (DKYHomeItemTwoViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYHomeItemTwoViewCell class]) forIndexPath:indexPath];
+        cell.itemModel = [self.articels objectOrNilAtIndex:0];
+        return cell;
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"idnexPath = %@",indexPath);
 }
 
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout cellCenteredAtIndexPath:(NSIndexPath *)indexPath{
+    DLog(@"indexPath = %@",indexPath);
+    
+    if(self.prevIndex){
+        DKYHomeItemViewCell *cell = (DKYHomeItemViewCell*)[collectionView cellForItemAtIndexPath:self.prevIndex];
+        [cell hideReadMoreBtn:YES];
+    }
+    
+    DKYHomeItemViewCell *cell = (DKYHomeItemViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    [cell hideReadMoreBtn:NO];
+    self.prevIndex = indexPath;
+}
 
 #pragma mark - get & set method
 
