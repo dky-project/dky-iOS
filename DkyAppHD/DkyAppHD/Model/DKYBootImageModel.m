@@ -10,6 +10,10 @@
 
 @implementation DKYBootImageModel
 
++ (NSDictionary*)mj_replacedKeyFromPropertyName{
+    return @{@"Id" : @"id"};
+}
+
 // NSCoding Implementation
 MJExtensionCodingImplementation
 

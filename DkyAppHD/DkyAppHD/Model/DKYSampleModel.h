@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString * imgUrl1;
 @property (nonatomic, assign) NSInteger mProductId;
 @property (nonatomic, copy) NSString * name;
+@property (nonatomic, copy) NSString *mDimNew11Text;
 
 // 客户端自己的属性
 @property (nonatomic, copy) NSString *sampleId;

@@ -14,4 +14,8 @@
 //    return @{@"Description" : @"description"};
 //}
 
++ (NSDictionary*)mj_replacedKeyFromPropertyName{
+    return @{@"Id" : @"id"};
+}
+
 @end

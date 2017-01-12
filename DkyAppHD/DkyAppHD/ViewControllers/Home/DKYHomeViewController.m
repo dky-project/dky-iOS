@@ -94,6 +94,33 @@
     }];
 }
 
+- (void)getArticleDetaiFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    p.Id = @1;
+    
+    [[DKYHttpRequestManager sharedInstance] articleDetaiWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+ 
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
 #pragma mark - private method
 - (UIView*)createItemViewWithIndex:(NSInteger)index{
     UIView *view = nil;
@@ -331,6 +358,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"idnexPath = %@",indexPath);
+    [self getArticleDetaiFromServer];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout cellCenteredAtIndexPath:(NSIndexPath *)indexPath{

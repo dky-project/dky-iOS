@@ -22,7 +22,7 @@
 
 // 首页
 #define kArticlePageUrl                 @"article/page"                 // 首页
-
+#define kArticleDetailUrl               @"article/getById"              // 文章详细信息
 
 // 样衣查询
 #define kProductPageUrl                 @"product/page"                 // 样衣查询

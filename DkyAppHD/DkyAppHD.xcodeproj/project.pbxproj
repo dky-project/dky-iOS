@@ -155,6 +155,7 @@
 		EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */; };
 		EBD694A21E27629D00F365C3 /* DKYHomeItemTwoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694A01E27629D00F365C3 /* DKYHomeItemTwoViewCell.m */; };
 		EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD694A11E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib */; };
+		EBD694A61E2768D600F365C3 /* DKYHomeArticleDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694A51E2768D600F365C3 /* DKYHomeArticleDetailModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -470,6 +471,8 @@
 		EBD6949F1E27629D00F365C3 /* DKYHomeItemTwoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemTwoViewCell.h; sourceTree = "<group>"; };
 		EBD694A01E27629D00F365C3 /* DKYHomeItemTwoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemTwoViewCell.m; sourceTree = "<group>"; };
 		EBD694A11E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemTwoViewCell.xib; sourceTree = "<group>"; };
+		EBD694A41E2768D600F365C3 /* DKYHomeArticleDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeArticleDetailModel.h; sourceTree = "<group>"; };
+		EBD694A51E2768D600F365C3 /* DKYHomeArticleDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeArticleDetailModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -651,6 +654,8 @@
 			children = (
 				EB506C2E1E23706F002A1423 /* DKYHomeArticleModel.h */,
 				EB506C2F1E23706F002A1423 /* DKYHomeArticleModel.m */,
+				EBD694A41E2768D600F365C3 /* DKYHomeArticleDetailModel.h */,
+				EBD694A51E2768D600F365C3 /* DKYHomeArticleDetailModel.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -660,16 +665,16 @@
 			children = (
 				EB506C321E23706F002A1423 /* DKYSampleModel.h */,
 				EB506C331E23706F002A1423 /* DKYSampleModel.m */,
-				EB9BBB9F1E24CD3F00939007 /* DKYSexEnumModel.h */,
-				EB9BBBA01E24CD3F00939007 /* DKYSexEnumModel.m */,
-				EB9BBBA21E24CFC000939007 /* DKYBigClassEnumModel.h */,
-				EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */,
 				EB9BBBA51E24D42100939007 /* DKYSampleProductInfoModel.h */,
 				EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */,
 				EBBD5A701E25160F00037B85 /* DKYQueryPriceModel.h */,
 				EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */,
 				EB97F2BF1E25EB4B00BDC705 /* DKYSampleValueInfoModel.h */,
 				EB97F2C01E25EB4B00BDC705 /* DKYSampleValueInfoModel.m */,
+				EB9BBB9F1E24CD3F00939007 /* DKYSexEnumModel.h */,
+				EB9BBBA01E24CD3F00939007 /* DKYSexEnumModel.m */,
+				EB9BBBA21E24CFC000939007 /* DKYBigClassEnumModel.h */,
+				EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */,
 			);
 			name = "样衣查询";
 			sourceTree = "<group>";
@@ -959,10 +964,10 @@
 			children = (
 				EB97F2C21E25FC4B00BDC705 /* DKYOrderItemModel.h */,
 				EB97F2C31E25FC4B00BDC705 /* DKYOrderItemModel.m */,
+				EB97F2CC1E2629E200BDC705 /* DKYOrderItemDetailModel.m */,
+				EB97F2CB1E2629E200BDC705 /* DKYOrderItemDetailModel.h */,
 				EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */,
 				EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */,
-				EB97F2CB1E2629E200BDC705 /* DKYOrderItemDetailModel.h */,
-				EB97F2CC1E2629E200BDC705 /* DKYOrderItemDetailModel.m */,
 				EB97F2C51E26018F00BDC705 /* DKYOrderAuditStatusModel.h */,
 				EB97F2C61E26018F00BDC705 /* DKYOrderAuditStatusModel.m */,
 			);
@@ -1534,6 +1539,7 @@
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
 				EB97F2B71E25C36A00BDC705 /* DQCanEditCell.m in Sources */,
 				EB9790901E22459300E2985C /* YYDiskCache.m in Sources */,
+				EBD694A61E2768D600F365C3 /* DKYHomeArticleDetailModel.m in Sources */,
 				EBBD5A721E25160F00037B85 /* DKYQueryPriceModel.m in Sources */,
 				EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,

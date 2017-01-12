@@ -10,10 +10,23 @@
 
 @interface DKYSampleProductInfoModel : NSObject
 
+// 图片列表
 @property (nonatomic, strong) NSArray *imgList;
+/**
+ * 大类
+ */
 @property (nonatomic, copy) NSString * mDimNew11Text;
+/**
+ * 性别
+ */
 @property (nonatomic, copy) NSString * mDimNew13Text;
+/**
+ * 所属类别
+ */
 @property (nonatomic, copy) NSString * mptbelongtypeText;
+/**
+ * 款号
+ */
 @property (nonatomic, copy) NSString * name;
 
 // 温馨提示
@@ -21,5 +34,34 @@
 
 // 设计说明
 @property (nonatomic, copy) NSString *description5;
+/**
+ * 领子
+ */
+@property (nonatomic, copy) NSString *description4;
+
+/**
+ * 品种
+ */
+@property (nonatomic, copy) NSString *mDimNew14Text;
+/**
+ * 针型
+ */
+@property (nonatomic, copy) NSString *mDimNew16Text;
+/**
+ * 颜色
+ */
+@property (nonatomic, copy) NSString *clrRange;
+/**
+ * 胸围
+ */
+@property (nonatomic, copy) NSString *defaultXwValue;
+/**
+ * 衣长
+ */
+@property (nonatomic, copy) NSString *defaultYcValue;
+/**
+ * 袖长
+ */
+@property (nonatomic, copy) NSString *defaultXcValue;
 
 @end

@@ -1,14 +1,14 @@
 //
-//  DKYQueryPriceModel.m
+//  DKYHomeArticleDetailModel.m
 //  DkyAppHD
 //
-//  Created by HaKim on 17/1/10.
+//  Created by HaKim on 17/1/12.
 //  Copyright © 2017年 haKim. All rights reserved.
 //
 
-#import "DKYQueryPriceModel.h"
+#import "DKYHomeArticleDetailModel.h"
 
-@implementation DKYQueryPriceModel
+@implementation DKYHomeArticleDetailModel
 
 + (NSDictionary*)mj_replacedKeyFromPropertyName{
     return @{@"Id" : @"id"};

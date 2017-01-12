@@ -24,7 +24,7 @@
 
 @property (nonatomic, copy) NSString * creationdate;
 @property (nonatomic, copy) NSString * decription;
-@property (nonatomic, assign) NSInteger idField;
+@property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, copy) NSString * isactive;
 @property (nonatomic, copy) NSString * jumpurl;
 @property (nonatomic, copy) NSString *imageurl;
