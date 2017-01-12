@@ -41,6 +41,10 @@
     if(!self.description5){
         self.description5 = @"";
     }
+    
+    if(!self.description4){
+        self.description4 = @"";
+    }
 }
 
 @end
