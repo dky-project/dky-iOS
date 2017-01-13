@@ -8,6 +8,12 @@
 
 #import "DKYHUDTool.h"
 
+static BOOL hudWillAotoDismiss = NO;
+
+@interface DKYHUDTool ()
+
+@end
+
 @implementation DKYHUDTool
 
 + (instancetype)HUDTool{
@@ -15,26 +21,32 @@
 }
 
 + (void)show{
+    hudWillAotoDismiss = NO;
     [SVProgressHUD show];
 }
 
 + (void)showWithStatus:(NSString*)status{
+    hudWillAotoDismiss = NO;
     [SVProgressHUD showWithStatus:status];
 }
 
 + (void)dismiss{
+    if(hudWillAotoDismiss) return;
     [SVProgressHUD dismiss];
 }
 
 + (void)showErrorWithStatus:(NSString*)status{
+    hudWillAotoDismiss = YES;
     [SVProgressHUD showErrorWithStatus:status];
 }
 
 + (void)showSuccessWithStatus:(NSString*)status{
+    hudWillAotoDismiss = YES;
     [SVProgressHUD showSuccessWithStatus:status];
 }
 
 + (void)showInfoWithStatus:(NSString*)status{
+    hudWillAotoDismiss = YES;
     [SVProgressHUD showInfoWithStatus:status];
 }
 

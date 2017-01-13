@@ -57,7 +57,7 @@
     UIImage *image = [[UIImage imageWithColor:[UIColor colorWithHex:0x3C3362] size:CGSizeMake(56, 56)] imageByRoundCornerRadius:28];
     [btn setBackgroundImage:image forState:UIControlStateNormal];
     
-    [btn setImage:[UIImage imageNamed:@"tabbar_discover"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
     [self addSubview:btn];
     self.searchBtn = btn;
     

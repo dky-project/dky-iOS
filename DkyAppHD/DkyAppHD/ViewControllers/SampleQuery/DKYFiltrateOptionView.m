@@ -103,7 +103,7 @@
     
     WeakSelf(weakSelf);
     [self.arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(15, 10));
+        make.size.mas_equalTo(CGSizeMake(16, 12));
         make.bottom.mas_equalTo(weakSelf).with.offset(-8);
         make.centerX.mas_equalTo(weakSelf);
     }];
