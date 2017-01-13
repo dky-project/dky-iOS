@@ -28,6 +28,8 @@
 
 @property (nonatomic, copy) NSIndexPath *prevIndex;
 
+@property (nonatomic, strong) DKYHomeArticleDetailModel *articalDetailModel;
+
 @end
 
 @implementation DKYHomeViewController
@@ -107,6 +109,7 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYHomeArticleDetailModel *detailModel = [DKYHomeArticleDetailModel mj_objectWithKeyValues:result.data];
+            weakSelf.articalDetailModel = detailModel;
             [weakSelf goToWebviewController:detailModel.jumpurl];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
@@ -165,8 +168,8 @@
     return view;
 }
 
-- (void)goToWebviewController:(NSString*)url{
-    NSURL *URL = nil;
+- (void)goToWebviewController:(id)url{
+    NSURL *URL = url;
     if([url isKindOfClass:[NSString class]]){
         if(![url hasPrefix:@"http"]){
             url = [NSString stringWithFormat:@"http://%@",url];
@@ -376,7 +379,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"idnexPath = %@",indexPath);
-    [self getArticleDetaiFromServer];
+    self.articalDetailModel = [[DKYHomeArticleDetailModel alloc] init];
+    self.articalDetailModel.title = @"10年前的iOS原型系统曝光 虽然丑但结局出人意料";
+    self.articalDetailModel.decription = @"就在上周，我们看到了由前苹果设计师、素有“iPod之父”之称的Tony Fadell团队设计的iOS原型系统，并且在苹果内部代号称作P1.而现在另外一个团队的版本P2操作视频也出现在了我们的面前，并且是与P1两个系统直接的运行对比视频。";
+    self.articalDetailModel.imageurl = @"http://cms-bucket.nosdn.127.net/catchpic/5/5a/5ae87621e5a63dca56cb587c16a32de6.jpg";
+    
+    [self goToWebviewController:[self.articalDetailModel getHtmlStringFile]];
+//    [self getArticleDetaiFromServer];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout cellCenteredAtIndexPath:(NSIndexPath *)indexPath{

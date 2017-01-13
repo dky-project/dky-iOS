@@ -111,6 +111,8 @@
 		EB97F2CA1E26092E00BDC705 /* DKYOrderInquiryParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2C91E26092E00BDC705 /* DKYOrderInquiryParameter.m */; };
 		EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2CC1E2629E200BDC705 /* DKYOrderItemDetailModel.m */; };
 		EB97F2D01E26533500BDC705 /* DKYCustomOrderUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2CF1E26533500BDC705 /* DKYCustomOrderUIViewController.m */; };
+		EB9884CC1E2864B400BAFADE /* DKYHtmlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9884CB1E2864B400BAFADE /* DKYHtmlHelper.m */; };
+		EB9884CE1E28658900BAFADE /* SXDetails.css in Resources */ = {isa = PBXBuildFile; fileRef = EB9884CD1E28658900BAFADE /* SXDetails.css */; };
 		EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */; };
 		EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA01E24CD3F00939007 /* DKYSexEnumModel.m */; };
 		EB9BBBA41E24CFC000939007 /* DKYBigClassEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */; };
@@ -400,6 +402,9 @@
 		EB97F2CC1E2629E200BDC705 /* DKYOrderItemDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderItemDetailModel.m; sourceTree = "<group>"; };
 		EB97F2CE1E26533500BDC705 /* DKYCustomOrderUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderUIViewController.h; sourceTree = "<group>"; };
 		EB97F2CF1E26533500BDC705 /* DKYCustomOrderUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderUIViewController.m; sourceTree = "<group>"; };
+		EB9884CA1E2864B400BAFADE /* DKYHtmlHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHtmlHelper.h; sourceTree = "<group>"; };
+		EB9884CB1E2864B400BAFADE /* DKYHtmlHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHtmlHelper.m; sourceTree = "<group>"; };
+		EB9884CD1E28658900BAFADE /* SXDetails.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = SXDetails.css; sourceTree = "<group>"; };
 		EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserLineItemModel.h; sourceTree = "<group>"; };
 		EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserLineItemModel.m; sourceTree = "<group>"; };
 		EB9BBB9F1E24CD3F00939007 /* DKYSexEnumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSexEnumModel.h; sourceTree = "<group>"; };
@@ -638,6 +643,8 @@
 				26DAD0D41E1A4188008EE55F /* DKYConfigManager.m */,
 				26DAD0D61E1A45EB008EE55F /* DKYHUDTool.h */,
 				26DAD0D71E1A45EB008EE55F /* DKYHUDTool.m */,
+				EB9884CA1E2864B400BAFADE /* DKYHtmlHelper.h */,
+				EB9884CB1E2864B400BAFADE /* DKYHtmlHelper.m */,
 			);
 			path = "Manager&Tool";
 			sourceTree = "<group>";
@@ -1203,6 +1210,7 @@
 		EBABE8E91E15134E00B4C568 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB9884CD1E28658900BAFADE /* SXDetails.css */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1493,6 +1501,7 @@
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
 				EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */,
 				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
+				EB9884CE1E28658900BAFADE /* SXDetails.css in Resources */,
 				EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */,
 				EB41AC4D1E1F9E7F0015A7CF /* DKYHomeItemView.xib in Resources */,
 			);
@@ -1570,6 +1579,7 @@
 				EBC300521E1CA0C700F602E6 /* TAPageControl.m in Sources */,
 				EBABE8DC1E150CA600B4C568 /* ViewController.m in Sources */,
 				EBC300501E1CA0C700F602E6 /* TAAnimatedDotView.m in Sources */,
+				EB9884CC1E2864B400BAFADE /* DKYHtmlHelper.m in Sources */,
 				EB506C471E23B24C002A1423 /* TWBackgroundView.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,
 				EB97F2B91E25C36A00BDC705 /* DQFormCollectionViewCell.m in Sources */,

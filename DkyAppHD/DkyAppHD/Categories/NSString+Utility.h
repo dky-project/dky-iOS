@@ -10,6 +10,12 @@
 
 @interface NSString (Utility)
 
++ (NSString*) applicationDocumentsDirectory;
+
++ (NSString*) applicationCacheDirectory;
+
++ (NSString*) applicationTempDirectory;
+
 + (NSString *)addQueryStringToUrl:(NSString *)url params:(NSDictionary *)params needEncode:(BOOL)need;
 + (NSString *)addQueryStringToUrl:(NSString *)url params:(NSDictionary *)params;
 + (NSString *)urlEscape:(NSString *)unencodedString ;

@@ -23,4 +23,8 @@
 @property (nonatomic, assign) NSInteger ownerid;
 @property (nonatomic, strong) NSString * title;
 
+- (NSString *)getHtmlString;
+
+- (NSURL*)getHtmlStringFile;
+
 @end

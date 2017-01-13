@@ -11,6 +11,24 @@
 
 @implementation NSString (Utility)
 
+// 沙盒路径
++ (NSString*) applicationDocumentsDirectory
+{
+    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [directories lastObject];
+}
+
++ (NSString*) applicationCacheDirectory
+{
+    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    return [directories lastObject];
+}
+
++ (NSString*) applicationTempDirectory
+{
+    return NSTemporaryDirectory();
+}
+
 
 - (BOOL)isNilOrEmpty{
     return (self == nil || self.length == 0) ? YES : NO;

@@ -60,6 +60,7 @@
 #import "RxWebViewController.h"
 #import "DKYWebViewController.h"
 #import "TOWebViewController.h"
+#import "NSString+Utility.h"
 #endif
 
 
