@@ -167,7 +167,7 @@
     self.userNameTextField.leftViewMode = UITextFieldViewModeAlways;
     imageView.frame = CGRectMake(0, 0, 41, 50);
     imageView.contentMode = UIViewContentModeCenter;
-    imageView.image = [UIImage imageWithColor:[UIColor randomColor] size:CGSizeMake(20, 30)];
+    imageView.image = [UIImage imageNamed:@"login_username"];
     self.userNameTextField.leftView = imageView;
     
     self.passwordTextField.layer.cornerRadius = 5.0;
@@ -178,7 +178,7 @@
     self.passwordTextField.leftViewMode = UITextFieldViewModeAlways;
     imageView.frame = CGRectMake(0, 0, 41, 50);
     imageView.contentMode = UIViewContentModeCenter;
-    imageView.image = [UIImage imageWithColor:[UIColor randomColor] size:CGSizeMake(20, 30)];
+    imageView.image = [UIImage imageNamed:@"login_password"];
     self.passwordTextField.leftView = imageView;
 }
 
