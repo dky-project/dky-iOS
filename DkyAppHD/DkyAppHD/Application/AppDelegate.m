@@ -29,6 +29,7 @@
     [DKYConfigManager config];
     
     if([[DKYAccountManager sharedInstance] isLogin]){
+        [NSThread sleepForTimeInterval:1.5];
         DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
         self.window.rootViewController = mainVc;
     }else{
