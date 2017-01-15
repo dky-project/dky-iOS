@@ -28,6 +28,7 @@
     _itemModel = itemModel;
     NSURL *imageUrl = [NSURL URLWithString:itemModel.imgUrl1];
     [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
 //    self.sampleNameLabel.text = itemModel.name;
     self.sampleIdLabel.text = itemModel.name;
 }

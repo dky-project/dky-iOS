@@ -52,6 +52,7 @@
     if(model == nil) return;
     
     self.cycleScrollView.imageURLStringsGroup = model.imgList;
+    self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
     
     NSString *name = [NSString stringWithFormat:@"款号：%@",model.name];
     self.sampleTypeLabel.text = name;
