@@ -26,6 +26,8 @@
 
 @property (nonatomic, strong) NSMutableArray *articels;
 
+@property (nonatomic, assign) NSInteger pageNum;
+
 @property (nonatomic, copy) NSIndexPath *prevIndex;
 
 @property (nonatomic, strong) DKYHomeArticleDetailModel *articalDetailModel;
@@ -69,6 +71,10 @@
 #pragma mark - 网络请求
 - (void)getArticalPageFromServer{
     WeakSelf(weakSelf);
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    self.pageNum = 1;
+    p.pageNo = @(self.pageNum);
+    p.pageSize = @(kPageSize);
 //    [DKYHUDTool show];
     [[DKYHttpRequestManager sharedInstance] articlePageWithParameter:nil Success:^(NSInteger statusCode, id data) {
         [weakSelf.collectionView.mj_header endRefreshing];
@@ -79,6 +85,7 @@
             [weakSelf.articels removeAllObjects];
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *articles = [DKYHomeArticleModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf.articels removeAllObjects];
             [weakSelf.articels addObjectsFromArray:articles];
             [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_Unset) {
@@ -92,6 +99,40 @@
     } failure:^(NSError *error) {
         [DKYHUDTool dismiss];
         [weakSelf.collectionView.mj_header endRefreshing];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)loadMoreArticalPageFromServer{
+    WeakSelf(weakSelf);
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    NSInteger pageNum = self.pageNum;
+    p.pageNo = @(++pageNum);
+    p.pageSize = @(kPageSize);
+    [[DKYHttpRequestManager sharedInstance] articlePageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        [weakSelf.collectionView.mj_footer endRefreshing];
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            [weakSelf.articels removeAllObjects];
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            NSArray *articles = [DKYHomeArticleModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf.articels addObjectsFromArray:articles];
+            self.pageNum++;
+            [weakSelf.collectionView reloadData];
+        }else if (retCode == DkyHttpResponseCode_Unset) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        [weakSelf.collectionView.mj_footer endRefreshing];
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
@@ -276,7 +317,7 @@
     self.collectionView.mj_header = header;
     
     MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(){
-        
+        [weakSelf loadMoreArticalPageFromServer];
     }];
     footer.automaticallyHidden = YES;
     self.collectionView.mj_footer = footer;
@@ -339,7 +380,7 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return self.articels.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

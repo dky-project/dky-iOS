@@ -119,6 +119,8 @@ static NSString *const kPreviousBootImageModelKey = @"kPreviousBootImageModelKey
             self.placeholderImage = image;
         }
     }
+    
+    self.backgrondImageView.image = self.placeholderImage;
 }
 
 #pragma mark - CAAnimationDelegate
