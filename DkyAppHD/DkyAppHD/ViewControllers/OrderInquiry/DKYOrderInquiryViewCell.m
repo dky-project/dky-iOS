@@ -159,7 +159,7 @@
     UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
     self.normalImage = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
     
-    self.selectedImage = [UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(11, 11)];
+    self.selectedImage = [UIImage imageNamed:@"select_icon"];
     
     imageView.image = self.normalImage;
     [self.contentView addSubview:imageView];

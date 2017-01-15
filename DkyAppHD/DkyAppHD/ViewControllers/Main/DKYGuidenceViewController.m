@@ -19,7 +19,9 @@ static NSString *const kPreviousBootImageModelKey = @"kPreviousBootImageModelKey
 @property (weak, nonatomic) IBOutlet UIImageView *backgrondImageView;
 @property (weak, nonatomic) IBOutlet UILabel *orderingSystemLabel;
 @property (weak, nonatomic) IBOutlet UIView *touchToContinueView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *homeSiteLabel;
 @property (nonatomic, strong) DKYBootImageModel *bootImageModel;
 @property (nonatomic, strong) UIImage *placeholderImage;
 

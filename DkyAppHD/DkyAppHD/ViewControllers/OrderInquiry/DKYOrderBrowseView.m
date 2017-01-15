@@ -98,10 +98,10 @@
     
     WeakSelf(weakSelf);
     [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(29);
         make.centerY.mas_equalTo(weakSelf.titleView);
         make.right.mas_equalTo(weakSelf.titleView.mas_right).with.offset(-18);
-        make.width.mas_equalTo(32);
+        make.width.mas_equalTo(29);
     }];
 }
 

@@ -78,7 +78,7 @@
         return mutableAttributedString;
     }];
     
-    self.collarTypeLabel.text = [NSString stringWithFormat:@"领子：%@",model.description4];
+    self.collarTypeLabel.text = [NSString stringWithFormat:@"领子 : %@",model.description4];
     
     [self.collarTypeLabel setText:self.collarTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];

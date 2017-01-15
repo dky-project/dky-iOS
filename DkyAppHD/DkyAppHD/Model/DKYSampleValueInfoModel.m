@@ -10,4 +10,21 @@
 
 @implementation DKYSampleValueInfoModel
 
+- (void)mj_keyValuesDidFinishConvertingToObject{
+    if(!self.jkValue){
+        self.jkValue = @"";
+    }
+    if(!self.xcValue){
+        self.xcValue = @"";
+    }
+    
+    if(!self.xwValue){
+        self.xwValue = @"";
+    }
+    
+    if(!self.ycValue){
+        self.ycValue = @"";
+    }
+}
+
 @end

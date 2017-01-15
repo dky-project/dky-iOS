@@ -113,7 +113,6 @@
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
-    p.pageSize = @(kPageSize);
     p.czDate = self.czDate;
     p.customer = self.customer;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
@@ -248,7 +247,7 @@
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.view);
         make.right.mas_equalTo(weakSelf.view);
-        make.top.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.view).with.offset(64);
         make.height.mas_equalTo(300);
     }];
     

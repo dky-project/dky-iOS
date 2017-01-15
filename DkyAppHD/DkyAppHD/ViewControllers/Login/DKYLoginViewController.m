@@ -142,7 +142,7 @@
 #pragma mark - Ui
 
 - (void)commonInit{
-    self.backgroundInageView.image = [UIImage imageNamed:@"guidence_back_placeholder"];
+    self.backgroundInageView.image = [UIImage imageNamed:@"login_placeholder"];
     
     [self setupTextField];
     

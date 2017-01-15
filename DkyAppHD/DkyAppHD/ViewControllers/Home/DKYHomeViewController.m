@@ -151,7 +151,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYHomeArticleDetailModel *detailModel = [DKYHomeArticleDetailModel mj_objectWithKeyValues:result.data];
             weakSelf.articalDetailModel = detailModel;
-            [weakSelf goToWebviewController:detailModel.jumpurl];
+            [weakSelf goToWebviewController:[detailModel getHtmlStringFile]];
         }else if (retCode == DkyHttpResponseCode_Unset) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -402,7 +402,7 @@
 #pragma mark - <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return self.articels.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -420,13 +420,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"idnexPath = %@",indexPath);
-    self.articalDetailModel = [[DKYHomeArticleDetailModel alloc] init];
-    self.articalDetailModel.title = @"10年前的iOS原型系统曝光 虽然丑但结局出人意料";
-    self.articalDetailModel.decription = @"就在上周，我们看到了由前苹果设计师、素有“iPod之父”之称的Tony Fadell团队设计的iOS原型系统，并且在苹果内部代号称作P1.而现在另外一个团队的版本P2操作视频也出现在了我们的面前，并且是与P1两个系统直接的运行对比视频。";
-    self.articalDetailModel.imageurl = @"http://cms-bucket.nosdn.127.net/catchpic/5/5a/5ae87621e5a63dca56cb587c16a32de6.jpg";
-    
-    [self goToWebviewController:[self.articalDetailModel getHtmlStringFile]];
-//    [self getArticleDetaiFromServer];
+//    self.articalDetailModel = [[DKYHomeArticleDetailModel alloc] init];
+//    self.articalDetailModel.title = @"10年前的iOS原型系统曝光 虽然丑但结局出人意料";
+//    self.articalDetailModel.decription = @"就在上周，我们看到了由前苹果设计师、素有“iPod之父”之称的Tony Fadell团队设计的iOS原型系统，并且在苹果内部代号称作P1.而现在另外一个团队的版本P2操作视频也出现在了我们的面前，并且是与P1两个系统直接的运行对比视频。";
+//    self.articalDetailModel.imageurl = @"http://cms-bucket.nosdn.127.net/catchpic/5/5a/5ae87621e5a63dca56cb587c16a32de6.jpg";
+//    
+//    [self goToWebviewController:[self.articalDetailModel getHtmlStringFile]];
+    [self getArticleDetaiFromServer];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout cellCenteredAtIndexPath:(NSIndexPath *)indexPath{
