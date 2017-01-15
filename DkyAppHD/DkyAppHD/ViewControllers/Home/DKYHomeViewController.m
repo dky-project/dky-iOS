@@ -219,6 +219,7 @@
     }
     
     DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
+    webViewController.showUrlWhileLoading = NO;
     [self.navigationController pushViewController:webViewController animated:YES];
     
 //    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:URL];
