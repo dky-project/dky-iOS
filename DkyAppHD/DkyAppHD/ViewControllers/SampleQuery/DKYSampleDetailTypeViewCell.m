@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *placehlderView;
 
 @property (nonatomic, weak) SDCycleScrollView *cycleScrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cycleScrollViewHeightCst;
 
 @end
 @implementation DKYSampleDetailTypeViewCell
@@ -52,7 +53,7 @@
     if(model == nil) return;
     
     self.cycleScrollView.imageURLStringsGroup = model.imgList;
-    self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
+//    self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
     
     NSString *name = [NSString stringWithFormat:@"款号：%@",model.name];
     self.sampleTypeLabel.text = name;
@@ -139,6 +140,8 @@
     self.designDescriptionLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
     self.designDescriptionLabel.lineSpacing = 5.0;
     self.designDescriptionLabel.numberOfLines = 0;
+    
+    self.cycleScrollViewHeightCst.constant = 1152;
     
     [self setupBannerView];
 }
