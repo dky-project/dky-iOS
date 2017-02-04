@@ -10,8 +10,9 @@
 #import "DKYGuidenceViewController.h"
 #import "DKYTabBarViewController.h"
 #import "DKYConfigManager.h"
+#import "DKYLoginViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -28,9 +29,13 @@
     // 全局配置
     [DKYConfigManager config];
     
+    // 注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNotLogin:) name:kUserNotLoginNotification object:nil];
+    
     if([[DKYAccountManager sharedInstance] isLogin]){
         [NSThread sleepForTimeInterval:1.5];
         DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
+        mainVc.delegate = self;
         self.window.rootViewController = mainVc;
     }else{
         DKYGuidenceViewController *guidenceVC = (DKYGuidenceViewController*)[UIStoryboard viewControllerWithClass:[DKYGuidenceViewController class]];
@@ -70,5 +75,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - 全局通知
+- (void)userNotLogin:(NSNotification *)notification{
+    // 先清除本地的accessToken
+    [[DKYAccountManager sharedInstance] deleteAccesToken];
+    
+    // 弹出登录界面
+    DKYLoginViewController *loginVc = (DKYLoginViewController*)[UIStoryboard viewControllerWithClass:[DKYLoginViewController class]];
+    [self.window.rootViewController presentViewController:loginVc animated:YES completion:^(){
+        
+    }];
+}
 
 @end

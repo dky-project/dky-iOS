@@ -411,6 +411,9 @@
     if(indexPath.item % 2 == 0){
         DKYHomeItemViewCell *cell = (DKYHomeItemViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYHomeItemViewCell class]) forIndexPath:indexPath];
         cell.itemModel = [self.articels objectOrNilAtIndex:0];
+        if(indexPath.item == 0){
+            [cell hideReadMoreBtn:NO];
+        }
         return cell;
     }else{
         DKYHomeItemTwoViewCell *cell = (DKYHomeItemTwoViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYHomeItemTwoViewCell class]) forIndexPath:indexPath];
@@ -432,6 +435,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout cellCenteredAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"indexPath = %@",indexPath);
+    if(self.prevIndex == indexPath) return;
     
     if(self.prevIndex){
         DKYHomeItemViewCell *cell = (DKYHomeItemViewCell*)[collectionView cellForItemAtIndexPath:self.prevIndex];

@@ -10,6 +10,12 @@
 
 static const CGFloat ACTIVE_DISTANCE = 0.0f; //Distance of given cell from center of visible rect
 
+@interface TWLineLayout ()
+
+@property (nonatomic, strong) NSArray *layoutAttributesArray;
+
+@end
+
 @implementation TWLineLayout
 
 - (instancetype)init
@@ -56,11 +62,74 @@ static const CGFloat ACTIVE_DISTANCE = 0.0f; //Distance of given cell from cente
  */
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
+    DLog(@"self.collectionView.mj_footer.state = %@",@(self.collectionView.mj_footer.state));
+    if(self.collectionView.mj_header.state != MJRefreshStateIdle){
+        // 表示在上拉或者下拉的操作
+        return self.layoutAttributesArray;
+    }
+    
+    if(self.collectionView.mj_footer.state != MJRefreshStateIdle){
+        // 表示在上拉或者下拉的操作
+        return self.layoutAttributesArray;
+    }
+
     // 获得super已经计算好的布局属性
     NSArray *array = [super layoutAttributesForElementsInRect:rect];
     
     // 计算collectionView最中心点的x值
     CGFloat centerY = self.collectionView.contentOffset.y + self.collectionView.frame.size.height * 0.5;
+    
+    CGFloat contentOffsetY = self.collectionView.contentOffset.y;
+    CGFloat contentInsetTop = self.collectionView.contentInset.top;
+    if((contentOffsetY <= -contentInsetTop && self.layoutAttributesArray.count > 0)){
+        for (UICollectionViewLayoutAttributes *attrs in array) {
+            CGRect visibleRect;
+            visibleRect.origin = self.collectionView.contentOffset;
+            visibleRect.size = self.collectionView.bounds.size;
+            CGRect frame = attrs.frame;
+            if (CGRectIntersectsRect(frame, rect)) {
+                CGFloat visibleY = CGRectGetMidY(visibleRect);
+                CGFloat centerY = attrs.center.y;
+                CGFloat distance = visibleY - centerY;
+                // Make sure given cell is center
+//                DLog(@"distance = %@",@(distance));
+                if (ABS(distance) == ACTIVE_DISTANCE) {
+                    [self.mydelegate collectionView:self.collectionView layout:self cellCenteredAtIndexPath:attrs.indexPath];
+                }
+            }
+        }
+        return self.layoutAttributesArray;
+    }
+    
+    MJRefreshFooter *footer = self.collectionView.mj_footer;
+    CGFloat happenOffset = 0;
+    CGFloat h = footer.scrollView.frame.size.height - footer.scrollViewOriginalInset.bottom - footer.scrollViewOriginalInset.top;
+    CGFloat deltaH = footer.scrollView.contentSize.height - h;
+    if (deltaH > 0) {
+        happenOffset = deltaH - footer.scrollViewOriginalInset.top;
+    } else {
+        happenOffset = - footer.scrollViewOriginalInset.top;
+    }
+
+    if(contentOffsetY >= happenOffset && self.layoutAttributesArray.count > 0){
+        for (UICollectionViewLayoutAttributes *attrs in array) {
+            CGRect visibleRect;
+            visibleRect.origin = self.collectionView.contentOffset;
+            visibleRect.size = self.collectionView.bounds.size;
+            CGRect frame = attrs.frame;
+            if (CGRectIntersectsRect(frame, rect)) {
+                CGFloat visibleY = CGRectGetMidY(visibleRect);
+                CGFloat centerY = attrs.center.y;
+                CGFloat distance = visibleY - centerY;
+                // Make sure given cell is center
+                //                DLog(@"distance = %@",@(distance));
+                if (ABS(distance) == ACTIVE_DISTANCE) {
+                    [self.mydelegate collectionView:self.collectionView layout:self cellCenteredAtIndexPath:attrs.indexPath];
+                }
+            }
+        }
+        return self.layoutAttributesArray;
+    }
     
     // 在原有布局属性的基础上，进行微调
     for (UICollectionViewLayoutAttributes *attrs in array) {
@@ -87,17 +156,17 @@ static const CGFloat ACTIVE_DISTANCE = 0.0f; //Distance of given cell from cente
         visibleRect.size = self.collectionView.bounds.size;
         CGRect frame = attrs.frame;
         if (CGRectIntersectsRect(frame, rect)) {
-            
             CGFloat visibleY = CGRectGetMidY(visibleRect);
             CGFloat centerY = attrs.center.y;
             CGFloat distance = visibleY - centerY;
             // Make sure given cell is center
+//            DLog(@"distance = %@",@(distance));
             if (ABS(distance) == ACTIVE_DISTANCE) {
                 [self.mydelegate collectionView:self.collectionView layout:self cellCenteredAtIndexPath:attrs.indexPath];
             }
         }
     }
-    
+    self.layoutAttributesArray = array;
     return array;
 }
 
