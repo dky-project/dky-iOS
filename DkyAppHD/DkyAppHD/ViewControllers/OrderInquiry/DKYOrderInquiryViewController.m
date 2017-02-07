@@ -86,6 +86,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYOrderItemModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf.selectedOrders removeAllObjects];
             [weakSelf.orders removeAllObjects];
             [weakSelf.orders addObjectsFromArray:samples];
             [weakSelf.tableView reloadData];

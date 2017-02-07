@@ -25,7 +25,7 @@
     manager.shouldShowTextFieldPlaceholder = NO;
     manager.toolbarTintColor = [UIColor colorWithHex:0x0074fb];
     
-    // SDWebimage
+    // SDWebimage 缓存，保存1年
     SDImageCache * cache = [SDImageCache sharedImageCache];
     cache.maxCacheAge = 60 * 60 * 24 * 365;
 }

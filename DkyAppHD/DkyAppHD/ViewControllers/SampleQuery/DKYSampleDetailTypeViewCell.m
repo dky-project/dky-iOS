@@ -141,7 +141,7 @@
     self.designDescriptionLabel.lineSpacing = 5.0;
     self.designDescriptionLabel.numberOfLines = 0;
     
-    self.cycleScrollViewHeightCst.constant = 1152;
+    self.cycleScrollViewHeightCst.constant = 880;
     
     [self setupBannerView];
 }
