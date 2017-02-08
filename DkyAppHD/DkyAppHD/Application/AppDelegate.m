@@ -73,6 +73,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    // 移除通知，是否有移除通知的必要性
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kUserNotLoginNotification object:nil];
 }
 
 #pragma mark - 全局通知
