@@ -53,7 +53,11 @@
     if(model == nil) return;
     
     self.cycleScrollView.imageURLStringsGroup = model.imgList;
-//    self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
+    self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
+//    UIImage *image1 = [UIImage imageNamed:@"sample_detai_image1"];
+//    UIImage *image2 = [UIImage imageNamed:@"sample_detai_image2"];
+//    UIImage *image3 = [UIImage imageNamed:@"sample_detai_image3"];
+//    self.cycleScrollView.localizationImageNamesGroup = @[image1,image2,image3];
     
     NSString *name = [NSString stringWithFormat:@"款号：%@",model.name];
     self.sampleTypeLabel.text = name;
