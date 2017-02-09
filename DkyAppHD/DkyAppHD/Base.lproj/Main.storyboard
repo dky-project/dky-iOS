@@ -216,7 +216,7 @@
                     </view>
                     <connections>
                         <outlet property="IQLayoutGuideConstraint" destination="9BM-9R-nPw" id="9OC-58-sSB"/>
-                        <outlet property="backgroundInageView" destination="y3u-6W-3Uw" id="cm4-Mg-FIW"/>
+                        <outlet property="backgroundImageView" destination="y3u-6W-3Uw" id="XBS-Oj-h9U"/>
                         <outlet property="loginBtn" destination="Iyt-Lz-qiL" id="imk-mW-6dd"/>
                         <outlet property="passwordTextField" destination="8Mh-uQ-dRz" id="1yi-Em-bA1"/>
                         <outlet property="topOffsetCst1" destination="9BM-9R-nPw" id="pmi-Z8-p73"/>

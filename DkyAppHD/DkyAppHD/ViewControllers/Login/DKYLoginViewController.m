@@ -13,7 +13,7 @@
 
 @interface DKYLoginViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundInageView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
@@ -142,7 +142,7 @@
 #pragma mark - Ui
 
 - (void)commonInit{
-    self.backgroundInageView.image = [UIImage imageNamed:@"login_placeholder"];
+    self.backgroundImageView.image = [UIImage imageNamed:@"login_placeholder"];
     
     [self setupTextField];
     
