@@ -21,4 +21,6 @@ typedef NS_ENUM(NSInteger, UIButtonCustomType) {
 
 - (void)customButtonWithType:(UIButtonCustomType)type;
 
++ (instancetype)buttonWithCustomType:(UIButtonCustomType)type;
+
 @end

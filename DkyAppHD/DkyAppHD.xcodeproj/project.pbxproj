@@ -118,6 +118,8 @@
 		EB9BBBA41E24CFC000939007 /* DKYBigClassEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */; };
 		EB9BBBA71E24D42100939007 /* DKYSampleProductInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */; };
 		EB9BBBAA1E24DA6100939007 /* DKYSampleQueryParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */; };
+		EBA90E951E52E2EF00EA539E /* TWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA90E941E52E2EE00EA539E /* TWScrollView.m */; };
+		EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA90E981E52E55A00EA539E /* DKYOrderActionsView.m */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
 		EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AD1E14E45200B4C568 /* Assets.xcassets */; };
 		EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AF1E14E45200B4C568 /* LaunchScreen.storyboard */; };
@@ -415,6 +417,10 @@
 		EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleProductInfoModel.m; sourceTree = "<group>"; };
 		EB9BBBA81E24DA6100939007 /* DKYSampleQueryParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleQueryParameter.h; sourceTree = "<group>"; };
 		EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleQueryParameter.m; sourceTree = "<group>"; };
+		EBA90E931E52E2EE00EA539E /* TWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWScrollView.h; sourceTree = "<group>"; };
+		EBA90E941E52E2EE00EA539E /* TWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWScrollView.m; sourceTree = "<group>"; };
+		EBA90E971E52E55A00EA539E /* DKYOrderActionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderActionsView.h; sourceTree = "<group>"; };
+		EBA90E981E52E55A00EA539E /* DKYOrderActionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderActionsView.m; sourceTree = "<group>"; };
 		EBABE89E1E14E45200B4C568 /* DkyAppHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DkyAppHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBABE8AB1E14E45200B4C568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBABE8AD1E14E45200B4C568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -793,6 +799,7 @@
 			children = (
 				EB97F2CE1E26533500BDC705 /* DKYCustomOrderUIViewController.h */,
 				EB97F2CF1E26533500BDC705 /* DKYCustomOrderUIViewController.m */,
+				EBA90E961E52E51300EA539E /* View */,
 			);
 			path = CustomOrder;
 			sourceTree = "<group>";
@@ -1035,6 +1042,24 @@
 			name = "订单查询";
 			sourceTree = "<group>";
 		};
+		EBA90E921E52E2EE00EA539E /* TWScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				EBA90E931E52E2EE00EA539E /* TWScrollView.h */,
+				EBA90E941E52E2EE00EA539E /* TWScrollView.m */,
+			);
+			path = TWScrollView;
+			sourceTree = "<group>";
+		};
+		EBA90E961E52E51300EA539E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBA90E971E52E55A00EA539E /* DKYOrderActionsView.h */,
+				EBA90E981E52E55A00EA539E /* DKYOrderActionsView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		EBABE8951E14E45200B4C568 = {
 			isa = PBXGroup;
 			children = (
@@ -1158,6 +1183,7 @@
 				EB6B06B01E1E14AD00F2F108 /* TTTAttributedLabel */,
 				EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */,
 				EBC300731E1CE6A500F602E6 /* SwipeBack */,
+				EBA90E921E52E2EE00EA539E /* TWScrollView */,
 				EBC300691E1CD8FE00F602E6 /* TWBaseViewController */,
 				EBC3005C1E1CCC0A00F602E6 /* JXTAlertManager */,
 				EBC3003F1E1CA0C700F602E6 /* SDCycleScrollView */,
@@ -1666,6 +1692,7 @@
 				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
 				EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */,
+				EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */,
 				EB9511AD1E164444008708EF /* WXSTransitionManager+PageAnimation.m in Sources */,
 				EBD694B61E277DD500F365C3 /* DKYWebViewController.m in Sources */,
 				EB506C3D1E237AA7002A1423 /* DKYOrderInquiryViewCell.m in Sources */,
@@ -1674,6 +1701,7 @@
 				EB9790571E22158100E2985C /* UUDatePicker_DateModel.m in Sources */,
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
+				EBA90E951E52E2EF00EA539E /* TWScrollView.m in Sources */,
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
 				EB97F2B71E25C36A00BDC705 /* DQCanEditCell.m in Sources */,
 				EB9790901E22459300E2985C /* YYDiskCache.m in Sources */,

@@ -63,4 +63,9 @@
     self.titleLabel.font = [UIFont systemFontOfSize:18];
 }
 
++ (instancetype)buttonWithCustomType:(UIButtonCustomType)type{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    return btn;
+}
+
 @end
