@@ -65,6 +65,8 @@
 
 + (instancetype)buttonWithCustomType:(UIButtonCustomType)type{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitleColor:[UIColor colorWithHex:0x251E1D] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:12];
     return btn;
 }
 
