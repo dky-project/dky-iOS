@@ -98,7 +98,7 @@
     [self addOneChlildVc:sampleQueryVc title:@"样衣查询" imageName:@"tabbar_sample" selectedImageName:@"tabbar_sample"];
     self.sampleQueryVc = sampleQueryVc;
     
-    DKYCustomOrderUIViewController *customOrderVc = [[DKYCustomOrderUIViewController alloc] init];
+    DKYCustomOrderUIViewController *customOrderVc = (DKYCustomOrderUIViewController*)[UIStoryboard viewControllerWithClass:[DKYCustomOrderUIViewController class]];
     [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_customOrder" selectedImageName:@"tabbar_customOrder"];
     self.customOrderVc = customOrderVc;
     

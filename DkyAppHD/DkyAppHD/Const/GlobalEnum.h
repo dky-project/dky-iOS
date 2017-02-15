@@ -51,4 +51,15 @@ typedef NS_ENUM(NSInteger, DKYOrderAuditStatusType) {
     DKYOrderAuditStatusType_Fail = -1,
 };
 
+// 定制订单页面，按钮枚举
+typedef NS_ENUM(NSInteger, DKYCustomOrderActionsType) {
+    DKYCustomOrderActionsType_Unset = 0,
+    DKYCustomOrderActionsType_LastStep,
+    DKYCustomOrderActionsType_Edit,
+    DKYCustomOrderActionsType_Save,
+    DKYCustomOrderActionsType_NextStep,
+    DKYCustomOrderActionsType_ConfirmOrder,
+    DKYCustomOrderActionsType_reWrite,
+};
+
 #endif /* GlobalEnum_h */

@@ -62,7 +62,6 @@ static const CGFloat ACTIVE_DISTANCE = 0.0f; //Distance of given cell from cente
  */
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    DLog(@"self.collectionView.mj_footer.state = %@",@(self.collectionView.mj_footer.state));
     if(self.collectionView.mj_header.state != MJRefreshStateIdle){
         // 表示在上拉或者下拉的操作
         return self.layoutAttributesArray;

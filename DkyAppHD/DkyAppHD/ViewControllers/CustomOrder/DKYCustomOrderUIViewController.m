@@ -9,11 +9,11 @@
 #import "DKYCustomOrderUIViewController.h"
 #import "DKYOrderActionsView.h"
 
-@interface DKYCustomOrderUIViewController ()
+@interface DKYCustomOrderUIViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, weak)TWScrollView  *scrollView;
 
-@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @property (nonatomic, weak) DKYOrderActionsView *actionsView;
 
@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    [self commonInit];
+    [self commonInit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,9 +40,66 @@
     [self setupCustomTitle:@"定制下单"];
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     
-    [self setupScrollView];
+    [self setupTableView];
+//    [self setupScrollView];
 }
 
+- (void)setupTableView{
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    DKYOrderActionsView *actionView = [DKYOrderActionsView orderActionsView];
+    actionView.frame = CGRectMake(0, 0, kScreenWidth, 450);
+    self.tableView.tableFooterView = actionView;
+}
+
+- (void)setupCustomTitle:(NSString*)title;
+{
+    UILabel *titleLabel = [[UILabel alloc]init];
+    titleLabel.font = [UIFont systemFontOfSize:15];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName : titleLabel.font};
+    CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+    
+    titleLabel.frame = [title boundingRectWithSize:size
+                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                        attributes:attributes
+                                           context:nil];;
+    titleLabel.text = title;
+    self.navigationItem.titleView = titleLabel;
+}
+
+#pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 350;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellID = @"testCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = @"测试数据";
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+#pragma mark - Test
 - (void)setupScrollView{
     TWScrollView *scrollView = [[TWScrollView alloc]init];
     scrollView.scrollViewType = TWScrollViewType_Vertical;
@@ -79,26 +136,5 @@
         make.height.mas_equalTo(115);
     }];
 }
-
-- (void)setupCustomTitle:(NSString*)title;
-{
-    UILabel *titleLabel = [[UILabel alloc]init];
-    titleLabel.font = [UIFont systemFontOfSize:15];
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{NSFontAttributeName : titleLabel.font};
-    CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
-    
-    titleLabel.frame = [title boundingRectWithSize:size
-                                           options:NSStringDrawingUsesLineFragmentOrigin
-                                        attributes:attributes
-                                           context:nil];;
-    titleLabel.text = title;
-    self.navigationItem.titleView = titleLabel;
-}
-
-#pragma mark - Test
-
 
 @end
