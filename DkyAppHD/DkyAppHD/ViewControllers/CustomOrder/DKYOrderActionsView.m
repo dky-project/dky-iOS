@@ -7,6 +7,13 @@
 //
 
 #import "DKYOrderActionsView.h"
+#import "UIButton+Custom.h"
+
+@interface DKYOrderActionsView ()
+
+@property (nonatomic, weak) UIButton *lastStepBtn;
+
+@end
 
 @implementation DKYOrderActionsView
 
@@ -27,6 +34,11 @@
 #pragma mark - UI
 
 - (void)commonInit{
+    self.backgroundColor = [UIColor randomColor];
+    [self setupActionBtn];
+}
+
+- (void)setupActionBtn{
     
 }
 

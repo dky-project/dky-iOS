@@ -263,7 +263,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftB-kw-y7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2167.96875" y="179.8828125"/>
+            <point key="canvasLocation" x="2153" y="108"/>
+        </scene>
+        <!--Custom OrderUI View Controller-->
+        <scene sceneID="irc-II-tYE">
+            <objects>
+                <viewController storyboardIdentifier="DKYCustomOrderUIViewController" id="3tk-Ge-S7i" customClass="DKYCustomOrderUIViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4YA-1d-dbi"/>
+                        <viewControllerLayoutGuide type="bottom" id="FLm-41-q8c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GkN-ww-kQA">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QhX-FF-4c1">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QhX-FF-4c1" firstAttribute="top" secondItem="GkN-ww-kQA" secondAttribute="top" id="1OZ-Kh-0eK"/>
+                            <constraint firstItem="FLm-41-q8c" firstAttribute="top" secondItem="QhX-FF-4c1" secondAttribute="bottom" id="B2P-YZ-rIP"/>
+                            <constraint firstItem="QhX-FF-4c1" firstAttribute="leading" secondItem="GkN-ww-kQA" secondAttribute="leading" id="Bg0-OS-Pf4"/>
+                            <constraint firstAttribute="trailing" secondItem="QhX-FF-4c1" secondAttribute="trailing" id="zcw-fp-vce"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-yR-Oht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2819.53125" y="109.5703125"/>
         </scene>
     </scenes>
 </document>

@@ -7,10 +7,15 @@
 //
 
 #import "DKYCustomOrderUIViewController.h"
+#import "DKYOrderActionsView.h"
 
 @interface DKYCustomOrderUIViewController ()
 
 @property (nonatomic, weak)TWScrollView  *scrollView;
+
+@property (nonatomic, weak) UITableView *tableView;
+
+@property (nonatomic, weak) DKYOrderActionsView *actionsView;
 
 @end
 
@@ -20,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self commonInit];
+//    [self commonInit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +61,22 @@
     }];
     [self.scrollView.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(@(kScreenHeight - kNavigationBarHeight));
+    }];
+    
+    [self setupActionsView];
+}
+
+- (void)setupActionsView{
+    DKYOrderActionsView *actionView = [DKYOrderActionsView orderActionsView];
+    [self.scrollView.contentView addSubview:actionView];
+    self.actionsView = actionView;
+    
+    WeakSelf(weakSelf);
+    [self.actionsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.scrollView.contentView);
+        make.right.mas_equalTo(weakSelf.scrollView.contentView);
+        make.bottom.mas_equalTo(weakSelf.scrollView.contentView).with.offset(-40);
+        make.height.mas_equalTo(115);
     }];
 }
 
