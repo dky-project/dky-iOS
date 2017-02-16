@@ -430,7 +430,12 @@
 //    self.articalDetailModel.imageurl = @"http://cms-bucket.nosdn.127.net/catchpic/5/5a/5ae87621e5a63dca56cb587c16a32de6.jpg";
 //    
 //    [self goToWebviewController:[self.articalDetailModel getHtmlStringFile]];
-    [self getArticleDetaiFromServer];
+//    [self getArticleDetaiFromServer];
+    
+    DKYHomeArticleModel *model = [self.articels objectAtIndex:indexPath.item];
+    NSString *jumpUrl = model.jumpurl;
+    DLog(@"jumpUrl = %@",jumpUrl);
+    [self goToWebviewController:jumpUrl];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout cellCenteredAtIndexPath:(NSIndexPath *)indexPath{
