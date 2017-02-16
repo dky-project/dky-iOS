@@ -7,12 +7,13 @@
 //
 
 #import "DKYCustomOrderTextFieldView.h"
+#import "DKYCustomOrderItemModel.h"
 
 @interface DKYCustomOrderTextFieldView ()
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
-@property (nonatomic, copy) UITextField *textField;
+@property (nonatomic, weak) UITextField *textField;
 
 @end
 
@@ -27,9 +28,47 @@
     return self;
 }
 
+- (void)setItemModel:(DKYCustomOrderItemModel *)itemModel{
+    _itemModel = itemModel;
+    
+    self.titleLabel.text = itemModel.title;
+    self.textField.rightViewMode = itemModel.lock ? UITextFieldViewModeAlways : UITextFieldViewModeNever;
+    self.textField.text = itemModel.content;
+    
+    self.textField.enabled = !itemModel.lock;
+    
+    UIFont *font = self.titleLabel.font;
+    CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+    UIColor *foregroundColor = self.titleLabel.textColor;
+    NSDictionary *attributes = @{NSFontAttributeName : font,
+                                 NSForegroundColorAttributeName: foregroundColor};
+    NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+    CGRect textFrame = [itemModel.title boundingRectWithSize:size
+                                                    options:options
+                                                 attributes:attributes
+                                                    context:nil];
+    [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(textFrame.size.width + 10);
+    }];
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
+    leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
+    self.textField.leftView = leftView;
+    
+    if(self.textField.rightViewMode == UITextFieldViewModeAlways){
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 12, 24)];
+        imageView.contentMode = UIViewContentModeLeft;
+        imageView.image = [UIImage imageNamed:@"lock"];
+        self.textField.rightView = imageView;
+    }
+}
+
 #pragma mark - mark
 - (void)commonInit{
-    [self  setupTitleLabel];
+    [self setupTitleLabel];
     
     [self setupTextField];
 }
@@ -37,7 +76,7 @@
 - (void)setupTitleLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x333333];
+    label.textColor = [UIColor colorWithHex:0x666666];
     label.textAlignment = NSTextAlignmentLeft;
     
     [self addSubview:label];
@@ -47,12 +86,12 @@
         make.left.mas_equalTo(weakSelf);
         make.top.mas_equalTo(weakSelf);
         make.bottom.mas_equalTo(weakSelf);
-        make.width.mas_equalTo(52);
+        make.width.mas_equalTo(40);
     }];
     
     label.adjustsFontSizeToFitWidth = YES;
     
-    label.text = @"填写内容";
+//    label.text = @"机构号:";
 }
 
 - (void)setupTextField{
@@ -63,10 +102,12 @@
     textField.layer.borderColor = [UIColor colorWithHex:0x666666].CGColor;
     textField.layer.borderWidth = 1;
     
-    textField.font = [UIFont systemFontOfSize:15];
+    textField.font = [UIFont systemFontOfSize:14];
     textField.textColor = [UIColor colorWithHex:0x666666];
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.backgroundColor = [UIColor whiteColor];
+    
+    textField.leftViewMode = UITextFieldViewModeAlways;
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -75,7 +116,8 @@
         make.bottom.mas_equalTo(weakSelf);
         make.right.mas_equalTo(weakSelf);
     }];
-
+    
+//    textField.text = @"99999";
 }
 
 

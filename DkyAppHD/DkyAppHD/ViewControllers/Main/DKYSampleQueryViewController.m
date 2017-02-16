@@ -98,7 +98,7 @@
             NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.samples removeAllObjects];
             [weakSelf.samples addObjectsFromArray:samples];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];
@@ -133,7 +133,7 @@
             [weakSelf.samples addObjectsFromArray:samples];
             weakSelf.pageNum++;
             [weakSelf.collectionView reloadData];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];
@@ -159,7 +159,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.sexEnums = [DKYSexEnumModel mj_objectArrayWithKeyValuesArray:result.data];
             
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];
@@ -188,7 +188,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.bigClassEnums = [DKYBigClassEnumModel mj_objectArrayWithKeyValuesArray:result.data];
             
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];

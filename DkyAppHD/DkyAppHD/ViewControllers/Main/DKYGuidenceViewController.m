@@ -54,7 +54,7 @@ static NSString *const kPreviousBootImageModelKey = @"kPreviousBootImageModelKey
             weakSelf.bootImageModel = [ DKYBootImageModel mj_objectWithKeyValues:[array firstObject]];
             [weakSelf updateBootImage];
             [[YYCache defaultCache] setObject:(id<NSCoding>)weakSelf.bootImageModel forKey:kPreviousBootImageModelKey];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];

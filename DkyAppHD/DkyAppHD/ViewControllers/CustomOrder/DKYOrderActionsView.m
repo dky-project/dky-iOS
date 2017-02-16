@@ -46,9 +46,6 @@
 - (void)setupActionBtn{
     WeakSelf(weakSelf);
     UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
-    [self addSubview:btn];
-    self.lastStepBtn = btn;
-    [self.lastStepBtn setTitle:@"上一步" forState:UIControlStateNormal];
     
     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
     [self addSubview:btn];
@@ -71,45 +68,49 @@
         make.right.mas_equalTo(weakSelf).with.offset(-72);
         make.bottom.mas_equalTo(weakSelf.confirmOrderBtn);
     }];
-    
-    [self.lastStepBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(140, 50));
-        make.left.mas_equalTo(weakSelf.confirmOrderBtn);
-        make.bottom.mas_equalTo(weakSelf.confirmOrderBtn.mas_top).with.offset(-14);
-    }];
-    
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
-    [self addSubview:btn];
-    self.editBtn = btn;
-    [self.editBtn setTitle:@"编辑" forState:UIControlStateNormal];
-    
-    [self.editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(140, 50));
-        make.right.mas_equalTo(weakSelf.confirmOrderBtn);
-        make.bottom.mas_equalTo(weakSelf.lastStepBtn);
-    }];
-    
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
-    [self addSubview:btn];
-    self.saveBtn = btn;
-    [self.saveBtn setTitle:@"保存" forState:UIControlStateNormal];
-    
-    [self.saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(140, 50));
-        make.left.mas_equalTo(weakSelf.reWriteBtn);
-        make.bottom.mas_equalTo(weakSelf.lastStepBtn);
-    }];
-    
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
-    [self addSubview:btn];
-    self.nextStepBtn = btn;
-    [self.nextStepBtn setTitle:@"下一步" forState:UIControlStateNormal];
-    
-    [self.nextStepBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(140, 50));
-        make.right.mas_equalTo(weakSelf.reWriteBtn);
-        make.bottom.mas_equalTo(weakSelf.lastStepBtn);
-    }];
+//    
+//    [self addSubview:btn];
+//    self.lastStepBtn = btn;
+//    [self.lastStepBtn setTitle:@"上一步" forState:UIControlStateNormal];
+//    
+//    [self.lastStepBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(140, 50));
+//        make.left.mas_equalTo(weakSelf.confirmOrderBtn);
+//        make.bottom.mas_equalTo(weakSelf.confirmOrderBtn.mas_top).with.offset(-14);
+//    }];
+//    
+//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
+//    [self addSubview:btn];
+//    self.editBtn = btn;
+//    [self.editBtn setTitle:@"编辑" forState:UIControlStateNormal];
+//    
+//    [self.editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(140, 50));
+//        make.right.mas_equalTo(weakSelf.confirmOrderBtn);
+//        make.bottom.mas_equalTo(weakSelf.lastStepBtn);
+//    }];
+//    
+//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
+//    [self addSubview:btn];
+//    self.saveBtn = btn;
+//    [self.saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+//    
+//    [self.saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(140, 50));
+//        make.left.mas_equalTo(weakSelf.reWriteBtn);
+//        make.bottom.mas_equalTo(weakSelf.lastStepBtn);
+//    }];
+//    
+//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
+//    [self addSubview:btn];
+//    self.nextStepBtn = btn;
+//    [self.nextStepBtn setTitle:@"下一步" forState:UIControlStateNormal];
+//    
+//    [self.nextStepBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(140, 50));
+//        make.right.mas_equalTo(weakSelf.reWriteBtn);
+//        make.bottom.mas_equalTo(weakSelf.lastStepBtn);
+//    }];
 }
 
 @end

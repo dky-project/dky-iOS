@@ -12,6 +12,7 @@
 #import "MMPopupItem.h"
 #import "MMSheetView.h"
 #import "MMPopupWindow.h"
+#import "DKYCustomOrderBusinessCell.h"
 
 @interface DKYCustomOrderUIViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -39,7 +40,6 @@
 
 #pragma mark - private method
 - (void)showOptionsPicker{
-    WeakSelf(weakSelf);
     [self.view endEditing:YES];
     MMPopupItemHandler block = ^(NSInteger index){
         DLog(@"++++++++ index = %ld",index);
@@ -66,15 +66,27 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     
     [self setupTableView];
+    [self setupActionView];
 //    [self setupScrollView];
 }
 
 - (void)setupTableView{
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.showsHorizontalScrollIndicator = NO;
+}
+
+- (void)setupActionView{
     DKYOrderActionsView *actionView = [DKYOrderActionsView orderActionsView];
-    actionView.frame = CGRectMake(0, 0, kScreenWidth, 450);
-    self.tableView.tableFooterView = actionView;
+    [self.view addSubview:actionView];
+    self.actionsView = actionView;
+    WeakSelf(weakSelf);
+    [self.actionsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view);
+        make.right.mas_equalTo(weakSelf.view);
+        make.bottom.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.tableView.mas_bottom);
+    }];
 }
 
 - (void)setupCustomTitle:(NSString*)title;
@@ -98,17 +110,23 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 0) return 400;
+    
     return 350;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WeakSelf(weakSelf);
+    if(indexPath.row == 0){
+        DKYCustomOrderBusinessCell *cell = [DKYCustomOrderBusinessCell customOrderBusinessCellWithTableView:tableView];
+        return cell;
+    }
     DKYCustomOrderViewCell *cell= [DKYCustomOrderViewCell customOrderViewCellWithTableView:tableView];
     cell.optionsBtnClicked = ^(id sender, NSInteger index){
         [weakSelf showOptionsPicker];

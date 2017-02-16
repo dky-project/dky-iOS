@@ -90,7 +90,7 @@
             [weakSelf.orders removeAllObjects];
             [weakSelf.orders addObjectsFromArray:samples];
             [weakSelf.tableView reloadData];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];
@@ -128,7 +128,7 @@
             [weakSelf.orders addObjectsFromArray:samples];
             weakSelf.pageNum++;
             [weakSelf.tableView reloadData];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];
@@ -162,7 +162,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.detailOrders = [DKYOrderItemDetailModel mj_objectArrayWithKeyValuesArray:result.data];
             [weakSelf showOrderPreview];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];

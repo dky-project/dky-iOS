@@ -68,7 +68,7 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.sampleProductInfo = [DKYSampleProductInfoModel mj_objectWithKeyValues:result.data];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
         }else{
@@ -96,7 +96,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.queryPrices = [DKYQueryPriceModel mj_objectArrayWithKeyValuesArray:result.data];
             [weakSelf setupPriceArray];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
         }else{
@@ -124,7 +124,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.sampleValues = [DKYSampleValueInfoModel mj_objectArrayWithKeyValuesArray:result.data];
             [weakSelf setupSampleValueArray];
-        }else if (retCode == DkyHttpResponseCode_Unset) {
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
         }else{
