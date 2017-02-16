@@ -8,6 +8,10 @@
 
 #import "DKYCustomOrderUIViewController.h"
 #import "DKYOrderActionsView.h"
+#import "DKYCustomOrderViewCell.h"
+#import "MMPopupItem.h"
+#import "MMSheetView.h"
+#import "MMPopupWindow.h"
 
 @interface DKYCustomOrderUIViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -31,6 +35,27 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - private method
+- (void)showOptionsPicker{
+    WeakSelf(weakSelf);
+    [self.view endEditing:YES];
+    MMPopupItemHandler block = ^(NSInteger index){
+        DLog(@"++++++++ index = %ld",index);
+    };
+    
+    NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
+    
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
+    for (NSString *str in item) {
+        [items addObject:MMItemMake(str, MMItemTypeNormal, block)];
+    }
+
+    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"点击选择内容"
+                                                          items:[items copy]];
+    [MMPopupWindow sharedWindow].touchWildToHide = YES;
+    [sheetView show];
 }
 
 #pragma mark - UI
@@ -83,19 +108,15 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellID = @"testCellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
-    cell.textLabel.text = @"测试数据";
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    WeakSelf(weakSelf);
+    DKYCustomOrderViewCell *cell= [DKYCustomOrderViewCell customOrderViewCellWithTableView:tableView];
+    cell.optionsBtnClicked = ^(id sender, NSInteger index){
+        [weakSelf showOptionsPicker];
+    };
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 

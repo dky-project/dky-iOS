@@ -49,6 +49,8 @@
 		EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */; };
 		EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */; };
 		EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */; };
+		EB8FA2A31E55A0B7004BE846 /* DKYCustomOrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8FA2A21E55A0B7004BE846 /* DKYCustomOrderViewCell.m */; };
+		EB8FA2A61E55AD99004BE846 /* DKYCustomOrderTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8FA2A51E55AD99004BE846 /* DKYCustomOrderTextFieldView.m */; };
 		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
 		EB9510871E160321008708EF /* DKYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9510861E160321008708EF /* DKYTabBar.m */; };
 		EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511791E162D33008708EF /* DKYGuidenceViewController.m */; };
@@ -278,6 +280,10 @@
 		EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderBrowserLineView.xib; sourceTree = "<group>"; };
 		EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		EB8FA2A11E55A0B7004BE846 /* DKYCustomOrderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderViewCell.h; sourceTree = "<group>"; };
+		EB8FA2A21E55A0B7004BE846 /* DKYCustomOrderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderViewCell.m; sourceTree = "<group>"; };
+		EB8FA2A41E55AD99004BE846 /* DKYCustomOrderTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderTextFieldView.h; sourceTree = "<group>"; };
+		EB8FA2A51E55AD99004BE846 /* DKYCustomOrderTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderTextFieldView.m; sourceTree = "<group>"; };
 		EB95107A1E15FA27008708EF /* DKYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTabBarViewController.h; sourceTree = "<group>"; };
 		EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTabBarViewController.m; sourceTree = "<group>"; };
 		EB9510851E160321008708EF /* DKYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTabBar.h; sourceTree = "<group>"; };
@@ -1056,6 +1062,10 @@
 			children = (
 				EBA90E971E52E55A00EA539E /* DKYOrderActionsView.h */,
 				EBA90E981E52E55A00EA539E /* DKYOrderActionsView.m */,
+				EB8FA2A11E55A0B7004BE846 /* DKYCustomOrderViewCell.h */,
+				EB8FA2A21E55A0B7004BE846 /* DKYCustomOrderViewCell.m */,
+				EB8FA2A41E55AD99004BE846 /* DKYCustomOrderTextFieldView.h */,
+				EB8FA2A51E55AD99004BE846 /* DKYCustomOrderTextFieldView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1613,6 +1623,7 @@
 				EB97F2BB1E25C36A00BDC705 /* DQFormCollectionView.m in Sources */,
 				EBC3004F1E1CA0C700F602E6 /* TAAbstractDotView.m in Sources */,
 				EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */,
+				EB8FA2A61E55AD99004BE846 /* DKYCustomOrderTextFieldView.m in Sources */,
 				EB95117D1E162E31008708EF /* UIStoryboard+Utility.m in Sources */,
 				EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */,
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
@@ -1684,6 +1695,7 @@
 				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,
 				EB97F2C71E26018F00BDC705 /* DKYOrderAuditStatusModel.m in Sources */,
 				EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */,
+				EB8FA2A31E55A0B7004BE846 /* DKYCustomOrderViewCell.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				EB97906A1E221B6F00E2985C /* MMAlertView.m in Sources */,

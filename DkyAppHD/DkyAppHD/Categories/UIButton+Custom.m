@@ -71,6 +71,7 @@
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
             btn.layer.borderWidth = 1.0;
             btn.layer.borderColor = [UIColor colorWithHex:0x686868].CGColor;
+            [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
             break;
         case UIButtonCustomType_Seven:
             [btn setTitleColor:[UIColor colorWithHex:0x251E1D] forState:UIControlStateNormal];
