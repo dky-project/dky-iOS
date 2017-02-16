@@ -85,7 +85,7 @@
     
     [self.editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(140, 50));
-        make.left.mas_equalTo(weakSelf.lastStepBtn.mas_right).with.offset(20);
+        make.right.mas_equalTo(weakSelf.confirmOrderBtn);
         make.bottom.mas_equalTo(weakSelf.lastStepBtn);
     }];
     
@@ -96,7 +96,7 @@
     
     [self.saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(140, 50));
-        make.left.mas_equalTo(weakSelf.editBtn.mas_right).with.offset(20);
+        make.left.mas_equalTo(weakSelf.reWriteBtn);
         make.bottom.mas_equalTo(weakSelf.lastStepBtn);
     }];
     
@@ -107,7 +107,7 @@
     
     [self.nextStepBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(140, 50));
-        make.left.mas_equalTo(weakSelf.saveBtn.mas_right).with.offset(20);
+        make.right.mas_equalTo(weakSelf.reWriteBtn);
         make.bottom.mas_equalTo(weakSelf.lastStepBtn);
     }];
 }
