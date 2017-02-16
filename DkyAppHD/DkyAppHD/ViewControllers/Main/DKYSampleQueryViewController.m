@@ -87,6 +87,7 @@
     p.pageSize = @(kPageSize);
     p.mDimNew11Id = self.filtrateView.selectedBigClas;
     p.mDimNew13Id = self.filtrateView.selectedSex;
+    p.name = self.filtrateView.name;
 
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -223,6 +224,7 @@
 #pragma mark - action method
 
 - (void)backgroundBtnClicked:(UIButton*)sender{
+    [self.view endEditing:YES];
     [self hideBackgroundMask:YES animated:YES];
     [self hideFilterView:YES animated:YES];
     

@@ -184,4 +184,21 @@
     return nil;
 }
 
++ (BOOL)isEmptyString:(NSString*)str{
+    if (str == nil || str == (NSString *)[NSNull null] || [str isEqual:[NSNull null]] || [str isEqual:@""])
+    {
+        return YES;
+    }
+    else if([str length] == 0)
+    {
+        return YES;
+    }
+    // 去除字符串前后的空格
+    else if([[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+    {
+        return YES;
+    }
+    return NO;
+}
+
 @end

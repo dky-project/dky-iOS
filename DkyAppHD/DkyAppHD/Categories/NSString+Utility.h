@@ -44,4 +44,6 @@
 
 
 + (NSString*)formatRateStringWithRate:(CGFloat)rate;
+
++ (BOOL)isEmptyString:(NSString*)str;
 @end

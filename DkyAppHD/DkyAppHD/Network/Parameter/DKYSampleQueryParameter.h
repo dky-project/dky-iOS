@@ -24,5 +24,9 @@
  * ID
  */
 @property (nonatomic, strong) NSNumber *mProductId;
+/**
+ * 款号
+ */
+@property (nonatomic, copy) NSString *name;
 
 @end

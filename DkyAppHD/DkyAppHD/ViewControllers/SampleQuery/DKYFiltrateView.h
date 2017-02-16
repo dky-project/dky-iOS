@@ -18,4 +18,6 @@
 
 @property (nonatomic, assign) NSNumber *selectedBigClas;
 
+@property (nonatomic, copy) NSString *name;
+
 @end

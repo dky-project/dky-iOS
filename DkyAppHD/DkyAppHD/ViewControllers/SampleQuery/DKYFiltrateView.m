@@ -10,6 +10,7 @@
 #import "DKYFiltrateOptionView.h"
 #import "DKYSexEnumModel.h"
 #import "DKYBigClassEnumModel.h"
+#import "NSString+Utility.h"
 
 @interface DKYFiltrateView ()
 
@@ -18,6 +19,8 @@
 @property (nonatomic, weak) UIButton *oneKeyClearBtn;
 
 @property (nonatomic, strong) NSMutableArray *optionViews;
+
+@property (nonatomic, weak) UITextField *styleNumberTextField;
 
 @end
 
@@ -32,12 +35,20 @@
     return self;
 }
 
+- (NSString*)name{
+    if([NSString isEmptyString:self.styleNumberTextField.text]){
+        return nil;
+    }
+    return self.styleNumberTextField.text;
+}
+
 #pragma mark - action method
 
 - (void)oneKeyClearBtnClicked:(UIButton*)sender{
     for (DKYFiltrateOptionView *op in self.optionViews) {
         op.selectedOption = @"";
     }
+    self.styleNumberTextField.text = nil;
     self.selectedBigClas = nil;
     self.selectedSex = nil;
 }
@@ -99,6 +110,8 @@
     [self setupOneKeyClearBtn];
     
     [self setupOpentionView];
+    
+    [self setupStyleNumberTextField];
 //    [self test];
 }
 
@@ -152,7 +165,7 @@
     [opention1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(171, 171));
         make.left.mas_equalTo(30);
-        make.bottom.mas_equalTo(-28);
+        make.bottom.mas_equalTo(-24);
     }];
     opention1.title = @"性别";
     opention1.optionViewTaped = ^(DKYFiltrateOptionView *view){
@@ -173,6 +186,42 @@
     
     [self.optionViews addObject:opention1];
     [self.optionViews addObject:opention2];
+}
+- (void)setupStyleNumberTextField{
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
+    [self addSubview:textField];
+    self.styleNumberTextField = textField;
+    
+    textField.layer.borderColor = [UIColor colorWithHex:0x3C3362].CGColor;
+    textField.layer.borderWidth = 1;
+    
+    textField.font = [UIFont systemFontOfSize:15];
+    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.backgroundColor = [UIColor whiteColor];
+    
+    textField.placeholder = @"请输入款号";
+    
+    NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor colorWithHex:0x999999],
+                           NSFontAttributeName : [UIFont systemFontOfSize:12],
+                           NSBaselineOffsetAttributeName : @(-1)};
+    
+    NSAttributedString *searchPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:dict];
+    textField.attributedPlaceholder = searchPlaceholder;
+    
+    UIImageView *searchImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_search"]];
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    searchImageView.frame = CGRectMake(0, 0, 41, 28);
+    searchImageView.contentMode = UIViewContentModeCenter;
+    textField.leftView = searchImageView;
+    
+    UIView *view = [self.optionViews firstObject];
+    [self.styleNumberTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(view);
+        make.bottom.mas_equalTo(view.mas_top).with.offset(-5);
+        make.width.mas_equalTo(view);
+        make.height.mas_equalTo(35);
+    }];
 }
 
 - (void)test{
