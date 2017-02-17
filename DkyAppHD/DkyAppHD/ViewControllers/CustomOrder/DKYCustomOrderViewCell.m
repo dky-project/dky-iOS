@@ -12,10 +12,40 @@
 #import "MMSheetView.h"
 #import "MMPopupWindow.h"
 #import "DKYCustomOrderTextFieldView.h"
+#import "DKYCustomOrderTextFieldView.h"
+#import "DKYCustomOrderItemModel.h"
+#import "DKYCustomOrderGenderItemView.h"
+#import "DKYCustomOrderVarietyView.h"
+
+static const CGFloat topOffset = 30;
+static const CGFloat leftOffset = 53;
+
+static const CGFloat hpadding = 37;
+static const CGFloat vpadding = 20;
+
+static const CGFloat basicItemWidth = 196;
+static const CGFloat basicItemHeight = 30;
 
 @interface DKYCustomOrderViewCell ()
 
-@property (nonatomic, weak) UILabel *titleLabel;
+// 编号
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *numberView;
+
+// 客户号
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *clientView;
+
+// 手机号
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *phoneNumberView;
+
+// 款号
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *styleNumberView;
+
+// 性别
+@property (nonatomic, weak) DKYCustomOrderGenderItemView *genderItemView;
+
+// 品种
+@property (nonatomic, weak) DKYCustomOrderVarietyView *varietyView;
+//@property (nonatomic, weak) UILabel *titleLabel;
 
 
 @end
@@ -69,7 +99,6 @@
 
 #pragma mark - private method
 - (void)showOptionsPicker{
-    WeakSelf(weakSelf);
     [self.superview endEditing:YES];
     MMPopupItemHandler block = ^(NSInteger index){
         DLog(@"++++++++ index = %ld",index);
@@ -91,46 +120,224 @@
 #pragma mark - UI
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    [self setupTitleLabel];
     
-    [self setupOptionsBtn];
+    // 第一行 款号，客户，手机号
+    [self setupNumberView];
+    [self setupClientView];
+    [self setupPhoneNumberView];
+    
+    // 第二行 款号，性别
+    [self setupStyleNumberView];
+    [self setupGenderItemView];
+    
+    // 第三行 品种 4个选择器
+    [self setupVarietyView];
 }
 
-- (void)setupTitleLabel{
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
-    label.font = [UIFont boldSystemFontOfSize:15];
-    label.textColor = [UIColor blackColor];
-    label.textAlignment = NSTextAlignmentLeft;
+- (void)setupNumberView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.numberView = view;
     
-    [self.contentView addSubview:label];
-    self.titleLabel = label;
     WeakSelf(weakSelf);
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.contentView).with.offset(72);
-        make.top.mas_equalTo(weakSelf.contentView).with.offset(42);
-        make.width.mas_equalTo(80);
+    [self.numberView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.contentView).with.offset(leftOffset);
+        make.width.mas_equalTo(basicItemWidth);
+        make.height.mas_equalTo(basicItemHeight);
+        make.top.mas_equalTo(weakSelf.contentView).with.offset(topOffset);
     }];
-
-    label.adjustsFontSizeToFitWidth = YES;
     
-    label.text = @"标题标题";
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"编号:";
+    itemModel.placeholder = @"请输入1-6位的数字编号";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    self.numberView.itemModel = itemModel;
 }
 
-- (void)setupOptionsBtn{
+- (void)setupClientView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.clientView = view;
+    
     WeakSelf(weakSelf);
-    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
-    [self.contentView addSubview:btn];
-    [btn setTitle:@"点击选中内容" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(160, 28));
-        make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
-        make.top.mas_equalTo(weakSelf.contentView).with.offset(37);
+    [self.clientView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
+        make.width.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.numberView);
     }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*客户:";
+    self.clientView.itemModel = itemModel;
 }
 
-- (void)setupCustomOrderTextFieldView{
+- (void)setupPhoneNumberView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.phoneNumberView = view;
     
+    WeakSelf(weakSelf);
+    [self.phoneNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.clientView.mas_right).with.offset(hpadding);
+        make.width.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.numberView);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*手机号:";
+    itemModel.keyboardType = UIKeyboardTypePhonePad;
+    self.phoneNumberView.itemModel = itemModel;
 }
+
+- (void)setupStyleNumberView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.styleNumberView = view;
+    
+    WeakSelf(weakSelf);
+    [self.styleNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.numberView);
+        make.width.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.numberView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*款号:";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    self.styleNumberView.itemModel = itemModel;
+}
+
+- (void)setupGenderItemView{
+    DKYCustomOrderGenderItemView *view = [[DKYCustomOrderGenderItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.genderItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.genderItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.clientView);
+        make.width.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.styleNumberView);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*性别:";
+    self.genderItemView.itemModel = itemModel;
+}
+
+- (void)setupVarietyView{
+    DKYCustomOrderVarietyView *view = [[DKYCustomOrderVarietyView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.varietyView = view;
+    
+    WeakSelf(weakSelf);
+    [self.varietyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*品种:";
+    self.varietyView.itemModel = itemModel;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//- (void)setupTitleLabel{
+//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+//    label.font = [UIFont boldSystemFontOfSize:15];
+//    label.textColor = [UIColor blackColor];
+//    label.textAlignment = NSTextAlignmentLeft;
+//    
+//    [self.contentView addSubview:label];
+//    self.titleLabel = label;
+//    WeakSelf(weakSelf);
+//    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(weakSelf.contentView).with.offset(72);
+//        make.top.mas_equalTo(weakSelf.contentView).with.offset(42);
+//        make.width.mas_equalTo(80);
+//    }];
+//
+//    label.adjustsFontSizeToFitWidth = YES;
+//    
+//    label.text = @"标题标题";
+//}
+//
+//- (void)setupOptionsBtn{
+//    WeakSelf(weakSelf);
+//    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+//    [self.contentView addSubview:btn];
+//    [btn setTitle:@"点击选中内容" forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(160, 28));
+//        make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
+//        make.top.mas_equalTo(weakSelf.contentView).with.offset(37);
+//    }];
+//}
+//
+//- (void)setupCustomOrderTextFieldView{
+//    
+//}
 
 @end

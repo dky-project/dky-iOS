@@ -18,4 +18,8 @@
 
 @property (nonatomic, copy) NSString *subText;
 
+@property (nonatomic, copy) NSString *placeholder;
+
+@property (nonatomic, assign) UIKeyboardType keyboardType;
+
 @end

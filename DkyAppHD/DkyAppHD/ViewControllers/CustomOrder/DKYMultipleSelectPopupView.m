@@ -1,16 +1,15 @@
 //
-//  DKYOrderBrowseView.m
+//  DKYMultipleSelectPopupView.m
 //  DkyAppHD
 //
-//  Created by HaKim on 17/1/9.
+//  Created by HaKim on 17/2/17.
 //  Copyright © 2017年 haKim. All rights reserved.
 //
 
-#import "DKYOrderBrowseView.h"
+#import "DKYMultipleSelectPopupView.h"
 #import "KLCPopup.h"
-#import "DKYOrderBrowserViewCell.h"
 
-@interface DKYOrderBrowseView ()<UITableViewDelegate,UITableViewDataSource>
+@interface DKYMultipleSelectPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, weak) KLCPopup *popup;
 
@@ -18,16 +17,18 @@
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
-@property (nonatomic, weak) UIButton *closeBtn;
-
 @property (nonatomic, weak) UITableView *tableView;
+
+@property (nonatomic, weak) UIButton *cancelBtn;
+
+@property (nonatomic, weak) UIButton *confirmBtn;
 
 @end
 
-@implementation DKYOrderBrowseView
+@implementation DKYMultipleSelectPopupView
 
 + (instancetype)show{
-    DKYOrderBrowseView *contentView = [[DKYOrderBrowseView alloc]initWithFrame:CGRectZero];
+    DKYMultipleSelectPopupView *contentView = [[DKYMultipleSelectPopupView alloc]initWithFrame:CGRectZero];
     KLCPopup *popup = [KLCPopup popupWithContentView:contentView
                                             showType:KLCPopupShowTypeBounceInFromTop
                                          dismissType:KLCPopupDismissTypeBounceOutToBottom
@@ -36,7 +37,7 @@
                                dismissOnContentTouch:NO];
     popup.dimmedMaskAlpha = 0.6;
     contentView.popup = popup;
-
+    
     [popup show];
     return contentView;
 }
@@ -54,15 +55,13 @@
     [self.popup dismiss:YES];
 }
 
-- (void)setDetailOrders:(NSArray *)detailOrders{
-    _detailOrders = [detailOrders copy];
-    
-    [self.tableView reloadData];
-}
-
 #pragma mark - action method
 
 - (void)closeBtnClicked:(UIButton*)sender{
+    [self dismiss];
+}
+
+- (void)confirmBtnClicked:(UIButton*)sender{
     [self dismiss];
 }
 
@@ -73,8 +72,8 @@
     
     [self setupTitleView];
     [self setupTitleLabel];
-    [self setupCloseBtn];
     [self setupTableView];
+    [self setupBtns];
 }
 
 - (void)setupTitleView{
@@ -105,24 +104,7 @@
         make.top.mas_equalTo(weakSelf.titleView);
         make.centerX.mas_equalTo(weakSelf.titleView);
     }];
-    label.text = @"订单浏览";
-}
-
-- (void)setupCloseBtn{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn addTarget:self action:@selector(closeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.titleView addSubview:btn];
-    self.closeBtn = btn;
-
-    [btn setBackgroundImage:[UIImage imageNamed:@"close_icon"] forState:UIControlStateNormal];
-    
-    WeakSelf(weakSelf);
-    [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(29);
-        make.centerY.mas_equalTo(weakSelf.titleView);
-        make.right.mas_equalTo(weakSelf.titleView.mas_right).with.offset(-18);
-        make.width.mas_equalTo(29);
-    }];
+    label.text = @"颜色选择";
 }
 
 - (void)setupTableView{
@@ -143,21 +125,60 @@
     }];
 }
 
+- (void)setupBtns{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(closeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.titleView addSubview:btn];
+    self.cancelBtn = btn;
+    
+    [btn setTitle:@"取消" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    
+    WeakSelf(weakSelf);
+    [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.titleView);
+        make.bottom.mas_equalTo(weakSelf.titleView);
+        make.top.mas_equalTo(weakSelf.titleView);
+        make.width.mas_equalTo(60);
+    }];
+    
+    btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(confirmBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.titleView addSubview:btn];
+    self.confirmBtn = btn;
+    
+    [btn setTitle:@"确定" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+
+    [self.confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(weakSelf.titleView);
+        make.bottom.mas_equalTo(weakSelf.titleView);
+        make.top.mas_equalTo(weakSelf.titleView);
+        make.width.mas_equalTo(60);
+    }];
+
+}
+
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.detailOrders.count;
+    return 30;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 350;
+    return 44;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
-    cell.itemModel = [self.detailOrders objectOrNilAtIndex:indexPath.row];
+    static NSString *cellID = @"testCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"颜色-%@",@(indexPath.row)];
     return cell;
 }
 
@@ -165,5 +186,6 @@
 {
     
 }
+
 
 @end

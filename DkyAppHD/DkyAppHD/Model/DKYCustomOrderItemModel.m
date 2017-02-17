@@ -10,4 +10,13 @@
 
 @implementation DKYCustomOrderItemModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.keyboardType = UIKeyboardTypeDefault;
+    }
+    return self;
+}
+
 @end

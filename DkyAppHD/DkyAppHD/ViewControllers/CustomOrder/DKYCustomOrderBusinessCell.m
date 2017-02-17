@@ -11,16 +11,32 @@
 #import "DKYCustomOrderItemModel.h"
 #import "DKYDeliveryDateView.h"
 
+static const CGFloat topOffset = 30;
+static const CGFloat leftOffset = 53;
+
+static const CGFloat hpadding = 37;
+static const CGFloat vpadding = 20;
+
+static const CGFloat basicItemWidth = 196;
+static const CGFloat basicItemHeight = 30;
+
+
 @interface DKYCustomOrderBusinessCell ()
 
+// 机构号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *agencyNumberView;
+// 传真日期
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *faxDateView;
+// 操作者
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *handlersView;
-
+// 订单号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *orderNumberView;
+// 详细地址
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *detailAddressView;
-
+// 发送日期
 @property (nonatomic, weak) DKYDeliveryDateView *deliveryDateView;
+//备忘录
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *memoView;
 
 @end
 
@@ -45,6 +61,24 @@
     return self;
 }
 
+- (void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(leftOffset, self.tw_height - 1)];
+    [path addLineToPoint:CGPointMake(self.tw_width - leftOffset, self.tw_height - 1)];
+    [[UIColor colorWithHex:0x999999] setStroke];
+    
+    [path setLineWidth:1];
+    [path setLineJoinStyle:kCGLineJoinRound];
+    [path setLineCapStyle:kCGLineCapButt];
+    
+    CGFloat lengths[2] = { 1, 1 };
+    CGContextSetLineDash(context, 0, lengths, 2);
+    [path stroke];
+}
+
 #pragma mark - UI
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -57,6 +91,7 @@
     [self setupDetailAddressView];
     
     [self setupDeliveryDateView];
+    [self setupMemoView];
 }
 
 - (void)setupAgencyNumberView{
@@ -66,10 +101,10 @@
     
     WeakSelf(weakSelf);
     [self.agencyNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.contentView).with.offset(60);
-        make.width.mas_equalTo(188);
-        make.height.mas_equalTo(30);
-        make.top.mas_equalTo(weakSelf.contentView).with.offset(20);
+        make.left.mas_equalTo(weakSelf.contentView).with.offset(leftOffset);
+        make.width.mas_equalTo(basicItemWidth);
+        make.height.mas_equalTo(basicItemHeight);
+        make.top.mas_equalTo(weakSelf.contentView).with.offset(topOffset);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -86,7 +121,7 @@
     
     WeakSelf(weakSelf);
     [self.faxDateView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.agencyNumberView.mas_right).with.offset(42);
+        make.left.mas_equalTo(weakSelf.agencyNumberView.mas_right).with.offset(hpadding);
         make.width.mas_equalTo(weakSelf.agencyNumberView);
         make.height.mas_equalTo(weakSelf.agencyNumberView);
         make.top.mas_equalTo(weakSelf.agencyNumberView);
@@ -106,7 +141,7 @@
     
     WeakSelf(weakSelf);
     [self.handlersView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.faxDateView.mas_right).with.offset(42);
+        make.left.mas_equalTo(weakSelf.faxDateView.mas_right).with.offset(hpadding);
         make.width.mas_equalTo(weakSelf.agencyNumberView);
         make.height.mas_equalTo(weakSelf.agencyNumberView);
         make.top.mas_equalTo(weakSelf.agencyNumberView);
@@ -129,7 +164,7 @@
         make.left.mas_equalTo(weakSelf.agencyNumberView);
         make.width.mas_equalTo(weakSelf.agencyNumberView);
         make.height.mas_equalTo(weakSelf.agencyNumberView);
-        make.top.mas_equalTo(weakSelf.agencyNumberView.mas_bottom).with.offset(20);
+        make.top.mas_equalTo(weakSelf.agencyNumberView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -169,7 +204,7 @@
         make.left.mas_equalTo(weakSelf.agencyNumberView);
         make.right.mas_equalTo(weakSelf.handlersView);
         make.height.mas_equalTo(weakSelf.agencyNumberView);
-        make.top.mas_equalTo(weakSelf.orderNumberView.mas_bottom).with.offset(20);
+        make.top.mas_equalTo(weakSelf.orderNumberView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -178,6 +213,26 @@
     itemModel.content = @"点击选择日期";
     itemModel.subText = @"*选择传真日期后9~15天内的第一个星期一";
     self.deliveryDateView.itemModel = itemModel;
+}
+
+- (void)setupMemoView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.memoView = view;
+    
+    WeakSelf(weakSelf);
+    [self.memoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.agencyNumberView);
+        make.right.mas_equalTo(weakSelf.handlersView);
+        make.height.mas_equalTo(weakSelf.agencyNumberView);
+        make.top.mas_equalTo(weakSelf.deliveryDateView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"备忘录:";
+    itemModel.lock = NO;
+    itemModel.content = @"";
+    self.memoView.itemModel = itemModel;
 }
 
 @end

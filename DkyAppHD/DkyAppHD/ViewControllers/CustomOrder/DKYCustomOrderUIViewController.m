@@ -115,9 +115,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0) return 400;
+    if(indexPath.row == 0) return 240;
     
-    return 350;
+    return 1400;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,6 +127,7 @@
         DKYCustomOrderBusinessCell *cell = [DKYCustomOrderBusinessCell customOrderBusinessCellWithTableView:tableView];
         return cell;
     }
+    
     DKYCustomOrderViewCell *cell= [DKYCustomOrderViewCell customOrderViewCellWithTableView:tableView];
     cell.optionsBtnClicked = ^(id sender, NSInteger index){
         [weakSelf showOptionsPicker];

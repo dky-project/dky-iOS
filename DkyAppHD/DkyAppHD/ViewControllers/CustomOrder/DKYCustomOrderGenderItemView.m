@@ -1,30 +1,22 @@
 //
-//  DKYDeliveryDateView.m
+//  DKYCustomOrderGenderItemView.m
 //  DkyAppHD
 //
-//  Created by 胡金丽 on 2017/2/16.
+//  Created by HaKim on 17/2/17.
 //  Copyright © 2017年 haKim. All rights reserved.
 //
 
-#import "DKYDeliveryDateView.h"
-#import "MMPopupItem.h"
-#import "MMSheetView.h"
-#import "MMPopupWindow.h"
-#import "DKYCustomOrderItemModel.h"
-#import "WGBDatePickerView.h"
+#import "DKYCustomOrderGenderItemView.h"
 
-@interface DKYDeliveryDateView ()<WGBDatePickerViewDelegate>
+@interface DKYCustomOrderGenderItemView ()
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
 @property (nonatomic, weak) UIButton *optionsBtn;
 
-@property (nonatomic, weak) UILabel *hintLabel;
-
-@property (nonatomic,strong) WGBDatePickerView *datePickView;
 @end
 
-@implementation DKYDeliveryDateView
+@implementation DKYCustomOrderGenderItemView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -36,11 +28,23 @@
 }
 
 - (void)setItemModel:(DKYCustomOrderItemModel *)itemModel{
-    _itemModel = itemModel;
+    [super setItemModel:itemModel];
     
     self.titleLabel.text = itemModel.title;
     
-    [self.optionsBtn setTitle:itemModel.content forState:UIControlStateNormal];
+    if(itemModel.content.length > 0){
+        [self.optionsBtn setTitle:itemModel.content forState:UIControlStateNormal];
+    }
+    
+    if(itemModel.title.length >0 && [itemModel.title hasPrefix:@"*"]){
+        NSDictionary *dict = @{NSForegroundColorAttributeName : self.titleLabel.textColor,
+                               NSFontAttributeName : self.titleLabel.font};
+        NSMutableAttributedString *atitle = [[NSMutableAttributedString alloc] initWithString:itemModel.title attributes:dict];
+        
+        [atitle addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 1)];
+        self.titleLabel.attributedText = atitle;
+    }
+
     
     UIFont *font = self.titleLabel.font;
     CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
@@ -64,7 +68,7 @@
     //    if(self.optionsBtnClicked){
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
-    [self showFaxDateSelectedPicker];
+    [self showOptionsPicker];
 }
 
 #pragma mark - private method
@@ -81,34 +85,16 @@
         [items addObject:MMItemMake(str, MMItemTypeNormal, block)];
     }
     
-    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"点击选择日期"
+    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"选择性别"
                                                           items:[items copy]];
     [MMPopupWindow sharedWindow].touchWildToHide = YES;
     [sheetView show];
 }
 
-- (void)showFaxDateSelectedPicker{
-    [self.superview endEditing:YES];
-    [self.datePickView show];
-}
-
-#pragma mark- <WGBDatePickerViewDelegate>
-//当时间改变时触发
-- (void)changeTime:(NSDate *)date{
-    
-}
-
-//确定时间
-- (void)determine:(NSDate *)date{
-    DLog(@"选中时间 = %@",[self.datePickView stringFromDate:date]);
-}
-
-
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
     [self setupOptionsBtn];
-    [self setupHintLabel];
 }
 
 - (void)setupTitleLabel{
@@ -140,38 +126,10 @@
         make.top.mas_equalTo(weakSelf);
         
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
-//        make.right.mas_equalTo(weakSelf);
-        make.width.mas_equalTo(206);
-    }];
-    self.optionsBtn = btn;
-}
-
-- (void)setupHintLabel{
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
-    label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x999999];
-    label.textAlignment = NSTextAlignmentLeft;
-    
-    [self addSubview:label];
-    self.hintLabel = label;
-    WeakSelf(weakSelf);
-    [self.hintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(8);
-        make.top.mas_equalTo(weakSelf);
-        make.bottom.mas_equalTo(weakSelf);
         make.right.mas_equalTo(weakSelf);
     }];
-    label.text = @"*选择传真日期后9~15天内的第一个星期一";
-}
-
-#pragma mark - get & set method
-- (WGBDatePickerView *)datePickView{
-    if (!_datePickView) {
-        _datePickView =[[WGBDatePickerView alloc] initWithFrame:[UIScreen mainScreen].bounds type:UIDatePickerModeDate];
-        _datePickView.delegate = self;
-        _datePickView.title =@"传真日期";
-    }
-    return _datePickView;
+    [btn setTitle:@"点击选择性别" forState:UIControlStateNormal];
+    self.optionsBtn = btn;
 }
 
 @end

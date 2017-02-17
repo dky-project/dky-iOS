@@ -34,8 +34,26 @@
     self.titleLabel.text = itemModel.title;
     self.textField.rightViewMode = itemModel.lock ? UITextFieldViewModeAlways : UITextFieldViewModeNever;
     self.textField.text = itemModel.content;
-    
+    self.textField.placeholder = itemModel.placeholder;
     self.textField.enabled = !itemModel.lock;
+    self.textField.keyboardType = itemModel.keyboardType;
+    
+    if(itemModel.placeholder.length > 0){
+        NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor colorWithHex:0x999999],
+                                     NSFontAttributeName : [UIFont systemFontOfSize:12],
+                                     NSBaselineOffsetAttributeName : @-1};
+        
+        self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:itemModel.placeholder attributes:attributes];
+    }
+
+    if(itemModel.title.length >0 && [itemModel.title hasPrefix:@"*"]){
+        NSDictionary *dict = @{NSForegroundColorAttributeName : self.titleLabel.textColor,
+                               NSFontAttributeName : self.titleLabel.font};
+        NSMutableAttributedString *atitle = [[NSMutableAttributedString alloc] initWithString:itemModel.title attributes:dict];
+        
+        [atitle addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 1)];
+        self.titleLabel.attributedText = atitle;
+    }
     
     UIFont *font = self.titleLabel.font;
     CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
@@ -76,7 +94,7 @@
 - (void)setupTitleLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x666666];
+    label.textColor = [UIColor colorWithHex:0x333333];
     label.textAlignment = NSTextAlignmentLeft;
     
     [self addSubview:label];
