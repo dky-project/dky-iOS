@@ -65,8 +65,9 @@
                                                     options:options
                                                  attributes:attributes
                                                     context:nil];
+    CGFloat offset = itemModel.textFieldLeftOffset > 0 ? itemModel.textFieldLeftOffset : 10;
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(textFrame.size.width + 10);
+        make.width.mas_equalTo(textFrame.size.width + offset);
     }];
 }
 

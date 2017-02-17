@@ -17,6 +17,7 @@
 #import "DKYCustomOrderGenderItemView.h"
 #import "DKYCustomOrderVarietyView.h"
 #import "DKYCustomOrderPatternItemView.h"
+#import "DKYCustomOrderSizeItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -50,7 +51,8 @@ static const CGFloat basicItemHeight = 30;
 // 式样
 @property (nonatomic, weak) DKYCustomOrderPatternItemView *patternItemView;
 
-
+// 尺寸View
+@property (nonatomic, weak) DKYCustomOrderSizeItemView *sizeView;
 
 
 //@property (nonatomic, weak) UILabel *titleLabel;
@@ -143,6 +145,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第四大行， 式样
     [self setupPatternItemView];
+    
+    // 第五大行，尺寸
+    [self setupSizeView];
 }
 
 - (void)setupNumberView{
@@ -162,6 +167,7 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"编号:";
     itemModel.placeholder = @"请输入1-6位的数字编号";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldLeftOffset = 16;
     self.numberView.itemModel = itemModel;
 }
 
@@ -275,7 +281,24 @@ static const CGFloat basicItemHeight = 30;
     self.patternItemView.itemModel = itemModel;
 }
 
-
+- (void)setupSizeView{
+    DKYCustomOrderSizeItemView *view = [[DKYCustomOrderSizeItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.sizeView = view;
+    
+    WeakSelf(weakSelf);
+    [self.sizeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.patternItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"尺寸:";
+    itemModel.textFieldLeftOffset = 16;
+    self.sizeView.itemModel = itemModel;
+}
 
 
 

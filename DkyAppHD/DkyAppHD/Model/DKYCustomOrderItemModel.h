@@ -22,4 +22,6 @@
 
 @property (nonatomic, assign) UIKeyboardType keyboardType;
 
+@property (nonatomic, assign) CGFloat textFieldLeftOffset;
+
 @end
