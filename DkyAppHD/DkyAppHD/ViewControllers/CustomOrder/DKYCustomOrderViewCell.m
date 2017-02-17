@@ -16,6 +16,7 @@
 #import "DKYCustomOrderItemModel.h"
 #import "DKYCustomOrderGenderItemView.h"
 #import "DKYCustomOrderVarietyView.h"
+#import "DKYCustomOrderPatternItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -45,9 +46,16 @@ static const CGFloat basicItemHeight = 30;
 
 // 品种
 @property (nonatomic, weak) DKYCustomOrderVarietyView *varietyView;
+
+// 式样
+@property (nonatomic, weak) DKYCustomOrderPatternItemView *patternItemView;
+
+
+
+
 //@property (nonatomic, weak) UILabel *titleLabel;
 
-
+//
 @end
 
 @implementation DKYCustomOrderViewCell
@@ -130,8 +138,11 @@ static const CGFloat basicItemHeight = 30;
     [self setupStyleNumberView];
     [self setupGenderItemView];
     
-    // 第三行 品种 4个选择器
+    // 第三大行 品种 4个选择器
     [self setupVarietyView];
+    
+    // 第四大行， 式样
+    [self setupPatternItemView];
 }
 
 - (void)setupNumberView{
@@ -246,7 +257,23 @@ static const CGFloat basicItemHeight = 30;
     self.varietyView.itemModel = itemModel;
 }
 
-
+- (void)setupPatternItemView{
+    DKYCustomOrderPatternItemView *view = [[DKYCustomOrderPatternItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.patternItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.patternItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.varietyView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*式样:";
+    self.patternItemView.itemModel = itemModel;
+}
 
 
 

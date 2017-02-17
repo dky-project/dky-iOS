@@ -156,7 +156,6 @@
         make.top.mas_equalTo(weakSelf.titleView);
         make.width.mas_equalTo(60);
     }];
-
 }
 
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
