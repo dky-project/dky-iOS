@@ -7,12 +7,17 @@
 //
 
 #import "DKYCustomOrderSizeItemView.h"
+#import "DKYTitleSelectView.h"
+#import "DKYTitleInputView.h"
 
 @interface DKYCustomOrderSizeItemView ()
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
-@property (nonatomic, weak) UIButton *optionsBtn;
+@property (nonatomic, weak) DKYTitleSelectView *bigView;
+
+@property (nonatomic, weak) DKYTitleInputView *lengthView;
+
 @end
 
 @implementation DKYCustomOrderSizeItemView
@@ -64,6 +69,9 @@
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
+    
+    [self setupBigView];
+    [self setupLengthView];
 }
 
 - (void)setupTitleLabel{
@@ -81,23 +89,43 @@
         make.height.mas_equalTo(30);
         make.width.mas_equalTo(40);
     }];
-    
 }
 
-- (void)setupOptionsBtn{
+- (void)setupBigView{
+    DKYTitleSelectView *view = [[DKYTitleSelectView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.bigView = view;
+    
     WeakSelf(weakSelf);
-    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
-    [self addSubview:btn];
-    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(weakSelf.titleLabel);
-        make.top.mas_equalTo(weakSelf);
-        
+    [self.bigView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
+        make.height.mas_equalTo(weakSelf.titleLabel);
         make.width.mas_equalTo(152);
+        make.top.mas_equalTo(weakSelf);
     }];
-    self.optionsBtn = btn;
-    [btn setTitle:@"点击选择式样" forState:UIControlStateNormal];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"大";
+    itemModel.content = @"点击选择大小";
+    self.bigView.itemModel = itemModel;
+}
+
+- (void)setupLengthView{
+    DKYTitleInputView *view = [[DKYTitleInputView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.lengthView = view;
+    
+    WeakSelf(weakSelf);
+    [self.lengthView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.bigView.mas_right).with.offset(37);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(196);
+        make.top.mas_equalTo(weakSelf);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"长";
+    self.lengthView.itemModel = itemModel;
 }
 
 @end

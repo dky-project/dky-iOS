@@ -9,11 +9,13 @@
 #import "DKYCustomOrderPatternItemView.h"
 #import "DKYTitleInputView.h"
 #import "DKYTitleSelectView.h"
+#import "DKYTextFieldAndTextFieldView.h"
 
 @interface DKYCustomOrderPatternItemView ()
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
+// 式样
 @property (nonatomic, weak) UIButton *optionsBtn;
 
 // 钉
@@ -24,6 +26,15 @@
 
 //门襟宽
 @property (nonatomic, weak) DKYTitleInputView *mjkView;
+
+// 选择门襟1
+@property (nonatomic, weak) UIButton *mjBtn1;
+
+// 选择门襟2
+@property (nonatomic, weak) UIButton *mjBtn2;
+
+// # 输入框
+@property (nonatomic, weak) DKYTextFieldAndTextFieldView *mjInputView;
 @end
 
 @implementation DKYCustomOrderPatternItemView
@@ -110,7 +121,10 @@
     [self setupKouView];
     [self setupMjkView];
     
-    
+    // 第二行
+    [self setupMjBtn1];
+    [self setupMjBtn2];
+    [self setupMjInputView];
 }
 
 - (void)setupTitleLabel{
@@ -181,6 +195,7 @@
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"扣";
+    itemModel.content = @"点击选择钉扣";
     self.kouView.itemModel = itemModel;
 }
 
@@ -193,7 +208,7 @@
     [self.mjkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.kouView.mas_right).with.offset(6.5);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(150);
+        make.width.mas_equalTo(152);
         make.top.mas_equalTo(weakSelf);
     }];
     
@@ -201,6 +216,53 @@
     itemModel.title = @"门襟宽:";
     itemModel.subText = @"cm";
     self.mjkView.itemModel = itemModel;
+}
+
+- (void)setupMjBtn1{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf.titleLabel.mas_bottom).with.offset(20);
+        
+        make.left.mas_equalTo(weakSelf.optionsBtn);
+        make.width.mas_equalTo(152);
+    }];
+    self.mjBtn1 = btn;
+    [btn setTitle:@"点击选择门襟" forState:UIControlStateNormal];
+}
+
+- (void)setupMjBtn2{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf.titleLabel.mas_bottom).with.offset(20);
+        
+        make.left.mas_equalTo(weakSelf.mjBtn1.mas_right).with.offset(3.33);
+        make.width.mas_equalTo(152);
+    }];
+    self.mjBtn2 = btn;
+    [btn setTitle:@"点击选择门襟" forState:UIControlStateNormal];
+}
+
+- (void)setupMjInputView{
+    DKYTextFieldAndTextFieldView *view = [[DKYTextFieldAndTextFieldView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.mjInputView = view;
+    
+    WeakSelf(weakSelf);
+    [self.mjInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf.mjBtn2);
+        
+        make.left.mas_equalTo(weakSelf.mjBtn2.mas_right).with.offset(3.33);
+        make.right.mas_equalTo(weakSelf.mjkView);
+    }];
 }
 
 @end
