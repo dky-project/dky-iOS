@@ -89,7 +89,7 @@
     
     WeakSelf(weakSelf);
     [self.rectImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(11, 11));
+        make.size.mas_equalTo(CGSizeMake(15, 15));
         make.centerY.mas_equalTo(weakSelf.contentView);
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.rectImageView);
     }];
@@ -162,6 +162,7 @@
     self.selectedImage = [UIImage imageNamed:@"select_icon"];
     
     imageView.image = self.normalImage;
+    imageView.contentMode = UIViewContentModeCenter;
     [self.contentView addSubview:imageView];
     self.rectImageView = imageView;
 }

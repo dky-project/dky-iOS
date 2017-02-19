@@ -73,6 +73,7 @@
     
     self.selectedImage = [UIImage imageNamed:@"select_icon"];
     
+    self.imageView.contentMode = UIViewContentModeCenter;
     self.imageView.image = self.normalImage;
     
     [self setupOrderNumberLabel];
