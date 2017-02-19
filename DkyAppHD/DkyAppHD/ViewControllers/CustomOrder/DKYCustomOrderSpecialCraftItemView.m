@@ -15,6 +15,14 @@
 
 @property (nonatomic, weak) UIButton *dazhe;
 
+@property (nonatomic, weak) UIButton *dazhou;
+
+@property (nonatomic, weak) UIButton *kaicha;
+
+@property (nonatomic, weak) UIButton *caixiangjin;
+
+@property (nonatomic, weak) UIButton *other;
+
 //@property (nonatomic, weak) BEMCheckBox *dazhe;
 
 @end
@@ -65,10 +73,15 @@
     }];
 }
 
+#pragma mark - action method
+- (void)checkBtnClicked:(UIButton*)sender{
+    sender.selected = !sender.selected;
+}
+
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
-    
+    [self setupCheckBtns];
 //    [self setupCheckBoxes];
 }
 
@@ -88,6 +101,75 @@
         make.width.mas_equalTo(40);
     }];
 }
+
+- (void)setupCheckBtns{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf);
+        
+        make.left.mas_equalTo(weakSelf.titleLabel.mas_right).with.offset(10);
+        make.width.mas_equalTo(100);
+    }];
+    self.dazhe = btn;
+    [btn setTitle:@"打折" forState:UIControlStateNormal];
+    
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf);
+        
+        make.left.mas_equalTo(weakSelf.dazhe.mas_right).with.offset(22.5);
+        make.width.mas_equalTo(100);
+    }];
+    self.dazhou = btn;
+    [btn setTitle:@"打皱" forState:UIControlStateNormal];
+    
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf);
+        
+        make.left.mas_equalTo(weakSelf.dazhou.mas_right).with.offset(22.5);
+        make.width.mas_equalTo(100);
+    }];
+    self.kaicha = btn;
+    [btn setTitle:@"开叉" forState:UIControlStateNormal];
+    
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf);
+        
+        make.left.mas_equalTo(weakSelf.kaicha.mas_right).with.offset(22.5);
+        make.width.mas_equalTo(100);
+    }];
+    self.caixiangjin = btn;
+    [btn setTitle:@"踩橡筋" forState:UIControlStateNormal];
+    
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf);
+        
+        make.left.mas_equalTo(weakSelf.caixiangjin.mas_right).with.offset(22.5);
+        make.width.mas_equalTo(100);
+    }];
+    self.other = btn;
+    [btn setTitle:@"其他" forState:UIControlStateNormal];
+}
+
 
 
 //- (void)setupCheckBoxes{

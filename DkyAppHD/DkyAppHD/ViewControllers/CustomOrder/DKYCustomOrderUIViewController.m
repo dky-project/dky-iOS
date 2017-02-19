@@ -117,7 +117,7 @@
 {
     if(indexPath.row == 0) return 240;
     
-    return 1400;
+    return 1650;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

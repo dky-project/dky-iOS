@@ -80,6 +80,15 @@
             btn.layer.borderColor = [UIColor colorWithHex:0x333333].CGColor;
             [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
             break;
+        case UIButtonCustomType_Eigh:
+            [btn setTitleColor:[UIColor colorWithHex:0x666666] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+            btn.titleLabel.font = [UIFont systemFontOfSize:12];
+    
+            [btn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0xc8c8c8]] forState:UIControlStateNormal];
+            [btn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x3C3362]] forState:UIControlStateSelected];
+            break;
+
         default:
             break;
     }

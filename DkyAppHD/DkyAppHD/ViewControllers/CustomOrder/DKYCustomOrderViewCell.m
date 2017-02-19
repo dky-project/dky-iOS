@@ -24,6 +24,9 @@
 #import "DKYCustomOrderXiuBianItemView.h"
 #import "DKYCustomOrderLingItemView.h"
 #import "DKYCustomOrderSpecialCraftItemView.h"
+#import "DKYCustomOrderXiabianItemView.h"
+#import "DKYCustomOrderXiukouItemView.h"
+#import "DKYCustomOrderMatchItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -78,10 +81,23 @@ static const CGFloat basicItemHeight = 30;
 // 特殊工艺
 @property (nonatomic, weak) DKYCustomOrderSpecialCraftItemView *specialCraftItemView;
 
+// 下边
+@property (nonatomic, weak) DKYCustomOrderXiabianItemView *xiabianItemView;
+
+// 袖口
+@property (nonatomic, weak) DKYCustomOrderXiukouItemView *xiukouItemView;
+
+// 加注
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *addMarkView;
+
+// 配套
+@property (nonatomic, weak) DKYCustomOrderMatchItemView *matchItemView;
+
+// 图片
+@property (nonatomic, weak) UIImageView *displayImageView;
 
 //@property (nonatomic, weak) UILabel *titleLabel;
 
-//
 @end
 
 @implementation DKYCustomOrderViewCell
@@ -190,6 +206,21 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十一大行，特殊工艺
     [self setupSpecialCraftItemView];
+    
+    // 第十二行，下边
+    [self setupXiabianItemView];
+    
+    // 第十三行，袖口
+    [self setupXiukouItemView];
+    
+    // 第十四大行,加注
+    [self setupAddMarkView];
+    
+    // 第十五行，配套
+    [self setupMatchItemView];
+    
+    // 图片
+    [self setupDisplayImageView];
 }
 
 - (void)setupNumberView{
@@ -460,15 +491,93 @@ static const CGFloat basicItemHeight = 30;
     self.specialCraftItemView.itemModel = itemModel;
 }
 
+- (void)setupXiabianItemView{
+    DKYCustomOrderXiabianItemView *view = [[DKYCustomOrderXiabianItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.xiabianItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.xiabianItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.specialCraftItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"下边:";
+    itemModel.textFieldLeftOffset = 16;
+    self.xiabianItemView.itemModel = itemModel;
+}
 
+- (void)setupXiukouItemView{
+    DKYCustomOrderXiukouItemView *view = [[DKYCustomOrderXiukouItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.xiukouItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.xiukouItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.xiabianItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"袖口:";
+    itemModel.textFieldLeftOffset = 16;
+    self.xiukouItemView.itemModel = itemModel;
+}
 
+- (void)setupAddMarkView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.addMarkView = view;
+    
+    WeakSelf(weakSelf);
+    [self.addMarkView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.xiukouItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"加注:";
+    self.addMarkView.itemModel = itemModel;
+}
 
+- (void)setupMatchItemView{
+    DKYCustomOrderMatchItemView *view = [[DKYCustomOrderMatchItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.matchItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.matchItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.addMarkView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"配套:";
+    self.matchItemView.itemModel = itemModel;
+}
 
-
-
-
-
-
+- (void)setupDisplayImageView{
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+    imageView.image = [UIImage imageNamed:@"login_placeholder"];
+    [self.contentView addSubview:imageView];
+    self.displayImageView = imageView;
+    
+    WeakSelf(weakSelf);
+    [self.displayImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(320, 480));
+        make.top.mas_equalTo(weakSelf.matchItemView.mas_bottom).with.offset(vpadding);
+        make.centerX.mas_equalTo(weakSelf.contentView);
+    }];
+}
 
 
 
