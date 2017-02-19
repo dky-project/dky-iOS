@@ -228,6 +228,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"钉";
     itemModel.subText = @"#";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.dingView.itemModel = itemModel;
 }
 
@@ -266,6 +267,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"门襟宽:";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.mjkView.itemModel = itemModel;
 }
 
@@ -332,6 +334,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"带长:";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.dcView.itemModel = itemModel;
 }
 
@@ -415,6 +418,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.jdInputView.itemModel = itemModel;
 }
 
@@ -434,6 +438,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"工艺袖长:";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.gyxcView.itemModel = itemModel;
 }
 
@@ -468,6 +473,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"门襟长";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.mjcView.itemModel = itemModel;
 }
 

@@ -185,6 +185,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"肩宽:";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.jkView.itemModel = itemModel;
 }
 
@@ -204,6 +205,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"工艺袖长";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.gyxcView.itemModel = itemModel;
 }
 

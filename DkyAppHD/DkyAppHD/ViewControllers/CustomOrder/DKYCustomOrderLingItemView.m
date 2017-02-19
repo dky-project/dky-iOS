@@ -163,6 +163,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"同";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.oneView.itemModel = itemModel;
 }
 
@@ -182,6 +183,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"尺寸:";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.sizeView.itemModel = itemModel;
 }
 

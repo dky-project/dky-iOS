@@ -150,6 +150,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.lengthView.itemModel = itemModel;
 }
 @end

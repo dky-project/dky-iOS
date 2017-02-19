@@ -125,6 +125,7 @@
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"长";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.lengthView.itemModel = itemModel;
 }
 

@@ -106,6 +106,7 @@
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"净胸围";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.jxwView.itemModel = itemModel;
 }
 
@@ -124,6 +125,7 @@
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"实际袖长";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.sjxcView.itemModel = itemModel;
 }
 

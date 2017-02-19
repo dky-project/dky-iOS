@@ -278,6 +278,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"袖长:";
     itemModel.subText = @"cm";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.xcView.itemModel = itemModel;
 }
 
