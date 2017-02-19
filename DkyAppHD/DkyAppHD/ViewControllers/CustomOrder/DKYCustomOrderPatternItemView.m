@@ -392,7 +392,7 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf.dcView.mas_bottom).with.offset(20);
         
-        make.left.mas_equalTo(weakSelf.dcView).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.dcView);
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.jdBtn = btn;

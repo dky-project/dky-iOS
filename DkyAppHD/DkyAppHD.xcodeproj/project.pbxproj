@@ -11,6 +11,10 @@
 		2620D6DE1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620D6DD1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m */; };
 		2620D6E21E55F5F800BC0668 /* DKYCustomOrderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620D6E11E55F5F800BC0668 /* DKYCustomOrderItemModel.m */; };
 		2620D6E51E55FF6000BC0668 /* DKYDeliveryDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620D6E41E55FF6000BC0668 /* DKYDeliveryDateView.m */; };
+		26210BD41E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BD31E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.m */; };
+		26210BD71E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BD61E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m */; };
+		26210BDA1E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BD91E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m */; };
+		26210BDD1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BDC1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m */; };
 		2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622B96F1E1BEF54006CE866 /* DKYSearchView.m */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
@@ -215,6 +219,14 @@
 		2620D6E11E55F5F800BC0668 /* DKYCustomOrderItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderItemModel.m; sourceTree = "<group>"; };
 		2620D6E31E55FF6000BC0668 /* DKYDeliveryDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDeliveryDateView.h; sourceTree = "<group>"; };
 		2620D6E41E55FF6000BC0668 /* DKYDeliveryDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDeliveryDateView.m; sourceTree = "<group>"; };
+		26210BD21E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderJingSizeItemView.h; sourceTree = "<group>"; };
+		26210BD31E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderJingSizeItemView.m; sourceTree = "<group>"; };
+		26210BD51E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderJianTypeItemView.h; sourceTree = "<group>"; };
+		26210BD61E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderJianTypeItemView.m; sourceTree = "<group>"; };
+		26210BD81E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderXiuTypeItemView.h; sourceTree = "<group>"; };
+		26210BD91E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderXiuTypeItemView.m; sourceTree = "<group>"; };
+		26210BDB1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderXiuBianItemView.h; sourceTree = "<group>"; };
+		26210BDC1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderXiuBianItemView.m; sourceTree = "<group>"; };
 		2622B96E1E1BEF54006CE866 /* DKYSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSearchView.h; sourceTree = SOURCE_ROOT; };
 		2622B96F1E1BEF54006CE866 /* DKYSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSearchView.m; sourceTree = SOURCE_ROOT; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
@@ -782,6 +794,14 @@
 				EB16D0F31E56EC2100939072 /* DKYCustomOrderPatternItemView.m */,
 				EB16D0FF1E56FC5800939072 /* DKYCustomOrderSizeItemView.h */,
 				EB16D1001E56FC5800939072 /* DKYCustomOrderSizeItemView.m */,
+				26210BD21E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.h */,
+				26210BD31E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.m */,
+				26210BD51E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.h */,
+				26210BD61E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m */,
+				26210BD81E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.h */,
+				26210BD91E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m */,
+				26210BDB1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.h */,
+				26210BDC1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m */,
 			);
 			name = "订单选项ItemView";
 			sourceTree = "<group>";
@@ -1791,9 +1811,11 @@
 				EB9511B01E164444008708EF /* WXSTransitionManager+TypeTool.m in Sources */,
 				EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */,
 				EB506C401E23A8B8002A1423 /* DKYOrderBrowseViewController.m in Sources */,
+				26210BDA1E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m in Sources */,
 				EB9790921E22459300E2985C /* YYMemoryCache.m in Sources */,
 				EB9790701E221B6F00E2985C /* MMPopupWindow.m in Sources */,
 				EB97906D1E221B6F00E2985C /* MMPopupCategory.m in Sources */,
+				26210BDD1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m in Sources */,
 				EB9511AF1E164444008708EF /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				EBD694DA1E2785BB00F365C3 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
@@ -1804,6 +1826,7 @@
 				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,
 				EB97F2C71E26018F00BDC705 /* DKYOrderAuditStatusModel.m in Sources */,
 				EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */,
+				26210BD71E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m in Sources */,
 				EB8FA2A31E55A0B7004BE846 /* DKYCustomOrderViewCell.m in Sources */,
 				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
@@ -1837,6 +1860,7 @@
 				EB506C361E23706F002A1423 /* DKYPageModel.m in Sources */,
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
 				EBD694D61E2785BB00F365C3 /* NJKWebViewProgressView.m in Sources */,
+				26210BD41E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,

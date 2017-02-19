@@ -18,6 +18,10 @@
 #import "DKYCustomOrderVarietyView.h"
 #import "DKYCustomOrderPatternItemView.h"
 #import "DKYCustomOrderSizeItemView.h"
+#import "DKYCustomOrderJingSizeItemView.h"
+#import "DKYCustomOrderJianTypeItemView.h"
+#import "DKYCustomOrderXiuTypeItemView.h"
+#import "DKYCustomOrderXiuBianItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -53,6 +57,21 @@ static const CGFloat basicItemHeight = 30;
 
 // 尺寸View
 @property (nonatomic, weak) DKYCustomOrderSizeItemView *sizeView;
+
+// 净尺寸
+@property (nonatomic, weak) DKYCustomOrderJingSizeItemView *jingSizeItemView;
+
+// 肩型
+@property (nonatomic, weak) DKYCustomOrderJianTypeItemView *jianTypeView;
+
+// 袖型
+@property (nonatomic, weak) DKYCustomOrderXiuTypeItemView *xiuTypeView;
+
+// 袖边
+@property (nonatomic, weak) DKYCustomOrderXiuBianItemView *xiuBianView;
+
+
+
 
 
 //@property (nonatomic, weak) UILabel *titleLabel;
@@ -148,6 +167,18 @@ static const CGFloat basicItemHeight = 30;
     
     // 第五大行，尺寸
     [self setupSizeView];
+    
+    // 第六大行，净尺寸
+    [self setupJingSizeItemView];
+    
+    // 第七大行,肩型
+    [self setupJanTypeView];
+    
+    // 第八大行，袖型
+    [self setupXiuTypeView];
+    
+    // 第九大行，袖边
+    [self setupXiuBianView];
 }
 
 - (void)setupNumberView{
@@ -300,12 +331,85 @@ static const CGFloat basicItemHeight = 30;
     self.sizeView.itemModel = itemModel;
 }
 
+- (void)setupJingSizeItemView{
+    DKYCustomOrderJingSizeItemView *view = [[DKYCustomOrderJingSizeItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.jingSizeItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.jingSizeItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.sizeView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"净尺寸:";
+    itemModel.textFieldLeftOffset = 5;
+    self.jingSizeItemView.itemModel = itemModel;
+}
 
+- (void)setupJanTypeView{
+    //DKYCustomOrderJianTypeItemView
+    DKYCustomOrderJianTypeItemView *view = [[DKYCustomOrderJianTypeItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.jianTypeView = view;
+    
+    WeakSelf(weakSelf);
+    [self.jianTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.jingSizeItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"肩型:";
+    itemModel.textFieldLeftOffset = 16;
+    self.jianTypeView.itemModel = itemModel;
+}
 
+- (void)setupXiuTypeView{
+    //DKYCustomOrderXiuTypeItemView
+    DKYCustomOrderXiuTypeItemView *view = [[DKYCustomOrderXiuTypeItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.xiuTypeView = view;
+    
+    WeakSelf(weakSelf);
+    [self.xiuTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.jianTypeView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"袖型:";
+    itemModel.textFieldLeftOffset = 16;
+    self.xiuTypeView.itemModel = itemModel;
 
+}
 
-
-
+- (void)setupXiuBianView{
+    //DKYCustomOrderXiuBianItemView
+    DKYCustomOrderXiuBianItemView *view = [[DKYCustomOrderXiuBianItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.xiuBianView = view;
+    
+    WeakSelf(weakSelf);
+    [self.xiuBianView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.xiuTypeView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"袖边:";
+    itemModel.textFieldLeftOffset = 16;
+    self.xiuBianView.itemModel = itemModel;
+}
 
 
 
