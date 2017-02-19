@@ -42,6 +42,10 @@
 
 #define isLandscape(size)   [self isLandscape:size];
 
+
+#define DKYCustomOrderItemWidth             (152)
+#define DKYCustomOrderItemMargin             (3.33)
+
 // Block 类型定义
 
 typedef void(^BlockWithSender)(id sender);

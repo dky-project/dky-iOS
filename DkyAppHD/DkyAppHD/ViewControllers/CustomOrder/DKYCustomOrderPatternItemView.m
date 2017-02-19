@@ -35,6 +35,40 @@
 
 // # 输入框
 @property (nonatomic, weak) DKYTextFieldAndTextFieldView *mjInputView;
+
+// 带长
+@property (nonatomic, weak) DKYTitleInputView *dcView;
+
+// 加穗
+@property (nonatomic, weak) UIButton *suiBtn;
+
+// 裤类别
+@property (nonatomic, weak) UIButton *klbBtn;
+
+// 开口
+@property (nonatomic, weak) UIButton *kkBtn;
+
+// 加档
+@property (nonatomic, weak) UIButton *jdBtn;
+
+// 加档后面的输入框
+@property (nonatomic, weak) DKYTitleInputView *jdInputView;
+
+// 工艺袖长
+@property (nonatomic, weak) DKYTitleInputView *gyxcView;
+
+// 裙类别
+@property (nonatomic, weak) UIButton *qlbBtn;
+
+// 门襟长
+@property (nonatomic, weak) DKYTitleInputView *mjcView;
+
+// 挂件袖肥
+@property (nonatomic, weak) UIButton *gjxfBtn;
+
+// 收腰
+@property (nonatomic, weak) UIButton *syBtn;
+
 @end
 
 @implementation DKYCustomOrderPatternItemView
@@ -125,6 +159,23 @@
     [self setupMjBtn1];
     [self setupMjBtn2];
     [self setupMjInputView];
+    
+    // 第四行
+    [self setupDcView];
+    [self setupSuiBtn];
+    [self setupKlbBtn];
+    [self setupKkBtn];
+    
+    // 第五行
+    [self setupJdBtn];
+    [self setupJdInputView];
+    [self setupGyxcView];
+    [self setupQlbBtn];
+    
+    // 第六行
+    [self setupMjcView];
+    [self setupGjxfBtn];
+    [self setupSyBtn];
 }
 
 - (void)setupTitleLabel{
@@ -155,7 +206,7 @@
         make.top.mas_equalTo(weakSelf);
         
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
-        make.width.mas_equalTo(152);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.optionsBtn = btn;
     [btn setTitle:@"点击选择式样" forState:UIControlStateNormal];
@@ -168,7 +219,7 @@
     
     WeakSelf(weakSelf);
     [self.dingView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(3.33);
+        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.width.mas_equalTo(150);
         make.top.mas_equalTo(weakSelf);
@@ -208,7 +259,7 @@
     [self.mjkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.kouView.mas_right).with.offset(6.5);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(152);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
         make.top.mas_equalTo(weakSelf);
     }];
     
@@ -228,7 +279,7 @@
         make.top.mas_equalTo(weakSelf.titleLabel.mas_bottom).with.offset(20);
         
         make.left.mas_equalTo(weakSelf.optionsBtn);
-        make.width.mas_equalTo(152);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.mjBtn1 = btn;
     [btn setTitle:@"点击选择门襟" forState:UIControlStateNormal];
@@ -243,8 +294,8 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf.titleLabel.mas_bottom).with.offset(20);
         
-        make.left.mas_equalTo(weakSelf.mjBtn1.mas_right).with.offset(3.33);
-        make.width.mas_equalTo(152);
+        make.left.mas_equalTo(weakSelf.mjBtn1.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.mjBtn2 = btn;
     [btn setTitle:@"点击选择门襟" forState:UIControlStateNormal];
@@ -260,9 +311,194 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf.mjBtn2);
         
-        make.left.mas_equalTo(weakSelf.mjBtn2.mas_right).with.offset(3.33);
+        make.left.mas_equalTo(weakSelf.mjBtn2.mas_right).with.offset(DKYCustomOrderItemMargin);
         make.right.mas_equalTo(weakSelf.mjkView);
     }];
+}
+
+- (void)setupDcView{
+    DKYTitleInputView *view = [[DKYTitleInputView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.dcView = view;
+    
+    WeakSelf(weakSelf);
+    [self.dcView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.mjBtn1);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.mjBtn1.mas_bottom).with.offset(20);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"带长:";
+    itemModel.subText = @"cm";
+    self.dcView.itemModel = itemModel;
+}
+
+- (void)setupSuiBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf.dcView);
+        
+        make.left.mas_equalTo(weakSelf.dcView.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+    }];
+    self.suiBtn = btn;
+    [btn setTitle:@"点击选择加穗" forState:UIControlStateNormal];
+}
+
+- (void)setupKlbBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf.dcView);
+        
+        make.left.mas_equalTo(weakSelf.suiBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+    }];
+    self.klbBtn = btn;
+    [btn setTitle:@"点击选择裤类别" forState:UIControlStateNormal];
+}
+
+- (void)setupKkBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf.dcView);
+        
+        make.left.mas_equalTo(weakSelf.klbBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+    }];
+    self.kkBtn = btn;
+    [btn setTitle:@"点击选择开口" forState:UIControlStateNormal];
+}
+
+- (void)setupJdBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.top.mas_equalTo(weakSelf.dcView.mas_bottom).with.offset(20);
+        
+        make.left.mas_equalTo(weakSelf.dcView).with.offset(DKYCustomOrderItemMargin);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+    }];
+    self.jdBtn = btn;
+    [btn setTitle:@"点击选择加档" forState:UIControlStateNormal];
+}
+
+- (void)setupJdInputView{
+    DKYTitleInputView *view = [[DKYTitleInputView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.jdInputView = view;
+    
+    WeakSelf(weakSelf);
+    [self.jdInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.jdBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.jdBtn);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"";
+    itemModel.subText = @"cm";
+    self.jdInputView.itemModel = itemModel;
+}
+
+- (void)setupGyxcView{
+    DKYTitleInputView *view = [[DKYTitleInputView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.gyxcView = view;
+    
+    WeakSelf(weakSelf);
+    [self.gyxcView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.jdInputView.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.jdBtn);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"工艺袖长:";
+    itemModel.subText = @"cm";
+    self.gyxcView.itemModel = itemModel;
+}
+
+- (void)setupQlbBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.gyxcView.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.jdBtn);
+    }];
+    self.qlbBtn = btn;
+    [btn setTitle:@"点击选择裙类别" forState:UIControlStateNormal];
+}
+
+- (void)setupMjcView{
+    DKYTitleInputView *view = [[DKYTitleInputView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.mjcView = view;
+    
+    WeakSelf(weakSelf);
+    [self.mjcView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.optionsBtn);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.jdBtn.mas_bottom).with.offset(20);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"门襟长";
+    itemModel.subText = @"cm";
+    self.mjcView.itemModel = itemModel;
+}
+
+- (void)setupGjxfBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.mjcView.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.mjcView);
+    }];
+    self.gjxfBtn = btn;
+    [btn setTitle:@"点击选挂件袖肥" forState:UIControlStateNormal];
+}
+
+- (void)setupSyBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.gjxfBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.mjcView);
+    }];
+    self.syBtn = btn;
+    [btn setTitle:@"点击选择收腰" forState:UIControlStateNormal];
 }
 
 @end

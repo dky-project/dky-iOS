@@ -143,7 +143,7 @@
         
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
 //        make.right.mas_equalTo(weakSelf);
-        make.width.mas_equalTo(152);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     [btn setTitle:@"点击选择品种" forState:UIControlStateNormal];
     self.optionsBtn = btn;
