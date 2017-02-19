@@ -15,6 +15,13 @@
 		26210BD71E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BD61E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m */; };
 		26210BDA1E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BD91E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m */; };
 		26210BDD1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BDC1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m */; };
+		26210BE01E59740A00EB05D6 /* DKYCustomOrderLingItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BDF1E59740A00EB05D6 /* DKYCustomOrderLingItemView.m */; };
+		26210BE31E59775300EB05D6 /* DKYCustomOrderTypeOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BE21E59775300EB05D6 /* DKYCustomOrderTypeOneView.m */; };
+		26210BED1E59A3A900EB05D6 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BE61E59A3A900EB05D6 /* BEMAnimationManager.m */; };
+		26210BEE1E59A3A900EB05D6 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BE81E59A3A900EB05D6 /* BEMCheckBox.m */; };
+		26210BEF1E59A3A900EB05D6 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BEA1E59A3A900EB05D6 /* BEMCheckBoxGroup.m */; };
+		26210BF01E59A3A900EB05D6 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BEC1E59A3A900EB05D6 /* BEMPathManager.m */; };
+		26210BF31E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BF21E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m */; };
 		2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622B96F1E1BEF54006CE866 /* DKYSearchView.m */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
@@ -227,6 +234,20 @@
 		26210BD91E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderXiuTypeItemView.m; sourceTree = "<group>"; };
 		26210BDB1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderXiuBianItemView.h; sourceTree = "<group>"; };
 		26210BDC1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderXiuBianItemView.m; sourceTree = "<group>"; };
+		26210BDE1E59740A00EB05D6 /* DKYCustomOrderLingItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderLingItemView.h; sourceTree = "<group>"; };
+		26210BDF1E59740A00EB05D6 /* DKYCustomOrderLingItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderLingItemView.m; sourceTree = "<group>"; };
+		26210BE11E59775300EB05D6 /* DKYCustomOrderTypeOneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderTypeOneView.h; sourceTree = "<group>"; };
+		26210BE21E59775300EB05D6 /* DKYCustomOrderTypeOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderTypeOneView.m; sourceTree = "<group>"; };
+		26210BE51E59A3A900EB05D6 /* BEMAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimationManager.h; sourceTree = "<group>"; };
+		26210BE61E59A3A900EB05D6 /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimationManager.m; sourceTree = "<group>"; };
+		26210BE71E59A3A900EB05D6 /* BEMCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
+		26210BE81E59A3A900EB05D6 /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBox.m; sourceTree = "<group>"; };
+		26210BE91E59A3A900EB05D6 /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBoxGroup.h; sourceTree = "<group>"; };
+		26210BEA1E59A3A900EB05D6 /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBoxGroup.m; sourceTree = "<group>"; };
+		26210BEB1E59A3A900EB05D6 /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
+		26210BEC1E59A3A900EB05D6 /* BEMPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPathManager.m; sourceTree = "<group>"; };
+		26210BF11E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderSpecialCraftItemView.h; sourceTree = "<group>"; };
+		26210BF21E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderSpecialCraftItemView.m; sourceTree = "<group>"; };
 		2622B96E1E1BEF54006CE866 /* DKYSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSearchView.h; sourceTree = SOURCE_ROOT; };
 		2622B96F1E1BEF54006CE866 /* DKYSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSearchView.m; sourceTree = SOURCE_ROOT; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
@@ -628,6 +649,21 @@
 			name = "定制订单";
 			sourceTree = "<group>";
 		};
+		26210BE41E59A3A900EB05D6 /* BEMCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				26210BE51E59A3A900EB05D6 /* BEMAnimationManager.h */,
+				26210BE61E59A3A900EB05D6 /* BEMAnimationManager.m */,
+				26210BE71E59A3A900EB05D6 /* BEMCheckBox.h */,
+				26210BE81E59A3A900EB05D6 /* BEMCheckBox.m */,
+				26210BE91E59A3A900EB05D6 /* BEMCheckBoxGroup.h */,
+				26210BEA1E59A3A900EB05D6 /* BEMCheckBoxGroup.m */,
+				26210BEB1E59A3A900EB05D6 /* BEMPathManager.h */,
+				26210BEC1E59A3A900EB05D6 /* BEMPathManager.m */,
+			);
+			path = BEMCheckBox;
+			sourceTree = "<group>";
+		};
 		263CC1381E1555E7002FBB50 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,6 +838,10 @@
 				26210BD91E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m */,
 				26210BDB1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.h */,
 				26210BDC1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m */,
+				26210BDE1E59740A00EB05D6 /* DKYCustomOrderLingItemView.h */,
+				26210BDF1E59740A00EB05D6 /* DKYCustomOrderLingItemView.m */,
+				26210BF11E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.h */,
+				26210BF21E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m */,
 			);
 			name = "订单选项ItemView";
 			sourceTree = "<group>";
@@ -817,6 +857,8 @@
 				EB16D0FD1E56F73F00939072 /* DKYTitleSelectView.m */,
 				26BB9A571E57468C00E425D5 /* DKYTextFieldAndTextFieldView.h */,
 				26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */,
+				26210BE11E59775300EB05D6 /* DKYCustomOrderTypeOneView.h */,
+				26210BE21E59775300EB05D6 /* DKYCustomOrderTypeOneView.m */,
 			);
 			name = "辅助View";
 			sourceTree = "<group>";
@@ -1301,6 +1343,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				26210BE41E59A3A900EB05D6 /* BEMCheckBox */,
 				EBD694B71E2785BB00F365C3 /* TOWebViewController */,
 				EBD694A71E277B4700F365C3 /* RxWebViewController */,
 				EB97F2A61E25C36A00BDC705 /* DQCanEditTablForm */,
@@ -1755,10 +1798,12 @@
 				EBC300551E1CA0C700F602E6 /* UIView+SDExtension.m in Sources */,
 				2620D6E51E55FF6000BC0668 /* DKYDeliveryDateView.m in Sources */,
 				EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */,
+				26210BEE1E59A3A900EB05D6 /* BEMCheckBox.m in Sources */,
 				EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
 				EB97906B1E221B6F00E2985C /* MMDateView.m in Sources */,
 				EB9790501E22118500E2985C /* WGBDatePickerView.m in Sources */,
+				26210BF31E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m in Sources */,
 				EB97908F1E22459300E2985C /* YYCache.m in Sources */,
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
 				EB97F2BD1E25C36A00BDC705 /* DQTextField.m in Sources */,
@@ -1799,6 +1844,7 @@
 				EB97909D1E224CEE00E2985C /* SDWebImageManager+Utility.m in Sources */,
 				EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */,
 				EB97F2C41E25FC4B00BDC705 /* DKYOrderItemModel.m in Sources */,
+				26210BED1E59A3A900EB05D6 /* BEMAnimationManager.m in Sources */,
 				EB97F2CA1E26092E00BDC705 /* DKYOrderInquiryParameter.m in Sources */,
 				2620D6E21E55F5F800BC0668 /* DKYCustomOrderItemModel.m in Sources */,
 				EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */,
@@ -1820,6 +1866,7 @@
 				EBD694DA1E2785BB00F365C3 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				EB9790491E21EAF500E2985C /* DKYOrderInquiryHeaderView.m in Sources */,
+				26210BE01E59740A00EB05D6 /* DKYCustomOrderLingItemView.m in Sources */,
 				EB16D0FB1E56F25000939072 /* DKYTitleInputView.m in Sources */,
 				EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */,
 				EBB59ED11E56C35400F88A4C /* DKYCustomOrderVarietyView.m in Sources */,
@@ -1840,6 +1887,7 @@
 				EB9511AD1E164444008708EF /* WXSTransitionManager+PageAnimation.m in Sources */,
 				EBD694B61E277DD500F365C3 /* DKYWebViewController.m in Sources */,
 				EB506C3D1E237AA7002A1423 /* DKYOrderInquiryViewCell.m in Sources */,
+				26210BF01E59A3A900EB05D6 /* BEMPathManager.m in Sources */,
 				EB9511A81E164444008708EF /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				EB506C351E23706F002A1423 /* DKYHomeArticleModel.m in Sources */,
 				EB9790571E22158100E2985C /* UUDatePicker_DateModel.m in Sources */,
@@ -1852,6 +1900,7 @@
 				EBD694A61E2768D600F365C3 /* DKYHomeArticleDetailModel.m in Sources */,
 				2620D6DE1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m in Sources */,
 				EBBD5A721E25160F00037B85 /* DKYQueryPriceModel.m in Sources */,
+				26210BEF1E59A3A900EB05D6 /* BEMCheckBoxGroup.m in Sources */,
 				EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
 				EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */,
@@ -1865,6 +1914,7 @@
 				EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
 				EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */,
+				26210BE31E59775300EB05D6 /* DKYCustomOrderTypeOneView.m in Sources */,
 				EB506C461E23B24C002A1423 /* KLCPopup.m in Sources */,
 				EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */,
 				EBB59EC81E56A58500F88A4C /* DKYCustomOrderBasicItemView.m in Sources */,

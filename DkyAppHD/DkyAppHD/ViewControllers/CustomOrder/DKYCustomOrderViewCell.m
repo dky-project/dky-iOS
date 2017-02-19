@@ -22,6 +22,8 @@
 #import "DKYCustomOrderJianTypeItemView.h"
 #import "DKYCustomOrderXiuTypeItemView.h"
 #import "DKYCustomOrderXiuBianItemView.h"
+#import "DKYCustomOrderLingItemView.h"
+#import "DKYCustomOrderSpecialCraftItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -70,8 +72,11 @@ static const CGFloat basicItemHeight = 30;
 // 袖边
 @property (nonatomic, weak) DKYCustomOrderXiuBianItemView *xiuBianView;
 
+// 领
+@property (nonatomic, weak) DKYCustomOrderLingItemView *lingView;
 
-
+// 特殊工艺
+@property (nonatomic, weak) DKYCustomOrderSpecialCraftItemView *specialCraftItemView;
 
 
 //@property (nonatomic, weak) UILabel *titleLabel;
@@ -179,6 +184,12 @@ static const CGFloat basicItemHeight = 30;
     
     // 第九大行，袖边
     [self setupXiuBianView];
+    
+    // 第十大行，领
+    [self setupLingView];
+    
+    // 第十一大行，特殊工艺
+    [self setupSpecialCraftItemView];
 }
 
 - (void)setupNumberView{
@@ -401,7 +412,7 @@ static const CGFloat basicItemHeight = 30;
     [self.xiuBianView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(80);
+        make.height.mas_equalTo(weakSelf.numberView);
         make.top.mas_equalTo(weakSelf.xiuTypeView.mas_bottom).with.offset(vpadding);
     }];
     
@@ -411,9 +422,43 @@ static const CGFloat basicItemHeight = 30;
     self.xiuBianView.itemModel = itemModel;
 }
 
+- (void)setupLingView{
+    DKYCustomOrderLingItemView *view = [[DKYCustomOrderLingItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.lingView = view;
+    
+    WeakSelf(weakSelf);
+    [self.lingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.xiuBianView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"领:";
+    itemModel.textFieldLeftOffset = 28;
+    self.lingView.itemModel = itemModel;
+}
 
-
-
+- (void)setupSpecialCraftItemView{
+    DKYCustomOrderSpecialCraftItemView *view = [[DKYCustomOrderSpecialCraftItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.specialCraftItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.specialCraftItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.styleNumberView);
+        make.top.mas_equalTo(weakSelf.lingView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"特殊工艺:";
+    itemModel.textFieldLeftOffset = 0;
+    self.specialCraftItemView.itemModel = itemModel;
+}
 
 
 
