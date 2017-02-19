@@ -8,6 +8,8 @@
 
 #import "DKYMultipleSelectPopupView.h"
 #import "KLCPopup.h"
+#import "DKYMultipleSelectPopupViewCell.h"
+#import "DKYMultipleSelectPopupItemModel.h"
 
 @interface DKYMultipleSelectPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -22,6 +24,9 @@
 @property (nonatomic, weak) UIButton *cancelBtn;
 
 @property (nonatomic, weak) UIButton *confirmBtn;
+
+// 测试数据
+@property (nonatomic, strong) NSMutableArray *colors;
 
 @end
 
@@ -113,6 +118,7 @@
     tableView.dataSource = self;
     tableView.showsVerticalScrollIndicator = YES;
     tableView.backgroundColor = [UIColor whiteColor];
+    tableView.separatorInset = UIEdgeInsetsMake(0, 32, 0, 0);
     self.tableView = tableView;
     [self addSubview:tableView];
     
@@ -161,7 +167,7 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return self.colors.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,19 +177,32 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellID = @"testCellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"颜色-%@",@(indexPath.row)];
+    DKYMultipleSelectPopupViewCell *cell = [DKYMultipleSelectPopupViewCell multipleSelectPopupViewCellWithTableView:tableView];
+    DKYMultipleSelectPopupItemModel *item = [self.colors objectOrNilAtIndex:indexPath.row];
+    cell.itemModel = item;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DKYMultipleSelectPopupItemModel *item = [self.colors objectOrNilAtIndex:indexPath.row];
+    item.selected = !item.selected;
     
+    [tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
+}
+
+#pragma mark - get & set method
+- (NSMutableArray*)colors{
+    if(_colors == nil){
+        _colors = [NSMutableArray array];
+        for (int i = 0; i < 30; ++i) {
+            DKYMultipleSelectPopupItemModel *item = [[DKYMultipleSelectPopupItemModel alloc] init];
+            
+            item.content = [NSString stringWithFormat:@"颜色-%@",@(i)];
+            [_colors addObject:item];
+        }
+    }
+    return _colors;
 }
 
 
