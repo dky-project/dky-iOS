@@ -410,14 +410,14 @@
 {
     if(indexPath.item % 2 == 0){
         DKYHomeItemViewCell *cell = (DKYHomeItemViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYHomeItemViewCell class]) forIndexPath:indexPath];
-        cell.itemModel = [self.articels objectOrNilAtIndex:0];
+        cell.itemModel = [self.articels objectOrNilAtIndex:indexPath.item];
         if(indexPath.item == 0){
             [cell hideReadMoreBtn:NO];
         }
         return cell;
     }else{
         DKYHomeItemTwoViewCell *cell = (DKYHomeItemTwoViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYHomeItemTwoViewCell class]) forIndexPath:indexPath];
-        cell.itemModel = [self.articels objectOrNilAtIndex:0];
+        cell.itemModel = [self.articels objectOrNilAtIndex:indexPath.item];
         return cell;
     }
 }
