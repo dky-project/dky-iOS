@@ -27,6 +27,17 @@
 // 领边
 @property (nonatomic, weak) UIButton *lbBtn;
 
+@property (nonatomic, weak) UITextField *textField;
+
+// 领型
+@property (nonatomic, weak) UIButton *lxBtn;
+
+// 粒扣
+@property (nonatomic, weak) DKYTitleInputView *likouView;
+
+// 备注
+@property (nonatomic, weak) DKYTitleInputView *markView;
+
 @end
 
 @implementation DKYCustomOrderLingItemView
@@ -112,6 +123,11 @@
     [self setupSizeView];
     [self setupLbcsBtn];
     [self setupLbBtn];
+    [self setupTextField];
+    
+    [self setupLxBtn];
+    [self setupLikouView];
+    [self setupMarkView];
 }
 
 - (void)setupTitleLabel{
@@ -217,5 +233,84 @@
     [btn setTitle:@"点击选择领边" forState:UIControlStateNormal];
 }
 
+- (void)setupTextField{
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
+    [self addSubview:textField];
+    self.textField = textField;
+    
+    textField.layer.borderColor = [UIColor colorWithHex:0x666666].CGColor;
+    textField.layer.borderWidth = 1;
+    
+    textField.font = [UIFont systemFontOfSize:14];
+    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.backgroundColor = [UIColor whiteColor];
+    
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
+    leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
+    self.textField.leftView = leftView;
+    
+    WeakSelf(weakSelf);
+    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.lbBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.top.mas_equalTo(weakSelf.lbBtn);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+    }];
+}
+
+- (void)setupLxBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.optionsBtn);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.lbcBtn.mas_bottom).with.offset(20);
+    }];
+    self.lxBtn = btn;
+    [btn setTitle:@"点击选择领型" forState:UIControlStateNormal];
+}
+
+- (void)setupLikouView{
+    DKYTitleInputView *view = [[DKYTitleInputView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.likouView = view;
+    
+    WeakSelf(weakSelf);
+    [self.likouView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.lxBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.top.mas_equalTo(weakSelf.lxBtn);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"";
+    itemModel.subText = @"粒扣";
+    self.likouView.itemModel = itemModel;
+}
+
+- (void)setupMarkView{
+    DKYTitleInputView *view = [[DKYTitleInputView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.markView = view;
+    
+    WeakSelf(weakSelf);
+    [self.markView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.likouView.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.right.mas_equalTo(weakSelf.sizeView);
+        make.top.mas_equalTo(weakSelf.lxBtn);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"备注:";
+    itemModel.subText = @"";
+    self.markView.itemModel = itemModel;
+}
 
 @end

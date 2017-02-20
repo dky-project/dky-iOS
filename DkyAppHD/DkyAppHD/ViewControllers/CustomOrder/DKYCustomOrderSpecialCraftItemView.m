@@ -7,7 +7,6 @@
 //
 
 #import "DKYCustomOrderSpecialCraftItemView.h"
-#import "BEMCheckBox.h"
 
 @interface DKYCustomOrderSpecialCraftItemView ()
 

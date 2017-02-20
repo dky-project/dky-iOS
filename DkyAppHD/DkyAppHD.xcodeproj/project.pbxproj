@@ -43,6 +43,7 @@
 		267CED471E20E93100ED5872 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED461E20E93100ED5872 /* iCarousel.m */; };
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
 		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
+		26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */; };
 		26BB9A591E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */; };
 		26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */; };
 		26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C71E1A1C30008EE55F /* UIViewController+Utlity.m */; };
@@ -298,6 +299,8 @@
 		267CED4A1E20EF2E00ED5872 /* DKYHomeItemTwoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemTwoView.h; sourceTree = "<group>"; };
 		267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemTwoView.m; sourceTree = "<group>"; };
 		267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemTwoView.xib; sourceTree = "<group>"; };
+		26A7C36E1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderFlowerTypeItemView.h; sourceTree = "<group>"; };
+		26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderFlowerTypeItemView.m; sourceTree = "<group>"; };
 		26BB9A571E57468C00E425D5 /* DKYTextFieldAndTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTextFieldAndTextFieldView.h; sourceTree = "<group>"; };
 		26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTextFieldAndTextFieldView.m; sourceTree = "<group>"; };
 		26DAD0C01E1A1923008EE55F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
@@ -860,6 +863,8 @@
 				26210BDC1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m */,
 				26210BDE1E59740A00EB05D6 /* DKYCustomOrderLingItemView.h */,
 				26210BDF1E59740A00EB05D6 /* DKYCustomOrderLingItemView.m */,
+				26A7C36E1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.h */,
+				26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */,
 				26210BF11E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.h */,
 				26210BF21E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m */,
 				26210BF41E59B5B500EB05D6 /* DKYCustomOrderXiabianItemView.h */,
@@ -1958,6 +1963,7 @@
 				EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
+				26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */,
 				EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				267CED471E20E93100ED5872 /* iCarousel.m in Sources */,
 				EBD694D91E2785BB00F365C3 /* TOWebViewController.m in Sources */,

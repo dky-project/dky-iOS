@@ -36,6 +36,9 @@
 #define kQueryPriceListUrl              @"product/queryPriceList"       // 查询价格列表
 #define kQueryValueListUrl              @"product/queryValueList"       // 查询胸围、衣长、肩宽、袖长列表
 
+// 定制订单
+#define kGetProductApproveTitleUrl      @"productApprove/getProductApproveTitle"    // 定制订单
+
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询

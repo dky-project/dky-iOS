@@ -27,6 +27,7 @@
 #import "DKYCustomOrderXiabianItemView.h"
 #import "DKYCustomOrderXiukouItemView.h"
 #import "DKYCustomOrderMatchItemView.h"
+#import "DKYCustomOrderFlowerTypeItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -77,6 +78,9 @@ static const CGFloat basicItemHeight = 30;
 
 // 领
 @property (nonatomic, weak) DKYCustomOrderLingItemView *lingView;
+
+// 花型
+@property (nonatomic, weak) DKYCustomOrderFlowerTypeItemView *flowerTypeItemView;
 
 // 特殊工艺
 @property (nonatomic, weak) DKYCustomOrderSpecialCraftItemView *specialCraftItemView;
@@ -203,6 +207,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十大行，领
     [self setupLingView];
+    
+    // 第十一大行，花型
+    [self setupFlowerTypeItemView];
     
     // 第十一大行，特殊工艺
     [self setupSpecialCraftItemView];
@@ -462,7 +469,7 @@ static const CGFloat basicItemHeight = 30;
     [self.lingView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(80);
+        make.height.mas_equalTo(130);
         make.top.mas_equalTo(weakSelf.xiuBianView.mas_bottom).with.offset(vpadding);
     }];
     
@@ -470,6 +477,26 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"领:";
     itemModel.textFieldLeftOffset = 28;
     self.lingView.itemModel = itemModel;
+}
+
+- (void)setupFlowerTypeItemView{
+    DKYCustomOrderFlowerTypeItemView *view = [[DKYCustomOrderFlowerTypeItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.flowerTypeItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.flowerTypeItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(180);
+        make.top.mas_equalTo(weakSelf.lingView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"花型:";
+    itemModel.textFieldLeftOffset = 0;
+    itemModel.textFieldLeftOffset = 16;
+    self.flowerTypeItemView.itemModel = itemModel;
 }
 
 - (void)setupSpecialCraftItemView{
@@ -481,8 +508,8 @@ static const CGFloat basicItemHeight = 30;
     [self.specialCraftItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(weakSelf.styleNumberView);
-        make.top.mas_equalTo(weakSelf.lingView.mas_bottom).with.offset(vpadding);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.flowerTypeItemView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -544,6 +571,7 @@ static const CGFloat basicItemHeight = 30;
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"加注:";
+    itemModel.textFieldLeftOffset = 16;
     self.addMarkView.itemModel = itemModel;
 }
 
@@ -562,6 +590,7 @@ static const CGFloat basicItemHeight = 30;
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"配套:";
+    itemModel.textFieldLeftOffset = 16;
     self.matchItemView.itemModel = itemModel;
 }
 
