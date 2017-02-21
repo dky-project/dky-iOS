@@ -157,6 +157,9 @@
 		EBABE8DB1E150CA600B4C568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABE8D71E150CA600B4C568 /* main.m */; };
 		EBABE8DC1E150CA600B4C568 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABE8D91E150CA600B4C568 /* ViewController.m */; };
 		EBABE8E71E15120500B4C568 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8E61E15120500B4C568 /* Localization.strings */; };
+		EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480AE1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m */; };
+		EBB480B21E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480B11E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m */; };
+		EBB480B51E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480B41E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m */; };
 		EBB59EC81E56A58500F88A4C /* DKYCustomOrderBasicItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59EC71E56A58500F88A4C /* DKYCustomOrderBasicItemView.m */; };
 		EBB59ECE1E56B90C00F88A4C /* DKYCustomOrderGenderItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59ECD1E56B90C00F88A4C /* DKYCustomOrderGenderItemView.m */; };
 		EBB59ED11E56C35400F88A4C /* DKYCustomOrderVarietyView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59ED01E56C35400F88A4C /* DKYCustomOrderVarietyView.m */; };
@@ -526,6 +529,12 @@
 		EBABE8D81E150CA600B4C568 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EBABE8D91E150CA600B4C568 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EBABE8E61E15120500B4C568 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localization.strings; sourceTree = "<group>"; };
+		EBB480AD1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderTangzhuItemView.h; sourceTree = "<group>"; };
+		EBB480AE1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderTangzhuItemView.m; sourceTree = "<group>"; };
+		EBB480B01E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderKoudaiItemView.h; sourceTree = "<group>"; };
+		EBB480B11E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderKoudaiItemView.m; sourceTree = "<group>"; };
+		EBB480B31E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderAttachmentItemView.h; sourceTree = "<group>"; };
+		EBB480B41E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderAttachmentItemView.m; sourceTree = "<group>"; };
 		EBB59EC61E56A58500F88A4C /* DKYCustomOrderBasicItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderBasicItemView.h; sourceTree = "<group>"; };
 		EBB59EC71E56A58500F88A4C /* DKYCustomOrderBasicItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderBasicItemView.m; sourceTree = "<group>"; };
 		EBB59ECC1E56B90C00F88A4C /* DKYCustomOrderGenderItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderGenderItemView.h; sourceTree = "<group>"; };
@@ -865,6 +874,12 @@
 				26210BDF1E59740A00EB05D6 /* DKYCustomOrderLingItemView.m */,
 				26A7C36E1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.h */,
 				26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */,
+				EBB480AD1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.h */,
+				EBB480AE1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m */,
+				EBB480B01E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.h */,
+				EBB480B11E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m */,
+				EBB480B31E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.h */,
+				EBB480B41E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m */,
 				26210BF11E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.h */,
 				26210BF21E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m */,
 				26210BF41E59B5B500EB05D6 /* DKYCustomOrderXiabianItemView.h */,
@@ -1890,6 +1905,7 @@
 				EBC3006E1E1CD8FE00F602E6 /* TWBaseViewController.m in Sources */,
 				EB9511A71E164444008708EF /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				EB9511AC1E164444008708EF /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
+				EBB480B51E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m in Sources */,
 				26BB9A591E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m in Sources */,
 				EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */,
 				EB9510871E160321008708EF /* DKYTabBar.m in Sources */,
@@ -1906,6 +1922,7 @@
 				EBD694DA1E2785BB00F365C3 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				EB9790491E21EAF500E2985C /* DKYOrderInquiryHeaderView.m in Sources */,
+				EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */,
 				26210BE01E59740A00EB05D6 /* DKYCustomOrderLingItemView.m in Sources */,
 				EB16D0FB1E56F25000939072 /* DKYTitleInputView.m in Sources */,
 				EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */,
@@ -1952,6 +1969,7 @@
 				EBD694D61E2785BB00F365C3 /* NJKWebViewProgressView.m in Sources */,
 				26210BD41E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
+				EBB480B21E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m in Sources */,
 				EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
 				EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */,

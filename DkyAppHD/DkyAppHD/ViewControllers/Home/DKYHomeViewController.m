@@ -88,6 +88,11 @@
             [weakSelf.articels removeAllObjects];
             [weakSelf.articels addObjectsFromArray:articles];
             [weakSelf.collectionView reloadData];
+            
+            if(articles.count > 1){
+                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:1 inSection:0];
+                [weakSelf.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+            }
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];

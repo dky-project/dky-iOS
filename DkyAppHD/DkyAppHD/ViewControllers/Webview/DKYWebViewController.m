@@ -62,7 +62,7 @@
     UIColor* barTintColor = [UIColor blueColor];
     self.navigationController.navigationBar.tintColor = tintColor;
     self.navigationController.navigationBar.barTintColor = barTintColor;
-    [self.navigationController.navigationBar setTitleTextAttributes:@{                                                                      NSForegroundColorAttributeName:tintColor}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:tintColor}];
 }
 
 

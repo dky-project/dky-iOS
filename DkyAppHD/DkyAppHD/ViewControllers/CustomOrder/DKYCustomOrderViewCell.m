@@ -28,6 +28,9 @@
 #import "DKYCustomOrderXiukouItemView.h"
 #import "DKYCustomOrderMatchItemView.h"
 #import "DKYCustomOrderFlowerTypeItemView.h"
+#import "DKYCustomOrderTangzhuItemView.h"
+#import "DKYCustomOrderKoudaiItemView.h"
+#import "DKYCustomOrderAttachmentItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -81,6 +84,15 @@ static const CGFloat basicItemHeight = 30;
 
 // 花型
 @property (nonatomic, weak) DKYCustomOrderFlowerTypeItemView *flowerTypeItemView;
+
+// 烫珠
+@property (nonatomic, weak) DKYCustomOrderTangzhuItemView *tangzhuItemView;
+
+// 口袋
+@property (nonatomic, weak) DKYCustomOrderKoudaiItemView *koudaiItemView;
+
+// 附件
+@property (nonatomic, weak) DKYCustomOrderAttachmentItemView *attachmentItemView;
 
 // 特殊工艺
 @property (nonatomic, weak) DKYCustomOrderSpecialCraftItemView *specialCraftItemView;
@@ -210,6 +222,15 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十一大行，花型
     [self setupFlowerTypeItemView];
+    
+    // 第十二大行，烫珠
+    [self setupTangzhuItemView];
+    
+    // 第十三大行，口袋
+    [self setupKoudaiItemView];
+    
+    // 第十四大行,附件
+    [self setupAttachmentItemView];
     
     // 第十一大行，特殊工艺
     [self setupSpecialCraftItemView];
@@ -499,6 +520,67 @@ static const CGFloat basicItemHeight = 30;
     self.flowerTypeItemView.itemModel = itemModel;
 }
 
+- (void)setupTangzhuItemView{
+    DKYCustomOrderTangzhuItemView *view = [[DKYCustomOrderTangzhuItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.tangzhuItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.tangzhuItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.flowerTypeItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"烫珠:";
+    itemModel.textFieldLeftOffset = 0;
+    itemModel.textFieldLeftOffset = 16;
+    self.tangzhuItemView.itemModel = itemModel;
+}
+
+- (void)setupKoudaiItemView{
+    DKYCustomOrderKoudaiItemView *view = [[DKYCustomOrderKoudaiItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.koudaiItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.koudaiItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"口袋:";
+    itemModel.textFieldLeftOffset = 0;
+    itemModel.textFieldLeftOffset = 16;
+    self.koudaiItemView.itemModel = itemModel;
+}
+
+- (void)setupAttachmentItemView{
+    DKYCustomOrderAttachmentItemView *view = [[DKYCustomOrderAttachmentItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.attachmentItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.attachmentItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.koudaiItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"附件:";
+    itemModel.textFieldLeftOffset = 0;
+    itemModel.textFieldLeftOffset = 16;
+    self.attachmentItemView.itemModel = itemModel;
+
+}
+
 - (void)setupSpecialCraftItemView{
     DKYCustomOrderSpecialCraftItemView *view = [[DKYCustomOrderSpecialCraftItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
@@ -509,7 +591,7 @@ static const CGFloat basicItemHeight = 30;
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.flowerTypeItemView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.attachmentItemView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
