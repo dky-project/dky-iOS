@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, DkyHttpResponseCode) {
     DkyHttpResponseCode_Success = 200,
     
     
-    DkyHttpResponseCode_NotLogin = -200,
+    DkyHttpResponseCode_NotLogin = 400,
 };
 
 // HUD 底层实现类型

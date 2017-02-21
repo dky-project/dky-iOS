@@ -11,14 +11,9 @@
 @implementation DKYProductApproveTitleModel
 
 - (void)mj_keyValuesDidFinishConvertingToObject{
-    self.dimList = @"{ 'DIMFLAG_NEW24':[{'id':'32','attribname':'17-85' }]}";
+    NSDictionary *dict = [self.dimList jsonValueDecoded];
+    self.dimListModel = [DKYCustomOrderDimList mj_objectWithKeyValues:dict];
     
-    NSString *test1 =  @"{ \"DIMFLAG_NEW24\":[{\"id\":\"32\",\"attribname\":\"17-85\" }]}";
-    
-    self.dimListDict = [self.dimList jsonValueDecoded];
-    
-    NSDictionary *dict = [test1 jsonValueDecoded];
-    NSLog(@"dict = %@",dict);
 }
 
 @end

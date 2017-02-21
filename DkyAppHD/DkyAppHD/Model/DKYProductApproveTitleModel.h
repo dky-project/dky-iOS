@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DKYCustomOrderDimList.h"
+#import "DKYDimlistItemModel.h"
 
 @interface DKYProductApproveTitleModel : NSObject
 /**
@@ -38,6 +40,6 @@
 /**
  * 下拉框
  */
-@property (nonatomic, strong) NSDictionary *dimListDict;
+@property (nonatomic, strong) DKYCustomOrderDimList *dimListModel;
 
 @end
