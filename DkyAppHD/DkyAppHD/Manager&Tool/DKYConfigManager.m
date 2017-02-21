@@ -35,6 +35,7 @@
     config.scrolling = YES;
     config.visibleButtonCount = 10;
     config.cancelButtonTitle  = @"取消";
+    config.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
 }
 
 @end

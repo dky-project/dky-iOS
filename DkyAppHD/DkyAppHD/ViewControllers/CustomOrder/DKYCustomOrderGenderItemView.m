@@ -76,16 +76,15 @@
 - (void)showOptionsPicker:(NSString *)title{
     [self.superview endEditing:YES];
     
-    NSArray *item = @[@"1",@"2",@"3",@"4",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5"];
+    NSArray *item = @[@"1",@"2",@"3",@"4"];
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:title
                                              cancelButtonTitle:@"取消"
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                             DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                        }
                                              otherButtonTitleArray:item];
-    actionSheet.scrolling = YES;
+    actionSheet.scrolling = item.count > 10;
     actionSheet.visibleButtonCount = 10;
-    actionSheet.cancelButtonTitle  = @"取消";
     actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
     [actionSheet show];
 }
