@@ -160,6 +160,9 @@
 		EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480AE1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m */; };
 		EBB480B21E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480B11E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m */; };
 		EBB480B51E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480B41E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m */; };
+		EBB480B81E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480B71E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m */; };
+		EBB480BB1E5C15F500AC36D0 /* DKYCustomOrderDimList.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480BA1E5C15F500AC36D0 /* DKYCustomOrderDimList.m */; };
+		EBB480BE1E5C165C00AC36D0 /* DKYDimlistItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480BD1E5C165C00AC36D0 /* DKYDimlistItemModel.m */; };
 		EBB59EC81E56A58500F88A4C /* DKYCustomOrderBasicItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59EC71E56A58500F88A4C /* DKYCustomOrderBasicItemView.m */; };
 		EBB59ECE1E56B90C00F88A4C /* DKYCustomOrderGenderItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59ECD1E56B90C00F88A4C /* DKYCustomOrderGenderItemView.m */; };
 		EBB59ED11E56C35400F88A4C /* DKYCustomOrderVarietyView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59ED01E56C35400F88A4C /* DKYCustomOrderVarietyView.m */; };
@@ -535,6 +538,12 @@
 		EBB480B11E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderKoudaiItemView.m; sourceTree = "<group>"; };
 		EBB480B31E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderAttachmentItemView.h; sourceTree = "<group>"; };
 		EBB480B41E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderAttachmentItemView.m; sourceTree = "<group>"; };
+		EBB480B61E5C0C5000AC36D0 /* DKYProductApproveTitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYProductApproveTitleModel.h; sourceTree = "<group>"; };
+		EBB480B71E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYProductApproveTitleModel.m; sourceTree = "<group>"; };
+		EBB480B91E5C15F500AC36D0 /* DKYCustomOrderDimList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderDimList.h; sourceTree = "<group>"; };
+		EBB480BA1E5C15F500AC36D0 /* DKYCustomOrderDimList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderDimList.m; sourceTree = "<group>"; };
+		EBB480BC1E5C165C00AC36D0 /* DKYDimlistItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDimlistItemModel.h; sourceTree = "<group>"; };
+		EBB480BD1E5C165C00AC36D0 /* DKYDimlistItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDimlistItemModel.m; sourceTree = "<group>"; };
 		EBB59EC61E56A58500F88A4C /* DKYCustomOrderBasicItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderBasicItemView.h; sourceTree = "<group>"; };
 		EBB59EC71E56A58500F88A4C /* DKYCustomOrderBasicItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderBasicItemView.m; sourceTree = "<group>"; };
 		EBB59ECC1E56B90C00F88A4C /* DKYCustomOrderGenderItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderGenderItemView.h; sourceTree = "<group>"; };
@@ -677,6 +686,12 @@
 				2620D6E11E55F5F800BC0668 /* DKYCustomOrderItemModel.m */,
 				26210C031E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.h */,
 				26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */,
+				EBB480B61E5C0C5000AC36D0 /* DKYProductApproveTitleModel.h */,
+				EBB480B71E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m */,
+				EBB480B91E5C15F500AC36D0 /* DKYCustomOrderDimList.h */,
+				EBB480BA1E5C15F500AC36D0 /* DKYCustomOrderDimList.m */,
+				EBB480BC1E5C165C00AC36D0 /* DKYDimlistItemModel.h */,
+				EBB480BD1E5C165C00AC36D0 /* DKYDimlistItemModel.m */,
 			);
 			name = "定制订单";
 			sourceTree = "<group>";
@@ -1884,6 +1899,7 @@
 				EB97F2B81E25C36A00BDC705 /* DQCanEditTableViewCell.m in Sources */,
 				EB97F2BA1E25C36A00BDC705 /* DQTableViewCell.m in Sources */,
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
+				EBB480BB1E5C15F500AC36D0 /* DKYCustomOrderDimList.m in Sources */,
 				EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				EB16D0FE1E56F73F00939072 /* DKYTitleSelectView.m in Sources */,
@@ -1910,6 +1926,7 @@
 				EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */,
 				EB9510871E160321008708EF /* DKYTabBar.m in Sources */,
 				26210BF61E59B5B500EB05D6 /* DKYCustomOrderXiabianItemView.m in Sources */,
+				EBB480BE1E5C165C00AC36D0 /* DKYDimlistItemModel.m in Sources */,
 				EB9511B01E164444008708EF /* WXSTransitionManager+TypeTool.m in Sources */,
 				EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */,
 				EB506C401E23A8B8002A1423 /* DKYOrderBrowseViewController.m in Sources */,
@@ -1980,6 +1997,7 @@
 				EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */,
 				EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
+				EBB480B81E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m in Sources */,
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
 				26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */,
 				EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */,

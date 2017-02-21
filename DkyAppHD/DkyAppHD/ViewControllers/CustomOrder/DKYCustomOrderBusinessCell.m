@@ -10,6 +10,7 @@
 #import "DKYCustomOrderTextFieldView.h"
 #import "DKYCustomOrderItemModel.h"
 #import "DKYDeliveryDateView.h"
+#import "DKYProductApproveTitleModel.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -79,6 +80,32 @@ static const CGFloat basicItemHeight = 30;
     [path stroke];
 }
 
+- (void)setProductApproveTitleModel:(DKYProductApproveTitleModel *)productApproveTitleModel{
+    _productApproveTitleModel = productApproveTitleModel;
+    
+    if(productApproveTitleModel == nil) return;
+    
+    DKYCustomOrderItemModel *itemModel = self.agencyNumberView.itemModel;
+    itemModel.content = productApproveTitleModel.code;
+    self.agencyNumberView.itemModel = itemModel;
+    
+    itemModel = self.faxDateView.itemModel;
+    itemModel.content = productApproveTitleModel.czDate;
+    self.faxDateView.itemModel = itemModel;
+    
+    itemModel = self.handlersView.itemModel;
+    itemModel.content = productApproveTitleModel.userName;
+    self.handlersView.itemModel = itemModel;
+    
+    itemModel = self.deliveryDateView.itemModel;
+    itemModel.content = productApproveTitleModel.sendDate;
+    self.deliveryDateView.itemModel = itemModel;
+    
+    itemModel = self.orderNumberView.itemModel;
+    itemModel.content = productApproveTitleModel.orderNo;
+    self.orderNumberView.itemModel = itemModel;
+}
+
 #pragma mark - UI
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -110,7 +137,6 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"机构号:";
     itemModel.lock = YES;
-    itemModel.content = @"99999";
     self.agencyNumberView.itemModel = itemModel;
 }
 
@@ -130,7 +156,6 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"传真日期:";
     itemModel.lock = YES;
-    itemModel.content = @"2017-01-01";
     self.faxDateView.itemModel = itemModel;
 }
 
@@ -150,7 +175,6 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"操作者:";
     itemModel.lock = YES;
-    itemModel.content = @"root";
     self.handlersView.itemModel = itemModel;
 }
 
@@ -170,7 +194,6 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"订单号:";
     itemModel.lock = NO;
-    itemModel.content = @"20170216202618";
     self.orderNumberView.itemModel = itemModel;
 }
 

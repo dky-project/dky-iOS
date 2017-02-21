@@ -13,6 +13,7 @@
 #import "MMSheetView.h"
 #import "MMPopupWindow.h"
 #import "DKYCustomOrderBusinessCell.h"
+#import "DKYProductApproveTitleModel.h"
 
 @interface DKYCustomOrderUIViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -21,6 +22,9 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @property (nonatomic, weak) DKYOrderActionsView *actionsView;
+
+@property (nonatomic, assign) BOOL firstLoad;
+@property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitle;
 
 @end
 
@@ -36,6 +40,42 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    if(!self.firstLoad){
+        [self getProductApproveTitleFromServer];
+        self.firstLoad = YES;
+    }
+}
+
+#pragma mark mark - 网络请求
+- (void)getProductApproveTitleFromServer{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] getProductApproveTitleWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.productApproveTitle = [DKYProductApproveTitleModel mj_objectWithKeyValues:result.data];
+            [weakSelf.tableView reloadRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] withRowAnimation:UITableViewRowAnimationNone];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
 }
 
 #pragma mark - private method
@@ -125,6 +165,7 @@
     WeakSelf(weakSelf);
     if(indexPath.row == 0){
         DKYCustomOrderBusinessCell *cell = [DKYCustomOrderBusinessCell customOrderBusinessCellWithTableView:tableView];
+        cell.productApproveTitleModel = self.productApproveTitle;
         return cell;
     }
     

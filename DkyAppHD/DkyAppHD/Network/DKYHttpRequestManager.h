@@ -107,6 +107,15 @@
 - (void)productApproveInfoListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
 
 /**
+ *  定制订单获取信息
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+- (void)getProductApproveTitleWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+
+/**
  *  登录接口
  *
  *  @param parameter parameter description

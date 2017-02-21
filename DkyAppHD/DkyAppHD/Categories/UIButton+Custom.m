@@ -67,8 +67,8 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     switch (type) {
         case UIButtonCustomType_Six:
-            [btn setTitleColor:[UIColor colorWithHex:0x251E1D] forState:UIControlStateNormal];
-            btn.titleLabel.font = [UIFont systemFontOfSize:12];
+            [btn setTitleColor:[UIColor colorWithHex:0x666666] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
             btn.layer.borderWidth = 1.0;
             btn.layer.borderColor = [UIColor colorWithHex:0x686868].CGColor;
             [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
