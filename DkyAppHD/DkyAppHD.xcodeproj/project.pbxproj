@@ -58,6 +58,11 @@
 		EB16D0FB1E56F25000939072 /* DKYTitleInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16D0FA1E56F25000939072 /* DKYTitleInputView.m */; };
 		EB16D0FE1E56F73F00939072 /* DKYTitleSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16D0FD1E56F73F00939072 /* DKYTitleSelectView.m */; };
 		EB16D1011E56FC5800939072 /* DKYCustomOrderSizeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16D1001E56FC5800939072 /* DKYCustomOrderSizeItemView.m */; };
+		EB195B981E5C41CE00116048 /* LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B8F1E5C41CE00116048 /* LCActionSheet.m */; };
+		EB195B991E5C41CE00116048 /* LCActionSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B911E5C41CE00116048 /* LCActionSheetCell.m */; };
+		EB195B9A1E5C41CE00116048 /* LCActionSheetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B931E5C41CE00116048 /* LCActionSheetConfig.m */; };
+		EB195B9B1E5C41CE00116048 /* NSSet+LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B951E5C41CE00116048 /* NSSet+LCActionSheet.m */; };
+		EB195B9C1E5C41CE00116048 /* UIImage+LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B971E5C41CE00116048 /* UIImage+LCActionSheet.m */; };
 		EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */; };
 		EB41AC4D1E1F9E7F0015A7CF /* DKYHomeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */; };
 		EB506C2A1E236D22002A1423 /* DKYHomeCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C291E236D22002A1423 /* DKYHomeCellTableViewCell.m */; };
@@ -337,6 +342,16 @@
 		EB16D0FD1E56F73F00939072 /* DKYTitleSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTitleSelectView.m; sourceTree = "<group>"; };
 		EB16D0FF1E56FC5800939072 /* DKYCustomOrderSizeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderSizeItemView.h; sourceTree = "<group>"; };
 		EB16D1001E56FC5800939072 /* DKYCustomOrderSizeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderSizeItemView.m; sourceTree = "<group>"; };
+		EB195B8E1E5C41CE00116048 /* LCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCActionSheet.h; sourceTree = "<group>"; };
+		EB195B8F1E5C41CE00116048 /* LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCActionSheet.m; sourceTree = "<group>"; };
+		EB195B901E5C41CE00116048 /* LCActionSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCActionSheetCell.h; sourceTree = "<group>"; };
+		EB195B911E5C41CE00116048 /* LCActionSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCActionSheetCell.m; sourceTree = "<group>"; };
+		EB195B921E5C41CE00116048 /* LCActionSheetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCActionSheetConfig.h; sourceTree = "<group>"; };
+		EB195B931E5C41CE00116048 /* LCActionSheetConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCActionSheetConfig.m; sourceTree = "<group>"; };
+		EB195B941E5C41CE00116048 /* NSSet+LCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+LCActionSheet.h"; sourceTree = "<group>"; };
+		EB195B951E5C41CE00116048 /* NSSet+LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LCActionSheet.m"; sourceTree = "<group>"; };
+		EB195B961E5C41CE00116048 /* UIImage+LCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCActionSheet.h"; sourceTree = "<group>"; };
+		EB195B971E5C41CE00116048 /* UIImage+LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCActionSheet.m"; sourceTree = "<group>"; };
 		EB41AC491E1F9DF60015A7CF /* DKYHomeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemView.h; sourceTree = "<group>"; };
 		EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemView.m; sourceTree = "<group>"; };
 		EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemView.xib; sourceTree = "<group>"; };
@@ -928,6 +943,23 @@
 			name = "辅助View";
 			sourceTree = "<group>";
 		};
+		EB195B8D1E5C41CE00116048 /* LCActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				EB195B8E1E5C41CE00116048 /* LCActionSheet.h */,
+				EB195B8F1E5C41CE00116048 /* LCActionSheet.m */,
+				EB195B901E5C41CE00116048 /* LCActionSheetCell.h */,
+				EB195B911E5C41CE00116048 /* LCActionSheetCell.m */,
+				EB195B921E5C41CE00116048 /* LCActionSheetConfig.h */,
+				EB195B931E5C41CE00116048 /* LCActionSheetConfig.m */,
+				EB195B941E5C41CE00116048 /* NSSet+LCActionSheet.h */,
+				EB195B951E5C41CE00116048 /* NSSet+LCActionSheet.m */,
+				EB195B961E5C41CE00116048 /* UIImage+LCActionSheet.h */,
+				EB195B971E5C41CE00116048 /* UIImage+LCActionSheet.m */,
+			);
+			path = LCActionSheet;
+			sourceTree = "<group>";
+		};
 		EB506C2B1E23706F002A1423 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1408,6 +1440,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				EB195B8D1E5C41CE00116048 /* LCActionSheet */,
 				26210BE41E59A3A900EB05D6 /* BEMCheckBox */,
 				EBD694B71E2785BB00F365C3 /* TOWebViewController */,
 				EBD694A71E277B4700F365C3 /* RxWebViewController */,
@@ -1854,6 +1887,7 @@
 				26210BFC1E59B5FA00EB05D6 /* DKYCustomOrderAddMarkItemView.m in Sources */,
 				EBC3004F1E1CA0C700F602E6 /* TAAbstractDotView.m in Sources */,
 				EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */,
+				EB195B9B1E5C41CE00116048 /* NSSet+LCActionSheet.m in Sources */,
 				EB8FA2A61E55AD99004BE846 /* DKYCustomOrderTextFieldView.m in Sources */,
 				EB95117D1E162E31008708EF /* UIStoryboard+Utility.m in Sources */,
 				EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */,
@@ -1892,6 +1926,7 @@
 				EBD694A21E27629D00F365C3 /* DKYHomeItemTwoViewCell.m in Sources */,
 				EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */,
 				EB97906E1E221B6F00E2985C /* MMPopupItem.m in Sources */,
+				EB195B981E5C41CE00116048 /* LCActionSheet.m in Sources */,
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
 				EB9790781E222A7900E2985C /* DKYHttpRequestParameter.m in Sources */,
 				EB16D0F41E56EC2100939072 /* DKYCustomOrderPatternItemView.m in Sources */,
@@ -1901,6 +1936,7 @@
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				EBB480BB1E5C15F500AC36D0 /* DKYCustomOrderDimList.m in Sources */,
 				EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */,
+				EB195B9A1E5C41CE00116048 /* LCActionSheetConfig.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				EB16D0FE1E56F73F00939072 /* DKYTitleSelectView.m in Sources */,
 				EB506C4E1E23BD81002A1423 /* DKYOrderBrowserViewCell.m in Sources */,
@@ -1937,6 +1973,7 @@
 				26210BDD1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m in Sources */,
 				EB9511AF1E164444008708EF /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				EBD694DA1E2785BB00F365C3 /* UIImage+TOWebViewControllerIcons.m in Sources */,
+				EB195B9C1E5C41CE00116048 /* UIImage+LCActionSheet.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				EB9790491E21EAF500E2985C /* DKYOrderInquiryHeaderView.m in Sources */,
 				EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */,
@@ -2015,6 +2052,7 @@
 				EB9511A61E164444008708EF /* UIViewController+WXSTransitionProperty.m in Sources */,
 				EBABE8DA1E150CA600B4C568 /* AppDelegate.m in Sources */,
 				EB9790451E21E4E500E2985C /* DKYOrderInquiryViewController.m in Sources */,
+				EB195B991E5C41CE00116048 /* LCActionSheetCell.m in Sources */,
 				EBD694D71E2785BB00F365C3 /* TOActivityChrome.m in Sources */,
 				EB9511811E1640A5008708EF /* DKYLoginViewController.m in Sources */,
 				EBD694B01E277B4700F365C3 /* RxWebViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "DKYCustomOrderGenderItemView.h"
+#import "LCActionSheet.h"
 
 @interface DKYCustomOrderGenderItemView ()
 
@@ -68,27 +69,25 @@
     //    if(self.optionsBtnClicked){
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
-    [self showOptionsPicker];
+    [self showOptionsPicker:([sender.currentTitle substringFromIndex:2])];
 }
 
 #pragma mark - private method
-- (void)showOptionsPicker{
+- (void)showOptionsPicker:(NSString *)title{
     [self.superview endEditing:YES];
-    MMPopupItemHandler block = ^(NSInteger index){
-        DLog(@"++++++++ index = %ld",index);
-    };
     
-    NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
-    
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
-    for (NSString *str in item) {
-        [items addObject:MMItemMake(str, MMItemTypeNormal, block)];
-    }
-    
-    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"选择性别"
-                                                          items:[items copy]];
-    [MMPopupWindow sharedWindow].touchWildToHide = YES;
-    [sheetView show];
+    NSArray *item = @[@"1",@"2",@"3",@"4",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5"];
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:title
+                                             cancelButtonTitle:@"取消"
+                                                       clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                       }
+                                             otherButtonTitleArray:item];
+    actionSheet.scrolling = YES;
+    actionSheet.visibleButtonCount = 10;
+    actionSheet.cancelButtonTitle  = @"取消";
+    actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    [actionSheet show];
 }
 
 #pragma mark - mark
