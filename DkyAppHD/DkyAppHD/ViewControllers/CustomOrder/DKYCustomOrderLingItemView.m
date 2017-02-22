@@ -119,11 +119,13 @@
         [item addObject:model.attribname];
     }
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
-                                             cancelButtonTitle:@"取消"
+                                             cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex != 0){
                                                                [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }else{
+                                                               [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
                                                        }
                                          otherButtonTitleArray:item];
@@ -179,6 +181,7 @@
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.optionsBtn = btn;
+    btn.originalTitle = btn.currentTitle;
     [btn setTitle:@"点击选择领" forState:UIControlStateNormal];
 }
 
@@ -235,6 +238,7 @@
     }];
     self.lbcBtn = btn;
     [btn setTitle:@"点击选择领边层" forState:UIControlStateNormal];
+    btn.originalTitle = btn.currentTitle;
     btn.tag = 0;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -254,6 +258,7 @@
     }];
     self.lbBtn = btn;
     [btn setTitle:@"点击选择领边" forState:UIControlStateNormal];
+    btn.originalTitle = btn.currentTitle;
     btn.tag =1;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -300,6 +305,7 @@
     }];
     self.lxBtn = btn;
     [btn setTitle:@"点击选择领型" forState:UIControlStateNormal];
+    btn.originalTitle = btn.currentTitle;
     btn.tag = 2;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
