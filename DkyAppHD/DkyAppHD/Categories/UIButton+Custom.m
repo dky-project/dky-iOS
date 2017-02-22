@@ -69,8 +69,9 @@ static char UIButtonExtraInfoKey = '\0';
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     switch (type) {
         case UIButtonCustomType_Six:
-            [btn setTitleColor:[UIColor colorWithHex:0x666666] forState:UIControlStateNormal];
-            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+//            [btn setTitleColor:[UIColor colorWithHex:0x666666] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:13];
             btn.layer.borderWidth = 1.0;
             btn.layer.borderColor = [UIColor colorWithHex:0x686868].CGColor;
             [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];

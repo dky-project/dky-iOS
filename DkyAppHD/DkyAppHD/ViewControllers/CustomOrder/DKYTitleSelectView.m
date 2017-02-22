@@ -107,7 +107,7 @@
 - (void)setupTitleLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x666666];
+    label.textColor = [UIColor colorWithHex:0x333333];
     label.textAlignment = NSTextAlignmentLeft;
     
     [self addSubview:label];
@@ -141,7 +141,7 @@
 - (void)setupHintLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x999999];
+    label.textColor = [UIColor colorWithHex:0x666666];
     label.textAlignment = NSTextAlignmentLeft;
     
     [self addSubview:label];

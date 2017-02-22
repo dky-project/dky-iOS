@@ -160,6 +160,7 @@ static const CGFloat basicItemHeight = 30;
     _productApproveTitleModel = productApproveTitleModel;
     
     self.genderItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.varietyView.customOrderDimList = productApproveTitleModel.dimListModel;
 }
 
 #pragma mark - action method

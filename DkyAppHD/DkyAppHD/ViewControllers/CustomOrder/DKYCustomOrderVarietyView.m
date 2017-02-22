@@ -81,27 +81,51 @@
         [self showMultipleSelectPopupView];
         return;
     }
-    [self showOptionsPicker];
+    
+    [self showOptionsPicker:sender];
 }
 
 #pragma mark - private method
-- (void)showOptionsPicker{
+- (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
-    MMPopupItemHandler block = ^(NSInteger index){
-        DLog(@"++++++++ index = %ld",index);
-    };
     
-    NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
+    NSMutableArray *item = @[].mutableCopy;
+    NSArray *models = nil;
     
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
-    for (NSString *str in item) {
-        [items addObject:MMItemMake(str, MMItemTypeNormal, block)];
+    switch (sender.tag) {
+        case 0:
+            models = self.customOrderDimList.DIMFLAG_NEW14;
+            break;
+        case 1:
+            models = self.customOrderDimList.DIMFLAG_NEW15;
+            break;
+        case 2:
+            models = self.customOrderDimList.DIMFLAG_NEW16;
+            break;
+        case 3:
+            models = self.customOrderDimList.DIMFLAG_NEW17;
+            break;
     }
     
-    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"选择品种"
-                                                          items:[items copy]];
-    [MMPopupWindow sharedWindow].touchWildToHide = YES;
-    [sheetView show];
+    for (DKYDimlistItemModel *model in models) {
+        [item addObject:model.attribname];
+    }
+    
+    
+    DLog(@"sender.extraInfo = %@",sender.extraInfo);
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
+                                             cancelButtonTitle:@"取消"
+                                                       clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+                                                           DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                           if(buttonIndex != 0){
+                                                               [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }
+                                                       }
+                                         otherButtonTitleArray:item];
+    actionSheet.scrolling = item.count > 10;
+    actionSheet.visibleButtonCount = 10;
+    actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    [actionSheet show];
 }
 
 - (void)showMultipleSelectPopupView{
@@ -116,7 +140,7 @@
 - (void)setupTitleLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x333333];
+    label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentLeft;
     
     [self addSubview:label];
@@ -146,6 +170,9 @@
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     [btn setTitle:@"点击选择品种" forState:UIControlStateNormal];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
     self.optionsBtn = btn;
     
     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
@@ -160,6 +187,9 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
     [btn setTitle:@"点击选择组织" forState:UIControlStateNormal];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
     self.secondBtn = btn;
     
     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
@@ -174,6 +204,9 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
     [btn setTitle:@"点击选择针型" forState:UIControlStateNormal];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
     self.thirdBtn = btn;
     
     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
@@ -188,6 +221,9 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
     [btn setTitle:@"点击选择支别" forState:UIControlStateNormal];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
     self.fourthBtn = btn;
     
     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
@@ -202,6 +238,9 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
     [btn setTitle:@"点击多选颜色" forState:UIControlStateNormal];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
     self.fourthBtn = btn;
 }
 

@@ -82,7 +82,7 @@
 - (void)setupTitleLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x333333];
+    label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentLeft;
     
     [self addSubview:label];

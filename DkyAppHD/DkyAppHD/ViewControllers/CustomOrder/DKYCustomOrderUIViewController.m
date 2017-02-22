@@ -45,10 +45,12 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    if(!self.firstLoad){
-        [self getProductApproveTitleFromServer];
-        self.firstLoad = YES;
-    }
+//    if(!self.firstLoad){
+//        [self getProductApproveTitleFromServer];
+//        self.firstLoad = YES;
+//    }
+    
+    [self getProductApproveTitleFromServer];
 }
 
 #pragma mark mark - 网络请求

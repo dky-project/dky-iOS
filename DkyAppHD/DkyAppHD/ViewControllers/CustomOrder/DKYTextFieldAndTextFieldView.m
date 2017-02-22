@@ -41,7 +41,7 @@
 - (void)setupJoinLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x999999];
+    label.textColor = [UIColor colorWithHex:0x666666];
     label.textAlignment = NSTextAlignmentCenter;
     
     [self addSubview:label];
@@ -78,7 +78,7 @@
     textField.layer.borderWidth = 1;
     
     textField.font = [UIFont systemFontOfSize:14];
-    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.textColor = [UIColor colorWithHex:0x333333];
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.backgroundColor = [UIColor whiteColor];
     
@@ -105,7 +105,7 @@
     textField.layer.borderWidth = 1;
     
     textField.font = [UIFont systemFontOfSize:14];
-    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.textColor = [UIColor colorWithHex:0x333333];
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.backgroundColor = [UIColor whiteColor];
     

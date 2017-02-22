@@ -101,7 +101,7 @@ static NSString * kDateFormater = @"yyyy-MM-dd HH:mm";
     
     UILabel *label = [[UILabel alloc]init];
     label.font = [UIFont systemFontOfSize:15];
-    label.textColor = [UIColor colorWithHex:0x333333];
+    label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
     [self addSubview:label];
     label.text = @"请选择传真日期";

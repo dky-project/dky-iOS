@@ -100,7 +100,7 @@
 - (void)setupTitleLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x666666];
+    label.textColor = [UIColor colorWithHex:0x333333];
     label.textAlignment = NSTextAlignmentLeft;
     
     [self addSubview:label];
@@ -140,7 +140,7 @@
     textField.layer.borderWidth = 1;
     
     textField.font = [UIFont systemFontOfSize:14];
-    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.textColor = [UIColor colorWithHex:0x333333];
     textField.backgroundColor = [UIColor whiteColor];
     
     textField.leftViewMode = UITextFieldViewModeAlways;
@@ -166,7 +166,7 @@
     textField.layer.borderWidth = 1;
     
     textField.font = [UIFont systemFontOfSize:14];
-    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.textColor = [UIColor colorWithHex:0x333333];
     textField.backgroundColor = [UIColor whiteColor];
     
     textField.leftViewMode = UITextFieldViewModeAlways;
