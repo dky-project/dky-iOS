@@ -166,6 +166,7 @@ static const CGFloat basicItemHeight = 30;
     self.xiuBianView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.lingView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.xiabianItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.xiukouItemView.customOrderDimList = productApproveTitleModel.dimListModel;
 }
 
 #pragma mark - action method
@@ -182,8 +183,7 @@ static const CGFloat basicItemHeight = 30;
     MMPopupItemHandler block = ^(NSInteger index){
         DLog(@"++++++++ index = %ld",index);
     };
-    
-//    NSArray *item = @[@"1",@"2",@"3",@"4",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5",@"5"];
+
     NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
     for (NSString *str in item) {
