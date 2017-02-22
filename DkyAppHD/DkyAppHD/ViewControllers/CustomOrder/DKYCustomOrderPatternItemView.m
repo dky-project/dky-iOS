@@ -121,29 +121,73 @@
     //    if(self.optionsBtnClicked){
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
-    [self showOptionsPicker];
+    [self showOptionsPicker:sender];
 }
 
 #pragma mark - private method
-- (void)showOptionsPicker{
+- (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
-    MMPopupItemHandler block = ^(NSInteger index){
-        DLog(@"++++++++ index = %ld",index);
-    };
     
-    NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
+    NSMutableArray *item = @[].mutableCopy;
+    NSArray *models = nil;
     
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
-    for (NSString *str in item) {
-        [items addObject:MMItemMake(str, MMItemTypeNormal, block)];
+    switch (sender.tag) {
+        case 0:
+            models = self.customOrderDimList.DIMFLAG_NEW12;
+            break;
+        case 1:
+            models = self.customOrderDimList.DIMFLAG_NEW4;
+            break;
+        case 2:
+            models = self.customOrderDimList.DIMFLAG_NEW6;
+            break;
+        case 3:
+            models = self.customOrderDimList.DIMFLAG_NEW7;
+            break;
+        case 4:
+            models = self.customOrderDimList.DIMFLAG_NEW37;
+            break;
+        case 5:
+            models = self.customOrderDimList.DIMFLAG_NEW38;
+            break;
+        case 6:
+            models = self.customOrderDimList.DIMFLAG_NEW39;
+            break;
+        case 7:
+            models = self.customOrderDimList.DIMFLAG_NEW1;
+            break;
+        case 8:
+            models = self.customOrderDimList.DIMFLAG_NEW3;
+            break;
+        case 9:
+            models = self.customOrderDimList.DIMFLAG_NEW18;
+            break;
+        case 10:
+            models = self.customOrderDimList.DIMFLAG_NEW19;
+            break;
+            break;
     }
     
-    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"选择式样"
-                                                          items:[items copy]];
-    [MMPopupWindow sharedWindow].touchWildToHide = YES;
-    [sheetView show];
+    for (DKYDimlistItemModel *model in models) {
+        [item addObject:model.attribname];
+    }
+    
+    
+    DLog(@"sender.extraInfo = %@",sender.extraInfo);
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
+                                             cancelButtonTitle:@"取消"
+                                                       clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+                                                           DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                           if(buttonIndex != 0){
+                                                               [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }
+                                                       }
+                                         otherButtonTitleArray:item];
+    actionSheet.scrolling = item.count > 10;
+    actionSheet.visibleButtonCount = 10;
+    actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    [actionSheet show];
 }
-
 
 #pragma mark - mark
 - (void)commonInit{
@@ -210,6 +254,10 @@
     }];
     self.optionsBtn = btn;
     [btn setTitle:@"点击选择式样" forState:UIControlStateNormal];
+    btn.tag = 0;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupDingView{
@@ -249,6 +297,13 @@
     itemModel.title = @"扣";
     itemModel.content = @"点击选择钉扣";
     self.kouView.itemModel = itemModel;
+    view.optionsBtn.tag = 1;
+    if(itemModel.content.length > 2){
+        view.optionsBtn.extraInfo = [itemModel.content substringFromIndex:2];
+    }
+    view.optionsBtnClicked = ^(UIButton *sender){
+        [weakSelf showOptionsPicker:sender];
+    };
 }
 
 - (void)setupMjkView{
@@ -285,6 +340,10 @@
     }];
     self.mjBtn1 = btn;
     [btn setTitle:@"点击选择门襟" forState:UIControlStateNormal];
+    btn.tag = 2;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupMjBtn2{
@@ -300,7 +359,11 @@
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.mjBtn2 = btn;
-    [btn setTitle:@"点击选择门襟" forState:UIControlStateNormal];
+    [btn setTitle:@"点击选择门襟组织" forState:UIControlStateNormal];
+    btn.tag = 3;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupMjInputView{
@@ -352,6 +415,10 @@
     }];
     self.suiBtn = btn;
     [btn setTitle:@"点击选择加穗" forState:UIControlStateNormal];
+    btn.tag = 4;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupKlbBtn{
@@ -368,6 +435,10 @@
     }];
     self.klbBtn = btn;
     [btn setTitle:@"点击选择裤类别" forState:UIControlStateNormal];
+    btn.tag = 5;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupKkBtn{
@@ -384,6 +455,10 @@
     }];
     self.kkBtn = btn;
     [btn setTitle:@"点击选择开口" forState:UIControlStateNormal];
+    btn.tag = 6;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupJdBtn{
@@ -400,6 +475,10 @@
     }];
     self.jdBtn = btn;
     [btn setTitle:@"点击选择加档" forState:UIControlStateNormal];
+    btn.tag = 7;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupJdInputView{
@@ -455,6 +534,10 @@
     }];
     self.qlbBtn = btn;
     [btn setTitle:@"点击选择裙类别" forState:UIControlStateNormal];
+    btn.tag = 8;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupMjcView{
@@ -490,6 +573,10 @@
     }];
     self.gjxfBtn = btn;
     [btn setTitle:@"点击选挂件袖肥" forState:UIControlStateNormal];
+    btn.tag = 9;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupSyBtn{
@@ -505,6 +592,10 @@
     }];
     self.syBtn = btn;
     [btn setTitle:@"点击选择收腰" forState:UIControlStateNormal];
+    btn.tag = 10;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 @end

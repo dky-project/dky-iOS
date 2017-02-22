@@ -16,8 +16,6 @@
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
-@property (nonatomic, weak) UIButton *optionsBtn;
-
 @property (nonatomic, weak) UILabel *hintLabel;
 
 @end
@@ -71,10 +69,10 @@
 
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
-    //    if(self.optionsBtnClicked){
-    //        self.optionsBtnClicked(sender,sender.tag);
-    //    }
-    [self showOptionsPicker];
+    if(self.optionsBtnClicked){
+        self.optionsBtnClicked(sender);
+    }
+//    [self showOptionsPicker];
 }
 
 #pragma mark - private method
@@ -141,7 +139,7 @@
 - (void)setupHintLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.font = [UIFont boldSystemFontOfSize:12];
-    label.textColor = [UIColor colorWithHex:0x666666];
+    label.textColor = [UIColor colorWithHex:0x999999];
     label.textAlignment = NSTextAlignmentLeft;
     
     [self addSubview:label];

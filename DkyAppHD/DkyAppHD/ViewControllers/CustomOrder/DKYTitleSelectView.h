@@ -13,4 +13,8 @@
 
 @property (nonatomic, strong) DKYCustomOrderItemModel *itemModel;
 
+@property (nonatomic, copy) BlockWithSender optionsBtnClicked;
+
+@property (nonatomic, weak) UIButton *optionsBtn;
+
 @end
