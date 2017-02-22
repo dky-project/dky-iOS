@@ -175,11 +175,13 @@
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
-                                             cancelButtonTitle:@"取消"
+                                             cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex != 0){
                                                                [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }else{
+                                                               [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
                                                        }
                                          otherButtonTitleArray:item];
@@ -254,6 +256,7 @@
     }];
     self.optionsBtn = btn;
     [btn setTitle:@"点击选择式样" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 0;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -298,6 +301,7 @@
     itemModel.content = @"点击选择钉扣";
     self.kouView.itemModel = itemModel;
     view.optionsBtn.tag = 1;
+    view.optionsBtn.originalTitle = [view.optionsBtn currentTitle];
     if(itemModel.content.length > 2){
         view.optionsBtn.extraInfo = [itemModel.content substringFromIndex:2];
     }
@@ -340,6 +344,7 @@
     }];
     self.mjBtn1 = btn;
     [btn setTitle:@"点击选择门襟" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 2;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -360,6 +365,7 @@
     }];
     self.mjBtn2 = btn;
     [btn setTitle:@"点击选择门襟组织" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 3;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -415,6 +421,7 @@
     }];
     self.suiBtn = btn;
     [btn setTitle:@"点击选择加穗" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 4;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -435,6 +442,7 @@
     }];
     self.klbBtn = btn;
     [btn setTitle:@"点击选择裤类别" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 5;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -455,6 +463,7 @@
     }];
     self.kkBtn = btn;
     [btn setTitle:@"点击选择开口" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 6;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -475,6 +484,7 @@
     }];
     self.jdBtn = btn;
     [btn setTitle:@"点击选择加档" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 7;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -534,6 +544,7 @@
     }];
     self.qlbBtn = btn;
     [btn setTitle:@"点击选择裙类别" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 8;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -573,6 +584,7 @@
     }];
     self.gjxfBtn = btn;
     [btn setTitle:@"点击选挂件袖肥" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 9;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
@@ -592,6 +604,7 @@
     }];
     self.syBtn = btn;
     [btn setTitle:@"点击选择收腰" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     btn.tag = 10;
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];

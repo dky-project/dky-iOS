@@ -90,11 +90,13 @@
     }
     
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
-                                             cancelButtonTitle:@"取消"
+                                             cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex != 0){
                                                                [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }else{
+                                                               [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
                                                        }
                                          otherButtonTitleArray:item];
@@ -145,6 +147,7 @@
     }];
     self.optionsBtn = btn;
     [btn setTitle:@"点击选择肩型" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
