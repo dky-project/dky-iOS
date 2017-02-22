@@ -114,11 +114,13 @@
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
-                                             cancelButtonTitle:@"取消"
+                                             cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex != 0){
                                                                [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }else{
+                                                               [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
                                                        }
                                          otherButtonTitleArray:item];
@@ -170,6 +172,7 @@
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     [btn setTitle:@"点击选择品种" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
@@ -187,6 +190,7 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
     [btn setTitle:@"点击选择组织" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
@@ -204,6 +208,7 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
     [btn setTitle:@"点击选择针型" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
@@ -221,6 +226,7 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
     [btn setTitle:@"点击选择支别" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
@@ -238,6 +244,7 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
     [btn setTitle:@"点击多选颜色" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
