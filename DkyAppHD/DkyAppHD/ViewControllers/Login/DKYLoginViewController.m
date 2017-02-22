@@ -180,6 +180,9 @@
     imageView.contentMode = UIViewContentModeCenter;
     imageView.image = [UIImage imageNamed:@"login_password"];
     self.passwordTextField.leftView = imageView;
+    
+//    self.userNameTextField.font = [UIFont systemFontOfSize:50];
+//    self.passwordTextField.font = [UIFont systemFontOfSize:20];
 }
 
 - (void)setupLoginBtn{
