@@ -31,6 +31,7 @@
 #import "DKYCustomOrderTangzhuItemView.h"
 #import "DKYCustomOrderKoudaiItemView.h"
 #import "DKYCustomOrderAttachmentItemView.h"
+#import "DKYProductApproveTitleModel.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -153,6 +154,12 @@ static const CGFloat basicItemHeight = 30;
     CGFloat lengths[2] = { 1, 1 };
     CGContextSetLineDash(context, 0, lengths, 2);
     [path stroke];
+}
+
+- (void)setProductApproveTitleModel:(DKYProductApproveTitleModel *)productApproveTitleModel{
+    _productApproveTitleModel = productApproveTitleModel;
+    
+    self.genderItemView.customOrderDimList = productApproveTitleModel.dimListModel;
 }
 
 #pragma mark - action method
@@ -325,6 +332,12 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*款号:";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    
+    
+    itemModel.textFieldDidEndEditing = ^(UITextField *sender){
+        DLog(@"%@",weakSelf);
+    };
+    
     self.styleNumberView.itemModel = itemModel;
 }
 

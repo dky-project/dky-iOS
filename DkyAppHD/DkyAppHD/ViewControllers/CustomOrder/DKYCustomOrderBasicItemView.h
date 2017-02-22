@@ -13,10 +13,13 @@
 #import "MMPopupWindow.h"
 #import "DKYTitleSelectView.h"
 #import "DKYTitleInputView.h"
+#import "DKYCustomOrderDimList.h"
+#import "DKYDimlistItemModel.h"
 
-@class DKYCustomOrderItemModel;
 @interface DKYCustomOrderBasicItemView : UIView
 
 @property (nonatomic, strong) DKYCustomOrderItemModel *itemModel;
+
+@property (nonatomic, strong) DKYCustomOrderDimList *customOrderDimList;
 
 @end

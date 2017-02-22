@@ -69,6 +69,10 @@
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(textFrame.size.width + offset);
     }];
+    
+    if(itemModel.textFieldDidEndEditing){
+        [self.textField addTarget:self action:@selector(textFieldDidEndEditing:) forControlEvents:UIControlEventEditingDidEnd];
+    }
 }
 
 - (void)layoutSubviews{
@@ -82,6 +86,14 @@
         imageView.contentMode = UIViewContentModeLeft;
         imageView.image = [UIImage imageNamed:@"lock"];
         self.textField.rightView = imageView;
+    }
+}
+
+#pragma mark - action method
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    DLog(@"textFieldDidEndEditing");
+    if(self.itemModel.textFieldDidEndEditing){
+        self.itemModel.textFieldDidEndEditing(textField);
     }
 }
 

@@ -24,4 +24,6 @@
 
 @property (nonatomic, assign) CGFloat textFieldLeftOffset;
 
+@property (nonatomic, copy) BlockWithSender textFieldDidEndEditing;
+
 @end

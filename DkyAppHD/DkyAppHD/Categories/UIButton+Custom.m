@@ -9,6 +9,8 @@
 #import "UIButton+Custom.h"
 #import "UIImage+Color.h"
 
+static char UIButtonExtraInfoKey = '\0';
+
 @implementation UIButton (Custom)
 
 - (void)customButtonWithType:(UIButtonCustomType)type
@@ -93,6 +95,16 @@
             break;
     }
     return btn;
+}
+
+- (void)setExtraInfo:(NSString *)extraInfo{
+    if(![extraInfo isEqualToString:self.extraInfo]){
+        [self setAssociateValue:extraInfo withKey:&UIButtonExtraInfoKey];
+    }
+}
+
+- (NSString*)extraInfo{
+    return [self getAssociatedValueForKey:&UIButtonExtraInfoKey];
 }
 
 @end

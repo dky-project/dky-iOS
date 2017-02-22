@@ -27,4 +27,7 @@ typedef NS_ENUM(NSInteger, UIButtonCustomType) {
 
 + (instancetype)buttonWithCustomType:(UIButtonCustomType)type;
 
+// 额外信息
+@property (nonatomic, strong) NSString *extraInfo;
+
 @end

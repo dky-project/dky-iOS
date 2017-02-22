@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DKYDimlistItemModel.h"
 
 @interface DKYCustomOrderDimList : NSObject
 

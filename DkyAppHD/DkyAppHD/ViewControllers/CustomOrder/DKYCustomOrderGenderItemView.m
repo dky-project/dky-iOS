@@ -69,18 +69,26 @@
     //    if(self.optionsBtnClicked){
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
-    [self showOptionsPicker:([sender.currentTitle substringFromIndex:2])];
+    [self showOptionsPicker:sender];
 }
 
 #pragma mark - private method
-- (void)showOptionsPicker:(NSString *)title{
+- (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
     
-    NSArray *item = @[@"1",@"2",@"3",@"4"];
-    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:title
+    NSMutableArray *item = @[].mutableCopy;
+    
+    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW13) {
+        [item addObject:model.attribname];
+    }
+    
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:@"取消"
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                             DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                           if(buttonIndex != 0){
+                                                               [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }
                                                        }
                                              otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
@@ -127,6 +135,9 @@
         make.right.mas_equalTo(weakSelf);
     }];
     [btn setTitle:@"点击选择性别" forState:UIControlStateNormal];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
     self.optionsBtn = btn;
 }
 

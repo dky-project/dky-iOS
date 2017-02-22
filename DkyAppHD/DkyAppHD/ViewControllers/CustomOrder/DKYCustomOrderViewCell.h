@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYProductApproveTitleModel;
 @interface DKYCustomOrderViewCell : UITableViewCell
 
 + (instancetype)customOrderViewCellWithTableView:(UITableView *)tableView;
 
 @property (nonatomic, copy) BlockWithSenderAndType optionsBtnClicked;
+
+@property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitleModel;
 
 @end
