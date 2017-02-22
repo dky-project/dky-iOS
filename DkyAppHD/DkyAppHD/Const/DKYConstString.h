@@ -16,4 +16,7 @@
 #define kNetworkError               @"系统繁忙，请稍后再试"
 
 
+#define kDeleteTitle                @"清除"
+
+
 #endif /* DKYConstString_h */

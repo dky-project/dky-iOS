@@ -30,4 +30,7 @@ typedef NS_ENUM(NSInteger, UIButtonCustomType) {
 // 额外信息
 @property (nonatomic, strong) NSString *extraInfo;
 
+// 初始标题
+@property (nonatomic, strong) NSString *originalTitle;
+
 @end

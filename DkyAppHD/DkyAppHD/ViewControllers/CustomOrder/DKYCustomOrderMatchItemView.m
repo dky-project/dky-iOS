@@ -69,27 +69,34 @@
     //    if(self.optionsBtnClicked){
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
-    [self showOptionsPicker];
+    [self showOptionsPicker:sender];
 }
 
 #pragma mark - private method
-- (void)showOptionsPicker{
+- (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
-    MMPopupItemHandler block = ^(NSInteger index){
-        DLog(@"++++++++ index = %ld",index);
-    };
     
-    NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
+    NSMutableArray *item = @[].mutableCopy;
     
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
-    for (NSString *str in item) {
-        [items addObject:MMItemMake(str, MMItemTypeNormal, block)];
+    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW41) {
+        [item addObject:model.attribname];
     }
     
-    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"选择式样"
-                                                          items:[items copy]];
-    [MMPopupWindow sharedWindow].touchWildToHide = YES;
-    [sheetView show];
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
+                                             cancelButtonTitle:kDeleteTitle
+                                                       clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+                                                           DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                           if(buttonIndex != 0){
+                                                               [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }else{
+                                                               [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
+                                                           }
+                                                       }
+                                         otherButtonTitleArray:item];
+    actionSheet.scrolling = item.count > 10;
+    actionSheet.visibleButtonCount = 10;
+    actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    [actionSheet show];
 }
 
 #pragma mark - mark
@@ -129,6 +136,11 @@
     }];
     self.optionsBtn = btn;
     [btn setTitle:@"点击选择配套" forState:UIControlStateNormal];
+    btn.originalTitle = btn.currentTitle;
+    
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 @end

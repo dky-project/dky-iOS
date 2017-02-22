@@ -11,6 +11,8 @@
 
 static char UIButtonExtraInfoKey = '\0';
 
+static char UIButtonOriginalTitleoKey = '\0';
+
 @implementation UIButton (Custom)
 
 - (void)customButtonWithType:(UIButtonCustomType)type
@@ -106,6 +108,16 @@ static char UIButtonExtraInfoKey = '\0';
 
 - (NSString*)extraInfo{
     return [self getAssociatedValueForKey:&UIButtonExtraInfoKey];
+}
+
+- (void)setOriginalTitle:(NSString *)originalTitle{
+    if(![originalTitle isEqualToString:self.originalTitle]){
+        [self setAssociateValue:originalTitle withKey:&UIButtonOriginalTitleoKey];
+    }
+}
+
+- (NSString*)originalTitle{
+    return [self getAssociatedValueForKey:&UIButtonOriginalTitleoKey];
 }
 
 @end

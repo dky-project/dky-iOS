@@ -78,7 +78,7 @@
     
     NSMutableArray *item = @[].mutableCopy;
     
-    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW10) {
+    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW32) {
         [item addObject:model.attribname];
     }
     

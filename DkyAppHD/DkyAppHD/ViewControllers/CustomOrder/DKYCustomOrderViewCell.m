@@ -167,6 +167,7 @@ static const CGFloat basicItemHeight = 30;
     self.lingView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.xiabianItemView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.xiukouItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.matchItemView.customOrderDimList = productApproveTitleModel.dimListModel;
 }
 
 #pragma mark - action method

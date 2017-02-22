@@ -34,7 +34,7 @@
     LCActionSheetConfig *config = [LCActionSheetConfig shared];
     config.scrolling = YES;
     config.visibleButtonCount = 10;
-    config.cancelButtonTitle  = @"取消";
+    config.cancelButtonTitle  = @"清除";
     config.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
 }
 
