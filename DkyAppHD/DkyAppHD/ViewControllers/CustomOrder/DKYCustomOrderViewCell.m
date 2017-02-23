@@ -176,6 +176,10 @@ static const CGFloat basicItemHeight = 30;
     self.matchItemView.customOrderDimList = productApproveTitleModel.dimListModel;
 }
 
+- (void)updateModelViews{
+    self.xiuBianView.madeInfoByProductName = self.madeInfoByProductName;
+}
+
 #pragma mark - 网络请你去
 - (void)getMadeInfoByProductNameFromServer{
     [DKYHUDTool show];
@@ -225,6 +229,8 @@ static const CGFloat basicItemHeight = 30;
         [self showDahuoPopupView];
         return;
     }
+    
+    [self updateModelViews];
 }
 
 #pragma mark - action method

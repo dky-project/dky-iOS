@@ -15,12 +15,15 @@
 #import "DKYTitleInputView.h"
 #import "DKYCustomOrderDimList.h"
 #import "DKYDimlistItemModel.h"
+#import "DKYMadeInfoByProductNameModel.h"
 
 @interface DKYCustomOrderBasicItemView : UIView
 
 @property (nonatomic, strong) DKYCustomOrderItemModel *itemModel;
 
 @property (nonatomic, strong) DKYCustomOrderDimList *customOrderDimList;
+
+@property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 
 - (void)clear;
 

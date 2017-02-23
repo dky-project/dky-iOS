@@ -67,6 +67,15 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(madeInfoByProductName == nil)  return;
+    
+    self.textField.backgroundColor = [UIColor randomColor];
+    self.textField.hidden = (madeInfoByProductName.productMadeInfoView.mDimNew46Id != 397);
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){
