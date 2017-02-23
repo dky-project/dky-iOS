@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DKYDahuoOrderColorModel.h"
 #import "DKYDahuoOrderSizeModel.h"
+#import "DKYProductMadeInfoViewModel.h"
 
 @interface DKYMadeInfoByProductNameModel : NSObject
 
@@ -16,6 +17,8 @@
 @property (nonatomic, strong) NSArray *colorViewList;
 
 @property (nonatomic, strong) NSArray *sizeViewList;
+
+@property (nonatomic, strong) DKYProductMadeInfoViewModel *productMadeInfoView;
 
 
 // 客户端自己的属性

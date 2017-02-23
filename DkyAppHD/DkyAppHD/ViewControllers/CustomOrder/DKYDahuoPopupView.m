@@ -28,6 +28,7 @@
 @property (nonatomic, weak) DKYTitleSelectView *selectView2;
 
 @property (nonatomic, weak) UIButton *confirmOrderBtn;
+
 @property (nonatomic, weak) UIButton *cancelBtn;
 
 @end

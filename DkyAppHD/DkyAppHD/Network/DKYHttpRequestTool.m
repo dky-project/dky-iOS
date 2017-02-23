@@ -103,7 +103,7 @@
                  progress:^(NSProgress * _Nonnull uploadProgress) {
                      
                  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                     DLog(@"%@post url = %@%@ \npost data = %@%@",kLogStart,BASE_URL,urlString,responseObject,kLogEnd);
+                     DLog(@"%@post url = %@%@ \nresponse data = %@%@",kLogStart,BASE_URL,urlString,responseObject,kLogEnd);
                      if (successblock) {
                          NSHTTPURLResponse *res = (NSHTTPURLResponse*)task.response;
                          successblock(res.statusCode,responseObject);

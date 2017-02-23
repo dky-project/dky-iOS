@@ -17,7 +17,7 @@
 }
 
 - (void)mj_keyValuesDidFinishConvertingToObject{
-    if(self.colorViewList.count > 0 && self.sizeViewList.count > 0){
+    if([self.productMadeInfoView.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame){
         self.bigOrder = YES;
     }
 }
