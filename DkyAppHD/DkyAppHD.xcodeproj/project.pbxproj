@@ -146,6 +146,7 @@
 		EB97F2D01E26533500BDC705 /* DKYCustomOrderUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97F2CF1E26533500BDC705 /* DKYCustomOrderUIViewController.m */; };
 		EB9884CC1E2864B400BAFADE /* DKYHtmlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9884CB1E2864B400BAFADE /* DKYHtmlHelper.m */; };
 		EB9884CE1E28658900BAFADE /* SXDetails.css in Resources */ = {isa = PBXBuildFile; fileRef = EB9884CD1E28658900BAFADE /* SXDetails.css */; };
+		EB9ACBC81E5E7E930007517C /* DKYDahuoPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9ACBC71E5E7E930007517C /* DKYDahuoPopupView.m */; };
 		EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */; };
 		EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA01E24CD3F00939007 /* DKYSexEnumModel.m */; };
 		EB9BBBA41E24CFC000939007 /* DKYBigClassEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */; };
@@ -516,6 +517,8 @@
 		EB9884CA1E2864B400BAFADE /* DKYHtmlHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHtmlHelper.h; sourceTree = "<group>"; };
 		EB9884CB1E2864B400BAFADE /* DKYHtmlHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHtmlHelper.m; sourceTree = "<group>"; };
 		EB9884CD1E28658900BAFADE /* SXDetails.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = SXDetails.css; sourceTree = "<group>"; };
+		EB9ACBC61E5E7E930007517C /* DKYDahuoPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDahuoPopupView.h; sourceTree = "<group>"; };
+		EB9ACBC71E5E7E930007517C /* DKYDahuoPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDahuoPopupView.m; sourceTree = "<group>"; };
 		EB9BBB9C1E24711D00939007 /* DKYOrderBrowserLineItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserLineItemModel.h; sourceTree = "<group>"; };
 		EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserLineItemModel.m; sourceTree = "<group>"; };
 		EB9BBB9F1E24CD3F00939007 /* DKYSexEnumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSexEnumModel.h; sourceTree = "<group>"; };
@@ -939,6 +942,8 @@
 				26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */,
 				26210BE11E59775300EB05D6 /* DKYCustomOrderTypeOneView.h */,
 				26210BE21E59775300EB05D6 /* DKYCustomOrderTypeOneView.m */,
+				EB9ACBC61E5E7E930007517C /* DKYDahuoPopupView.h */,
+				EB9ACBC71E5E7E930007517C /* DKYDahuoPopupView.m */,
 			);
 			name = "辅助View";
 			sourceTree = "<group>";
@@ -1955,6 +1960,7 @@
 				2620D6E21E55F5F800BC0668 /* DKYCustomOrderItemModel.m in Sources */,
 				EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */,
 				EBC3006E1E1CD8FE00F602E6 /* TWBaseViewController.m in Sources */,
+				EB9ACBC81E5E7E930007517C /* DKYDahuoPopupView.m in Sources */,
 				EB9511A71E164444008708EF /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				EB9511AC1E164444008708EF /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				EBB480B51E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m in Sources */,

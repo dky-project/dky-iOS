@@ -32,6 +32,7 @@
 #import "DKYCustomOrderKoudaiItemView.h"
 #import "DKYCustomOrderAttachmentItemView.h"
 #import "DKYProductApproveTitleModel.h"
+#import "DKYDahuoPopupView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -342,6 +343,7 @@ static const CGFloat basicItemHeight = 30;
     
     
     itemModel.textFieldDidEndEditing = ^(UITextField *sender){
+        [DKYDahuoPopupView show];
         DLog(@"%@",weakSelf);
     };
     
@@ -704,7 +706,7 @@ static const CGFloat basicItemHeight = 30;
     
     WeakSelf(weakSelf);
     [self.displayImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(320, 480));
+        make.size.mas_equalTo(CGSizeMake(300, 380));
         make.top.mas_equalTo(weakSelf.matchItemView.mas_bottom).with.offset(vpadding);
         make.centerX.mas_equalTo(weakSelf.contentView);
     }];
