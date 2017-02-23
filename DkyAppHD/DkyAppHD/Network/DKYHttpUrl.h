@@ -39,6 +39,7 @@
 // 定制订单
 #define kGetProductApproveTitleUrl      @"productApprove/getProductApproveTitle"    // 定制订单
 
+#define kGetMadeInfoByProductNameUrl    @"productApprove/getMadeInfoByProductName"  // 输入款号之后的调用
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询

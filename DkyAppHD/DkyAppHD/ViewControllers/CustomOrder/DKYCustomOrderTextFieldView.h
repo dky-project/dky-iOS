@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) DKYCustomOrderItemModel *itemModel;
 
+- (void)clear;
+
 @end

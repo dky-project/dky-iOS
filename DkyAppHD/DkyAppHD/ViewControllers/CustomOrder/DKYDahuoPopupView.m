@@ -11,6 +11,7 @@
 #import "DKYTitleSelectView.h"
 #import "DKYCustomOrderItemModel.h"
 #import "DKYDimlistItemModel.h"
+#import "DKYMadeInfoByProductNameModel.h"
 
 @interface DKYDahuoPopupView ()
 
@@ -39,7 +40,7 @@
                                             showType:KLCPopupShowTypeBounceInFromTop
                                          dismissType:KLCPopupDismissTypeBounceOutToBottom
                                             maskType:KLCPopupMaskTypeDimmed
-                            dismissOnBackgroundTouch:YES
+                            dismissOnBackgroundTouch:NO
                                dismissOnContentTouch:NO];
     popup.dimmedMaskAlpha = 0.6;
     contentView.popup = popup;
@@ -64,21 +65,34 @@
 #pragma mark - action method
 
 - (void)confirmOrderBtnClicked:(UIButton*)sender{
-    
+    if(self.confirmBtnClicked){
+        self.confirmBtnClicked(sender);
+    }
+    self.popup.dismissType = KLCPopupDismissTypeFadeOut;
+    [self dismiss];
 }
 
 - (void)cancelBtnClicked:(UIButton*)sender{
+    if(self.cancelBtnClicked){
+        self.cancelBtnClicked(sender);
+    }
     [self dismiss];
 }
 
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
     
-    NSMutableArray *item = @[@"1",@"2",@"3",@"4"].mutableCopy;
+    NSMutableArray *item = @[].mutableCopy;
     
-//    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW41) {
-//        [item addObject:model.attribname];
-//    }
+    if(sender.tag == 0){
+        for (DKYDahuoOrderSizeModel *model in self.madeInfoByProductNameModel.sizeViewList) {
+            [item addObject:model.sizeName];
+        }
+    }else{
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductNameModel.colorViewList) {
+            [item addObject:model.colorName];
+        }
+    }
     
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
@@ -197,7 +211,6 @@
     WeakSelf(weakSelf);
     UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
     [btn addTarget:self action:@selector(confirmOrderBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
     [self addSubview:btn];
     self.confirmOrderBtn = btn;
     [self.confirmOrderBtn setTitle:@"确认下单" forState:UIControlStateNormal];

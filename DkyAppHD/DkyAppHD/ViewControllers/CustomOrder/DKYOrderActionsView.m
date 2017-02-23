@@ -46,8 +46,7 @@
 - (void)setupActionBtn{
     WeakSelf(weakSelf);
     UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
-    
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
+
     [self addSubview:btn];
     self.confirmOrderBtn = btn;
     [self.confirmOrderBtn setTitle:@"确认下单" forState:UIControlStateNormal];

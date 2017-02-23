@@ -33,6 +33,8 @@
 #import "DKYCustomOrderAttachmentItemView.h"
 #import "DKYProductApproveTitleModel.h"
 #import "DKYDahuoPopupView.h"
+#import "DKYMadeInfoByProductNameParameter.h"
+#import "DKYMadeInfoByProductNameModel.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -45,6 +47,9 @@ static const CGFloat basicItemHeight = 30;
 
 @interface DKYCustomOrderViewCell ()
 
+@property (nonatomic, copy) NSString *productName;
+
+@property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 // 编号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *numberView;
 
@@ -171,6 +176,57 @@ static const CGFloat basicItemHeight = 30;
     self.matchItemView.customOrderDimList = productApproveTitleModel.dimListModel;
 }
 
+#pragma mark - 网络请你去
+- (void)getMadeInfoByProductNameFromServer{
+    [DKYHUDTool show];
+    DKYMadeInfoByProductNameParameter *p = [[DKYMadeInfoByProductNameParameter alloc] init];
+    p.productName = self.productName;
+    p.productName = @"16-A008";
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] getMadeInfoByProductNameWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
+            [weakSelf dealWithstyleNumber];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+#pragma mark - mark - private method
+- (void)styleNumberViewDidEndEditing:(NSString *)text{
+    self.productName = text;
+    
+    if(![text isNotBlank]){
+        [DKYHUDTool showInfoWithStatus:@"款号不能为空！"];
+        return;
+    }else{
+        
+        [self getMadeInfoByProductNameFromServer];
+    }
+}
+
+- (void)dealWithstyleNumber{
+    if(self.madeInfoByProductName.isBigOrder){
+        [self showDahuoPopupView];
+        return;
+    }
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
 //    if(self.optionsBtnClicked){
@@ -179,7 +235,7 @@ static const CGFloat basicItemHeight = 30;
     [self showOptionsPicker];
 }
 
-#pragma mark - private method
+#pragma mark - help method
 - (void)showOptionsPicker{
     [self.superview endEditing:YES];
     MMPopupItemHandler block = ^(NSInteger index){
@@ -196,6 +252,19 @@ static const CGFloat basicItemHeight = 30;
                                                           items:[items copy]];
     [MMPopupWindow sharedWindow].touchWildToHide = YES;
     [sheetView show];
+}
+
+- (void)showDahuoPopupView{
+    WeakSelf(weakSelf);
+    DKYDahuoPopupView *popup = [DKYDahuoPopupView show];
+    popup.madeInfoByProductNameModel = self.madeInfoByProductName;
+    popup.cancelBtnClicked = ^(UIButton *sender){
+        [weakSelf.styleNumberView clear];
+    };
+    
+    popup.confirmBtnClicked = ^(UIButton *sender){
+        
+    };
 }
 
 #pragma mark - UI
@@ -343,8 +412,7 @@ static const CGFloat basicItemHeight = 30;
     
     
     itemModel.textFieldDidEndEditing = ^(UITextField *sender){
-        [DKYDahuoPopupView show];
-        DLog(@"%@",weakSelf);
+        [weakSelf styleNumberViewDidEndEditing:sender.text];
     };
     
     self.styleNumberView.itemModel = itemModel;

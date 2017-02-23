@@ -22,4 +22,6 @@
 
 @property (nonatomic, strong) DKYCustomOrderDimList *customOrderDimList;
 
+- (void)clear;
+
 @end

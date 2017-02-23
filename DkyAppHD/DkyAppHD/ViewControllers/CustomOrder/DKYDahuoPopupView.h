@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYMadeInfoByProductNameModel;
 @interface DKYDahuoPopupView : UIView
 
 + (instancetype)show;
 
 - (void)dismiss;
+
+@property (nonatomic, copy) BlockWithSender cancelBtnClicked;
+
+@property (nonatomic, copy) BlockWithSender confirmBtnClicked;
+
+@property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductNameModel;
 
 @end

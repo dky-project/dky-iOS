@@ -75,6 +75,10 @@
     }
 }
 
+- (void)clear{
+    self.textField.text = nil;
+}
+
 - (void)layoutSubviews{
     [super layoutSubviews];
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
