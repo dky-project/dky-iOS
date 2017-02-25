@@ -12,6 +12,9 @@
 #import "DKYBigClassEnumModel.h"
 #import "NSString+Utility.h"
 
+#define kOptionViewHeight       (120)
+#define kOptionViewMargin       (14)
+
 @interface DKYFiltrateView ()
 
 @property (nonatomic, weak) UILabel *filterConditionLabel;
@@ -163,9 +166,9 @@
     DKYFiltrateOptionView *opention1 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
     [self addSubview:opention1];
     [opention1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(171, 171));
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
         make.left.mas_equalTo(30);
-        make.bottom.mas_equalTo(-24);
+        make.bottom.mas_equalTo(-165);
     }];
     opention1.title = @"性别";
     opention1.optionViewTaped = ^(DKYFiltrateOptionView *view){
@@ -175,8 +178,8 @@
     DKYFiltrateOptionView *opention2 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
     [self addSubview:opention2];
     [opention2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(171, 171));
-        make.left.mas_equalTo(opention1.mas_right).with.offset(70);
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
+        make.left.mas_equalTo(opention1.mas_right).with.offset(kOptionViewMargin);
         make.bottom.mas_equalTo(opention1);
     }];
     opention2.title = @"大类";
@@ -184,8 +187,99 @@
         [weakSelf optionViewTaped:view];
     };
     
+    DKYFiltrateOptionView *opention3 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention3];
+    [opention3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
+        make.left.mas_equalTo(opention2.mas_right).with.offset(kOptionViewMargin);
+        make.bottom.mas_equalTo(opention1);
+    }];
+    opention3.title = @"品种";
+    opention3.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
+    DKYFiltrateOptionView *opention4 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention4];
+    [opention4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
+        make.left.mas_equalTo(opention3.mas_right).with.offset(kOptionViewMargin);
+        make.bottom.mas_equalTo(opention1);
+    }];
+    opention4.title = @"组织";
+    opention4.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
+    DKYFiltrateOptionView *opention5 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention5];
+    [opention5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
+        make.left.mas_equalTo(opention4.mas_right).with.offset(kOptionViewMargin);
+        make.bottom.mas_equalTo(opention1);
+    }];
+    opention5.title = @"针型";
+    opention5.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
+    DKYFiltrateOptionView *opention6 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention6];
+    [opention6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
+        make.left.mas_equalTo(opention1);
+        make.top.mas_equalTo(opention1.mas_bottom).with.offset(20);
+    }];
+    opention6.title = @"式样";
+    opention6.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
+    DKYFiltrateOptionView *opention7 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention7];
+    [opention7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
+        make.left.mas_equalTo(opention6.mas_right).with.offset(kOptionViewMargin);
+        make.top.mas_equalTo(opention6);
+    }];
+    opention7.title = @"领型";
+    opention7.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
+    DKYFiltrateOptionView *opention8 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention8];
+    [opention8 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
+        make.left.mas_equalTo(opention7.mas_right).with.offset(kOptionViewMargin);
+        make.top.mas_equalTo(opention6);
+    }];
+    opention8.title = @"袖型";
+    opention8.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
+    DKYFiltrateOptionView *opention9 = [[DKYFiltrateOptionView alloc] initWithFrame:CGRectZero];
+    [self addSubview:opention9];
+    [opention9 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kOptionViewHeight, kOptionViewHeight));
+        make.left.mas_equalTo(opention8.mas_right).with.offset(kOptionViewMargin);
+        make.top.mas_equalTo(opention6);
+    }];
+    opention9.title = @"年份";
+    opention9.optionViewTaped = ^(DKYFiltrateOptionView *view){
+        [weakSelf optionViewTaped:view];
+    };
+    
     [self.optionViews addObject:opention1];
     [self.optionViews addObject:opention2];
+    [self.optionViews addObject:opention3];
+    [self.optionViews addObject:opention4];
+    [self.optionViews addObject:opention5];
+    [self.optionViews addObject:opention6];
+    [self.optionViews addObject:opention7];
+    [self.optionViews addObject:opention8];
+    [self.optionViews addObject:opention9];
 }
 - (void)setupStyleNumberTextField{
     UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
@@ -216,10 +310,11 @@
     textField.leftView = searchImageView;
     
     UIView *view = [self.optionViews firstObject];
+    UIView *rightView = [self.optionViews objectOrNilAtIndex:1];
     [self.styleNumberTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(view);
-        make.bottom.mas_equalTo(view.mas_top).with.offset(-5);
-        make.width.mas_equalTo(view);
+        make.bottom.mas_equalTo(view.mas_top).with.offset(-15);
+        make.right.mas_equalTo(rightView);
         make.height.mas_equalTo(35);
     }];
 }

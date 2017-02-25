@@ -7,6 +7,7 @@
 //
 
 #import "JXTAlertController.h"
+#import "NSObject+Utility.h"
 
 //toast默认展示时间
 static NSTimeInterval const JXTAlertShowDurationDefault = 1.0f;
@@ -93,7 +94,10 @@ typedef void (^JXTAlertActionsConfig)(JXTAlertActionBlock actionBlock);
                     }
                 }];
                 //可利用这个改变字体颜色，但是不推荐！！！
-//                [alertAction setValue:[UIColor grayColor] forKey:@"titleTextColor"];
+                NSArray *ivars = [alertAction ivars];
+                if([ivars containsObject:@"_titleTextColor"]){
+                    [alertAction setValue:[UIColor colorWithHex:0x666666] forKey:@"_titleTextColor"];
+                }
                 //action作为self元素，其block实现如果引用本类指针，会造成循环引用
                 [self addAction:alertAction];
             }];

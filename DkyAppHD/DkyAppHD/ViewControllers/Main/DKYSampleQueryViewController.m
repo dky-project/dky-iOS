@@ -251,7 +251,7 @@
         // 显示
         [self.filtrateView.superview bringSubviewToFront:self.filtrateView];
         [self.searchView.superview bringSubviewToFront:self.searchView];
-        frame = CGRectMake(26, 92, kScreenWidth - 26 * 2, 290);
+        frame = CGRectMake(26, 92, kScreenWidth - 26 * 2, 390);
         self.filtrateView.alpha = hide ? 0.0 : 1.0;
     }else{
         frame = CGRectMake(self.searchView.centerX, self.searchView.centerY, 0, 0);
@@ -361,7 +361,7 @@
 //        make.height.mas_equalTo(290);
 //    }];
     
-    self.filtrateView.frame = CGRectMake(26, 92, kScreenWidth - 26 * 2, 290);
+    self.filtrateView.frame = CGRectMake(26, 92, kScreenWidth - 26 * 2, 390);
     [self hideFilterView:YES animated:NO];
 }
 
