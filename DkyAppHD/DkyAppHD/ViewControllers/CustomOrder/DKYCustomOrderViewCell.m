@@ -178,6 +178,7 @@ static const CGFloat basicItemHeight = 30;
 
 - (void)updateModelViews{
     self.xiuBianView.madeInfoByProductName = self.madeInfoByProductName;
+    self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 #pragma mark - 网络请你去

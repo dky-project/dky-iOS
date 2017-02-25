@@ -13,8 +13,6 @@
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
-@property (nonatomic, weak) UITextField *textField;
-
 @property (nonatomic, weak) UILabel *subTextLabel;
 
 @end

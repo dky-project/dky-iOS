@@ -191,7 +191,7 @@
         make.width.mas_equalTo(100);
     }];
     self.eightchoueight = btn;
-    [btn setTitle:@"八抽八" forState:UIControlStateNormal];
+    [btn setTitle:@"8抽8" forState:UIControlStateNormal];
     
     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
     [self addSubview:btn];

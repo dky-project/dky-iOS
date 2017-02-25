@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) DKYCustomOrderItemModel *itemModel;
 
+@property (nonatomic, weak) UITextField *textField;
+
 @end

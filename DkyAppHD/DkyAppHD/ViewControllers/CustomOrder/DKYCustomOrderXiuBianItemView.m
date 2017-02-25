@@ -71,8 +71,7 @@
     [super setMadeInfoByProductName:madeInfoByProductName];
     
     if(madeInfoByProductName == nil)  return;
-    
-    self.textField.backgroundColor = [UIColor randomColor];
+
     self.textField.hidden = (madeInfoByProductName.productMadeInfoView.mDimNew46Id != 397);
 }
 

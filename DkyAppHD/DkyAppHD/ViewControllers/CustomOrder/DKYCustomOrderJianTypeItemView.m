@@ -71,6 +71,20 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(madeInfoByProductName == nil)  return;
+    
+    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
+        self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
+        self.jkView.textField.enabled = NO;
+    }else{
+        self.jkView.textField.text = nil;
+        self.jkView.textField.enabled = YES;
+    }
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){
@@ -162,7 +176,7 @@
     textField.layer.borderWidth = 1;
     
     textField.font = [UIFont systemFontOfSize:14];
-    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.textColor = [UIColor colorWithHex:0x333333];
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.backgroundColor = [UIColor whiteColor];
     
