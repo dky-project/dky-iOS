@@ -113,43 +113,43 @@
         }
             break;
         case 2:{
-            itemModels = self.dimNewListModel.sexList;
+            itemModels = self.dimNewListModel.pzList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
             self.sampleQueryParameter.mDimNew14Id = model ? @(model.Id) : nil;
         }
             break;
         case 3:{
-            itemModels = self.dimNewListModel.sexList;
+            itemModels = self.dimNewListModel.zzList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
             self.sampleQueryParameter.mDimNew15Id = model ? @(model.Id) : nil;
         }
             break;
         case 4:{
-            itemModels = self.dimNewListModel.sexList;
+            itemModels = self.dimNewListModel.zxList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
             self.sampleQueryParameter.mDimNew16Id = model ? @(model.Id) : nil;
         }
             break;
         case 5:{
-            itemModels = self.dimNewListModel.sexList;
+            itemModels = self.dimNewListModel.syList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
             self.sampleQueryParameter.mDimNew12Id = model ? @(model.Id) : nil;
         }
             break;
         case 6:{
-            itemModels = self.dimNewListModel.sexList;
+            itemModels = self.dimNewListModel.lxList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
             self.sampleQueryParameter.mDimNew25Id = model ? @(model.Id) : nil;
         }
             break;
         case 7:{
-            itemModels = self.dimNewListModel.sexList;
+            itemModels = self.dimNewListModel.xxList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
             self.sampleQueryParameter.mDimNew9Id = model ? @(model.Id) : nil;
         }
             break;
         case 8:{
-            itemModels = self.dimNewListModel.sexList;
+            itemModels = self.dimNewListModel.yearList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
             self.sampleQueryParameter.mDim13Id = model ? @(model.Id) : nil;
         }
