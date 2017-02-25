@@ -44,6 +44,8 @@
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
 		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
 		26A6FA5A1E61878300376194 /* NSObject+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A6FA591E61878300376194 /* NSObject+Utility.m */; };
+		26A6FA5D1E61A08700376194 /* DKYDimNewListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A6FA5C1E61A08700376194 /* DKYDimNewListModel.m */; };
+		26A6FA601E61A13C00376194 /* DKYDimNewListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A6FA5F1E61A13C00376194 /* DKYDimNewListItemModel.m */; };
 		26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */; };
 		26BB9A591E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */; };
 		26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */; };
@@ -320,6 +322,10 @@
 		267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemTwoView.xib; sourceTree = "<group>"; };
 		26A6FA581E61878300376194 /* NSObject+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utility.h"; sourceTree = "<group>"; };
 		26A6FA591E61878300376194 /* NSObject+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utility.m"; sourceTree = "<group>"; };
+		26A6FA5B1E61A08700376194 /* DKYDimNewListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDimNewListModel.h; sourceTree = "<group>"; };
+		26A6FA5C1E61A08700376194 /* DKYDimNewListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDimNewListModel.m; sourceTree = "<group>"; };
+		26A6FA5E1E61A13C00376194 /* DKYDimNewListItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDimNewListItemModel.h; sourceTree = "<group>"; };
+		26A6FA5F1E61A13C00376194 /* DKYDimNewListItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDimNewListItemModel.m; sourceTree = "<group>"; };
 		26A7C36E1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderFlowerTypeItemView.h; sourceTree = "<group>"; };
 		26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderFlowerTypeItemView.m; sourceTree = "<group>"; };
 		26BB9A571E57468C00E425D5 /* DKYTextFieldAndTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTextFieldAndTextFieldView.h; sourceTree = "<group>"; };
@@ -1047,6 +1053,10 @@
 				EB9BBBA01E24CD3F00939007 /* DKYSexEnumModel.m */,
 				EB9BBBA21E24CFC000939007 /* DKYBigClassEnumModel.h */,
 				EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */,
+				26A6FA5B1E61A08700376194 /* DKYDimNewListModel.h */,
+				26A6FA5C1E61A08700376194 /* DKYDimNewListModel.m */,
+				26A6FA5E1E61A13C00376194 /* DKYDimNewListItemModel.h */,
+				26A6FA5F1E61A13C00376194 /* DKYDimNewListItemModel.m */,
 			);
 			name = "样衣查询";
 			sourceTree = "<group>";
@@ -1953,6 +1963,7 @@
 				EB506C371E23706F002A1423 /* DKYSampleModel.m in Sources */,
 				EB9511AA1E164444008708EF /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */,
+				26A6FA5D1E61A08700376194 /* DKYDimNewListModel.m in Sources */,
 				EBD694B11E277B4700F365C3 /* RxWebViewNavigationViewController.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
@@ -1988,6 +1999,7 @@
 				26A6FA5A1E61878300376194 /* NSObject+Utility.m in Sources */,
 				EB9ACBD41E5EB8FD0007517C /* DKYDahuoOrderSizeModel.m in Sources */,
 				EB9511AE1E164444008708EF /* WXSTransitionManager+SpreadAnimation.m in Sources */,
+				26A6FA601E61A13C00376194 /* DKYDimNewListItemModel.m in Sources */,
 				EB97F2BC1E25C36A00BDC705 /* DQFormHeader.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
 				EB9ACBD11E5EB8EC0007517C /* DKYDahuoOrderColorModel.m in Sources */,

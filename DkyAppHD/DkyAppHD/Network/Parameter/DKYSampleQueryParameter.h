@@ -21,6 +21,40 @@
 @property (nonatomic, strong) NSNumber *mDimNew13Id;
 
 /**
+ * 品种
+ */
+@property (nonatomic, strong) NSNumber *mDimNew14Id;
+
+/**
+ * 组织
+ */
+@property (nonatomic, strong) NSNumber *mDimNew15Id;
+
+/**
+ * 针型
+ */
+@property (nonatomic, strong) NSNumber *mDimNew16Id;
+
+/**
+ * 式样
+ */
+@property (nonatomic, strong) NSNumber *mDimNew12Id;
+/**
+ * 领型
+ */
+@property (nonatomic, strong) NSNumber *mDimNew25Id;
+/**
+ * 袖型
+ */
+@property (nonatomic, strong) NSNumber *mDimNew9Id;
+
+/**
+ * 年份
+ */
+@property (nonatomic, strong) NSNumber *mDim13Id;
+
+
+/**
  * ID
  */
 @property (nonatomic, strong) NSNumber *mProductId;

@@ -35,6 +35,10 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithAuthorizationToken:kProductPageUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)getDimNewListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kGetDimNewListUrl withParameter:parameter Success:success failure:failure];
+}
+
 - (void)getSexEnumWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithAuthorizationToken:kGetSexEnumUrl withParameter:parameter Success:success failure:failure];
 }

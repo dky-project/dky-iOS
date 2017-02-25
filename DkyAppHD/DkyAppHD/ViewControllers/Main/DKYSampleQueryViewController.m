@@ -15,6 +15,7 @@
 #import "DKYSexEnumModel.h"
 #import "DKYBigClassEnumModel.h"
 #import "DKYSampleQueryParameter.h"
+#import "DKYDimNewListModel.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -32,9 +33,13 @@
 
 @property (nonatomic, strong) dispatch_group_t group;
 
-@property (nonatomic, strong) NSArray *sexEnums;
+@property (nonatomic, strong) DKYDimNewListModel *dimNewListModel;
 
-@property (nonatomic, strong) NSArray *bigClassEnums;
+@property (nonatomic, strong) DKYSampleQueryParameter *sampleQueryParameter;
+
+//@property (nonatomic, strong) NSArray *sexEnums;
+//
+//@property (nonatomic, strong) NSArray *bigClassEnums;
 
 // 测试数据
 @property (nonatomic, assign) NSInteger sampleCount;
@@ -81,12 +86,10 @@
 - (void)getProductPageFromServer{
     WeakSelf(weakSelf);
     dispatch_group_enter(self.group);
-    DKYSampleQueryParameter *p = [[DKYSampleQueryParameter alloc] init];
+    DKYSampleQueryParameter *p = self.sampleQueryParameter;
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
     p.pageSize = @(kPageSize);
-    p.mDimNew11Id = self.filtrateView.selectedBigClas;
-    p.mDimNew13Id = self.filtrateView.selectedSex;
     p.name = self.filtrateView.name;
 
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
@@ -116,12 +119,11 @@
 
 - (void)loadMoreProductPageFromServer{
     WeakSelf(weakSelf);
-    DKYSampleQueryParameter *p = [[DKYSampleQueryParameter alloc] init];
+    DKYSampleQueryParameter *p = self.sampleQueryParameter;
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
-    p.mDimNew11Id = self.filtrateView.selectedBigClas;
-    p.mDimNew13Id = self.filtrateView.selectedSex;
+    p.name = self.filtrateView.name;
     
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -148,6 +150,35 @@
     }];
 }
 
+- (void)getDimNewListFromServer{
+    WeakSelf(weakSelf);
+    dispatch_group_enter(self.group);
+    
+    [[DKYHttpRequestManager sharedInstance] getDimNewListWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        [weakSelf.collectionView.mj_header endRefreshing];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.dimNewListModel = [DKYDimNewListModel mj_objectWithKeyValues:result.data];
+            
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        dispatch_group_leave(weakSelf.group);
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [weakSelf.collectionView.mj_header endRefreshing];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
+    }];
+
+}
+
 - (void)getSexEnumFromServer{
     WeakSelf(weakSelf);
     dispatch_group_enter(self.group);
@@ -157,7 +188,7 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.collectionView.mj_header endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
-            weakSelf.sexEnums = [DKYSexEnumModel mj_objectArrayWithKeyValuesArray:result.data];
+//            weakSelf.sexEnums = [DKYSexEnumModel mj_objectArrayWithKeyValuesArray:result.data];
             
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -186,7 +217,7 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.collectionView.mj_header endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
-            weakSelf.bigClassEnums = [DKYBigClassEnumModel mj_objectArrayWithKeyValuesArray:result.data];
+//            weakSelf.bigClassEnums = [DKYBigClassEnumModel mj_objectArrayWithKeyValuesArray:result.data];
             
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -209,15 +240,18 @@
     WeakSelf(weakSelf);
     [DKYHUDTool show];
     [self getProductPageFromServer];
-    [self getSexEnumFromServer];
-    [self getBigClassEnumFromServer];
+    [self getDimNewListFromServer];
+//    [self getSexEnumFromServer];
+//    [self getBigClassEnumFromServer];
     
     dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
         [DKYHUDTool dismiss];
         [weakSelf.collectionView.mj_header endRefreshing];
         [weakSelf.collectionView reloadData];
-        weakSelf.filtrateView.sexEnums = weakSelf.sexEnums;
-        weakSelf.filtrateView.bigClassEnums = weakSelf.bigClassEnums;
+        weakSelf.filtrateView.dimNewListModel = weakSelf.dimNewListModel;
+        weakSelf.filtrateView.sampleQueryParameter = weakSelf.sampleQueryParameter;
+//        weakSelf.filtrateView.sexEnums = weakSelf.sexEnums;
+//        weakSelf.filtrateView.bigClassEnums = weakSelf.bigClassEnums;
     });
 }
 
@@ -458,6 +492,13 @@
         _samples = [NSMutableArray array];
     }
     return _samples;
+}
+
+- (DKYSampleQueryParameter*)sampleQueryParameter{
+    if(_sampleQueryParameter == nil){
+        _sampleQueryParameter =  [[DKYSampleQueryParameter alloc] init];
+    }
+    return _sampleQueryParameter;
 }
 
 

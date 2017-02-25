@@ -11,6 +11,8 @@
 #import "DKYSexEnumModel.h"
 #import "DKYBigClassEnumModel.h"
 #import "NSString+Utility.h"
+#import "DKYDimNewListModel.h"
+#import "DKYSampleQueryParameter.h"
 
 #define kOptionViewHeight       (120)
 #define kOptionViewMargin       (14)
@@ -52,30 +54,25 @@
         op.selectedOption = @"";
     }
     self.styleNumberTextField.text = nil;
-    self.selectedBigClas = nil;
-    self.selectedSex = nil;
+    self.sampleQueryParameter.mDimNew11Id = nil;
+    self.sampleQueryParameter.mDimNew13Id = nil;
+    self.sampleQueryParameter.mDimNew14Id = nil;
+    self.sampleQueryParameter.mDimNew15Id = nil;
+    self.sampleQueryParameter.mDimNew16Id = nil;
+    self.sampleQueryParameter.mDimNew12Id = nil;
+    self.sampleQueryParameter.mDimNew25Id = nil;
+    self.sampleQueryParameter.mDimNew9Id = nil;
+    self.sampleQueryParameter.mDim13Id = nil;
+//    self.selectedBigClas = nil;
+//    self.selectedSex = nil;
 }
 
 - (void)optionViewTaped:(DKYFiltrateOptionView*)optionView{
     WeakSelf(weakSelf);
     UIViewController *vc = [self viewController];
     
-    NSArray *array = nil;
+    NSArray *array = [self actionSheetArrays:optionView.tag];
     
-    if([optionView.title isEqualToString:@"性别"]){
-        NSMutableArray *marr = [NSMutableArray arrayWithCapacity:self.sexEnums.count];
-        for (DKYSexEnumModel *model in self.sexEnums) {
-            [marr addObject:model.attribname];
-        }
-        array = [marr copy];
-    }else{
-        NSMutableArray *marr = [NSMutableArray arrayWithCapacity:self.bigClassEnums.count];
-        for (DKYBigClassEnumModel *model in self.bigClassEnums) {
-            [marr addObject:model.attribname];
-        }
-        array = [marr copy];
-    }
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
     [vc jxt_showActionSheetWithTitle:nil
@@ -90,17 +87,124 @@
                        if ([action.title isEqualToString:@"cancel"]) {
                            DLog(@"cancel");
                        }else{
-                           if([optionView.title isEqualToString:@"性别"]){
-                               DKYSexEnumModel *model = [weakSelf.sexEnums objectOrNilAtIndex:buttonIndex];
-                               weakSelf.selectedSex = @(model.Id);
-                           }else{
-                               DKYBigClassEnumModel *model = [weakSelf.bigClassEnums objectOrNilAtIndex:buttonIndex];
-                               weakSelf.selectedBigClas = @(model.Id);
-                           }
-                           optionView.selectedOption = [array objectOrNilAtIndex:buttonIndex];
+                           [weakSelf actionSheetSelected:optionView.tag buttonIndex:buttonIndex];
                        }
                    } sourceView:optionView];
 #pragma clang diagnostic pop
+}
+
+#pragma mark - private method
+// index 表示哪一组
+// buttonIndex 组里哪一个被选中
+- (void)actionSheetSelected:(NSInteger)index buttonIndex:(NSInteger)buttonIndex{
+    NSArray *itemModels = nil;
+    DKYDimNewListItemModel *model = nil;
+    switch (index) {
+        case 0:{
+            itemModels = self.dimNewListModel.sexList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDimNew13Id = model ? @(model.Id) : nil;
+        }
+            break;
+        case 1:{
+            itemModels = self.dimNewListModel.bigClassList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDimNew11Id = model ? @(model.Id) : nil;
+        }
+            break;
+        case 2:{
+            itemModels = self.dimNewListModel.sexList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDimNew14Id = model ? @(model.Id) : nil;
+        }
+            break;
+        case 3:{
+            itemModels = self.dimNewListModel.sexList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDimNew15Id = model ? @(model.Id) : nil;
+        }
+            break;
+        case 4:{
+            itemModels = self.dimNewListModel.sexList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDimNew16Id = model ? @(model.Id) : nil;
+        }
+            break;
+        case 5:{
+            itemModels = self.dimNewListModel.sexList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDimNew12Id = model ? @(model.Id) : nil;
+        }
+            break;
+        case 6:{
+            itemModels = self.dimNewListModel.sexList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDimNew25Id = model ? @(model.Id) : nil;
+        }
+            break;
+        case 7:{
+            itemModels = self.dimNewListModel.sexList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDimNew9Id = model ? @(model.Id) : nil;
+        }
+            break;
+        case 8:{
+            itemModels = self.dimNewListModel.sexList;
+            model = [itemModels objectOrNilAtIndex:buttonIndex];
+            self.sampleQueryParameter.mDim13Id = model ? @(model.Id) : nil;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    DKYFiltrateOptionView *optionView = [self.optionViews objectAtIndex:index];
+
+    
+    optionView.selectedOption = [[self actionSheetArrays:index] objectOrNilAtIndex:buttonIndex];
+}
+
+#pragma mark - help method
+- (NSArray*)actionSheetArrays:(NSInteger)index{
+    if(self.dimNewListModel == nil) return nil;
+    
+    NSArray *originArray = nil;
+    switch (index) {
+        case 0:
+            originArray = self.dimNewListModel.sexList;
+            break;
+        case 1:
+            originArray = self.dimNewListModel.bigClassList;
+            break;
+        case 2:
+            originArray = self.dimNewListModel.pzList;
+            break;
+        case 3:
+            originArray = self.dimNewListModel.zzList;
+            break;
+        case 4:
+            originArray = self.dimNewListModel.zxList;
+            break;
+        case 5:
+            originArray = self.dimNewListModel.syList;
+            break;
+        case 6:
+            originArray = self.dimNewListModel.lxList;
+            break;
+        case 7:
+            originArray = self.dimNewListModel.xxList;
+            break;
+        case 8:
+            originArray = self.dimNewListModel.yearList;
+            break;
+        default:
+            break;
+    }
+    NSMutableArray *options = [NSMutableArray arrayWithCapacity:originArray.count];
+    for (DKYDimNewListItemModel *model in originArray) {
+        [options addObject:model.attribname];
+    }
+    return options.copy;
 }
 
 #pragma mark - UI
@@ -280,6 +384,11 @@
     [self.optionViews addObject:opention7];
     [self.optionViews addObject:opention8];
     [self.optionViews addObject:opention9];
+    
+    int i = 0;
+    for (UIView *view in self.optionViews) {
+        view.tag = i++;
+    }
 }
 - (void)setupStyleNumberTextField{
     UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];

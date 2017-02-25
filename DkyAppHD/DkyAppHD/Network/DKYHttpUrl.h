@@ -31,7 +31,7 @@
 #define kGetSexEnumUrl                  @"dimNew/getSexEnum"            // 性别列表
 #define kGetBigClassEnumUrl             @"dimNew/getBigClassEnum"       // 大类
 
-#define kGetDimNewList                  @"dimNew/getDimNewList"         // 获取所有选项的条件
+#define kGetDimNewListUrl               @"dimNew/getDimNewList"         // 获取所有选项的条件
 
 
 

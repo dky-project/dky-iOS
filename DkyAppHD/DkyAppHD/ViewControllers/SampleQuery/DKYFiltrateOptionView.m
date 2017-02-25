@@ -81,7 +81,7 @@
 - (void)setupContentLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor colorWithHex:0x333333];
-    label.font = [UIFont systemFontOfSize:25];
+    label.font = [UIFont systemFontOfSize:22];
     label.textAlignment = NSTextAlignmentCenter;
     
     [self addSubview:label];
