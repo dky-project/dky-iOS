@@ -55,23 +55,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
-    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController.navigationBar lt_reset];
-    self.navigationController.navigationBar.userInteractionEnabled = YES;
-    self.navigationController.navigationBar.alpha = 1.0;
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    self.navigationController.navigationBar.userInteractionEnabled = NO;
-    self.navigationController.navigationBar.alpha = 0;
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+//    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [self.navigationController.navigationBar lt_reset];
+//    self.navigationController.navigationBar.userInteractionEnabled = YES;
+//    self.navigationController.navigationBar.alpha = 1.0;
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    
+//    self.navigationController.navigationBar.userInteractionEnabled = NO;
+//    self.navigationController.navigationBar.alpha = 0;
+//}
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -251,7 +251,7 @@
         // 显示
         [self.filtrateView.superview bringSubviewToFront:self.filtrateView];
         [self.searchView.superview bringSubviewToFront:self.searchView];
-        frame = CGRectMake(26, 48, kScreenWidth - 26 * 2, 290);
+        frame = CGRectMake(26, 92, kScreenWidth - 26 * 2, 290);
         self.filtrateView.alpha = hide ? 0.0 : 1.0;
     }else{
         frame = CGRectMake(self.searchView.centerX, self.searchView.centerY, 0, 0);
@@ -274,9 +274,11 @@
 #pragma mark - UI
 
 - (void)commonInit{
-    self.navigationItem.title = nil;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
+    
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    
+    [self setupCustomTitle:self.title];
     
     self.group = dispatch_group_create();
     
@@ -286,6 +288,7 @@
     [self setupSearchView];
     [self setupFiltrateView];
     
+//    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
 //    for (int i = 1; i < 6; ++i) {
 //        NSString *imageName = [NSString stringWithFormat:@"sampleImage%@",@(i)];
 //        UIImage *image = [UIImage imageNamed:imageName];
@@ -315,7 +318,7 @@
     
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.view.mas_top).with.offset(20);
+        make.top.equalTo(weakSelf.view.mas_top).with.offset(64);
         make.left.equalTo(weakSelf.view.mas_left).with.offset(0);
         make.right.equalTo(weakSelf.view.mas_right).with.offset(0);
         make.bottom.equalTo(weakSelf.view.mas_bottom).with.offset(0);
@@ -335,7 +338,7 @@
     self.searchView.tw_height = 66;
     self.searchView.layer.cornerRadius = self.searchView.tw_height / 2.0;
     self.searchView.tw_x  = 14;
-    self.searchView.tw_y = 34;
+    self.searchView.tw_y = 78;
     
     WeakSelf(weakSelf);
     self.searchView.searchBtnClicked = ^(DKYSearchView *searchView){
@@ -358,7 +361,7 @@
 //        make.height.mas_equalTo(290);
 //    }];
     
-    self.filtrateView.frame = CGRectMake(26, 48, kScreenWidth - 26 * 2, 290);
+    self.filtrateView.frame = CGRectMake(26, 92, kScreenWidth - 26 * 2, 290);
     [self hideFilterView:YES animated:NO];
 }
 
@@ -392,6 +395,24 @@
     self.collectionView.mj_footer = footer;
     
     [self.collectionView.mj_header beginRefreshing];
+}
+
+- (void)setupCustomTitle:(NSString*)title;
+{
+    UILabel *titleLabel = [[UILabel alloc]init];
+    titleLabel.font = [UIFont systemFontOfSize:15];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName : titleLabel.font};
+    CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+    
+    titleLabel.frame = [title boundingRectWithSize:size
+                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                        attributes:attributes
+                                           context:nil];;
+    titleLabel.text = title;
+    self.navigationItem.titleView = titleLabel;
 }
 
 #pragma mark - collectionView delegate & datasource

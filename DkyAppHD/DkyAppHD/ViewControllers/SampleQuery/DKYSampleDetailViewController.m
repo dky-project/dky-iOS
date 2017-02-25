@@ -49,11 +49,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+//}
 
 #pragma mark - 网络请求
 

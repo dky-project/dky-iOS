@@ -48,21 +48,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
-    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+//    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+//    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [self.navigationController.navigationBar lt_reset];
+//}
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController.navigationBar lt_reset];
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-}
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    
+//    [self.navigationController.navigationBar tw_setStatusBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+//}
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -236,7 +236,8 @@
 - (void)commonInit{
     self.navigationItem.title = nil;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    [self setupCustomTitle:self.title];
 //    [self setupiCarousel];
 //    [self setupTableView];
     [self setupCollectionView];
@@ -307,7 +308,7 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.view);
         make.right.mas_equalTo(weakSelf.view);
-        make.top.mas_equalTo(weakSelf.view).with.offset(20);
+        make.top.mas_equalTo(weakSelf.view).with.offset(64);
         make.bottom.mas_equalTo(weakSelf.view);
     }];
     
@@ -329,6 +330,24 @@
     self.collectionView.mj_footer = footer;
     
     [self.collectionView.mj_header beginRefreshing];
+}
+
+- (void)setupCustomTitle:(NSString*)title;
+{
+    UILabel *titleLabel = [[UILabel alloc]init];
+    titleLabel.font = [UIFont systemFontOfSize:15];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName : titleLabel.font};
+    CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+    
+    titleLabel.frame = [title boundingRectWithSize:size
+                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                        attributes:attributes
+                                           context:nil];;
+    titleLabel.text = title;
+    self.navigationItem.titleView = titleLabel;
 }
 
 #pragma mark iCarousel taps
