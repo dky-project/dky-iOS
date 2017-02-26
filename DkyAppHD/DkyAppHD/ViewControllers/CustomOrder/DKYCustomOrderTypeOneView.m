@@ -13,11 +13,7 @@
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
-@property (nonatomic, weak) UITextField *textField;
-
 @property (nonatomic, weak) UIView *line;
-
-@property (nonatomic, weak) UITextField *textField2;
 
 @property (nonatomic, weak) UILabel *subTextLabel;
 
@@ -50,6 +46,14 @@
                                      NSBaselineOffsetAttributeName : @-1};
         
         self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:itemModel.placeholder attributes:attributes];
+    }
+    
+    if(itemModel.placeholder2.length > 0){
+        NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor colorWithHex:0x999999],
+                                     NSFontAttributeName : [UIFont systemFontOfSize:12],
+                                     NSBaselineOffsetAttributeName : @-1};
+        
+        self.textField2.attributedPlaceholder = [[NSAttributedString alloc] initWithString:itemModel.placeholder2 attributes:attributes];
     }
     
     if(itemModel.title.length >0 && [itemModel.title hasPrefix:@"*"]){

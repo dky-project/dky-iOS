@@ -20,6 +20,8 @@
 
 @property (nonatomic, copy) NSString *placeholder;
 
+@property (nonatomic, copy) NSString *placeholder2;
+
 @property (nonatomic, assign) UIKeyboardType keyboardType;
 
 @property (nonatomic, assign) CGFloat textFieldLeftOffset;

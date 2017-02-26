@@ -606,7 +606,7 @@ static const CGFloat basicItemHeight = 30;
     [self.flowerTypeItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(180);
+        make.height.mas_equalTo(230);
         make.top.mas_equalTo(weakSelf.lingView.mas_bottom).with.offset(vpadding);
     }];
     
