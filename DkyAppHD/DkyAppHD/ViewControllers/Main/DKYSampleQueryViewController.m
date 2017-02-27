@@ -285,7 +285,7 @@
         // 显示
         [self.filtrateView.superview bringSubviewToFront:self.filtrateView];
         [self.searchView.superview bringSubviewToFront:self.searchView];
-        frame = CGRectMake(26, 92, kScreenWidth - 26 * 2, 390);
+        frame = CGRectMake(26, 28, kScreenWidth - 26 * 2, 390);
         self.filtrateView.alpha = hide ? 0.0 : 1.0;
     }else{
         frame = CGRectMake(self.searchView.centerX, self.searchView.centerY, 0, 0);
@@ -310,7 +310,8 @@
 - (void)commonInit{
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
     [self setupCustomTitle:self.title];
     
@@ -352,7 +353,7 @@
     
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.view.mas_top).with.offset(64);
+        make.top.equalTo(weakSelf.view.mas_top).with.offset(0);
         make.left.equalTo(weakSelf.view.mas_left).with.offset(0);
         make.right.equalTo(weakSelf.view.mas_right).with.offset(0);
         make.bottom.equalTo(weakSelf.view.mas_bottom).with.offset(0);
@@ -372,7 +373,7 @@
     self.searchView.tw_height = 66;
     self.searchView.layer.cornerRadius = self.searchView.tw_height / 2.0;
     self.searchView.tw_x  = 14;
-    self.searchView.tw_y = 78;
+    self.searchView.tw_y = 14;
     
     WeakSelf(weakSelf);
     self.searchView.searchBtnClicked = ^(DKYSearchView *searchView){
@@ -395,7 +396,7 @@
 //        make.height.mas_equalTo(290);
 //    }];
     
-    self.filtrateView.frame = CGRectMake(26, 92, kScreenWidth - 26 * 2, 390);
+    self.filtrateView.frame = CGRectMake(26, 28, kScreenWidth - 26 * 2, 390);
     [self hideFilterView:YES animated:NO];
 }
 

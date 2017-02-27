@@ -231,7 +231,8 @@
     self.navigationItem.title = nil;
     
     [self setupCustomTitle:@"订单查询"];
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     
     [self setupHeaderView];
     [self setupTableView];
@@ -248,7 +249,7 @@
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.view);
         make.right.mas_equalTo(weakSelf.view);
-        make.top.mas_equalTo(weakSelf.view).with.offset(64);
+        make.top.mas_equalTo(weakSelf.view).with.offset(0);
         make.height.mas_equalTo(300);
     }];
     

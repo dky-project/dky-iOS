@@ -105,6 +105,7 @@
 - (void)commonInit{
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setupCustomTitle:@"定制下单"];
+    
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     
     [self setupTableView];
