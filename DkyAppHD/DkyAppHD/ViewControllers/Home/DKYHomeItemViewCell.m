@@ -52,6 +52,7 @@
     self.readMoreBtn.alpha = 0;
     [self.contentLabel sizeToFit];
     self.contentLabel.adjustsFontSizeToFitWidth = YES;
+    self.titleLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 @end
