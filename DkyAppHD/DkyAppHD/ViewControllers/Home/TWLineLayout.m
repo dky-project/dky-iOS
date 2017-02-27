@@ -136,7 +136,7 @@ static const CGFloat ACTIVE_DISTANCE = 0.0f; //Distance of given cell from cente
         CGFloat delta = ABS(attrs.center.y - centerY);
         
         // 根据间距值 计算 cell的缩放比例
-        CGFloat scale = 1 - delta * 0.2 / self.collectionView.frame.size.height;
+        CGFloat scale = 1 - delta * 0.5 / self.collectionView.frame.size.height;
         
         // 设置缩放比例
         attrs.transform = CGAffineTransformMakeScale(scale, scale);
