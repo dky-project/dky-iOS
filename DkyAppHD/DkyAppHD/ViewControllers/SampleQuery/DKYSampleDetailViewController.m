@@ -14,6 +14,7 @@
 #import "DKYSampleQueryParameter.h"
 #import "DKYQueryPriceModel.h"
 #import "DKYSampleValueInfoModel.h"
+#import "DKYSampleDetailPriceViewCell.h"
 
 @interface DKYSampleDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -212,6 +213,7 @@
     NSString *identify = NSStringFromClass([DKYSampleDetailTypeViewCell class]);
     [self.tableView registerNib:[UINib nibWithNibName:identify bundle:nil] forCellReuseIdentifier:identify];
     [self.tableView registerClass:[DQTableViewCell class] forCellReuseIdentifier:NSStringFromClass([DQTableViewCell class])];
+    [self.tableView registerClass:[DKYSampleDetailPriceViewCell class] forCellReuseIdentifier:NSStringFromClass([DKYSampleDetailPriceViewCell class])];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
 //    self.tableView.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
@@ -241,6 +243,12 @@
             identifier = NSStringFromClass([DKYSampleDetailTypeViewCell class]);
             break;
         case 1:
+            if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
+                identifier = NSStringFromClass([DKYSampleDetailPriceViewCell class]);
+            }else{
+                identifier = NSStringFromClass([DQTableViewCell class]);
+            }
+            break;
         case 2:
             identifier = NSStringFromClass([DQTableViewCell class]);
             break;
@@ -253,14 +261,19 @@
         if(indexPath.row == 0){
             DKYSampleDetailTypeViewCell *newCell = (DKYSampleDetailTypeViewCell*)cell;
             newCell.model = weakSelf.sampleProductInfo;
-        }else{
+        }else if (indexPath.row == 2){
             DQTableViewCell *newcell = (DQTableViewCell*)cell;
             newcell.fd_enforceFrameLayout = YES;
             
-            if(indexPath.row == 1){
-                newcell.DataArr = [self.priceArray mutableCopy];
+            newcell.DataArr = [self.sampleValueArray mutableCopy];
+        }else{
+            if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
+                DKYSampleDetailPriceViewCell *newcell = (DKYSampleDetailPriceViewCell*)cell;
+                newcell.sampleProductInfo = self.sampleProductInfo;
             }else{
-                newcell.DataArr = [self.sampleValueArray mutableCopy];
+                DQTableViewCell *newcell = (DQTableViewCell*)cell;
+                newcell.fd_enforceFrameLayout = YES;
+                newcell.DataArr = [self.priceArray mutableCopy];
             }
         }
     }];
@@ -278,10 +291,16 @@
         }
             break;
         case 1:{
-            DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
-            
-            cell.DataArr = [self.priceArray mutableCopy];
-            return cell;
+            if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
+                DKYSampleDetailPriceViewCell *cell = [DKYSampleDetailPriceViewCell sampleDetailPriceViewCellWithTableView:tableView];
+                cell.sampleProductInfo = self.sampleProductInfo;
+                return cell;
+            }else{
+                DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+    
+                cell.DataArr = [self.priceArray mutableCopy];
+                return cell;
+            }
         }
             break;
         case 2:{

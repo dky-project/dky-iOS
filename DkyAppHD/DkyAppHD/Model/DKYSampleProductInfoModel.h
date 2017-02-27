@@ -64,4 +64,8 @@
  */
 @property (nonatomic, copy) NSString *defaultXcValue;
 
+@property (nonatomic, copy) NSString *mptbelongtype;
+
+@property (nonatomic, copy) NSString *pdtPrice;
+
 @end

@@ -172,6 +172,7 @@
 		EBABE8DB1E150CA600B4C568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABE8D71E150CA600B4C568 /* main.m */; };
 		EBABE8DC1E150CA600B4C568 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABE8D91E150CA600B4C568 /* ViewController.m */; };
 		EBABE8E71E15120500B4C568 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8E61E15120500B4C568 /* Localization.strings */; };
+		EBB3BAF91E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3BAF81E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m */; };
 		EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480AE1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m */; };
 		EBB480B21E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480B11E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m */; };
 		EBB480B51E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480B41E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m */; };
@@ -577,6 +578,8 @@
 		EBABE8D81E150CA600B4C568 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EBABE8D91E150CA600B4C568 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EBABE8E61E15120500B4C568 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localization.strings; sourceTree = "<group>"; };
+		EBB3BAF71E63F2240097D1CE /* DKYSampleDetailPriceViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailPriceViewCell.h; sourceTree = "<group>"; };
+		EBB3BAF81E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailPriceViewCell.m; sourceTree = "<group>"; };
 		EBB480AD1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderTangzhuItemView.h; sourceTree = "<group>"; };
 		EBB480AE1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderTangzhuItemView.m; sourceTree = "<group>"; };
 		EBB480B01E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderKoudaiItemView.h; sourceTree = "<group>"; };
@@ -873,6 +876,8 @@
 				EBC3007B1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.h */,
 				EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */,
 				EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */,
+				EBB3BAF71E63F2240097D1CE /* DKYSampleDetailPriceViewCell.h */,
+				EBB3BAF81E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2095,6 +2100,7 @@
 				EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EBB480B81E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m in Sources */,
+				EBB3BAF91E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m in Sources */,
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
 				26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */,
 				EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */,
