@@ -196,7 +196,7 @@
         [xw addObject:model.xwValue];
     }
     
-    self.sampleValueArray = @[[yc copy],[xc copy],[jk copy],[xw copy]];
+    self.sampleValueArray = @[[xw copy],[yc copy],[xc copy],[jk copy]];
 }
 
 #pragma mark - UI
