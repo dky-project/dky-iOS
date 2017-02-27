@@ -15,6 +15,7 @@
 #import "DKYHomeItemViewCell.h"
 #import "DKYHomeItemTwoViewCell.h"
 #import "DKYHomeArticleDetailModel.h"
+#import "MDHTMLLabel.h"
 
 @interface DKYHomeViewController ()<iCarouselDelegate,iCarouselDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,TWLineLayoutDelegate>
 

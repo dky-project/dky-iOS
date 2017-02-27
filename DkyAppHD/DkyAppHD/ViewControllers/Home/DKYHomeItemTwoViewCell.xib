@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,7 +38,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCESSTORIES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyc-4K-RL5">
-                                        <rect key="frame" x="137" y="70" width="110" height="15"/>
+                                        <rect key="frame" x="137" y="50" width="110" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="5CM-d4-Uyn"/>
                                         </constraints>
@@ -47,14 +47,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GtD-ay-nsv" userLabel="line">
-                                        <rect key="frame" x="137" y="115" width="110" height="1"/>
+                                        <rect key="frame" x="137" y="90" width="110" height="1"/>
                                         <color key="backgroundColor" red="0.69019607839999997" green="0.6705882353" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="A81-6c-XTW"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nor again is there any who loves or pursures or designs." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omL-D2-VZN" customClass="TTTAttributedLabel">
-                                        <rect key="frame" x="75" y="146" width="234.5" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nor again is there any who loves or pursures or designs." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omL-D2-VZN" customClass="MDHTMLLabel">
+                                        <rect key="frame" x="20" y="116" width="344" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -63,15 +63,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="eTy-k6-OwD" firstAttribute="leading" secondItem="Xig-8N-Rzi" secondAttribute="leading" id="85y-aN-e97"/>
-                                    <constraint firstItem="GtD-ay-nsv" firstAttribute="top" secondItem="zyc-4K-RL5" secondAttribute="bottom" constant="30" id="Db6-TK-yzs"/>
+                                    <constraint firstItem="GtD-ay-nsv" firstAttribute="top" secondItem="zyc-4K-RL5" secondAttribute="bottom" constant="25" id="Db6-TK-yzs"/>
                                     <constraint firstItem="zyc-4K-RL5" firstAttribute="centerX" secondItem="Xig-8N-Rzi" secondAttribute="centerX" id="Rku-Q4-gnE"/>
                                     <constraint firstAttribute="trailing" secondItem="eTy-k6-OwD" secondAttribute="trailing" id="Ugz-4m-Om3"/>
                                     <constraint firstItem="GtD-ay-nsv" firstAttribute="centerX" secondItem="Xig-8N-Rzi" secondAttribute="centerX" id="WPy-zC-g0t"/>
-                                    <constraint firstItem="omL-D2-VZN" firstAttribute="top" secondItem="GtD-ay-nsv" secondAttribute="bottom" constant="30" id="aJh-6a-SbL"/>
-                                    <constraint firstItem="omL-D2-VZN" firstAttribute="leading" secondItem="Xig-8N-Rzi" secondAttribute="leading" constant="75" id="crZ-yl-z9v"/>
-                                    <constraint firstAttribute="trailing" secondItem="omL-D2-VZN" secondAttribute="trailing" constant="75" id="egO-6G-FY5"/>
+                                    <constraint firstItem="omL-D2-VZN" firstAttribute="top" secondItem="GtD-ay-nsv" secondAttribute="bottom" constant="25" id="aJh-6a-SbL"/>
+                                    <constraint firstItem="omL-D2-VZN" firstAttribute="leading" secondItem="Xig-8N-Rzi" secondAttribute="leading" constant="20" id="crZ-yl-z9v"/>
+                                    <constraint firstAttribute="trailing" secondItem="omL-D2-VZN" secondAttribute="trailing" constant="20" id="egO-6G-FY5"/>
                                     <constraint firstAttribute="bottom" secondItem="eTy-k6-OwD" secondAttribute="bottom" id="ehM-EB-BZY"/>
-                                    <constraint firstItem="zyc-4K-RL5" firstAttribute="top" secondItem="Xig-8N-Rzi" secondAttribute="top" constant="70" id="oBJ-a9-NHf"/>
+                                    <constraint firstItem="zyc-4K-RL5" firstAttribute="top" secondItem="Xig-8N-Rzi" secondAttribute="top" constant="50" id="oBJ-a9-NHf"/>
                                     <constraint firstItem="GtD-ay-nsv" firstAttribute="width" secondItem="zyc-4K-RL5" secondAttribute="width" id="y09-xa-c9w"/>
                                 </constraints>
                             </view>

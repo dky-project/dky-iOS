@@ -9,13 +9,14 @@
 #import "DKYHomeItemViewCell.h"
 #import "DKYHomeArticleModel.h"
 #import "TWLineLayout.h"
+#import "MDHTMLLabel.h"
 
 @interface DKYHomeItemViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *readMoreBtn;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *contentLabel;
+@property (weak, nonatomic) IBOutlet MDHTMLLabel *contentLabel;
 
 @end
 
@@ -34,7 +35,7 @@
     
     [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
     self.titleLabel.text = itemModel.title;
-    self.contentLabel.text = itemModel.decription;
+    self.contentLabel.htmlText = itemModel.decription;
 }
 
 - (void)hideReadMoreBtn:(BOOL)hide{
@@ -49,6 +50,8 @@
     
     [self.readMoreBtn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0xE3DFD1]] forState:UIControlStateNormal];
     self.readMoreBtn.alpha = 0;
+    [self.contentLabel sizeToFit];
+    self.contentLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 @end
