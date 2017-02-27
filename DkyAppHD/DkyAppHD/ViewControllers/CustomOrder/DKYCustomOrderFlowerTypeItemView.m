@@ -283,7 +283,7 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf.kuzi);
         
-        make.left.mas_equalTo(weakSelf.tiaohua.mas_right).with.offset(20);
+        make.left.mas_equalTo(weakSelf.tiaohua.mas_right).with.offset(22.5);
         make.width.mas_equalTo(100);
     }];
     self.shuangsuo = btn;
