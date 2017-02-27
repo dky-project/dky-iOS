@@ -154,8 +154,8 @@
 #pragma clang diagnostic pop
     
     
-    self.userNameTextField.text = @"nea@burgeon.com.cn";
-    self.passwordTextField.text = @"bos20";
+//    self.userNameTextField.text = @"nea@burgeon.com.cn";
+//    self.passwordTextField.text = @"bos20";
 }
 
 - (void)setupTextField{

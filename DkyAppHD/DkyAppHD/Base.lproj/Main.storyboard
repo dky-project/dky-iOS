@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1KL-8A-FgS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1KL-8A-FgS">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -166,9 +166,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserName@example.com" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oxk-qX-rjw">
-                                <rect key="frame" x="253" y="507" width="262" height="50"/>
+                                <rect key="frame" x="244" y="507" width="280" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="262" id="XTo-Z0-zCo"/>
+                                    <constraint firstAttribute="width" constant="280" id="XTo-Z0-zCo"/>
                                     <constraint firstAttribute="height" constant="50" id="aiC-Wt-ieW"/>
                                 </constraints>
                                 <nil key="textColor"/>
@@ -176,19 +176,19 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Mh-uQ-dRz">
-                                <rect key="frame" x="253" y="587" width="262" height="50"/>
+                                <rect key="frame" x="244" y="587" width="280" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="oxs-kx-qap"/>
-                                    <constraint firstAttribute="width" constant="262" id="xG9-7C-Jgy"/>
+                                    <constraint firstAttribute="width" constant="280" id="xG9-7C-Jgy"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iyt-Lz-qiL">
-                                <rect key="frame" x="253" y="667" width="262" height="50"/>
+                                <rect key="frame" x="244" y="667" width="280" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="262" id="1eb-it-FHN"/>
+                                    <constraint firstAttribute="width" constant="280" id="1eb-it-FHN"/>
                                     <constraint firstAttribute="height" constant="50" id="ctc-hU-K4y"/>
                                 </constraints>
                                 <state key="normal" title="LOG IN"/>
