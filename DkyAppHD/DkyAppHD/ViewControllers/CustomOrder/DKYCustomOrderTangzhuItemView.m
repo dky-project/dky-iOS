@@ -81,6 +81,10 @@
     
     if(!madeInfoByProductName) return;
     
+    for (UIButton *btn in self.options) {
+        btn.selected = NO;
+    }
+    
     for (NSString *selected in madeInfoByProductName.productMadeInfoView.tzShow) {
         for (UIButton *btn in self.options) {
             if([[btn currentTitle] isEqualToString:selected]){
