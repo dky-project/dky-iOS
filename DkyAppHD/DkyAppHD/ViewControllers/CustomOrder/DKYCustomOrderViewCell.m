@@ -180,6 +180,7 @@ static const CGFloat basicItemHeight = 30;
     self.xiuBianView.madeInfoByProductName = self.madeInfoByProductName;
     self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
     self.flowerTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.tangzhuItemView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 #pragma mark - 网络请你去
@@ -627,7 +628,7 @@ static const CGFloat basicItemHeight = 30;
     [self.tangzhuItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(130);
         make.top.mas_equalTo(weakSelf.flowerTypeItemView.mas_bottom).with.offset(vpadding);
     }];
     

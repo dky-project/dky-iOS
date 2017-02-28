@@ -266,4 +266,9 @@
  */
 @property (nonatomic, copy) NSString *jzValue;
 
+/**
+ * 烫珠（勾选框列表）
+ */
+@property (nonatomic, strong) NSArray *tzShow;
+
 @end
