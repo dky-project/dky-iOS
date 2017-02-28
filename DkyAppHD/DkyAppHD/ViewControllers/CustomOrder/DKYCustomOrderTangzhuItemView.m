@@ -7,12 +7,15 @@
 //
 
 #import "DKYCustomOrderTangzhuItemView.h"
+#import "DKYCustomOrderTypeOneView.h"
 
 @interface DKYCustomOrderTangzhuItemView ()
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
 @property (nonatomic, weak) UIButton *tangzhu;
+@property (nonatomic, weak) DKYCustomOrderTypeOneView *oneView;
+
 @property (nonatomic, weak) UIButton *xiuhua;
 @property (nonatomic, weak) UIButton *chuanzhu;
 @property (nonatomic, weak) UIButton *goubian;
@@ -70,6 +73,24 @@
 #pragma mark - action method
 - (void)checkBtnClicked:(UIButton*)sender{
     sender.selected = !sender.selected;
+    
+    switch (sender.tag) {
+        case 1:
+            self.oneView.textField.enabled = sender.selected;
+            self.oneView.textField2.enabled = sender.selected;
+            break;
+//        case 2:
+//            self.twoView.textField.enabled = sender.selected;
+//            self.twoView.textField2.enabled = sender.selected;
+//            break;
+//        case 3:
+//            self.threeView.textField.enabled = sender.selected;
+//            self.threeView.textField2.enabled = sender.selected;
+//            break;
+        default:
+            break;
+    }
+
 }
 
 #pragma mark - mark
@@ -109,59 +130,86 @@
         make.width.mas_equalTo(100);
     }];
     self.tangzhu = btn;
+    btn.tag = 1;
     [btn setTitle:@"烫珠" forState:UIControlStateNormal];
+    [self setupOneView];
     
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
-    [self addSubview:btn];
-    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(weakSelf.titleLabel);
-        make.top.mas_equalTo(weakSelf);
-        
-        make.left.mas_equalTo(weakSelf.tangzhu.mas_right).with.offset(22.5);
-        make.width.mas_equalTo(100);
-    }];
-    self.xiuhua = btn;
-    [btn setTitle:@"绣花" forState:UIControlStateNormal];
+//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+//    [self addSubview:btn];
+//    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(weakSelf.titleLabel);
+//        make.top.mas_equalTo(weakSelf);
+//        
+//        make.left.mas_equalTo(weakSelf.tangzhu.mas_right).with.offset(22.5);
+//        make.width.mas_equalTo(100);
+//    }];
+//    self.xiuhua = btn;
+//    [btn setTitle:@"绣花" forState:UIControlStateNormal];
+//    
+//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+//    [self addSubview:btn];
+//    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(weakSelf.titleLabel);
+//        make.top.mas_equalTo(weakSelf);
+//        
+//        make.left.mas_equalTo(weakSelf.xiuhua.mas_right).with.offset(22.5);
+//        make.width.mas_equalTo(100);
+//    }];
+//    self.chuanzhu = btn;
+//    [btn setTitle:@"串珠" forState:UIControlStateNormal];
+//    
+//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+//    [self addSubview:btn];
+//    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(weakSelf.titleLabel);
+//        make.top.mas_equalTo(weakSelf);
+//        
+//        make.left.mas_equalTo(weakSelf.chuanzhu.mas_right).with.offset(22.5);
+//        make.width.mas_equalTo(100);
+//    }];
+//    self.goubian = btn;
+//    [btn setTitle:@"勾边" forState:UIControlStateNormal];
+//    
+//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+//    [self addSubview:btn];
+//    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(weakSelf.titleLabel);
+//        make.top.mas_equalTo(weakSelf);
+//        
+//        make.left.mas_equalTo(weakSelf.goubian.mas_right).with.offset(22.5);
+//        make.width.mas_equalTo(100);
+//    }];
+//    self.gongzhen = btn;
+//    [btn setTitle:@"工针" forState:UIControlStateNormal];
+}
+
+- (void)setupOneView{
+    DKYCustomOrderTypeOneView *view = [[DKYCustomOrderTypeOneView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    self.oneView = view;
     
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
-    [self addSubview:btn];
-    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+    WeakSelf(weakSelf);
+    [self.oneView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.tangzhu.mas_right).with.offset(DKYCustomOrderItemButtnWMargin);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.top.mas_equalTo(weakSelf);
-        
-        make.left.mas_equalTo(weakSelf.xiuhua.mas_right).with.offset(22.5);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(DKYCustomOrderItemButtnWdith * 2 + DKYCustomOrderItemButtnWMargin);
+        make.top.mas_equalTo(weakSelf.titleLabel);
     }];
-    self.chuanzhu = btn;
-    [btn setTitle:@"串珠" forState:UIControlStateNormal];
     
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
-    [self addSubview:btn];
-    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(weakSelf.titleLabel);
-        make.top.mas_equalTo(weakSelf);
-        
-        make.left.mas_equalTo(weakSelf.chuanzhu.mas_right).with.offset(22.5);
-        make.width.mas_equalTo(100);
-    }];
-    self.goubian = btn;
-    [btn setTitle:@"勾边" forState:UIControlStateNormal];
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"";
+    itemModel.subText = @"#";
+    itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.placeholder = @"选中可编辑";
+    itemModel.placeholder2 = @"选中可编辑";
+    self.oneView.itemModel = itemModel;
     
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
-    [self addSubview:btn];
-    [btn addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(weakSelf.titleLabel);
-        make.top.mas_equalTo(weakSelf);
-        
-        make.left.mas_equalTo(weakSelf.goubian.mas_right).with.offset(22.5);
-        make.width.mas_equalTo(100);
-    }];
-    self.gongzhen = btn;
-    [btn setTitle:@"工针" forState:UIControlStateNormal];
+    self.oneView.textField.enabled = NO;
+    self.oneView.textField2.enabled = NO;
 }
 
 @end

@@ -78,10 +78,10 @@
     
     if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
         self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
-        self.jkView.textField.enabled = NO;
+        self.jkView.textField.enabled = YES;
     }else{
         self.jkView.textField.text = nil;
-        self.jkView.textField.enabled = YES;
+        self.jkView.textField.enabled = NO;
     }
 }
 

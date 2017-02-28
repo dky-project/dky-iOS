@@ -179,6 +179,7 @@ static const CGFloat basicItemHeight = 30;
 - (void)updateModelViews{
     self.xiuBianView.madeInfoByProductName = self.madeInfoByProductName;
     self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
+    self.flowerTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 #pragma mark - 网络请你去
@@ -186,7 +187,7 @@ static const CGFloat basicItemHeight = 30;
     [DKYHUDTool show];
     DKYMadeInfoByProductNameParameter *p = [[DKYMadeInfoByProductNameParameter alloc] init];
     p.productName = self.productName;
-    p.productName = @"2244";
+//    p.productName = @"2244";
     
     WeakSelf(weakSelf);
     [[DKYHttpRequestManager sharedInstance] getMadeInfoByProductNameWithParameter:p Success:^(NSInteger statusCode, id data) {

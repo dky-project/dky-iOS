@@ -8,6 +8,7 @@
 
 #import "DKYCustomOrderFlowerTypeItemView.h"
 #import "DKYCustomOrderTypeOneView.h"
+#import "DKYMadeInfoByProductNameModel.h"
 
 @interface DKYCustomOrderFlowerTypeItemView ()
 
@@ -41,6 +42,8 @@
 @property (nonatomic, weak) UIButton *tianzhu;
 @property (nonatomic, weak) UIButton *xuxiantihua;
 @property (nonatomic, weak) UIButton *jubutihua;
+
+@property (nonatomic, strong) NSMutableArray *options;
 
 @end
 
@@ -88,6 +91,20 @@
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(textFrame.size.width + offset);
     }];
+}
+
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(!madeInfoByProductName) return;
+    
+    for (NSString *selected in madeInfoByProductName.productMadeInfoView.hxShow) {
+        for (UIButton *btn in self.options) {
+            if([[btn currentTitle] isEqualToString:selected]){
+                [self checkBtnClicked:btn];
+            }
+        }
+    }
 }
 
 #pragma mark - action method
@@ -392,6 +409,21 @@
     }];
     self.jubutihua = btn;
     [btn setTitle:@"局部提花" forState:UIControlStateNormal];
+    
+    [self.options addObject:self.tiaohua];
+    [self.options addObject:self.fourchoufour];
+    [self.options addObject:self.fivechoufive];
+    [self.options addObject:self.jiaohua];
+    [self.options addObject:self.sixchousix];
+    [self.options addObject:self.eightchoueight];
+    [self.options addObject:self.choutiao];
+    [self.options addObject:self.tihua];
+    [self.options addObject:self.pingban];
+    [self.options addObject:self.kuzi];
+    [self.options addObject:self.shuangsuo];
+    [self.options addObject:self.jiase];
+    [self.options addObject:self.fanzhen];
+    [self.options addObject:self.yizhen];
 }
 
 - (void)setupOneView{
@@ -467,6 +499,14 @@
     
     self.threeView.textField.enabled = NO;
     self.threeView.textField2.enabled = NO;
+}
+
+#pragma mark - get & set method
+- (NSMutableArray*)options{
+    if(_options == nil){
+        _options = [NSMutableArray array];
+    }
+    return _options;
 }
 
 @end

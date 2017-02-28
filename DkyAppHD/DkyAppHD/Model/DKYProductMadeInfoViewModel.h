@@ -148,7 +148,7 @@
 /**
  * 花型
  */
-@property (nonatomic, copy) NSString * hxShow;
+@property (nonatomic, strong) NSArray * hxShow;
 /**
  * 肩宽cm
  */
