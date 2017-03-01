@@ -139,7 +139,7 @@ static const CGFloat ACTIVE_DISTANCE = 0.0f; //Distance of given cell from cente
         CGFloat scale = 1 - delta * 0.5 / self.collectionView.frame.size.height;
         
         // 设置缩放比例
-        attrs.transform = CGAffineTransformMakeScale(scale, scale);
+        attrs.transform = CGAffineTransformMakeScale(1.0, scale);
         
         NSIndexPath *indexPath = attrs.indexPath;
         

@@ -159,7 +159,8 @@
     UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
     self.normalImage = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
     
-    self.selectedImage = [UIImage imageNamed:@"select_icon"];
+//    self.selectedImage = [UIImage imageNamed:@"select_icon"];
+    self.selectedImage = [UIImage imageWithColor:[UIColor colorWithHex:0x3c3562] size:CGSizeMake(11, 11)];
     
     imageView.image = self.normalImage;
     imageView.contentMode = UIViewContentModeCenter;

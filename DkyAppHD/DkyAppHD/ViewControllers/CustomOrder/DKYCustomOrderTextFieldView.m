@@ -86,7 +86,7 @@
     self.textField.leftView = leftView;
     
     if(self.textField.rightViewMode == UITextFieldViewModeAlways){
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 12, 24)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 9)];
         imageView.contentMode = UIViewContentModeLeft;
         imageView.image = [UIImage imageNamed:@"lock"];
         self.textField.rightView = imageView;
