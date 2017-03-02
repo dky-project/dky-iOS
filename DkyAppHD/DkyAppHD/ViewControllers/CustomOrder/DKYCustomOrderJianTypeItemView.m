@@ -76,13 +76,17 @@
     
     if(madeInfoByProductName == nil)  return;
     
-    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
-        self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
-        self.jkView.textField.enabled = YES;
-    }else{
-        self.jkView.textField.text = nil;
-        self.jkView.textField.enabled = NO;
-    }
+    self.jkView.textField.enabled = ((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame);
+    self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
+    
+    
+//    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
+//        self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
+//        self.jkView.textField.enabled = YES;
+//    }else{
+//        self.jkView.textField.text = nil;
+//        self.jkView.textField.enabled = NO;
+//    }
 }
 
 #pragma mark - action method

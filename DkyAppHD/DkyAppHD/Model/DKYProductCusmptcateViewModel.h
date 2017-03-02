@@ -12,6 +12,10 @@
 
 @property (nonatomic, copy) NSString * gjxfShow;
 @property (nonatomic, copy) NSString * isHxAffix;
+/**
+ * 是否配置肩宽
+ * 值为“Y”时，肩宽：[文本框]cm不可编辑
+ */
 @property (nonatomic, copy) NSString * isJkAffix;
 @property (nonatomic, copy) NSString * isXcAffix;
 @property (nonatomic, copy) NSString * jxShow;
