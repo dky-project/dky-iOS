@@ -66,6 +66,14 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(!madeInfoByProductName) return;
+    
+    self.lengthView.textField.enabled = [madeInfoByProductName.productMadeInfoView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame;
+}
+
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];

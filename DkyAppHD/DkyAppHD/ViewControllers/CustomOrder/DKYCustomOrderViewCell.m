@@ -184,6 +184,7 @@ static const CGFloat basicItemHeight = 30;
     self.koudaiItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.attachmentItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.specialCraftItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.sizeView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 #pragma mark - 网络请你去
