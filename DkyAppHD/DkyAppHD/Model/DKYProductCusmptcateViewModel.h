@@ -14,7 +14,6 @@
 @property (nonatomic, copy) NSString * isHxAffix;
 @property (nonatomic, copy) NSString * isJkAffix;
 @property (nonatomic, copy) NSString * isXcAffix;
-@property (nonatomic, copy) NSString * isYcAffix;
 @property (nonatomic, copy) NSString * jxShow;
 @property (nonatomic, copy) NSString * lbShow;
 @property (nonatomic, copy) NSString * lxShow;
@@ -23,5 +22,11 @@
 @property (nonatomic, copy) NSString * xkShow;
 @property (nonatomic, copy) NSString * xwArray;
 @property (nonatomic, copy) NSString * xxShow;
+
+/**
+ * 是否配置衣长
+ * 值为“Y”时，请选择收腰下拉框下面的长[文本框]不可编辑
+ */
+@property (nonatomic, strong) NSString *isYcAffix;
 
 @end

@@ -286,10 +286,4 @@
  */
 @property (nonatomic, copy) NSArray *tsgyShow;
 
-/**
- * 是否配置衣长
- * 值为“Y”时，请选择收腰下拉框下面的长[文本框]不可编辑
- */
-@property (nonatomic, strong) NSString *isYcAffix;
-
 @end

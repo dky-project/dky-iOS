@@ -10,6 +10,7 @@
 #import "DKYDahuoOrderColorModel.h"
 #import "DKYDahuoOrderSizeModel.h"
 #import "DKYProductMadeInfoViewModel.h"
+#import "DKYProductCusmptcateViewModel.h"
 
 @interface DKYMadeInfoByProductNameModel : NSObject
 
@@ -20,7 +21,7 @@
 
 @property (nonatomic, strong) DKYProductMadeInfoViewModel *productMadeInfoView;
 
-
+@property (nonatomic, strong) DKYProductCusmptcateViewModel *productCusmptcateView;
 // 客户端自己的属性
 @property (nonatomic, assign, getter=isBigOrder) BOOL bigOrder;
 
