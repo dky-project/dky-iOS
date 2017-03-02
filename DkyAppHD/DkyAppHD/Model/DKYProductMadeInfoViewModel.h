@@ -276,4 +276,14 @@
  */
 @property (nonatomic, copy) NSArray *kdShow;
 
+/**
+ * 附件（勾选框列表）
+ */
+@property (nonatomic, copy) NSArray *fjShow;
+
+/**
+ * 特殊工艺（勾选框列表）
+ */
+@property (nonatomic, copy) NSArray *tsgyShow;
+
 @end

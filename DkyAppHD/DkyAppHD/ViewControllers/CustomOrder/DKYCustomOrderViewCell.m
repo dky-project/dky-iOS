@@ -182,6 +182,8 @@ static const CGFloat basicItemHeight = 30;
     self.flowerTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.tangzhuItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.koudaiItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.attachmentItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.specialCraftItemView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 #pragma mark - 网络请你去
@@ -669,7 +671,7 @@ static const CGFloat basicItemHeight = 30;
     [self.attachmentItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(80);
         make.top.mas_equalTo(weakSelf.koudaiItemView.mas_bottom).with.offset(vpadding);
     }];
     
@@ -690,7 +692,7 @@ static const CGFloat basicItemHeight = 30;
     [self.specialCraftItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(80);
         make.top.mas_equalTo(weakSelf.attachmentItemView.mas_bottom).with.offset(vpadding);
     }];
     
