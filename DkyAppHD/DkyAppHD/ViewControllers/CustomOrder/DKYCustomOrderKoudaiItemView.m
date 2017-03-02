@@ -7,6 +7,7 @@
 //
 
 #import "DKYCustomOrderKoudaiItemView.h"
+#import "DKYCustomOrderTypeOneView.h"
 
 @interface DKYCustomOrderKoudaiItemView ()
 
@@ -19,6 +20,9 @@
 @property (nonatomic, weak) UIButton *xiewadai;
 
 @property (nonatomic, weak) UIButton *other;
+@property (nonatomic, weak) UITextField *textField;
+
+@property (nonatomic, strong) NSMutableArray *options;
 
 @end
 
@@ -68,9 +72,43 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(!madeInfoByProductName) return;
+    
+    for (UIButton *btn in self.options) {
+        btn.selected = NO;
+    }
+    
+    for (NSString *selected in madeInfoByProductName.productMadeInfoView.kdShow) {
+        for (UIButton *btn in self.options) {
+            if([[btn currentTitle] isEqualToString:selected]){
+                [self checkBtnClicked:btn];
+            }
+        }
+    }
+}
+
 #pragma mark - action method
 - (void)checkBtnClicked:(UIButton*)sender{
+    // 判断sender是未选中的，则要检查有没有查过2个
+    if(!sender.selected){
+        NSInteger selectedCount = 0;
+        for (UIButton *btn in self.options) {
+            if(btn.selected){
+                selectedCount += 1;
+            }
+            if(selectedCount >= 2){
+                return;
+            }
+        }
+    }
     sender.selected = !sender.selected;
+    
+    if(sender.tag == 1){
+        self.textField.enabled = sender.selected;
+    }
 }
 
 #pragma mark - mark
@@ -119,7 +157,7 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf);
         
-        make.left.mas_equalTo(weakSelf.biaodai.mas_right).with.offset(22.5);
+        make.left.mas_equalTo(weakSelf.biaodai.mas_right).with.offset(DKYCustomOrderItemButtnWMargin);
         make.width.mas_equalTo(100);
     }];
     self.tiedai = btn;
@@ -132,7 +170,7 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf);
         
-        make.left.mas_equalTo(weakSelf.tiedai.mas_right).with.offset(22.5);
+        make.left.mas_equalTo(weakSelf.tiedai.mas_right).with.offset(DKYCustomOrderItemButtnWMargin);
         make.width.mas_equalTo(100);
     }];
     self.wadai = btn;
@@ -145,7 +183,7 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf);
         
-        make.left.mas_equalTo(weakSelf.wadai.mas_right).with.offset(22.5);
+        make.left.mas_equalTo(weakSelf.wadai.mas_right).with.offset(DKYCustomOrderItemButtnWMargin);
         make.width.mas_equalTo(100);
     }];
     self.zhijiedai = btn;
@@ -158,7 +196,7 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf);
         
-        make.left.mas_equalTo(weakSelf.zhijiedai.mas_right).with.offset(22.5);
+        make.left.mas_equalTo(weakSelf.zhijiedai.mas_right).with.offset(DKYCustomOrderItemButtnWMargin);
         make.width.mas_equalTo(100);
     }];
     self.xiewadai = btn;
@@ -176,6 +214,58 @@
     }];
     self.other = btn;
     [btn setTitle:@"其它" forState:UIControlStateNormal];
+    btn.tag  = 1;
+    
+    [self setupTextField];
+    
+    [self.options addObject:self.biaodai];
+    [self.options addObject:self.tiedai];
+    [self.options addObject:self.wadai];
+    [self.options addObject:self.zhijiedai];
+    [self.options addObject:self.xiewadai];
+    [self.options addObject:self.other];
 }
+
+- (void)setupTextField{
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
+    [self addSubview:textField];
+    self.textField = textField;
+    
+    textField.layer.borderColor = [UIColor colorWithHex:0x666666].CGColor;
+    textField.layer.borderWidth = 1;
+    
+    textField.font = [UIFont systemFontOfSize:14];
+    textField.textColor = [UIColor colorWithHex:0x333333];
+    textField.backgroundColor = [UIColor whiteColor];
+    
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
+    leftView.frame = CGRectMake(0, 0, 5, self.textField.mj_h);
+    self.textField.leftView = leftView;
+    
+    WeakSelf(weakSelf);
+    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.other.mas_right).with.offset(DKYCustomOrderItemButtnWMargin);
+        make.top.mas_equalTo(weakSelf.other);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemButtnWdith * 2 + DKYCustomOrderItemButtnWMargin);
+    }];
+    textField.enabled = NO;
+    
+    NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor colorWithHex:0x999999],
+                                 NSFontAttributeName : [UIFont systemFontOfSize:12],
+                                 NSBaselineOffsetAttributeName : @-1};
+    
+    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:kSelectCanEdit attributes:attributes];
+}
+
+#pragma mark - get & set method
+- (NSMutableArray*)options{
+    if(_options == nil){
+        _options = [NSMutableArray array];
+    }
+    return _options;
+}
+
 
 @end

@@ -19,4 +19,7 @@
 #define kDeleteTitle                @"清除"
 
 
+#define kSelectCanEdit              @"选中可编辑"
+
+
 #endif /* DKYConstString_h */

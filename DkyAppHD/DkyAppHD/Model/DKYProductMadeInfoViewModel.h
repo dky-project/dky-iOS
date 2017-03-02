@@ -271,4 +271,9 @@
  */
 @property (nonatomic, strong) NSArray *tzShow;
 
+/**
+ * 口袋（勾选框列表）
+ */
+@property (nonatomic, copy) NSArray *kdShow;
+
 @end
