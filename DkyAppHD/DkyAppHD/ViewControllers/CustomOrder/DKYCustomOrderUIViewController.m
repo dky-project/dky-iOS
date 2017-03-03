@@ -26,6 +26,10 @@
 @property (nonatomic, assign) BOOL firstLoad;
 @property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitle;
 
+
+// 测试控价
+@property (nonatomic, weak) UILabel *testLabel;
+
 @end
 
 @implementation DKYCustomOrderUIViewController
@@ -110,6 +114,12 @@
     
     [self setupTableView];
     [self setupActionView];
+    
+#pragma mark mark - 测试代码
+    self.tableView.hidden = YES;
+    self.actionsView.hidden = YES;
+    [self setupTestLabel];
+    
 //    [self setupScrollView];
 }
 
@@ -216,6 +226,22 @@
         make.bottom.mas_equalTo(weakSelf.scrollView.contentView).with.offset(-40);
         make.height.mas_equalTo(115);
     }];
+}
+
+#pragma mark mark - 测试代码
+- (void)setupTestLabel{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.font = [UIFont boldSystemFontOfSize:20];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:label];
+    self.testLabel = label;
+    [self.testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
+    
+    label.text = @"敬请期待！";
 }
 
 @end
