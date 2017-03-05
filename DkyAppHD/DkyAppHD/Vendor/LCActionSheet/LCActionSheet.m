@@ -676,7 +676,8 @@
 #pragma mark - LCActionSheet & UITableView Delegate
 
 - (void)darkViewClicked {
-    [self cancelButtonClicked];
+//    [self cancelButtonClicked];
+    [self hideWithButtonIndex:0];
 }
 
 - (void)cancelButtonClicked {

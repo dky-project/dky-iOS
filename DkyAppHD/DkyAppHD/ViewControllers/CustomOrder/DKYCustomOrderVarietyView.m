@@ -72,6 +72,42 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(!madeInfoByProductName) return;
+    
+    if(self.madeInfoByProductName){
+        for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew14Id){
+                [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+        
+        for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew15Id){
+                [self.secondBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+        
+        for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew16Id){
+                [self.thirdBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+        
+        for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew17Id){
+                [self.fourthBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){
@@ -93,24 +129,47 @@
     NSArray *models = nil;
     
     switch (sender.tag) {
-        case 0:
-            models = self.customOrderDimList.DIMFLAG_NEW14;
+        case 0:{
+            if(self.madeInfoByProductName){
+                // 输入款号之后
+                models = self.madeInfoByProductName.productMadeInfoView.pzJsonArray;
+            }else{
+                models = self.customOrderDimList.DIMFLAG_NEW14;
+            }
+        }
             break;
-        case 1:
-            models = self.customOrderDimList.DIMFLAG_NEW15;
+        case 1:{
+            if(self.madeInfoByProductName){
+                // 输入款号之后
+                models = self.madeInfoByProductName.productMadeInfoView.zzJsonArray;
+            }else{
+                models = self.customOrderDimList.DIMFLAG_NEW15;;
+            }
+        }
             break;
-        case 2:
-            models = self.customOrderDimList.DIMFLAG_NEW16;
+        case 2:{
+            if(self.madeInfoByProductName){
+                // 输入款号之后
+                models = self.madeInfoByProductName.productMadeInfoView.zxJsonArray;
+            }else{
+                models = self.customOrderDimList.DIMFLAG_NEW16;
+            }
+        }
             break;
-        case 3:
-            models = self.customOrderDimList.DIMFLAG_NEW17;
+        case 3:{
+            if(self.madeInfoByProductName){
+                // 输入款号之后
+                models = self.madeInfoByProductName.productMadeInfoView.zbJsonArray;
+            }else{
+                models = self.customOrderDimList.DIMFLAG_NEW17;
+            }
+        }
             break;
     }
     
     for (DKYDimlistItemModel *model in models) {
         [item addObject:model.attribname];
     }
-    
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
@@ -248,7 +307,6 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
-    self.fourthBtn = btn;
 }
 
 

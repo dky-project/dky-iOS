@@ -186,6 +186,7 @@ static const CGFloat basicItemHeight = 30;
     self.specialCraftItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.sizeView.madeInfoByProductName = self.madeInfoByProductName;
     self.xiuTypeView.madeInfoByProductName = self.madeInfoByProductName;
+    self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 #pragma mark - 网络请你去

@@ -170,6 +170,10 @@
  * 品种json字符串
  */
 @property (nonatomic, copy) NSString * pzJsonstr;
+
+@property (nonatomic, copy) NSArray *pzJsonArray;
+
+
 /**
  * 尺寸类型
  */
@@ -195,14 +199,17 @@
  * 支别json字符串
  */
 @property (nonatomic, copy) NSString * zbJsonstr;
+@property (nonatomic, copy) NSArray *zbJsonArray;
 /**
  * 组织json字符串
  */
 @property (nonatomic, copy) NSString * zxJsonstr;
+@property (nonatomic, copy) NSArray *zxJsonArray;
 /**
  * 针型json字符串
  */
 @property (nonatomic, copy) NSString * zzJsonstr;
+@property (nonatomic, copy) NSArray *zzJsonArray;
 /**
  * 袖边cm
  */
