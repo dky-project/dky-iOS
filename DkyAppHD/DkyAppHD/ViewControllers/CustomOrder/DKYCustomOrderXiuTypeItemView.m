@@ -78,7 +78,7 @@
     
     if(madeInfoByProductName == nil)  return;
     
-    self.xcView.textField.enabled = [madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] != NSOrderedSame;
+    self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]));
 }
 
 

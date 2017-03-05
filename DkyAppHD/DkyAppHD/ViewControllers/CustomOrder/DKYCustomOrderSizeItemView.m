@@ -71,7 +71,7 @@
     
     if(!madeInfoByProductName) return;
     
-    self.lengthView.textField.enabled = [madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] != NSOrderedSame;
+    self.lengthView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
 }
 
 #pragma mark - mark

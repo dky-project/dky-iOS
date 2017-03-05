@@ -76,7 +76,8 @@
     
     if(madeInfoByProductName == nil)  return;
     
-    self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame);
+    self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
+    
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
     
     
