@@ -109,6 +109,9 @@
 
 #pragma mark - action method
 - (void)checkBtnClicked:(UIButton*)sender{
+    // isHxAffix == Y,则不可编辑
+    if(self.madeInfoByProductName && [self.madeInfoByProductName.productCusmptcateView.isHxAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame) return;
+    
     sender.selected = !sender.selected;
     switch (sender.tag) {
         case 1:

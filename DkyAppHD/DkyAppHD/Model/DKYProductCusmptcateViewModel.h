@@ -11,6 +11,10 @@
 @interface DKYProductCusmptcateViewModel : NSObject
 
 @property (nonatomic, copy) NSString * gjxfShow;
+/**
+ * 是否配置衣长
+ * 值为“Y”时，花型对应的勾选框都不可编辑
+ */
 @property (nonatomic, copy) NSString * isHxAffix;
 /**
  * 是否配置肩宽
