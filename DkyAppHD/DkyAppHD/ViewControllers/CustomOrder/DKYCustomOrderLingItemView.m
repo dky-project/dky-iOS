@@ -111,6 +111,9 @@
         case 2:
             models = self.customOrderDimList.DIMFLAG_NEW25;
             break;
+        case 3:
+            models = self.customOrderDimList.lingArray;
+            break;
         default:
             break;
     }
@@ -118,6 +121,7 @@
     for (DKYDimlistItemModel *model in models) {
         [item addObject:model.attribname];
     }
+//    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -127,12 +131,40 @@
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
+                                                           
+                                                           if(sender.tag == 3){
+//                                                               weakSelf.oneView.textField.text = [item objectOrNilAtIndex:buttonIndex - 1];
+                                                           }
                                                        }
                                          otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
     actionSheet.visibleButtonCount = 10;
     actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
     [actionSheet show];
+}
+
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(!madeInfoByProductName) return;
+    
+    if([madeInfoByProductName.productMadeInfoView.lwqt isNotBlank]){
+        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lwqt;
+        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:0];
+        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+    }
+    
+    if([madeInfoByProductName.productMadeInfoView.lbt isNotBlank]){
+        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lbt;
+        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:1];
+        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+    }
+    
+    if([madeInfoByProductName.productMadeInfoView.lxt isNotBlank]){
+        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lxt;
+        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:2];
+        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - mark
@@ -180,9 +212,14 @@
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
+    [btn setTitle:@"点击选择领" forState:UIControlStateNormal];
     self.optionsBtn = btn;
     btn.originalTitle = btn.currentTitle;
-    [btn setTitle:@"点击选择领" forState:UIControlStateNormal];
+    btn.tag = 3;
+
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupOneView{

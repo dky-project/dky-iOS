@@ -130,7 +130,8 @@
 
 
 
-
+// 领的下拉框，写死的
+@property (nonatomic, strong) NSArray *lingArray;
 
 
 

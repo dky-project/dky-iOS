@@ -65,4 +65,19 @@
              };
 }
 
+- (void)mj_keyValuesDidFinishConvertingToObject{
+    DKYDimlistItemModel *model1 = [[DKYDimlistItemModel alloc] init];
+    model1.ID = @"领边";
+    model1.attribname = @"领边";
+    
+    DKYDimlistItemModel *model2 = [[DKYDimlistItemModel alloc] init];
+    model2.ID = @"领型";
+    model2.attribname = @"领型";
+    
+    DKYDimlistItemModel *model3 = [[DKYDimlistItemModel alloc] init];
+    model3.ID = @"完全";
+    model3.attribname = @"完全";
+    self.lingArray = @[model1,model2,model3];
+}
+
 @end
