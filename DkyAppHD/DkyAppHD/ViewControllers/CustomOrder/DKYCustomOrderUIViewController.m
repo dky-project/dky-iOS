@@ -110,15 +110,19 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setupCustomTitle:@"定制下单"];
     
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
     [self setupTableView];
     [self setupActionView];
     
 #pragma mark mark - 测试代码
+    
+#ifndef DEBUG
     self.tableView.hidden = YES;
     self.actionsView.hidden = YES;
     [self setupTestLabel];
+#endif
     
 //    [self setupScrollView];
 }

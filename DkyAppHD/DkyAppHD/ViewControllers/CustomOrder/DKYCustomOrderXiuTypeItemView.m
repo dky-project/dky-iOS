@@ -73,6 +73,15 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(madeInfoByProductName == nil)  return;
+    
+    self.xcView.textField.enabled = [madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] != NSOrderedSame;
+}
+
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){

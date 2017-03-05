@@ -17,7 +17,12 @@
  * 值为“Y”时，肩宽：[文本框]cm不可编辑
  */
 @property (nonatomic, copy) NSString * isJkAffix;
+/**
+ * 是否配置袖长
+ * 值为“Y”时，袖长：[文本框]cm不可编辑
+ */
 @property (nonatomic, copy) NSString * isXcAffix;
+
 @property (nonatomic, copy) NSString * jxShow;
 @property (nonatomic, copy) NSString * lbShow;
 @property (nonatomic, copy) NSString * lxShow;
