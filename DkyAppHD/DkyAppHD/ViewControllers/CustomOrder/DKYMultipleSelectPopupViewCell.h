@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DKYDahuoOrderColorModel.h"
 
 @class DKYMultipleSelectPopupItemModel;
 @interface DKYMultipleSelectPopupViewCell : UITableViewCell
 
 + (instancetype)multipleSelectPopupViewCellWithTableView:(UITableView *)tableView;
 
-@property (nonatomic, strong) DKYMultipleSelectPopupItemModel *itemModel;
+@property (nonatomic, strong) DKYDahuoOrderColorModel *itemModel;
 
 @end

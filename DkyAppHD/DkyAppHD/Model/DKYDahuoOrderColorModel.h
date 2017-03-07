@@ -21,4 +21,6 @@
 
 @property (nonatomic, assign) NSInteger colorId;
 
+@property (nonatomic, assign) BOOL selected;
+
 @end

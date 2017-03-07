@@ -145,6 +145,9 @@
  * 颜色
  */
 @property (nonatomic, copy) NSString * clrRange;
+
+@property (nonatomic, copy) NSArray *clrRangeArray;
+
 /**
  * 花型
  */

@@ -12,22 +12,35 @@
 @implementation DKYProductMadeInfoViewModel
 
 - (void)mj_keyValuesDidFinishConvertingToObject{
+    NSDictionary *dict = nil;
+    NSArray *array = nil;
+    
     if(self.pzJsonstr.length > 0){
-        NSDictionary *dict = [self.pzJsonstr jsonValueDecoded];
-        NSArray *array = [dict objectForKey:@"value"];
+        dict = [self.pzJsonstr jsonValueDecoded];
+        array = [dict objectForKey:@"value"];
         self.pzJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:array];
-        
+    }
+    
+    if(self.zzJsonstr.length > 0){
         dict = [self.zzJsonstr jsonValueDecoded];
         array = [dict objectForKey:@"value"];
         self.zzJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:array];
-        
+    }
+    
+    if(self.zxJsonstr.length > 0){
         dict = [self.zxJsonstr jsonValueDecoded];
         array = [dict objectForKey:@"value"];
         self.zxJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:array];
-        
+    }
+    
+    if(self.zbJsonstr.length > 0){
         dict = [self.zbJsonstr jsonValueDecoded];
         array = [dict objectForKey:@"value"];
         self.zbJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:array];
+    }
+    
+    if(self.clrRange.length > 0){
+        self.clrRangeArray = [self.clrRange componentsSeparatedByString:@","];
     }
 }
 

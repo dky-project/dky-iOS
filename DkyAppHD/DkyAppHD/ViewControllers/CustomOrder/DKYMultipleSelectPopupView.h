@@ -14,4 +14,8 @@
 
 - (void)dismiss;
 
+@property (nonatomic, strong) NSArray *clrRangeArray;
+
+@property (nonatomic, strong) NSArray *colorViewList;
+
 @end

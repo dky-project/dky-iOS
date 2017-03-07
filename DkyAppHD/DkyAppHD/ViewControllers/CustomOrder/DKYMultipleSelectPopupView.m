@@ -10,6 +10,7 @@
 #import "KLCPopup.h"
 #import "DKYMultipleSelectPopupViewCell.h"
 #import "DKYMultipleSelectPopupItemModel.h"
+#import "DKYDahuoOrderColorModel.h"
 
 @interface DKYMultipleSelectPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,7 +27,7 @@
 @property (nonatomic, weak) UIButton *confirmBtn;
 
 // 测试数据
-@property (nonatomic, strong) NSMutableArray *colors;
+//@property (nonatomic, strong) NSMutableArray *colors;
 
 @end
 
@@ -58,6 +59,19 @@
 
 - (void)dismiss{
     [self.popup dismiss:YES];
+}
+
+- (void)setClrRangeArray:(NSArray *)clrRangeArray{
+    _clrRangeArray = clrRangeArray;
+    
+    for (DKYDahuoOrderColorModel *model in self.colorViewList) {
+        for (NSString *selectColor in clrRangeArray) {
+            if([model.colorName isEqualToString:selectColor]){
+                model.selected = YES;
+                break;
+            }
+        }
+    }
 }
 
 #pragma mark - action method
@@ -167,7 +181,7 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.colors.count;
+    return self.colorViewList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,32 +192,32 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYMultipleSelectPopupViewCell *cell = [DKYMultipleSelectPopupViewCell multipleSelectPopupViewCellWithTableView:tableView];
-    DKYMultipleSelectPopupItemModel *item = [self.colors objectOrNilAtIndex:indexPath.row];
+    DKYDahuoOrderColorModel *item = [self.colorViewList objectOrNilAtIndex:indexPath.row];
     cell.itemModel = item;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DKYMultipleSelectPopupItemModel *item = [self.colors objectOrNilAtIndex:indexPath.row];
+    DKYDahuoOrderColorModel *item = [self.colorViewList objectOrNilAtIndex:indexPath.row];
     item.selected = !item.selected;
     
     [tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - get & set method
-- (NSMutableArray*)colors{
-    if(_colors == nil){
-        _colors = [NSMutableArray array];
-        for (int i = 0; i < 30; ++i) {
-            DKYMultipleSelectPopupItemModel *item = [[DKYMultipleSelectPopupItemModel alloc] init];
-            
-            item.content = [NSString stringWithFormat:@"颜色-%@",@(i)];
-            [_colors addObject:item];
-        }
-    }
-    return _colors;
-}
+//- (NSMutableArray*)colors{
+//    if(_colors == nil){
+//        _colors = [NSMutableArray array];
+//        for (int i = 0; i < 30; ++i) {
+//            DKYMultipleSelectPopupItemModel *item = [[DKYMultipleSelectPopupItemModel alloc] init];
+//            
+//            item.content = [NSString stringWithFormat:@"颜色-%@",@(i)];
+//            [_colors addObject:item];
+//        }
+//    }
+//    return _colors;
+//}
 
 
 @end

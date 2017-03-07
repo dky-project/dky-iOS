@@ -153,9 +153,12 @@
     [self viewWillTransitionToSize:CGSizeMake(self.view.tw_width, self.view.tw_height) withTransitionCoordinator:nil];
 #pragma clang diagnostic pop
     
+#pragma mark mark - 测试代码
     
-//    self.userNameTextField.text = @"nea@burgeon.com.cn";
-//    self.passwordTextField.text = @"bos20";
+#ifdef DEBUG
+    self.userNameTextField.text = @"nea@burgeon.com.cn";
+    self.passwordTextField.text = @"bos20";
+#endif
 }
 
 - (void)setupTextField{

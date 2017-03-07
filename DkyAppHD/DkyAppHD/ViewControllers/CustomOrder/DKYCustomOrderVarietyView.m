@@ -190,7 +190,9 @@
 }
 
 - (void)showMultipleSelectPopupView{
-    [DKYMultipleSelectPopupView show];
+    DKYMultipleSelectPopupView *pop = [DKYMultipleSelectPopupView show];
+    pop.colorViewList = self.madeInfoByProductName.colorViewList;
+    pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
 }
 #pragma mark - mark
 - (void)commonInit{
