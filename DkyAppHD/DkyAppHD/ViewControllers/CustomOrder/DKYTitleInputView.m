@@ -152,6 +152,8 @@
     textField.backgroundColor = [UIColor whiteColor];
     
     textField.leftViewMode = UITextFieldViewModeAlways;
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {

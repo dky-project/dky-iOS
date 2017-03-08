@@ -86,6 +86,30 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(!madeInfoByProductName) return;
+    
+    if([madeInfoByProductName.productMadeInfoView.lwqt isNotBlank]){
+        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lwqt;
+        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:0];
+        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+    }
+    
+    if([madeInfoByProductName.productMadeInfoView.lbt isNotBlank]){
+        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lbt;
+        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:1];
+        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+    }
+    
+    if([madeInfoByProductName.productMadeInfoView.lxt isNotBlank]){
+        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lxt;
+        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:2];
+        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){
@@ -121,7 +145,7 @@
     for (DKYDimlistItemModel *model in models) {
         [item addObject:model.attribname];
     }
-//    WeakSelf(weakSelf);
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -133,7 +157,7 @@
                                                            }
                                                            
                                                            if(sender.tag == 3){
-//                                                               weakSelf.oneView.textField.text = [item objectOrNilAtIndex:buttonIndex - 1];
+                                                               [weakSelf dealWithLingSelected:buttonIndex];
                                                            }
                                                        }
                                          otherButtonTitleArray:item];
@@ -143,27 +167,42 @@
     [actionSheet show];
 }
 
-- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
-    [super setMadeInfoByProductName:madeInfoByProductName];
+- (void)dealWithLingSelected:(NSInteger)index{
     
-    if(!madeInfoByProductName) return;
+    self.lbcBtn.enabled = YES;
+    self.lbBtn.enabled = YES;
+    self.lxBtn.enabled = YES;
+    self.sizeView.textField.enabled = YES;
     
-    if([madeInfoByProductName.productMadeInfoView.lwqt isNotBlank]){
-        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lwqt;
-        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:0];
-        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
-    }
-    
-    if([madeInfoByProductName.productMadeInfoView.lbt isNotBlank]){
-        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lbt;
-        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:1];
-        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
-    }
-    
-    if([madeInfoByProductName.productMadeInfoView.lxt isNotBlank]){
-        self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lxt;
-        DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:2];
-        [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+    switch (index) {
+        case 1:{
+            // 领边
+//            self.lbcBtn.enabled = NO;
+//            self.lbBtn.enabled = NO;
+//            self.lxBtn.enabled = NO;
+//            self.sizeView.textField.enabled = NO;
+        }
+            break;
+        case 2:{
+            // 领型
+//            self.lbcBtn.enabled = NO;
+//            self.lbBtn.enabled = NO;
+//            self.lxBtn.enabled = NO;
+//            self.sizeView.textField.enabled = NO;
+        }
+            break;
+            
+        case 3:{
+            // 完全
+            self.lbcBtn.enabled = NO;
+            self.lbBtn.enabled = NO;
+            self.lxBtn.enabled = NO;
+            self.sizeView.textField.enabled = NO;
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
