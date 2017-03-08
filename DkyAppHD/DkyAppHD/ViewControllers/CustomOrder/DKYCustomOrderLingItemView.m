@@ -177,18 +177,14 @@
     switch (index) {
         case 1:{
             // 领边
-//            self.lbcBtn.enabled = NO;
-//            self.lbBtn.enabled = NO;
-//            self.lxBtn.enabled = NO;
-//            self.sizeView.textField.enabled = NO;
+            self.lbcBtn.enabled = NO;
+            self.lbBtn.enabled = NO;
+            self.sizeView.textField.enabled = NO;
         }
             break;
         case 2:{
             // 领型
-//            self.lbcBtn.enabled = NO;
-//            self.lbBtn.enabled = NO;
-//            self.lxBtn.enabled = NO;
-//            self.sizeView.textField.enabled = NO;
+            self.lxBtn.enabled = NO;
         }
             break;
             
