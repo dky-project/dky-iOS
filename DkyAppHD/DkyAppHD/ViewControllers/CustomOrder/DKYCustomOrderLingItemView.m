@@ -95,18 +95,21 @@
         self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lwqt;
         DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:0];
         [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+        [self dealWithLingSelected:3];
     }
     
     if([madeInfoByProductName.productMadeInfoView.lbt isNotBlank]){
         self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lbt;
         DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:1];
         [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+        [self dealWithLingSelected:1];
     }
     
     if([madeInfoByProductName.productMadeInfoView.lxt isNotBlank]){
         self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lxt;
         DKYDimlistItemModel *model =  [self.customOrderDimList.lingArray objectOrNilAtIndex:2];
         [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+        [self dealWithLingSelected:2];
     }
 }
 
