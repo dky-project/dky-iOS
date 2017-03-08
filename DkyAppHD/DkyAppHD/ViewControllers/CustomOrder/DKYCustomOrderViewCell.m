@@ -177,6 +177,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)updateModelViews{
+//    WeakSelf(weakSelf);
     self.xiuBianView.madeInfoByProductName = self.madeInfoByProductName;
     self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
     self.flowerTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
@@ -188,6 +189,21 @@ static const CGFloat basicItemHeight = 30;
     self.xiuTypeView.madeInfoByProductName = self.madeInfoByProductName;
     self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
     self.lingView.madeInfoByProductName = self.madeInfoByProductName;
+    
+    WeakSelf(weakSelf);
+    if([self needHideKoudai]){
+        self.koudaiItemView.hidden = YES;
+        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0);
+            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(0);
+        }];
+    }else{
+        self.koudaiItemView.hidden = NO;
+        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(80);
+            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(vpadding);
+        }];
+    }
 }
 
 #pragma mark - 网络请你去
@@ -241,6 +257,19 @@ static const CGFloat basicItemHeight = 30;
     }
     
     [self updateModelViews];
+}
+
+- (BOOL)needHideKoudai{
+    NSInteger mDimNew12Id = self.madeInfoByProductName.productMadeInfoView.mDimNew12Id;
+    if(mDimNew12Id == 68 ||
+       mDimNew12Id == 61 ||
+       mDimNew12Id == 307 ||
+       mDimNew12Id == 308 ||
+       mDimNew12Id == 309){
+        return YES;
+    }
+    
+    return YES;
 }
 
 #pragma mark - action method
