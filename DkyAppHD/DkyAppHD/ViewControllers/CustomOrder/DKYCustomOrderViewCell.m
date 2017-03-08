@@ -269,7 +269,7 @@ static const CGFloat basicItemHeight = 30;
         return YES;
     }
     
-    return YES;
+    return NO;
 }
 
 #pragma mark - action method

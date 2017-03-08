@@ -18,4 +18,6 @@
 
 @property (nonatomic, strong) NSArray *colorViewList;
 
+@property (nonatomic, assign) NSInteger maxSelectedNumber;
+
 @end

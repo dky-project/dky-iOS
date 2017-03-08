@@ -88,6 +88,7 @@
 - (void)commonInit{
     self.bounds = CGRectMake(0, 0, 514, 610);
     self.backgroundColor = [UIColor whiteColor];
+    self.maxSelectedNumber = 9;
     
     [self setupTitleView];
     [self setupTitleLabel];
@@ -200,6 +201,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYDahuoOrderColorModel *item = [self.colorViewList objectOrNilAtIndex:indexPath.row];
+    
+    if(!item.selected){
+        NSInteger count = 0;
+        for (DKYDahuoOrderColorModel *item in self.colorViewList) {
+            if(item.selected){
+                ++count;
+            }
+            if(count >= self.maxSelectedNumber){
+                return;
+            }
+        }
+    }
+    
     item.selected = !item.selected;
     
     [tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
