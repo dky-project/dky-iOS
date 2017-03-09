@@ -88,10 +88,29 @@
             }
         }
     }
+    
+    NSInteger mDimNew12Id = self.madeInfoByProductName.productMadeInfoView.mDimNew12Id;
+    if(mDimNew12Id == 68 ||
+       mDimNew12Id == 61 ||
+       mDimNew12Id == 307 ||
+       mDimNew12Id == 308 ||
+       mDimNew12Id == 309){
+        self.canEdit = NO;
+    }
+    self.canEdit = NO;
+}
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    
+    
+    self.textField.enabled = canEdit;
 }
 
 #pragma mark - action method
 - (void)checkBtnClicked:(UIButton*)sender{
+    if(!self.canEdit) return;
+    
     // 判断sender是未选中的，则要检查有没有查过2个
     if(!sender.selected){
         NSInteger selectedCount = 0;
@@ -242,6 +261,9 @@
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
     leftView.frame = CGRectMake(0, 0, 5, self.textField.mj_h);
     self.textField.leftView = leftView;
+    
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -25,6 +25,8 @@
 
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 
+@property (nonatomic, assign) BOOL canEdit;
+
 - (void)clear;
 
 @end

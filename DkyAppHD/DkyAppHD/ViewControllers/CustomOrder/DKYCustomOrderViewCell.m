@@ -190,20 +190,20 @@ static const CGFloat basicItemHeight = 30;
     self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
     self.lingView.madeInfoByProductName = self.madeInfoByProductName;
     
-    WeakSelf(weakSelf);
-    if([self needHideKoudai]){
-        self.koudaiItemView.hidden = YES;
-        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(0);
-            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(0);
-        }];
-    }else{
-        self.koudaiItemView.hidden = NO;
-        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(80);
-            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(vpadding);
-        }];
-    }
+//    WeakSelf(weakSelf);
+//    if([self needHideKoudai]){
+//        self.koudaiItemView.hidden = YES;
+//        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(0);
+//            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(0);
+//        }];
+//    }else{
+//        self.koudaiItemView.hidden = NO;
+//        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(80);
+//            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(vpadding);
+//        }];
+//    }
 }
 
 #pragma mark - 网络请你去

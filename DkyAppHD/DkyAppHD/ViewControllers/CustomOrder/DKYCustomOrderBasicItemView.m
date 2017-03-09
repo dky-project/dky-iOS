@@ -10,6 +10,15 @@
 
 @implementation DKYCustomOrderBasicItemView
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.canEdit = YES;
+    }
+    return self;
+}
+
 - (void)clear{
     
 }
