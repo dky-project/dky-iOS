@@ -26,6 +26,8 @@
 @property (nonatomic, assign) BOOL firstLoad;
 @property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitle;
 
+@property (nonatomic, assign) BOOL needUpdate;
+
 
 // 测试控价
 @property (nonatomic, weak) UILabel *testLabel;
@@ -53,8 +55,9 @@
 //        [self getProductApproveTitleFromServer];
 //        self.firstLoad = YES;
 //    }
-    
-    [self getProductApproveTitleFromServer];
+    if(self.needUpdate){
+        [self getProductApproveTitleFromServer];
+    }
 }
 
 #pragma mark mark - 网络请求
@@ -67,6 +70,7 @@
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.needUpdate = NO;
             weakSelf.productApproveTitle = [DKYProductApproveTitleModel mj_objectWithKeyValues:result.data];
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -109,6 +113,8 @@
 - (void)commonInit{
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setupCustomTitle:@"定制下单"];
+    
+    self.needUpdate = YES;
     
 //    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
