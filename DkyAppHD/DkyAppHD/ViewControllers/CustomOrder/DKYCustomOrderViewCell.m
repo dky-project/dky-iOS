@@ -190,6 +190,7 @@ static const CGFloat basicItemHeight = 30;
     self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
     self.lingView.madeInfoByProductName = self.madeInfoByProductName;
     self.patternItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.xiukouItemView.madeInfoByProductName = self.madeInfoByProductName;
     
 //    WeakSelf(weakSelf);
 //    if([self needHideKoudai]){

@@ -79,6 +79,26 @@
     if(madeInfoByProductName == nil)  return;
     
     self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]));
+
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
+        self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
+    }
+}
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+
+    self.optionsBtn.enabled = canEdit;
+    self.textField.enabled = canEdit;
+    self.textField2.enabled = canEdit;
+    self.textField3.enabled = canEdit;
+    
+    self.optionsBtn2.enabled = canEdit;
+    self.optionsBtn3.enabled = canEdit;
+    
+    self.xcView.textField.enabled = canEdit;
 }
 
 
@@ -176,6 +196,9 @@
     leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
     self.textField.leftView = leftView;
     
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
@@ -219,6 +242,9 @@
     leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
     self.textField2.leftView = leftView;
     
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    
     WeakSelf(weakSelf);
     [self.textField2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.optionsBtn2.mas_right).with.offset(DKYCustomOrderItemMargin);
@@ -261,6 +287,9 @@
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
     leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
     self.textField3.leftView = leftView;
+    
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
     WeakSelf(weakSelf);
     [self.textField3 mas_makeConstraints:^(MASConstraintMaker *make) {
