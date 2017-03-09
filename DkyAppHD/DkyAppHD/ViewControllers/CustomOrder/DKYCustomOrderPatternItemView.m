@@ -116,6 +116,57 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(!madeInfoByProductName) return;
+    
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19 ||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366){
+        [self updateSubviewStatus:0 canEdit:NO];
+    }
+}
+
+- (void)updateSubviewStatus:(NSInteger)type canEdit:(BOOL)canEdit{
+    self.canEdit = YES;
+    
+    switch (type) {
+        case 0:{
+            self.kouView.optionsBtn.enabled = canEdit;
+            self.mjkView.textField.enabled = canEdit;
+            
+            self.mjBtn1.enabled = canEdit;
+            self.mjBtn2.enabled = canEdit;
+            
+            self.mjInputView.textField.enabled = canEdit;
+            self.mjInputView.textFieldTwo.enabled = canEdit;
+            
+            self.dcView.textField.enabled = canEdit;
+            self.suiBtn.enabled = canEdit;
+            self.klbBtn.enabled = canEdit;
+            self.kkBtn.enabled = canEdit;
+            self.jdBtn.enabled = canEdit;
+            self.jdInputView.textField.enabled = canEdit;
+            self.gyxcView.textField.enabled = canEdit;
+            self.qlbBtn.enabled = canEdit;
+            self.mjcView.textField.enabled = canEdit;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    self.kouView.optionsBtn.enabled = canEdit;
+    self.mjkView.textField.enabled = canEdit;
+    
+    self.mjBtn1.enabled = canEdit;
+    self.mjBtn1.enabled = canEdit;
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){

@@ -96,15 +96,18 @@
        mDimNew12Id == 308 ||
        mDimNew12Id == 309){
         self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
     }
-    self.canEdit = NO;
 }
 
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     
-    
     self.textField.enabled = canEdit;
+    for (UIButton *btn in self.options) {
+        btn.enabled = canEdit;
+    }
 }
 
 #pragma mark - action method
