@@ -118,7 +118,11 @@
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
-             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62){
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;

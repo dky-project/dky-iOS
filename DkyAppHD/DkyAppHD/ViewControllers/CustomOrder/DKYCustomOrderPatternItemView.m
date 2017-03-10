@@ -144,7 +144,11 @@
         [self updateSubviewStatus:7 canEdit:NO];
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64){
         [self updateSubviewStatus:8 canEdit:NO];
-    }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63){
+    }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309){
         [self updateSubviewStatus:9 canEdit:NO];
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62){
         [self updateSubviewStatus:10 canEdit:NO];
