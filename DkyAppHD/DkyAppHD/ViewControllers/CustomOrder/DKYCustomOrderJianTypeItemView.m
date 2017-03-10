@@ -80,6 +80,11 @@
     
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
     
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
+        self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
+    }
     
 //    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
 //        self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
@@ -89,6 +94,16 @@
 //        self.jkView.textField.enabled = NO;
 //    }
 }
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    
+    self.optionsBtn.enabled = canEdit;
+    self.textField.enabled = canEdit;
+    self.jkView.textField.enabled = canEdit;
+    self.gyxcView.textField.enabled = canEdit;
+}
+
 
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
@@ -189,6 +204,9 @@
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
     leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
     self.textField.leftView = leftView;
+    
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {

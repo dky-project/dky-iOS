@@ -80,7 +80,8 @@
     
     self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]));
 
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;

@@ -77,7 +77,8 @@
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54){
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
