@@ -75,7 +75,8 @@
     self.textField.hidden = (madeInfoByProductName.productMadeInfoView.mDimNew46Id != 397);
     
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19 ||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366){
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366 ||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
