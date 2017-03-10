@@ -93,7 +93,8 @@
         }
     }
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64){
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;

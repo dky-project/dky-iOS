@@ -145,6 +145,8 @@
         [self updateSubviewStatus:8 canEdit:NO];
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63){
         [self updateSubviewStatus:9 canEdit:NO];
+    }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62){
+        [self updateSubviewStatus:10 canEdit:NO];
     }
 }
 
@@ -343,7 +345,28 @@
             self.syBtn.enabled = canEdit;
         }
             break;
-
+        case 10:{
+            self.kouView.optionsBtn.enabled = canEdit;
+            self.mjkView.textField.enabled = canEdit;
+            
+            self.mjBtn1.enabled = canEdit;
+            self.mjBtn2.enabled = canEdit;
+            
+            self.mjInputView.textField.enabled = canEdit;
+            self.mjInputView.textFieldTwo.enabled = canEdit;
+            
+            self.dcView.textField.enabled = canEdit;
+            self.suiBtn.enabled = canEdit;
+            self.klbBtn.enabled = canEdit;
+            self.kkBtn.enabled = canEdit;
+            self.jdBtn.enabled = canEdit;
+            self.jdInputView.textField.enabled = canEdit;
+            self.gyxcView.textField.enabled = canEdit;
+            self.mjcView.textField.enabled = canEdit;
+            self.gjxfBtn.enabled = canEdit;
+            self.syBtn.enabled = canEdit;
+        }
+            break;
         default:
             break;
     }
