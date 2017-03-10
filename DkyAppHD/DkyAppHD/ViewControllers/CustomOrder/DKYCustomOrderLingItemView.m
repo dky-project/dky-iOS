@@ -111,6 +111,13 @@
         [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
         [self dealWithLingSelected:2];
     }
+    
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355){
+        self.textField.enabled = NO;
+    }else{
+        self.textField.enabled = YES;
+    }
+
 }
 
 #pragma mark - action method
@@ -357,6 +364,9 @@
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
     leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
     self.textField.leftView = leftView;
+    
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -69,7 +69,8 @@
     
     if(madeInfoByProductName == nil)  return;
 
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57 ||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
