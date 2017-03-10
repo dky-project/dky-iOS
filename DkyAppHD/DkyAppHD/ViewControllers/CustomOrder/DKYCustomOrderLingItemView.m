@@ -115,10 +115,26 @@
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56){
         self.textField.enabled = NO;
+    }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369){
+        self.canEdit = NO;
     }else{
-        self.textField.enabled = YES;
+        self.canEdit = YES;
     }
+}
 
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    self.optionsBtn.enabled = canEdit;
+    self.oneView.textField.enabled = canEdit;
+    self.oneView.textField2.enabled = canEdit;
+    self.sizeView.textField.enabled = canEdit;
+    self.lbcBtn.enabled = canEdit;
+    self.lbBtn.enabled = canEdit;
+    self.textField.enabled = canEdit;
+    self.lxBtn.enabled = canEdit;
+    self.likouView.textField.enabled = canEdit;
+    self.markView.textField.enabled = canEdit;
 }
 
 #pragma mark - action method

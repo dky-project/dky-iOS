@@ -191,6 +191,7 @@ static const CGFloat basicItemHeight = 30;
     self.lingView.madeInfoByProductName = self.madeInfoByProductName;
     self.patternItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.xiukouItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.xiabianItemView.madeInfoByProductName = self.madeInfoByProductName;
     
 //    WeakSelf(weakSelf);
 //    if([self needHideKoudai]){
@@ -213,7 +214,6 @@ static const CGFloat basicItemHeight = 30;
     [DKYHUDTool show];
     DKYMadeInfoByProductNameParameter *p = [[DKYMadeInfoByProductNameParameter alloc] init];
     p.productName = self.productName;
-    p.productName = @"2244";
     
     WeakSelf(weakSelf);
     [[DKYHttpRequestManager sharedInstance] getMadeInfoByProductNameWithParameter:p Success:^(NSInteger statusCode, id data) {

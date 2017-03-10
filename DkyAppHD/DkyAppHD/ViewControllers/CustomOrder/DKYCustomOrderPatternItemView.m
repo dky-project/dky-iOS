@@ -138,6 +138,9 @@
         [self updateSubviewStatus:5 canEdit:NO];
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58){
         [self updateSubviewStatus:6 canEdit:NO];
+    }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369){
+        [self updateSubviewStatus:7 canEdit:NO];
     }
 }
 
@@ -269,6 +272,28 @@
             self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+        }
+            break;
+        case 7:{
+            self.kouView.optionsBtn.enabled = canEdit;
+            self.mjkView.textField.enabled = canEdit;
+            
+            self.mjBtn1.enabled = canEdit;
+            self.mjBtn2.enabled = canEdit;
+            
+            self.mjInputView.textField.enabled = canEdit;
+            self.mjInputView.textFieldTwo.enabled = canEdit;
+            
+            self.dcView.textField.enabled = canEdit;
+            self.klbBtn.enabled = canEdit;
+            self.kkBtn.enabled = canEdit;
+            self.jdBtn.enabled = canEdit;
+            self.jdInputView.textField.enabled = canEdit;
+            self.gyxcView.textField.enabled = canEdit;
+            self.qlbBtn.enabled = canEdit;
+            self.mjcView.textField.enabled = canEdit;
+            self.gjxfBtn.enabled = canEdit;
+            self.syBtn.enabled = canEdit;
         }
             break;
         default:
