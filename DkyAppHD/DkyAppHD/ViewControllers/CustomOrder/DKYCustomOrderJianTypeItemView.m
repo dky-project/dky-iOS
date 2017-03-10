@@ -80,7 +80,8 @@
     
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
