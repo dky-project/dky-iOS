@@ -132,7 +132,8 @@
         [self updateSubviewStatus:3 canEdit:NO];
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
         [self updateSubviewStatus:4 canEdit:NO];
-    }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355){
+    }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355 ||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56){
         [self updateSubviewStatus:5 canEdit:NO];
     }
 }

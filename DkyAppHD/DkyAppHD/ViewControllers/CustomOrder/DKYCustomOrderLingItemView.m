@@ -112,7 +112,8 @@
         [self dealWithLingSelected:2];
     }
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355){
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56){
         self.textField.enabled = NO;
     }else{
         self.textField.enabled = YES;
