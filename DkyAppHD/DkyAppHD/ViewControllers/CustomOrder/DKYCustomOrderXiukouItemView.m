@@ -82,7 +82,8 @@
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309){
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;

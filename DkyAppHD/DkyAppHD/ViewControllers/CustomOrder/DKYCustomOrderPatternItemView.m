@@ -124,7 +124,8 @@
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 59||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61){
         [self updateSubviewStatus:0 canEdit:NO];
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
         [self updateSubviewStatus:1 canEdit:NO];
