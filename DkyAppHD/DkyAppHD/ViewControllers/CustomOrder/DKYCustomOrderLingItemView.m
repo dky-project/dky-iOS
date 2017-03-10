@@ -116,7 +116,8 @@
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56){
         self.textField.enabled = NO;
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
-             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369){
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;

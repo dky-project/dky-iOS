@@ -92,6 +92,20 @@
             }
         }
     }
+    
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64){
+        self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
+    }
+}
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    
+    for (UIButton *btn in self.options) {
+        btn.enabled = canEdit;
+    }
 }
 
 
