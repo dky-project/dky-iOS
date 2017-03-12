@@ -138,6 +138,11 @@
             self.likouView.textField.enabled = NO;
             self.markView.textField.enabled = YES;
         }
+        
+        self.textField.enabled = NO;
+        if(madeInfoByProductName.productMadeInfoView.mDimNew26Id == 232){
+            self.textField.enabled = YES;
+        }
     }
 }
 
