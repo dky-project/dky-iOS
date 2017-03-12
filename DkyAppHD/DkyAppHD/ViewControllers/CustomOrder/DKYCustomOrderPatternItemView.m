@@ -154,6 +154,18 @@
     }else if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62){
         [self updateSubviewStatus:10 canEdit:NO];
     }
+    
+    self.mjInputView.textField.enabled = NO;
+    self.mjInputView.textFieldTwo.enabled = NO;
+    
+    if(madeInfoByProductName.productMadeInfoView.mDimNew7Id == 196||
+       madeInfoByProductName.productMadeInfoView.mDimNew7Id == 189){
+        self.mjInputView.textField.enabled = YES;
+        self.mjInputView.textFieldTwo.enabled = NO;
+    }else if(madeInfoByProductName.productMadeInfoView.mDimNew7Id == 198){
+        self.mjInputView.textField.enabled = NO;
+        self.mjInputView.textFieldTwo.enabled = YES;
+    }
 }
 
 - (void)updateSubviewStatus:(NSInteger)type canEdit:(BOOL)canEdit{
