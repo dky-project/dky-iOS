@@ -78,6 +78,29 @@
     }else{
         [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
     }
+    
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55){
+        [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+    }else{
+        [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+    }
+    
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
+        self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
+    }
+}
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    
+    self.bigView.optionsBtn.enabled = canEdit;
+    self.lengthView.textField.enabled = canEdit;
 }
 
 #pragma mark - action method

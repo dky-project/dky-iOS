@@ -226,8 +226,8 @@ static const CGFloat basicItemHeight = 30;
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
-            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew13Id = 364;
-            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew12Id = 367;
+//            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew13Id = 364;
+//            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew12Id = 367;
             [weakSelf dealWithstyleNumber];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
