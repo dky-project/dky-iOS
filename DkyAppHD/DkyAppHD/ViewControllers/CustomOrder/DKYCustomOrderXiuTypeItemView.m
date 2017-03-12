@@ -105,6 +105,24 @@
         }else{
             self.xcView.textField.enabled = YES;
         }
+        
+        self.textField.enabled = NO;
+        self.textField2.enabled = NO;
+        self.textField3.enabled = NO;
+        
+        if(madeInfoByProductName.productMadeInfoView.mDimNew9Id == 185){
+            self.textField.enabled = YES;
+            self.textField2.enabled = NO;
+            self.textField3.enabled = NO;
+        }else if(madeInfoByProductName.productMadeInfoView.mDimNew9Id == -1){
+            self.textField.enabled = YES;
+            self.textField2.enabled = NO;
+            self.textField3.enabled = YES;
+        }else if(madeInfoByProductName.productMadeInfoView.mDimNew9Id == -2){
+            self.textField.enabled = YES;
+            self.textField2.enabled = YES;
+            self.textField3.enabled = NO;
+        }
     }
 }
 
