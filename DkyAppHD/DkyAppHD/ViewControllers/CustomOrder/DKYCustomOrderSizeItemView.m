@@ -73,17 +73,15 @@
     
     self.lengthView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131){
+    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131 ||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55 ||
+       (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
+        madeInfoByProductName.productMadeInfoView.mDimNew15Id == 36)){
         [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
     }else{
         [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
     }
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55){
-        [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
-    }else{
-        [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
-    }
     
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
