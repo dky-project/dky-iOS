@@ -16,6 +16,8 @@
 
 @property (nonatomic, weak) UIButton *optionsBtn;
 
+@property (nonatomic, weak) UITextField *textField;
+
 
 @end
 
@@ -75,6 +77,11 @@
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
+        
+        self.textField.enabled = NO;
+        if(madeInfoByProductName.productMadeInfoView.mDimNew10Id == 176){
+            self.textField.enabled = YES;
+        }
     }
 }
 
@@ -126,6 +133,7 @@
     [self setupLengthView];
     
     [self setupOptionsBtn];
+    [self setupTextField];
 }
 
 - (void)setupTitleLabel{
@@ -184,4 +192,35 @@
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.lengthView.itemModel = itemModel;
 }
+
+- (void)setupTextField{
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
+    [self addSubview:textField];
+    self.textField = textField;
+    
+    textField.layer.borderColor = [UIColor colorWithHex:0x666666].CGColor;
+    textField.layer.borderWidth = 1;
+    
+    textField.font = [UIFont systemFontOfSize:14];
+    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.backgroundColor = [UIColor whiteColor];
+    
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
+    leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
+    self.textField.leftView = leftView;
+    
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    
+    WeakSelf(weakSelf);
+    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(37);
+        make.top.mas_equalTo(weakSelf.titleLabel);
+        make.height.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+    }];
+}
+
 @end
