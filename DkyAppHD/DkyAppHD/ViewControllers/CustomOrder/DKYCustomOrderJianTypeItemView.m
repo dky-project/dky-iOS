@@ -95,6 +95,26 @@
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
+        
+        if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
+            self.textField.enabled = NO;
+        }else{
+            self.textField.enabled = YES;
+        }
+        
+        if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131 ||
+           madeInfoByProductName.productMadeInfoView.mDimNew22Id == 130||
+           madeInfoByProductName.productMadeInfoView.mDimNew22Id == 129){
+            self.jkView.textField.enabled = NO;
+        }else{
+            self.jkView.textField.enabled = YES;
+        }
+        
+        if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 133){
+            self.gyxcView.textField.enabled = NO;
+        }else{
+            self.gyxcView.textField.enabled = YES;
+        }
     }
     
 //    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){

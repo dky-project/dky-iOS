@@ -99,6 +99,12 @@
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
+        
+        if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
+            self.xcView.textField.enabled = NO;
+        }else{
+            self.xcView.textField.enabled = YES;
+        }
     }
 }
 

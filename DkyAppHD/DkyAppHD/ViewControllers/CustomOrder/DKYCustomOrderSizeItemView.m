@@ -72,7 +72,51 @@
     if(!madeInfoByProductName) return;
     
     self.lengthView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
+    
+    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131){
+        [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+    }else{
+        [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+    }
 }
+
+#pragma mark - action method
+- (void)optionsBtnClicked:(UIButton*)sender{
+    //    if(self.optionsBtnClicked){
+    //        self.optionsBtnClicked(sender,sender.tag);
+    //    }
+    [self showOptionsPicker:sender];
+}
+
+#pragma mark - private method
+- (void)showOptionsPicker:(UIButton *)sender{
+    [self.superview endEditing:YES];
+    
+    NSMutableArray *item = @[].mutableCopy;
+    NSArray *models = nil;
+    
+    for (DKYDimlistItemModel *model in models) {
+        [item addObject:model.attribname];
+    }
+    
+    DLog(@"sender.extraInfo = %@",sender.extraInfo);
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
+                                             cancelButtonTitle:kDeleteTitle
+                                                       clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+                                                           DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                           if(buttonIndex != 0){
+                                                               [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }else{
+                                                               [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
+                                                           }
+                                                       }
+                                         otherButtonTitleArray:item];
+    actionSheet.scrolling = item.count > 10;
+    actionSheet.visibleButtonCount = 10;
+    actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    [actionSheet show];
+}
+
 
 #pragma mark - mark
 - (void)commonInit{
@@ -116,6 +160,16 @@
     itemModel.title = @"大";
     itemModel.content = @"点击选择大小";
     self.bigView.itemModel = itemModel;
+    
+    view.optionsBtn.tag = 1;
+    view.optionsBtn.originalTitle = [view.optionsBtn currentTitle];
+    if(itemModel.content.length > 2){
+        view.optionsBtn.extraInfo = [itemModel.content substringFromIndex:2];
+    }
+    view.optionsBtnClicked = ^(UIButton *sender){
+        [weakSelf showOptionsPicker:sender];
+    };
+
 }
 
 - (void)setupLengthView{
