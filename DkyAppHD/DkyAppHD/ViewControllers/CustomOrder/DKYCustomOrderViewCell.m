@@ -35,6 +35,7 @@
 #import "DKYDahuoPopupView.h"
 #import "DKYMadeInfoByProductNameParameter.h"
 #import "DKYMadeInfoByProductNameModel.h"
+#import "DKYCustomOrderAddMarkItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -111,7 +112,7 @@ static const CGFloat basicItemHeight = 30;
 @property (nonatomic, weak) DKYCustomOrderXiukouItemView *xiukouItemView;
 
 // 加注
-@property (nonatomic, weak) DKYCustomOrderTextFieldView *addMarkView;
+@property (nonatomic, weak) DKYCustomOrderAddMarkItemView *addMarkView;
 
 // 配套
 @property (nonatomic, weak) DKYCustomOrderMatchItemView *matchItemView;
@@ -193,6 +194,8 @@ static const CGFloat basicItemHeight = 30;
     self.xiukouItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.xiabianItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.genderItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.addMarkView.madeInfoByProductName = self.madeInfoByProductName;
+    self.matchItemView.madeInfoByProductName = self.madeInfoByProductName;
     
 //    WeakSelf(weakSelf);
 //    if([self needHideKoudai]){
@@ -223,6 +226,8 @@ static const CGFloat basicItemHeight = 30;
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
+            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew13Id = 364;
+            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew12Id = 367;
             [weakSelf dealWithstyleNumber];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -777,7 +782,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupAddMarkView{
-    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    DKYCustomOrderAddMarkItemView *view = [[DKYCustomOrderAddMarkItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.addMarkView = view;
     

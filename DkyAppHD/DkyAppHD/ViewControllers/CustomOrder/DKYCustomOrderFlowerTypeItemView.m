@@ -105,6 +105,22 @@
             }
         }
     }
+    
+    if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+        madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
+        self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
+    }
+}
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    
+    for (UIButton *btn in self.options) {
+        btn.enabled = canEdit;
+    }
 }
 
 #pragma mark - action method
@@ -427,6 +443,11 @@
     [self.options addObject:self.jiase];
     [self.options addObject:self.fanzhen];
     [self.options addObject:self.yizhen];
+    [self.options addObject:self.pangtiao];
+    [self.options addObject:self.diannao];
+    [self.options addObject:self.tianzhu];
+    [self.options addObject:self.xuxiantihua];
+    [self.options addObject:self.jubutihua];
 }
 
 - (void)setupOneView{

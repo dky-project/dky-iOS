@@ -91,7 +91,24 @@
             }
         }
     }
+    
+    if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+        madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
+        self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
+    }
 }
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    
+    for (UIButton *btn in self.options) {
+        btn.enabled = canEdit;
+    }
+}
+
 
 #pragma mark - action method
 - (void)checkBtnClicked:(UIButton*)sender{

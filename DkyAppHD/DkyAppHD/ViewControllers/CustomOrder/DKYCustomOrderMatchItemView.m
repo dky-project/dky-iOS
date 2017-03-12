@@ -64,6 +64,20 @@
     }];
 }
 
+- (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
+    [super setMadeInfoByProductName:madeInfoByProductName];
+    
+    if(madeInfoByProductName == nil)  return;
+    
+    if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+        madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
+        self.optionsBtn.enabled = NO;
+    }else{
+        self.optionsBtn.enabled = YES;
+    }
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){

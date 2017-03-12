@@ -166,6 +166,12 @@
         self.mjInputView.textField.enabled = NO;
         self.mjInputView.textFieldTwo.enabled = YES;
     }
+    
+    if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+        madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
+        [self updateSubviewStatus:11 canEdit:NO];
+    }
 }
 
 - (void)updateSubviewStatus:(NSInteger)type canEdit:(BOOL)canEdit{
@@ -380,6 +386,30 @@
             self.jdBtn.enabled = canEdit;
             self.jdInputView.textField.enabled = canEdit;
             self.gyxcView.textField.enabled = canEdit;
+            self.mjcView.textField.enabled = canEdit;
+            self.gjxfBtn.enabled = canEdit;
+            self.syBtn.enabled = canEdit;
+        }
+            break;
+        case 11:{
+            self.dingView.textField.enabled = canEdit;
+            self.kouView.optionsBtn.enabled = canEdit;
+            self.mjkView.textField.enabled = canEdit;
+            
+            self.mjBtn1.enabled = canEdit;
+            self.mjBtn2.enabled = canEdit;
+            
+            self.mjInputView.textField.enabled = canEdit;
+            self.mjInputView.textFieldTwo.enabled = canEdit;
+            
+            self.dcView.textField.enabled = canEdit;
+            self.suiBtn.enabled = canEdit;
+            self.klbBtn.enabled = canEdit;
+            self.kkBtn.enabled = canEdit;
+            self.jdBtn.enabled = canEdit;
+            self.jdInputView.textField.enabled = canEdit;
+            self.gyxcView.textField.enabled = canEdit;
+            self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
             self.syBtn.enabled = canEdit;
