@@ -126,6 +126,18 @@
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
+        
+        
+        self.markView.textField.enabled = NO;
+        self.likouView.textField.enabled = NO;
+        if(madeInfoByProductName.productMadeInfoView.mDimNew25Id == 299 ||
+           madeInfoByProductName.productMadeInfoView.mDimNew25Id == 302){
+            self.likouView.textField.enabled = YES;
+            self.markView.textField.enabled = NO;
+        }else if(madeInfoByProductName.productMadeInfoView.mDimNew25Id == 270){
+            self.likouView.textField.enabled = NO;
+            self.markView.textField.enabled = YES;
+        }
     }
 }
 
@@ -456,6 +468,8 @@
     itemModel.title = @"备注:";
     itemModel.subText = @"";
     self.markView.itemModel = itemModel;
+    
+    self.markView.textField.enabled = NO;
 }
 
 @end
