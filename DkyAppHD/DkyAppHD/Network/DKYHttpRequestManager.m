@@ -77,6 +77,10 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithAuthorizationToken:kGetMadeInfoByProductNameUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)getVipInfoWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kGetVipInfoUrl withParameter:parameter Success:success failure:failure];
+}
+
 - (void)LoginUserWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithNoAuthorizationToken:kLoginUserUrl withParameter:parameter Success:success failure:failure];
 }

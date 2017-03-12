@@ -245,6 +245,28 @@ static const CGFloat basicItemHeight = 30;
     }];
 }
 
+- (void)getVipInfoFromServer{
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] getVipInfoWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
 #pragma mark - mark - private method
 - (void)styleNumberViewDidEndEditing:(NSString *)text{
     self.productName = text;
@@ -444,6 +466,9 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"*手机号:";
     itemModel.keyboardType = UIKeyboardTypePhonePad;
     self.phoneNumberView.itemModel = itemModel;
+    itemModel.textFieldDidEndEditing = ^(UITextField *textField){
+        
+    };
 }
 
 - (void)setupStyleNumberView{
