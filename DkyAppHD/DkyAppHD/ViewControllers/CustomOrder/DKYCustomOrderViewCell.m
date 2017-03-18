@@ -53,6 +53,11 @@ static const CGFloat basicItemHeight = 30;
 @property (nonatomic, copy) NSString *productName;
 
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
+
+// 请求参数
+// 大货订单参数
+@property (nonatomic, strong) DKYMptApproveSaveParameter *mptApproveSaveParameter;
+
 // 编号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *numberView;
 
@@ -122,11 +127,6 @@ static const CGFloat basicItemHeight = 30;
 // 图片
 @property (nonatomic, weak) UIImageView *displayImageView;
 //@property (nonatomic, weak) UILabel *titleLabel;
-
-// 请求参数
-// 大货订单参数
-@property (nonatomic, strong) DKYMptApproveSaveParameter *mptApproveSaveParameter;
-
 
 @end
 
@@ -398,7 +398,8 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)reset{
-    
+    self.productName = nil;
+    self.mptApproveSaveParameter = nil;
 }
 
 #pragma mark - UI
