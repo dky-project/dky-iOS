@@ -12,6 +12,7 @@
 #import "DKYCustomOrderItemModel.h"
 #import "DKYDimlistItemModel.h"
 #import "DKYMadeInfoByProductNameModel.h"
+#import "DKYMptApproveSaveParameter.h"
 
 @interface DKYDahuoPopupView ()
 
@@ -67,10 +68,10 @@
 
 - (void)confirmOrderBtnClicked:(UIButton*)sender{
     if(self.confirmBtnClicked){
-        self.confirmBtnClicked(sender);
+        self.confirmBtnClicked(self);
     }
     self.popup.dismissType = KLCPopupDismissTypeFadeOut;
-    [self dismiss];
+//    [self dismiss];
 }
 
 - (void)cancelBtnClicked:(UIButton*)sender{
@@ -95,12 +96,20 @@
         }
     }
     
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex != 0){
                                                                [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                               if(sender.tag == 0){
+                                                                   DKYDahuoOrderSizeModel *model = [weakSelf.madeInfoByProductNameModel.sizeViewList objectOrNilAtIndex:buttonIndex - 1];
+                                                                   weakSelf.mptApproveSaveParameter.sizeId = @(model.sizeId);
+                                                               }else{
+                                                                   DKYDahuoOrderColorModel *model = [weakSelf.madeInfoByProductNameModel.colorViewList objectOrNilAtIndex:buttonIndex - 1];
+                                                                   weakSelf.mptApproveSaveParameter.colorId = @(model.colorId);
+                                                               }
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }

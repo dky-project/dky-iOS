@@ -36,6 +36,8 @@
 #import "DKYMadeInfoByProductNameParameter.h"
 #import "DKYMadeInfoByProductNameModel.h"
 #import "DKYCustomOrderAddMarkItemView.h"
+#import "DKYVipNameParameter.h"
+#import "DKYMptApproveSaveParameter.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -119,8 +121,12 @@ static const CGFloat basicItemHeight = 30;
 
 // 图片
 @property (nonatomic, weak) UIImageView *displayImageView;
-
 //@property (nonatomic, weak) UILabel *titleLabel;
+
+// 请求参数
+// 大货订单参数
+@property (nonatomic, strong) DKYMptApproveSaveParameter *mptApproveSaveParameter;
+
 
 @end
 
@@ -245,9 +251,11 @@ static const CGFloat basicItemHeight = 30;
     }];
 }
 
-- (void)getVipInfoFromServer{
-    WeakSelf(weakSelf);
-    [[DKYHttpRequestManager sharedInstance] getVipInfoWithParameter:nil Success:^(NSInteger statusCode, id data) {
+- (void)getVipInfoFromServer:(NSString*)phone{
+//    WeakSelf(weakSelf);
+    DKYVipNameParameter *p = [[DKYVipNameParameter alloc] init];
+    p.phone = phone;
+    [[DKYHttpRequestManager sharedInstance] getVipInfoWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
@@ -263,6 +271,41 @@ static const CGFloat basicItemHeight = 30;
 
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)mptApproveSaveToServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    self.mptApproveSaveParameter.jgNo = @([self.productApproveTitleModel.code integerValue]);
+    self.mptApproveSaveParameter.productName = self.productName;
+    
+    [[DKYHttpRequestManager sharedInstance] mptApproveSaveWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 下单成功
+            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
+            
+            // 清空数据
+            [weakSelf reset];
+            
+            // 重新刷新页面
+            [weakSelf getMadeInfoByProductNameFromServer];
+            return;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
@@ -333,13 +376,29 @@ static const CGFloat basicItemHeight = 30;
     WeakSelf(weakSelf);
     DKYDahuoPopupView *popup = [DKYDahuoPopupView show];
     popup.madeInfoByProductNameModel = self.madeInfoByProductName;
+    popup.mptApproveSaveParameter = self.mptApproveSaveParameter;
     popup.cancelBtnClicked = ^(UIButton *sender){
         [weakSelf.styleNumberView clear];
     };
     
-    popup.confirmBtnClicked = ^(UIButton *sender){
+    popup.confirmBtnClicked = ^(DKYDahuoPopupView *popup){
+        if(weakSelf.mptApproveSaveParameter.sizeId == nil){
+            [DKYHUDTool showErrorWithStatus:@"请选择尺寸"];
+            return ;
+        }
         
+        if(weakSelf.mptApproveSaveParameter.colorId == nil){
+            [DKYHUDTool showErrorWithStatus:@"请选择颜色"];
+            return ;
+        }
+        
+        [popup dismiss];
+        [weakSelf mptApproveSaveToServer];
     };
+}
+
+- (void)reset{
+    
 }
 
 #pragma mark - UI
@@ -465,10 +524,10 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*手机号:";
     itemModel.keyboardType = UIKeyboardTypePhonePad;
-    self.phoneNumberView.itemModel = itemModel;
     itemModel.textFieldDidEndEditing = ^(UITextField *textField){
-        
+        [weakSelf getVipInfoFromServer:textField.text];
     };
+    self.phoneNumberView.itemModel = itemModel;
 }
 
 - (void)setupStyleNumberView{
@@ -859,8 +918,14 @@ static const CGFloat basicItemHeight = 30;
 }
 
 
+#pragma mark - get & set method
 
-
+- (DKYMptApproveSaveParameter*)mptApproveSaveParameter{
+    if(_mptApproveSaveParameter == nil){
+        _mptApproveSaveParameter = [[DKYMptApproveSaveParameter alloc] init];
+    }
+    return _mptApproveSaveParameter;
+}
 
 
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class DKYMadeInfoByProductNameModel;
+@class DKYMadeInfoByProductNameModel,DKYMptApproveSaveParameter;
 @interface DKYDahuoPopupView : UIView
 
 + (instancetype)show;
@@ -20,5 +20,7 @@
 @property (nonatomic, copy) BlockWithSender confirmBtnClicked;
 
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductNameModel;
+
+@property (nonatomic, strong) DKYMptApproveSaveParameter *mptApproveSaveParameter;
 
 @end

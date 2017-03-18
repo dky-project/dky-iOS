@@ -10,8 +10,8 @@
 #define DKYHttpUrl_h
 
 // 主机
-#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
-//#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
+//#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
+#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
 
 
 //#define BASE_URL     @"https:"
@@ -46,7 +46,9 @@
 
 #define kGetMadeInfoByProductNameUrl    @"productApprove/getMadeInfoByProductName"  // 输入款号之后的调用
 
-#define kGetVipInfoUrl                  @"getVipInfo"
+#define kGetVipInfoUrl                  @"user/getVipName"
+
+#define kMptApproveSaveUrl              @"productApprove/bMptApproveSave"           // 大货订单保存接口
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询
