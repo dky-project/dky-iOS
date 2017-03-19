@@ -431,6 +431,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第七大行,肩型
     [self.jianTypeView clear];
+    
+    // 第八大行，袖型
+    [self.xiuTypeView clear];
 }
 
 #pragma mark - UI

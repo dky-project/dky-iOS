@@ -129,6 +129,21 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.textField.text = nil;
+    self.textField2.text = nil;
+    self.textField3.text = nil;
+    
+    [self.optionsBtn2 setTitle:self.optionsBtn2.originalTitle forState:UIControlStateNormal];
+    [self.optionsBtn3 setTitle:self.optionsBtn3.originalTitle forState:UIControlStateNormal];
+    self.xcView.textField.text = nil;
+}
+
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
 
@@ -149,27 +164,28 @@
     //    if(self.optionsBtnClicked){
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
-    [self showOptionsPicker];
+    [self showOptionsPicker:sender];
 }
 
 #pragma mark - private method
-- (void)showOptionsPicker{
+- (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
-    MMPopupItemHandler block = ^(NSInteger index){
-        DLog(@"++++++++ index = %ld",index);
-    };
-    
-    NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
-    
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
-    for (NSString *str in item) {
-        [items addObject:MMItemMake(str, MMItemTypeNormal, block)];
-    }
-    
-    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"选择式样"
-                                                          items:[items copy]];
-    [MMPopupWindow sharedWindow].touchWildToHide = YES;
-    [sheetView show];
+    NSMutableArray *item = @[].mutableCopy;
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
+                                             cancelButtonTitle:kDeleteTitle
+                                                       clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+                                                           DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                           if(buttonIndex != 0){
+                                                               [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
+                                                           }else{
+                                                               [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
+                                                           }
+                                                       }
+                                         otherButtonTitleArray:item];
+    actionSheet.scrolling = item.count > 10;
+    actionSheet.visibleButtonCount = 10;
+    actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    [actionSheet show];
 }
 
 #pragma mark - mark
@@ -218,6 +234,11 @@
     }];
     self.optionsBtn = btn;
     [btn setTitle:@"点击选择袖型" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
+    btn.tag = 0;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupTextField{
@@ -264,6 +285,11 @@
     }];
     self.optionsBtn2 = btn;
     [btn setTitle:@"点击选择什么" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
+    btn.tag = 0;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupTextField2{
@@ -310,6 +336,11 @@
     }];
     self.optionsBtn3 = btn;
     [btn setTitle:@"点击选择什么" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
+    btn.tag = 0;
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
 }
 
 - (void)setupTextField3{
