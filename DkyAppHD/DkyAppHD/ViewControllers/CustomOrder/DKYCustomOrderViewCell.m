@@ -440,6 +440,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十大行，领
     [self.lingView clear];
+    
+    // 第十一大行，花型
+    [self.flowerTypeItemView clear];
 }
 
 #pragma mark - UI
