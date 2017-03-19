@@ -422,6 +422,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第四大行， 式样
     [self.patternItemView clear];
+    
+    // 第五大行，尺寸
+    [self.sizeView clear];
 }
 
 #pragma mark - UI

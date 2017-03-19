@@ -94,6 +94,15 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.lengthView.textField.text = nil;
+}
+
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     
