@@ -12,4 +12,8 @@
 
 + (instancetype)orderActionsView;
 
+@property (nonatomic, copy) BlockWithSender confirmBtnClicked;
+
+@property (nonatomic, copy) BlockWithSender reWriteBtnClicked;
+
 @end

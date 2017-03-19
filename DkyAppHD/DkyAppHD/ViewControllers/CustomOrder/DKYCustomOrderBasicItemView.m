@@ -20,7 +20,7 @@
 }
 
 - (void)clear{
-    
+    DLog(@"DKYCustomOrderBasicItemView ,subclass must br implemtioned")
 }
 
 @end

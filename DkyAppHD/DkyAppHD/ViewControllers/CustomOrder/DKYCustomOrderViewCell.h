@@ -17,4 +17,6 @@
 
 @property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitleModel;
 
+- (void)reset;
+
 @end

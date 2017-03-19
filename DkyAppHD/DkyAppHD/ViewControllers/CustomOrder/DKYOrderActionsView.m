@@ -37,6 +37,20 @@
     return self;
 }
 
+#pragma mark - action method
+
+- (void)confirmOrderBtnClicked:(UIButton*)sender{
+    if(self.confirmBtnClicked){
+        self.confirmBtnClicked(sender);
+    }
+}
+
+- (void)reWriteBtnClicked:(UIButton*)sender{
+    if(self.reWriteBtnClicked){
+        self.reWriteBtnClicked(sender);
+    }
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
@@ -50,6 +64,7 @@
     [self addSubview:btn];
     self.confirmOrderBtn = btn;
     [self.confirmOrderBtn setTitle:@"确认下单" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(confirmOrderBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.confirmOrderBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(300, 50));
@@ -61,7 +76,7 @@
     [self addSubview:btn];
     self.reWriteBtn = btn;
     [self.reWriteBtn setTitle:@"重新填写" forState:UIControlStateNormal];
-    
+    [btn addTarget:self action:@selector(reWriteBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.reWriteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(weakSelf.confirmOrderBtn);
         make.right.mas_equalTo(weakSelf).with.offset(-72);

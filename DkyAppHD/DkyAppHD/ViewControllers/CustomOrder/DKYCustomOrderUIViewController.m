@@ -150,6 +150,16 @@
         make.bottom.mas_equalTo(weakSelf.view);
         make.top.mas_equalTo(weakSelf.tableView.mas_bottom);
     }];
+    
+    actionView.confirmBtnClicked = ^(UIButton* sender){
+        
+    };
+    
+    actionView.reWriteBtnClicked = ^(UIButton *sender){
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+        DKYCustomOrderViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
+        [cell reset];
+    };
 }
 
 - (void)setupCustomTitle:(NSString*)title;

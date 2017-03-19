@@ -398,8 +398,17 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)reset{
+    // 逻辑成员变量
     self.productName = nil;
     self.mptApproveSaveParameter = nil;
+    
+    // UI 属性
+    [self.numberView clear];
+    [self.clientView clear];
+    [self.phoneNumberView clear];
+    
+    [self.styleNumberView clear];
+    [self.genderItemView clear];
 }
 
 #pragma mark - UI
