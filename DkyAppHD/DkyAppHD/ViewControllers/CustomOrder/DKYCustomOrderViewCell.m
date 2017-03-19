@@ -398,17 +398,27 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)reset{
+    // 结束编辑
+    [self endEditing:YES];
     // 逻辑成员变量
     self.productName = nil;
     self.mptApproveSaveParameter = nil;
+    self.madeInfoByProductName = nil;
+    
+    [self updateModelViews];
     
     // UI 属性
+    // 第一行 款号，客户，手机号
     [self.numberView clear];
     [self.clientView clear];
     [self.phoneNumberView clear];
     
+    // 第二行 款号，性别
     [self.styleNumberView clear];
     [self.genderItemView clear];
+    
+    // 第三大行 品种 4个选择器
+    [self.varietyView clear];
 }
 
 #pragma mark - UI

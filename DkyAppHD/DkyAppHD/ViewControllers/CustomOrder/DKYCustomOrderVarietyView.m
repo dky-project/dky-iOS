@@ -108,6 +108,16 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    [self.secondBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    [self.thirdBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    [self.fourthBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){
