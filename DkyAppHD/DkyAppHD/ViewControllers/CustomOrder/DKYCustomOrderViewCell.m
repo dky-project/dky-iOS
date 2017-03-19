@@ -437,6 +437,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第九大行，袖边
     [self.xiuBianView clear];
+    
+    // 第十大行，领
+    [self.lingView clear];
 }
 
 #pragma mark - UI

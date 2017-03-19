@@ -149,6 +149,26 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    self.markView.textField.enabled = NO;
+    
+    [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.oneView.textField.text = nil;
+    self.oneView.textField2.text = nil;
+    self.sizeView.textField.text = nil;
+    
+    [self.lbcBtn setTitle:self.lbcBtn.originalTitle forState:UIControlStateNormal];
+    [self.lbBtn setTitle:self.lbBtn.originalTitle forState:UIControlStateNormal];
+    self.textField.text = nil;
+    [self.lxBtn setTitle:self.lxBtn.originalTitle forState:UIControlStateNormal];
+    self.likouView.textField.text = nil;
+    self.markView.textField.text = nil;
+}
+
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     self.optionsBtn.enabled = canEdit;
