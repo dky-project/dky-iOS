@@ -82,6 +82,7 @@
 
 - (void)clear{
     [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.canEdit = YES;
 }
 
 #pragma mark - action method

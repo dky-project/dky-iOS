@@ -419,6 +419,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第三大行 品种 4个选择器
     [self.varietyView clear];
+    
+    // 第四大行， 式样
+    [self.patternItemView clear];
 }
 
 #pragma mark - UI

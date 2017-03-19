@@ -174,6 +174,32 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.dingView.textField.text = nil;
+    [self.kouView.optionsBtn setTitle:self.kouView.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.mjkView.textField.text = nil;
+    [self.mjBtn1 setTitle:self.mjBtn1.originalTitle forState:UIControlStateNormal];
+    [self.mjBtn2 setTitle:self.mjBtn2.originalTitle forState:UIControlStateNormal];
+    self.mjInputView.textField.text = nil;
+    self.mjInputView.textFieldTwo.text = nil;
+    self.dcView.textField.text = nil;
+    [self.suiBtn setTitle:self.suiBtn.originalTitle forState:UIControlStateNormal];
+    [self.klbBtn setTitle:self.klbBtn.originalTitle forState:UIControlStateNormal];
+    [self.kkBtn setTitle:self.kkBtn.originalTitle forState:UIControlStateNormal];
+    [self.jdBtn setTitle:self.jdBtn.originalTitle forState:UIControlStateNormal];
+    self.jdInputView.textField.text = nil;
+    self.gyxcView.textField.text = nil;
+    [self.qlbBtn setTitle:self.qlbBtn.originalTitle forState:UIControlStateNormal];
+    self.mjcView.textField.text = nil;
+    [self.gjxfBtn setTitle:self.gjxfBtn.originalTitle forState:UIControlStateNormal];
+    [self.syBtn setTitle:self.syBtn.originalTitle forState:UIControlStateNormal];
+}
+
 - (void)updateSubviewStatus:(NSInteger)type canEdit:(BOOL)canEdit{
     self.canEdit = YES;
     
@@ -422,11 +448,25 @@
 
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
+    self.optionsBtn.enabled = canEdit;
+    self.dingView.textField.enabled = canEdit;
     self.kouView.optionsBtn.enabled = canEdit;
     self.mjkView.textField.enabled = canEdit;
-    
     self.mjBtn1.enabled = canEdit;
     self.mjBtn1.enabled = canEdit;
+    self.mjInputView.textField.enabled = canEdit;
+    self.mjInputView.textFieldTwo.enabled = canEdit;
+    self.dcView.textField.enabled = canEdit;
+    self.suiBtn.enabled = canEdit;
+    self.klbBtn.enabled = canEdit;
+    self.kkBtn.enabled = canEdit;
+    self.jdBtn.enabled = canEdit;
+    self.jdInputView.textField.enabled = canEdit;
+    self.gyxcView.textField.enabled = canEdit;
+    self.qlbBtn.enabled = canEdit;
+    self.mjcView.textField.enabled = canEdit;
+    self.gjxfBtn.enabled = canEdit;
+    self.syBtn.enabled = canEdit;
 }
 
 #pragma mark - action method
