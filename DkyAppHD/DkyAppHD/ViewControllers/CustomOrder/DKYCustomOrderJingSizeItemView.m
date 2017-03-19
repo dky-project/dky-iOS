@@ -66,6 +66,22 @@
     }];
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    self.jxwView.textField.text = nil;
+    self.sjxcView.textField.text = nil;
+}
+
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    
+    self.jxwView.textField.enabled = canEdit;
+    self.sjxcView.textField.enabled = canEdit;
+}
+
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
