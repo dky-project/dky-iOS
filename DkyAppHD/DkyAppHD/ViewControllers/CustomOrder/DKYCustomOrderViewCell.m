@@ -476,11 +476,10 @@ static const CGFloat basicItemHeight = 30;
     // 第一行 款号，客户，手机号
     [self setupNumberView];
     [self setupClientView];
-    [self setupPhoneNumberView];
-    
+    [self setupGenderItemView];
     // 第二行 款号，性别
     [self setupStyleNumberView];
-    [self setupGenderItemView];
+    [self setupPhoneNumberView];
     
     // 第三大行 品种 4个选择器
     [self setupVarietyView];
@@ -576,13 +575,13 @@ static const CGFloat basicItemHeight = 30;
     self.clientView.itemModel = itemModel;
 }
 
-- (void)setupPhoneNumberView{
-    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+- (void)setupGenderItemView{
+    DKYCustomOrderGenderItemView *view = [[DKYCustomOrderGenderItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
-    self.phoneNumberView = view;
+    self.genderItemView = view;
     
     WeakSelf(weakSelf);
-    [self.phoneNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.genderItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.clientView.mas_right).with.offset(hpadding);
         make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
@@ -590,12 +589,8 @@ static const CGFloat basicItemHeight = 30;
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"*手机号:";
-    itemModel.keyboardType = UIKeyboardTypePhonePad;
-    itemModel.textFieldDidEndEditing = ^(UITextField *textField){
-        [weakSelf getVipInfoFromServer:textField.text];
-    };
-    self.phoneNumberView.itemModel = itemModel;
+    itemModel.title = @"*性别:";
+    self.genderItemView.itemModel = itemModel;
 }
 
 - (void)setupStyleNumberView{
@@ -623,22 +618,26 @@ static const CGFloat basicItemHeight = 30;
     self.styleNumberView.itemModel = itemModel;
 }
 
-- (void)setupGenderItemView{
-    DKYCustomOrderGenderItemView *view = [[DKYCustomOrderGenderItemView alloc] initWithFrame:CGRectZero];
+- (void)setupPhoneNumberView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
-    self.genderItemView = view;
+    self.phoneNumberView = view;
     
     WeakSelf(weakSelf);
-    [self.genderItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.phoneNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.clientView);
-        make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
+        make.right.mas_equalTo(weakSelf.genderItemView);
         make.top.mas_equalTo(weakSelf.styleNumberView);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"*性别:";
-    self.genderItemView.itemModel = itemModel;
+    itemModel.title = @"*手机号:";
+    itemModel.keyboardType = UIKeyboardTypePhonePad;
+    itemModel.textFieldDidEndEditing = ^(UITextField *textField){
+        [weakSelf getVipInfoFromServer:textField.text];
+    };
+    self.phoneNumberView.itemModel = itemModel;
 }
 
 - (void)setupVarietyView{
