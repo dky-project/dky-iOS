@@ -101,6 +101,18 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    for (UIButton *btn in self.options) {
+        btn.selected = NO;
+    }
+    self.textField.text = nil;
+    self.textField.enabled = NO;
+}
+
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     

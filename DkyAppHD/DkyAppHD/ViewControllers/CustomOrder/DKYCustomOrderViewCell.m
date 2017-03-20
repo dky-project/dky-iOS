@@ -452,6 +452,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十四大行,附件
     [self.attachmentItemView clear];
+    
+    // 第十五大行，特殊工艺
+    [self.specialCraftItemView clear];
 }
 
 #pragma mark - UI
