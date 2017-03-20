@@ -449,6 +449,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十三大行，口袋
     [self.koudaiItemView clear];
+    
+    // 第十四大行,附件
+    [self.attachmentItemView clear];
 }
 
 #pragma mark - UI

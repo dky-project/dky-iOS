@@ -248,6 +248,9 @@
     leftView.frame = CGRectMake(0, 0, 5, self.textField.mj_h);
     self.textField.leftView = leftView;
     
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.other.mas_right).with.offset(DKYCustomOrderItemButtnWMargin);

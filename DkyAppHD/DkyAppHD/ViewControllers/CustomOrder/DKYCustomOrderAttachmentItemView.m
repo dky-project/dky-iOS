@@ -95,6 +95,18 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    for (UIButton *btn in self.options) {
+        btn.selected = NO;
+    }
+    self.textField.text = nil;
+    self.textField.enabled = NO;
+}
+
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     
@@ -240,6 +252,9 @@
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];
     leftView.frame = CGRectMake(0, 0, 5, self.textField.mj_h);
     self.textField.leftView = leftView;
+    
+    textField.background = [UIImage imageWithColor:[UIColor clearColor]];
+    textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
