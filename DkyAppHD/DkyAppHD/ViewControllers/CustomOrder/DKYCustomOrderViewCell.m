@@ -446,6 +446,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十二大行，烫珠
     [self.tangzhuItemView clear];
+    
+    // 第十三大行，口袋
+    [self.koudaiItemView clear];
 }
 
 #pragma mark - UI
@@ -497,19 +500,19 @@ static const CGFloat basicItemHeight = 30;
     // 第十四大行,附件
     [self setupAttachmentItemView];
     
-    // 第十一大行，特殊工艺
+    // 第十五大行，特殊工艺
     [self setupSpecialCraftItemView];
     
-    // 第十二行，下边
+    // 第十六行，下边
     [self setupXiabianItemView];
     
-    // 第十三行，袖口
+    // 第十七行，袖口
     [self setupXiukouItemView];
     
-    // 第十四大行,加注
+    // 第十八大行,加注
     [self setupAddMarkView];
     
-    // 第十五行，配套
+    // 第十九行，配套
     [self setupMatchItemView];
     
     // 图片
