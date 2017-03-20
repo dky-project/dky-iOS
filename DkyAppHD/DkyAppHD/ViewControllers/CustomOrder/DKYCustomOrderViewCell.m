@@ -458,6 +458,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十六行，下边
     [self.xiabianItemView clear];
+    
+    // 第十七行，袖口
+    [self.xiukouItemView clear];
 }
 
 #pragma mark - UI

@@ -100,6 +100,18 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    
+    self.lengthView.textField.text = nil;
+    [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.textField.text = nil;
+}
+
+
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     
