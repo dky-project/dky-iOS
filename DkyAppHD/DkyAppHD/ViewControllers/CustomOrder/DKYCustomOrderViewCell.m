@@ -292,7 +292,9 @@ static const CGFloat basicItemHeight = 30;
             [weakSelf reset];
             
             // 重新刷新页面
-            [weakSelf getMadeInfoByProductNameFromServer];
+            if(weakSelf.refreshBlock){
+                weakSelf.refreshBlock(nil);
+            }
             return;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -975,7 +977,7 @@ static const CGFloat basicItemHeight = 30;
     imageView.image = [UIImage imageNamed:@"login_placeholder"];
     [self.contentView addSubview:imageView];
     self.displayImageView = imageView;
-    
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
     WeakSelf(weakSelf);
     [self.displayImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(300, 380));

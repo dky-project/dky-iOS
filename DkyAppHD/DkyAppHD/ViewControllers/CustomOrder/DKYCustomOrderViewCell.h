@@ -19,4 +19,6 @@
 
 - (void)reset;
 
+@property (nonatomic, copy) BlockWithSender refreshBlock;
+
 @end

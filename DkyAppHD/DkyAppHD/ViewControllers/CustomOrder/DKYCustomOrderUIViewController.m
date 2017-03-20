@@ -201,8 +201,12 @@
         return cell;
     }
     
+    WeakSelf(weakSelf);
     DKYCustomOrderViewCell *cell= [DKYCustomOrderViewCell customOrderViewCellWithTableView:tableView];
     cell.productApproveTitleModel = self.productApproveTitle;
+    cell.refreshBlock = ^(id sender){
+        [weakSelf getProductApproveTitleFromServer];
+    };
     return cell;
 }
 
