@@ -111,7 +111,6 @@
     self.textField.text = nil;
 }
 
-
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     

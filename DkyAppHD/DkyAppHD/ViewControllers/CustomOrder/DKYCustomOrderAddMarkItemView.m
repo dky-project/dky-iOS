@@ -89,6 +89,10 @@
 }
 
 - (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
     self.textField.text = nil;
 }
 

@@ -461,6 +461,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十七行，袖口
     [self.xiukouItemView clear];
+    
+    // 第十八大行,加注
+    [self.addMarkView clear];
 }
 
 #pragma mark - UI
