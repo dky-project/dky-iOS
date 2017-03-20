@@ -455,6 +455,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十五大行，特殊工艺
     [self.specialCraftItemView clear];
+    
+    // 第十六行，下边
+    [self.xiabianItemView clear];
 }
 
 #pragma mark - UI
