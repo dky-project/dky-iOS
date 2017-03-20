@@ -443,6 +443,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十一大行，花型
     [self.flowerTypeItemView clear];
+    
+    // 第十二大行，烫珠
+    [self.tangzhuItemView clear];
 }
 
 #pragma mark - UI

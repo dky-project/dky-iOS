@@ -108,6 +108,31 @@
     }
 }
 
+- (void)clear{
+    // 逻辑属性
+    
+    // UI 清空
+    self.canEdit = YES;
+    for (UIButton *btn in self.options) {
+        btn.selected = NO;
+    }
+    
+    self.oneView.textField.enabled = NO;
+    self.oneView.textField2.enabled = NO;
+    self.oneView.textField.text = nil;
+    self.oneView.textField2.text = nil;
+    
+    self.twoView.textField.enabled = NO;
+    self.twoView.textField2.enabled = NO;
+    self.twoView.textField.text = nil;
+    self.twoView.textField2.text = nil;
+    
+    self.threeView.textField.enabled = NO;
+    self.threeView.textField2.enabled = NO;
+    self.threeView.textField.text = nil;
+    self.threeView.textField2.text = nil;
+}
+
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     
