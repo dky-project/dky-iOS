@@ -464,6 +464,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十八大行,加注
     [self.addMarkView clear];
+    
+    // 第十九行，配套
+    [self.matchItemView clear];
 }
 
 #pragma mark - UI
