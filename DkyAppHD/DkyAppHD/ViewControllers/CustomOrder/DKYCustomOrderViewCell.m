@@ -281,7 +281,7 @@ static const CGFloat basicItemHeight = 30;
     self.mptApproveSaveParameter.jgNo = @([self.productApproveTitleModel.code integerValue]);
     self.mptApproveSaveParameter.productName = self.productName;
     
-    [[DKYHttpRequestManager sharedInstance] mptApproveSaveWithParameter:nil Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] mptApproveSaveWithParameter:self.mptApproveSaveParameter Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
@@ -378,7 +378,8 @@ static const CGFloat basicItemHeight = 30;
     WeakSelf(weakSelf);
     DKYDahuoPopupView *popup = [DKYDahuoPopupView show];
     popup.madeInfoByProductNameModel = self.madeInfoByProductName;
-    popup.mptApproveSaveParameter = self.mptApproveSaveParameter;
+    popup.mptApproveSaveParameter = self.mptApproveSaveParameter;\
+    popup.productName = self.productName;
     popup.cancelBtnClicked = ^(UIButton *sender){
         [weakSelf.styleNumberView clear];
     };

@@ -64,6 +64,12 @@
     [self.popup dismiss:YES];
 }
 
+- (void)setProductName:(NSString *)productName{
+    _productName = [productName copy];
+    
+    self.subTitleLabel.text = [NSString stringWithFormat:@"款号 %@",productName];
+}
+
 #pragma mark - action method
 
 - (void)confirmOrderBtnClicked:(UIButton*)sender{
@@ -163,7 +169,7 @@
         make.top.mas_equalTo(weakSelf.titleLabel.mas_bottom).with.offset(32);
         make.right.mas_equalTo(weakSelf);
     }];
-    label.text = @"款号 16-A033";
+//    label.text = @"款号 16-A033";
 }
 
 - (void)setupSelectView{

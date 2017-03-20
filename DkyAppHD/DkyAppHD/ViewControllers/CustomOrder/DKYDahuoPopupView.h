@@ -23,4 +23,6 @@
 
 @property (nonatomic, strong) DKYMptApproveSaveParameter *mptApproveSaveParameter;
 
+@property (nonatomic, copy) NSString *productName;
+
 @end
