@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DKYCustomOrderDimList.h"
 #import "DKYDimlistItemModel.h"
+#import "DKYStaticDimListModel.h"
 
 @interface DKYProductApproveTitleModel : NSObject
 /**
@@ -41,5 +42,12 @@
  * 下拉框
  */
 @property (nonatomic, strong) DKYCustomOrderDimList *dimListModel;
+
+/**
+ * 原本写死在前端的下拉框的选项
+ */
+@property (nonatomic, copy) NSString *staticDimList;
+
+@property (nonatomic, strong) DKYStaticDimListModel *staticDimListModel;
 
 @end

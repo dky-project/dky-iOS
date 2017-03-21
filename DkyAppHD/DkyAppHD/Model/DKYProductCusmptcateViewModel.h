@@ -33,7 +33,9 @@
 @property (nonatomic, copy) NSString * syShow;
 @property (nonatomic, copy) NSString * xbShow;
 @property (nonatomic, copy) NSString * xkShow;
+
 @property (nonatomic, copy) NSString * xwArray;
+@property (nonatomic, copy) NSArray * xwArrayList;
 @property (nonatomic, copy) NSString * xxShow;
 
 /**

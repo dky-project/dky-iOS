@@ -124,10 +124,8 @@
     
     NSMutableArray *item = @[].mutableCopy;
     NSArray *models = nil;
-    
-    for (DKYDimlistItemModel *model in models) {
-        [item addObject:model.attribname];
-    }
+    models = self.madeInfoByProductName.productCusmptcateView.xwArrayList;
+    [item addObjectsFromArray:models];
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo

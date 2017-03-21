@@ -14,6 +14,9 @@
     NSDictionary *dict = [self.dimList jsonValueDecoded];
     self.dimListModel = [DKYCustomOrderDimList mj_objectWithKeyValues:dict];
     
+    
+    dict = [self.staticDimList jsonValueDecoded];
+    self.staticDimListModel = [DKYStaticDimListModel mj_objectWithKeyValues:dict];
 }
 
 @end

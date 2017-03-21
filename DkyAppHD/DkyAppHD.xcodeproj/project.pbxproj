@@ -165,6 +165,7 @@
 		EB9BBBA41E24CFC000939007 /* DKYBigClassEnumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA31E24CFC000939007 /* DKYBigClassEnumModel.m */; };
 		EB9BBBA71E24D42100939007 /* DKYSampleProductInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */; };
 		EB9BBBAA1E24DA6100939007 /* DKYSampleQueryParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */; };
+		EBA351791E811D9700D89BFA /* DKYStaticDimListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA351781E811D9700D89BFA /* DKYStaticDimListModel.m */; };
 		EBA90E951E52E2EF00EA539E /* TWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA90E941E52E2EE00EA539E /* TWScrollView.m */; };
 		EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA90E981E52E55A00EA539E /* DKYOrderActionsView.m */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
@@ -569,6 +570,8 @@
 		EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleProductInfoModel.m; sourceTree = "<group>"; };
 		EB9BBBA81E24DA6100939007 /* DKYSampleQueryParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleQueryParameter.h; sourceTree = "<group>"; };
 		EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleQueryParameter.m; sourceTree = "<group>"; };
+		EBA351771E811D9700D89BFA /* DKYStaticDimListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYStaticDimListModel.h; sourceTree = "<group>"; };
+		EBA351781E811D9700D89BFA /* DKYStaticDimListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYStaticDimListModel.m; sourceTree = "<group>"; };
 		EBA90E931E52E2EE00EA539E /* TWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWScrollView.h; sourceTree = "<group>"; };
 		EBA90E941E52E2EE00EA539E /* TWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWScrollView.m; sourceTree = "<group>"; };
 		EBA90E971E52E55A00EA539E /* DKYOrderActionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderActionsView.h; sourceTree = "<group>"; };
@@ -762,6 +765,8 @@
 				EB9ACBD61E5EE1B30007517C /* DKYProductMadeInfoViewModel.m */,
 				EB9ACBD81E5EE4E10007517C /* DKYProductCusmptcateViewModel.h */,
 				EB9ACBD91E5EE4E10007517C /* DKYProductCusmptcateViewModel.m */,
+				EBA351771E811D9700D89BFA /* DKYStaticDimListModel.h */,
+				EBA351781E811D9700D89BFA /* DKYStaticDimListModel.m */,
 			);
 			name = "定制订单";
 			sourceTree = "<group>";
@@ -1986,6 +1991,7 @@
 				26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */,
 				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
 				EB97906B1E221B6F00E2985C /* MMDateView.m in Sources */,
+				EBA351791E811D9700D89BFA /* DKYStaticDimListModel.m in Sources */,
 				EB9790501E22118500E2985C /* WGBDatePickerView.m in Sources */,
 				26210BF31E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m in Sources */,
 				EB97908F1E22459300E2985C /* YYCache.m in Sources */,
