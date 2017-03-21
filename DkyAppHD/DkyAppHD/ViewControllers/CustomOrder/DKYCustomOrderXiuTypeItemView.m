@@ -171,6 +171,26 @@
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
     NSMutableArray *item = @[].mutableCopy;
+    NSArray *models = nil;
+    
+    switch (sender.tag) {
+        case 0:
+            models = self.staticDimListModel.DIMFLAG1;
+            break;
+        case 1:
+            models = self.staticDimListModel.DIMFLAG2;
+            break;
+        case 2:
+            models = self.staticDimListModel.DIMFLAG3;
+            break;
+        default:
+            break;
+    }
+    
+    for (DKYDimlistItemModel *model in models) {
+        [item addObject:model.attribname];
+    }
+
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -284,12 +304,10 @@
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.optionsBtn2 = btn;
-    [btn setTitle:@"点击选择什么" forState:UIControlStateNormal];
+    [btn setTitle:@"点击选择" forState:UIControlStateNormal];
     btn.originalTitle = [btn currentTitle];
-    btn.tag = 0;
-    if(btn.currentTitle.length > 2){
-        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
-    }
+    btn.tag = 1;
+    btn.extraInfo = @"";
 }
 
 - (void)setupTextField2{
@@ -335,12 +353,10 @@
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.optionsBtn3 = btn;
-    [btn setTitle:@"点击选择什么" forState:UIControlStateNormal];
+    [btn setTitle:@"点击选择" forState:UIControlStateNormal];
     btn.originalTitle = [btn currentTitle];
-    btn.tag = 0;
-    if(btn.currentTitle.length > 2){
-        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
-    }
+    btn.tag = 2;
+    btn.extraInfo = @"";
 }
 
 - (void)setupTextField3{
