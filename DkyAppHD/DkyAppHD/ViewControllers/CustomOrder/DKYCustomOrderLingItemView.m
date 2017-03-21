@@ -209,7 +209,7 @@
             models = self.customOrderDimList.DIMFLAG_NEW25;
             break;
         case 3:
-            models = self.customOrderDimList.lingArray;
+            models = self.staticDimListModel.DIMFLAG5;
             break;
         default:
             break;
@@ -247,32 +247,47 @@
     self.lxBtn.enabled = YES;
     self.sizeView.textField.enabled = YES;
     
-    switch (index) {
-        case 1:{
-            // 领边
-            self.lbcBtn.enabled = NO;
-            self.lbBtn.enabled = NO;
-            self.sizeView.textField.enabled = NO;
-        }
-            break;
-        case 2:{
-            // 领型
-            self.lxBtn.enabled = NO;
-        }
-            break;
-            
-        case 3:{
-            // 完全
-            self.lbcBtn.enabled = NO;
-            self.lbBtn.enabled = NO;
-            self.lxBtn.enabled = NO;
-            self.sizeView.textField.enabled = NO;
-        }
-            break;
-            
-        default:
-            break;
+    DKYDimlistItemModel *model = [self.staticDimListModel.DIMFLAG5 objectOrNilAtIndex:index - 1];
+    if(!model) return;
+    if([model.attribname isEqualToString:@"领边"]){
+        self.lbcBtn.enabled = NO;
+        self.lbBtn.enabled = NO;
+        self.sizeView.textField.enabled = NO;
+    }else if([model.attribname isEqualToString:@"领型"]){
+        self.lxBtn.enabled = NO;
+    }else if([model.attribname isEqualToString:@"完全"]){
+        self.lbcBtn.enabled = NO;
+        self.lbBtn.enabled = NO;
+        self.lxBtn.enabled = NO;
+        self.sizeView.textField.enabled = NO;
     }
+    
+//    switch (index) {
+//        case 1:{
+//            // 领边
+//            self.lbcBtn.enabled = NO;
+//            self.lbBtn.enabled = NO;
+//            self.sizeView.textField.enabled = NO;
+//        }
+//            break;
+//        case 2:{
+//            // 领型
+//            self.lxBtn.enabled = NO;
+//        }
+//            break;
+//            
+//        case 3:{
+//            // 完全
+//            self.lbcBtn.enabled = NO;
+//            self.lbBtn.enabled = NO;
+//            self.lxBtn.enabled = NO;
+//            self.sizeView.textField.enabled = NO;
+//        }
+//            break;
+//            
+//        default:
+//            break;
+//    }
 }
 
 #pragma mark - mark

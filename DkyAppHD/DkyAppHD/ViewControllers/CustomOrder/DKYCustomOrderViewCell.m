@@ -183,6 +183,7 @@ static const CGFloat basicItemHeight = 30;
     self.matchItemView.customOrderDimList = productApproveTitleModel.dimListModel;
     
     self.xiuTypeView.staticDimListModel = productApproveTitleModel.staticDimListModel;
+    self.lingView.staticDimListModel = productApproveTitleModel.staticDimListModel;
 }
 
 - (void)updateModelViews{
