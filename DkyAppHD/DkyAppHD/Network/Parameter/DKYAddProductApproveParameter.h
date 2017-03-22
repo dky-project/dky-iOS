@@ -347,4 +347,8 @@
  */
 @property (nonatomic, copy) NSString *sjxcValue;
 
+#pragma mark mark - 客户端自己的属性，逻辑用
+// 表示是否要有挂件袖肥的值
+@property (nonatomic, assign) BOOL needGjxf;
+
 @end

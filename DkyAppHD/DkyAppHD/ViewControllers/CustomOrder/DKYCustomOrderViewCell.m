@@ -53,8 +53,6 @@ static const CGFloat basicItemHeight = 30;
 
 @property (nonatomic, copy) NSString *productName;
 
-@property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
-
 // 请求参数
 // 大货订单参数
 @property (nonatomic, strong) DKYMptApproveSaveParameter *mptApproveSaveParameter;
@@ -185,6 +183,31 @@ static const CGFloat basicItemHeight = 30;
     
     self.xiuTypeView.staticDimListModel = productApproveTitleModel.staticDimListModel;
     self.lingView.staticDimListModel = productApproveTitleModel.staticDimListModel;
+}
+
+- (void)setAddProductApproveParameter:(DKYAddProductApproveParameter *)addProductApproveParameter{
+    _addProductApproveParameter = addProductApproveParameter;
+    
+    self.genderItemView.addProductApproveParameter = addProductApproveParameter;
+    self.varietyView.addProductApproveParameter = addProductApproveParameter;
+    self.patternItemView.addProductApproveParameter = addProductApproveParameter;
+    self.sizeView.addProductApproveParameter = addProductApproveParameter;
+    self.jingSizeItemView.addProductApproveParameter = addProductApproveParameter;
+    self.jianTypeView.addProductApproveParameter = addProductApproveParameter;
+    self.xiuTypeView.addProductApproveParameter = addProductApproveParameter;
+    self.xiuBianView.addProductApproveParameter = addProductApproveParameter;
+    self.lingView.addProductApproveParameter = addProductApproveParameter;
+    self.flowerTypeItemView.addProductApproveParameter = addProductApproveParameter;
+    
+    self.tangzhuItemView.addProductApproveParameter = addProductApproveParameter;
+    self.koudaiItemView.addProductApproveParameter = addProductApproveParameter;
+    self.attachmentItemView.addProductApproveParameter = addProductApproveParameter;
+    self.specialCraftItemView.addProductApproveParameter = addProductApproveParameter;
+    self.xiabianItemView.addProductApproveParameter = addProductApproveParameter;
+    
+    self.xiukouItemView.addProductApproveParameter = addProductApproveParameter;
+    self.addMarkView.addProductApproveParameter = addProductApproveParameter;
+    self.matchItemView.addProductApproveParameter = addProductApproveParameter;
 }
 
 - (void)updateModelViews{

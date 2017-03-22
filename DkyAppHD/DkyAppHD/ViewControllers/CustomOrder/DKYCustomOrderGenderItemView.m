@@ -81,6 +81,7 @@
 }
 
 - (void)clear{
+    self.addProductApproveParameter.mDimNew13Id = nil;
     [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
     self.canEdit = YES;
 }
@@ -102,7 +103,7 @@
     for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW13) {
         [item addObject:model.attribname];
     }
-    
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -112,12 +113,24 @@
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
+                                                           [weakSelf actionSheetSelected:buttonIndex];
                                                        }
                                              otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
     actionSheet.visibleButtonCount = 10;
     actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
     [actionSheet show];
+}
+
+- (void)actionSheetSelected:(NSInteger)index{
+    // 清除
+    if(index == 0){
+        self.addProductApproveParameter.mDimNew13Id = nil;
+        return;
+    }
+    
+    DKYDimlistItemModel *model = [self.customOrderDimList.DIMFLAG_NEW13 objectAtIndexedSubscript:index-1];
+    self.addProductApproveParameter.mDimNew13Id = @([model.ID integerValue]);
 }
 
 #pragma mark - mark

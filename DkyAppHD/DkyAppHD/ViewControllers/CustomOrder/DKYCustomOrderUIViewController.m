@@ -113,7 +113,25 @@
     [sheetView show];
 }
 
-
+- (BOOL)checkForAddProductApprove{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    DKYCustomOrderViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    DKYMadeInfoByProductNameModel *madeInfoByProductName = cell.madeInfoByProductName;
+    
+    //当挂件袖肥下拉框不隐藏时，判断性别下拉框值为（20或21）同时款号默认性别值mDim13Id为（20或21），提示“挂件袖肥的值不能为空”
+    if(self.addProductApproveParameter.needGjxf && (([self.addProductApproveParameter.mDimNew13Id integerValue] == 20 ||
+                                                    [self.addProductApproveParameter.mDimNew13Id integerValue] == 21)&&
+                                                    (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 ||
+                                                    madeInfoByProductName.productMadeInfoView.mDimNew13Id == 21))){
+                                                        if(self.addProductApproveParameter.mDimNew18Id == nil){
+                                                            [DKYHUDTool showInfoWithStatus:@"挂件袖肥的值不能为空"];
+                                                            return NO;
+                                                        }
+    }
+    
+    return YES;
+}
 #pragma mark - UI
 
 - (void)commonInit{
@@ -160,6 +178,8 @@
     actionView.confirmBtnClicked = ^(UIButton* sender){
         // 基础下单
         // 1.先检查逻辑
+        if(![weakSelf checkForAddProductApprove]) return;
+        
         // 2.调用下单接口
     };
     
@@ -211,6 +231,7 @@
     
     WeakSelf(weakSelf);
     DKYCustomOrderViewCell *cell= [DKYCustomOrderViewCell customOrderViewCellWithTableView:tableView];
+    cell.addProductApproveParameter = self.addProductApproveParameter;
     cell.productApproveTitleModel = self.productApproveTitle;
     cell.refreshBlock = ^(id sender){
         [weakSelf getProductApproveTitleFromServer];

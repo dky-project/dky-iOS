@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DKYMadeInfoByProductNameModel.h"
 
-@class DKYProductApproveTitleModel,DKYAddProductApproveParameter;
+@class DKYProductApproveTitleModel,DKYAddProductApproveParameter,DKYMadeInfoByProductNameModel;
 @interface DKYCustomOrderViewCell : UITableViewCell
 
 + (instancetype)customOrderViewCellWithTableView:(UITableView *)tableView;
@@ -18,6 +19,8 @@
 @property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitleModel;
 
 @property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
+
+@property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 
 - (void)reset;
 

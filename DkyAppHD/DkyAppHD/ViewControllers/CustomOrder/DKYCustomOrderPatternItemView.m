@@ -176,6 +176,7 @@
 
 - (void)clear{
     // 逻辑属性
+    self.addProductApproveParameter.mDimNew18Id = nil;
     
     // UI 清空
     self.canEdit = YES;
@@ -202,7 +203,7 @@
 
 - (void)updateSubviewStatus:(NSInteger)type canEdit:(BOOL)canEdit{
     self.canEdit = YES;
-    
+    self.addProductApproveParameter.needGjxf = YES;
     switch (type) {
         case 0:{
             self.kouView.optionsBtn.enabled = canEdit;
@@ -239,6 +240,7 @@
             self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+            self.addProductApproveParameter.needGjxf = canEdit;
             break;
         case 2:
             self.mjInputView.textField.enabled = canEdit;
@@ -307,6 +309,7 @@
             self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+            self.addProductApproveParameter.needGjxf = canEdit;
         }
             break;
         case 6:{
@@ -328,6 +331,7 @@
             self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+            self.addProductApproveParameter.needGjxf = canEdit;
         }
             break;
         case 7:{
@@ -349,6 +353,7 @@
             self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+            self.addProductApproveParameter.needGjxf = canEdit;
             self.syBtn.enabled = canEdit;
         }
             break;
@@ -369,6 +374,7 @@
             self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+            self.addProductApproveParameter.needGjxf = canEdit;
             self.syBtn.enabled = canEdit;
         }
             break;
@@ -392,6 +398,7 @@
             self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+            self.addProductApproveParameter.needGjxf = canEdit;
             self.syBtn.enabled = canEdit;
         }
             break;
@@ -414,6 +421,7 @@
             self.gyxcView.textField.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+            self.addProductApproveParameter.needGjxf = canEdit;
             self.syBtn.enabled = canEdit;
         }
             break;
@@ -438,6 +446,7 @@
             self.qlbBtn.enabled = canEdit;
             self.mjcView.textField.enabled = canEdit;
             self.gjxfBtn.enabled = canEdit;
+            self.addProductApproveParameter.needGjxf = canEdit;
             self.syBtn.enabled = canEdit;
         }
             break;
@@ -518,6 +527,7 @@
         case 10:
             models = self.customOrderDimList.DIMFLAG_NEW19;
             break;
+        default:
             break;
     }
     
@@ -527,6 +537,7 @@
     
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -536,12 +547,63 @@
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
+                                                           [weakSelf actionSheetSelected:sender.tag index:buttonIndex];
                                                        }
                                          otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
     actionSheet.visibleButtonCount = 10;
     actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
     [actionSheet show];
+}
+
+- (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
+    DKYDimlistItemModel *model = nil;
+    switch (tag) {
+        case 0:
+            models = self.customOrderDimList.DIMFLAG_NEW12;
+            break;
+        case 1:
+            models = self.customOrderDimList.DIMFLAG_NEW4;
+            break;
+        case 2:
+            models = self.customOrderDimList.DIMFLAG_NEW6;
+            break;
+        case 3:
+            models = self.customOrderDimList.DIMFLAG_NEW7;
+            break;
+        case 4:
+            models = self.customOrderDimList.DIMFLAG_NEW37;
+            break;
+        case 5:
+            models = self.customOrderDimList.DIMFLAG_NEW38;
+            break;
+        case 6:
+            models = self.customOrderDimList.DIMFLAG_NEW39;
+            break;
+        case 7:
+            models = self.customOrderDimList.DIMFLAG_NEW1;
+            break;
+        case 8:
+            models = self.customOrderDimList.DIMFLAG_NEW3;
+            break;
+        case 9:
+            // 清除
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew18Id = nil;
+                return;
+            }
+            
+            models = self.customOrderDimList.DIMFLAG_NEW18;
+            model = [models objectAtIndexedSubscript:index - 1];
+            self.addProductApproveParameter.mDimNew18Id = @([model.ID integerValue]);
+            break;
+        case 10:
+            models = self.customOrderDimList.DIMFLAG_NEW19;
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - mark
