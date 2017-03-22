@@ -73,6 +73,10 @@
     if(itemModel.textFieldDidEndEditing){
         [self.textField addTarget:self action:@selector(textFieldDidEndEditing:) forControlEvents:UIControlEventEditingDidEnd];
     }
+    
+    if(itemModel.textFieldDidEditing){
+        [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    }
 }
 
 - (void)clear{
@@ -98,6 +102,12 @@
     DLog(@"textFieldDidEndEditing");
     if(self.itemModel.textFieldDidEndEditing){
         self.itemModel.textFieldDidEndEditing(textField);
+    }
+}
+
+- (void)textFieldEditingChanged:(UITextField*)textField{
+    if(self.itemModel.textFieldDidEditing){
+        self.itemModel.textFieldDidEditing(textField);
     }
 }
 

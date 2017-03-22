@@ -28,4 +28,6 @@
 
 @property (nonatomic, copy) BlockWithSender textFieldDidEndEditing;
 
+@property (nonatomic, copy) BlockWithSender textFieldDidEditing;
+
 @end

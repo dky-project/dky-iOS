@@ -607,6 +607,9 @@ static const CGFloat basicItemHeight = 30;
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*客户:";
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.customer = textField.text;
+    };
     self.clientView.itemModel = itemModel;
 }
 
@@ -671,6 +674,10 @@ static const CGFloat basicItemHeight = 30;
     itemModel.keyboardType = UIKeyboardTypePhonePad;
     itemModel.textFieldDidEndEditing = ^(UITextField *textField){
         [weakSelf getVipInfoFromServer:textField.text];
+    };
+    
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.mobile = textField.text;
     };
     self.phoneNumberView.itemModel = itemModel;
 }

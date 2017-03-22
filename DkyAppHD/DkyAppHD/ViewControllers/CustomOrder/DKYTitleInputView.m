@@ -81,6 +81,9 @@
         }];
     }
     
+    if(itemModel.textFieldDidEditing){
+        [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    }
 }
 
 - (void)layoutSubviews{
@@ -94,6 +97,20 @@
         imageView.contentMode = UIViewContentModeLeft;
         imageView.image = [UIImage imageNamed:@"lock"];
         self.textField.rightView = imageView;
+    }
+}
+
+#pragma mark - action method
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    DLog(@"textFieldDidEndEditing");
+    if(self.itemModel.textFieldDidEndEditing){
+        self.itemModel.textFieldDidEndEditing(textField);
+    }
+}
+
+- (void)textFieldEditingChanged:(UITextField*)textField{
+    if(self.itemModel.textFieldDidEditing){
+        self.itemModel.textFieldDidEditing(textField);
     }
 }
 
