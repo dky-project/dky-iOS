@@ -87,6 +87,7 @@
 		EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */; };
 		EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */; };
 		EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */; };
+		EB843C461E82474400E4856E /* DKYAddProductApproveParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB843C451E82474400E4856E /* DKYAddProductApproveParameter.m */; };
 		EB8FA2A31E55A0B7004BE846 /* DKYCustomOrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8FA2A21E55A0B7004BE846 /* DKYCustomOrderViewCell.m */; };
 		EB8FA2A61E55AD99004BE846 /* DKYCustomOrderTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8FA2A51E55AD99004BE846 /* DKYCustomOrderTextFieldView.m */; };
 		EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB95107B1E15FA27008708EF /* DKYTabBarViewController.m */; };
@@ -413,6 +414,8 @@
 		EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderBrowserLineView.xib; sourceTree = "<group>"; };
 		EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		EB843C441E82474400E4856E /* DKYAddProductApproveParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYAddProductApproveParameter.h; sourceTree = "<group>"; };
+		EB843C451E82474400E4856E /* DKYAddProductApproveParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAddProductApproveParameter.m; sourceTree = "<group>"; };
 		EB8FA2A11E55A0B7004BE846 /* DKYCustomOrderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderViewCell.h; sourceTree = "<group>"; };
 		EB8FA2A21E55A0B7004BE846 /* DKYCustomOrderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderViewCell.m; sourceTree = "<group>"; };
 		EB8FA2A41E55AD99004BE846 /* DKYCustomOrderTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderTextFieldView.h; sourceTree = "<group>"; };
@@ -1324,6 +1327,8 @@
 				26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */,
 				2609BD511E7D56380063D6FF /* DKYMptApproveSaveParameter.h */,
 				2609BD521E7D56380063D6FF /* DKYMptApproveSaveParameter.m */,
+				EB843C441E82474400E4856E /* DKYAddProductApproveParameter.h */,
+				EB843C451E82474400E4856E /* DKYAddProductApproveParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2027,6 +2032,7 @@
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				EBB480BB1E5C15F500AC36D0 /* DKYCustomOrderDimList.m in Sources */,
 				EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */,
+				EB843C461E82474400E4856E /* DKYAddProductApproveParameter.m in Sources */,
 				EB195B9A1E5C41CE00116048 /* LCActionSheetConfig.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				EB16D0FE1E56F73F00939072 /* DKYTitleSelectView.m in Sources */,

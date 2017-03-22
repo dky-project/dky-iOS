@@ -49,6 +49,7 @@
 #define kGetVipInfoUrl                  @"user/getVipName"
 
 #define kMptApproveSaveUrl              @"productApprove/bMptApproveSave"           // 大货订单保存接口
+#define kAddProductApproveUrl           @"productApprove/addProductApprove"         // 基础下单
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询

@@ -296,4 +296,6 @@
  */
 @property (nonatomic, copy) NSArray *tsgyShow;
 
+@property (nonatomic, copy) NSString *imgUrl;
+
 @end

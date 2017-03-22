@@ -17,6 +17,7 @@
 #import "DKYDimlistItemModel.h"
 #import "DKYMadeInfoByProductNameModel.h"
 #import "DKYStaticDimListModel.h"
+#import "DKYAddProductApproveParameter.h"
 
 @interface DKYCustomOrderBasicItemView : UIView
 
@@ -27,6 +28,8 @@
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 
 @property (nonatomic, strong) DKYStaticDimListModel *staticDimListModel;
+
+@property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
 @property (nonatomic, assign) BOOL canEdit;
 

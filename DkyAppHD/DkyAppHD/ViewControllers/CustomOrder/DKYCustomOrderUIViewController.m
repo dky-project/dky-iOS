@@ -14,22 +14,26 @@
 #import "MMPopupWindow.h"
 #import "DKYCustomOrderBusinessCell.h"
 #import "DKYProductApproveTitleModel.h"
+#import "DKYAddProductApproveParameter.h"
 
 @interface DKYCustomOrderUIViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+// UI
 @property (nonatomic, weak)TWScrollView  *scrollView;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @property (nonatomic, weak) DKYOrderActionsView *actionsView;
 
-@property (nonatomic, assign) BOOL firstLoad;
-@property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitle;
+// 业务逻辑
 
+@property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitle;
+@property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
+
+@property (nonatomic, assign) BOOL firstLoad;
 @property (nonatomic, assign) BOOL needUpdate;
 
-
-// 测试控价
+// 测试控件
 @property (nonatomic, weak) UILabel *testLabel;
 
 @end
@@ -72,6 +76,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.needUpdate = NO;
             weakSelf.productApproveTitle = [DKYProductApproveTitleModel mj_objectWithKeyValues:result.data];
+            weakSelf.addProductApproveParameter = [[DKYAddProductApproveParameter alloc] init];
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -107,6 +112,7 @@
     [MMPopupWindow sharedWindow].touchWildToHide = YES;
     [sheetView show];
 }
+
 
 #pragma mark - UI
 
@@ -152,7 +158,9 @@
     }];
     
     actionView.confirmBtnClicked = ^(UIButton* sender){
-        
+        // 基础下单
+        // 1.先检查逻辑
+        // 2.调用下单接口
     };
     
     actionView.reWriteBtnClicked = ^(UIButton *sender){

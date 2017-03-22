@@ -38,6 +38,7 @@
 #import "DKYCustomOrderAddMarkItemView.h"
 #import "DKYVipNameParameter.h"
 #import "DKYMptApproveSaveParameter.h"
+#import "DKYAddProductApproveParameter.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -205,6 +206,9 @@ static const CGFloat basicItemHeight = 30;
     self.genderItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.addMarkView.madeInfoByProductName = self.madeInfoByProductName;
     self.matchItemView.madeInfoByProductName = self.madeInfoByProductName;
+    
+    NSURL *url = [NSURL URLWithString:self.madeInfoByProductName.productMadeInfoView.imgUrl];
+    [self.displayImageView sd_setImageWithURL:url];
     
 //    WeakSelf(weakSelf);
 //    if([self needHideKoudai]){
@@ -980,7 +984,7 @@ static const CGFloat basicItemHeight = 30;
 
 - (void)setupDisplayImageView{
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-    imageView.image = [UIImage imageNamed:@"login_placeholder"];
+//    imageView.image = [UIImage imageNamed:@"login_placeholder"];
     [self.contentView addSubview:imageView];
     self.displayImageView = imageView;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
