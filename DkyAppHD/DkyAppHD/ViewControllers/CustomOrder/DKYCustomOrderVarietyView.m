@@ -182,6 +182,7 @@
     }
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -191,6 +192,7 @@
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
+                                                           [weakSelf actionSheetSelected:sender.tag index:buttonIndex];
                                                        }
                                          otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
@@ -198,6 +200,58 @@
     actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
     [actionSheet show];
 }
+
+- (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
+    DKYDimlistItemModel *model = nil;
+    switch (tag) {
+        case 0:{
+            if(self.madeInfoByProductName){
+                // 输入款号之后
+                models = self.madeInfoByProductName.productMadeInfoView.pzJsonArray;
+            }else{
+                models = self.customOrderDimList.DIMFLAG_NEW14;
+            }
+            
+            model = [models objectOrNilAtIndex:index - 1];
+            // 清空
+            if(!model){
+                self.addProductApproveParameter.mDimNew14Id = nil;
+            }else{
+                self.addProductApproveParameter.mDimNew14Id = @([model.ID integerValue]);
+            }
+        }
+            break;
+        case 1:{
+            if(self.madeInfoByProductName){
+                // 输入款号之后
+                models = self.madeInfoByProductName.productMadeInfoView.zzJsonArray;
+            }else{
+                models = self.customOrderDimList.DIMFLAG_NEW15;;
+            }
+        }
+            break;
+        case 2:{
+            if(self.madeInfoByProductName){
+                // 输入款号之后
+                models = self.madeInfoByProductName.productMadeInfoView.zxJsonArray;
+            }else{
+                models = self.customOrderDimList.DIMFLAG_NEW16;
+            }
+        }
+            break;
+        case 3:{
+            if(self.madeInfoByProductName){
+                // 输入款号之后
+                models = self.madeInfoByProductName.productMadeInfoView.zbJsonArray;
+            }else{
+                models = self.customOrderDimList.DIMFLAG_NEW17;
+            }
+        }
+            break;
+    }
+}
+
 
 - (void)showMultipleSelectPopupView{
     DKYMultipleSelectPopupView *pop = [DKYMultipleSelectPopupView show];

@@ -119,44 +119,49 @@
     
     DKYMadeInfoByProductNameModel *madeInfoByProductName = cell.madeInfoByProductName;
 
-    // 客户不能为空、手机号不能为空、性别不能为空、胸围不能为空
-    if(![self.addProductApproveParameter.customer isNotBlank]){
-        [DKYHUDTool showInfoWithStatus:@"客户不能为空"];
+//    // 客户不能为空、手机号不能为空、性别不能为空、胸围不能为空
+//    if(![self.addProductApproveParameter.customer isNotBlank]){
+//        [DKYHUDTool showInfoWithStatus:@"客户不能为空"];
+//        return NO;
+//    }
+//    
+//    if(![self.addProductApproveParameter.mobile isNotBlank]){
+//        [DKYHUDTool showInfoWithStatus:@"手机号不能为空"];
+//        return NO;
+//    }
+//    
+//    if(self.addProductApproveParameter.mDimNew13Id == nil){
+//        [DKYHUDTool showInfoWithStatus:@"性别不能为空"];
+//        return NO;
+//    }
+//    
+//    if(![self.addProductApproveParameter.jxwValue isNotBlank]){
+//        [DKYHUDTool showInfoWithStatus:@"胸围不能为空"];
+//        return NO;
+//    }
+//    
+//    //当挂件袖肥下拉框不隐藏时，判断性别下拉框值为（20或21）同时款号默认性别值mDim13Id为（20或21），提示“挂件袖肥的值不能为空”
+//    if(self.addProductApproveParameter.needGjxf && (([self.addProductApproveParameter.mDimNew13Id integerValue] == 20 ||
+//                                                     [self.addProductApproveParameter.mDimNew13Id integerValue] == 21)&&
+//                                                    (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 ||
+//                                                     madeInfoByProductName.productMadeInfoView.mDimNew13Id == 21))){
+//                                                        if(self.addProductApproveParameter.mDimNew18Id == nil){
+//                                                            [DKYHUDTool showInfoWithStatus:@"挂件袖肥的值不能为空"];
+//                                                            return NO;
+//                                                        }
+//                                                    }
+//    
+//    //当领下拉框值为“完全”时，红框内值不能为空，提示“完全同不能为空”
+//    if([self.addProductApproveParameter.lingValue isEqualToString:@"完全"]){
+//        if(![self.addProductApproveParameter.lingNumber1Value isNotBlank]){
+//            [DKYHUDTool showInfoWithStatus:@"完全同不能为空"];
+//            return NO;
+//        }
+//    }
+    
+    if(self.addProductApproveParameter.mDimNew14Id == nil){
+        [DKYHUDTool showInfoWithStatus:@"品种不能为空"];
         return NO;
-    }
-    
-    if(![self.addProductApproveParameter.mobile isNotBlank]){
-        [DKYHUDTool showInfoWithStatus:@"手机号不能为空"];
-        return NO;
-    }
-    
-    if(self.addProductApproveParameter.mDimNew13Id == nil){
-        [DKYHUDTool showInfoWithStatus:@"性别不能为空"];
-        return NO;
-    }
-    
-    if(![self.addProductApproveParameter.jxwValue isNotBlank]){
-        [DKYHUDTool showInfoWithStatus:@"胸围不能为空"];
-        return NO;
-    }
-    
-    //当挂件袖肥下拉框不隐藏时，判断性别下拉框值为（20或21）同时款号默认性别值mDim13Id为（20或21），提示“挂件袖肥的值不能为空”
-    if(self.addProductApproveParameter.needGjxf && (([self.addProductApproveParameter.mDimNew13Id integerValue] == 20 ||
-                                                     [self.addProductApproveParameter.mDimNew13Id integerValue] == 21)&&
-                                                    (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 ||
-                                                     madeInfoByProductName.productMadeInfoView.mDimNew13Id == 21))){
-                                                        if(self.addProductApproveParameter.mDimNew18Id == nil){
-                                                            [DKYHUDTool showInfoWithStatus:@"挂件袖肥的值不能为空"];
-                                                            return NO;
-                                                        }
-                                                    }
-    
-    //当领下拉框值为“完全”时，红框内值不能为空，提示“完全同不能为空”
-    if([self.addProductApproveParameter.lingValue isEqualToString:@"完全"]){
-        if(![self.addProductApproveParameter.lingNumber1Value isNotBlank]){
-            [DKYHUDTool showInfoWithStatus:@"完全同不能为空"];
-            return NO;
-        }
     }
 
     return YES;
