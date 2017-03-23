@@ -191,6 +191,14 @@
     [self showOptionsPicker:sender];
 }
 
+- (void)oneViewLeftTextFieldEditing:(UITextField*)textField{
+    self.addProductApproveParameter.lingNumber1Value = textField.text;
+}
+
+- (void)oneViewRightTextFieldEditing:(UITextField*)textField{
+    self.addProductApproveParameter.lingNumber2Value = textField.text;
+}
+
 #pragma mark - private method
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
@@ -248,7 +256,11 @@
     self.sizeView.textField.enabled = YES;
     
     DKYDimlistItemModel *model = [self.staticDimListModel.DIMFLAG5 objectOrNilAtIndex:index - 1];
-    if(!model) return;
+    if(!model) {
+        self.addProductApproveParameter.lingValue = nil;
+        return;
+    }
+    
     if([model.attribname isEqualToString:@"领边"]){
         self.lbcBtn.enabled = NO;
         self.lbBtn.enabled = NO;
@@ -262,6 +274,7 @@
         self.sizeView.textField.enabled = NO;
     }
     
+    self.addProductApproveParameter.lingValue = model.attribname;
 //    switch (index) {
 //        case 1:{
 //            // 领边
@@ -363,6 +376,9 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     self.oneView.itemModel = itemModel;
+    
+    [self.oneView.textField addTarget:self action:@selector(oneViewLeftTextFieldEditing:) forControlEvents:UIControlEventEditingChanged];
+    [self.oneView.textField2 addTarget:self action:@selector(oneViewRightTextFieldEditing:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)setupSizeView{

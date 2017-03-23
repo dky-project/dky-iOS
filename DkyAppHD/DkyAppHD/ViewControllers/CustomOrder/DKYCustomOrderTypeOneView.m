@@ -89,7 +89,6 @@
             make.width.mas_equalTo(textFrame.size.width + 2);
         }];
     }
-    
 }
 
 #pragma mark - mark

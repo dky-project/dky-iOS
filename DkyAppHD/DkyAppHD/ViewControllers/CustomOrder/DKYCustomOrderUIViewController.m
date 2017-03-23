@@ -151,7 +151,14 @@
                                                         }
                                                     }
     
-    
+    //当领下拉框值为“完全”时，红框内值不能为空，提示“完全同不能为空”
+    if([self.addProductApproveParameter.lingValue isEqualToString:@"完全"]){
+        if(![self.addProductApproveParameter.lingNumber1Value isNotBlank]){
+            [DKYHUDTool showInfoWithStatus:@"完全同不能为空"];
+            return NO;
+        }
+    }
+
     return YES;
 }
 #pragma mark - UI
