@@ -159,8 +159,13 @@
 //        }
 //    }
     
-    if(self.addProductApproveParameter.mDimNew14Id == nil){
-        [DKYHUDTool showInfoWithStatus:@"品种不能为空"];
+//    if(self.addProductApproveParameter.mDimNew14Id == nil){
+//        [DKYHUDTool showInfoWithStatus:@"品种不能为空"];
+//        return NO;
+//    }
+    
+    if(self.addProductApproveParameter.mDimNew12Id == nil){
+        [DKYHUDTool showInfoWithStatus:@"式样不能为空"];
         return NO;
     }
 

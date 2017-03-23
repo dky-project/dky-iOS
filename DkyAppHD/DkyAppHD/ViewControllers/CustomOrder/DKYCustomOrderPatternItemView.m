@@ -561,7 +561,15 @@
     DKYDimlistItemModel *model = nil;
     switch (tag) {
         case 0:
+            // 清除
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew12Id = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW12;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew12Id = @([model.ID integerValue]);
             break;
         case 1:
             models = self.customOrderDimList.DIMFLAG_NEW4;
@@ -595,7 +603,7 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW18;
-            model = [models objectAtIndexedSubscript:index - 1];
+            model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew18Id = @([model.ID integerValue]);
             break;
         case 10:
