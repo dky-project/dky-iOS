@@ -238,6 +238,14 @@
             }else{
                 models = self.customOrderDimList.DIMFLAG_NEW16;
             }
+            
+            model = [models objectOrNilAtIndex:index - 1];
+            // 清空
+            if(!model){
+                self.addProductApproveParameter.mDimNew16Id = nil;
+            }else{
+                self.addProductApproveParameter.mDimNew16Id = @([model.ID integerValue]);
+            }
         }
             break;
         case 3:{

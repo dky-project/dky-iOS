@@ -164,10 +164,15 @@
 //        return NO;
 //    }
     
-    if(self.addProductApproveParameter.mDimNew12Id == nil){
-        [DKYHUDTool showInfoWithStatus:@"式样不能为空"];
-        return NO;
-    }
+//    if(self.addProductApproveParameter.mDimNew12Id == nil){
+//        [DKYHUDTool showInfoWithStatus:@"式样不能为空"];
+//        return NO;
+//    }
+    
+//    if(self.addProductApproveParameter.mDimNew16Id == nil){
+//        [DKYHUDTool showInfoWithStatus:@"针型不能为空"];
+//        return NO;
+//    }
 
     return YES;
 }
