@@ -119,6 +119,7 @@
     
     DKYMadeInfoByProductNameModel *madeInfoByProductName = cell.madeInfoByProductName;
 
+#ifdef DEBUG
     // 客户不能为空、手机号不能为空、性别不能为空、胸围不能为空
     if(![self.addProductApproveParameter.customer isNotBlank]){
         [DKYHUDTool showInfoWithStatus:@"客户不能为空"];
@@ -135,7 +136,7 @@
         return NO;
     }
     
-    if(![self.addProductApproveParameter.jxwValue isNotBlank]){
+    if(![self.addProductApproveParameter.xwValue isNotBlank]){
         [DKYHUDTool showInfoWithStatus:@"胸围不能为空"];
         return NO;
     }
@@ -150,7 +151,7 @@
                                                             return NO;
                                                         }
                                                     }
-    
+
     //当领下拉框值为“完全”时，红框内值不能为空，提示“完全同不能为空”
     if([self.addProductApproveParameter.lingValue isEqualToString:@"完全"]){
         if(![self.addProductApproveParameter.lingNumber1Value isNotBlank]){
@@ -173,7 +174,13 @@
         [DKYHUDTool showInfoWithStatus:@"针型不能为空"];
         return NO;
     }
-
+    
+    //式样下拉框值为55或19时，净胸围、实际袖长不能为空，提示“式样为蝙蝠衫、套衫时,净胸围和实际袖长必填”
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 55 ||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 19){
+        
+    }
+#endif
     return YES;
 }
 #pragma mark - UI

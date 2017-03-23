@@ -77,7 +77,8 @@
        madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55 ||
        (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
         madeInfoByProductName.productMadeInfoView.mDimNew15Id == 36)){
-        [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+           [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+           self.addProductApproveParameter.xwValue = madeInfoByProductName.productMadeInfoView.xwValue;
     }else{
         [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
     }
@@ -128,6 +129,7 @@
     [item addObjectsFromArray:models];
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -137,6 +139,7 @@
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
+                                                           [weakSelf actionSheetSelected:0 index:buttonIndex];
                                                        }
                                          otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
@@ -145,6 +148,18 @@
     [actionSheet show];
 }
 
+- (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
+    models = self.madeInfoByProductName.productCusmptcateView.xwArrayList;
+    
+    // 清除
+    if(index == 0){
+        self.addProductApproveParameter.xwValue = nil;
+        return;
+    }
+    
+    self.addProductApproveParameter.xwValue = [models objectOrNilAtIndex:index - 1];
+}
 
 #pragma mark - mark
 - (void)commonInit{
