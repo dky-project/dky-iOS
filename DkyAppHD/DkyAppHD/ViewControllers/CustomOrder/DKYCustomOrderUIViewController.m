@@ -174,7 +174,7 @@
         [DKYHUDTool showInfoWithStatus:@"针型不能为空"];
         return NO;
     }
-#endif
+
     //式样下拉框值为55或19时，净胸围、实际袖长不能为空，提示“式样为蝙蝠衫、套衫时,净胸围和实际袖长必填”
     if([self.addProductApproveParameter.mDimNew12Id integerValue] == 55 ||
        [self.addProductApproveParameter.mDimNew12Id integerValue] == 19){
@@ -184,6 +184,20 @@
         }
         if(![self.addProductApproveParameter.sjxcValue isNotBlank]){
             [DKYHUDTool showInfoWithStatus:@"式样为蝙蝠衫、套衫时,净胸围和实际袖长必填"];
+            return NO;
+        }
+    }
+#endif
+    //肩型下拉框值为129或130或131时，净胸围、实际袖长不能为空，提示“肩型为连肩、马鞍肩、平袖肩时,净胸围和实际袖长必填”
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] == 129 ||
+       [self.addProductApproveParameter.mDimNew22Id integerValue] == 130||
+       [self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
+        if(![self.addProductApproveParameter.jxwValue isNotBlank]){
+            [DKYHUDTool showInfoWithStatus:@"肩型为连肩、马鞍肩、平袖肩时,净胸围和实际袖长必填"];
+            return NO;
+        }
+        if(![self.addProductApproveParameter.sjxcValue isNotBlank]){
+            [DKYHUDTool showInfoWithStatus:@"肩型为连肩、马鞍肩、平袖肩时,净胸围和实际袖长必填"];
             return NO;
         }
     }

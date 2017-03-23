@@ -168,6 +168,7 @@
         [item addObject:model.attribname];
     }
     
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -177,12 +178,27 @@
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
+                                                           [weakSelf actionSheetSelected:0 index:buttonIndex];
                                                        }
                                          otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
     actionSheet.visibleButtonCount = 10;
     actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
     [actionSheet show];
+}
+
+- (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
+    models = self.customOrderDimList.DIMFLAG_NEW22;
+    
+    // 清除
+    if(index == 0){
+        self.addProductApproveParameter.mDimNew22Id = nil;
+        return;
+    }
+    
+    DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
+    self.addProductApproveParameter.mDimNew22Id = @([model.ID integerValue]);
 }
 
 
