@@ -145,6 +145,9 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"实际袖长";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.sjxcValue = textField.text;
+    };
     self.sjxcView.itemModel = itemModel;
 }
 
