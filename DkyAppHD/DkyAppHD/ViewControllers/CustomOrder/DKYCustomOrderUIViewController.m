@@ -187,7 +187,7 @@
             return NO;
         }
     }
-#endif
+
     //肩型下拉框值为129或130或131时，净胸围、实际袖长不能为空，提示“肩型为连肩、马鞍肩、平袖肩时,净胸围和实际袖长必填”
     if([self.addProductApproveParameter.mDimNew22Id integerValue] == 129 ||
        [self.addProductApproveParameter.mDimNew22Id integerValue] == 130||
@@ -200,6 +200,12 @@
             [DKYHUDTool showInfoWithStatus:@"肩型为连肩、马鞍肩、平袖肩时,净胸围和实际袖长必填"];
             return NO;
         }
+    }
+   #endif
+    NSArray *selectedColors = [self.addProductApproveParameter.colorArr componentsSeparatedByString:@";"];
+    if(selectedColors.count == 0){
+        [DKYHUDTool showInfoWithStatus:@"请选择颜色！"];
+        return NO;
     }
 
     return YES;

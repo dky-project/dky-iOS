@@ -11,6 +11,7 @@
 #import "DKYMultipleSelectPopupViewCell.h"
 #import "DKYMultipleSelectPopupItemModel.h"
 #import "DKYDahuoOrderColorModel.h"
+#import "DKYAddProductApproveParameter.h"
 
 @interface DKYMultipleSelectPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,6 +27,8 @@
 
 @property (nonatomic, weak) UIButton *confirmBtn;
 
+@property (nonatomic, strong) NSNumber *colorValue;
+
 // 测试数据
 //@property (nonatomic, strong) NSMutableArray *colors;
 
@@ -39,7 +42,7 @@
                                             showType:KLCPopupShowTypeBounceInFromTop
                                          dismissType:KLCPopupDismissTypeBounceOutToBottom
                                             maskType:KLCPopupMaskTypeDimmed
-                            dismissOnBackgroundTouch:YES
+                            dismissOnBackgroundTouch:NO
                                dismissOnContentTouch:NO];
     popup.dimmedMaskAlpha = 0.6;
     contentView.popup = popup;
@@ -81,7 +84,26 @@
 }
 
 - (void)confirmBtnClicked:(UIButton*)sender{
+    [self fetchSelectedColorInfo];
     [self dismiss];
+}
+
+- (void)fetchSelectedColorInfo{
+    NSMutableArray *selectedColor = [NSMutableArray array];
+    
+    for (DKYDahuoOrderColorModel *model in self.colorViewList) {
+        if(model.selected){
+            [selectedColor addObject:model.colorName];
+            if(!self.colorValue){
+                self.colorValue = @(model.colorId);
+                self.addProductApproveParameter.colorValue = self.colorValue;
+            }
+        }
+    }
+    
+    if(selectedColor.count > 0){
+        self.addProductApproveParameter.colorArr = [selectedColor componentsJoinedByString:@";"];
+    }
 }
 
 #pragma mark - UI

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYAddProductApproveParameter;
 @interface DKYMultipleSelectPopupView : UIView
 
 + (instancetype)show;
@@ -19,5 +20,7 @@
 @property (nonatomic, strong) NSArray *colorViewList;
 
 @property (nonatomic, assign) NSInteger maxSelectedNumber;
+
+@property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
 @end
