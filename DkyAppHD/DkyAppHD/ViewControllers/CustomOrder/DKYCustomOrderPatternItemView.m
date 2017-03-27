@@ -572,7 +572,16 @@
             self.addProductApproveParameter.mDimNew12Id = @([model.ID integerValue]);
             break;
         case 1:
+            //钉扣拉链
+            //mDimNew4Id
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew4Id = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW4;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew4Id = @([model.ID integerValue]);
             break;
         case 2:
             models = self.customOrderDimList.DIMFLAG_NEW6;
