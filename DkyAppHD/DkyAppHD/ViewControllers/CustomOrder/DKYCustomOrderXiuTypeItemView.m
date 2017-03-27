@@ -253,6 +253,21 @@
     }
 }
 
+- (void)textFieldEditingChanged:(UITextField *)textField{
+    switch (textField.tag) {
+        case 0:
+            self.addProductApproveParameter.qtxxValue = textField.text;
+            break;
+        case 1:
+            self.addProductApproveParameter.qtxxValue1 = textField.text;
+            break;
+        case 2:
+            self.addProductApproveParameter.qtxxValue2 = textField.text;
+            break;
+        default:
+            break;
+    }
+}
 
 #pragma mark - mark
 - (void)commonInit{
@@ -328,6 +343,9 @@
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
+    textField.tag = 0;
+    [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
@@ -377,6 +395,9 @@
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
+    textField.tag = 1;
+    [self.textField2 addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    
     WeakSelf(weakSelf);
     [self.textField2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.optionsBtn2.mas_right).with.offset(DKYCustomOrderItemMargin);
@@ -425,6 +446,9 @@
     
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    
+    textField.tag = 2;
+    [self.textField3 addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     
     WeakSelf(weakSelf);
     [self.textField3 mas_makeConstraints:^(MASConstraintMaker *make) {
