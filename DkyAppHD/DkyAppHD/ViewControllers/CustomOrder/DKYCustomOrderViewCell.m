@@ -347,7 +347,7 @@ static const CGFloat basicItemHeight = 30;
 #pragma mark - mark - private method
 - (void)styleNumberViewDidEndEditing:(NSString *)text{
     self.productName = text;
-    
+    self.addProductApproveParameter.pdt = self.productName;
     if(![text isNotBlank]){
         [DKYHUDTool showInfoWithStatus:@"款号不能为空！"];
         return;
@@ -410,7 +410,7 @@ static const CGFloat basicItemHeight = 30;
     WeakSelf(weakSelf);
     DKYDahuoPopupView *popup = [DKYDahuoPopupView show];
     popup.madeInfoByProductNameModel = self.madeInfoByProductName;
-    popup.mptApproveSaveParameter = self.mptApproveSaveParameter;\
+    popup.mptApproveSaveParameter = self.mptApproveSaveParameter;
     popup.productName = self.productName;
     popup.cancelBtnClicked = ^(UIButton *sender){
         [weakSelf.styleNumberView clear];
@@ -589,6 +589,13 @@ static const CGFloat basicItemHeight = 30;
     itemModel.placeholder = @"请输入1-6位的数字编号";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldLeftOffset = 16;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        // 编号
+        if (textField.text.length > 6) {
+            textField.text = [textField.text substringToIndex:6];
+        }
+        weakSelf.addProductApproveParameter.no = textField.text;
+    };
     self.numberView.itemModel = itemModel;
 }
 
@@ -608,6 +615,7 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*客户:";
     itemModel.textFieldDidEditing = ^(UITextField *textField){
+        // 客户号
         weakSelf.addProductApproveParameter.customer = textField.text;
     };
     self.clientView.itemModel = itemModel;
