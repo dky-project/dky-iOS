@@ -165,7 +165,7 @@
     
     DKYMadeInfoByProductNameModel *madeInfoByProductName = cell.madeInfoByProductName;
 
-//#ifndef DEBUG
+#ifndef DEBUG
     
     // 客户不能为空、手机号不能为空、性别不能为空、胸围不能为空
     if(![self.addProductApproveParameter.customer isNotBlank]){
@@ -254,9 +254,10 @@
         [DKYHUDTool showInfoWithStatus:@"请选择颜色！"];
         return NO;
     }
-
+#endif
+    
     return YES;
-//#endif
+
 }
 #pragma mark - UI
 

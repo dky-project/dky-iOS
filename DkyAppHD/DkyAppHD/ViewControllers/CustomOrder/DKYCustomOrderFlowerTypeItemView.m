@@ -251,6 +251,11 @@
         [huax appendString:self.jubutihua.currentTitle];
     }
     
+    if([huax hasPrefix:@";"]){
+        NSRange deleteRange = NSMakeRange(huax.length - 1, 1);
+        [huax deleteCharactersInRange:deleteRange];
+    }
+    
     self.addProductApproveParameter.huax = [huax copy];
 }
 

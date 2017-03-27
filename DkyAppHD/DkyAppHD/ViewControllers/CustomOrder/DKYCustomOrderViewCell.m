@@ -152,6 +152,7 @@ static const CGFloat basicItemHeight = 30;
 
 - (void)fetchAddProductApproveInfo{
     [self.flowerTypeItemView fetchAddProductApproveInfo];
+    [self.koudaiItemView fetchAddProductApproveInfo];
 }
 
 - (void)reset{
