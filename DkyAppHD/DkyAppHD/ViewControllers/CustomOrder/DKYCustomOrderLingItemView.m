@@ -149,6 +149,11 @@
     }
 }
 
+- (void)fetchAddProductApproveInfo{
+    self.addProductApproveParameter.lingNumber1Value = self.oneView.textField.text;
+    self.addProductApproveParameter.lingNumber2Value = self.oneView.textField2.text;
+}
+
 - (void)clear{
     // 逻辑属性
     
@@ -451,7 +456,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField* textField){
-        weakSelf.addProductApproveParameter.lingCcValue = textField.text;
+        weakSelf.addProductApproveParameter.lingCcValue = @([textField.text doubleValue]);
     };
     self.sizeView.itemModel = itemModel;
 }

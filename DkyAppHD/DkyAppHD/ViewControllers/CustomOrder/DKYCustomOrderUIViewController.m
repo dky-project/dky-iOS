@@ -137,6 +137,9 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     DKYCustomOrderViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell fetchAddProductApproveInfo];
+    
+    
+    
 }
 
 #pragma mark - private method
