@@ -11,6 +11,7 @@
 #import "DKYCustomOrderItemModel.h"
 #import "DKYDeliveryDateView.h"
 #import "DKYProductApproveTitleModel.h"
+#import "DKYAddProductApproveParameter.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -255,6 +256,9 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"备忘录:";
     itemModel.lock = NO;
     itemModel.content = @"";
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.shRemark = textField.text;
+    };
     self.memoView.itemModel = itemModel;
 }
 

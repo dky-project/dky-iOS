@@ -354,6 +354,7 @@
     if(indexPath.row == 0){
         DKYCustomOrderBusinessCell *cell = [DKYCustomOrderBusinessCell customOrderBusinessCellWithTableView:tableView];
         cell.productApproveTitleModel = self.productApproveTitle;
+        cell.addProductApproveParameter = self.addProductApproveParameter;
         return cell;
     }
     

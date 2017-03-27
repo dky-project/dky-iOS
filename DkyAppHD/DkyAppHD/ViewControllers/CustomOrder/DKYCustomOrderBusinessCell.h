@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class DKYProductApproveTitleModel;
+@class DKYProductApproveTitleModel,DKYAddProductApproveParameter;
 @interface DKYCustomOrderBusinessCell : UITableViewCell
 
 + (instancetype)customOrderBusinessCellWithTableView:(UITableView *)tableView;
 
 @property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitleModel;
+
+@property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
 @end

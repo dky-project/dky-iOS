@@ -118,6 +118,10 @@
     }
 }
 
+- (void)textFieldEditingChanged:(UITextField*)textField{
+    
+}
+
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
@@ -163,6 +167,8 @@
     
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    
+    [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
