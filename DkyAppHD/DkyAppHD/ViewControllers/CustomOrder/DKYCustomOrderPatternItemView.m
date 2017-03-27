@@ -581,7 +581,7 @@
             models = self.customOrderDimList.DIMFLAG_NEW7;
             break;
         case 4:
-            // 清除
+            // 加穗 清除
             if(index == 0){
                 self.addProductApproveParameter.mDimNew37Id = nil;
                 return;
@@ -592,7 +592,15 @@
             self.addProductApproveParameter.mDimNew37Id = @([model.ID integerValue]);
             break;
         case 5:
+            //裤类别
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew38Id = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW38;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew38Id = @([model.ID integerValue]);
             break;
         case 6:
             models = self.customOrderDimList.DIMFLAG_NEW39;
