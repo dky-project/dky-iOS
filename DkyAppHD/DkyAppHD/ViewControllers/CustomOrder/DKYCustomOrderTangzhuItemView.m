@@ -108,6 +108,64 @@
     }
 }
 
+- (void)fetchAddProductApproveInfo{
+    NSMutableString *tangzhu = [[NSMutableString alloc] init];
+    if(self.tangzhu.selected){
+        NSMutableString *tz = [[NSMutableString alloc] initWithString:self.tangzhu.currentTitle];
+        [tz appendString:@"("];
+        [tz appendString:self.oneView.textField.text];
+        [tz appendString:@"-"];
+        [tz appendString:self.oneView.textField2.text];
+        [tz appendString:@"#"];
+        [tz appendString:@")"];
+        
+        [tangzhu appendString:tz];
+        [tangzhu appendString:@";"];
+    }
+    if(self.goubian.selected){
+        [tangzhu appendString:self.goubian.currentTitle];
+        [tangzhu appendString:@";"];
+    }
+    if(self.gongzhen.selected){
+        [tangzhu appendString:self.gongzhen.currentTitle];
+        [tangzhu appendString:@";"];
+    }
+
+    if(self.xiuhua.selected){
+        NSMutableString *xiuhua = [[NSMutableString alloc] initWithString:self.xiuhua.currentTitle];
+        [xiuhua appendString:@"("];
+        [xiuhua appendString:self.twoView.textField.text];
+        [xiuhua appendString:@"-"];
+        [xiuhua appendString:self.twoView.textField2.text];
+        [xiuhua appendString:@"#"];
+        [xiuhua appendString:@")"];
+        
+        [tangzhu appendString:xiuhua];
+        [tangzhu appendString:@";"];
+    }
+    
+    if(self.chuanzhu.selected){
+        NSMutableString *chuanzhu = [[NSMutableString alloc] initWithString:self.chuanzhu.currentTitle];
+        [chuanzhu appendString:@"("];
+        [chuanzhu appendString:self.threeView.textField.text];
+        [chuanzhu appendString:@"-"];
+        [chuanzhu appendString:self.threeView.textField2.text];
+        [chuanzhu appendString:@"#"];
+        [chuanzhu appendString:@")"];
+        
+        [tangzhu appendString:chuanzhu];
+        [tangzhu appendString:@";"];
+    }
+    
+    if([tangzhu hasSuffix:@";"]){
+        NSRange deleteRange = NSMakeRange(tangzhu.length - 1, 1);
+        [tangzhu deleteCharactersInRange:deleteRange];
+    }
+    
+    self.addProductApproveParameter.tangz = [tangzhu copy];
+}
+
+
 - (void)clear{
     // 逻辑属性
     
