@@ -150,6 +150,82 @@ static const CGFloat basicItemHeight = 30;
     return self;
 }
 
+- (void)fetchAddProductApproveInfo{
+    [self.flowerTypeItemView fetchAddProductApproveInfo];
+}
+
+- (void)reset{
+    // 结束编辑
+    [self endEditing:YES];
+    // 逻辑成员变量
+    self.productName = nil;
+    self.mptApproveSaveParameter = nil;
+    self.madeInfoByProductName = nil;
+    
+    [self updateModelViews];
+    
+    // UI 属性
+    // 第一行 款号，客户，手机号
+    [self.numberView clear];
+    [self.clientView clear];
+    [self.phoneNumberView clear];
+    
+    // 第二行 款号，性别
+    [self.styleNumberView clear];
+    [self.genderItemView clear];
+    
+    // 第三大行 品种 4个选择器
+    [self.varietyView clear];
+    
+    // 第四大行， 式样
+    [self.patternItemView clear];
+    
+    // 第五大行，尺寸
+    [self.sizeView clear];
+    
+    // 第六大行，净尺寸
+    [self.jingSizeItemView clear];
+    
+    // 第七大行,肩型
+    [self.jianTypeView clear];
+    
+    // 第八大行，袖型
+    [self.xiuTypeView clear];
+    
+    // 第九大行，袖边
+    [self.xiuBianView clear];
+    
+    // 第十大行，领
+    [self.lingView clear];
+    
+    // 第十一大行，花型
+    [self.flowerTypeItemView clear];
+    
+    // 第十二大行，烫珠
+    [self.tangzhuItemView clear];
+    
+    // 第十三大行，口袋
+    [self.koudaiItemView clear];
+    
+    // 第十四大行,附件
+    [self.attachmentItemView clear];
+    
+    // 第十五大行，特殊工艺
+    [self.specialCraftItemView clear];
+    
+    // 第十六行，下边
+    [self.xiabianItemView clear];
+    
+    // 第十七行，袖口
+    [self.xiukouItemView clear];
+    
+    // 第十八大行,加注
+    [self.addMarkView clear];
+    
+    // 第十九行，配套
+    [self.matchItemView clear];
+}
+
 - (void)drawRect:(CGRect)rect{
     [super drawRect:rect];
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -430,78 +506,6 @@ static const CGFloat basicItemHeight = 30;
         [popup dismiss];
         [weakSelf mptApproveSaveToServer];
     };
-}
-
-- (void)reset{
-    // 结束编辑
-    [self endEditing:YES];
-    // 逻辑成员变量
-    self.productName = nil;
-    self.mptApproveSaveParameter = nil;
-    self.madeInfoByProductName = nil;
-    
-    [self updateModelViews];
-    
-    // UI 属性
-    // 第一行 款号，客户，手机号
-    [self.numberView clear];
-    [self.clientView clear];
-    [self.phoneNumberView clear];
-    
-    // 第二行 款号，性别
-    [self.styleNumberView clear];
-    [self.genderItemView clear];
-    
-    // 第三大行 品种 4个选择器
-    [self.varietyView clear];
-    
-    // 第四大行， 式样
-    [self.patternItemView clear];
-    
-    // 第五大行，尺寸
-    [self.sizeView clear];
-    
-    // 第六大行，净尺寸
-    [self.jingSizeItemView clear];
-    
-    // 第七大行,肩型
-    [self.jianTypeView clear];
-    
-    // 第八大行，袖型
-    [self.xiuTypeView clear];
-    
-    // 第九大行，袖边
-    [self.xiuBianView clear];
-    
-    // 第十大行，领
-    [self.lingView clear];
-    
-    // 第十一大行，花型
-    [self.flowerTypeItemView clear];
-    
-    // 第十二大行，烫珠
-    [self.tangzhuItemView clear];
-    
-    // 第十三大行，口袋
-    [self.koudaiItemView clear];
-    
-    // 第十四大行,附件
-    [self.attachmentItemView clear];
-    
-    // 第十五大行，特殊工艺
-    [self.specialCraftItemView clear];
-    
-    // 第十六行，下边
-    [self.xiabianItemView clear];
-    
-    // 第十七行，袖口
-    [self.xiukouItemView clear];
-    
-    // 第十八大行,加注
-    [self.addMarkView clear];
-    
-    // 第十九行，配套
-    [self.matchItemView clear];
 }
 
 #pragma mark - UI

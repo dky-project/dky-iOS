@@ -20,7 +20,11 @@
 }
 
 - (void)clear{
-    DLog(@"DKYCustomOrderBasicItemView ,subclass must br implemtioned")
+    DLog(@"DKYCustomOrderBasicItemView ,subclass must be implemtioned");
+}
+
+- (void)fetchAddProductApproveInfo{
+     DLog(@"DKYCustomOrderBasicItemView ,subclass must be implemtioned");
 }
 
 @end

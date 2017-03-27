@@ -97,10 +97,7 @@
     [DKYHUDTool show];
     
     // 获取参数
-    self.addProductApproveParameter.jgno = self.productApproveTitle.code;
-    self.addProductApproveParameter.czDate = self.productApproveTitle.czDate;
-    self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
-    
+    [self fetchAddProductApproveInfo];
     
     WeakSelf(weakSelf);
     [[DKYHttpRequestManager sharedInstance] addProductApproveWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
@@ -130,6 +127,16 @@
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
+}
+
+- (void)fetchAddProductApproveInfo{
+    self.addProductApproveParameter.jgno = self.productApproveTitle.code;
+    self.addProductApproveParameter.czDate = self.productApproveTitle.czDate;
+    self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    DKYCustomOrderViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell fetchAddProductApproveInfo];
 }
 
 #pragma mark - private method

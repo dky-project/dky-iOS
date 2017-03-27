@@ -23,6 +23,7 @@
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 
 - (void)reset;
+- (void)fetchAddProductApproveInfo;
 
 @property (nonatomic, copy) BlockWithSender refreshBlock;
 

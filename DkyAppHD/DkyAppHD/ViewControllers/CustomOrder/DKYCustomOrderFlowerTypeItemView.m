@@ -140,6 +140,10 @@
     self.threeView.textField2.text = nil;
 }
 
+- (void)fetchAddProductApproveInfo{
+    
+}
+
 - (void)setCanEdit:(BOOL)canEdit{
     [super setCanEdit:canEdit];
     

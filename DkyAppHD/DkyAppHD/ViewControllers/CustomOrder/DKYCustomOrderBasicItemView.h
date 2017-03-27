@@ -35,4 +35,6 @@
 
 - (void)clear;
 
+- (void)fetchAddProductApproveInfo;
+
 @end
