@@ -231,6 +231,9 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"长";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.ycValue = textField.text;
+    };
     self.lengthView.itemModel = itemModel;
 }
 
