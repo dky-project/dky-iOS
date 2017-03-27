@@ -295,6 +295,9 @@
     itemModel.title = @"肩宽:";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.qtjxValue = textField.text;
+    };
     self.jkView.itemModel = itemModel;
 }
 
