@@ -625,7 +625,15 @@
             self.addProductApproveParameter.mDimNew1Id = @([model.ID integerValue]);
             break;
         case 8:
+            // 裙类别
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew3Id = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW3;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew3Id = @([model.ID integerValue]);
             break;
         case 9:
             // 清除
