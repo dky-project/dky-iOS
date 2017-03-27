@@ -204,6 +204,10 @@
     self.addProductApproveParameter.lingNumber2Value = textField.text;
 }
 
+- (void)lbTextFieldEditingChanged:(UITextField *)textField{
+    self.addProductApproveParameter.qtlbValue = textField.text;
+}
+
 #pragma mark - private method
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
@@ -522,6 +526,8 @@
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
+    [self.textField addTarget:self action:@selector(lbTextFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.lbBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
@@ -567,6 +573,9 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"";
     itemModel.subText = @"粒扣";
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.lxsx4Value = textField.text;
+    };
     self.likouView.itemModel = itemModel;
 }
 
@@ -586,6 +595,9 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"备注:";
     itemModel.subText = @"";
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.lxsx5Value = textField.text;
+    };
     self.markView.itemModel = itemModel;
     
     self.markView.textField.enabled = NO;
