@@ -98,6 +98,9 @@
     
     // 获取参数
     self.addProductApproveParameter.jgno = self.productApproveTitle.code;
+    self.addProductApproveParameter.czDate = self.productApproveTitle.czDate;
+    self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
+    
     
     WeakSelf(weakSelf);
     [[DKYHttpRequestManager sharedInstance] addProductApproveWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
