@@ -584,7 +584,16 @@
             self.addProductApproveParameter.mDimNew4Id = @([model.ID integerValue]);
             break;
         case 2:
+            //门襟
+            //mDimNew6Id
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew6Id = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW6;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew6Id = @([model.ID integerValue]);
             break;
         case 3:
             models = self.customOrderDimList.DIMFLAG_NEW7;
