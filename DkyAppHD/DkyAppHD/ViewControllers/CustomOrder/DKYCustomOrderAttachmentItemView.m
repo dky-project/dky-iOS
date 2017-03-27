@@ -118,7 +118,7 @@
         [fujian appendString:self.textField.text];
     }
     
-    if([fujian hasPrefix:@";"]){
+    if([fujian hasSuffix:@";"]){
         NSRange deleteRange = NSMakeRange(fujian.length - 1, 1);
         [fujian deleteCharactersInRange:deleteRange];
     }

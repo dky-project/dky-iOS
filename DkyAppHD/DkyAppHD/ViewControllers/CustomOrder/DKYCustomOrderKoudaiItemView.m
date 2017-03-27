@@ -136,7 +136,7 @@
         [koudai appendString:self.textField.text];
     }
     
-    if([koudai hasPrefix:@";"]){
+    if([koudai hasSuffix:@";"]){
         NSRange deleteRange = NSMakeRange(koudai.length - 1, 1);
         [koudai deleteCharactersInRange:deleteRange];
     }

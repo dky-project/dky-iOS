@@ -251,7 +251,7 @@
         [huax appendString:self.jubutihua.currentTitle];
     }
     
-    if([huax hasPrefix:@";"]){
+    if([huax hasSuffix:@";"]){
         NSRange deleteRange = NSMakeRange(huax.length - 1, 1);
         [huax deleteCharactersInRange:deleteRange];
     }

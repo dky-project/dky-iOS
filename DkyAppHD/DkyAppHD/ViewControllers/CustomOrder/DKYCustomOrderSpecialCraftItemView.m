@@ -101,6 +101,37 @@
     }
 }
 
+- (void)fetchAddProductApproveInfo{
+    NSMutableString *tsgy = [[NSMutableString alloc] init];
+    if(self.dazhe.selected){
+        [tsgy appendString:self.dazhe.currentTitle];
+        [tsgy appendString:@";"];
+    }
+    if(self.dazhou.selected){
+        [tsgy appendString:self.dazhou.currentTitle];
+        [tsgy appendString:@";"];
+    }
+    if(self.kaicha.selected){
+        [tsgy appendString:self.kaicha.currentTitle];
+        [tsgy appendString:@";"];
+    }
+    if(self.caixiangjin.selected){
+        [tsgy appendString:self.caixiangjin.currentTitle];
+        [tsgy appendString:@";"];
+    }
+    
+    if(self.other.selected){
+        [tsgy appendString:self.textField.text];
+    }
+    
+    if([tsgy hasSuffix:@";"]){
+        NSRange deleteRange = NSMakeRange(tsgy.length - 1, 1);
+        [tsgy deleteCharactersInRange:deleteRange];
+    }
+    
+    self.addProductApproveParameter.tesgy = [tsgy copy];
+}
+
 - (void)clear{
     // 逻辑属性
     
