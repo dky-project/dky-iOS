@@ -147,6 +147,7 @@
     for (DKYDimlistItemModel *model in models) {
         [item addObject:model.attribname];
     }
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -156,6 +157,7 @@
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
+                                                           [weakSelf actionSheetSelected:sender.tag index:buttonIndex];
                                                        }
                                          otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
@@ -163,6 +165,29 @@
     actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
     [actionSheet show];
 }
+
+- (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
+    DKYDimlistItemModel *model = nil;
+    switch (tag) {
+        case 0:
+            //
+            models = self.customOrderDimList.DIMFLAG_NEW45;
+            break;
+        case 1:
+            // 袖边组织
+            if(index == 0){
+                self.addProductApproveParameter.xbzzValue = nil;
+                return;
+            }
+            
+            models = self.customOrderDimList.DIMFLAG_NEW46;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.xbzzValue = @([model.ID integerValue]);
+            break;
+    }
+}
+
 
 #pragma mark - mark
 - (void)commonInit{
