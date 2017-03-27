@@ -119,7 +119,7 @@
 }
 
 - (void)textFieldEditingChanged:(UITextField*)textField{
-    
+    self.addProductApproveParameter.jzValue = textField.text;
 }
 
 #pragma mark - mark
