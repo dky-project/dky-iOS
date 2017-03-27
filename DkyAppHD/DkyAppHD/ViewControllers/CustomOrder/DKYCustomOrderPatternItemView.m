@@ -603,7 +603,15 @@
             self.addProductApproveParameter.mDimNew38Id = @([model.ID integerValue]);
             break;
         case 6:
+            // 开口
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew39Id = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW39;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew39Id = @([model.ID integerValue]);
             break;
         case 7:
             models = self.customOrderDimList.DIMFLAG_NEW1;
