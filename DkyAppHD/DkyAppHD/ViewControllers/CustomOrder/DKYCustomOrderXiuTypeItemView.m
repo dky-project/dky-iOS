@@ -191,6 +191,7 @@
         [item addObject:model.attribname];
     }
 
+    WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -200,6 +201,7 @@
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
                                                            }
+                                                           [weakSelf actionSheetSelected:sender.tag index:buttonIndex];
                                                        }
                                          otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
@@ -207,6 +209,33 @@
     actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
     [actionSheet show];
 }
+
+- (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
+    DKYDimlistItemModel *model = nil;
+    switch (tag) {
+        case 0:
+            models = self.staticDimListModel.DIMFLAG1;
+            break;
+        case 1:
+            // 第二袖型
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew9Id1 = nil;
+                return;
+            }
+            
+            models = self.staticDimListModel.DIMFLAG2;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew9Id1 = @([model.ID integerValue]);
+            break;
+        case 2:
+            models = self.staticDimListModel.DIMFLAG3;
+            break;
+        default:
+            break;
+    }
+}
+
 
 #pragma mark - mark
 - (void)commonInit{
@@ -304,7 +333,7 @@
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.optionsBtn2 = btn;
-    [btn setTitle:@"点击选择" forState:UIControlStateNormal];
+    [btn setTitle:@"点击选择袖型" forState:UIControlStateNormal];
     btn.originalTitle = [btn currentTitle];
     btn.tag = 1;
     btn.extraInfo = @"";
@@ -353,7 +382,7 @@
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
     self.optionsBtn3 = btn;
-    [btn setTitle:@"点击选择" forState:UIControlStateNormal];
+    [btn setTitle:@"点击选择袖型" forState:UIControlStateNormal];
     btn.originalTitle = [btn currentTitle];
     btn.tag = 2;
     btn.extraInfo = @"";
