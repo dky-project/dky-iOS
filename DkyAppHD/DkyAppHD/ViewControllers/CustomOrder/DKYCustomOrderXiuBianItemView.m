@@ -128,6 +128,10 @@
     [self showOptionsPicker:sender];
 }
 
+- (void)qtxiTextFieldEditingChanged:(UITextField*)textField{
+    self.addProductApproveParameter.qtxbzzValue = textField.text;
+}
+
 #pragma mark - private method
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
@@ -261,6 +265,9 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"";
     itemModel.subText = @"cm";
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.xbcValue = @([textField.text doubleValue]);
+    };
     self.unknowniew.itemModel = itemModel;
 }
 
@@ -305,6 +312,8 @@
     
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    
+    [self.textField addTarget:self action:@selector(qtxiTextFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
