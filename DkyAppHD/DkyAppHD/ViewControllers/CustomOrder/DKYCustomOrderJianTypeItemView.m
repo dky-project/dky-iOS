@@ -158,6 +158,10 @@
     [self showOptionsPicker:sender];
 }
 
+- (void)qtjxTextFieldEditingChanged:(UITextField*)textField{
+    self.addProductApproveParameter.qtjxValue = textField.text;
+}
+
 #pragma mark - private method
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
@@ -269,6 +273,8 @@
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     
+    [self.textField addTarget:self action:@selector(qtjxTextFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
@@ -296,7 +302,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.qtjxValue = textField.text;
+        weakSelf.addProductApproveParameter.jkValue = textField.text;
     };
     self.jkView.itemModel = itemModel;
 }
