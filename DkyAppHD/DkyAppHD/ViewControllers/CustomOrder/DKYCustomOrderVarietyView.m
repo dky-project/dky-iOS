@@ -81,6 +81,7 @@
         for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew14Id){
                 [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew14Id = @([model.ID integerValue]);
                 break;
             }
         }
@@ -95,6 +96,7 @@
         for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew16Id){
                 [self.thirdBtn setTitle:model.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew16Id = @([model.ID integerValue]);
                 break;
             }
         }

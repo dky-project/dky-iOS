@@ -141,7 +141,117 @@
 }
 
 - (void)fetchAddProductApproveInfo{
+    NSMutableString *huax = [[NSMutableString alloc] init];
     
+    // 挑花
+    if(self.tiaohua.selected){
+        NSMutableString *tiaohua = [[NSMutableString alloc] initWithString:self.tiaohua.currentTitle];
+        [tiaohua appendString:@"("];
+        [tiaohua appendString:self.oneView.textField.text];
+        [tiaohua appendString:@"-"];
+        [tiaohua appendString:self.oneView.textField2.text];
+        [tiaohua appendString:@")"];
+        [huax appendString:tiaohua];
+        [huax appendString:@";"];
+    }
+    
+    if(self.fourchoufour.selected){
+        [huax appendString:self.fourchoufour.currentTitle];
+        [huax appendString:@";"];
+    }
+    
+    if(self.fivechoufive.selected){
+        [huax appendString:self.fivechoufive.currentTitle];
+        [huax appendString:@";"];
+    }
+    
+    // 绞花
+    if(self.jiaohua.selected){
+        NSMutableString *jiaohua = [[NSMutableString alloc] initWithString:self.jiaohua.currentTitle];
+        [jiaohua appendString:@"("];
+        [jiaohua appendString:self.twoView.textField.text];
+        [jiaohua appendString:@"-"];
+        [jiaohua appendString:self.twoView.textField2.text];
+        [jiaohua appendString:@")"];
+        [huax appendString:jiaohua];
+        [huax appendString:@";"];
+    }
+    
+    if(self.sixchousix.selected){
+        [huax appendString:self.sixchousix.currentTitle];
+        [huax appendString:@";"];
+    }
+    
+    if(self.eightchoueight.selected){
+        [huax appendString:self.eightchoueight.currentTitle];
+        [huax appendString:@";"];
+    }
+    
+    // 抽条
+    if(self.choutiao.selected){
+        NSMutableString *choutiao = [[NSMutableString alloc] initWithString:self.choutiao.currentTitle];
+        [choutiao appendString:@"("];
+        [choutiao appendString:self.threeView.textField.text];
+        [choutiao appendString:@"-"];
+        [choutiao appendString:self.threeView.textField2.text];
+        [choutiao appendString:@")"];
+        [huax appendString:choutiao];
+        [huax appendString:@";"];
+    }
+    if(self.tihua.selected){
+        [huax appendString:self.tihua.currentTitle];
+        [huax appendString:@";"];
+    }
+    
+    if(self.pingban.selected){
+        [huax appendString:self.pingban.currentTitle];
+        [huax appendString:@";"];
+    }
+    
+    // 第四行
+    if(self.kuzi.selected){
+        [huax appendString:self.kuzi.currentTitle];
+        [huax appendString:@";"];
+    }
+    if(self.shuangsuo.selected){
+        [huax appendString:self.shuangsuo.currentTitle];
+        [huax appendString:@";"];
+    }
+    if(self.jiase.selected){
+        [huax appendString:self.jiase.currentTitle];
+        [huax appendString:@";"];
+    }
+    if(self.fanzhen.selected){
+        [huax appendString:self.fanzhen.currentTitle];
+        [huax appendString:@";"];
+    }
+    if(self.yizhen.selected){
+        [huax appendString:self.yizhen.currentTitle];
+        [huax appendString:@";"];
+    }
+    
+    // 第五行
+    if(self.pangtiao.selected){
+        [huax appendString:self.pangtiao.currentTitle];
+        [huax appendString:@";"];
+    }
+    if(self.diannao.selected){
+        [huax appendString:self.diannao.currentTitle];
+        [huax appendString:@";"];
+    }
+    if(self.tianzhu.selected){
+        [huax appendString:self.tianzhu.currentTitle];
+        [huax appendString:@";"];
+    }
+    if(self.xuxiantihua.selected){
+        [huax appendString:self.xuxiantihua.currentTitle];
+        [huax appendString:@";"];
+    }
+    if(self.jubutihua.selected){
+        [huax appendString:self.jubutihua.currentTitle];
+    }
+    
+    self.addProductApproveParameter.huax = [huax copy];
 }
 
 - (void)setCanEdit:(BOOL)canEdit{
