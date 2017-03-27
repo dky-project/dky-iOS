@@ -607,7 +607,16 @@
             self.addProductApproveParameter.mDimNew18Id = @([model.ID integerValue]);
             break;
         case 10:
+            // 清除
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew19Id = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW19;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew19Id = @([model.ID integerValue]);
+
             break;
         default:
             break;
