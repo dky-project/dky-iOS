@@ -89,6 +89,7 @@
         for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew15Id){
                 [self.secondBtn setTitle:model.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew15Id = @([model.ID integerValue]);
                 break;
             }
         }
@@ -104,6 +105,7 @@
         for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew17Id){
                 [self.fourthBtn setTitle:model.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([model.ID integerValue]);
                 break;
             }
         }
@@ -231,6 +233,14 @@
             }else{
                 models = self.customOrderDimList.DIMFLAG_NEW15;;
             }
+            
+            model = [models objectOrNilAtIndex:index - 1];
+            // 清空
+            if(!model){
+                self.addProductApproveParameter.mDimNew15Id = nil;
+            }else{
+                self.addProductApproveParameter.mDimNew15Id = @([model.ID integerValue]);
+            }
         }
             break;
         case 2:{
@@ -256,6 +266,14 @@
                 models = self.madeInfoByProductName.productMadeInfoView.zbJsonArray;
             }else{
                 models = self.customOrderDimList.DIMFLAG_NEW17;
+            }
+            
+            model = [models objectOrNilAtIndex:index - 1];
+            // 清空
+            if(!model){
+                self.addProductApproveParameter.mDimNew17Id = nil;
+            }else{
+                self.addProductApproveParameter.mDimNew17Id = @([model.ID integerValue]);
             }
         }
             break;
