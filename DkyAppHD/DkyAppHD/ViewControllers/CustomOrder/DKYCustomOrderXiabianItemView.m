@@ -114,6 +114,10 @@
     [self showOptionsPicker:sender];
 }
 
+- (void)textFieldEditingChanged:(UITextField *)textField{
+    self.addProductApproveParameter.qtxbValue = textField.text;
+}
+
 #pragma mark - private method
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
@@ -220,6 +224,9 @@
     itemModel.title = @"";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.xbccValue = @([textField.text doubleValue]);
+    };
     self.lengthView.itemModel = itemModel;
 }
 
@@ -243,6 +250,8 @@
     
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    
+    [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
