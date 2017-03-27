@@ -596,7 +596,16 @@
             self.addProductApproveParameter.mDimNew6Id = @([model.ID integerValue]);
             break;
         case 3:
+            //门襟组织
+            //mDimNew7Id
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew7Id = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW7;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew7Id = @([model.ID integerValue]);
             break;
         case 4:
             // 加穗 清除
