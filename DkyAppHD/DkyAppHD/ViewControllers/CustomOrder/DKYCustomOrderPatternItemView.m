@@ -174,6 +174,11 @@
     }
 }
 
+- (void)fetchAddProductApproveInfo{
+    self.addProductApproveParameter.amjValue = self.mjInputView.textField.text;
+    self.addProductApproveParameter.qtmjValue = self.mjInputView.textFieldTwo.text;
+}
+
 - (void)clear{
     // 逻辑属性
     self.addProductApproveParameter.mDimNew18Id = nil;
@@ -779,6 +784,9 @@
     itemModel.title = @"钉";
     itemModel.subText = @"#";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.dkNumber = textField.text;
+    };
     self.dingView.itemModel = itemModel;
 }
 
@@ -826,6 +834,9 @@
     itemModel.title = @"门襟宽:";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.mjkValue = @([textField.text doubleValue]);
+    };
     self.mjkView.itemModel = itemModel;
 }
 
@@ -903,6 +914,9 @@
     itemModel.title = @"带长:";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.dc1Value = @([textField.text doubleValue]);
+    };
     self.dcView.itemModel = itemModel;
 }
 
@@ -1007,6 +1021,9 @@
     itemModel.title = @"";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.dcValue = @([textField.text doubleValue]);
+    };
     self.jdInputView.itemModel = itemModel;
 }
 
@@ -1027,6 +1044,9 @@
     itemModel.title = @"工艺袖长:";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.hzxcValue = @([textField.text doubleValue]);
+    };
     self.gyxcView.itemModel = itemModel;
 }
 
@@ -1067,6 +1087,9 @@
     itemModel.title = @"门襟长";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.mjcValue = @([textField.text doubleValue]);
+    };
     self.mjcView.itemModel = itemModel;
 }
 
