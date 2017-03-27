@@ -283,9 +283,9 @@
 
 - (void)showMultipleSelectPopupView{
     DKYMultipleSelectPopupView *pop = [DKYMultipleSelectPopupView show];
+    pop.addProductApproveParameter = self.addProductApproveParameter;
     pop.colorViewList = self.madeInfoByProductName.colorViewList;
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
-    pop.addProductApproveParameter = self.addProductApproveParameter;
 }
 #pragma mark - mark
 - (void)commonInit{

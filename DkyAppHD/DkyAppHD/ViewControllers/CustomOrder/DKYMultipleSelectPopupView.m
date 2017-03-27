@@ -75,6 +75,7 @@
             }
         }
     }
+    [self fetchSelectedColorInfo];
 }
 
 #pragma mark - action method

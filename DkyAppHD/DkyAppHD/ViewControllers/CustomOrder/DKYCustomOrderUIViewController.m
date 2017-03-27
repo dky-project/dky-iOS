@@ -94,39 +94,38 @@
 }
 
 - (void)addProductApproveToServer{
-//    [DKYHUDTool show];
+    [DKYHUDTool show];
     
-    // 获取参数
-    [self fetchAddProductApproveInfo];
+    self.addProductApproveParameter.shRemark = @"测试单据 勿动！";
     
-//    WeakSelf(weakSelf);
-//    [[DKYHttpRequestManager sharedInstance] addProductApproveWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
-//        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
-//        DkyHttpResponseCode retCode = [result.code integerValue];
-//        if (retCode == DkyHttpResponseCode_Success) {
-//            // 下单成功
-//            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
-//            
-//            // 清空数据
-//            
-//            
-//            // 重新刷新页面
-//            return;
-//        }else if (retCode == DkyHttpResponseCode_NotLogin) {
-//            // 用户未登录,弹出登录页面
-//            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
-//            [DKYHUDTool showErrorWithStatus:result.msg];
-//        }else{
-//            NSString *retMsg = result.msg;
-//            [DKYHUDTool showErrorWithStatus:retMsg];
-//        }
-//        [DKYHUDTool dismiss];
-//
-//    } failure:^(NSError *error) {
-//        [DKYHUDTool dismiss];
-//        DLog(@"Error = %@",error.description);
-//        [DKYHUDTool showErrorWithStatus:kNetworkError];
-//    }];
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] addProductApproveWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 下单成功
+            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
+            
+            // 清空数据
+            
+            
+            // 重新刷新页面
+            return;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
 }
 
 - (void)fetchAddProductApproveInfo{
@@ -137,9 +136,6 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     DKYCustomOrderViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell fetchAddProductApproveInfo];
-    
-    
-    
 }
 
 #pragma mark - private method
@@ -168,7 +164,7 @@
     
     DKYMadeInfoByProductNameModel *madeInfoByProductName = cell.madeInfoByProductName;
 
-#ifndef DEBUG
+//#ifndef DEBUG
     
     // 客户不能为空、手机号不能为空、性别不能为空、胸围不能为空
     if(![self.addProductApproveParameter.customer isNotBlank]){
@@ -257,7 +253,7 @@
         [DKYHUDTool showInfoWithStatus:@"请选择颜色！"];
         return NO;
     }
-#endif
+//#endif
     
     return YES;
 
@@ -307,10 +303,12 @@
     
     actionView.confirmBtnClicked = ^(UIButton* sender){
         // 基础下单
-        // 1.先检查逻辑
+        // 1.获取参数
+        [self fetchAddProductApproveInfo];
+        // 2.先检查逻辑
         if(![weakSelf checkForAddProductApprove]) return;
         
-        // 2.调用下单接口
+        // 3.调用下单接口
         [weakSelf addProductApproveToServer];
     };
     

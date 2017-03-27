@@ -39,6 +39,7 @@
 #import "DKYVipNameParameter.h"
 #import "DKYMptApproveSaveParameter.h"
 #import "DKYAddProductApproveParameter.h"
+#import "DKYDahuoOrderColorModel.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -445,6 +446,34 @@ static const CGFloat basicItemHeight = 30;
         return;
     }
     
+    //颜色
+    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+            if([model.colorName isEqualToString:selectColor]){
+                model.selected = YES;
+                break;
+            }
+        }
+    }
+
+    NSMutableArray *selectedColor = [NSMutableArray array];
+    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+        if(model.selected){
+            self.addProductApproveParameter.colorValue = @(model.colorId);
+            break;
+        }
+    }
+    
+    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+        if(model.selected){
+            [selectedColor addObject:model.colorName];
+        }
+    }
+    
+    if(selectedColor.count > 0){
+        self.addProductApproveParameter.colorArr = [selectedColor componentsJoinedByString:@";"];
+    }
+
     [self updateModelViews];
 }
 

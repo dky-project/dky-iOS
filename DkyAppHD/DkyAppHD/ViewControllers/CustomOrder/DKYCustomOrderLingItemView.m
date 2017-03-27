@@ -284,7 +284,7 @@
         self.lxBtn.enabled = NO;
         self.sizeView.textField.enabled = NO;
     }
-    
+    [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
     self.addProductApproveParameter.lingValue = model.attribname;
 //    switch (index) {
 //        case 1:{
