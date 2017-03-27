@@ -215,7 +215,15 @@
     DKYDimlistItemModel *model = nil;
     switch (tag) {
         case 0:
+            //第一袖型
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew9Id = nil;
+                return;
+            }
+            
             models = self.staticDimListModel.DIMFLAG1;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew9Id = @([model.ID integerValue]);
             break;
         case 1:
             // 第二袖型
@@ -229,7 +237,16 @@
             self.addProductApproveParameter.mDimNew9Id1 = @([model.ID integerValue]);
             break;
         case 2:
+            //第三袖型
+            if(index == 0){
+                self.addProductApproveParameter.mDimNew9Id2 = nil;
+                return;
+            }
+            
             models = self.staticDimListModel.DIMFLAG3;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.mDimNew9Id2 = @([model.ID integerValue]);
+
             break;
         default:
             break;
