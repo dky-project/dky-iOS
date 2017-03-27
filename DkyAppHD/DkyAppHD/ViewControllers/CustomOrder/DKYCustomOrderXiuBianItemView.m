@@ -171,8 +171,17 @@
     DKYDimlistItemModel *model = nil;
     switch (tag) {
         case 0:
-            //
+            //袖边
+            //xbValue
+            if(index == 0){
+                self.addProductApproveParameter.xbValue = nil;
+                return;
+            }
+            
             models = self.customOrderDimList.DIMFLAG_NEW45;
+            model = [models objectOrNilAtIndex:index - 1];
+            self.addProductApproveParameter.xbValue = @([model.ID integerValue]);
+
             break;
         case 1:
             // 袖边组织
