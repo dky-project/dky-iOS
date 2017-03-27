@@ -239,6 +239,8 @@
                                                            
                                                            if(sender.tag == 3){
                                                                [weakSelf dealWithLingSelected:buttonIndex];
+                                                           }else{
+                                                               [weakSelf actionSheetSelected:sender.tag index:buttonIndex];
                                                            }
                                                        }
                                          otherButtonTitleArray:item];
@@ -301,6 +303,56 @@
 //        default:
 //            break;
 //    }
+}
+
+- (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
+    DKYDimlistItemModel *model = nil;
+    switch (tag) {
+        case 0:
+            // 领边层
+            models = self.customOrderDimList.DIMFLAG_NEW28;
+            
+            model = [models objectOrNilAtIndex:index - 1];
+            // 清空
+            if(!model){
+                self.addProductApproveParameter.mDimNew28Id = nil;
+            }else{
+                self.addProductApproveParameter.mDimNew28Id = @([model.ID integerValue]);
+            }
+
+            break;
+        case 1:
+            // 领边
+            models = self.customOrderDimList.DIMFLAG_NEW26;
+            model = [models objectOrNilAtIndex:index - 1];
+            // 清空
+            if(!model){
+                self.addProductApproveParameter.mDimNew26Id = nil;
+            }else{
+                self.addProductApproveParameter.mDimNew26Id = @([model.ID integerValue]);
+            }
+            break;
+        case 2:
+            // 领型
+            models = self.customOrderDimList.DIMFLAG_NEW25;
+            
+            model = [models objectOrNilAtIndex:index - 1];
+            // 清空
+            if(!model){
+                self.addProductApproveParameter.mDimNew25Id = nil;
+            }else{
+                self.addProductApproveParameter.mDimNew25Id = @([model.ID integerValue]);
+            }
+
+            break;
+        case 3:
+            models = self.staticDimListModel.DIMFLAG5;
+            break;
+        default:
+            break;
+    }
+
 }
 
 #pragma mark - mark
