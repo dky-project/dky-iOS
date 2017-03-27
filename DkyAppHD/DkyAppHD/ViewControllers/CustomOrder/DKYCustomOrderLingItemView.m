@@ -450,6 +450,9 @@
     itemModel.title = @"尺寸:";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField* textField){
+        weakSelf.addProductApproveParameter.lingCcValue = textField.text;
+    };
     self.sizeView.itemModel = itemModel;
 }
 
