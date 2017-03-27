@@ -452,6 +452,9 @@
     itemModel.title = @"袖长:";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.xcValue = @([textField.text doubleValue]);
+    };
     self.xcView.itemModel = itemModel;
 }
 

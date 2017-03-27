@@ -193,11 +193,11 @@
  */
 @property (nonatomic, copy) NSString *ycValue;
 /**
- *  肩宽
+ *  其他肩型
  */
 @property (nonatomic, copy) NSString *qtjxValue;
 /**
- *  其他肩型
+ *  肩宽
  */
 @property (nonatomic, strong) NSNumber *jkValue;
 /**
