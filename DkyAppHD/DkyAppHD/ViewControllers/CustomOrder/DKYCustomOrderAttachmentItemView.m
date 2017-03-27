@@ -95,6 +95,37 @@
     }
 }
 
+- (void)fetchAddProductApproveInfo{
+    NSMutableString *fujian = [[NSMutableString alloc] init];
+    if(self.szwxtb.selected){
+        [fujian appendString:self.szwxtb.currentTitle];
+        [fujian appendString:@";"];
+    }
+    if(self.hudiejie.selected){
+        [fujian appendString:self.hudiejie.currentTitle];
+        [fujian appendString:@";"];
+    }
+    if(self.yaodai.selected){
+        [fujian appendString:self.yaodai.currentTitle];
+        [fujian appendString:@";"];
+    }
+    if(self.qiaobian.selected){
+        [fujian appendString:self.qiaobian.currentTitle];
+        [fujian appendString:@";"];
+    }
+    
+    if(self.other.selected){
+        [fujian appendString:self.textField.text];
+    }
+    
+    if([fujian hasPrefix:@";"]){
+        NSRange deleteRange = NSMakeRange(fujian.length - 1, 1);
+        [fujian deleteCharactersInRange:deleteRange];
+    }
+    
+    self.addProductApproveParameter.fuj = [fujian copy];
+}
+
 - (void)clear{
     // 逻辑属性
     
