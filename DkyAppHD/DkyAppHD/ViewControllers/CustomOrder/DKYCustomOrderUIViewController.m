@@ -98,34 +98,38 @@
     
     self.addProductApproveParameter.shRemark = @"测试单据 勿动！";
     
-//    WeakSelf(weakSelf);
-//    [[DKYHttpRequestManager sharedInstance] addProductApproveWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
-//        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
-//        DkyHttpResponseCode retCode = [result.code integerValue];
-//        if (retCode == DkyHttpResponseCode_Success) {
-//            // 下单成功
-//            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
-//            
-//            // 清空数据
-//            
-//            
-//            // 重新刷新页面
-//            return;
-//        }else if (retCode == DkyHttpResponseCode_NotLogin) {
-//            // 用户未登录,弹出登录页面
-//            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
-//            [DKYHUDTool showErrorWithStatus:result.msg];
-//        }else{
-//            NSString *retMsg = result.msg;
-//            [DKYHUDTool showErrorWithStatus:retMsg];
-//        }
-//        [DKYHUDTool dismiss];
-//
-//    } failure:^(NSError *error) {
-//        [DKYHUDTool dismiss];
-//        DLog(@"Error = %@",error.description);
-//        [DKYHUDTool showErrorWithStatus:kNetworkError];
-//    }];
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] addProductApproveWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 下单成功
+            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
+            
+            // 清空参数
+            weakSelf.addProductApproveParameter = nil;
+            
+            // 清空数据
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+            DKYCustomOrderViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
+            [cell reset];
+            // 重新刷新页面
+            [weakSelf getProductApproveTitleFromServer];
+            return;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
 }
 
 - (void)fetchAddProductApproveInfo{
@@ -316,6 +320,8 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
         DKYCustomOrderViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
         [cell reset];
+        // 重新刷新页面
+        [weakSelf getProductApproveTitleFromServer];
     };
 }
 
