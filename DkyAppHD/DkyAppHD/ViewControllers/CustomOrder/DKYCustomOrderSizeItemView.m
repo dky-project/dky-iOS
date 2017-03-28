@@ -81,6 +81,7 @@
            self.addProductApproveParameter.xwValue = madeInfoByProductName.productMadeInfoView.xwValue;
     }else{
         [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+        self.addProductApproveParameter.xwValue = nil;
     }
     
     

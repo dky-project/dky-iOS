@@ -668,7 +668,7 @@
             self.addProductApproveParameter.mDimNew3Id = @([model.ID integerValue]);
             break;
         case 9:
-            // 清除
+            // 挂肩袖肥
             if(index == 0){
                 self.addProductApproveParameter.mDimNew18Id = nil;
                 return;
@@ -679,7 +679,7 @@
             self.addProductApproveParameter.mDimNew18Id = @([model.ID integerValue]);
             break;
         case 10:
-            // 清除
+            // 收腰
             if(index == 0){
                 self.addProductApproveParameter.mDimNew19Id = nil;
                 return;

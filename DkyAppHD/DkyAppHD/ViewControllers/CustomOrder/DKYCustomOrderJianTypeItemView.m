@@ -79,6 +79,7 @@
     self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
     
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
+    self.addProductApproveParameter.jkValue = @([self.jkView.textField.text doubleValue]);
     
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
@@ -302,7 +303,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.jkValue = textField.text;
+        weakSelf.addProductApproveParameter.jkValue = @([textField.text doubleValue]);
     };
     self.jkView.itemModel = itemModel;
 }
