@@ -81,7 +81,6 @@
         for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew14Id){
                 [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
-                self.addProductApproveParameter.mDimNew14Id = @([model.ID integerValue]);
                 break;
             }
         }
@@ -89,7 +88,6 @@
         for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew15Id){
                 [self.secondBtn setTitle:model.attribname forState:UIControlStateNormal];
-                self.addProductApproveParameter.mDimNew15Id = @([model.ID integerValue]);
                 break;
             }
         }
@@ -97,7 +95,6 @@
         for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew16Id){
                 [self.thirdBtn setTitle:model.attribname forState:UIControlStateNormal];
-                self.addProductApproveParameter.mDimNew16Id = @([model.ID integerValue]);
                 break;
             }
         }
@@ -105,7 +102,6 @@
         for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew17Id){
                 [self.fourthBtn setTitle:model.attribname forState:UIControlStateNormal];
-                self.addProductApproveParameter.mDimNew17Id = @([model.ID integerValue]);
                 break;
             }
         }

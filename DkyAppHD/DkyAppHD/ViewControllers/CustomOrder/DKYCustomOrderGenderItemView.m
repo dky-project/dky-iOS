@@ -72,7 +72,6 @@
     for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW13) {
         if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew13Id){
             [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
-            self.addProductApproveParameter.mDimNew13Id = @([model.ID integerValue]);
             break;
         }
     }

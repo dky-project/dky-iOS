@@ -88,8 +88,7 @@
     self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
     
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
-    self.addProductApproveParameter.jkValue = @([self.jkView.textField.text doubleValue]);
-    
+
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||

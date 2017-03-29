@@ -78,10 +78,8 @@
        (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
         madeInfoByProductName.productMadeInfoView.mDimNew15Id == 36)){
            [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
-           self.addProductApproveParameter.xwValue = madeInfoByProductName.productMadeInfoView.xwValue;
     }else{
         [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
-        self.addProductApproveParameter.xwValue = nil;
     }
     
     
