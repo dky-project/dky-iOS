@@ -78,7 +78,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    
+    [self clear];
     if(!madeInfoByProductName) return;
     
     for (UIButton *btn in self.options) {

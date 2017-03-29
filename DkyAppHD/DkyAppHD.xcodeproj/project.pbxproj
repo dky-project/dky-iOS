@@ -112,6 +112,7 @@
 		EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511A01E164444008708EF /* WXSTransitionManager.m */; };
 		EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511A21E164444008708EF /* WXSTransitionProperty.m */; };
 		EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9511B61E16659C008708EF /* NSObject+Extension.m */; };
+		EB9751F91E8BB5480003EE18 /* DKYTestTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9751F81E8BB5480003EE18 /* DKYTestTextField.m */; };
 		EB9790451E21E4E500E2985C /* DKYOrderInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790441E21E4E500E2985C /* DKYOrderInquiryViewController.m */; };
 		EB9790491E21EAF500E2985C /* DKYOrderInquiryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790481E21EAF500E2985C /* DKYOrderInquiryHeaderView.m */; };
 		EB97904B1E21EB4200E2985C /* DKYOrderInquiryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB97904A1E21EB4200E2985C /* DKYOrderInquiryHeaderView.xib */; };
@@ -466,6 +467,8 @@
 		EB9511B41E165C8E008708EF /* DKYRotatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRotatable.h; sourceTree = "<group>"; };
 		EB9511B51E16659C008708EF /* NSObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extension.h"; sourceTree = "<group>"; };
 		EB9511B61E16659C008708EF /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extension.m"; sourceTree = "<group>"; };
+		EB9751F71E8BB5480003EE18 /* DKYTestTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTestTextField.h; sourceTree = "<group>"; };
+		EB9751F81E8BB5480003EE18 /* DKYTestTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTestTextField.m; sourceTree = "<group>"; };
 		EB9790431E21E4E500E2985C /* DKYOrderInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInquiryViewController.h; sourceTree = "<group>"; };
 		EB9790441E21E4E500E2985C /* DKYOrderInquiryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInquiryViewController.m; sourceTree = "<group>"; };
 		EB9790471E21EAF500E2985C /* DKYOrderInquiryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInquiryHeaderView.h; sourceTree = "<group>"; };
@@ -1593,6 +1596,8 @@
 		EBABE8E81E15134E00B4C568 /* TestTool */ = {
 			isa = PBXGroup;
 			children = (
+				EB9751F71E8BB5480003EE18 /* DKYTestTextField.h */,
+				EB9751F81E8BB5480003EE18 /* DKYTestTextField.m */,
 			);
 			path = TestTool;
 			sourceTree = "<group>";
@@ -2020,6 +2025,7 @@
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
 				EBD694D51E2785BB00F365C3 /* NJKWebViewProgress.m in Sources */,
 				EBD694A21E27629D00F365C3 /* DKYHomeItemTwoViewCell.m in Sources */,
+				EB9751F91E8BB5480003EE18 /* DKYTestTextField.m in Sources */,
 				EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */,
 				EB97906E1E221B6F00E2985C /* MMPopupItem.m in Sources */,
 				EB195B981E5C41CE00116048 /* LCActionSheet.m in Sources */,

@@ -77,7 +77,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    
+    [self clear];
     if(!madeInfoByProductName) return;
     
     for (UIButton *btn in self.options) {
@@ -92,12 +92,15 @@
         }
     }
     
+    self.textField.text = madeInfoByProductName.productMadeInfoView.qttsgyRemark;
+    
     if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
+        self.textField.enabled = NO;
     }
 }
 

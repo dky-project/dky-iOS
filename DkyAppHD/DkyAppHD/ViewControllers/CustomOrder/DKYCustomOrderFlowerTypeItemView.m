@@ -95,7 +95,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    
+    [self clear];
     if(!madeInfoByProductName) return;
     
     for (NSString *selected in madeInfoByProductName.productMadeInfoView.hxShow) {
@@ -105,6 +105,9 @@
             }
         }
     }
+    
+    self.threeView.textField.text = madeInfoByProductName.productMadeInfoView.ct;
+    self.threeView.textField2.text = madeInfoByProductName.productMadeInfoView.ct1;
     
     if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
