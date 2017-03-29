@@ -16,6 +16,7 @@
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
     [SVProgressHUD setMinimumDismissTimeInterval:2.0];
+    [SVProgressHUD setMaximumDismissTimeInterval:3.5];
     
     // 键盘处理
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];

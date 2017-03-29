@@ -115,7 +115,9 @@
             DKYCustomOrderViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
             [cell reset];
             // 重新刷新页面
-            [weakSelf getProductApproveTitleFromServer];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf getProductApproveTitleFromServer];
+            });
             return;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
