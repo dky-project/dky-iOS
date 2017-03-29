@@ -66,8 +66,17 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    
+    [self clear];
     if(madeInfoByProductName == nil)  return;
+    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew41Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW41) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew41Id){
+                [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
     
     if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&

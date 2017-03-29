@@ -76,8 +76,10 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    
+    [self clear];
     if(madeInfoByProductName == nil)  return;
+    
+    self.textField.text = madeInfoByProductName.productMadeInfoView.jzValue;
  
     if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
