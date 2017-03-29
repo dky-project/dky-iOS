@@ -88,7 +88,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    
+    [self clear];
     if(!madeInfoByProductName) return;
     
     if([madeInfoByProductName.productMadeInfoView.lwqt isNotBlank]){
@@ -111,6 +111,38 @@
         [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
         [self dealWithLingSelected:2];
     }
+    
+    self.sizeView.textField.text = madeInfoByProductName.productMadeInfoView.lbccValue;
+    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew28Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW28) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew28Id){
+                [self.lbcBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew26Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW26) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew26Id){
+                [self.lbBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew25Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW25) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew25Id){
+                [self.lxBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+    
+    self.markView.textField.text = madeInfoByProductName.productMadeInfoView.lxRemark;
+    
     
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56){

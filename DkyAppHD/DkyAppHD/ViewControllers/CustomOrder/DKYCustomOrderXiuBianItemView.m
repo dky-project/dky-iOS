@@ -69,8 +69,30 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    
+    [self clear];
     if(madeInfoByProductName == nil)  return;
+    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew45Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW45) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew45Id){
+                [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew46Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW46) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew46Id){
+                [self.xbzzBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+    
+    //
+    self.unknowniew.textField.text = self.madeInfoByProductName.productMadeInfoView.xbcValue;
+    
 
     self.textField.hidden = (madeInfoByProductName.productMadeInfoView.mDimNew46Id != 397);
     
