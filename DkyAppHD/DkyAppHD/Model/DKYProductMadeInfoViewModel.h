@@ -99,16 +99,16 @@
  * 裙类别
  */
 @property (nonatomic, assign) NSInteger mDimNew3Id;
+/**
+ * 挂件袖肥
+ */
+@property (nonatomic, assign) NSInteger mDimNew18Id;
 
 /**
  * 收腰
  */
 @property (nonatomic, assign) NSInteger mDimNew19Id;
 
-/**
- * 挂件袖肥
- */
-@property (nonatomic, assign) NSInteger mDimNew18Id;
 
 
 /**
