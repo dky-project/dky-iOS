@@ -73,6 +73,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
+    [self clear];
     
     if(madeInfoByProductName == nil)  return;
     

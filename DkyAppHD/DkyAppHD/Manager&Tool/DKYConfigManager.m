@@ -29,7 +29,7 @@
     
     // SDWebimage 缓存，保存1年
     SDImageCache * cache = [SDImageCache sharedImageCache];
-    cache.maxCacheAge = 60 * 60 * 24 * 365;
+    cache.maxCacheAge = 30;
     
     // 统一配置 Config 作用于全局样式
     LCActionSheetConfig *config = [LCActionSheetConfig shared];
