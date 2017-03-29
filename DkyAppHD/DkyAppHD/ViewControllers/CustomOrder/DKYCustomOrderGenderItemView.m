@@ -67,6 +67,8 @@
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
     
+    [self clear];
+    
     if(!madeInfoByProductName) return;
     
     for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW13) {
