@@ -670,12 +670,15 @@
             // 清除
             if(index == 0){
                 self.addProductApproveParameter.mDimNew12Id = nil;
+                [self dealWithmDimNew12IdSelected];
                 return;
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW12;
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew12Id = @([model.ID integerValue]);
+            DLog(@"样式 = %@",self.addProductApproveParameter.mDimNew12Id);
+            [self dealWithmDimNew12IdSelected];
             break;
         case 1:
             //钉扣拉链
@@ -793,6 +796,53 @@
             break;
         default:
             break;
+    }
+}
+
+- (void)dealWithmDimNew12IdSelected{
+    self.canEdit = YES;
+    self.addProductApproveParameter.needGjxf = YES;
+    if(self.mDimNew12IdBlock){
+        self.mDimNew12IdBlock(nil,0);
+    }
+    
+    if(self.addProductApproveParameter.mDimNew12Id == nil){
+        [self clear];
+        self.addProductApproveParameter.needGjxf = NO;
+        return;
+    }
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 19 ||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 366||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 59||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 60||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 61){
+        [self updateSubviewStatus:0 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 57){
+        [self updateSubviewStatus:1 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 53){
+        [self updateSubviewStatus:2 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 54){
+        [self updateSubviewStatus:3 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 55){
+        [self updateSubviewStatus:4 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 355 ||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 56){
+        [self updateSubviewStatus:5 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 58){
+        [self updateSubviewStatus:6 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 369){
+        [self updateSubviewStatus:7 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 64){
+        [self updateSubviewStatus:8 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 63||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 309){
+        [self updateSubviewStatus:9 canEdit:NO];
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 62){
+        [self updateSubviewStatus:10 canEdit:NO];
     }
 }
 

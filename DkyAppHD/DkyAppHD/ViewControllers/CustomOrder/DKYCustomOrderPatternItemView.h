@@ -10,4 +10,6 @@
 
 @interface DKYCustomOrderPatternItemView : DKYCustomOrderBasicItemView
 
+@property (nonatomic, copy) BlockWithSenderAndType mDimNew12IdBlock;
+
 @end
