@@ -69,6 +69,14 @@
     
     if(!madeInfoByProductName) return;
     
+    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW13) {
+        if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew13Id){
+            [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+            self.addProductApproveParameter.mDimNew13Id = @([model.ID integerValue]);
+            break;
+        }
+    }
+    
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||

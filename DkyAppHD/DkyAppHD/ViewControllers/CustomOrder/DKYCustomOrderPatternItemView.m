@@ -121,6 +121,24 @@
     
     if(!madeInfoByProductName) return;
     
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew12Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW12) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew12Id){
+                [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew18Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW18) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew18Id){
+                [self.gjxfBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+    
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 59||

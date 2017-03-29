@@ -278,11 +278,11 @@
     
 #pragma mark mark - 测试代码
     
-#ifndef DEBUG
-    self.tableView.hidden = YES;
-    self.actionsView.hidden = YES;
-    [self setupTestLabel];
-#endif
+//#ifndef DEBUG
+//    self.tableView.hidden = YES;
+//    self.actionsView.hidden = YES;
+//    [self setupTestLabel];
+//#endif
     
 //    [self setupScrollView];
 }

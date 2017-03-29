@@ -10,11 +10,40 @@
 
 @interface DKYProductMadeInfoViewModel : NSObject
 
+/**
+ * 款号ID
+ */
+@property (nonatomic, strong) NSNumber *productId;
 
 /**
  * 商品所属类别
  */
 @property (nonatomic, copy) NSString * mptbelongtype;
+
+/**
+ * 性别
+ */
+@property (nonatomic, assign) NSInteger mDimNew13Id;
+
+/**
+ * 品种
+ */
+@property (nonatomic, assign) NSInteger mDimNew14Id;
+
+/**
+ * 组织
+ */
+@property (nonatomic, assign) NSInteger mDimNew15Id;
+
+/**
+ * 针型
+ */
+@property (nonatomic, assign) NSInteger mDimNew16Id;
+
+/**
+ * 支别
+ */
+@property (nonatomic, assign) NSInteger mDimNew17Id;
 
 /**
  * 加档
@@ -63,26 +92,11 @@
  * 式样
  */
 @property (nonatomic, assign) NSInteger mDimNew12Id;
-/**
- * 性别
- */
-@property (nonatomic, assign) NSInteger mDimNew13Id;
-/**
- * 品种
- */
-@property (nonatomic, assign) NSInteger mDimNew14Id;
-/**
- * 组织
- */
-@property (nonatomic, assign) NSInteger mDimNew15Id;
-/**
- * 针型
- */
-@property (nonatomic, assign) NSInteger mDimNew16Id;
-/**
- * 支别
- */
-@property (nonatomic, assign) NSInteger mDimNew17Id;
+
+
+
+
+
 /**
  * 挂件袖肥
  */
@@ -295,6 +309,11 @@
  * 特殊工艺（勾选框列表）
  */
 @property (nonatomic, copy) NSArray *tsgyShow;
+
+/**
+ * 钉[文本框]#扣
+ */
+@property (nonatomic, copy) NSString *dkValue;
 
 @property (nonatomic, copy) NSString *imgUrl;
 

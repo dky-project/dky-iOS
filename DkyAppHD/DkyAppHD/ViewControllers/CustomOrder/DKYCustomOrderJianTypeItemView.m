@@ -76,6 +76,15 @@
     
     if(madeInfoByProductName == nil)  return;
     
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew22Id > 0){
+        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW22) {
+            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew22Id){
+                [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
+                break;
+            }
+        }
+    }
+    
     self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
     
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
