@@ -307,12 +307,15 @@
             //第一袖型
             if(index == 0){
                 self.addProductApproveParameter.mDimNew9Id = nil;
+                [self dealWithmDimNew9IdSelected];
                 return;
             }
             
             models = self.staticDimListModel.DIMFLAG1;
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew9Id = @([model.ID integerValue]);
+            [self dealWithmDimNew9IdSelected];
+            DLog(@"第一袖型 = %@",self.addProductApproveParameter.mDimNew22Id);
             break;
         case 1:
             // 第二袖型
@@ -339,6 +342,26 @@
             break;
         default:
             break;
+    }
+}
+
+- (void)dealWithmDimNew9IdSelected{
+    self.textField.enabled = NO;
+    self.textField2.enabled = NO;
+    self.textField3.enabled = NO;
+    
+    if([self.addProductApproveParameter.mDimNew9Id integerValue] == 185){
+        self.textField.enabled = YES;
+        self.textField2.enabled = NO;
+        self.textField3.enabled = NO;
+    }else if([self.addProductApproveParameter.mDimNew9Id integerValue] == -1){
+        self.textField.enabled = YES;
+        self.textField2.enabled = NO;
+        self.textField3.enabled = YES;
+    }else if([self.addProductApproveParameter.mDimNew9Id integerValue] == -2){
+        self.textField.enabled = YES;
+        self.textField2.enabled = YES;
+        self.textField3.enabled = NO;
     }
 }
 
