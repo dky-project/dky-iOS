@@ -823,6 +823,16 @@
         [self updateSubviewStatus:2 canEdit:NO];
     }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 54){
         [self updateSubviewStatus:3 canEdit:NO];
+        // 挂件袖肥设置为71
+        NSArray *models = nil;
+        models = self.customOrderDimList.DIMFLAG_NEW18;
+        
+        for (DKYDimlistItemModel *model in models) {
+            if([model.ID integerValue] == 71){
+                [self.gjxfBtn setTitle:model.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew18Id = @([model.ID integerValue]);
+            }
+        }
     }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 55){
         [self updateSubviewStatus:4 canEdit:NO];
     }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 355 ||

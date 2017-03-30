@@ -37,4 +37,6 @@
 
 - (void)fetchAddProductApproveInfo;
 
+- (void)dealwithMDimNew12IdSelected;
+
 @end

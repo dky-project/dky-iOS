@@ -139,6 +139,49 @@
 //    }
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 55||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 58||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 63||
+       [self.addProductApproveParameter.mDimNew12Id integerValue]== 62||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 309||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 61||
+       (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+        [self.addProductApproveParameter.mDimNew12Id integerValue] == 367)){
+           self.canEdit = NO;
+       }else{
+           self.canEdit = YES;
+           
+           if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
+               self.textField.enabled = NO;
+           }else{
+               self.textField.enabled = YES;
+           }
+           
+           if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131 ||
+              [self.addProductApproveParameter.mDimNew22Id integerValue] == 130||
+              [self.addProductApproveParameter.mDimNew22Id integerValue] == 129){
+               self.jkView.textField.enabled = NO;
+           }else{
+               self.jkView.textField.enabled = YES;
+           }
+           
+           if([self.addProductApproveParameter.mDimNew22Id integerValue] == 133){
+               self.gyxcView.textField.enabled = NO;
+           }else{
+               self.gyxcView.textField.enabled = YES;
+           }
+
+       }
+}
+
 - (void)clear{
     // 逻辑属性
     

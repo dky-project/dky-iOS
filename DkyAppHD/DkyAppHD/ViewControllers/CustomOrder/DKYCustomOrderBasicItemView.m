@@ -27,4 +27,8 @@
      DLog(@"DKYCustomOrderBasicItemView ,subclass must be implemtioned");
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    DLog(@"super do nothing");
+}
+
 @end

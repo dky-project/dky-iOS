@@ -121,6 +121,32 @@
     }
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 19 ||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 366 ||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 53||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 54||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 55||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 63||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 62||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 60||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 309||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 61||
+       (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+        [self.addProductApproveParameter.mDimNew12Id integerValue] == 367)){
+           self.canEdit = NO;
+       }else{
+           self.canEdit = YES;
+       }
+}
+
 - (void)clear{
     // 逻辑属性
     

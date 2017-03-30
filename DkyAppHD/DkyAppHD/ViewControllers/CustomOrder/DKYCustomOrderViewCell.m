@@ -576,6 +576,28 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.mDimNew41Id = self.madeInfoByProductName.productMadeInfoView.mDimNew41Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew41Id): nil;
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    [self.patternItemView dealwithMDimNew12IdSelected];
+    [self.sizeView dealwithMDimNew12IdSelected];
+    [self.jingSizeItemView dealwithMDimNew12IdSelected];
+    [self.jianTypeView dealwithMDimNew12IdSelected];
+    [self.xiuTypeView dealwithMDimNew12IdSelected];
+    
+    [self.xiuBianView dealwithMDimNew12IdSelected];
+    [self.lingView dealwithMDimNew12IdSelected];
+    [self.flowerTypeItemView dealwithMDimNew12IdSelected];
+    [self.tangzhuItemView dealwithMDimNew12IdSelected];
+    [self.koudaiItemView dealwithMDimNew12IdSelected];
+    
+    [self.attachmentItemView dealwithMDimNew12IdSelected];
+    [self.specialCraftItemView dealwithMDimNew12IdSelected];
+    [self.xiabianItemView dealwithMDimNew12IdSelected];
+    [self.xiukouItemView dealwithMDimNew12IdSelected];
+    [self.addMarkView dealwithMDimNew12IdSelected];
+    
+    [self.matchItemView dealwithMDimNew12IdSelected];
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
 //    if(self.optionsBtnClicked){
@@ -849,6 +871,9 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*式样:";
     self.patternItemView.itemModel = itemModel;
+    self.patternItemView.mDimNew12IdBlock = ^(id sender,NSInteger type){
+        [weakSelf dealwithMDimNew12IdSelected];
+    };
 }
 
 - (void)setupSizeView{

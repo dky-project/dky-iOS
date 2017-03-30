@@ -120,6 +120,7 @@
     
     self.lengthView.textField.enabled = canEdit;
     self.optionsBtn.enabled = canEdit;
+    self.textField.enabled = canEdit;
 }
 
 #pragma mark - action method
