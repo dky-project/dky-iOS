@@ -208,6 +208,16 @@
        }
 }
 
+- (void)dealwithMDimNew22IdSelected{
+    if(self.canEdit){
+        if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
+            self.xcView.textField.enabled = NO;
+        }else{
+            self.xcView.textField.enabled = YES;
+        }
+    }
+}
+
 - (void)clear{
     // 逻辑属性
     

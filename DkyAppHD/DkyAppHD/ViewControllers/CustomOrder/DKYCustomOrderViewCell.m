@@ -599,6 +599,11 @@ static const CGFloat basicItemHeight = 30;
     [self.matchItemView dealwithMDimNew12IdSelected];
 }
 
+- (void)dealwithMDimNew22IdSelected{
+    [self.xiuTypeView dealwithMDimNew22IdSelected];
+    [self.sizeView dealwithMDimNew22IdSelected];
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
 //    if(self.optionsBtnClicked){
@@ -933,6 +938,9 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"肩型:";
     itemModel.textFieldLeftOffset = 16;
     self.jianTypeView.itemModel = itemModel;
+    self.jianTypeView.mDimNew22IdBlock = ^(id sender,NSInteger type){
+        [weakSelf dealwithMDimNew22IdSelected];
+    };
 }
 
 - (void)setupXiuTypeView{

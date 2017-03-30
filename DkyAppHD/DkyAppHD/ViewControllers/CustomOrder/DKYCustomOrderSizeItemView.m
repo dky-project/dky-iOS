@@ -97,6 +97,14 @@
     }
 }
 
+- (void)dealwithMDimNew22IdSelected{
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] != 131){
+           [self.bigView.optionsBtn setTitle:self.madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+       }else{
+           [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+       }
+}
+
 - (void)clear{
     // 逻辑属性
     

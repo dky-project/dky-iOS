@@ -109,6 +109,9 @@
     }else{
         self.canEdit = YES;
         
+        self.textField.enabled = NO;
+        self.gyxcView.textField.enabled = NO;
+        
         if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
             self.textField.enabled = NO;
         }else{
@@ -251,11 +254,47 @@
     // 清除
     if(index == 0){
         self.addProductApproveParameter.mDimNew22Id = nil;
+        [self dealWithmDimNew22IdSelected];
         return;
     }
     
     DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
     self.addProductApproveParameter.mDimNew22Id = @([model.ID integerValue]);
+    [self dealWithmDimNew22IdSelected];
+    DLog(@"肩型 = %@",self.addProductApproveParameter.mDimNew22Id);
+}
+
+- (void)dealWithmDimNew22IdSelected{
+    // 默认状态
+    self.canEdit = YES;
+    
+    self.textField.enabled = NO;
+    self.gyxcView.textField.enabled = NO;
+    
+    if(self.mDimNew22IdBlock){
+        self.mDimNew22IdBlock(nil,0);
+    }
+    
+    
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
+        self.textField.enabled = NO;
+    }else{
+        self.textField.enabled = YES;
+    }
+    
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131 ||
+       [self.addProductApproveParameter.mDimNew22Id integerValue] == 130||
+       [self.addProductApproveParameter.mDimNew22Id integerValue] == 129){
+        self.jkView.textField.enabled = NO;
+    }else{
+        self.jkView.textField.enabled = YES;
+    }
+    
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] == 133){
+        self.gyxcView.textField.enabled = NO;
+    }else{
+        self.gyxcView.textField.enabled = YES;
+    }
 }
 
 
