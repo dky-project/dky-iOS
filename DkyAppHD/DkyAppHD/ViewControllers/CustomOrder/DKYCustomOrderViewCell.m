@@ -577,6 +577,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)dealwithMDimNew12IdSelected{
+    [self.genderItemView dealwithMDimNew12IdSelected];
     [self.patternItemView dealwithMDimNew12IdSelected];
     [self.sizeView dealwithMDimNew12IdSelected];
     [self.jingSizeItemView dealwithMDimNew12IdSelected];

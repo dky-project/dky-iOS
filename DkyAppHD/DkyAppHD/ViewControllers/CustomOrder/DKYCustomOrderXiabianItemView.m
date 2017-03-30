@@ -104,6 +104,23 @@
     }
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+       (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+        [self.addProductApproveParameter.mDimNew12Id integerValue] == 367)){
+           self.canEdit = NO;
+       }else{
+           self.canEdit = YES;
+           
+           self.textField.enabled = NO;
+           if([self.addProductApproveParameter.mDimNew10Id integerValue] == 176){
+               self.textField.enabled = YES;
+           }
+       }
+}
+
 - (void)clear{
     // 逻辑属性
     

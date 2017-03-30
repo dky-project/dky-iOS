@@ -186,6 +186,44 @@
     self.addProductApproveParameter.lingNumber2Value = self.oneView.textField2.text;
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 56){
+        self.textField.enabled = NO;
+    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 62||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
+             [self.addProductApproveParameter.mDimNew12Id integerValue] == 309||
+             (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+               [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+              [self.addProductApproveParameter.mDimNew12Id integerValue] == 367)){
+                 self.canEdit = NO;
+             }else{
+                 self.canEdit = YES;
+                 
+                 
+                 self.markView.textField.enabled = NO;
+                 self.likouView.textField.enabled = NO;
+                 if([self.addProductApproveParameter.mDimNew25Id integerValue] == 299 ||
+                    [self.addProductApproveParameter.mDimNew25Id integerValue] == 302){
+                     self.likouView.textField.enabled = YES;
+                     self.markView.textField.enabled = NO;
+                 }else if([self.addProductApproveParameter.mDimNew25Id integerValue] == 270){
+                     self.likouView.textField.enabled = NO;
+                     self.markView.textField.enabled = YES;
+                 }
+                 
+                 self.textField.enabled = NO;
+                 if([self.addProductApproveParameter.mDimNew26Id integerValue] == 232){
+                     self.textField.enabled = YES;
+                 }
+             }
+}
+
 - (void)clear{
     // 逻辑属性
     

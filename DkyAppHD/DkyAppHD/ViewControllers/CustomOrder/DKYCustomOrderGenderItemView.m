@@ -89,6 +89,18 @@
     }
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 54 ||
+       [self.addProductApproveParameter.mDimNew12Id integerValue]== 53||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 19||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 60||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 55){
+        self.optionsBtn.enabled = YES;
+    }else{
+        self.optionsBtn.enabled = NO;
+    }
+}
+
 - (void)clear{
     self.addProductApproveParameter.mDimNew13Id = nil;
     [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
