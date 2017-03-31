@@ -239,6 +239,7 @@
             }else{
                 self.addProductApproveParameter.mDimNew15Id = @([model.ID integerValue]);
             }
+            [self dealWithmDimNew15IdSelected];
         }
             break;
         case 2:{
@@ -275,6 +276,12 @@
             }
         }
             break;
+    }
+}
+
+- (void)dealWithmDimNew15IdSelected{
+    if(self.mDimNew15IdBlock){
+        self.mDimNew15IdBlock(nil,0);
     }
 }
 

@@ -10,4 +10,6 @@
 
 @interface DKYCustomOrderVarietyView : DKYCustomOrderBasicItemView
 
+@property (nonatomic, copy) BlockWithSenderAndType mDimNew15IdBlock;
+
 @end

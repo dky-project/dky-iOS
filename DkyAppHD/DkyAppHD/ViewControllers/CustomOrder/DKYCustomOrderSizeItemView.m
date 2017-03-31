@@ -98,8 +98,69 @@
 }
 
 - (void)dealwithMDimNew22IdSelected{
-    if([self.addProductApproveParameter.mDimNew22Id integerValue] != 131){
-           [self.bigView.optionsBtn setTitle:self.madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] != 131||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] != 55 ||
+       ([self.addProductApproveParameter.mDimNew13Id integerValue] == 20 &&
+        [self.addProductApproveParameter.mDimNew15Id integerValue] == 36)){
+           if([self.madeInfoByProductName.productMadeInfoView.xwValue isNotBlank]){
+               [self.bigView.optionsBtn setTitle:self.madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+           }else{
+               [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+           }
+       }else{
+           [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+       }
+}
+
+- (void)dealwithMDimNew12IdSelected{
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] != 131||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] != 55 ||
+       ([self.addProductApproveParameter.mDimNew13Id integerValue] == 20 &&
+        [self.addProductApproveParameter.mDimNew15Id integerValue] == 36)){
+           if([self.madeInfoByProductName.productMadeInfoView.xwValue isNotBlank]){
+               [self.bigView.optionsBtn setTitle:self.madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+           }else{
+               [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+           }
+       }else {
+           [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+           if([self.addProductApproveParameter.mDimNew12Id integerValue] == 54 ||
+              [self.addProductApproveParameter.mDimNew12Id integerValue]== 53||
+              [self.addProductApproveParameter.mDimNew12Id integerValue] == 19||
+              [self.addProductApproveParameter.mDimNew12Id integerValue] == 60||
+              [self.addProductApproveParameter.mDimNew12Id integerValue] == 55){
+               self.canEdit = YES;
+           }else{
+               self.canEdit = NO;
+           }
+       }
+}
+
+- (void)dealwithMDimNew13IdSelected{
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] != 131||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] != 55 ||
+       ([self.addProductApproveParameter.mDimNew13Id integerValue] == 20 &&
+        [self.addProductApproveParameter.mDimNew15Id integerValue] == 36)){
+           if([self.madeInfoByProductName.productMadeInfoView.xwValue isNotBlank]){
+               [self.bigView.optionsBtn setTitle:self.madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+           }else{
+               [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+           }
+       }else{
+           [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+       }
+}
+
+- (void)dealwithMDimNew15IdSelected{
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] != 131||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] != 55 ||
+       ([self.addProductApproveParameter.mDimNew13Id integerValue] == 20 &&
+        [self.addProductApproveParameter.mDimNew15Id integerValue] == 36)){
+           if([self.madeInfoByProductName.productMadeInfoView.xwValue isNotBlank]){
+               [self.bigView.optionsBtn setTitle:self.madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+           }else{
+               [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+           }
        }else{
            [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
        }

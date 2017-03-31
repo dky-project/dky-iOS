@@ -43,4 +43,5 @@
 
 - (void)dealwithMDimNew13IdSelected;
 
+- (void)dealwithMDimNew15IdSelected;
 @end

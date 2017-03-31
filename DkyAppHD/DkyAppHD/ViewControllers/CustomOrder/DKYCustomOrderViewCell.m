@@ -628,6 +628,10 @@ static const CGFloat basicItemHeight = 30;
     [self.matchItemView dealwithMDimNew13IdSelected];
 }
 
+- (void)dealwithMDimNew15IdSelected{
+    [self.sizeView dealwithMDimNew15IdSelected];
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
 //    if(self.optionsBtnClicked){
@@ -886,6 +890,9 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*品种:";
     self.varietyView.itemModel = itemModel;
+    self.varietyView.mDimNew15IdBlock = ^(id sender, NSInteger type){
+        [weakSelf dealwithMDimNew15IdSelected];
+    };
 }
 
 - (void)setupPatternItemView{
