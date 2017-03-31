@@ -578,6 +578,7 @@ static const CGFloat basicItemHeight = 30;
 
 - (void)dealwithMDimNew12IdSelected{
     [self.genderItemView dealwithMDimNew12IdSelected];
+    [self.varietyView dealwithMDimNew12IdSelected];
     [self.patternItemView dealwithMDimNew12IdSelected];
     [self.sizeView dealwithMDimNew12IdSelected];
     [self.jingSizeItemView dealwithMDimNew12IdSelected];
@@ -605,7 +606,10 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)dealwithMDimNew13IdSelected{
+    [self.genderItemView dealwithMDimNew13IdSelected];
     [self.patternItemView dealwithMDimNew13IdSelected];
+    [self.sizeView dealwithMDimNew13IdSelected];
+    [self.jingSizeItemView dealwithMDimNew13IdSelected];
     [self.jianTypeView dealwithMDimNew13IdSelected];
     [self.xiuTypeView dealwithMDimNew13IdSelected];
     
@@ -621,7 +625,7 @@ static const CGFloat basicItemHeight = 30;
     [self.xiukouItemView dealwithMDimNew13IdSelected];
     [self.addMarkView dealwithMDimNew13IdSelected];
     
-    [self.matchItemView dealwithMDimNew12IdSelected];
+    [self.matchItemView dealwithMDimNew13IdSelected];
 }
 
 #pragma mark - action method

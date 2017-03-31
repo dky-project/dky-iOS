@@ -77,28 +77,6 @@
             break;
         }
     }
-    
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54 ||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
-        self.optionsBtn.enabled = YES;
-    }else{
-        self.optionsBtn.enabled = NO;
-    }
-}
-
-- (void)dealwithMDimNew12IdSelected{
-    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 54 ||
-       [self.addProductApproveParameter.mDimNew12Id integerValue]== 53||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 19||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 60||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 55){
-        self.optionsBtn.enabled = YES;
-    }else{
-        self.optionsBtn.enabled = NO;
-    }
 }
 
 - (void)clear{
@@ -147,11 +125,13 @@
     // 清除
     if(index == 0){
         self.addProductApproveParameter.mDimNew13Id = nil;
+        [self dealWithmDimNew13IdSelected];
         return;
     }
     
     DKYDimlistItemModel *model = [self.customOrderDimList.DIMFLAG_NEW13 objectAtIndexedSubscript:index-1];
     self.addProductApproveParameter.mDimNew13Id = @([model.ID integerValue]);
+    [self dealWithmDimNew13IdSelected];
 }
 
 - (void)dealWithmDimNew13IdSelected{

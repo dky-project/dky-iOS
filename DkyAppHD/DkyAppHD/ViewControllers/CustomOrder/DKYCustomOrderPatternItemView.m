@@ -855,6 +855,10 @@
         [self updateSubviewStatus:9 canEdit:NO];
     }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 62){
         [self updateSubviewStatus:10 canEdit:NO];
+    }else if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+        [self.addProductApproveParameter.mDimNew12Id integerValue] == 367){
+        [self updateSubviewStatus:11 canEdit:NO];
     }
 }
 

@@ -118,6 +118,16 @@
     }
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+        [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 367){
+        self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
+    }
+}
+
 - (void)dealwithMDimNew13IdSelected{
     if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
