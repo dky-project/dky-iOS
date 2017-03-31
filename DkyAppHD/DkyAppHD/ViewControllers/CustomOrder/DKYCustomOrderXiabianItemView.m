@@ -188,11 +188,22 @@
     // 清除
     if(index == 0){
         self.addProductApproveParameter.mDimNew10Id = nil;
+        [self dealwithmDimNew10IdSelected];
         return;
     }
     
     DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
+    DLog(@"下边 = %@",self.addProductApproveParameter.mDimNew10Id);
     self.addProductApproveParameter.mDimNew10Id = @([model.ID integerValue]);
+    [self dealwithmDimNew10IdSelected];
+}
+
+- (void)dealwithmDimNew10IdSelected{
+    self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+    
+    if([self.addProductApproveParameter.mDimNew10Id integerValue] == 176){
+        self.textField.enabled = YES;
+    }
 }
 
 #pragma mark - mark
