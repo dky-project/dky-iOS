@@ -205,11 +205,21 @@
     // 清除
     if(index == 0){
         self.addProductApproveParameter.mDimNew32Id = nil;
+        [self dealwithmDimNew32IdSelected];
         return;
     }
     
     DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
     self.addProductApproveParameter.mDimNew32Id = @([model.ID integerValue]);
+    [self dealwithmDimNew32IdSelected];
+}
+
+- (void)dealwithmDimNew32IdSelected{
+    self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+    
+    if([self.addProductApproveParameter.mDimNew32Id integerValue] == 148){
+        self.textField.enabled = YES;
+    }
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textField{
