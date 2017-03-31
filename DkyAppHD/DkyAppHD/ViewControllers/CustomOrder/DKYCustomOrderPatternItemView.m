@@ -270,7 +270,8 @@
     
     if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
+       (madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 368)){
         [self updateSubviewStatus:11 canEdit:NO];
     }
 }
@@ -857,7 +858,8 @@
         [self updateSubviewStatus:10 canEdit:NO];
     }else if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
          [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
-        [self.addProductApproveParameter.mDimNew12Id integerValue] == 367){
+        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+        [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
         [self updateSubviewStatus:11 canEdit:NO];
     }
 }
@@ -880,7 +882,8 @@
 - (void)dealwithMDimNew13IdSelected{
     if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 367){
+       ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+        [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
         [self updateSubviewStatus:11 canEdit:NO];
     }else{
         [self dealWithmDimNew12IdSelected];
