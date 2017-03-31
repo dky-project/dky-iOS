@@ -709,12 +709,14 @@
             //mDimNew7Id
             if(index == 0){
                 self.addProductApproveParameter.mDimNew7Id = nil;
+                [self dealWithmDimNew7IdSelected];
                 return;
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW7;
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew7Id = @([model.ID integerValue]);
+            [self dealWithmDimNew7IdSelected];
             break;
         case 4:
             // 加穗 清除
@@ -853,6 +855,20 @@
         [self updateSubviewStatus:9 canEdit:NO];
     }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 62){
         [self updateSubviewStatus:10 canEdit:NO];
+    }
+}
+
+- (void)dealWithmDimNew7IdSelected{
+    self.mjInputView.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+    self.mjInputView.textFieldTwo.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+    
+    if([self.addProductApproveParameter.mDimNew7Id integerValue] == 196||
+       [self.addProductApproveParameter.mDimNew7Id integerValue] == 189){
+        self.mjInputView.textField.enabled = YES;
+        self.mjInputView.textFieldTwo.enabled = NO;
+    }else if([self.addProductApproveParameter.mDimNew7Id integerValue] == 198){
+        self.mjInputView.textField.enabled = NO;
+        self.mjInputView.textFieldTwo.enabled = YES;
     }
 }
 
