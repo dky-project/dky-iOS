@@ -604,6 +604,26 @@ static const CGFloat basicItemHeight = 30;
     [self.sizeView dealwithMDimNew22IdSelected];
 }
 
+- (void)dealwithMDimNew13IdSelected{
+    [self.patternItemView dealwithMDimNew13IdSelected];
+    [self.jianTypeView dealwithMDimNew13IdSelected];
+    [self.xiuTypeView dealwithMDimNew13IdSelected];
+    
+    [self.xiuBianView dealwithMDimNew13IdSelected];
+    [self.lingView dealwithMDimNew13IdSelected];
+    [self.flowerTypeItemView dealwithMDimNew13IdSelected];
+    [self.tangzhuItemView dealwithMDimNew13IdSelected];
+    [self.koudaiItemView dealwithMDimNew13IdSelected];
+    
+    [self.attachmentItemView dealwithMDimNew13IdSelected];
+    [self.specialCraftItemView dealwithMDimNew13IdSelected];
+    [self.xiabianItemView dealwithMDimNew13IdSelected];
+    [self.xiukouItemView dealwithMDimNew13IdSelected];
+    [self.addMarkView dealwithMDimNew13IdSelected];
+    
+    [self.matchItemView dealwithMDimNew12IdSelected];
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
 //    if(self.optionsBtnClicked){
@@ -790,6 +810,9 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*性别:";
     self.genderItemView.itemModel = itemModel;
+    self.genderItemView.mDimNew13IdBlock = ^(id sender, NSInteger type){
+        [weakSelf dealwithMDimNew13IdSelected];
+    };
 }
 
 - (void)setupStyleNumberView{

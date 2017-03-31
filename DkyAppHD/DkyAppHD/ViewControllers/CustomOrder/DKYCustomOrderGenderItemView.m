@@ -154,6 +154,12 @@
     self.addProductApproveParameter.mDimNew13Id = @([model.ID integerValue]);
 }
 
+- (void)dealWithmDimNew13IdSelected{
+    if(self.mDimNew13IdBlock){
+        self.mDimNew13IdBlock(nil,0);
+    }
+}
+
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];

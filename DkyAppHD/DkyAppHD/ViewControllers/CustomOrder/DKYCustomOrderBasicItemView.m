@@ -35,4 +35,8 @@
     DLog(@"super do nothing");
 }
 
+- (void)dealwithMDimNew13IdSelected{
+    DLog(@"super do nothing");
+}
+
 @end

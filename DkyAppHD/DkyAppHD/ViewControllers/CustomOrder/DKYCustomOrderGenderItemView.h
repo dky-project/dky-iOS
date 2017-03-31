@@ -10,4 +10,6 @@
 
 @interface DKYCustomOrderGenderItemView : DKYCustomOrderBasicItemView
 
+@property (nonatomic, copy) BlockWithSenderAndType mDimNew13IdBlock;
+
 @end
