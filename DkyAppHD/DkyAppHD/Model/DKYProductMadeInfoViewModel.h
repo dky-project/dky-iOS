@@ -78,6 +78,9 @@
  */
 @property (nonatomic, assign) NSInteger mDimNew7Id;
 
+// #连接的两个输入框，后面的那个
+@property (nonatomic, copy) NSString *mjzzRemark;
+
 /**
  * 加穗
  */
