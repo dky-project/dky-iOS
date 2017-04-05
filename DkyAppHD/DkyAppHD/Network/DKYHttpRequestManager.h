@@ -158,6 +158,14 @@
  *  @param failure   failure description
  */
 - (void)addProductApproveWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+/**
+ *  品种、组织、针型、支别下拉框操作时需要调用后台接口返回新的下拉框值给这四个下拉框重新填充
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+- (void)getPzsJsonWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
 
 /**
  *  登录接口

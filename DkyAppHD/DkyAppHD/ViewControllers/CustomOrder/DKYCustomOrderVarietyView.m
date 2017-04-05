@@ -8,6 +8,7 @@
 
 #import "DKYCustomOrderVarietyView.h"
 #import "DKYMultipleSelectPopupView.h"
+#import "DKYGetPzsJsonParameter.h"
 
 @interface DKYCustomOrderVarietyView ()
 
@@ -20,6 +21,8 @@
 @property (nonatomic, weak) UIButton *thirdBtn;
 
 @property (nonatomic, weak) UIButton *fourthBtn;
+
+@property (nonatomic, strong) DKYGetPzsJsonParameter *getPzsJsonParameter;
 
 @end
 
@@ -120,6 +123,34 @@
     [self.fourthBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
 }
 
+#pragma mark - 网络请求
+- (void)getPzsJsonFromServer{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+//    self.getPzsJsonParameter = nil;
+    [[DKYHttpRequestManager sharedInstance] getPzsJsonWithParameter:self.getPzsJsonParameter Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+
+}
+
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
     //    if(self.optionsBtnClicked){
@@ -216,11 +247,17 @@
             }
             
             model = [models objectOrNilAtIndex:index - 1];
+            
+            NSNumber *oldOption = self.addProductApproveParameter.mDimNew14Id;
             // 清空
             if(!model){
                 self.addProductApproveParameter.mDimNew14Id = nil;
             }else{
                 self.addProductApproveParameter.mDimNew14Id = @([model.ID integerValue]);
+            }
+            
+            if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
+                [self updateActionSheetOptionsWithFlag:1];
             }
         }
             break;
@@ -233,6 +270,7 @@
             }
             
             model = [models objectOrNilAtIndex:index - 1];
+            NSNumber *oldOption = self.addProductApproveParameter.mDimNew15Id;
             // 清空
             if(!model){
                 self.addProductApproveParameter.mDimNew15Id = nil;
@@ -240,6 +278,9 @@
                 self.addProductApproveParameter.mDimNew15Id = @([model.ID integerValue]);
             }
             [self dealWithmDimNew15IdSelected];
+            if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
+                [self updateActionSheetOptionsWithFlag:2];
+            }
         }
             break;
         case 2:{
@@ -251,11 +292,15 @@
             }
             
             model = [models objectOrNilAtIndex:index - 1];
+            NSNumber *oldOption = self.addProductApproveParameter.mDimNew16Id;
             // 清空
             if(!model){
                 self.addProductApproveParameter.mDimNew16Id = nil;
             }else{
                 self.addProductApproveParameter.mDimNew16Id = @([model.ID integerValue]);
+            }
+            if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
+                [self updateActionSheetOptionsWithFlag:3];
             }
         }
             break;
@@ -285,6 +330,33 @@
     }
 }
 
+- (void)updateActionSheetOptionsWithFlag:(NSInteger)flag{
+    self.getPzsJsonParameter.flag = [NSString stringWithFormat:@"%@",@(flag)];
+    self.getPzsJsonParameter.productId = self.madeInfoByProductName.productMadeInfoView.productId;
+    self.getPzsJsonParameter.mDimNew14Id = self.addProductApproveParameter.mDimNew14Id;
+    self.getPzsJsonParameter.mDimNew15Id = self.addProductApproveParameter.mDimNew15Id;
+    self.getPzsJsonParameter.mDimNew16Id = self.addProductApproveParameter.mDimNew16Id;
+    
+    if([self checkForupdateActionSheetOptions]){
+        [self getPzsJsonFromServer];
+    }
+}
+
+- (BOOL)checkForupdateActionSheetOptions{
+    if(self.getPzsJsonParameter.mDimNew14Id == nil){
+        [DKYHUDTool showInfoWithStatus:@"品种不能为空!"];
+        return NO;
+    }
+    if(self.getPzsJsonParameter.mDimNew15Id == nil){
+        [DKYHUDTool showInfoWithStatus:@"组织不能为空!"];
+        return NO;
+    }
+    if(self.getPzsJsonParameter.mDimNew16Id == nil){
+        [DKYHUDTool showInfoWithStatus:@"针型不能为空!"];
+        return NO;
+    }
+    return YES;
+}
 
 - (void)showMultipleSelectPopupView{
     DKYMultipleSelectPopupView *pop = [DKYMultipleSelectPopupView show];
@@ -408,6 +480,12 @@
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
 }
-
+#pragma mark - get & set method
+- (DKYGetPzsJsonParameter*)getPzsJsonParameter{
+    if(_getPzsJsonParameter == nil){
+        _getPzsJsonParameter = [[DKYGetPzsJsonParameter alloc] init];
+    }
+    return _getPzsJsonParameter;
+}
 
 @end

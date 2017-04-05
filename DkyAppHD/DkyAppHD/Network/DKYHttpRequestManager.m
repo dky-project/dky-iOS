@@ -89,6 +89,10 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithNoAuthorizationToken:kAddProductApproveUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)getPzsJsonWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithNoAuthorizationToken:kGetPzsJsonUrl withParameter:parameter Success:success failure:failure];
+}
+
 - (void)LoginUserWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithNoAuthorizationToken:kLoginUserUrl withParameter:parameter Success:success failure:failure];
 }

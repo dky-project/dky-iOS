@@ -10,13 +10,13 @@
 #define DKYHttpUrl_h
 
 // 主机
-#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
+//#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
 
 //#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
 
 //#define BASE_URL     @"https:"
 
-//#define BASE_URL     @"http://192.168.3.171:8080/dky-web/"
+#define BASE_URL     @"http://192.168.3.171:8080/dky-web/"
 //#define BASE_URL     @"http://192.168.3.76:7071/dky-web/"
 
 
@@ -50,6 +50,7 @@
 
 #define kMptApproveSaveUrl              @"productApprove/bMptApproveSave"           // 大货订单保存接口
 #define kAddProductApproveUrl           @"productApprove/addProductApprove"         // 基础下单
+#define kGetPzsJsonUrl                  @"dimNew/getPzsJson"                        // 品种、组织、针型、支别下拉框操作时需要调用后台接口返回新的下拉框值给这四个下拉框重新填充
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询
