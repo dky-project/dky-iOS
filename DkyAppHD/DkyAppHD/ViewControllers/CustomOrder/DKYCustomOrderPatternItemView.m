@@ -222,6 +222,10 @@
         }
     }
     
+    if([madeInfoByProductName.productMadeInfoView.mjzzRemark isNotBlank]){
+        self.mjInputView.textFieldTwo.text = madeInfoByProductName.productMadeInfoView.mjzzRemark;
+    }
+    
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 59||
