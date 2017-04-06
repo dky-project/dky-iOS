@@ -40,6 +40,7 @@
 #import "DKYMptApproveSaveParameter.h"
 #import "DKYAddProductApproveParameter.h"
 #import "DKYDahuoOrderColorModel.h"
+#import "NSString+STRegex.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -358,7 +359,6 @@ static const CGFloat basicItemHeight = 30;
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
-        [DKYHUDTool dismiss];
     } failure:^(NSError *error) {
         [DKYHUDTool dismiss];
         DLog(@"Error = %@",error.description);
@@ -367,14 +367,23 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)getVipInfoFromServer:(NSString*)phone{
-//    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
     DKYVipNameParameter *p = [[DKYVipNameParameter alloc] init];
     p.phone = phone;
     [[DKYHttpRequestManager sharedInstance] getVipInfoWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-            
+            NSString *info = result.data;
+            info = @"王泽锋";
+            if([info isNotBlank]){
+                info = [NSString stringWithFormat:@"%@(%@)",self.addProductApproveParameter.mobile,info];
+                weakSelf.phoneNumberView.itemModel.content = info;
+                weakSelf.phoneNumberView.itemModel = weakSelf.phoneNumberView.itemModel;
+            }
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -383,8 +392,8 @@ static const CGFloat basicItemHeight = 30;
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
-
     } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
@@ -869,10 +878,18 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"*手机号:";
     itemModel.keyboardType = UIKeyboardTypePhonePad;
     itemModel.textFieldDidEndEditing = ^(UITextField *textField){
+        if(![textField.text isValidPhoneNum]){
+            [DKYHUDTool showInfoWithStatus:@"请输入有效的手机号！"];
+            return;
+        }
         [weakSelf getVipInfoFromServer:textField.text];
     };
     
     itemModel.textFieldDidEditing = ^(UITextField *textField){
+        if (textField.text.length > 11) {
+            textField.text = [textField.text substringToIndex:11];
+        }
+
         weakSelf.addProductApproveParameter.mobile = textField.text;
     };
     self.phoneNumberView.itemModel = itemModel;

@@ -135,6 +135,11 @@
 }
 
 - (void)fetchAddProductApproveInfo{
+    NSRange range = [self.addProductApproveParameter.mobile rangeOfString:@"("];
+    if(range.location != NSNotFound){
+        self.addProductApproveParameter.mobile = [self.addProductApproveParameter.mobile substringToIndex:range.location];
+    }
+    
     self.addProductApproveParameter.jgno = self.productApproveTitle.code;
     self.addProductApproveParameter.czDate = self.productApproveTitle.czDate;
     self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
