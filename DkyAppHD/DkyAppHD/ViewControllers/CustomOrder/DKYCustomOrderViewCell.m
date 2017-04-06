@@ -378,7 +378,6 @@ static const CGFloat basicItemHeight = 30;
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             NSString *info = result.data;
-            info = @"王泽锋";
             if([info isNotBlank]){
                 info = [NSString stringWithFormat:@"%@(%@)",self.addProductApproveParameter.mobile,info];
                 weakSelf.phoneNumberView.itemModel.content = info;
