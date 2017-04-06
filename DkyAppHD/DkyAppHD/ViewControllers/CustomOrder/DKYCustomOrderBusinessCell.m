@@ -105,6 +105,14 @@ static const CGFloat basicItemHeight = 30;
     itemModel = self.orderNumberView.itemModel;
     itemModel.content = productApproveTitleModel.orderNo;
     self.orderNumberView.itemModel = itemModel;
+    
+    itemModel = self.detailAddressView.itemModel;
+    itemModel.content = @"";
+    self.detailAddressView.itemModel = itemModel;
+    
+    itemModel = self.memoView.itemModel;
+    itemModel.content = @"";
+    self.memoView.itemModel = itemModel;
 }
 
 #pragma mark - UI

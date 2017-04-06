@@ -232,6 +232,9 @@ static const CGFloat basicItemHeight = 30;
     
     // 第十九行，配套
     [self.matchItemView clear];
+    
+    // 图片
+    self.displayImageView.image = nil;
 }
 
 - (void)drawRect:(CGRect)rect{
