@@ -129,12 +129,16 @@
     
     WeakSelf(weakSelf);
 //    self.getPzsJsonParameter = nil;
+    NSInteger flag = [self.getPzsJsonParameter.flag integerValue];
     [[DKYHttpRequestManager sharedInstance] getPzsJsonWithParameter:self.getPzsJsonParameter Success:^(NSInteger statusCode, id data) {
         [DKYHUDTool dismiss];
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-            
+            NSDictionary *dict = (NSDictionary*)result.data;
+            NSArray *value = [dict objectForKey:@"value"];
+            NSArray *array = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
+            [weakSelf dealWithgetPzsJsonFromServer:flag value:array];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -148,7 +152,75 @@
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
+}
 
+- (void)dealWithgetPzsJsonFromServer:(NSInteger)flag value:(NSArray*)value{
+    switch (flag) {
+        case 1:
+            self.madeInfoByProductName.productMadeInfoView.pzJsonArray = value;
+            break;
+        case 2:
+            self.madeInfoByProductName.productMadeInfoView.zzJsonArray = value;
+            break;
+        case 3:
+            self.madeInfoByProductName.productMadeInfoView.zxJsonArray = value;
+            break;
+        case 4:
+            
+            break;
+        default:
+            break;
+    }
+    [self updateActionSheetAfterGetPzsJsonFromServer:flag];
+}
+
+- (void)updateActionSheetAfterGetPzsJsonFromServer:(NSInteger)flag{
+    switch (flag) {
+        case 1:{
+            BOOL exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew14Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                // 不存在，则刷新
+                [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+            }
+        }
+            break;
+        case 2:{
+            BOOL exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                // 不存在，则刷新
+                [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
+            }
+        }
+            break;
+        case 3:{
+            BOOL exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                // 不存在，则刷新
+                [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - action method

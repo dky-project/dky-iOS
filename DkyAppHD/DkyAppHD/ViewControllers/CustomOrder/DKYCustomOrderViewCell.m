@@ -313,8 +313,10 @@ static const CGFloat basicItemHeight = 30;
     self.addMarkView.madeInfoByProductName = self.madeInfoByProductName;
     self.matchItemView.madeInfoByProductName = self.madeInfoByProductName;
     
-    NSURL *url = [NSURL URLWithString:self.madeInfoByProductName.productMadeInfoView.imgUrl];
-    [self.displayImageView sd_setImageWithURL:url];
+    if(self.madeInfoByProductName){
+        NSURL *url = [NSURL URLWithString:self.madeInfoByProductName.productMadeInfoView.imgUrl];
+        [self.displayImageView sd_setImageWithURL:url];
+    }
     
 //    WeakSelf(weakSelf);
 //    if([self needHideKoudai]){
@@ -433,6 +435,8 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.pdt = self.productName;
     if(![text isNotBlank]){
         [DKYHUDTool showInfoWithStatus:@"款号不能为空！"];
+        self.madeInfoByProductName = nil;
+        [self updateModelViews];
         return;
     }else{
         
