@@ -452,12 +452,22 @@
         self.likouView.textField.enabled = NO;
         self.otherMarkView.textField.enabled = YES;
     }
+    
+    if(self.addProductApproveParameter.mDimNew26Id && self.addProductApproveParameter.mDimNew25Id){
+        self.addProductApproveParameter.lingValue = nil;
+        [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    }
 }
 
 - (void)dealwithmDimNew26IdSelected{
     self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
     if([self.addProductApproveParameter.mDimNew26Id integerValue] == 232){
         self.textField.enabled = YES;
+    }
+    
+    if(self.addProductApproveParameter.mDimNew25Id && self.addProductApproveParameter.mDimNew26Id){
+        self.addProductApproveParameter.lingValue = nil;
+        [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
     }
 }
 
