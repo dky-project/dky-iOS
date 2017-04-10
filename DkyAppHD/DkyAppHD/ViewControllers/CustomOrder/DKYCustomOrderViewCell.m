@@ -370,13 +370,13 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)getVipInfoFromServer:(NSString*)phone{
-    [DKYHUDTool show];
+//    [DKYHUDTool show];
     
     WeakSelf(weakSelf);
     DKYVipNameParameter *p = [[DKYVipNameParameter alloc] init];
     p.phone = phone;
     [[DKYHttpRequestManager sharedInstance] getVipInfoWithParameter:p Success:^(NSInteger statusCode, id data) {
-        [DKYHUDTool dismiss];
+//        [DKYHUDTool dismiss];
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
@@ -386,18 +386,19 @@ static const CGFloat basicItemHeight = 30;
                 weakSelf.phoneNumberView.itemModel.content = info;
                 weakSelf.phoneNumberView.itemModel = weakSelf.phoneNumberView.itemModel;
             }
-        }else if (retCode == DkyHttpResponseCode_NotLogin) {
-            // 用户未登录,弹出登录页面
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
-            [DKYHUDTool showErrorWithStatus:result.msg];
-        }else{
-            NSString *retMsg = result.msg;
-            [DKYHUDTool showErrorWithStatus:retMsg];
         }
+//        else if (retCode == DkyHttpResponseCode_NotLogin) {
+//            // 用户未登录,弹出登录页面
+//            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+//            [DKYHUDTool showErrorWithStatus:result.msg];
+//        }else{
+//            NSString *retMsg = result.msg;
+//            [DKYHUDTool showErrorWithStatus:retMsg];
+//        }
     } failure:^(NSError *error) {
-        [DKYHUDTool dismiss];
-        DLog(@"Error = %@",error.description);
-        [DKYHUDTool showErrorWithStatus:kNetworkError];
+//        [DKYHUDTool dismiss];
+//        DLog(@"Error = %@",error.description);
+//        [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
 
@@ -880,10 +881,10 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"*手机号:";
     itemModel.keyboardType = UIKeyboardTypePhonePad;
     itemModel.textFieldDidEndEditing = ^(UITextField *textField){
-        if(![textField.text isValidPhoneNum]){
-            [DKYHUDTool showInfoWithStatus:@"请输入有效的手机号！"];
-            return;
-        }
+//        if(![textField.text isValidPhoneNum]){
+//            [DKYHUDTool showInfoWithStatus:@"请输入有效的手机号！"];
+//            return;
+//        }
         [weakSelf getVipInfoFromServer:textField.text];
     };
     
