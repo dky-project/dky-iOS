@@ -456,6 +456,9 @@
     if(self.addProductApproveParameter.mDimNew26Id && self.addProductApproveParameter.mDimNew25Id){
         self.addProductApproveParameter.lingValue = nil;
         [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+        self.optionsBtn.enabled = NO;
+    }else{
+        self.optionsBtn.enabled = YES;
     }
 }
 
@@ -468,6 +471,9 @@
     if(self.addProductApproveParameter.mDimNew25Id && self.addProductApproveParameter.mDimNew26Id){
         self.addProductApproveParameter.lingValue = nil;
         [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+        self.optionsBtn.enabled = NO;
+    }else{
+        self.optionsBtn.enabled = YES;
     }
 }
 
