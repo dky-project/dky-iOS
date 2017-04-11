@@ -41,8 +41,6 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
-    
-    [self doHttpRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,11 +48,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//    
-//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
-//}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self doHttpRequest];
+}
 
 #pragma mark - 网络请求
 
@@ -320,6 +318,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+
+#pragma mark - VTMagicReuseProtocol
+- (void)vtm_prepareForReuse {
+    // reset content offset
+    DLog(@"clear old data if needed:%@", self);
+    [self.tableView setContentOffset:CGPointZero];
 }
 
 

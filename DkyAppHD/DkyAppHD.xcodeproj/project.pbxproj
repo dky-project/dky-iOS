@@ -41,6 +41,15 @@
 		263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */; };
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
+		266290761E9D039D00886274 /* UIButton+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290631E9D039D00886274 /* UIButton+VTMagic.m */; };
+		266290771E9D039D00886274 /* UIColor+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290651E9D039D00886274 /* UIColor+VTMagic.m */; };
+		266290781E9D039D00886274 /* UIScrollView+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290671E9D039D00886274 /* UIScrollView+VTMagic.m */; };
+		266290791E9D039D00886274 /* UIViewController+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290691E9D039D00886274 /* UIViewController+VTMagic.m */; };
+		2662907A1E9D039D00886274 /* VTContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2662906B1E9D039D00886274 /* VTContentView.m */; };
+		2662907B1E9D039D00886274 /* VTMagicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2662906F1E9D039D00886274 /* VTMagicController.m */; };
+		2662907C1E9D039D00886274 /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290731E9D039D00886274 /* VTMagicView.m */; };
+		2662907D1E9D039D00886274 /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290751E9D039D00886274 /* VTMenuBar.m */; };
+		266290801E9D03F300886274 /* DKYSampleDetailAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */; };
 		267CED471E20E93100ED5872 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED461E20E93100ED5872 /* iCarousel.m */; };
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
 		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
@@ -325,6 +334,28 @@
 		263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestTool.m; sourceTree = "<group>"; };
 		263CC1731E155CED002FBB50 /* DKYHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpRequestManager.h; sourceTree = "<group>"; };
 		263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestManager.m; sourceTree = "<group>"; };
+		266290621E9D039D00886274 /* UIButton+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+VTMagic.h"; sourceTree = "<group>"; };
+		266290631E9D039D00886274 /* UIButton+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+VTMagic.m"; sourceTree = "<group>"; };
+		266290641E9D039D00886274 /* UIColor+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VTMagic.h"; sourceTree = "<group>"; };
+		266290651E9D039D00886274 /* UIColor+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VTMagic.m"; sourceTree = "<group>"; };
+		266290661E9D039D00886274 /* UIScrollView+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+VTMagic.h"; sourceTree = "<group>"; };
+		266290671E9D039D00886274 /* UIScrollView+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+VTMagic.m"; sourceTree = "<group>"; };
+		266290681E9D039D00886274 /* UIViewController+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VTMagic.h"; sourceTree = "<group>"; };
+		266290691E9D039D00886274 /* UIViewController+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VTMagic.m"; sourceTree = "<group>"; };
+		2662906A1E9D039D00886274 /* VTContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTContentView.h; sourceTree = "<group>"; };
+		2662906B1E9D039D00886274 /* VTContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTContentView.m; sourceTree = "<group>"; };
+		2662906C1E9D039D00886274 /* VTEnumType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTEnumType.h; sourceTree = "<group>"; };
+		2662906D1E9D039D00886274 /* VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagic.h; sourceTree = "<group>"; };
+		2662906E1E9D039D00886274 /* VTMagicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicController.h; sourceTree = "<group>"; };
+		2662906F1E9D039D00886274 /* VTMagicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMagicController.m; sourceTree = "<group>"; };
+		266290701E9D039D00886274 /* VTMagicMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicMacros.h; sourceTree = "<group>"; };
+		266290711E9D039D00886274 /* VTMagicProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicProtocol.h; sourceTree = "<group>"; };
+		266290721E9D039D00886274 /* VTMagicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicView.h; sourceTree = "<group>"; };
+		266290731E9D039D00886274 /* VTMagicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMagicView.m; sourceTree = "<group>"; };
+		266290741E9D039D00886274 /* VTMenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMenuBar.h; sourceTree = "<group>"; };
+		266290751E9D039D00886274 /* VTMenuBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMenuBar.m; sourceTree = "<group>"; };
+		2662907E1E9D03F300886274 /* DKYSampleDetailAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailAllViewController.h; sourceTree = "<group>"; };
+		2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailAllViewController.m; sourceTree = "<group>"; };
 		267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemDelegate.h; sourceTree = "<group>"; };
 		267CED451E20E93100ED5872 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		267CED461E20E93100ED5872 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -832,6 +863,33 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		266290611E9D039D00886274 /* VTMagic */ = {
+			isa = PBXGroup;
+			children = (
+				266290621E9D039D00886274 /* UIButton+VTMagic.h */,
+				266290631E9D039D00886274 /* UIButton+VTMagic.m */,
+				266290641E9D039D00886274 /* UIColor+VTMagic.h */,
+				266290651E9D039D00886274 /* UIColor+VTMagic.m */,
+				266290661E9D039D00886274 /* UIScrollView+VTMagic.h */,
+				266290671E9D039D00886274 /* UIScrollView+VTMagic.m */,
+				266290681E9D039D00886274 /* UIViewController+VTMagic.h */,
+				266290691E9D039D00886274 /* UIViewController+VTMagic.m */,
+				2662906A1E9D039D00886274 /* VTContentView.h */,
+				2662906B1E9D039D00886274 /* VTContentView.m */,
+				2662906C1E9D039D00886274 /* VTEnumType.h */,
+				2662906D1E9D039D00886274 /* VTMagic.h */,
+				2662906E1E9D039D00886274 /* VTMagicController.h */,
+				2662906F1E9D039D00886274 /* VTMagicController.m */,
+				266290701E9D039D00886274 /* VTMagicMacros.h */,
+				266290711E9D039D00886274 /* VTMagicProtocol.h */,
+				266290721E9D039D00886274 /* VTMagicView.h */,
+				266290731E9D039D00886274 /* VTMagicView.m */,
+				266290741E9D039D00886274 /* VTMenuBar.h */,
+				266290751E9D039D00886274 /* VTMenuBar.m */,
+			);
+			path = VTMagic;
+			sourceTree = "<group>";
+		};
 		267CED441E20E93100ED5872 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1168,6 +1226,8 @@
 				26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */,
 				EBC300701E1CDC8500F602E6 /* DKYSampleDetailViewController.h */,
 				EBC300711E1CDC8500F602E6 /* DKYSampleDetailViewController.m */,
+				2662907E1E9D03F300886274 /* DKYSampleDetailAllViewController.h */,
+				2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */,
 				26DAD0DE1E1A4804008EE55F /* View */,
 			);
 			path = SampleQuery;
@@ -1540,6 +1600,7 @@
 		EBABE8E01E150E2B00B4C568 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				266290611E9D039D00886274 /* VTMagic */,
 				268BC2481E6477D60042E16D /* MDHTMLLabel */,
 				EB195B8D1E5C41CE00116048 /* LCActionSheet */,
 				26210BE41E59A3A900EB05D6 /* BEMCheckBox */,
@@ -1983,6 +2044,8 @@
 				EB506C471E23B24C002A1423 /* TWBackgroundView.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,
 				EB97F2B91E25C36A00BDC705 /* DQFormCollectionViewCell.m in Sources */,
+				266290781E9D039D00886274 /* UIScrollView+VTMagic.m in Sources */,
+				266290791E9D039D00886274 /* UIViewController+VTMagic.m in Sources */,
 				EBB59ED41E56D70200F88A4C /* DKYMultipleSelectPopupView.m in Sources */,
 				EB16D1011E56FC5800939072 /* DKYCustomOrderSizeItemView.m in Sources */,
 				EB9BBBAA1E24DA6100939007 /* DKYSampleQueryParameter.m in Sources */,
@@ -2049,6 +2112,7 @@
 				EB16D0FE1E56F73F00939072 /* DKYTitleSelectView.m in Sources */,
 				EB506C4E1E23BD81002A1423 /* DKYOrderBrowserViewCell.m in Sources */,
 				263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */,
+				2662907A1E9D039D00886274 /* VTContentView.m in Sources */,
 				26210C021E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m in Sources */,
 				26210BF91E59B5CD00EB05D6 /* DKYCustomOrderXiukouItemView.m in Sources */,
 				26DAD0D21E1A32D0008EE55F /* DKYAccountManager.m in Sources */,
@@ -2111,6 +2175,7 @@
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				EB97F2D01E26533500BDC705 /* DKYCustomOrderUIViewController.m in Sources */,
 				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
+				266290801E9D03F300886274 /* DKYSampleDetailAllViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
 				EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */,
 				EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */,
@@ -2127,6 +2192,7 @@
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				EBA90E951E52E2EF00EA539E /* TWScrollView.m in Sources */,
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
+				266290771E9D039D00886274 /* UIColor+VTMagic.m in Sources */,
 				EB97F2B71E25C36A00BDC705 /* DQCanEditCell.m in Sources */,
 				EB9790901E22459300E2985C /* YYDiskCache.m in Sources */,
 				EBD694A61E2768D600F365C3 /* DKYHomeArticleDetailModel.m in Sources */,
@@ -2137,6 +2203,7 @@
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
 				EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */,
 				EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */,
+				2662907B1E9D039D00886274 /* VTMagicController.m in Sources */,
 				EBB59ECE1E56B90C00F88A4C /* DKYCustomOrderGenderItemView.m in Sources */,
 				EB506C361E23706F002A1423 /* DKYPageModel.m in Sources */,
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
@@ -2145,6 +2212,7 @@
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				EBB480B21E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m in Sources */,
 				EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */,
+				2662907D1E9D039D00886274 /* VTMenuBar.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
 				EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */,
 				26210BE31E59775300EB05D6 /* DKYCustomOrderTypeOneView.m in Sources */,
@@ -2171,11 +2239,13 @@
 				263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */,
 				EB9790851E22421400E2985C /* Foundation+Log.m in Sources */,
 				EB9511A61E164444008708EF /* UIViewController+WXSTransitionProperty.m in Sources */,
+				266290761E9D039D00886274 /* UIButton+VTMagic.m in Sources */,
 				EBABE8DA1E150CA600B4C568 /* AppDelegate.m in Sources */,
 				EB9790451E21E4E500E2985C /* DKYOrderInquiryViewController.m in Sources */,
 				EB195B991E5C41CE00116048 /* LCActionSheetCell.m in Sources */,
 				EBD694D71E2785BB00F365C3 /* TOActivityChrome.m in Sources */,
 				EBC6DD711E94D9A800BE2510 /* DKYGetPzsJsonParameter.m in Sources */,
+				2662907C1E9D039D00886274 /* VTMagicView.m in Sources */,
 				EB9511811E1640A5008708EF /* DKYLoginViewController.m in Sources */,
 				EBD694B01E277B4700F365C3 /* RxWebViewController.m in Sources */,
 				EB506C4A1E23B2C0002A1423 /* DKYOrderBrowseView.m in Sources */,

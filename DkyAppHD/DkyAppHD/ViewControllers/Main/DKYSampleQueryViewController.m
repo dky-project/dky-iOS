@@ -16,6 +16,7 @@
 #import "DKYBigClassEnumModel.h"
 #import "DKYSampleQueryParameter.h"
 #import "DKYDimNewListModel.h"
+#import "DKYSampleDetailAllViewController.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -480,8 +481,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 //    DKYSampleDetailViewController *vc = [[DKYSampleDetailViewController alloc] init];
-    DKYSampleDetailViewController *vc = (DKYSampleDetailViewController*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController class]];
-    vc.sampleModel = [self.samples objectOrNilAtIndex:indexPath.item];
+//    DKYSampleDetailViewController *vc = (DKYSampleDetailViewController*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController class]];
+//    vc.sampleModel = [self.samples objectOrNilAtIndex:indexPath.item];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    DKYSampleDetailAllViewController *vc = [[DKYSampleDetailAllViewController alloc] init];
+    vc.samples = self.samples;
+    vc.currentIndex = indexPath.item;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
