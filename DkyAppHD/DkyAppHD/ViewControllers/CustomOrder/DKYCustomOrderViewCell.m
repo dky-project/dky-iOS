@@ -1262,9 +1262,21 @@ static const CGFloat basicItemHeight = 30;
 }
 
 
-
-
-
+//[RMUniversalAlert showAlertInViewController:self
+//                                  withTitle:@"同款5下单"
+//                                    message:@"选择同款5下单，会清空之前的下单操作！"
+//                          cancelButtonTitle:@"取消"
+//                     destructiveButtonTitle:nil
+//                          otherButtonTitles:@[@"确定"]
+//                                   tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
+//                                       if (buttonIndex == alert.cancelButtonIndex) {
+//                                           NSLog(@"Cancel Tapped");
+//                                       } else if (buttonIndex == alert.destructiveButtonIndex) {
+//                                           NSLog(@"Delete Tapped");
+//                                       } else if (buttonIndex >= alert.firstOtherButtonIndex) {
+//                                           NSLog(@"Other Button Index %ld", (long)buttonIndex - alert.firstOtherButtonIndex);
+//                                       }
+//                                   }];
 
 
 

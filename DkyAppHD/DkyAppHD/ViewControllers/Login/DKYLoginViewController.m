@@ -104,19 +104,6 @@
     if(![self checkLoginStatus]) return;
     
     [self login];
-//    [DKYHUDTool showWithStatus:@"Login..."];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [DKYHUDTool dismiss];
-////        [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
-//        DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
-//        
-//        [self wxs_presentViewController:mainVc makeTransition:^(WXSTransitionProperty *transition) {
-//            transition.animationType = WXSTransitionAnimationTypeBrickOpenHorizontal;
-//            transition.animationTime = 1.0;
-//        } completion:^{
-//            
-//        }];
-//    });
 }
 
 #pragma mark - 屏幕翻转就会调用
