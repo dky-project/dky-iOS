@@ -74,6 +74,7 @@
 		26E870A31EA31740005A6F7F /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E8709E1EA31740005A6F7F /* UIAlertController+Blocks.m */; };
 		26E870A41EA31740005A6F7F /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A01EA31740005A6F7F /* UIActionSheet+Blocks.m */; };
 		26E870A51EA31740005A6F7F /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A21EA31740005A6F7F /* UIAlertView+Blocks.m */; };
+		26E870A81EA320F4005A6F7F /* DKYCustomOrderAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */; };
 		26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC02961E751D0700469C5C /* NSString+STRegex.m */; };
 		EB16D0F41E56EC2100939072 /* DKYCustomOrderPatternItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16D0F31E56EC2100939072 /* DKYCustomOrderPatternItemView.m */; };
 		EB16D0FB1E56F25000939072 /* DKYTitleInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16D0FA1E56F25000939072 /* DKYTitleInputView.m */; };
@@ -408,6 +409,8 @@
 		26E870A01EA31740005A6F7F /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
 		26E870A11EA31740005A6F7F /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		26E870A21EA31740005A6F7F /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		26E870A61EA320F4005A6F7F /* DKYCustomOrderAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderAllViewController.h; sourceTree = "<group>"; };
+		26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderAllViewController.m; sourceTree = "<group>"; };
 		26EC02951E751D0700469C5C /* NSString+STRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STRegex.h"; sourceTree = "<group>"; };
 		26EC02961E751D0700469C5C /* NSString+STRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+STRegex.m"; sourceTree = "<group>"; };
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1246,6 +1249,8 @@
 			children = (
 				EB97F2CE1E26533500BDC705 /* DKYCustomOrderUIViewController.h */,
 				EB97F2CF1E26533500BDC705 /* DKYCustomOrderUIViewController.m */,
+				26E870A61EA320F4005A6F7F /* DKYCustomOrderAllViewController.h */,
+				26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */,
 				EBA90E961E52E51300EA539E /* View */,
 			);
 			path = CustomOrder;
@@ -2214,6 +2219,7 @@
 				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
 				266290801E9D03F300886274 /* DKYSampleDetailAllViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
+				26E870A81EA320F4005A6F7F /* DKYCustomOrderAllViewController.m in Sources */,
 				EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */,
 				EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */,
 				EB9ACBCB1E5EB1160007517C /* DKYMadeInfoByProductNameParameter.m in Sources */,
