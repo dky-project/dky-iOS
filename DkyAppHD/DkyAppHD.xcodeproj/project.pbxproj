@@ -241,6 +241,12 @@
 		EBD115FC1EA4683D00AF6F5C /* DKYTongkuan5GenderItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115FB1EA4683D00AF6F5C /* DKYTongkuan5GenderItemView.m */; };
 		EBD116001EA47BC800AF6F5C /* DKYTestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115FE1EA47BC800AF6F5C /* DKYTestTableViewCell.m */; };
 		EBD116011EA47BC800AF6F5C /* DKYTestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD115FF1EA47BC800AF6F5C /* DKYTestTableViewCell.xib */; };
+		EBD116041EA49D7400AF6F5C /* DKYSampleOrderPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD116031EA49D7400AF6F5C /* DKYSampleOrderPopupView.m */; };
+		EBD116071EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD116061EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.m */; };
+		EBD1160B1EA4AEEC00AF6F5C /* DKYSampleOrderVarietyItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD1160A1EA4AEEC00AF6F5C /* DKYSampleOrderVarietyItemView.m */; };
+		EBD1160E1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD1160D1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.m */; };
+		EBD116111EA4B62000AF6F5C /* DKYSampleOrderJingSizeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD116101EA4B62000AF6F5C /* DKYSampleOrderJingSizeItemView.m */; };
+		EBD116141EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD116131EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.m */; };
 		EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694981E271C7900F365C3 /* TWLineLayout.m */; };
 		EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */; };
 		EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */; };
@@ -753,6 +759,18 @@
 		EBD115FD1EA47BC800AF6F5C /* DKYTestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTestTableViewCell.h; sourceTree = "<group>"; };
 		EBD115FE1EA47BC800AF6F5C /* DKYTestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTestTableViewCell.m; sourceTree = "<group>"; };
 		EBD115FF1EA47BC800AF6F5C /* DKYTestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYTestTableViewCell.xib; sourceTree = "<group>"; };
+		EBD116021EA49D7400AF6F5C /* DKYSampleOrderPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderPopupView.h; sourceTree = "<group>"; };
+		EBD116031EA49D7400AF6F5C /* DKYSampleOrderPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderPopupView.m; sourceTree = "<group>"; };
+		EBD116051EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderViewCell.h; sourceTree = "<group>"; };
+		EBD116061EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderViewCell.m; sourceTree = "<group>"; };
+		EBD116091EA4AEEC00AF6F5C /* DKYSampleOrderVarietyItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderVarietyItemView.h; sourceTree = "<group>"; };
+		EBD1160A1EA4AEEC00AF6F5C /* DKYSampleOrderVarietyItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderVarietyItemView.m; sourceTree = "<group>"; };
+		EBD1160C1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderSizeItemView.h; sourceTree = "<group>"; };
+		EBD1160D1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderSizeItemView.m; sourceTree = "<group>"; };
+		EBD1160F1EA4B62000AF6F5C /* DKYSampleOrderJingSizeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderJingSizeItemView.h; sourceTree = "<group>"; };
+		EBD116101EA4B62000AF6F5C /* DKYSampleOrderJingSizeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderJingSizeItemView.m; sourceTree = "<group>"; };
+		EBD116121EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderJianTypeItemView.h; sourceTree = "<group>"; };
+		EBD116131EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderJianTypeItemView.m; sourceTree = "<group>"; };
 		EBD694971E271C7900F365C3 /* TWLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLineLayout.h; sourceTree = "<group>"; };
 		EBD694981E271C7900F365C3 /* TWLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLineLayout.m; sourceTree = "<group>"; };
 		EBD6949A1E272DB000F365C3 /* DKYHomeItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemViewCell.h; sourceTree = "<group>"; };
@@ -1020,6 +1038,11 @@
 				EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */,
 				EBB3BAF71E63F2240097D1CE /* DKYSampleDetailPriceViewCell.h */,
 				EBB3BAF81E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m */,
+				EBD116021EA49D7400AF6F5C /* DKYSampleOrderPopupView.h */,
+				EBD116031EA49D7400AF6F5C /* DKYSampleOrderPopupView.m */,
+				EBD116051EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.h */,
+				EBD116061EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.m */,
+				EBD116081EA4AEA600AF6F5C /* 样衣查询下单Item View */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1865,6 +1888,21 @@
 			name = "同款5Item View";
 			sourceTree = "<group>";
 		};
+		EBD116081EA4AEA600AF6F5C /* 样衣查询下单Item View */ = {
+			isa = PBXGroup;
+			children = (
+				EBD116091EA4AEEC00AF6F5C /* DKYSampleOrderVarietyItemView.h */,
+				EBD1160A1EA4AEEC00AF6F5C /* DKYSampleOrderVarietyItemView.m */,
+				EBD1160C1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.h */,
+				EBD1160D1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.m */,
+				EBD1160F1EA4B62000AF6F5C /* DKYSampleOrderJingSizeItemView.h */,
+				EBD116101EA4B62000AF6F5C /* DKYSampleOrderJingSizeItemView.m */,
+				EBD116121EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.h */,
+				EBD116131EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.m */,
+			);
+			name = "样衣查询下单Item View";
+			sourceTree = "<group>";
+		};
 		EBD694A71E277B4700F365C3 /* RxWebViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2198,6 +2236,7 @@
 				EB97906E1E221B6F00E2985C /* MMPopupItem.m in Sources */,
 				EBD115ED1EA4614D00AF6F5C /* DKYTongkuan5VarietyItemView.m in Sources */,
 				EB195B981E5C41CE00116048 /* LCActionSheet.m in Sources */,
+				EBD116111EA4B62000AF6F5C /* DKYSampleOrderJingSizeItemView.m in Sources */,
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
 				EB9790781E222A7900E2985C /* DKYHttpRequestParameter.m in Sources */,
 				EB16D0F41E56EC2100939072 /* DKYCustomOrderPatternItemView.m in Sources */,
@@ -2252,12 +2291,14 @@
 				EB506C401E23A8B8002A1423 /* DKYOrderBrowseViewController.m in Sources */,
 				26210BDA1E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m in Sources */,
 				EB9790921E22459300E2985C /* YYMemoryCache.m in Sources */,
+				EBD116071EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.m in Sources */,
 				EB9790701E221B6F00E2985C /* MMPopupWindow.m in Sources */,
 				EB97906D1E221B6F00E2985C /* MMPopupCategory.m in Sources */,
 				26210BDD1E596FE100EB05D6 /* DKYCustomOrderXiuBianItemView.m in Sources */,
 				EB9511AF1E164444008708EF /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				EBD694DA1E2785BB00F365C3 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				EB9ACBDA1E5EE4E10007517C /* DKYProductCusmptcateViewModel.m in Sources */,
+				EBD116141EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.m in Sources */,
 				EB195B9C1E5C41CE00116048 /* UIImage+LCActionSheet.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				EB9790491E21EAF500E2985C /* DKYOrderInquiryHeaderView.m in Sources */,
@@ -2295,6 +2336,7 @@
 				EB506C351E23706F002A1423 /* DKYHomeArticleModel.m in Sources */,
 				EB9790571E22158100E2985C /* UUDatePicker_DateModel.m in Sources */,
 				263CC15C1E1555E7002FBB50 /* UIButton+Custom.m in Sources */,
+				EBD1160B1EA4AEEC00AF6F5C /* DKYSampleOrderVarietyItemView.m in Sources */,
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				EBA90E951E52E2EF00EA539E /* TWScrollView.m in Sources */,
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
@@ -2303,6 +2345,7 @@
 				EB9790901E22459300E2985C /* YYDiskCache.m in Sources */,
 				EBD694A61E2768D600F365C3 /* DKYHomeArticleDetailModel.m in Sources */,
 				EBD115F61EA464C900AF6F5C /* DKYTongkuan5JianTypeItemView.m in Sources */,
+				EBD116041EA49D7400AF6F5C /* DKYSampleOrderPopupView.m in Sources */,
 				2620D6DE1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m in Sources */,
 				EBBD5A721E25160F00037B85 /* DKYQueryPriceModel.m in Sources */,
 				26210BEF1E59A3A900EB05D6 /* BEMCheckBoxGroup.m in Sources */,
@@ -2331,6 +2374,7 @@
 				EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */,
 				EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
+				EBD1160E1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.m in Sources */,
 				EBB480B81E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m in Sources */,
 				EBB3BAF91E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m in Sources */,
 				26E8709C1EA31685005A6F7F /* RMUniversalAlert.m in Sources */,

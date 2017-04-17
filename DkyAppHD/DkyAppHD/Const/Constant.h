@@ -49,6 +49,8 @@
 #define DKYCustomOrderItemButtnWdith         (100)
 #define DKYCustomOrderItemButtnWMargin         (22.5)
 
+#define kDKYSampleOrderItemWidth             (177)
+
 // Block 类型定义
 
 typedef void(^BlockWithSender)(id sender);

@@ -8,6 +8,7 @@
 
 #import "DKYSampleDetailAllViewController.h"
 #import "DKYSampleDetailViewController.h"
+#import "DKYSampleOrderPopupView.h"
 
 @interface DKYSampleDetailAllViewController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 
@@ -49,6 +50,7 @@
     
     self.rightBtnClicked = ^(UIButton *sender) {
         DLog(@"order");
+        [DKYSampleOrderPopupView show];
     };
 }
 

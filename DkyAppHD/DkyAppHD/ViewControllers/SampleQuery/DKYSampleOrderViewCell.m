@@ -1,34 +1,34 @@
 //
-//  DKYTongkuanFiveViewCell.m
+//  DKYSampleOrderViewCell.m
 //  DkyAppHD
 //
 //  Created by HaKim on 2017/4/17.
 //  Copyright © 2017年 haKim. All rights reserved.
 //
 
-#import "DKYTongkuanFiveViewCell.h"
+#import "DKYSampleOrderViewCell.h"
 #import "DKYCustomOrderTextFieldView.h"
-#import "DKYCustomOrderGenderItemView.h"
-#import "DKYTongkuan5VarietyItemView.h"
-#import "DKYTongkuan5SizeItemView.h"
-#import "DKYTongkuan5JingSizeItemView.h"
-#import "DKYTongkuan5JianTypeItemView.h"
-#import "DKYTongkuan5LingItemView.h"
-#import "DKYTongkuan5GenderItemView.h"
+#import "DKYCustomOrderItemModel.h"
+#import "DKYSampleOrderVarietyItemView.h"
+#import "DKYSampleOrderSizeItemView.h"
+#import "DKYSampleOrderJingSizeItemView.h"
+#import "DKYSampleOrderJianTypeItemView.h"
 
 static const CGFloat topOffset = 30;
-static const CGFloat leftOffset = 53;
+static const CGFloat leftOffset = 20;
 
-static const CGFloat hpadding = 37;
+static const CGFloat hpadding = 30;
 static const CGFloat vpadding = 20;
 
-static const CGFloat basicItemWidth = 196;
+static const CGFloat basicItemWidth = 222;
 static const CGFloat basicItemHeight = 30;
 
-@interface DKYTongkuanFiveViewCell ()
+@interface DKYSampleOrderViewCell ()
 
 // 编号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *numberView;
+// 客户号
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *clientView;
 
 // 手机号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *phoneNumberView;
@@ -36,34 +36,28 @@ static const CGFloat basicItemHeight = 30;
 // 款号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *styleNumberView;
 
-// 性别
-@property (nonatomic, weak) DKYTongkuan5GenderItemView *genderItemView;
-
 // 品种
-@property (nonatomic, weak) DKYTongkuan5VarietyItemView *varietyView;
+@property (nonatomic, weak) DKYSampleOrderVarietyItemView *varietyView;
 
 // 尺寸View
-@property (nonatomic, weak) DKYTongkuan5SizeItemView *sizeView;
+@property (nonatomic, weak) DKYSampleOrderSizeItemView *sizeView;
 
 // 净尺寸
-@property (nonatomic, weak) DKYTongkuan5JingSizeItemView *jingSizeItemView;
+@property (nonatomic, weak) DKYSampleOrderJingSizeItemView *jingSizeItemView;
 
 // 肩型
-@property (nonatomic, weak) DKYTongkuan5JianTypeItemView *jianTypeView;
-
-// 领
-@property (nonatomic, weak) DKYTongkuan5LingItemView *lingView;
+@property (nonatomic, weak) DKYSampleOrderJianTypeItemView *jianTypeView;
 
 @end
 
-@implementation DKYTongkuanFiveViewCell
+@implementation DKYSampleOrderViewCell
 
-+ (instancetype)tongkuanFiveViewCellWithTableView:(UITableView *)tableView{
-    static NSString *cellID = @"DKYTongkuanFiveViewCell";
-    DKYTongkuanFiveViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
++ (instancetype)sampleOrderViewCellWithTableView:(UITableView *)tableView{
+    static NSString *cellID = @"DKYSampleOrderViewCell";
+    DKYSampleOrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if(cell == nil)
     {
-        cell = [[DKYTongkuanFiveViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[DKYSampleOrderViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     return cell;
 }
@@ -76,31 +70,27 @@ static const CGFloat basicItemHeight = 30;
     }
     return self;
 }
-
 #pragma mark - UI
 - (void)commonInit{
     // 第一行 款号，客户，手机号
     [self setupNumberView];
-    [self setupGenderItemView];
+    [self setupClientView];
     
-    // 第二行 款号，性别
+    // 第二行 款号，手机号
     [self setupStyleNumberView];
     [self setupPhoneNumberView];
-    
+
     // 第三大行 品种 4个选择器
     [self setupVarietyView];
     
     // 第五大行，尺寸
     [self setupSizeView];
-    
+
     // 第六大行，净尺寸
     [self setupJingSizeItemView];
     
     // 第七大行,肩型
     [self setupJanTypeView];
-    
-    // ling
-    [self setupLingView];
 }
 
 - (void)setupNumberView{
@@ -130,13 +120,14 @@ static const CGFloat basicItemHeight = 30;
     self.numberView.itemModel = itemModel;
 }
 
-- (void)setupGenderItemView{
-    DKYTongkuan5GenderItemView *view = [[DKYTongkuan5GenderItemView alloc] initWithFrame:CGRectZero];
+
+- (void)setupClientView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
-    self.genderItemView = view;
+    self.clientView = view;
     
     WeakSelf(weakSelf);
-    [self.genderItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.clientView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
         make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
@@ -144,8 +135,11 @@ static const CGFloat basicItemHeight = 30;
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"*性别:";
-    self.genderItemView.itemModel = itemModel;
+    itemModel.title = @"*客户:";
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        // 客户号
+    };
+    self.clientView.itemModel = itemModel;
 }
 
 - (void)setupStyleNumberView{
@@ -180,9 +174,9 @@ static const CGFloat basicItemHeight = 30;
     
     WeakSelf(weakSelf);
     [self.phoneNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.genderItemView);
+        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
+        make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.width.mas_equalTo(2 * basicItemWidth + hpadding);
         make.top.mas_equalTo(weakSelf.styleNumberView);
     }];
     
@@ -202,7 +196,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupVarietyView{
-    DKYTongkuan5VarietyItemView *view = [[DKYTongkuan5VarietyItemView alloc] initWithFrame:CGRectZero];
+    DKYSampleOrderVarietyItemView *view = [[DKYSampleOrderVarietyItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.varietyView = view;
     
@@ -210,7 +204,8 @@ static const CGFloat basicItemHeight = 30;
     [self.varietyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(80);
+//        make.height.mas_equalTo(80);
+        make.height.mas_equalTo(weakSelf.numberView);
         make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
     }];
     
@@ -220,7 +215,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupSizeView{
-    DKYTongkuan5SizeItemView *view = [[DKYTongkuan5SizeItemView alloc] initWithFrame:CGRectZero];
+    DKYSampleOrderSizeItemView *view = [[DKYSampleOrderSizeItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.sizeView = view;
     
@@ -239,7 +234,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupJingSizeItemView{
-    DKYTongkuan5JingSizeItemView *view = [[DKYTongkuan5JingSizeItemView alloc] initWithFrame:CGRectZero];
+    DKYSampleOrderJingSizeItemView *view = [[DKYSampleOrderJingSizeItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.jingSizeItemView = view;
     
@@ -258,7 +253,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupJanTypeView{
-    DKYTongkuan5JianTypeItemView *view = [[DKYTongkuan5JianTypeItemView alloc] initWithFrame:CGRectZero];
+    DKYSampleOrderJianTypeItemView *view = [[DKYSampleOrderJianTypeItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.jianTypeView = view;
     
@@ -276,23 +271,5 @@ static const CGFloat basicItemHeight = 30;
     self.jianTypeView.itemModel = itemModel;
 }
 
-- (void)setupLingView{
-    DKYTongkuan5LingItemView *view = [[DKYTongkuan5LingItemView alloc] initWithFrame:CGRectZero];
-    [self.contentView addSubview:view];
-    self.lingView = view;
-    
-    WeakSelf(weakSelf);
-    [self.lingView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.styleNumberView);
-        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(130);
-        make.top.mas_equalTo(weakSelf.jianTypeView.mas_bottom).with.offset(vpadding);
-    }];
-    
-    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"领:";
-    itemModel.textFieldLeftOffset = 28;
-    self.lingView.itemModel = itemModel;
-}
 
 @end
