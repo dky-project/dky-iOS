@@ -239,6 +239,8 @@
 		EBD115F61EA464C900AF6F5C /* DKYTongkuan5JianTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115F51EA464C900AF6F5C /* DKYTongkuan5JianTypeItemView.m */; };
 		EBD115F91EA4662600AF6F5C /* DKYTongkuan5LingItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115F81EA4662600AF6F5C /* DKYTongkuan5LingItemView.m */; };
 		EBD115FC1EA4683D00AF6F5C /* DKYTongkuan5GenderItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115FB1EA4683D00AF6F5C /* DKYTongkuan5GenderItemView.m */; };
+		EBD116001EA47BC800AF6F5C /* DKYTestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115FE1EA47BC800AF6F5C /* DKYTestTableViewCell.m */; };
+		EBD116011EA47BC800AF6F5C /* DKYTestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD115FF1EA47BC800AF6F5C /* DKYTestTableViewCell.xib */; };
 		EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694981E271C7900F365C3 /* TWLineLayout.m */; };
 		EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */; };
 		EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */; };
@@ -748,6 +750,9 @@
 		EBD115F81EA4662600AF6F5C /* DKYTongkuan5LingItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5LingItemView.m; sourceTree = "<group>"; };
 		EBD115FA1EA4683D00AF6F5C /* DKYTongkuan5GenderItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5GenderItemView.h; sourceTree = "<group>"; };
 		EBD115FB1EA4683D00AF6F5C /* DKYTongkuan5GenderItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5GenderItemView.m; sourceTree = "<group>"; };
+		EBD115FD1EA47BC800AF6F5C /* DKYTestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTestTableViewCell.h; sourceTree = "<group>"; };
+		EBD115FE1EA47BC800AF6F5C /* DKYTestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTestTableViewCell.m; sourceTree = "<group>"; };
+		EBD115FF1EA47BC800AF6F5C /* DKYTestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYTestTableViewCell.xib; sourceTree = "<group>"; };
 		EBD694971E271C7900F365C3 /* TWLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLineLayout.h; sourceTree = "<group>"; };
 		EBD694981E271C7900F365C3 /* TWLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLineLayout.m; sourceTree = "<group>"; };
 		EBD6949A1E272DB000F365C3 /* DKYHomeItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemViewCell.h; sourceTree = "<group>"; };
@@ -1731,6 +1736,9 @@
 			children = (
 				EB9751F71E8BB5480003EE18 /* DKYTestTextField.h */,
 				EB9751F81E8BB5480003EE18 /* DKYTestTextField.m */,
+				EBD115FD1EA47BC800AF6F5C /* DKYTestTableViewCell.h */,
+				EBD115FE1EA47BC800AF6F5C /* DKYTestTableViewCell.m */,
+				EBD115FF1EA47BC800AF6F5C /* DKYTestTableViewCell.xib */,
 			);
 			path = TestTool;
 			sourceTree = "<group>";
@@ -2038,6 +2046,7 @@
 				EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */,
 				EBD694AE1E277B4700F365C3 /* backItemImage@2x.png in Resources */,
 				EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */,
+				EBD116011EA47BC800AF6F5C /* DKYTestTableViewCell.xib in Resources */,
 				EB506C4F1E23BD81002A1423 /* DKYOrderBrowserViewCell.xib in Resources */,
 				EB97904B1E21EB4200E2985C /* DKYOrderInquiryHeaderView.xib in Resources */,
 				EBD694D41E2785BB00F365C3 /* Info.plist in Resources */,
@@ -2143,6 +2152,7 @@
 				EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */,
 				EB195B9B1E5C41CE00116048 /* NSSet+LCActionSheet.m in Sources */,
 				EB8FA2A61E55AD99004BE846 /* DKYCustomOrderTextFieldView.m in Sources */,
+				EBD116001EA47BC800AF6F5C /* DKYTestTableViewCell.m in Sources */,
 				EB95117D1E162E31008708EF /* UIStoryboard+Utility.m in Sources */,
 				EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */,
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
