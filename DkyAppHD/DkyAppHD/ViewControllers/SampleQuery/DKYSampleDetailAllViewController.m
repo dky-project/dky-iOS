@@ -29,6 +29,11 @@
     [self setupCustomTitle:@"产品详情"];
     [self addChildViewController:self.magicController];
     [self.view addSubview:_magicController.view];
+    
+    [_magicController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
+    
     [_magicController.magicView reloadDataToPage:self.currentIndex];
 }
 
