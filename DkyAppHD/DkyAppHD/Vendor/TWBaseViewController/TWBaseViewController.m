@@ -149,30 +149,44 @@ static NSString* const defaultRightBtnTitle = @"返回";
     
     UIBarButtonItem *flexSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     
-    CGSize textSize = CGSizeZero;
+    CGRect textFrame = CGRectMake(0, 6, 40, 40);
     
-    if(self.rightBtnItem.size.width == 0 || self.rightBtnItem.size.height == 0){
-        CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
-        UIColor *foregroundColor = self.rightBtnItem.normalTitleColor;
-        NSDictionary *attributes = @{NSFontAttributeName : font,
-                                     NSForegroundColorAttributeName: foregroundColor};
-        NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
-        CGRect textFrame = [self.rightBtnItem.title boundingRectWithSize:size
-                                                                options:options
-                                                             attributes:attributes
-                                                                context:nil];
-        textSize = textFrame.size;
-        
-    }else{
-        textSize = self.rightBtnItem.size;
+    
+    switch (self.rightBtnItem.itemType) {
+        case TWNavBtnItemType_Text:{
+            CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+            UIColor *foregroundColor = self.rightBtnItem.normalTitleColor;
+            NSDictionary *attributes = @{NSFontAttributeName : font,
+                                         NSForegroundColorAttributeName: foregroundColor};
+            NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+            CGRect titleFrame = [self.rightBtnItem.title boundingRectWithSize:size
+                                                                     options:options
+                                                                  attributes:attributes
+                                                                     context:nil];
+            textFrame.size.width = MAX(textFrame.size.width, titleFrame.size.width);
+        }
+            break;
+        case TWNavBtnItemType_ImageAndText:{
+            CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+            UIColor *foregroundColor = self.rightBtnItem.normalTitleColor;
+            NSDictionary *attributes = @{NSFontAttributeName : font,
+                                         NSForegroundColorAttributeName: foregroundColor};
+            NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+            CGRect titleFrame = [self.rightBtnItem.title boundingRectWithSize:size
+                                                                     options:options
+                                                                  attributes:attributes
+                                                                     context:nil];
+            CGSize imageSize = self.rightBtnItem.normalImage.size;
+            textFrame.size.width += (titleFrame.size.width + imageSize.width + self.rightBtnItem.titleOffsetX);
+        }
+            break;
+        case TWNavBtnItemType_Unset:
+        case TWNavBtnItemType_Image:
+            break;
+        default:
+            break;
     }
     
-    
-    CGRect textFrame = CGRectMake(0, 6, textSize.width + 5, textSize.height);
-    if(_rightBtnItem.itemType == TWNavBtnItemType_Image){
-        textFrame.size.width = textSize.width;
-    }
-    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5);
     btn.frame = textFrame;
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, self.rightBtnItem.titleOffsetX, 0, 0);
     

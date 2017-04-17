@@ -27,6 +27,7 @@
 
 - (void)commonInit{
     [self setupCustomTitle:@"产品详情"];
+    [self setupOrderBtn];
     [self addChildViewController:self.magicController];
     [self.view addSubview:_magicController.view];
     
@@ -35,6 +36,20 @@
     }];
     
     [_magicController.magicView reloadDataToPage:self.currentIndex];
+}
+
+- (void)setupOrderBtn{
+    TWNavBtnItem *rightBtnItem = [[TWNavBtnItem alloc]init];
+    
+    rightBtnItem.itemType = TWNavBtnItemType_Text;
+    rightBtnItem.title = @"下单";
+    rightBtnItem.normalImage = nil;
+    rightBtnItem.hilightedImage = nil;
+    self.rightBtnItem = rightBtnItem;
+    
+    self.rightBtnClicked = ^(UIButton *sender) {
+        DLog(@"order");
+    };
 }
 
 #pragma mark - VTMagicViewDataSource
