@@ -8,6 +8,7 @@
 
 #import "DKYCustomOrderAllViewController.h"
 #import "DKYCustomOrderUIViewController.h"
+#import "DKYTongkuanFiveViewController.h"
 
 @interface DKYCustomOrderAllViewController ()
 
@@ -48,10 +49,19 @@
 }
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
-    static NSString *gridId = @"CustomOrder.identifier";
-    DKYCustomOrderUIViewController *viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
-    if (!viewController) {
-        viewController = (DKYCustomOrderUIViewController*)[UIStoryboard viewControllerWithClass:[DKYCustomOrderUIViewController class]];
+    UIViewController *viewController = nil;
+    if(pageIndex == 0){
+        static NSString *gridId = @"CustomOrder.identifier";
+        viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
+        if (!viewController) {
+            viewController = (DKYCustomOrderUIViewController*)[UIStoryboard viewControllerWithClass:[DKYCustomOrderUIViewController class]];
+        }
+    }else{
+        static NSString *gridId = @"TongkuanFive.identifier";
+        viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
+        if (!viewController) {
+            viewController = (DKYTongkuanFiveViewController*)[UIStoryboard viewControllerWithClass:[DKYTongkuanFiveViewController class]];
+        }
     }
     return viewController;
 }

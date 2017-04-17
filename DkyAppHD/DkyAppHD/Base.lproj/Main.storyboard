@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1KL-8A-FgS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1KL-8A-FgS">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -301,6 +301,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-yR-Oht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2819.53125" y="109.5703125"/>
+        </scene>
+        <!--Tongkuan Five View Controller-->
+        <scene sceneID="MiK-G7-SVM">
+            <objects>
+                <viewController storyboardIdentifier="DKYTongkuanFiveViewController" id="wm3-Sp-Uai" customClass="DKYTongkuanFiveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Km-7f-yIv"/>
+                        <viewControllerLayoutGuide type="bottom" id="AcJ-RE-EwF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6dT-MW-JNZ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-RP-OUD">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="919"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wm3-Sp-Uai" id="LRl-yW-ofN"/>
+                                    <outlet property="delegate" destination="wm3-Sp-Uai" id="lTN-Na-krr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZXP-RP-OUD" firstAttribute="leading" secondItem="6dT-MW-JNZ" secondAttribute="leading" id="Rej-M9-JtN"/>
+                            <constraint firstAttribute="trailing" secondItem="ZXP-RP-OUD" secondAttribute="trailing" id="W2z-18-OzB"/>
+                            <constraint firstItem="AcJ-RE-EwF" firstAttribute="top" secondItem="ZXP-RP-OUD" secondAttribute="bottom" constant="105" id="dwW-uE-mGY"/>
+                            <constraint firstItem="ZXP-RP-OUD" firstAttribute="top" secondItem="6dT-MW-JNZ" secondAttribute="top" id="fZz-Bv-M0e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ZXP-RP-OUD" id="gad-5Z-bA7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmB-Zg-gkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3510" y="108"/>
         </scene>
     </scenes>
 </document>
