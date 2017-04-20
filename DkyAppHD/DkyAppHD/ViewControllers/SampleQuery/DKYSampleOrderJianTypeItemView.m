@@ -429,6 +429,9 @@
     itemModel.title = @"工艺袖长";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.hzxc1Value = @([textField.text doubleValue]);
+    };
     self.gyxcView.itemModel = itemModel;
 }
 
