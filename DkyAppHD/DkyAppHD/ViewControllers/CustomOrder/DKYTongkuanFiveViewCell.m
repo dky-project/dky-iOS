@@ -88,8 +88,21 @@ static const CGFloat basicItemHeight = 30;
     self.genderItemView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.varietyView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.jianTypeView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.sizeView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.jingSizeItemView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.lingView.staticDimListModel = productApproveTitleModel.staticDimListModel;
     self.lingView.customOrderDimList = productApproveTitleModel.dimListModel;
+}
+
+- (void)setAddProductApproveParameter:(DKYAddProductApproveParameter *)addProductApproveParameter{
+    _addProductApproveParameter = addProductApproveParameter;
+    
+    self.genderItemView.addProductApproveParameter = addProductApproveParameter;
+    self.varietyView.addProductApproveParameter = addProductApproveParameter;
+    self.sizeView.addProductApproveParameter = addProductApproveParameter;
+    self.jingSizeItemView.addProductApproveParameter = addProductApproveParameter;
+    self.jianTypeView.addProductApproveParameter = addProductApproveParameter;
+    self.lingView.addProductApproveParameter = addProductApproveParameter;
 }
 
 - (void)reset{

@@ -217,7 +217,7 @@
     };
     
     actionView.reWriteBtnClicked = ^(UIButton *sender){
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         DKYTongkuanFiveViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
         [cell reset];
         // 重新刷新页面
