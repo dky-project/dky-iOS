@@ -20,8 +20,6 @@
 
 @property (nonatomic, weak)IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) DKYSampleProductInfoModel *sampleProductInfo;
-
 @property (nonatomic, strong) dispatch_group_t group;
 
 @property (nonatomic, strong) NSArray *queryPrices;

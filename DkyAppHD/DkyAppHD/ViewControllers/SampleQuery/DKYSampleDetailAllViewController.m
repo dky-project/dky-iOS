@@ -48,9 +48,11 @@
     rightBtnItem.hilightedImage = nil;
     self.rightBtnItem = rightBtnItem;
     
+    WeakSelf(weakSelf);
     self.rightBtnClicked = ^(UIButton *sender) {
-        DLog(@"order");
-        [DKYSampleOrderPopupView show];
+        DKYSampleDetailViewController *vc =(DKYSampleDetailViewController*) weakSelf.magicController.currentViewController;
+        DKYSampleProductInfoModel *model = vc.sampleProductInfo;
+        [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];
     };
 }
 

@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYSampleProductInfoModel;
 @interface DKYSampleOrderPopupView : UIView
 
 + (instancetype)show;
 
++ (instancetype)showWithSampleProductInfoModel:(DKYSampleProductInfoModel *)sampleProductInfo;
+
 - (void)dismiss;
+
+@property(nonatomic,strong)DKYSampleProductInfoModel *sampleProductInfo;
 
 @end

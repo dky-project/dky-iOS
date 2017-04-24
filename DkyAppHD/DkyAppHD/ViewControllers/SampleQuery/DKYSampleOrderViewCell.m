@@ -13,6 +13,9 @@
 #import "DKYSampleOrderSizeItemView.h"
 #import "DKYSampleOrderJingSizeItemView.h"
 #import "DKYSampleOrderJianTypeItemView.h"
+#import "DKYSampleProductInfoModel.h"
+#import "DKYProductApproveTitleModel.h"
+#import "DKYMadeInfoByProductNameParameter.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 20;
@@ -48,6 +51,8 @@ static const CGFloat basicItemHeight = 30;
 // 肩型
 @property (nonatomic, weak) DKYSampleOrderJianTypeItemView *jianTypeView;
 
+@property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
+
 @end
 
 @implementation DKYSampleOrderViewCell
@@ -70,6 +75,80 @@ static const CGFloat basicItemHeight = 30;
     }
     return self;
 }
+
+- (void)setSampleProductInfo:(DKYSampleProductInfoModel *)sampleProductInfo{
+    _sampleProductInfo = sampleProductInfo;
+    
+    if(sampleProductInfo == nil) return;
+    
+    // 默认值
+    // 款号
+    DKYCustomOrderItemModel *model = self.styleNumberView.itemModel;
+    model.content = sampleProductInfo.name;
+    self.styleNumberView.itemModel = model;
+    
+    // 编号
+    model = self.numberView.itemModel;
+    model.content = @"怎么获取";
+    self.numberView.itemModel = model;
+}
+
+- (void)setProductApproveTitleModel:(DKYProductApproveTitleModel *)productApproveTitleModel{
+    _productApproveTitleModel = productApproveTitleModel;
+    
+    self.varietyView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.jianTypeView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.sizeView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.jingSizeItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    
+    if(productApproveTitleModel){
+        [self getMadeInfoByProductNameFromServer];
+    }
+}
+
+- (void)getMadeInfoByProductNameFromServer{
+    [DKYHUDTool show];
+    DKYMadeInfoByProductNameParameter *p = [[DKYMadeInfoByProductNameParameter alloc] init];
+    p.productName = self.styleNumberView.itemModel.content;
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] getMadeInfoByProductNameWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
+            
+            [weakSelf dealWithstyleNumber];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)dealWithstyleNumber{
+//    [self updateModelViews];
+//    
+//    // 定制订单，默认赋值参数
+//    [self updateAddProductApproveParameter];
+}
+
+- (void)updateModelViews{
+    self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
+    self.sizeView.madeInfoByProductName = self.madeInfoByProductName;
+    self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
+    self.jingSizeItemView.madeInfoByProductName = self.madeInfoByProductName;
+}
+
 #pragma mark - UI
 - (void)commonInit{
     // 第一行 款号，客户，手机号
@@ -139,6 +218,7 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         // 客户号
     };
+    itemModel.content = @"样衣五";
     self.clientView.itemModel = itemModel;
 }
 
@@ -158,7 +238,7 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*款号:";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
-    
+    itemModel.content = @"1";
     
     itemModel.textFieldDidEndEditing = ^(UITextField *sender){
         

@@ -9,6 +9,9 @@
 #import "DKYSampleOrderPopupView.h"
 #import "KLCPopup.h"
 #import "DKYSampleOrderViewCell.h"
+#import "DKYSampleProductInfoModel.h"
+#import "DKYProductApproveTitleModel.h"
+#import "DKYAddProductApproveParameter.h"
 
 @interface DKYSampleOrderPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -23,6 +26,10 @@
 @property (nonatomic, weak) UIButton *cancelBtn;
 
 @property (nonatomic, weak) UIButton *confirmBtn;
+
+// 业务逻辑
+@property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitle;
+@property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
 @end
 
@@ -43,6 +50,25 @@
     return contentView;
 }
 
++ (instancetype)showWithSampleProductInfoModel:(DKYSampleProductInfoModel *)sampleProductInfo{
+    DKYSampleOrderPopupView *contentView = [[DKYSampleOrderPopupView alloc]initWithFrame:CGRectZero];
+    contentView.sampleProductInfo = sampleProductInfo;
+    KLCPopup *popup = [KLCPopup popupWithContentView:contentView
+                                            showType:KLCPopupShowTypeBounceInFromTop
+                                         dismissType:KLCPopupDismissTypeBounceOutToBottom
+                                            maskType:KLCPopupMaskTypeDimmed
+                            dismissOnBackgroundTouch:NO
+                               dismissOnContentTouch:NO];
+    popup.dimmedMaskAlpha = 0.6;
+    contentView.popup = popup;
+    
+    popup.didFinishShowingCompletion = ^(){
+        [contentView getProductApproveTitleFromServer];
+    };
+    [popup show];
+    return contentView;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -54,6 +80,35 @@
 
 - (void)dismiss{
     [self.popup dismiss:YES];
+}
+
+- (void)getProductApproveTitleFromServer{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] getProductApproveTitleWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.productApproveTitle = [DKYProductApproveTitleModel mj_objectWithKeyValues:result.data];
+            weakSelf.addProductApproveParameter = [[DKYAddProductApproveParameter alloc] init];
+            DKYSampleOrderViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            cell.productApproveTitleModel = weakSelf.productApproveTitle;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [DKYHUDTool dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            [DKYHUDTool dismiss];
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
 }
 
 #pragma mark - action method
@@ -174,6 +229,8 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYSampleOrderViewCell *cell = [DKYSampleOrderViewCell sampleOrderViewCellWithTableView:tableView];
+    cell.sampleProductInfo = self.sampleProductInfo;
+    cell.productApproveTitleModel = self.productApproveTitle;
     return cell;
 }
 

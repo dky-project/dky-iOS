@@ -147,7 +147,7 @@ static const CGFloat basicItemHeight = 30;
     
 }
 
-#pragma mark - 网络请你去
+#pragma mark - 网络请求
 - (void)getMadeInfoByProductNameFromServer{
     [DKYHUDTool show];
     DKYMadeInfoByProductNameParameter *p = [[DKYMadeInfoByProductNameParameter alloc] init];

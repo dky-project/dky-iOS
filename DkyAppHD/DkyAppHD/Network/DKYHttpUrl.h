@@ -10,13 +10,13 @@
 #define DKYHttpUrl_h
 
 // 主机
-//#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
+#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
 
 //#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
 
 //#define BASE_URL     @"https:"
 
-#define BASE_URL     @"http://192.168.3.171:8090/dky-web/"
+//#define BASE_URL     @"http://192.168.3.171:8090/dky-web/"
 //#define BASE_URL     @"http://192.168.3.76:7071/dky-web/"
 
 
@@ -35,8 +35,7 @@
 
 #define kGetDimNewListUrl               @"dimNew/getDimNewList"         // 获取所有选项的条件
 
-#define kAddProductDefaultUrl           @"addProductDefault"            // 样衣查询页面下单
-#define k   @""
+#define kAddProductDefaultUrl           @"productApprove/addProductDefault"            // 样衣查询页面下单
 
 #define kGetProductInfoUrl              @"product/getProductInfo"       // 样衣详细信息查询
 #define kQueryPriceListUrl              @"product/queryPriceList"       // 查询价格列表
