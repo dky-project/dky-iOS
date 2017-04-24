@@ -35,7 +35,8 @@
 
 #define kGetDimNewListUrl               @"dimNew/getDimNewList"         // 获取所有选项的条件
 
-
+#define kAddProductDefaultUrl           @"addProductDefault"            // 样衣查询页面下单
+#define k   @""
 
 #define kGetProductInfoUrl              @"product/getProductInfo"       // 样衣详细信息查询
 #define kQueryPriceListUrl              @"product/queryPriceList"       // 查询价格列表
