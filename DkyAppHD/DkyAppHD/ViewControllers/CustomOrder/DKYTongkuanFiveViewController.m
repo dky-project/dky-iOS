@@ -11,6 +11,7 @@
 #import "DKYTongkuanFiveViewCell.h"
 #import "DKYProductApproveTitleModel.h"
 #import "DKYAddProductApproveParameter.h"
+#import "DKYTongkuanFiveBusinessCell.h"
 
 @interface DKYTongkuanFiveViewController ()
 
@@ -81,7 +82,7 @@
 - (void)addProductApproveToServer{
     [DKYHUDTool show];
     
-    self.addProductApproveParameter.shRemark = @"测试单据 勿动！";
+//    self.addProductApproveParameter.shRemark = @"测试单据 勿动！";
     
     WeakSelf(weakSelf);
     [[DKYHttpRequestManager sharedInstance] addProductApproveWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
@@ -96,7 +97,7 @@
             weakSelf.addProductApproveParameter = nil;
             
             // 清空数据
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
             DKYTongkuanFiveViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
             [cell reset];
             // 重新刷新页面
@@ -124,6 +125,10 @@
     if(range.location != NSNotFound){
         self.addProductApproveParameter.mobile = [self.addProductApproveParameter.mobile substringToIndex:range.location];
     }
+    
+    self.addProductApproveParameter.jgno = self.productApproveTitle.code;
+    self.addProductApproveParameter.czDate = self.productApproveTitle.czDate;
+    self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
 }
 
 - (BOOL)checkForAddProductApprove{
@@ -228,16 +233,25 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 0) return 240;
+    
     return 450;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 0){
+        DKYTongkuanFiveBusinessCell *cell = [DKYTongkuanFiveBusinessCell customOrderBusinessCellWithTableView:tableView];
+        cell.productApproveTitleModel = self.productApproveTitle;
+        cell.addProductApproveParameter = self.addProductApproveParameter;
+        return cell;
+    }
+    
     WeakSelf(weakSelf);
     DKYTongkuanFiveViewCell *cell = [DKYTongkuanFiveViewCell tongkuanFiveViewCellWithTableView:tableView];
     cell.addProductApproveParameter = self.addProductApproveParameter;

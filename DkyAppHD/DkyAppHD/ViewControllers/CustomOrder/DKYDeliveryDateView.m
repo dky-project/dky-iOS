@@ -64,7 +64,7 @@
     //    if(self.optionsBtnClicked){
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
-    [self showFaxDateSelectedPicker];
+//    [self showFaxDateSelectedPicker];
 }
 
 #pragma mark - private method
