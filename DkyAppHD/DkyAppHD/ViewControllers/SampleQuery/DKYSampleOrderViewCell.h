@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class DKYSampleProductInfoModel,DKYProductApproveTitleModel;
+@class DKYSampleProductInfoModel,DKYProductApproveTitleModel,DKYAddProductApproveParameter;
 @interface DKYSampleOrderViewCell : UITableViewCell
 
 + (instancetype)sampleOrderViewCellWithTableView:(UITableView *)tableView;
@@ -16,5 +16,7 @@
 @property(nonatomic,strong)DKYSampleProductInfoModel *sampleProductInfo;
 
 @property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitleModel;
+
+@property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
 @end

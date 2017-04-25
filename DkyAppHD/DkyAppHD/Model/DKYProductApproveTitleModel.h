@@ -50,4 +50,6 @@
 
 @property (nonatomic, strong) DKYStaticDimListModel *staticDimListModel;
 
+@property (nonatomic, copy) NSString *no;
+
 @end

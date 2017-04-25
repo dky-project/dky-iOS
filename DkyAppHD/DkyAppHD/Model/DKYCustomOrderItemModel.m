@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         self.keyboardType = UIKeyboardTypeDefault;
+        self.enabled = YES;
     }
     return self;
 }

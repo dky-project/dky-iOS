@@ -86,52 +86,52 @@
         }
     }
     
-    self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
+//    self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
     
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61||
-       ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
-         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
-        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367)){
-           self.canEdit = NO;
-       }else{
-           self.canEdit = YES;
-           
-           self.textField.enabled = NO;
-           self.gyxcView.textField.enabled = NO;
-           
-           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
-               self.textField.enabled = NO;
-           }else{
-               self.textField.enabled = YES;
-           }
-           
-           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131 ||
-              madeInfoByProductName.productMadeInfoView.mDimNew22Id == 130||
-              madeInfoByProductName.productMadeInfoView.mDimNew22Id == 129){
-               self.jkView.textField.enabled = NO;
-           }else{
-               self.jkView.textField.enabled = YES;
-           }
-           
-           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 133){
-               self.gyxcView.textField.enabled = NO;
-           }else{
-               self.gyxcView.textField.enabled = YES;
-           }
-       }
+//    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61||
+//       ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+//         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+//        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367)){
+//           self.canEdit = NO;
+//       }else{
+//           self.canEdit = YES;
+//           
+//           self.textField.enabled = NO;
+//           self.gyxcView.textField.enabled = NO;
+//           
+//           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
+//               self.textField.enabled = NO;
+//           }else{
+//               self.textField.enabled = YES;
+//           }
+//           
+//           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131 ||
+//              madeInfoByProductName.productMadeInfoView.mDimNew22Id == 130||
+//              madeInfoByProductName.productMadeInfoView.mDimNew22Id == 129){
+//               self.jkView.textField.enabled = NO;
+//           }else{
+//               self.jkView.textField.enabled = YES;
+//           }
+//           
+//           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 133){
+//               self.gyxcView.textField.enabled = NO;
+//           }else{
+//               self.gyxcView.textField.enabled = YES;
+//           }
+//       }
     
     //    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
     //        self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;

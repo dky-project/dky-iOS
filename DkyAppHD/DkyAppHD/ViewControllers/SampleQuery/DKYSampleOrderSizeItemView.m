@@ -74,27 +74,33 @@
     
     self.lengthView.textField.text = madeInfoByProductName.productMadeInfoView.ycValue;
     
-    self.lengthView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
-    
-    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131 ||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55 ||
-       (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
-        madeInfoByProductName.productMadeInfoView.mDimNew15Id == 36)){
-           [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
-       }else{
-           [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
-       }
-    
-    
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
-        self.canEdit = NO;
+    if([madeInfoByProductName.productMadeInfoView.xwValue isNotBlank]){
+        [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
     }else{
-        self.canEdit = YES;
+        [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
     }
+    
+//    self.lengthView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
+//    
+//    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131 ||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55 ||
+//       (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
+//        madeInfoByProductName.productMadeInfoView.mDimNew15Id == 36)){
+//           [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+//       }else{
+//           [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+//       }
+//    
+//    
+//    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
+//        self.canEdit = NO;
+//    }else{
+//        self.canEdit = YES;
+//    }
 }
 
 - (void)dealwithMDimNew22IdSelected{

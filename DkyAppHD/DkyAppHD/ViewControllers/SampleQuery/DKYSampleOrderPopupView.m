@@ -94,6 +94,7 @@
             weakSelf.addProductApproveParameter = [[DKYAddProductApproveParameter alloc] init];
             DKYSampleOrderViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
             cell.productApproveTitleModel = weakSelf.productApproveTitle;
+            cell.addProductApproveParameter = weakSelf.addProductApproveParameter;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [DKYHUDTool dismiss];
@@ -111,6 +112,40 @@
     }];
 }
 
+- (void)addProductApproveToServer{
+    [DKYHUDTool show];
+    
+    self.addProductApproveParameter.shRemark = @"测试单据 勿动！";
+
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] addProductDefaultWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 下单成功
+            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf.popup dismiss:YES];
+            });
+            
+            return;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
 #pragma mark - action method
 
 - (void)closeBtnClicked:(UIButton*)sender{
@@ -118,8 +153,55 @@
 }
 
 - (void)confirmBtnClicked:(UIButton*)sender{
-    [self dismiss];
+    // 样衣详情下单下单
+    // 1.获取参数
+    [self fetchAddProductApproveInfo];
+    // 2.先检查逻辑
+    if(![self checkForAddProductApprove]) return;
+    
+    // 3.调用下单接口
+    [self addProductApproveToServer];
 }
+
+- (void)fetchAddProductApproveInfo{
+    NSRange range = [self.addProductApproveParameter.mobile rangeOfString:@"("];
+    if(range.location != NSNotFound){
+        self.addProductApproveParameter.mobile = [self.addProductApproveParameter.mobile substringToIndex:range.location];
+    }
+}
+
+- (BOOL)checkForAddProductApprove{
+    // 客户不能为空、手机号不能为空、性别不能为空、胸围不能为空
+    if(![self.addProductApproveParameter.customer isNotBlank]){
+        [DKYHUDTool showInfoWithStatus:@"客户不能为空"];
+        return NO;
+    }
+    
+    if(![self.addProductApproveParameter.mobile isNotBlank]){
+        [DKYHUDTool showInfoWithStatus:@"手机号不能为空"];
+        return NO;
+    }
+    
+    if(![self.addProductApproveParameter.xwValue isNotBlank]){
+        [DKYHUDTool showInfoWithStatus:@"胸围不能为空"];
+        return NO;
+    }
+    
+    if(self.addProductApproveParameter.mDimNew14Id == nil){
+        [DKYHUDTool showInfoWithStatus:@"品种不能为空"];
+        return NO;
+    }
+    
+    NSArray *selectedColors = [self.addProductApproveParameter.colorArr componentsSeparatedByString:@";"];
+    if(selectedColors.count == 0){
+        [DKYHUDTool showInfoWithStatus:@"请选择颜色！"];
+        return NO;
+    }
+
+    return YES;
+}
+
+
 
 #pragma mark - UI
 - (void)commonInit{
@@ -231,6 +313,7 @@
     DKYSampleOrderViewCell *cell = [DKYSampleOrderViewCell sampleOrderViewCellWithTableView:tableView];
     cell.sampleProductInfo = self.sampleProductInfo;
     cell.productApproveTitleModel = self.productApproveTitle;
+    cell.addProductApproveParameter = self.addProductApproveParameter;
     return cell;
 }
 

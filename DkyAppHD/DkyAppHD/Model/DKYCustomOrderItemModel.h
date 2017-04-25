@@ -30,4 +30,6 @@
 
 @property (nonatomic, copy) BlockWithSender textFieldDidEditing;
 
+@property (nonatomic, assign) BOOL enabled;
+
 @end

@@ -77,6 +77,8 @@
     if(itemModel.textFieldDidEditing){
         [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     }
+    
+    self.textField.enabled = itemModel.enabled;
 }
 
 - (void)clear{
