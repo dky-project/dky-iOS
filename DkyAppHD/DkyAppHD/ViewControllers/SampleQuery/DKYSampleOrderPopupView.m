@@ -159,6 +159,7 @@
     // 2.先检查逻辑
     if(![self checkForAddProductApprove]) return;
     
+    [self endEditing:YES];
     // 3.调用下单接口
     [self addProductApproveToServer];
 }
