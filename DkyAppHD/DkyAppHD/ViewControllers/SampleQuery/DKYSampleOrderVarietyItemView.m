@@ -470,7 +470,7 @@
         
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
         //        make.right.mas_equalTo(weakSelf);
-        make.width.mas_equalTo(kDKYSampleOrderItemWidth);
+        make.width.mas_equalTo(130);
     }];
     [btn setTitle:@"点击选择品种" forState:UIControlStateNormal];
     btn.originalTitle = [btn currentTitle];
@@ -479,68 +479,65 @@
     }
     self.optionsBtn = btn;
     
-//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
-//    [self addSubview:btn];
-//    btn.tag = 1;
-//    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(weakSelf.optionsBtn);
-//        make.top.mas_equalTo(weakSelf);
-//        
-//        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(3.33);
-//        make.width.mas_equalTo(weakSelf.optionsBtn);
-//    }];
-//    [btn setTitle:@"点击选择组织" forState:UIControlStateNormal];
-//    btn.originalTitle = [btn currentTitle];
-//    if(btn.currentTitle.length > 2){
-//        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
-//    }
-//    self.secondBtn = btn;
-//    
-//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
-//    [self addSubview:btn];
-//    btn.tag = 2;
-//    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(weakSelf.optionsBtn);
-//        make.top.mas_equalTo(weakSelf);
-//        
-//        make.left.mas_equalTo(weakSelf.secondBtn.mas_right).with.offset(3.33);
-//        make.width.mas_equalTo(weakSelf.optionsBtn);
-//    }];
-//    [btn setTitle:@"点击选择针型" forState:UIControlStateNormal];
-//    btn.originalTitle = [btn currentTitle];
-//    if(btn.currentTitle.length > 2){
-//        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
-//    }
-//    self.thirdBtn = btn;
-//    
-//    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
-//    [self addSubview:btn];
-//    btn.tag = 3;
-//    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(weakSelf);
-//        make.top.mas_equalTo(weakSelf.optionsBtn.mas_bottom).with.offset(20);
-//        
-//        make.left.mas_equalTo(weakSelf.optionsBtn);
-//        make.width.mas_equalTo(weakSelf.optionsBtn);
-//    }];
-//    
-//    [btn setTitle:@"点击选择支别" forState:UIControlStateNormal];
-//    btn.originalTitle = [btn currentTitle];
-//    if(btn.currentTitle.length > 2){
-//        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
-//    }
-//    self.fourthBtn = btn;
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    btn.tag = 1;
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.optionsBtn);
+        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(20);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
+        make.height.mas_equalTo(weakSelf.optionsBtn);
+    }];
+    [btn setTitle:@"点击选择组织" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
+    self.secondBtn = btn;
+    
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    btn.tag = 2;
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.optionsBtn);
+        make.left.mas_equalTo(weakSelf.secondBtn.mas_right).with.offset(20);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
+        make.height.mas_equalTo(weakSelf.optionsBtn);
+    }];
+    [btn setTitle:@"点击选择针型" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
+    self.thirdBtn = btn;
+    
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    [self addSubview:btn];
+    btn.tag = 3;
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.optionsBtn.mas_bottom).with.offset(20);
+        make.left.mas_equalTo(weakSelf.optionsBtn);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
+        make.height.mas_equalTo(weakSelf.optionsBtn);
+    }];
+    
+    [btn setTitle:@"点击选择支别" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
+    self.fourthBtn = btn;
     
     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
     [self addSubview:btn];
     btn.tag = 4;
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.optionsBtn);
-        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(30);
+        make.top.mas_equalTo(weakSelf.fourthBtn);
+        make.left.mas_equalTo(weakSelf.fourthBtn.mas_right).with.offset(20);
         make.width.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.optionsBtn);
     }];

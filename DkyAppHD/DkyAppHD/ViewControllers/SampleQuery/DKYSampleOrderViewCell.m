@@ -414,8 +414,8 @@ static const CGFloat basicItemHeight = 30;
     [self.varietyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-//        make.height.mas_equalTo(80);
-        make.height.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(80);
+//        make.height.mas_equalTo(weakSelf.numberView);
         make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
     }];
     

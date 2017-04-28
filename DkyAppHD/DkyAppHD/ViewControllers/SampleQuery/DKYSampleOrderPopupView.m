@@ -115,7 +115,7 @@
 - (void)addProductApproveToServer{
     [DKYHUDTool show];
     
-    self.addProductApproveParameter.shRemark = @"测试单据 勿动！";
+//    self.addProductApproveParameter.shRemark = @"测试单据 勿动！";
 
     WeakSelf(weakSelf);
     [[DKYHttpRequestManager sharedInstance] addProductDefaultWithParameter:self.addProductApproveParameter Success:^(NSInteger statusCode, id data) {
