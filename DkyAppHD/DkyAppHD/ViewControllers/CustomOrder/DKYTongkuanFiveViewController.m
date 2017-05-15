@@ -12,6 +12,7 @@
 #import "DKYProductApproveTitleModel.h"
 #import "DKYAddProductApproveParameter.h"
 #import "DKYTongkuanFiveBusinessCell.h"
+#import "DKYOrderBrowsePopupView.h"
 
 @interface DKYTongkuanFiveViewController ()
 
@@ -91,19 +92,19 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             // 下单成功
-            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
+//            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
             
-            // 清空参数
-            weakSelf.addProductApproveParameter = nil;
-            
-            // 清空数据
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-            DKYTongkuanFiveViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
-            [cell reset];
-            // 重新刷新页面
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf getProductApproveTitleFromServer];
-            });
+            [DKYOrderBrowsePopupView showWithcreateOrderBtnBlock:^(DKYOrderBrowsePopupView *sender) {
+                DLog(@"生成订单");
+                // 1.调用生成订单的接口
+                // 2.成功之后，dismiss弹窗
+                // 3.重新刷新页面
+                [sender dismiss];
+            } cancelBtnBlock:^(DKYOrderBrowsePopupView* sender) {
+                DLog(@"取消");
+                [weakSelf clearDataAndUI];
+                [sender dismiss];
+            }];
             return;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -118,6 +119,20 @@
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
+}
+
+- (void)clearDataAndUI{
+    // 清空参数
+    self.addProductApproveParameter = nil;
+    
+    // 清空数据
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    DKYTongkuanFiveViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell reset];
+    // 重新刷新页面
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self getProductApproveTitleFromServer];
+    });
 }
 
 - (void)fetchAddProductApproveInfo{

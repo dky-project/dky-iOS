@@ -85,6 +85,7 @@
 		EB195B9A1E5C41CE00116048 /* LCActionSheetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B931E5C41CE00116048 /* LCActionSheetConfig.m */; };
 		EB195B9B1E5C41CE00116048 /* NSSet+LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B951E5C41CE00116048 /* NSSet+LCActionSheet.m */; };
 		EB195B9C1E5C41CE00116048 /* UIImage+LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B971E5C41CE00116048 /* UIImage+LCActionSheet.m */; };
+		EB3F2BD61EC94950007F1A89 /* DKYOrderBrowseFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F2BD51EC94950007F1A89 /* DKYOrderBrowseFooterView.m */; };
 		EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */; };
 		EB41AC4D1E1F9E7F0015A7CF /* DKYHomeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */; };
 		EB506C2A1E236D22002A1423 /* DKYHomeCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C291E236D22002A1423 /* DKYHomeCellTableViewCell.m */; };
@@ -231,6 +232,7 @@
 		EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300841E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m */; };
 		EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */; };
 		EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */; };
+		EBC6149F1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC6149E1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m */; };
 		EBC6DD711E94D9A800BE2510 /* DKYGetPzsJsonParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC6DD701E94D9A800BE2510 /* DKYGetPzsJsonParameter.m */; };
 		EBD115E61EA4583700AF6F5C /* DKYTongkuanFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115E51EA4583700AF6F5C /* DKYTongkuanFiveViewController.m */; };
 		EBD115E91EA45C1500AF6F5C /* DKYTongkuanFiveViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115E81EA45C1500AF6F5C /* DKYTongkuanFiveViewCell.m */; };
@@ -451,6 +453,8 @@
 		EB195B951E5C41CE00116048 /* NSSet+LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LCActionSheet.m"; sourceTree = "<group>"; };
 		EB195B961E5C41CE00116048 /* UIImage+LCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCActionSheet.h"; sourceTree = "<group>"; };
 		EB195B971E5C41CE00116048 /* UIImage+LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCActionSheet.m"; sourceTree = "<group>"; };
+		EB3F2BD41EC94950007F1A89 /* DKYOrderBrowseFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowseFooterView.h; sourceTree = "<group>"; };
+		EB3F2BD51EC94950007F1A89 /* DKYOrderBrowseFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowseFooterView.m; sourceTree = "<group>"; };
 		EB41AC491E1F9DF60015A7CF /* DKYHomeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemView.h; sourceTree = "<group>"; };
 		EB41AC4A1E1F9DF60015A7CF /* DKYHomeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemView.m; sourceTree = "<group>"; };
 		EB41AC4C1E1F9E7F0015A7CF /* DKYHomeItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemView.xib; sourceTree = "<group>"; };
@@ -741,6 +745,8 @@
 		EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		EBC300871E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
 		EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
+		EBC6149D1EC94131004AD4A5 /* DKYOrderBrowsePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowsePopupView.h; sourceTree = "<group>"; };
+		EBC6149E1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowsePopupView.m; sourceTree = "<group>"; };
 		EBC6DD6F1E94D9A800BE2510 /* DKYGetPzsJsonParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetPzsJsonParameter.h; sourceTree = "<group>"; };
 		EBC6DD701E94D9A800BE2510 /* DKYGetPzsJsonParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetPzsJsonParameter.m; sourceTree = "<group>"; };
 		EBD115E41EA4583700AF6F5C /* DKYTongkuanFiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTongkuanFiveViewController.h; sourceTree = "<group>"; };
@@ -1177,6 +1183,10 @@
 				26210BE21E59775300EB05D6 /* DKYCustomOrderTypeOneView.m */,
 				EB9ACBC61E5E7E930007517C /* DKYDahuoPopupView.h */,
 				EB9ACBC71E5E7E930007517C /* DKYDahuoPopupView.m */,
+				EBC6149D1EC94131004AD4A5 /* DKYOrderBrowsePopupView.h */,
+				EBC6149E1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m */,
+				EB3F2BD41EC94950007F1A89 /* DKYOrderBrowseFooterView.h */,
+				EB3F2BD51EC94950007F1A89 /* DKYOrderBrowseFooterView.m */,
 			);
 			name = "辅助View";
 			sourceTree = "<group>";
@@ -2253,6 +2263,7 @@
 				EB97F2BA1E25C36A00BDC705 /* DQTableViewCell.m in Sources */,
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				EBB480BB1E5C15F500AC36D0 /* DKYCustomOrderDimList.m in Sources */,
+				EB3F2BD61EC94950007F1A89 /* DKYOrderBrowseFooterView.m in Sources */,
 				EBC3007A1E1CE6A500F602E6 /* UIViewController+SwipeBack.m in Sources */,
 				EB843C461E82474400E4856E /* DKYAddProductApproveParameter.m in Sources */,
 				EB195B9A1E5C41CE00116048 /* LCActionSheetConfig.m in Sources */,
@@ -2272,6 +2283,7 @@
 				EB9511AE1E164444008708EF /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				26A6FA601E61A13C00376194 /* DKYDimNewListItemModel.m in Sources */,
 				EB97F2BC1E25C36A00BDC705 /* DQFormHeader.m in Sources */,
+				EBC6149F1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
 				EB9ACBD11E5EB8EC0007517C /* DKYDahuoOrderColorModel.m in Sources */,
 				EB97909D1E224CEE00E2985C /* SDWebImageManager+Utility.m in Sources */,
