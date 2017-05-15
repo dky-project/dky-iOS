@@ -52,6 +52,8 @@
 #define kAddProductApproveUrl           @"productApprove/addProductApprove"         // 基础下单
 #define kGetPzsJsonUrl                  @"dimNew/getPzsJson"                        // 品种、组织、针型、支别下拉框操作时需要调用后台接口返回新的下拉框值给这四个下拉框重新填充
 
+#define kConfirmProductApproveUrl       @"productApprove/confirmProductApprove"     // 生成订单接口
+
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询
 #define kProductApproveInfoListUrl      @"productApprove/productApproveInfoList"  // 订单详细信息查询
