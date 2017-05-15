@@ -150,6 +150,7 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DKYOrderBrowsePopupViewCell *cell = [DKYOrderBrowsePopupViewCell orderBrowserViewCellWithTableView:tableView];
+    cell.orderBrowseModel = self.orderBrowseModel;
     return cell;
 }
 

@@ -67,7 +67,7 @@
             self.secondTitleLabel.hidden = YES;
             self.secondContentLabel.hidden = YES;
             self.firstTitleLabel.hidden = YES;
-            self.firstContentLabel.textAlignment = NSTextAlignmentCenter;
+//            self.firstContentLabel.textAlignment = NSTextAlignmentCenter;
             [self.firstContentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.mas_equalTo(weakSelf);
                 make.bottom.mas_equalTo(weakSelf).with.offset(-1);

@@ -8,6 +8,7 @@
 
 #import "DKYOrderBrowsePopupViewCell.h"
 #import "DKYOrderBrowserLineView.h"
+#import "DKYOrderBrowseModel.h"
 #import "DKYOrderBrowserLineItemModel.h"
 
 @interface DKYOrderBrowsePopupViewCell ()
@@ -29,6 +30,9 @@
 @property (nonatomic, weak) DKYOrderBrowserLineView *line13;
 // 分隔行（单面，开衫，16S.....）
 @property (nonatomic, weak) DKYOrderBrowserLineView *line14;
+
+// 配套
+@property (nonatomic, weak) DKYOrderBrowserLineView *line15;
 @end
 
 @implementation DKYOrderBrowsePopupViewCell
@@ -54,6 +58,65 @@
     _orderBrowseModel = orderBrowseModel;
     
     if(!orderBrowseModel) return;
+    
+    NSString *orderNum = [NSString stringWithFormat:@"订单编号：%@",orderBrowseModel.no];
+    self.orderNumberLabel.text = orderNum;
+
+    self.line1.itemModel.firstContent = orderBrowseModel.jgNo;
+    self.line1.itemModel.secondContent = orderBrowseModel.jqDate;
+    self.line1.itemModel = self.line1.itemModel;
+
+    self.line2.itemModel.firstContent = orderBrowseModel.userName;
+    self.line2.itemModel.secondContent = orderBrowseModel.sexName;
+    self.line2.itemModel = self.line2.itemModel;
+
+    self.line3.itemModel.firstContent = orderBrowseModel.colorName;
+    self.line3.itemModel = self.line3.itemModel;
+
+    self.line4.itemModel.firstContent = orderBrowseModel.xwValue;
+    self.line4.itemModel.secondContent = orderBrowseModel.ycValue;
+    self.line4.itemModel = self.line4.itemModel;
+
+    self.line5.itemModel.firstContent = orderBrowseModel.jValue;
+    self.line5.itemModel.secondContent = orderBrowseModel.xValue;
+    self.line5.itemModel = self.line5.itemModel;
+
+    self.line6.itemModel.firstContent = orderBrowseModel.xbValue;
+    self.line6.itemModel.secondContent = orderBrowseModel.xkValue;
+    self.line6.itemModel = self.line6.itemModel;
+
+    self.line7.itemModel.firstContent = orderBrowseModel.lingValue;
+    self.line7.itemModel = self.line7.itemModel;
+
+    self.line8.itemModel.firstContent = orderBrowseModel.syValue;
+    self.line8.itemModel = self.line8.itemModel;
+
+    self.line9.itemModel.firstContent = orderBrowseModel.fjValue;
+    self.line9.itemModel = self.line9.itemModel;
+
+    self.line10.itemModel.firstContent = orderBrowseModel.xxValue;
+    self.line10.itemModel.secondContent = orderBrowseModel.dValue;
+    self.line10.itemModel = self.line10.itemModel;
+
+    self.line11.itemModel.firstContent = orderBrowseModel.hdValue;
+    self.line11.itemModel.secondContent = orderBrowseModel.jxwValue;
+    self.line11.itemModel = self.line11.itemModel;
+
+    self.line12.itemModel.firstContent = orderBrowseModel.sjxcValue;
+    self.line12.itemModel = self.line12.itemModel;
+    
+    self.line13.itemModel.firstContent = orderBrowseModel.bzValue;
+    self.line13.itemModel = self.line13.itemModel;
+    
+    self.line15.itemModel.firstContent = orderBrowseModel.ptValue;
+    self.line15.itemModel = self.line15.itemModel;
+    WeakSelf(weakSelf);
+    if(![orderBrowseModel.ptValue isNotBlank]){
+        self.line15.hidden = YES;
+        [self.line13 mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(weakSelf.line12.mas_bottom);
+        }];
+    }
 }
 
 //- (void)setItemModel:(DKYOrderItemDetailModel *)itemModel{
@@ -241,7 +304,13 @@
     itemModel.firstTitle = @"实际袖长";
     self.line12.itemModel = itemModel;
     
-    self.line13 = [self createViewWithPrevView:self.line12];
+    self.line15 = [self createViewWithPrevView:self.line12];
+    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
+    itemModel.firstTitle = @"配套";
+    self.line15.itemModel = itemModel;
+    
+    self.line13 = [self createViewWithPrevView:self.line15];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Left;
     itemModel.firstTitle = @"备注";
