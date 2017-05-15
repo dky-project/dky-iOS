@@ -40,7 +40,8 @@ typedef NS_ENUM(NSInteger, DkyOrderBrowserLineViewType) {
     DkyOrderBrowserLineViewType_Unset = 0,
     DkyOrderBrowserLineViewType_Both,
     DkyOrderBrowserLineViewType_Left,
-    DkyOrderBrowserLineViewType_right
+    DkyOrderBrowserLineViewType_right,
+    DkyOrderBrowserLineViewType_center
 };
 
 // 订单查询审核状态

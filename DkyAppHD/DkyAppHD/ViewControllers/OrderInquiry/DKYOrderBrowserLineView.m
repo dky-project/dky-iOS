@@ -63,6 +63,20 @@
             }];
         }
             break;
+        case DkyOrderBrowserLineViewType_center:{
+            self.secondTitleLabel.hidden = YES;
+            self.secondContentLabel.hidden = YES;
+            self.firstTitleLabel.hidden = YES;
+            self.firstContentLabel.textAlignment = NSTextAlignmentCenter;
+            [self.firstContentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(weakSelf);
+                make.bottom.mas_equalTo(weakSelf).with.offset(-1);
+                make.left.mas_equalTo(weakSelf).with.offset(43);
+                make.right.mas_equalTo(weakSelf);
+            }];
+        }
+            break;
+            
         default:
             break;
     }

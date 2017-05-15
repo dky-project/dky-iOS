@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYOrderBrowseModel;
 @interface DKYOrderBrowsePopupView : UIView
 
 + (instancetype)show;
@@ -19,5 +20,7 @@
 @property (nonatomic, copy) BlockWithSender createOrderBtnClicked;
 
 @property (nonatomic, copy) BlockWithSender cancelBtnClicked;
+
+@property (nonatomic, strong) DKYOrderBrowseModel *orderBrowseModel;
 
 @end

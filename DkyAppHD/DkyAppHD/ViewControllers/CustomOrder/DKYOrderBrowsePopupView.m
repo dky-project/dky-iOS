@@ -8,7 +8,7 @@
 
 #import "DKYOrderBrowsePopupView.h"
 #import "KLCPopup.h"
-#import "DKYOrderBrowserViewCell.h"
+#import "DKYOrderBrowsePopupViewCell.h"
 #import "DKYOrderBrowseFooterView.h"
 
 @interface DKYOrderBrowsePopupView ()<UITableViewDelegate,UITableViewDataSource>
@@ -33,7 +33,7 @@
                                             showType:KLCPopupShowTypeBounceInFromTop
                                          dismissType:KLCPopupDismissTypeBounceOutToBottom
                                             maskType:KLCPopupMaskTypeDimmed
-                            dismissOnBackgroundTouch:YES
+                            dismissOnBackgroundTouch:NO
                                dismissOnContentTouch:NO];
     popup.dimmedMaskAlpha = 0.6;
     contentView.popup = popup;
@@ -149,7 +149,7 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
+    DKYOrderBrowsePopupViewCell *cell = [DKYOrderBrowsePopupViewCell orderBrowserViewCellWithTableView:tableView];
     return cell;
 }
 

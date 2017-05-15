@@ -16,6 +16,7 @@
 #import "DKYProductApproveTitleModel.h"
 #import "DKYAddProductApproveParameter.h"
 #import "DKYOrderBrowsePopupView.h"
+#import "DKYOrderBrowseModel.h"
 
 @interface DKYCustomOrderUIViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -330,13 +331,25 @@
     
     actionView.confirmBtnClicked = ^(UIButton* sender){
         // 基础下单
-        // 1.获取参数
-        [self fetchAddProductApproveInfo];
-        // 2.先检查逻辑
-        if(![weakSelf checkForAddProductApprove]) return;
+//        // 1.获取参数
+//        [self fetchAddProductApproveInfo];
+//        // 2.先检查逻辑
+//        if(![weakSelf checkForAddProductApprove]) return;
+//        
+//        // 3.调用下单接口
+//        [weakSelf addProductApproveToServer];
         
-        // 3.调用下单接口
-        [weakSelf addProductApproveToServer];
+        [DKYOrderBrowsePopupView showWithcreateOrderBtnBlock:^(DKYOrderBrowsePopupView *sender) {
+            DLog(@"生成订单");
+            // 1.调用生成订单的接口
+            // 2.成功之后，dismiss弹窗
+            // 3.重新刷新页面
+            [sender dismiss];
+        } cancelBtnBlock:^(DKYOrderBrowsePopupView* sender) {
+            DLog(@"取消");
+            [weakSelf clearDataAndUI];
+            [sender dismiss];
+        }];
     };
     
     actionView.reWriteBtnClicked = ^(UIButton *sender){
