@@ -42,6 +42,8 @@
 
 @property (nonatomic, strong) DKYSampleModel *waitRemovedModel;
 
+@property (nonatomic, assign) BOOL notFirstLoad;
+
 @end
 
 @implementation DKYCollectListViewController
@@ -56,6 +58,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    if(self.notFirstLoad){
+        [self doHttpRequest];
+    }
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -226,6 +236,10 @@
     
     dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
         [DKYHUDTool dismiss];
+        if(!self.notFirstLoad){
+            self.notFirstLoad = YES;
+        }
+        
         [weakSelf.collectionView.mj_header endRefreshing];
         [weakSelf.collectionView reloadData];
         weakSelf.filtrateView.dimNewListModel = weakSelf.dimNewListModel;
