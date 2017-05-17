@@ -10,9 +10,11 @@
 #import "DKYSampleModel.h"
 
 @interface DKYSampleQueryViewCell ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *sampleNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sampleIdLabel;
+@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 
 @end
 
@@ -31,12 +33,21 @@
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 //    self.sampleNameLabel.text = itemModel.name;
     self.sampleIdLabel.text = itemModel.name;
+
+    self.cancelBtn.selected = itemModel.collected;
+}
+- (IBAction)collectBtnClicked:(UIButton *)sender {
+    if(self.collectBtnClicekd){
+        self.collectBtnClicekd(self, self.itemModel);
+    }
 }
 
 #pragma mark - UI
 
 - (void)commonInit{
-
+    [self.cancelBtn customButtonWithTypeEx:UIButtonCustomType_Ten];
+    [self.cancelBtn setTitle:@"收藏" forState:UIControlStateNormal];
+    [self.cancelBtn setTitle:@"取消收藏" forState:UIControlStateSelected];
 }
 
 @end

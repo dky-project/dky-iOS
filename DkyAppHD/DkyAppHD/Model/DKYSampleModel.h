@@ -19,4 +19,7 @@
 @property (nonatomic, copy) NSString *sampleId;
 @property (nonatomic, weak) NSIndexPath *indexPath;
 
+// 测试属性
+@property (nonatomic, assign) BOOL collected;
+
 @end

@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) DKYSampleModel *itemModel;
 
+@property (nonatomic, copy) BlockWithSenderAndModel collectBtnClicekd;
+
 @end

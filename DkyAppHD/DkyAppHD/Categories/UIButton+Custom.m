@@ -91,7 +91,15 @@ static char UIButtonOriginalTitleoKey = '\0';
             [self setTitleColor:[UIColor colorWithHex:0xFD7476] forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:12];
             break;
-            
+        case UIButtonCustomType_Ten:
+            imageN = [UIImage imageWithColor:[UIColor colorWithHex:0x3C3362]];
+            imageS = [UIImage imageWithColor:[UIColor colorWithHex:0xff5c5f]];
+            imageD = [UIImage imageWithColor:[UIColor colorWithHex:0xbdbdbd]];
+            self.clipsToBounds = YES;
+            self.layer.cornerRadius = 12.5;
+            [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            self.titleLabel.font = [UIFont systemFontOfSize:13.0];
+            break;
         default:
             break;
     }

@@ -17,6 +17,7 @@
 #import "DKYSampleQueryParameter.h"
 #import "DKYDimNewListModel.h"
 #import "DKYSampleDetailAllViewController.h"
+#import "DKYProductCollectParameter.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -37,6 +38,8 @@
 @property (nonatomic, strong) DKYDimNewListModel *dimNewListModel;
 
 @property (nonatomic, strong) DKYSampleQueryParameter *sampleQueryParameter;
+
+@property (nonatomic, strong) DKYSampleModel *waitOpetionModel;
 
 //@property (nonatomic, strong) NSArray *sexEnums;
 //
@@ -305,7 +308,79 @@
     }];
 }
 
+- (void)delProductCollectToServer{
+    [DKYHUDTool show];
+    
+    DKYProductCollectParameter *p = [[DKYProductCollectParameter alloc] init];
+    p.productId = @(self.waitOpetionModel.mProductId);
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] delProductCollectWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 生成订单成功
+            [DKYHUDTool showSuccessWithStatus:@"取消收藏成功!"];
+            
+            weakSelf.waitOpetionModel.collected = !weakSelf.waitOpetionModel.collected;
+            [weakSelf.collectionView reloadItemsAtIndexPaths:@[weakSelf.waitOpetionModel.indexPath]];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
 
+- (void)addProductCollectToServer{
+    [DKYHUDTool show];
+    
+    DKYProductCollectParameter *p = [[DKYProductCollectParameter alloc] init];
+    p.productId = @(self.waitOpetionModel.mProductId);
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] addProductCollectWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 生成订单成功
+            [DKYHUDTool showSuccessWithStatus:@"收藏成功!"];
+            
+            weakSelf.waitOpetionModel.collected = !weakSelf.waitOpetionModel.collected;
+            [weakSelf.collectionView reloadItemsAtIndexPaths:@[weakSelf.waitOpetionModel.indexPath]];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)collectedBtnClicekd{
+    // 当前已经是收藏状态，那么就是点击了取消收藏按钮
+    if(self.waitOpetionModel.collected){
+        // 取消
+        [self delProductCollectToServer];
+    }else{
+        [self addProductCollectToServer];
+    }
+}
 #pragma mark - UI
 
 - (void)commonInit{
@@ -464,7 +539,16 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYSampleQueryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYSampleQueryViewCell class]) forIndexPath:indexPath];
-    cell.itemModel = [self.samples objectOrNilAtIndex:indexPath.item];
+    DKYSampleModel *model = [self.samples objectOrNilAtIndex:indexPath.item];
+    model.indexPath = indexPath;
+    cell.itemModel = model;
+    
+    WeakSelf(weakSelf);
+    cell.collectBtnClicekd = ^(id sender, DKYSampleModel *model) {
+        weakSelf.waitOpetionModel = model;
+        [weakSelf collectedBtnClicekd];
+    };
+    
     return cell;
 }
 
