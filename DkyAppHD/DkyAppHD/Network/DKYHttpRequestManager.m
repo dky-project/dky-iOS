@@ -101,6 +101,18 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithNoAuthorizationToken:kAddProductDefaultUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)getProductCollectPageWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithNoAuthorizationToken:kProductCollectPageUrl withParameter:parameter Success:success failure:failure];
+}
+
+- (void)addProductCollectWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithNoAuthorizationToken:kAddProductCollectUrl withParameter:parameter Success:success failure:failure];
+}
+
+- (void)delProductCollectWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithNoAuthorizationToken:kDelProductCollectUrl withParameter:parameter Success:success failure:failure];
+}
+
 - (void)LoginUserWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithNoAuthorizationToken:kLoginUserUrl withParameter:parameter Success:success failure:failure];
 }

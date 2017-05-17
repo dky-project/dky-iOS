@@ -76,6 +76,9 @@
 		26E870A51EA31740005A6F7F /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A21EA31740005A6F7F /* UIAlertView+Blocks.m */; };
 		26E870A81EA320F4005A6F7F /* DKYCustomOrderAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */; };
 		26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC02961E751D0700469C5C /* NSString+STRegex.m */; };
+		EB02E8821ECC1C02006C5354 /* DKYCollectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02E8811ECC1C02006C5354 /* DKYCollectListViewController.m */; };
+		EB02E88C1ECC2EB6006C5354 /* DKYCollectListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02E88A1ECC2EB6006C5354 /* DKYCollectListViewCell.m */; };
+		EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB02E88B1ECC2EB6006C5354 /* DKYCollectListViewCell.xib */; };
 		EB16D0F41E56EC2100939072 /* DKYCustomOrderPatternItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16D0F31E56EC2100939072 /* DKYCustomOrderPatternItemView.m */; };
 		EB16D0FB1E56F25000939072 /* DKYTitleInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16D0FA1E56F25000939072 /* DKYTitleInputView.m */; };
 		EB16D0FE1E56F73F00939072 /* DKYTitleSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16D0FD1E56F73F00939072 /* DKYTitleSelectView.m */; };
@@ -187,6 +190,7 @@
 		EB9BBBA71E24D42100939007 /* DKYSampleProductInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */; };
 		EB9BBBAA1E24DA6100939007 /* DKYSampleQueryParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */; };
 		EBA351791E811D9700D89BFA /* DKYStaticDimListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA351781E811D9700D89BFA /* DKYStaticDimListModel.m */; };
+		EBA597DB1ECC3D7F00F65F03 /* DKYProductCollectParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA597DA1ECC3D7F00F65F03 /* DKYProductCollectParameter.m */; };
 		EBA90E951E52E2EF00EA539E /* TWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA90E941E52E2EE00EA539E /* TWScrollView.m */; };
 		EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA90E981E52E55A00EA539E /* DKYOrderActionsView.m */; };
 		EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8AA1E14E45200B4C568 /* Main.storyboard */; };
@@ -438,6 +442,11 @@
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
+		EB02E8801ECC1C01006C5354 /* DKYCollectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCollectListViewController.h; sourceTree = "<group>"; };
+		EB02E8811ECC1C02006C5354 /* DKYCollectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCollectListViewController.m; sourceTree = "<group>"; };
+		EB02E8891ECC2EB6006C5354 /* DKYCollectListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCollectListViewCell.h; sourceTree = "<group>"; };
+		EB02E88A1ECC2EB6006C5354 /* DKYCollectListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCollectListViewCell.m; sourceTree = "<group>"; };
+		EB02E88B1ECC2EB6006C5354 /* DKYCollectListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYCollectListViewCell.xib; sourceTree = "<group>"; };
 		EB16D0F21E56EC2100939072 /* DKYCustomOrderPatternItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderPatternItemView.h; sourceTree = "<group>"; };
 		EB16D0F31E56EC2100939072 /* DKYCustomOrderPatternItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderPatternItemView.m; sourceTree = "<group>"; };
 		EB16D0F91E56F25000939072 /* DKYTitleInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTitleInputView.h; sourceTree = "<group>"; };
@@ -657,6 +666,8 @@
 		EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleQueryParameter.m; sourceTree = "<group>"; };
 		EBA351771E811D9700D89BFA /* DKYStaticDimListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYStaticDimListModel.h; sourceTree = "<group>"; };
 		EBA351781E811D9700D89BFA /* DKYStaticDimListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYStaticDimListModel.m; sourceTree = "<group>"; };
+		EBA597D91ECC3D7F00F65F03 /* DKYProductCollectParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYProductCollectParameter.h; sourceTree = "<group>"; };
+		EBA597DA1ECC3D7F00F65F03 /* DKYProductCollectParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYProductCollectParameter.m; sourceTree = "<group>"; };
 		EBA90E931E52E2EE00EA539E /* TWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWScrollView.h; sourceTree = "<group>"; };
 		EBA90E941E52E2EE00EA539E /* TWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWScrollView.m; sourceTree = "<group>"; };
 		EBA90E971E52E55A00EA539E /* DKYOrderActionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderActionsView.h; sourceTree = "<group>"; };
@@ -1103,6 +1114,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EB02E87F1ECC1B58006C5354 /* CollectList */ = {
+			isa = PBXGroup;
+			children = (
+				EB02E8801ECC1C01006C5354 /* DKYCollectListViewController.h */,
+				EB02E8811ECC1C02006C5354 /* DKYCollectListViewController.m */,
+				EB02E8831ECC2D95006C5354 /* view */,
+			);
+			path = CollectList;
+			sourceTree = "<group>";
+		};
+		EB02E8831ECC2D95006C5354 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				EB02E8891ECC2EB6006C5354 /* DKYCollectListViewCell.h */,
+				EB02E88A1ECC2EB6006C5354 /* DKYCollectListViewCell.m */,
+				EB02E88B1ECC2EB6006C5354 /* DKYCollectListViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		EB16D0F51E56F19900939072 /* 用户操作View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1518,6 +1549,8 @@
 				EB843C451E82474400E4856E /* DKYAddProductApproveParameter.m */,
 				EBC6DD6F1E94D9A800BE2510 /* DKYGetPzsJsonParameter.h */,
 				EBC6DD701E94D9A800BE2510 /* DKYGetPzsJsonParameter.m */,
+				EBA597D91ECC3D7F00F65F03 /* DKYProductCollectParameter.h */,
+				EBA597DA1ECC3D7F00F65F03 /* DKYProductCollectParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -1756,6 +1789,7 @@
 				EB9510801E15FC2C008708EF /* Home */,
 				EB95107F1E15FC2C008708EF /* SampleQuery */,
 				EB95107E1E15FC2C008708EF /* CustomOrder */,
+				EB02E87F1ECC1B58006C5354 /* CollectList */,
 				EB95107D1E15FC2C008708EF /* OrderInquiry */,
 				EB95117E1E16408C008708EF /* Login */,
 				EBD694B31E277D5100F365C3 /* Webview */,
@@ -2124,6 +2158,7 @@
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
 				EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */,
 				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
+				EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */,
 				EB9884CE1E28658900BAFADE /* SXDetails.css in Resources */,
 				EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */,
 				EB41AC4D1E1F9E7F0015A7CF /* DKYHomeItemView.xib in Resources */,
@@ -2314,6 +2349,7 @@
 				26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */,
 				EB9511AC1E164444008708EF /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				EBB480B51E5BE7C200AC36D0 /* DKYCustomOrderAttachmentItemView.m in Sources */,
+				EBA597DB1ECC3D7F00F65F03 /* DKYProductCollectParameter.m in Sources */,
 				26BB9A591E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m in Sources */,
 				EB9511B31E164444008708EF /* WXSTransitionProperty.m in Sources */,
 				EB9510871E160321008708EF /* DKYTabBar.m in Sources */,
@@ -2353,6 +2389,7 @@
 				26210C051E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m in Sources */,
 				EB9511AB1E164444008708EF /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				EB97F2D01E26533500BDC705 /* DKYCustomOrderUIViewController.m in Sources */,
+				EB02E88C1ECC2EB6006C5354 /* DKYCollectListViewCell.m in Sources */,
 				EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */,
 				266290801E9D03F300886274 /* DKYSampleDetailAllViewController.m in Sources */,
 				EB95107C1E15FA27008708EF /* DKYTabBarViewController.m in Sources */,
@@ -2425,6 +2462,7 @@
 				26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */,
 				EB97907C1E22371B00E2985C /* DKYOrderInfoHeaderView.m in Sources */,
 				263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */,
+				EB02E8821ECC1C02006C5354 /* DKYCollectListViewController.m in Sources */,
 				EB9790851E22421400E2985C /* Foundation+Log.m in Sources */,
 				EB9511A61E164444008708EF /* UIViewController+WXSTransitionProperty.m in Sources */,
 				266290761E9D039D00886274 /* UIButton+VTMagic.m in Sources */,

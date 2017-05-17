@@ -67,6 +67,41 @@ static char UIButtonOriginalTitleoKey = '\0';
     self.titleLabel.font = [UIFont systemFontOfSize:18];
 }
 
+- (void)customButtonWithTypeEx:(UIButtonCustomType)type{
+    UIImage *imageN = nil;
+    UIImage *imageH = nil;
+    UIImage *imageD = nil;
+    UIImage *imageS = nil;
+    switch (type) {
+        case UIButtonCustomType_Five:
+            imageN = [UIImage imageWithColor:[UIColor colorWithHex:0xff5c5f]];
+            imageH = [UIImage imageWithColor:[UIColor colorWithHex:0xdb2428]];
+            imageS = [UIImage imageWithColor:[UIColor colorWithHex:0xbdbdbd]];
+            imageD = [UIImage imageWithColor:[UIColor colorWithHex:0xbdbdbd]];
+            self.clipsToBounds = YES;
+            self.layer.cornerRadius = 12.5;
+            [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            self.titleLabel.font = [UIFont systemFontOfSize:13.0];
+            break;
+        case UIButtonCustomType_Nine:
+            self.clipsToBounds = YES;
+            self.layer.cornerRadius = 12.5;
+            self.layer.borderColor = [UIColor colorWithHex:0xFD7476].CGColor;
+            self.layer.borderWidth = 1.0;
+            [self setTitleColor:[UIColor colorWithHex:0xFD7476] forState:UIControlStateNormal];
+            self.titleLabel.font = [UIFont systemFontOfSize:12];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self setBackgroundImage:imageN forState:UIControlStateNormal];
+    [self setBackgroundImage:imageH forState:UIControlStateHighlighted];
+    [self setBackgroundImage:imageD forState:UIControlStateDisabled];
+    [self setBackgroundImage:imageS forState:UIControlStateSelected];
+}
+
 + (instancetype)buttonWithCustomType:(UIButtonCustomType)type{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     switch (type) {

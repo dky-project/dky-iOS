@@ -16,7 +16,7 @@
 
 //#define BASE_URL     @"https:"
 
-#define BASE_URL     @"http://192.168.3.171:8090/dky-web/"
+#define BASE_URL     @"http://192.168.3.171:8080/dky-web/"
 //#define BASE_URL     @"http://192.168.3.76:7071/dky-web/"
 
 
@@ -57,6 +57,11 @@
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询
 #define kProductApproveInfoListUrl      @"productApprove/productApproveInfoList"  // 订单详细信息查询
+
+// 收藏
+#define kProductCollectPageUrl          @"productCollect/page"                  // 收藏列表
+#define kAddProductCollectUrl           @"productCollect/addProductCollect"     // 添加收藏
+#define kDelProductCollectUrl           @"productCollect/delProductCollect"     // 取消收藏
 
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆

@@ -186,6 +186,33 @@
 - (void)addProductDefaultWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
 
 /**
+ *  收藏列表
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+- (void)getProductCollectPageWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+
+/**
+ *  添加收藏
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+- (void)addProductCollectWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+
+/**
+ *  取消收藏
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+- (void)delProductCollectWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+
+/**
  *  登录接口
  *
  *  @param parameter parameter description

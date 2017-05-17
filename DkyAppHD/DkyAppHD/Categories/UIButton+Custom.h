@@ -19,11 +19,14 @@ typedef NS_ENUM(NSInteger, UIButtonCustomType) {
     UIButtonCustomType_Six, // 字体12，黑色，边界线淡一点
     UIButtonCustomType_Seven, // 字体12，黑色，边界线深一点
     UIButtonCustomType_Eigh, // 用作checkbox
+    UIButtonCustomType_Nine, // 红色边框，红色字体
 };
 
 @interface UIButton (Custom)
 
 - (void)customButtonWithType:(UIButtonCustomType)type;
+
+- (void)customButtonWithTypeEx:(UIButtonCustomType)type;
 
 + (instancetype)buttonWithCustomType:(UIButtonCustomType)type;
 
