@@ -14,12 +14,13 @@
 @property (nonatomic, assign) NSInteger mProductId;
 @property (nonatomic, copy) NSString * name;
 @property (nonatomic, copy) NSString *mDimNew11Text;
+@property (nonatomic, strong) NSNumber *iscollect;
+@property (nonatomic, copy) NSString *modifieddate;
 
 // 客户端自己的属性
 @property (nonatomic, copy) NSString *sampleId;
 @property (nonatomic, weak) NSIndexPath *indexPath;
 
-// 测试属性
 @property (nonatomic, assign) BOOL collected;
 
 @end

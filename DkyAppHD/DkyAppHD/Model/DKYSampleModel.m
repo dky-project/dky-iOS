@@ -12,6 +12,8 @@
 
 - (void)mj_keyValuesDidFinishConvertingToObject{
     self.sampleId = [NSString stringWithFormat:@"%@",@(self.mProductId)];
+    
+    self.collected = ([self.iscollect integerValue] == 2) ? YES : NO;
 }
 
 @end
