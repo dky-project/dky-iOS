@@ -146,6 +146,7 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"机构号:";
     itemModel.lock = YES;
+    itemModel.enabled = NO;
     self.agencyNumberView.itemModel = itemModel;
 }
 
@@ -165,6 +166,7 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"传真日期:";
     itemModel.lock = YES;
+    itemModel.enabled = NO;
     self.faxDateView.itemModel = itemModel;
 }
 
@@ -184,6 +186,7 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"操作者:";
     itemModel.lock = YES;
+    itemModel.enabled = NO;
     self.handlersView.itemModel = itemModel;
 }
 
@@ -203,6 +206,7 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"订单号:";
     itemModel.lock = NO;
+    itemModel.enabled = NO;
     self.orderNumberView.itemModel = itemModel;
 }
 
