@@ -12,6 +12,8 @@
 #import "DKYSampleProductInfoModel.h"
 #import "DKYProductApproveTitleModel.h"
 #import "DKYAddProductApproveParameter.h"
+#import "DKYOrderBrowseModel.h"
+#import "DKYOrderBrowsePopupView.h"
 
 @interface DKYSampleOrderPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -31,6 +33,8 @@
 @property (nonatomic, strong) DKYProductApproveTitleModel *productApproveTitle;
 @property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
+@property (nonatomic, strong) DKYOrderBrowseModel *orderBrowseModel;
+
 @end
 
 @implementation DKYSampleOrderPopupView
@@ -39,7 +43,7 @@
     DKYSampleOrderPopupView *contentView = [[DKYSampleOrderPopupView alloc]initWithFrame:CGRectZero];
     KLCPopup *popup = [KLCPopup popupWithContentView:contentView
                                             showType:KLCPopupShowTypeBounceInFromTop
-                                         dismissType:KLCPopupDismissTypeBounceOutToBottom
+                                         dismissType:KLCPopupDismissTypeFadeOut
                                             maskType:KLCPopupMaskTypeDimmed
                             dismissOnBackgroundTouch:NO
                                dismissOnContentTouch:NO];
@@ -112,6 +116,41 @@
     }];
 }
 
+- (void)confirmProductApproveToServer:(DKYOrderBrowsePopupView*)sender{
+    [DKYHUDTool show];
+    
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    p.Id = self.orderBrowseModel.productApproveId;
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] confirmProductApproveWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 生成订单成功
+            [DKYHUDTool showSuccessWithStatus:@"生成订单成功!"];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf clearDataAndUI];
+                [sender dismiss];
+            });
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+
 - (void)addProductApproveToServer{
     [DKYHUDTool show];
     
@@ -124,11 +163,22 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             // 下单成功
-            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
+//            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.popup dismiss:YES];
-            });
+            weakSelf.orderBrowseModel = [DKYOrderBrowseModel mj_objectWithKeyValues:result.data];
+            
+            DKYOrderBrowsePopupView *pop =[DKYOrderBrowsePopupView showWithcreateOrderBtnBlock:^(DKYOrderBrowsePopupView *sender) {
+                DLog(@"生成订单");
+                // 1.调用生成订单的接口
+                // 2.成功之后，dismiss弹窗
+                // 3.重新刷新页面
+                [weakSelf confirmProductApproveToServer:sender];
+            } cancelBtnBlock:^(DKYOrderBrowsePopupView* sender) {
+                DLog(@"取消");
+                [weakSelf clearDataAndUI];
+                [sender dismiss];
+            }];
+            pop.orderBrowseModel = weakSelf.orderBrowseModel;
             
             return;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -144,6 +194,10 @@
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
+}
+
+- (void)clearDataAndUI{
+    [self.popup dismiss:YES];
 }
 
 #pragma mark - action method
