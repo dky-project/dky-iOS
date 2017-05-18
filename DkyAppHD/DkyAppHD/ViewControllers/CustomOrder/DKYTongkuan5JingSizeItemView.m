@@ -116,7 +116,7 @@
 - (void)commonInit{
     [self setupTitleLabel];
     
-//    [self setupJxwView];
+    [self setupJxwView];
     [self setupSjxcView];
 }
 
@@ -153,6 +153,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"净胸围";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.enabled = NO;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.jxwValue = textField.text;
     };
@@ -166,14 +167,14 @@
     
     WeakSelf(weakSelf);
     [self.sjxcView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.jxwView.mas_right).with.offset(37);
-//        make.height.mas_equalTo(weakSelf.titleLabel);
-//        make.width.mas_equalTo(196);
-//        make.top.mas_equalTo(weakSelf);
-        make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
+        make.left.mas_equalTo(weakSelf.jxwView.mas_right).with.offset(37);
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.width.mas_equalTo(196);
         make.top.mas_equalTo(weakSelf);
+//        make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
+//        make.height.mas_equalTo(weakSelf.titleLabel);
+//        make.width.mas_equalTo(196);
+//        make.top.mas_equalTo(weakSelf);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];

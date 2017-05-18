@@ -426,11 +426,11 @@
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"工艺袖长";
+    itemModel.title = @"袖长";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.hzxc1Value = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.xcValue = @([textField.text doubleValue]);
     };
     self.gyxcView.itemModel = itemModel;
 }

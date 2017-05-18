@@ -296,7 +296,7 @@
 {
     if(indexPath.row == 0) return 240;
     
-    return 450;
+    return 2250;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

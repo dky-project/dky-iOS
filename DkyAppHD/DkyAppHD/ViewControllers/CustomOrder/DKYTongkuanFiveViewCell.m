@@ -2,22 +2,47 @@
 //  DKYTongkuanFiveViewCell.m
 //  DkyAppHD
 //
-//  Created by HaKim on 2017/4/17.
+//  Created by HaKim on 2017/5/18.
 //  Copyright © 2017年 haKim. All rights reserved.
 //
 
 #import "DKYTongkuanFiveViewCell.h"
+#import "UIButton+Custom.h"
+#import "MMPopupItem.h"
+#import "MMSheetView.h"
+#import "MMPopupWindow.h"
 #import "DKYCustomOrderTextFieldView.h"
+#import "DKYCustomOrderTextFieldView.h"
+#import "DKYCustomOrderItemModel.h"
 #import "DKYCustomOrderGenderItemView.h"
 #import "DKYTongkuan5VarietyItemView.h"
+#import "DKYTongkuan5PatternItemView.h"
 #import "DKYTongkuan5SizeItemView.h"
 #import "DKYTongkuan5JingSizeItemView.h"
 #import "DKYTongkuan5JianTypeItemView.h"
+#import "DKYTongkuan5XiuTypeItemView.h"
+#import "DKYTongkuan5XiuBianItemView.h"
 #import "DKYTongkuan5LingItemView.h"
-#import "DKYTongkuan5GenderItemView.h"
+
+
+#import "DKYCustomOrderSpecialCraftItemView.h"
+#import "DKYCustomOrderXiabianItemView.h"
+#import "DKYCustomOrderXiukouItemView.h"
+#import "DKYCustomOrderMatchItemView.h"
+#import "DKYCustomOrderFlowerTypeItemView.h"
+#import "DKYCustomOrderTangzhuItemView.h"
+#import "DKYCustomOrderKoudaiItemView.h"
+#import "DKYCustomOrderAttachmentItemView.h"
 #import "DKYProductApproveTitleModel.h"
+#import "DKYDahuoPopupView.h"
 #import "DKYMadeInfoByProductNameParameter.h"
+#import "DKYMadeInfoByProductNameModel.h"
+#import "DKYCustomOrderAddMarkItemView.h"
 #import "DKYVipNameParameter.h"
+#import "DKYMptApproveSaveParameter.h"
+#import "DKYAddProductApproveParameter.h"
+#import "DKYDahuoOrderColorModel.h"
+#import "NSString+STRegex.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -32,8 +57,15 @@ static const CGFloat basicItemHeight = 30;
 
 @property (nonatomic, copy) NSString *productName;
 
+// 请求参数
+// 大货订单参数
+@property (nonatomic, strong) DKYMptApproveSaveParameter *mptApproveSaveParameter;
+
 // 编号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *numberView;
+
+// 客户号
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *clientView;
 
 // 手机号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *phoneNumberView;
@@ -42,10 +74,13 @@ static const CGFloat basicItemHeight = 30;
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *styleNumberView;
 
 // 性别
-@property (nonatomic, weak) DKYTongkuan5GenderItemView *genderItemView;
+@property (nonatomic, weak) DKYCustomOrderGenderItemView *genderItemView;
 
 // 品种
 @property (nonatomic, weak) DKYTongkuan5VarietyItemView *varietyView;
+
+// 式样
+@property (nonatomic, weak) DKYTongkuan5PatternItemView *patternItemView;
 
 // 尺寸View
 @property (nonatomic, weak) DKYTongkuan5SizeItemView *sizeView;
@@ -56,8 +91,46 @@ static const CGFloat basicItemHeight = 30;
 // 肩型
 @property (nonatomic, weak) DKYTongkuan5JianTypeItemView *jianTypeView;
 
+// 袖型
+@property (nonatomic, weak) DKYTongkuan5XiuTypeItemView *xiuTypeView;
+
+// 袖边
+@property (nonatomic, weak) DKYTongkuan5XiuBianItemView *xiuBianView;
+
 // 领
 @property (nonatomic, weak) DKYTongkuan5LingItemView *lingView;
+
+// 花型
+@property (nonatomic, weak) DKYCustomOrderFlowerTypeItemView *flowerTypeItemView;
+
+// 烫珠
+@property (nonatomic, weak) DKYCustomOrderTangzhuItemView *tangzhuItemView;
+
+// 口袋
+@property (nonatomic, weak) DKYCustomOrderKoudaiItemView *koudaiItemView;
+
+// 附件
+@property (nonatomic, weak) DKYCustomOrderAttachmentItemView *attachmentItemView;
+
+// 特殊工艺
+@property (nonatomic, weak) DKYCustomOrderSpecialCraftItemView *specialCraftItemView;
+
+// 下边
+@property (nonatomic, weak) DKYCustomOrderXiabianItemView *xiabianItemView;
+
+// 袖口
+@property (nonatomic, weak) DKYCustomOrderXiukouItemView *xiukouItemView;
+
+// 加注
+@property (nonatomic, weak) DKYCustomOrderAddMarkItemView *addMarkView;
+
+// 配套
+@property (nonatomic, weak) DKYCustomOrderMatchItemView *matchItemView;
+
+// 图片
+@property (nonatomic, weak) UIImageView *displayImageView;
+//@property (nonatomic, weak) UILabel *titleLabel;
+
 
 @end
 
@@ -82,27 +155,14 @@ static const CGFloat basicItemHeight = 30;
     return self;
 }
 
-- (void)setProductApproveTitleModel:(DKYProductApproveTitleModel *)productApproveTitleModel{
-    _productApproveTitleModel = productApproveTitleModel;
-    
-    self.genderItemView.customOrderDimList = productApproveTitleModel.dimListModel;
-    self.varietyView.customOrderDimList = productApproveTitleModel.dimListModel;
-    self.jianTypeView.customOrderDimList = productApproveTitleModel.dimListModel;
-    self.sizeView.customOrderDimList = productApproveTitleModel.dimListModel;
-    self.jingSizeItemView.customOrderDimList = productApproveTitleModel.dimListModel;
-    self.lingView.staticDimListModel = productApproveTitleModel.staticDimListModel;
-    self.lingView.customOrderDimList = productApproveTitleModel.dimListModel;
-}
-
-- (void)setAddProductApproveParameter:(DKYAddProductApproveParameter *)addProductApproveParameter{
-    _addProductApproveParameter = addProductApproveParameter;
-    
-    self.genderItemView.addProductApproveParameter = addProductApproveParameter;
-    self.varietyView.addProductApproveParameter = addProductApproveParameter;
-    self.sizeView.addProductApproveParameter = addProductApproveParameter;
-    self.jingSizeItemView.addProductApproveParameter = addProductApproveParameter;
-    self.jianTypeView.addProductApproveParameter = addProductApproveParameter;
-    self.lingView.addProductApproveParameter = addProductApproveParameter;
+- (void)fetchAddProductApproveInfo{
+    [self.flowerTypeItemView fetchAddProductApproveInfo];
+    [self.koudaiItemView fetchAddProductApproveInfo];
+    [self.attachmentItemView fetchAddProductApproveInfo];
+    [self.specialCraftItemView fetchAddProductApproveInfo];
+    [self.tangzhuItemView fetchAddProductApproveInfo];
+    [self.lingView fetchAddProductApproveInfo];
+    [self.patternItemView fetchAddProductApproveInfo];
 }
 
 - (void)reset{
@@ -110,6 +170,7 @@ static const CGFloat basicItemHeight = 30;
     [self endEditing:YES];
     // 逻辑成员变量
     self.productName = nil;
+    self.mptApproveSaveParameter = nil;
     self.madeInfoByProductName = nil;
     
     [self updateModelViews];
@@ -117,6 +178,7 @@ static const CGFloat basicItemHeight = 30;
     // UI 属性
     // 第一行 款号，客户，手机号
     [self.numberView clear];
+    [self.clientView clear];
     [self.phoneNumberView clear];
     
     // 第二行 款号，性别
@@ -126,6 +188,8 @@ static const CGFloat basicItemHeight = 30;
     // 第三大行 品种 4个选择器
     [self.varietyView clear];
     
+    // 第四大行， 式样
+    [self.patternItemView clear];
     
     // 第五大行，尺寸
     [self.sizeView clear];
@@ -136,18 +200,148 @@ static const CGFloat basicItemHeight = 30;
     // 第七大行,肩型
     [self.jianTypeView clear];
     
+    // 第八大行，袖型
+    [self.xiuTypeView clear];
+    
+    // 第九大行，袖边
+    [self.xiuBianView clear];
     
     // 第十大行，领
     [self.lingView clear];
     
-}
-
-
-- (void)fetchAddProductApproveInfo{
+    // 第十一大行，花型
+    [self.flowerTypeItemView clear];
     
+    // 第十二大行，烫珠
+    [self.tangzhuItemView clear];
+    
+    // 第十三大行，口袋
+    [self.koudaiItemView clear];
+    
+    // 第十四大行,附件
+    [self.attachmentItemView clear];
+    
+    // 第十五大行，特殊工艺
+    [self.specialCraftItemView clear];
+    
+    // 第十六行，下边
+    [self.xiabianItemView clear];
+    
+    // 第十七行，袖口
+    [self.xiukouItemView clear];
+    
+    // 第十八大行,加注
+    [self.addMarkView clear];
+    
+    // 第十九行，配套
+    [self.matchItemView clear];
+    
+    // 图片
+    self.displayImageView.image = nil;
 }
 
-#pragma mark - 网络请求
+- (void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(72, self.tw_height - 1)];
+    [path addLineToPoint:CGPointMake(self.tw_width - 72, self.tw_height - 1)];
+    [[UIColor colorWithHex:0x999999] setStroke];
+    
+    [path setLineWidth:1];
+    [path setLineJoinStyle:kCGLineJoinRound];
+    [path setLineCapStyle:kCGLineCapButt];
+    
+    CGFloat lengths[2] = { 1, 1 };
+    CGContextSetLineDash(context, 0, lengths, 2);
+    [path stroke];
+}
+
+- (void)setProductApproveTitleModel:(DKYProductApproveTitleModel *)productApproveTitleModel{
+    _productApproveTitleModel = productApproveTitleModel;
+    
+    self.genderItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.varietyView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.patternItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.jianTypeView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.xiuBianView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.lingView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.xiabianItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.xiukouItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.matchItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    
+    self.xiuTypeView.staticDimListModel = productApproveTitleModel.staticDimListModel;
+    self.lingView.staticDimListModel = productApproveTitleModel.staticDimListModel;
+}
+
+- (void)setAddProductApproveParameter:(DKYAddProductApproveParameter *)addProductApproveParameter{
+    _addProductApproveParameter = addProductApproveParameter;
+    
+    self.genderItemView.addProductApproveParameter = addProductApproveParameter;
+    self.varietyView.addProductApproveParameter = addProductApproveParameter;
+    self.patternItemView.addProductApproveParameter = addProductApproveParameter;
+    self.sizeView.addProductApproveParameter = addProductApproveParameter;
+    self.jingSizeItemView.addProductApproveParameter = addProductApproveParameter;
+    self.jianTypeView.addProductApproveParameter = addProductApproveParameter;
+    self.xiuTypeView.addProductApproveParameter = addProductApproveParameter;
+    self.xiuBianView.addProductApproveParameter = addProductApproveParameter;
+    self.lingView.addProductApproveParameter = addProductApproveParameter;
+    self.flowerTypeItemView.addProductApproveParameter = addProductApproveParameter;
+    
+    self.tangzhuItemView.addProductApproveParameter = addProductApproveParameter;
+    self.koudaiItemView.addProductApproveParameter = addProductApproveParameter;
+    self.attachmentItemView.addProductApproveParameter = addProductApproveParameter;
+    self.specialCraftItemView.addProductApproveParameter = addProductApproveParameter;
+    self.xiabianItemView.addProductApproveParameter = addProductApproveParameter;
+    
+    self.xiukouItemView.addProductApproveParameter = addProductApproveParameter;
+    self.addMarkView.addProductApproveParameter = addProductApproveParameter;
+    self.matchItemView.addProductApproveParameter = addProductApproveParameter;
+}
+
+- (void)updateModelViews{
+    //    WeakSelf(weakSelf);
+    self.xiuBianView.madeInfoByProductName = self.madeInfoByProductName;
+    self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
+    self.flowerTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.tangzhuItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.koudaiItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.attachmentItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.specialCraftItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.sizeView.madeInfoByProductName = self.madeInfoByProductName;
+    self.xiuTypeView.madeInfoByProductName = self.madeInfoByProductName;
+    self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
+    self.lingView.madeInfoByProductName = self.madeInfoByProductName;
+    self.patternItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.xiukouItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.xiabianItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.genderItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.addMarkView.madeInfoByProductName = self.madeInfoByProductName;
+    self.matchItemView.madeInfoByProductName = self.madeInfoByProductName;
+    
+    if(self.madeInfoByProductName){
+        NSURL *url = [NSURL URLWithString:self.madeInfoByProductName.productMadeInfoView.imgUrl];
+        [self.displayImageView sd_setImageWithURL:url];
+    }
+    
+    //    WeakSelf(weakSelf);
+    //    if([self needHideKoudai]){
+    //        self.koudaiItemView.hidden = YES;
+    //        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
+    //            make.height.mas_equalTo(0);
+    //            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(0);
+    //        }];
+    //    }else{
+    //        self.koudaiItemView.hidden = NO;
+    //        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
+    //            make.height.mas_equalTo(80);
+    //            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(vpadding);
+    //        }];
+    //    }
+}
+
+#pragma mark - 网络请你去
 - (void)getMadeInfoByProductNameFromServer{
     [DKYHUDTool show];
     DKYMadeInfoByProductNameParameter *p = [[DKYMadeInfoByProductNameParameter alloc] init];
@@ -160,7 +354,8 @@ static const CGFloat basicItemHeight = 30;
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
-
+            //            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew13Id = 364;
+            //            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew12Id = 367;
             [weakSelf dealWithstyleNumber];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -210,6 +405,44 @@ static const CGFloat basicItemHeight = 30;
     }];
 }
 
+- (void)mptApproveSaveToServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    self.mptApproveSaveParameter.jgNo = @([self.productApproveTitleModel.code integerValue]);
+    self.mptApproveSaveParameter.productName = self.productName;
+    
+    [[DKYHttpRequestManager sharedInstance] mptApproveSaveWithParameter:self.mptApproveSaveParameter Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 下单成功
+            [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
+            
+            // 清空数据
+            [weakSelf reset];
+            
+            // 重新刷新页面
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if(weakSelf.refreshBlock){
+                    weakSelf.refreshBlock(nil);
+                }
+            });
+            return;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
 
 #pragma mark - mark - private method
 - (void)styleNumberViewDidEndEditing:(NSString *)text{
@@ -226,19 +459,29 @@ static const CGFloat basicItemHeight = 30;
     }
 }
 
-- (void)updateModelViews{
-    self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
-    self.sizeView.madeInfoByProductName = self.madeInfoByProductName;
-    self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
-    self.lingView.madeInfoByProductName = self.madeInfoByProductName;
-    self.genderItemView.madeInfoByProductName = self.madeInfoByProductName;
-}
-
 - (void)dealWithstyleNumber{
+    if(self.madeInfoByProductName.isBigOrder){
+        [self showDahuoPopupView];
+        return;
+    }
+    
     [self updateModelViews];
     
     // 定制订单，默认赋值参数
     [self updateAddProductApproveParameter];
+}
+
+- (BOOL)needHideKoudai{
+    NSInteger mDimNew12Id = self.madeInfoByProductName.productMadeInfoView.mDimNew12Id;
+    if(mDimNew12Id == 68 ||
+       mDimNew12Id == 61 ||
+       mDimNew12Id == 307 ||
+       mDimNew12Id == 308 ||
+       mDimNew12Id == 309){
+        return YES;
+    }
+    
+    return NO;
 }
 
 // 款号输入之后，有默认回来的参数，先进行赋值
@@ -352,19 +595,132 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.mDimNew41Id = self.madeInfoByProductName.productMadeInfoView.mDimNew41Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew41Id): nil;
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    [self.genderItemView dealwithMDimNew12IdSelected];
+    [self.varietyView dealwithMDimNew12IdSelected];
+    [self.patternItemView dealwithMDimNew12IdSelected];
+    [self.sizeView dealwithMDimNew12IdSelected];
+    [self.jingSizeItemView dealwithMDimNew12IdSelected];
+    [self.jianTypeView dealwithMDimNew12IdSelected];
+    [self.xiuTypeView dealwithMDimNew12IdSelected];
+    
+    [self.xiuBianView dealwithMDimNew12IdSelected];
+    [self.lingView dealwithMDimNew12IdSelected];
+    [self.flowerTypeItemView dealwithMDimNew12IdSelected];
+    [self.tangzhuItemView dealwithMDimNew12IdSelected];
+    [self.koudaiItemView dealwithMDimNew12IdSelected];
+    
+    [self.attachmentItemView dealwithMDimNew12IdSelected];
+    [self.specialCraftItemView dealwithMDimNew12IdSelected];
+    [self.xiabianItemView dealwithMDimNew12IdSelected];
+    [self.xiukouItemView dealwithMDimNew12IdSelected];
+    [self.addMarkView dealwithMDimNew12IdSelected];
+    
+    [self.matchItemView dealwithMDimNew12IdSelected];
+}
+
+- (void)dealwithMDimNew22IdSelected{
+    [self.xiuTypeView dealwithMDimNew22IdSelected];
+    [self.sizeView dealwithMDimNew22IdSelected];
+}
+
+- (void)dealwithMDimNew13IdSelected{
+    [self.genderItemView dealwithMDimNew13IdSelected];
+    [self.patternItemView dealwithMDimNew13IdSelected];
+    [self.sizeView dealwithMDimNew13IdSelected];
+    [self.jingSizeItemView dealwithMDimNew13IdSelected];
+    [self.jianTypeView dealwithMDimNew13IdSelected];
+    [self.xiuTypeView dealwithMDimNew13IdSelected];
+    
+    [self.xiuBianView dealwithMDimNew13IdSelected];
+    [self.lingView dealwithMDimNew13IdSelected];
+    [self.flowerTypeItemView dealwithMDimNew13IdSelected];
+    [self.tangzhuItemView dealwithMDimNew13IdSelected];
+    [self.koudaiItemView dealwithMDimNew13IdSelected];
+    
+    [self.attachmentItemView dealwithMDimNew13IdSelected];
+    [self.specialCraftItemView dealwithMDimNew13IdSelected];
+    [self.xiabianItemView dealwithMDimNew13IdSelected];
+    [self.xiukouItemView dealwithMDimNew13IdSelected];
+    [self.addMarkView dealwithMDimNew13IdSelected];
+    
+    [self.matchItemView dealwithMDimNew13IdSelected];
+}
+
+- (void)dealwithMDimNew15IdSelected{
+    [self.sizeView dealwithMDimNew15IdSelected];
+}
+
+#pragma mark - action method
+- (void)optionsBtnClicked:(UIButton*)sender{
+    //    if(self.optionsBtnClicked){
+    //        self.optionsBtnClicked(sender,sender.tag);
+    //    }
+    [self showOptionsPicker];
+}
+
+#pragma mark - help method
+- (void)showOptionsPicker{
+    [self.superview endEditing:YES];
+    MMPopupItemHandler block = ^(NSInteger index){
+        DLog(@"++++++++ index = %ld",index);
+    };
+    
+    NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
+    for (NSString *str in item) {
+        [items addObject:MMItemMake(str, MMItemTypeNormal, block)];
+    }
+    
+    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"点击选择内容"
+                                                          items:[items copy]];
+    [MMPopupWindow sharedWindow].touchWildToHide = YES;
+    [sheetView show];
+}
+
+- (void)showDahuoPopupView{
+    WeakSelf(weakSelf);
+    DKYDahuoPopupView *popup = [DKYDahuoPopupView show];
+    popup.madeInfoByProductNameModel = self.madeInfoByProductName;
+    popup.mptApproveSaveParameter = self.mptApproveSaveParameter;
+    popup.productName = self.productName;
+    popup.cancelBtnClicked = ^(UIButton *sender){
+        [weakSelf.styleNumberView clear];
+    };
+    
+    popup.confirmBtnClicked = ^(DKYDahuoPopupView *popup){
+        if(weakSelf.mptApproveSaveParameter.sizeId == nil){
+            [DKYHUDTool showErrorWithStatus:@"请选择尺寸"];
+            return ;
+        }
+        
+        if(weakSelf.mptApproveSaveParameter.colorId == nil){
+            [DKYHUDTool showErrorWithStatus:@"请选择颜色"];
+            return ;
+        }
+        
+        [popup dismiss];
+        [weakSelf mptApproveSaveToServer];
+    };
+}
+
 #pragma mark - UI
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     // 第一行 款号，客户，手机号
     [self setupNumberView];
+    [self setupClientView];
     [self setupGenderItemView];
-    
     // 第二行 款号，性别
     [self setupStyleNumberView];
     [self setupPhoneNumberView];
     
     // 第三大行 品种 4个选择器
     [self setupVarietyView];
+    
+    // 第四大行， 式样
+    [self setupPatternItemView];
     
     // 第五大行，尺寸
     [self setupSizeView];
@@ -375,8 +731,44 @@ static const CGFloat basicItemHeight = 30;
     // 第七大行,肩型
     [self setupJanTypeView];
     
-    // ling
+    // 第八大行，袖型
+    [self setupXiuTypeView];
+    
+    // 第九大行，袖边
+    [self setupXiuBianView];
+    
+    // 第十大行，领
     [self setupLingView];
+    
+    // 第十一大行，花型
+    [self setupFlowerTypeItemView];
+    
+    // 第十二大行，烫珠
+    [self setupTangzhuItemView];
+    
+    // 第十三大行，口袋
+    [self setupKoudaiItemView];
+    
+    // 第十四大行,附件
+    [self setupAttachmentItemView];
+    
+    // 第十五大行，特殊工艺
+    [self setupSpecialCraftItemView];
+    
+    // 第十六行，下边
+    [self setupXiabianItemView];
+    
+    // 第十七行，袖口
+    [self setupXiukouItemView];
+    
+    // 第十八大行,加注
+    [self setupAddMarkView];
+    
+    // 第十九行，配套
+    [self setupMatchItemView];
+    
+    // 图片
+    [self setupDisplayImageView];
 }
 
 - (void)setupNumberView{
@@ -407,14 +799,38 @@ static const CGFloat basicItemHeight = 30;
     self.numberView.itemModel = itemModel;
 }
 
+- (void)setupClientView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.clientView = view;
+    
+    WeakSelf(weakSelf);
+    [self.clientView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
+        make.width.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.numberView);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*客户:";
+    itemModel.content = @"同款五";
+    itemModel.enabled = NO;
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        // 客户号
+        weakSelf.addProductApproveParameter.customer = textField.text;
+    };
+    self.clientView.itemModel = itemModel;
+}
+
 - (void)setupGenderItemView{
-    DKYTongkuan5GenderItemView *view = [[DKYTongkuan5GenderItemView alloc] initWithFrame:CGRectZero];
+    DKYCustomOrderGenderItemView *view = [[DKYCustomOrderGenderItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.genderItemView = view;
     
     WeakSelf(weakSelf);
     [self.genderItemView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
+        make.left.mas_equalTo(weakSelf.clientView.mas_right).with.offset(hpadding);
         make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
         make.top.mas_equalTo(weakSelf.numberView);
@@ -423,6 +839,9 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*性别:";
     self.genderItemView.itemModel = itemModel;
+    self.genderItemView.mDimNew13IdBlock = ^(id sender, NSInteger type){
+        [weakSelf dealwithMDimNew13IdSelected];
+    };
 }
 
 - (void)setupStyleNumberView{
@@ -457,9 +876,9 @@ static const CGFloat basicItemHeight = 30;
     
     WeakSelf(weakSelf);
     [self.phoneNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.genderItemView);
+        make.left.mas_equalTo(weakSelf.clientView);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.width.mas_equalTo(2 * basicItemWidth + hpadding);
+        make.right.mas_equalTo(weakSelf.genderItemView);
         make.top.mas_equalTo(weakSelf.styleNumberView);
     }];
     
@@ -467,6 +886,10 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"*手机号:";
     itemModel.keyboardType = UIKeyboardTypePhonePad;
     itemModel.textFieldDidEndEditing = ^(UITextField *textField){
+        //        if(![textField.text isValidPhoneNum]){
+        //            [DKYHUDTool showInfoWithStatus:@"请输入有效的手机号！"];
+        //            return;
+        //        }
         [weakSelf getVipInfoFromServer:textField.text];
     };
     
@@ -474,6 +897,7 @@ static const CGFloat basicItemHeight = 30;
         if (textField.text.length > 11) {
             textField.text = [textField.text substringToIndex:11];
         }
+        
         weakSelf.addProductApproveParameter.mobile = textField.text;
     };
     self.phoneNumberView.itemModel = itemModel;
@@ -495,6 +919,31 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*品种:";
     self.varietyView.itemModel = itemModel;
+//    self.varietyView.mDimNew15IdBlock = ^(id sender, NSInteger type){
+//        [weakSelf dealwithMDimNew15IdSelected];
+//    };
+}
+
+- (void)setupPatternItemView{
+    DKYTongkuan5PatternItemView *view = [[DKYTongkuan5PatternItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.patternItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.patternItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(230);
+        make.top.mas_equalTo(weakSelf.varietyView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*式样:";
+    self.patternItemView.itemModel = itemModel;
+    self.patternItemView.userInteractionEnabled = NO;
+//    self.patternItemView.mDimNew12IdBlock = ^(id sender,NSInteger type){
+//        [weakSelf dealwithMDimNew12IdSelected];
+//    };
 }
 
 - (void)setupSizeView{
@@ -507,7 +956,7 @@ static const CGFloat basicItemHeight = 30;
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.varietyView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.patternItemView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -536,6 +985,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupJanTypeView{
+    //DKYCustomOrderJianTypeItemView
     DKYTongkuan5JianTypeItemView *view = [[DKYTongkuan5JianTypeItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.jianTypeView = view;
@@ -552,6 +1002,49 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"肩型:";
     itemModel.textFieldLeftOffset = 16;
     self.jianTypeView.itemModel = itemModel;
+//    self.jianTypeView.mDimNew22IdBlock = ^(id sender,NSInteger type){
+//        [weakSelf dealwithMDimNew22IdSelected];
+//    };
+}
+
+- (void)setupXiuTypeView{
+    //DKYCustomOrderXiuTypeItemView
+    DKYTongkuan5XiuTypeItemView *view = [[DKYTongkuan5XiuTypeItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.xiuTypeView = view;
+    
+    WeakSelf(weakSelf);
+    [self.xiuTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.jianTypeView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"袖型:";
+    itemModel.textFieldLeftOffset = 16;
+    self.xiuTypeView.itemModel = itemModel;
+}
+
+- (void)setupXiuBianView{
+    //DKYCustomOrderXiuBianItemView
+    DKYTongkuan5XiuBianItemView *view = [[DKYTongkuan5XiuBianItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.xiuBianView = view;
+    
+    WeakSelf(weakSelf);
+    [self.xiuBianView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.xiuTypeView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"袖边:";
+    itemModel.textFieldLeftOffset = 16;
+    self.xiuBianView.itemModel = itemModel;
 }
 
 - (void)setupLingView{
@@ -564,13 +1057,213 @@ static const CGFloat basicItemHeight = 30;
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
         make.height.mas_equalTo(130);
-        make.top.mas_equalTo(weakSelf.jianTypeView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.xiuBianView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"领:";
     itemModel.textFieldLeftOffset = 28;
     self.lingView.itemModel = itemModel;
+}
+
+- (void)setupFlowerTypeItemView{
+    DKYCustomOrderFlowerTypeItemView *view = [[DKYCustomOrderFlowerTypeItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.flowerTypeItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.flowerTypeItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(230);
+        make.top.mas_equalTo(weakSelf.lingView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"花型:";
+    itemModel.textFieldLeftOffset = 0;
+    itemModel.textFieldLeftOffset = 16;
+    self.flowerTypeItemView.itemModel = itemModel;
+}
+
+- (void)setupTangzhuItemView{
+    DKYCustomOrderTangzhuItemView *view = [[DKYCustomOrderTangzhuItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.tangzhuItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.tangzhuItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(130);
+        make.top.mas_equalTo(weakSelf.flowerTypeItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"烫珠:";
+    itemModel.textFieldLeftOffset = 0;
+    itemModel.textFieldLeftOffset = 16;
+    self.tangzhuItemView.itemModel = itemModel;
+}
+
+- (void)setupKoudaiItemView{
+    DKYCustomOrderKoudaiItemView *view = [[DKYCustomOrderKoudaiItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.koudaiItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.koudaiItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"口袋:";
+    itemModel.textFieldLeftOffset = 0;
+    itemModel.textFieldLeftOffset = 16;
+    self.koudaiItemView.itemModel = itemModel;
+}
+
+- (void)setupAttachmentItemView{
+    DKYCustomOrderAttachmentItemView *view = [[DKYCustomOrderAttachmentItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.attachmentItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.attachmentItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.koudaiItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"附件:";
+    itemModel.textFieldLeftOffset = 0;
+    itemModel.textFieldLeftOffset = 16;
+    self.attachmentItemView.itemModel = itemModel;
+    
+}
+
+- (void)setupSpecialCraftItemView{
+    DKYCustomOrderSpecialCraftItemView *view = [[DKYCustomOrderSpecialCraftItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.specialCraftItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.specialCraftItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(80);
+        make.top.mas_equalTo(weakSelf.attachmentItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"特殊工艺:";
+    itemModel.textFieldLeftOffset = 0;
+    self.specialCraftItemView.itemModel = itemModel;
+}
+
+- (void)setupXiabianItemView{
+    DKYCustomOrderXiabianItemView *view = [[DKYCustomOrderXiabianItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.xiabianItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.xiabianItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.specialCraftItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"下边:";
+    itemModel.textFieldLeftOffset = 16;
+    self.xiabianItemView.itemModel = itemModel;
+}
+
+- (void)setupXiukouItemView{
+    DKYCustomOrderXiukouItemView *view = [[DKYCustomOrderXiukouItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.xiukouItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.xiukouItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.xiabianItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"袖口:";
+    itemModel.textFieldLeftOffset = 16;
+    self.xiukouItemView.itemModel = itemModel;
+}
+
+- (void)setupAddMarkView{
+    DKYCustomOrderAddMarkItemView *view = [[DKYCustomOrderAddMarkItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.addMarkView = view;
+    
+    WeakSelf(weakSelf);
+    [self.addMarkView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.xiukouItemView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"加注:";
+    itemModel.textFieldLeftOffset = 16;
+    self.addMarkView.itemModel = itemModel;
+}
+
+- (void)setupMatchItemView{
+    DKYCustomOrderMatchItemView *view = [[DKYCustomOrderMatchItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.matchItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.matchItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.addMarkView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"配套:";
+    itemModel.textFieldLeftOffset = 16;
+    self.matchItemView.itemModel = itemModel;
+}
+
+- (void)setupDisplayImageView{
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+    //    imageView.image = [UIImage imageNamed:@"login_placeholder"];
+    [self.contentView addSubview:imageView];
+    self.displayImageView = imageView;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    WeakSelf(weakSelf);
+    [self.displayImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(300, 380));
+        make.top.mas_equalTo(weakSelf.matchItemView.mas_bottom).with.offset(vpadding);
+        make.centerX.mas_equalTo(weakSelf.contentView);
+    }];
+}
+
+
+#pragma mark - get & set method
+
+- (DKYMptApproveSaveParameter*)mptApproveSaveParameter{
+    if(_mptApproveSaveParameter == nil){
+        _mptApproveSaveParameter = [[DKYMptApproveSaveParameter alloc] init];
+    }
+    return _mptApproveSaveParameter;
 }
 
 @end

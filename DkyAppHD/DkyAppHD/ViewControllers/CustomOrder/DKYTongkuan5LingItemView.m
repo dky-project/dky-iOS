@@ -133,6 +133,10 @@
         }
     }
     
+    self.sizeView.textField.text = madeInfoByProductName.productMadeInfoView.lbccValue;
+    self.markView.textField.text = madeInfoByProductName.productMadeInfoView.lxRemark;
+    self.otherMarkView.textField.text = madeInfoByProductName.productMadeInfoView.qtxRemark;
+    
 //    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
 //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
 //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
@@ -531,20 +535,24 @@
 
 #pragma mark - mark
 - (void)commonInit{
+//    [self setupTitleLabel];
+//    [self setupOptionsBtn];
+//    [self setupLbBtn];
+//    [self setupLxBtn];
+    
     [self setupTitleLabel];
     [self setupOptionsBtn];
-    [self setupLbBtn];
-    [self setupLxBtn];
     
-//    
-//    [self setupTextField];
-//    
-//    [self setupLbcsBtn];
-//    [self setupOneView];
-//    [self setupSizeView];
-//    [self setupLikouView];
-//    [self setupOtherMarkView];
-//    [self setupMarkView];
+    [self setupOneView];
+    [self setupSizeView];
+    [self setupLbcsBtn];
+    [self setupLbBtn];
+    [self setupTextField];
+    
+    [self setupLxBtn];
+    [self setupLikouView];
+    [self setupOtherMarkView];
+    [self setupMarkView];
 }
 
 - (void)setupTitleLabel{
@@ -592,10 +600,10 @@
     [self addSubview:btn];
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.lbcBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
-        make.top.mas_equalTo(weakSelf.optionsBtn);
+        make.top.mas_equalTo(weakSelf.lbcBtn);
     }];
     self.lbBtn = btn;
     [btn setTitle:@"点击选择领边" forState:UIControlStateNormal];
@@ -612,10 +620,10 @@
     [self addSubview:btn];
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.lbBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
-        make.top.mas_equalTo(weakSelf.optionsBtn);
+        make.top.mas_equalTo(weakSelf.lbcBtn.mas_bottom).with.offset(20);
     }];
     self.lxBtn = btn;
     [btn setTitle:@"点击选择领型" forState:UIControlStateNormal];
@@ -647,6 +655,9 @@
     
     [self.oneView.textField addTarget:self action:@selector(oneViewLeftTextFieldEditing:) forControlEvents:UIControlEventEditingChanged];
     [self.oneView.textField2 addTarget:self action:@selector(oneViewRightTextFieldEditing:) forControlEvents:UIControlEventEditingChanged];
+    
+    self.oneView.textField.enabled = NO;
+    self.oneView.textField2.enabled = NO;
 }
 
 - (void)setupSizeView{
@@ -670,6 +681,8 @@
         weakSelf.addProductApproveParameter.lingCcValue = @([textField.text doubleValue]);
     };
     self.sizeView.itemModel = itemModel;
+    
+    self.sizeView.textField.enabled = NO;
 }
 
 - (void)setupLbcsBtn{
@@ -690,6 +703,8 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    
+    btn.enabled = NO;
 }
 
 
@@ -723,6 +738,8 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.width.mas_equalTo(DKYCustomOrderItemWidth);
     }];
+    
+    textField.enabled = NO;
 }
 
 - (void)setupLikouView{
@@ -745,6 +762,8 @@
         weakSelf.addProductApproveParameter.lxsx4Value = textField.text;
     };
     self.likouView.itemModel = itemModel;
+    
+    self.likouView.textField.enabled = NO;
 }
 
 - (void)setupOtherMarkView{
@@ -791,6 +810,8 @@
         weakSelf.addProductApproveParameter.lxsx5Value = textField.text;
     };
     self.markView.itemModel = itemModel;
+    
+    self.markView.textField.enabled = NO;
 }
 
 @end
