@@ -178,7 +178,7 @@ static const CGFloat basicItemHeight = 30;
     // UI 属性
     // 第一行 款号，客户，手机号
     [self.numberView clear];
-    [self.clientView clear];
+//    [self.clientView clear];
     [self.phoneNumberView clear];
     
     // 第二行 款号，性别
