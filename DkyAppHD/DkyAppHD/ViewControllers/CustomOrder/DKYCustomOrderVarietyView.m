@@ -9,6 +9,7 @@
 #import "DKYCustomOrderVarietyView.h"
 #import "DKYMultipleSelectPopupView.h"
 #import "DKYGetPzsJsonParameter.h"
+#import "DKYDahuoOrderColorModel.h"
 
 @interface DKYCustomOrderVarietyView ()
 
@@ -23,6 +24,10 @@
 @property (nonatomic, weak) UIButton *fourthBtn;
 
 @property (nonatomic, strong) DKYGetPzsJsonParameter *getPzsJsonParameter;
+
+
+@property (nonatomic, weak) UIButton *colorBtn;
+@property (nonatomic, weak) UITextView *selectedColorView;
 
 @end
 
@@ -110,6 +115,27 @@
                 break;
             }
         }
+    }
+    
+    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+            if([model.colorName isEqualToString:selectColor]){
+                model.selected = YES;
+                break;
+            }
+        }
+    }
+    
+    NSMutableString *selectedColor = [NSMutableString string];
+    for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.colorViewList) {
+        if(color.selected){
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+        }
+    }
+    
+    if([selectedColor isNotBlank]){
+        self.selectedColorView.text = selectedColor;
     }
 }
 
@@ -435,11 +461,24 @@
     pop.addProductApproveParameter = self.addProductApproveParameter;
     pop.colorViewList = self.madeInfoByProductName.colorViewList;
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
+    WeakSelf(weakSelf);
+    pop.confirmBtnClicked = ^(id sender) {
+        NSMutableString *selectedColor = [NSMutableString string];
+        for (DKYDahuoOrderColorModel *color in weakSelf.madeInfoByProductName.colorViewList) {
+            if(color.selected){
+                NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+                [selectedColor appendString:oneColor];
+            }
+        }
+        
+        weakSelf.selectedColorView.text = selectedColor;
+    };
 }
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
     [self setupOptionsBtn];
+    [self setupSelectedColorView];
 }
 
 - (void)setupTitleLabel{
@@ -551,7 +590,27 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    self.colorBtn = btn;
 }
+
+- (void)setupSelectedColorView{
+    UITextView *view = [[UITextView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    view.font = [UIFont systemFontOfSize:12];
+    view.textColor = [UIColor colorWithHex:0x333333];
+    view.editable = NO;
+    
+    self.selectedColorView = view;
+    
+    WeakSelf(weakSelf);
+    [self.selectedColorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.colorBtn).with.offset(-10);
+        make.left.mas_equalTo(weakSelf.secondBtn);
+        make.bottom.mas_equalTo(weakSelf);
+        make.right.mas_equalTo(weakSelf.fourthBtn);
+    }];
+}
+
 #pragma mark - get & set method
 - (DKYGetPzsJsonParameter*)getPzsJsonParameter{
     if(_getPzsJsonParameter == nil){

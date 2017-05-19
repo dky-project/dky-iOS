@@ -86,6 +86,9 @@
 
 - (void)confirmBtnClicked:(UIButton*)sender{
     [self fetchSelectedColorInfo];
+    if(self.confirmBtnClicked){
+        self.confirmBtnClicked(nil);
+    }
     [self dismiss];
 }
 

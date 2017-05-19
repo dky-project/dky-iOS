@@ -24,6 +24,9 @@
 
 @property (nonatomic, strong) DKYGetPzsJsonParameter *getPzsJsonParameter;
 
+@property (nonatomic, weak) UIButton *colorBtn;
+@property (nonatomic, weak) UITextView *selectedColorView;
+
 @end
 
 @implementation DKYSampleOrderVarietyItemView
@@ -438,6 +441,8 @@
 - (void)commonInit{
     [self setupTitleLabel];
     [self setupOptionsBtn];
+    
+    [self  setupSelectedColorView];
 }
 
 - (void)setupTitleLabel{
@@ -546,7 +551,28 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    
+    self.colorBtn = btn;
 }
+
+- (void)setupSelectedColorView{
+    UITextView *view = [[UITextView alloc] initWithFrame:CGRectZero];
+    [self addSubview:view];
+    view.font = [UIFont systemFontOfSize:12];
+    view.textColor = [UIColor colorWithHex:0x333333];
+    view.editable = NO;
+    
+    self.selectedColorView = view;
+    
+    WeakSelf(weakSelf);
+    [self.selectedColorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.colorBtn).with.offset(-10);
+        make.left.mas_equalTo(weakSelf.secondBtn);
+        make.bottom.mas_equalTo(weakSelf);
+        make.right.mas_equalTo(weakSelf.fourthBtn);
+    }];
+}
+
 #pragma mark - get & set method
 - (DKYGetPzsJsonParameter*)getPzsJsonParameter{
     if(_getPzsJsonParameter == nil){

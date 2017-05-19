@@ -1084,6 +1084,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 0;
     itemModel.textFieldLeftOffset = 16;
     self.flowerTypeItemView.itemModel = itemModel;
+    
+    self.flowerTypeItemView.userInteractionEnabled = NO;
 }
 
 - (void)setupTangzhuItemView{
@@ -1104,6 +1106,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 0;
     itemModel.textFieldLeftOffset = 16;
     self.tangzhuItemView.itemModel = itemModel;
+    
+    self.tangzhuItemView.userInteractionEnabled = NO;
 }
 
 - (void)setupKoudaiItemView{
@@ -1124,6 +1128,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 0;
     itemModel.textFieldLeftOffset = 16;
     self.koudaiItemView.itemModel = itemModel;
+    
+    self.koudaiItemView.userInteractionEnabled = NO;
 }
 
 - (void)setupAttachmentItemView{
@@ -1145,6 +1151,7 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.attachmentItemView.itemModel = itemModel;
     
+    self.attachmentItemView.userInteractionEnabled = NO;
 }
 
 - (void)setupSpecialCraftItemView{
@@ -1164,6 +1171,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"特殊工艺:";
     itemModel.textFieldLeftOffset = 0;
     self.specialCraftItemView.itemModel = itemModel;
+    
+    self.specialCraftItemView.userInteractionEnabled = NO;
 }
 
 - (void)setupXiabianItemView{
@@ -1183,6 +1192,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"下边:";
     itemModel.textFieldLeftOffset = 16;
     self.xiabianItemView.itemModel = itemModel;
+    
+    self.xiabianItemView.userInteractionEnabled = NO;
 }
 
 - (void)setupXiukouItemView{
@@ -1202,6 +1213,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"袖口:";
     itemModel.textFieldLeftOffset = 16;
     self.xiukouItemView.itemModel = itemModel;
+    
+    self.xiukouItemView.userInteractionEnabled = NO;
 }
 
 - (void)setupAddMarkView{
@@ -1221,6 +1234,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"加注:";
     itemModel.textFieldLeftOffset = 16;
     self.addMarkView.itemModel = itemModel;
+    
+    self.addMarkView.userInteractionEnabled = NO;
 }
 
 - (void)setupMatchItemView{
@@ -1240,6 +1255,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"配套:";
     itemModel.textFieldLeftOffset = 16;
     self.matchItemView.itemModel = itemModel;
+    
+    self.matchItemView.userInteractionEnabled = NO;
 }
 
 - (void)setupDisplayImageView{

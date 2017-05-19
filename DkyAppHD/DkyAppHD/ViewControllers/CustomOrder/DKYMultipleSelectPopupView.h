@@ -23,4 +23,6 @@
 
 @property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
+@property (nonatomic, copy) BlockWithSender confirmBtnClicked;
+
 @end
