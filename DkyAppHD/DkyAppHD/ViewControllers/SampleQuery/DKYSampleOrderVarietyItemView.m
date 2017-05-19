@@ -114,6 +114,27 @@
             }
         }
     }
+    
+    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+            if([model.colorName isEqualToString:selectColor]){
+                model.selected = YES;
+                break;
+            }
+        }
+    }
+    
+    NSMutableString *selectedColor = [NSMutableString string];
+    for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.colorViewList) {
+        if(color.selected){
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+        }
+    }
+    
+    if([selectedColor isNotBlank]){
+        self.selectedColorView.text = selectedColor;
+    }
 }
 
 - (void)clear{
@@ -436,13 +457,26 @@
     pop.addProductApproveParameter = self.addProductApproveParameter;
     pop.colorViewList = self.madeInfoByProductName.colorViewList;
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
+    
+    WeakSelf(weakSelf);
+    pop.confirmBtnClicked = ^(id sender) {
+        NSMutableString *selectedColor = [NSMutableString string];
+        for (DKYDahuoOrderColorModel *color in weakSelf.madeInfoByProductName.colorViewList) {
+            if(color.selected){
+                NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+                [selectedColor appendString:oneColor];
+            }
+        }
+        
+        weakSelf.selectedColorView.text = selectedColor;
+    };
 }
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
     [self setupOptionsBtn];
     
-    [self  setupSelectedColorView];
+    [self setupSelectedColorView];
 }
 
 - (void)setupTitleLabel{
@@ -558,7 +592,7 @@
 - (void)setupSelectedColorView{
     UITextView *view = [[UITextView alloc] initWithFrame:CGRectZero];
     [self addSubview:view];
-    view.font = [UIFont systemFontOfSize:12];
+    view.font = [UIFont systemFontOfSize:10];
     view.textColor = [UIColor colorWithHex:0x333333];
     view.editable = NO;
     
@@ -566,10 +600,15 @@
     
     WeakSelf(weakSelf);
     [self.selectedColorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.colorBtn).with.offset(-10);
-        make.left.mas_equalTo(weakSelf.secondBtn);
+//        make.top.mas_equalTo(weakSelf.colorBtn).with.offset(-10);
+//        make.left.mas_equalTo(weakSelf.colorBtn).with.offset(20);
+//        make.bottom.mas_equalTo(weakSelf);
+//        make.right.mas_equalTo(weakSelf.thirdBtn);
+        
+        make.top.mas_equalTo(weakSelf.fourthBtn).with.offset(-10);;
+        make.left.mas_equalTo(weakSelf.colorBtn.mas_right).with.offset(20);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
         make.bottom.mas_equalTo(weakSelf);
-        make.right.mas_equalTo(weakSelf.fourthBtn);
     }];
 }
 
