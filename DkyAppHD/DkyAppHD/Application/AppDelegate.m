@@ -26,6 +26,7 @@
 //    [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
 //    [[DKYAccountManager sharedInstance] deleteAccesToken];
     
+    
     // 全局配置
     [DKYConfigManager config];
     

@@ -457,7 +457,7 @@ static const CGFloat basicItemHeight = 30;
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"净尺寸:";
+    itemModel.title = @"肩型:";
     itemModel.textFieldLeftOffset = 5;
     self.jingSizeItemView.itemModel = itemModel;
 }
