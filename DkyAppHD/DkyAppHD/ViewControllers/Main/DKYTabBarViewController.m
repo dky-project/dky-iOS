@@ -103,6 +103,10 @@
     
     DKYCustomOrderAllViewController *customOrderVc = [(DKYCustomOrderAllViewController*)[DKYCustomOrderAllViewController alloc] init];
     [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_customOrder" selectedImageName:@"tabbar_customOrder"];
+    // 老机型比较卡，先让页面初始化下
+    if([UIScreen mainScreen].scale == 1){
+        customOrderVc.view.backgroundColor = [UIColor whiteColor];
+    }
     self.customOrderVc = customOrderVc;
     
     DKYCollectListViewController *collectListVc = [[DKYCollectListViewController alloc] init];
