@@ -540,12 +540,24 @@
 {
     DKYSampleQueryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYSampleQueryViewCell class]) forIndexPath:indexPath];
     DKYSampleModel *model = [self.samples objectOrNilAtIndex:indexPath.item];
-    model.indexPath = indexPath;
     cell.itemModel = model;
     
     WeakSelf(weakSelf);
     cell.collectBtnClicekd = ^(id sender, DKYSampleModel *model) {
         weakSelf.waitOpetionModel = model;
+        
+        NSInteger index = 0;
+        for (DKYSampleModel *obj in weakSelf.samples) {
+            if([obj isEqual:model]){
+                break;
+            }else{
+                ++index;
+            }
+        }
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+        model.indexPath = indexPath;
+        
         [weakSelf collectedBtnClicekd];
     };
     

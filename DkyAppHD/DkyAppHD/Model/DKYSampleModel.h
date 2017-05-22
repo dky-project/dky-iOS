@@ -19,7 +19,7 @@
 
 // 客户端自己的属性
 @property (nonatomic, copy) NSString *sampleId;
-@property (nonatomic, weak) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @property (nonatomic, assign) BOOL collected;
 
