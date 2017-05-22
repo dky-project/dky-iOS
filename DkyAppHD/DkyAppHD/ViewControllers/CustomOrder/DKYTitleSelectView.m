@@ -79,7 +79,7 @@
 - (void)showOptionsPicker{
     [self.superview endEditing:YES];
     MMPopupItemHandler block = ^(NSInteger index){
-        DLog(@"++++++++ index = %ld",index);
+        DLog(@"++++++++ index = %@",@(index));
     };
     
     NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
