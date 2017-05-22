@@ -74,8 +74,6 @@
 
     self.lengthView.textField.text = madeInfoByProductName.productMadeInfoView.ycValue;
     
-    self.lengthView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
-    
     if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55 ||
        (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
@@ -95,6 +93,9 @@
     }else{
         self.canEdit = YES;
     }
+    
+    BOOL enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
+    self.lengthView.textField.enabled = enabled;
 }
 
 - (void)dealwithMDimNew22IdSelected{
