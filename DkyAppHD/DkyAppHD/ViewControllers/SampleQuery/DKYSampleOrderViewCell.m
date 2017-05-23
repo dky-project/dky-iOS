@@ -16,6 +16,8 @@
 #import "DKYSampleProductInfoModel.h"
 #import "DKYProductApproveTitleModel.h"
 #import "DKYMadeInfoByProductNameParameter.h"
+#import "DKYSampleOrderXiuTypeItemView.h"
+#import "DKYSampleOrderJianTypeItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 20;
@@ -45,11 +47,11 @@ static const CGFloat basicItemHeight = 30;
 // 尺寸View
 @property (nonatomic, weak) DKYSampleOrderSizeItemView *sizeView;
 
-// 净尺寸
-@property (nonatomic, weak) DKYSampleOrderJingSizeItemView *jingSizeItemView;
-
 // 肩型
-@property (nonatomic, weak) DKYSampleOrderJianTypeItemView *jianTypeView;
+@property (nonatomic, weak) DKYSampleOrderJianTypeItemView *jianTypeItemView;
+
+// 袖型
+@property (nonatomic, weak) DKYSampleOrderXiuTypeItemView *xiuTypeView;
 
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 
@@ -92,9 +94,9 @@ static const CGFloat basicItemHeight = 30;
     _productApproveTitleModel = productApproveTitleModel;
     
     self.varietyView.customOrderDimList = productApproveTitleModel.dimListModel;
-    self.jianTypeView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.xiuTypeView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.sizeView.customOrderDimList = productApproveTitleModel.dimListModel;
-    self.jingSizeItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.jianTypeItemView.customOrderDimList = productApproveTitleModel.dimListModel;
     
     
     DKYCustomOrderItemModel *model = self.numberView.itemModel;
@@ -111,8 +113,8 @@ static const CGFloat basicItemHeight = 30;
     
     self.varietyView.addProductApproveParameter = addProductApproveParameter;
     self.sizeView.addProductApproveParameter = addProductApproveParameter;
-    self.jingSizeItemView.addProductApproveParameter = addProductApproveParameter;
-    self.jianTypeView.addProductApproveParameter = addProductApproveParameter;
+    self.jianTypeItemView.addProductApproveParameter = addProductApproveParameter;
+    self.xiuTypeView.addProductApproveParameter = addProductApproveParameter;
     
     // 设置默认值
     addProductApproveParameter.mobile = self.phoneNumberView.itemModel.content;
@@ -158,10 +160,10 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)updateModelViews{
-    self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
+    self.xiuTypeView.madeInfoByProductName = self.madeInfoByProductName;
     self.sizeView.madeInfoByProductName = self.madeInfoByProductName;
     self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
-    self.jingSizeItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.jianTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 // 款号输入之后，有默认回来的参数，先进行赋值
@@ -273,6 +275,10 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.jzValue = self.madeInfoByProductName.productMadeInfoView.jzValue;
     
     self.addProductApproveParameter.mDimNew41Id = self.madeInfoByProductName.productMadeInfoView.mDimNew41Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew41Id): nil;
+}
+
+- (void)dealwithMDimNew15IdSelected{
+    [self.sizeView dealwithMDimNew15IdSelected];
 }
 
 #pragma mark - UI
@@ -424,6 +430,9 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*品种:";
     self.varietyView.itemModel = itemModel;
+    self.varietyView.mDimNew15IdBlock = ^(id sender, NSInteger type){
+        [weakSelf dealwithMDimNew15IdSelected];
+    };
 }
 
 - (void)setupSizeView{
@@ -446,12 +455,12 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupJingSizeItemView{
-    DKYSampleOrderJingSizeItemView *view = [[DKYSampleOrderJingSizeItemView alloc] initWithFrame:CGRectZero];
+    DKYSampleOrderJianTypeItemView *view = [[DKYSampleOrderJianTypeItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
-    self.jingSizeItemView = view;
+    self.jianTypeItemView = view;
     
     WeakSelf(weakSelf);
-    [self.jingSizeItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.jianTypeItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
         make.height.mas_equalTo(weakSelf.numberView);
@@ -461,26 +470,26 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"肩型:";
     itemModel.textFieldLeftOffset = 5;
-    self.jingSizeItemView.itemModel = itemModel;
+    self.jianTypeItemView.itemModel = itemModel;
 }
 
 - (void)setupJanTypeView{
-    DKYSampleOrderJianTypeItemView *view = [[DKYSampleOrderJianTypeItemView alloc] initWithFrame:CGRectZero];
+    DKYSampleOrderXiuTypeItemView *view = [[DKYSampleOrderXiuTypeItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
-    self.jianTypeView = view;
+    self.xiuTypeView = view;
     
     WeakSelf(weakSelf);
-    [self.jianTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.xiuTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.jingSizeItemView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.jianTypeItemView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"袖型:";
     itemModel.textFieldLeftOffset = 16;
-    self.jianTypeView.itemModel = itemModel;
+    self.xiuTypeView.itemModel = itemModel;
 }
 
 

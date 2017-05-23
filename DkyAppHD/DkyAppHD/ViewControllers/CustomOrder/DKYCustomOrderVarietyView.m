@@ -220,6 +220,9 @@
             self.selectedColorView.text = selectedColor;
             
             // 刷新参数
+            self.addProductApproveParameter.colorValue = nil;
+            self.addProductApproveParameter.colorArr = nil;
+            
             NSMutableArray *selectedColorId = [NSMutableArray array];
             for (DKYDahuoOrderColorModel *model in colorArray) {
                 if(model.selected){

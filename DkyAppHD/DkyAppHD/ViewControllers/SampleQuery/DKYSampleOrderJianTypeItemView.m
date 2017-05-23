@@ -75,71 +75,11 @@
     [super setMadeInfoByProductName:madeInfoByProductName];
     [self clear];
     
-    if(madeInfoByProductName == nil)  return;
-    
-    if(self.madeInfoByProductName.productMadeInfoView.mDimNew22Id > 0){
-        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW22) {
-            if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew22Id){
-                [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
-                break;
-            }
-        }
+    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
+        self.gyxcView.textField.enabled = YES;
+    }else{
+        self.gyxcView.textField.enabled = NO;
     }
-    
-//    self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
-    
-    self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
-    
-//    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61||
-//       ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
-//         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
-//        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367)){
-//           self.canEdit = NO;
-//       }else{
-//           self.canEdit = YES;
-//           
-//           self.textField.enabled = NO;
-//           self.gyxcView.textField.enabled = NO;
-//           
-//           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
-//               self.textField.enabled = NO;
-//           }else{
-//               self.textField.enabled = YES;
-//           }
-//           
-//           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131 ||
-//              madeInfoByProductName.productMadeInfoView.mDimNew22Id == 130||
-//              madeInfoByProductName.productMadeInfoView.mDimNew22Id == 129){
-//               self.jkView.textField.enabled = NO;
-//           }else{
-//               self.jkView.textField.enabled = YES;
-//           }
-//           
-//           if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 133){
-//               self.gyxcView.textField.enabled = NO;
-//           }else{
-//               self.gyxcView.textField.enabled = YES;
-//           }
-//       }
-    
-    //    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
-    //        self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
-    //        self.jkView.textField.enabled = YES;
-    //    }else{
-    //        self.jkView.textField.text = nil;
-    //        self.jkView.textField.enabled = NO;
-    //    }
 }
 
 - (void)dealwithMDimNew12IdSelected{
@@ -236,7 +176,7 @@
     
     NSMutableArray *item = @[].mutableCopy;
     
-    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW22) {
+    for (DKYDimlistItemModel *model in self.customOrderDimList.displayDIMFLAG_NEW22) {
         [item addObject:model.attribname];
     }
     
@@ -261,7 +201,7 @@
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
     NSArray *models = nil;
-    models = self.customOrderDimList.DIMFLAG_NEW22;
+    models = self.customOrderDimList.displayDIMFLAG_NEW22;
     
     // 清除
     if(index == 0){
@@ -282,6 +222,10 @@
     
     self.textField.enabled = NO;
     self.gyxcView.textField.enabled = NO;
+    
+//    if(self.mDimNew22IdBlock){
+//        self.mDimNew22IdBlock(nil,0);
+//    }
     
     
     if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
@@ -309,9 +253,9 @@
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
-    //    [self setupOptionsBtn];
-    //    [self setupTextField];
-    //    [self setupJkView];
+//    [self setupOptionsBtn];
+//    [self setupTextField];
+//    [self setupJkView];
     [self setupGyxcView];
 }
 
@@ -414,10 +358,11 @@
     
     WeakSelf(weakSelf);
     [self.gyxcView mas_makeConstraints:^(MASConstraintMaker *make) {
-        //        make.left.mas_equalTo(weakSelf.jkView.mas_right).with.offset(DKYCustomOrderItemMargin);
-        //        make.height.mas_equalTo(weakSelf.titleLabel);
-        //        make.width.mas_equalTo(DKYCustomOrderItemWidth);
-        //        make.top.mas_equalTo(weakSelf);
+//        make.left.mas_equalTo(weakSelf.jkView.mas_right).with.offset(DKYCustomOrderItemMargin);
+//        make.height.mas_equalTo(weakSelf.titleLabel);
+//        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+//        make.top.mas_equalTo(weakSelf);
+        
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.top.mas_equalTo(weakSelf);
         
@@ -426,13 +371,12 @@
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"袖长";
+    itemModel.title = @"工艺袖长";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.xcValue = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.hzxc1Value = @([textField.text doubleValue]);
     };
     self.gyxcView.itemModel = itemModel;
 }
-
 @end

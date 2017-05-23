@@ -9,6 +9,8 @@
 #import "DKYSampleOrderVarietyItemView.h"
 #import "DKYMultipleSelectPopupView.h"
 #import "DKYGetPzsJsonParameter.h"
+#import "DKYDahuoOrderColorModel.h"
+#import "DKYGetColorListRequestParameter.h"
 
 @interface DKYSampleOrderVarietyItemView ()
 
@@ -23,6 +25,7 @@
 @property (nonatomic, weak) UIButton *fourthBtn;
 
 @property (nonatomic, strong) DKYGetPzsJsonParameter *getPzsJsonParameter;
+@property (nonatomic, strong) DKYGetColorListRequestParameter *getColorListRequestParameter;
 
 @property (nonatomic, weak) UIButton *colorBtn;
 @property (nonatomic, weak) UITextView *selectedColorView;
@@ -145,6 +148,7 @@
     [self.secondBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
     [self.thirdBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
     [self.fourthBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.selectedColorView.text = nil;
 }
 
 #pragma mark - 网络请求
@@ -163,6 +167,77 @@
             NSArray *value = [dict objectForKey:@"value"];
             NSArray *array = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
             [weakSelf dealWithgetPzsJsonFromServer:flag value:array];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)getColorListFromServer{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+    
+    [[DKYHttpRequestManager sharedInstance] getColorListWithParameter:self.getColorListRequestParameter Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            NSArray *colorArray = [DKYDahuoOrderColorModel mj_objectArrayWithKeyValuesArray:result.data];
+            weakSelf.madeInfoByProductName.displayColorViewList = colorArray;
+            
+            // 刷新UI
+            for (DKYDahuoOrderColorModel *model in colorArray) {
+                for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+                    if([model.colorName isEqualToString:selectColor]){
+                        model.selected = YES;
+                        break;
+                    }else{
+                        model.selected = NO;
+                    }
+                }
+            }
+            
+            NSMutableString *selectedColor = [NSMutableString string];
+            for (DKYDahuoOrderColorModel *color in colorArray) {
+                if(color.selected){
+                    NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+                    [selectedColor appendString:oneColor];
+                }
+            }
+            
+            self.selectedColorView.text = selectedColor;
+            
+            // 刷新参数
+            self.addProductApproveParameter.colorValue = nil;
+            self.addProductApproveParameter.colorArr = nil;
+            
+            NSMutableArray *selectedColorId = [NSMutableArray array];
+            for (DKYDahuoOrderColorModel *model in colorArray) {
+                if(model.selected){
+                    self.addProductApproveParameter.colorValue = @(model.colorId);
+                    break;
+                }
+            }
+            
+            for (DKYDahuoOrderColorModel *model in colorArray) {
+                if(model.selected){
+                    [selectedColorId addObject:model.colorName];
+                }
+            }
+            
+            if(selectedColorId.count > 0){
+                self.addProductApproveParameter.colorArr = [selectedColorId componentsJoinedByString:@";"];
+            }
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -355,6 +430,7 @@
             if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
                 [self updateActionSheetOptionsWithFlag:1];
             }
+            [self updateColorSheet];
         }
             break;
         case 1:{
@@ -377,7 +453,7 @@
             if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
                 [self updateActionSheetOptionsWithFlag:2];
             }
-        }
+        } 
             break;
         case 2:{
             if(self.madeInfoByProductName){
@@ -421,7 +497,9 @@
 }
 
 - (void)dealWithmDimNew15IdSelected{
-    
+    if(self.mDimNew15IdBlock){
+        self.mDimNew15IdBlock(nil,0);
+    }
 }
 
 - (void)updateActionSheetOptionsWithFlag:(NSInteger)flag{
@@ -434,6 +512,63 @@
     if([self checkForupdateActionSheetOptions]){
         [self getPzsJsonFromServer];
     }
+}
+
+- (void)updateColorSheet{
+    self.getColorListRequestParameter.mDimNew14Id = self.addProductApproveParameter.mDimNew14Id;
+    
+    // 品种选择了清除
+    if(self.addProductApproveParameter.mDimNew14Id == nil){
+        
+        // 恢复默认情况 UI
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+            for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+                if([model.colorName isEqualToString:selectColor]){
+                    model.selected = YES;
+                    break;
+                }else{
+                    model.selected = NO;
+                }
+            }
+        }
+        
+        NSMutableString *selectedColor = [NSMutableString string];
+        for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.colorViewList) {
+            if(color.selected){
+                NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+                [selectedColor appendString:oneColor];
+            }
+        }
+        
+        if([selectedColor isNotBlank]){
+            self.selectedColorView.text = selectedColor;
+        }
+        
+        
+        // 恢复参数默认情况
+        NSMutableArray *selectedColorId = [NSMutableArray array];
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+            if(model.selected){
+                self.addProductApproveParameter.colorValue = @(model.colorId);
+                break;
+            }
+        }
+        
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+            if(model.selected){
+                [selectedColorId addObject:model.colorName];
+            }
+        }
+        
+        if(selectedColorId.count > 0){
+            self.addProductApproveParameter.colorArr = [selectedColorId componentsJoinedByString:@";"];
+        }
+        
+        self.madeInfoByProductName.displayColorViewList = self.madeInfoByProductName.colorViewList;
+        return;
+    }
+    
+    [self getColorListFromServer];
 }
 
 - (BOOL)checkForupdateActionSheetOptions{
@@ -455,13 +590,12 @@
 - (void)showMultipleSelectPopupView{
     DKYMultipleSelectPopupView *pop = [DKYMultipleSelectPopupView show];
     pop.addProductApproveParameter = self.addProductApproveParameter;
-    pop.colorViewList = self.madeInfoByProductName.colorViewList;
+    pop.colorViewList = self.madeInfoByProductName.displayColorViewList;
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
-    
     WeakSelf(weakSelf);
     pop.confirmBtnClicked = ^(id sender) {
         NSMutableString *selectedColor = [NSMutableString string];
-        for (DKYDahuoOrderColorModel *color in weakSelf.madeInfoByProductName.colorViewList) {
+        for (DKYDahuoOrderColorModel *color in weakSelf.madeInfoByProductName.displayColorViewList) {
             if(color.selected){
                 NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
                 [selectedColor appendString:oneColor];
@@ -618,6 +752,13 @@
         _getPzsJsonParameter = [[DKYGetPzsJsonParameter alloc] init];
     }
     return _getPzsJsonParameter;
+}
+
+- (DKYGetColorListRequestParameter*)getColorListRequestParameter{
+    if(_getColorListRequestParameter == nil){
+        _getColorListRequestParameter = [[DKYGetColorListRequestParameter alloc] init];
+    }
+    return _getColorListRequestParameter;
 }
 
 @end
