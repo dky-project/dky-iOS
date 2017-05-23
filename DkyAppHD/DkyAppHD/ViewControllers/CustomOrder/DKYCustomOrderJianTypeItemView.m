@@ -86,8 +86,6 @@
         }
     }
     
-    self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
-    
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
 
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
@@ -132,6 +130,23 @@
             self.gyxcView.textField.enabled = YES;
         }
     }
+    
+    self.jkView.textField.enabled = !((![madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]) || [madeInfoByProductName.productCusmptcateView.isJkAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]));
+    
+    
+    // 更新肩型的选项
+    NSMutableArray *array = [NSMutableArray array];
+    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW22) {
+        for (NSString *name in madeInfoByProductName.productCusmptcateView.jxShow) {
+            if([model.attribname isEqualToString:name]){
+                [array addObject:model];
+                break;
+            }
+        }
+    }
+    
+    
+    self.customOrderDimList.DIMFLAG_NEW22 = [array copy];
     
 //    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
 //        self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;

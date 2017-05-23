@@ -27,7 +27,7 @@
  */
 @property (nonatomic, copy) NSString * isXcAffix;
 
-@property (nonatomic, copy) NSString * jxShow;
+@property (nonatomic, copy) NSArray * jxShow;
 @property (nonatomic, copy) NSString * lbShow;
 @property (nonatomic, copy) NSString * lxShow;
 @property (nonatomic, copy) NSString * syShow;
