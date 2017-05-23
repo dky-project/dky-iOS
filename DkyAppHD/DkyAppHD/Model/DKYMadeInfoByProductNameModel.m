@@ -20,6 +20,8 @@
     if([self.productMadeInfoView.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame){
         self.bigOrder = YES;
     }
+    
+    self.displayColorViewList = [self.colorViewList copy];
 }
 
 @end

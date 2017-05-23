@@ -53,6 +53,7 @@
 #define kGetPzsJsonUrl                  @"dimNew/getPzsJson"                        // 品种、组织、针型、支别下拉框操作时需要调用后台接口返回新的下拉框值给这四个下拉框重新填充
 
 #define kConfirmProductApproveUrl       @"productApprove/confirmProductApprove"     // 生成订单接口
+#define kGetColorListUrl                @"dimNew/getColorList"                      // 品种下拉框选择需要动态调用接口获取颜色列表
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询

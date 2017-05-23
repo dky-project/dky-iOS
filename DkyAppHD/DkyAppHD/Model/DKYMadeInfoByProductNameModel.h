@@ -25,4 +25,6 @@
 // 客户端自己的属性
 @property (nonatomic, assign, getter=isBigOrder) BOOL bigOrder;
 
+@property (nonatomic, strong) NSArray *displayColorViewList;
+
 @end

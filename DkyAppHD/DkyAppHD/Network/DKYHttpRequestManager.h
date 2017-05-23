@@ -177,6 +177,15 @@
 - (void)confirmProductApproveWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
 
 /**
+ *  品种下拉框，刷新颜色选项
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+- (void)getColorListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+
+/**
  *  样衣详情页面下单
  *
  *  @param parameter parameter description

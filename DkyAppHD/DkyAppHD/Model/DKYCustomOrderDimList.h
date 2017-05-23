@@ -136,7 +136,8 @@
 
 
 
-
+// 客户端自己的属性
+@property (nonatomic, copy) NSArray *displayDIMFLAG_NEW22;
 
 
 

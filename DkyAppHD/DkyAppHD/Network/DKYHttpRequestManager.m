@@ -97,6 +97,10 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithNoAuthorizationToken:kConfirmProductApproveUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)getColorListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithNoAuthorizationToken:kGetColorListUrl withParameter:parameter Success:success failure:failure];
+}
+
 - (void)addProductDefaultWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithNoAuthorizationToken:kAddProductDefaultUrl withParameter:parameter Success:success failure:failure];
 }

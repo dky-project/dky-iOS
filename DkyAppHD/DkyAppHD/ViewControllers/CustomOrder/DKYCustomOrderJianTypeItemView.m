@@ -75,7 +75,10 @@
     [super setMadeInfoByProductName:madeInfoByProductName];
     [self clear];
     
-    if(madeInfoByProductName == nil)  return;
+    if(madeInfoByProductName == nil){
+        self.customOrderDimList.displayDIMFLAG_NEW22 = self.customOrderDimList.DIMFLAG_NEW22;
+        return;
+    }
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew22Id > 0){
         for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW22) {
@@ -146,7 +149,7 @@
     }
     
     
-    self.customOrderDimList.DIMFLAG_NEW22 = [array copy];
+    self.customOrderDimList.displayDIMFLAG_NEW22 = [array copy];
     
 //    if([madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
 //        self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
@@ -251,7 +254,7 @@
     
     NSMutableArray *item = @[].mutableCopy;
     
-    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW22) {
+    for (DKYDimlistItemModel *model in self.customOrderDimList.displayDIMFLAG_NEW22) {
         [item addObject:model.attribname];
     }
     
@@ -276,7 +279,7 @@
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
     NSArray *models = nil;
-    models = self.customOrderDimList.DIMFLAG_NEW22;
+    models = self.customOrderDimList.displayDIMFLAG_NEW22;
     
     // 清除
     if(index == 0){
