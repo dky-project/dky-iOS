@@ -277,6 +277,8 @@ static const CGFloat basicItemHeight = 30;
 
 #pragma mark - UI
 - (void)commonInit{
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     // 第一行 款号，客户，手机号
     [self setupNumberView];
     [self setupClientView];

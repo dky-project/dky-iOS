@@ -71,7 +71,13 @@
     
     [self clear];
     
+    self.sjxcView.textField.enabled = NO;
+    
     if(!madeInfoByProductName) return;
+    
+    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
+        self.sjxcView.textField.enabled = YES;
+    }
 //    
 //    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54 ||
 //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
