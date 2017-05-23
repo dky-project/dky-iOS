@@ -127,6 +127,9 @@ static DKYHttpRequestManager *sharedInstance = nil;
     NSDictionary *pDict = nil;
     if(parameter){
         pDict = [parameter mj_keyValues];
+    }else{
+        DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+        pDict = [p mj_keyValues];
     }
     
     NSDictionary *hDict = nil;
@@ -157,6 +160,9 @@ static DKYHttpRequestManager *sharedInstance = nil;
     NSDictionary *pDict = nil;
     if(parameter){
         pDict = parameter.mj_keyValues;
+    }else{
+        DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+        pDict = [p mj_keyValues];
     }
     
     [self.httpRequestTool doPost:url

@@ -64,6 +64,7 @@
 #import "TWScrollView.h"
 #import "LCActionSheet.h"
 #import "RMUniversalAlert.h"
+#import "DKYCommonTool.h"
 #endif
 
 

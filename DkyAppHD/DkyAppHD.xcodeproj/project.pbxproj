@@ -209,6 +209,7 @@
 		EBABE8E71E15120500B4C568 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8E61E15120500B4C568 /* Localization.strings */; };
 		EBB1132E1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB1132D1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m */; };
 		EBB113341ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB113331ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m */; };
+		EBB1133A1ED433BC0028FC17 /* DKYCommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB113391ED433BC0028FC17 /* DKYCommonTool.m */; };
 		EBB2498A1EAEDECB008506D0 /* DKYTongkuanFiveBusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB249891EAEDECB008506D0 /* DKYTongkuanFiveBusinessCell.m */; };
 		EBB3BAF91E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3BAF81E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m */; };
 		EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB480AE1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m */; };
@@ -709,6 +710,8 @@
 		EBB1132D1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetColorListRequestParameter.m; sourceTree = "<group>"; };
 		EBB113321ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderXiuTypeItemView.h; sourceTree = "<group>"; };
 		EBB113331ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderXiuTypeItemView.m; sourceTree = "<group>"; };
+		EBB113381ED433BC0028FC17 /* DKYCommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCommonTool.h; sourceTree = "<group>"; };
+		EBB113391ED433BC0028FC17 /* DKYCommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCommonTool.m; sourceTree = "<group>"; };
 		EBB249881EAEDECB008506D0 /* DKYTongkuanFiveBusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTongkuanFiveBusinessCell.h; sourceTree = "<group>"; };
 		EBB249891EAEDECB008506D0 /* DKYTongkuanFiveBusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuanFiveBusinessCell.m; sourceTree = "<group>"; };
 		EBB3BAF71E63F2240097D1CE /* DKYSampleDetailPriceViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailPriceViewCell.h; sourceTree = "<group>"; };
@@ -1065,6 +1068,8 @@
 				26DAD0D71E1A45EB008EE55F /* DKYHUDTool.m */,
 				EB9884CA1E2864B400BAFADE /* DKYHtmlHelper.h */,
 				EB9884CB1E2864B400BAFADE /* DKYHtmlHelper.m */,
+				EBB113381ED433BC0028FC17 /* DKYCommonTool.h */,
+				EBB113391ED433BC0028FC17 /* DKYCommonTool.m */,
 			);
 			path = "Manager&Tool";
 			sourceTree = "<group>";
@@ -2512,6 +2517,7 @@
 				EBD694B01E277B4700F365C3 /* RxWebViewController.m in Sources */,
 				EB506C4A1E23B2C0002A1423 /* DKYOrderBrowseView.m in Sources */,
 				EB97906C1E221B6F00E2985C /* MMPinView.m in Sources */,
+				EBB1133A1ED433BC0028FC17 /* DKYCommonTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

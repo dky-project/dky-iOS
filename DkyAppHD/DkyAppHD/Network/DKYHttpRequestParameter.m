@@ -10,6 +10,15 @@
 
 @implementation DKYHttpRequestParameter
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.version = kAppVersion;
+    }
+    return self;
+}
+
 + (NSDictionary*)mj_replacedKeyFromPropertyName{
     return @{@"Id" : @"id"};
 }
