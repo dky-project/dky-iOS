@@ -10,4 +10,14 @@
 
 @implementation DKYSampleQueryParameter
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.isRecommend = @"N";
+        self.isRank = @"N";
+    }
+    return self;
+}
+
 @end

@@ -27,6 +27,10 @@
 
 @property (nonatomic, weak) UITextField *styleNumberTextField;
 
+@property (nonatomic, weak) UIButton *recommendBtn;
+
+@property (nonatomic, weak) UIButton *rankBtn;
+
 @end
 
 @implementation DKYFiltrateView
@@ -91,6 +95,16 @@
                        }
                    } sourceView:optionView];
 #pragma clang diagnostic pop
+}
+
+- (void)recommendBtnClicked:(UIButton*)sender{
+    sender.selected = !sender.selected;
+    self.sampleQueryParameter.isRecommend = sender.selected ? @"Y" : @"N";
+}
+
+- (void)rankBtnClicked:(UIButton*)sender{
+    sender.selected = !sender.selected;
+    self.sampleQueryParameter.isRank = sender.selected ? @"Y" : @"N";
 }
 
 #pragma mark - private method
@@ -219,6 +233,9 @@
     [self setupOpentionView];
     
     [self setupStyleNumberTextField];
+    
+    [self setupRecommendBtn];
+    [self setupRankBtn];
 //    [self test];
 }
 
@@ -426,6 +443,38 @@
         make.right.mas_equalTo(rightView);
         make.height.mas_equalTo(35);
     }];
+}
+
+- (void)setupRecommendBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(recommendBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.styleNumberTextField);
+        make.top.mas_equalTo(weakSelf.styleNumberTextField);
+        
+        make.left.mas_equalTo(weakSelf.styleNumberTextField.mas_right).with.offset(kOptionViewMargin);
+        make.width.mas_equalTo(kOptionViewHeight);
+    }];
+    self.recommendBtn = btn;
+    [btn setTitle:@"推荐" forState:UIControlStateNormal];
+}
+
+- (void)setupRankBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(rankBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.styleNumberTextField);
+        make.top.mas_equalTo(weakSelf.styleNumberTextField);
+        
+        make.left.mas_equalTo(weakSelf.recommendBtn.mas_right).with.offset(kOptionViewMargin);
+        make.width.mas_equalTo(kOptionViewHeight);
+    }];
+    self.rankBtn = btn;
+    [btn setTitle:@"销量排行" forState:UIControlStateNormal];
 }
 
 - (void)test{

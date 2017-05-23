@@ -63,4 +63,10 @@
  */
 @property (nonatomic, copy) NSString *name;
 
+// 推荐
+@property (nonatomic, copy) NSString *isRecommend;
+
+// 销量排行
+@property (nonatomic, copy) NSString *isRank;
+
 @end
