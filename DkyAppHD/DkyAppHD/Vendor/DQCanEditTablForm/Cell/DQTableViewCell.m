@@ -41,6 +41,7 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self DQAddSubViewFunction];
         [self setupLine];
+        self.formType = DKYFormType_Default;
     }
     return self;
 }
@@ -97,16 +98,53 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
     
     CGFloat totalWidth = 0;
     NSMutableArray *mwidth = [NSMutableArray arrayWithCapacity:_TotalSection];
-    for (NSArray *array in DataArr) {
-        CGFloat width = 100;
-        for (NSString *title in array) {
-            if(title.length > 2){
-                width = 160;
-                break;
+    
+    switch (self.formType) {
+        case DKYFormType_Default:{
+            for (NSArray *array in DataArr) {
+                CGFloat width = 100;
+                for (NSString *title in array) {
+                    if(title.length > 2){
+                        width = 160;
+                        break;
+                    }
+                }
+                totalWidth += width;
+                [mwidth addObject:@(width)];
             }
         }
-        totalWidth += width;
-        [mwidth addObject:@(width)];
+            break;
+        case DKYFormType_TypeOne:{
+            CGFloat minWidth = 100;
+            CGFloat maxWidth = (514 - 32) / 2;
+            
+            UIFont *font = [UIFont systemFontOfSize:13];
+            CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+            NSDictionary *attributes = @{NSFontAttributeName : font};
+            NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+            
+            for (NSArray *array in DataArr) {
+                CGFloat maxw = 0;
+                
+                for (NSString *title in array) {
+                    CGRect textFrame = [title boundingRectWithSize:size
+                                                                options:options
+                                                             attributes:attributes
+                                                                context:nil];
+                    if(textFrame.size.width > maxw){
+                        maxw = textFrame.size.width;
+                    }
+                }
+                
+                maxw = MIN(MAX(minWidth, maxw), maxWidth);
+                
+                totalWidth += maxw;
+                [mwidth addObject:@(maxw)];
+            }
+        }
+            break;
+        default:
+            break;
     }
     
     self.lineWidthArray = [mwidth copy];

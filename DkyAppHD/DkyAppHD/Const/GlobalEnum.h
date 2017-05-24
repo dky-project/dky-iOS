@@ -63,4 +63,10 @@ typedef NS_ENUM(NSInteger, DKYCustomOrderActionsType) {
     DKYCustomOrderActionsType_reWrite,
 };
 
+// 表格类型
+typedef NS_ENUM(NSInteger, DKYFormType) {
+    DKYFormType_Default = 0,
+    DKYFormType_TypeOne
+};
+
 #endif /* GlobalEnum_h */

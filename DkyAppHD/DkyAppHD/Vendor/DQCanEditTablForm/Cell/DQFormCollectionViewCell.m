@@ -21,6 +21,8 @@
     if (!_Textlab) {
         _Textlab = [UILabel new];
         _Textlab.font = [UIFont systemFontOfSize:13];
+        _Textlab.numberOfLines = 0;
+        _Textlab.adjustsFontSizeToFitWidth = YES;
         _Textlab.textColor = [UIColor blackColor];
         [self.contentView addSubview:self.Textlab];
         _Textlab.hidden = NO;

@@ -19,4 +19,6 @@
 @property (nonatomic, assign) NSInteger TotalSection;
 
 @property (nonatomic, assign) BOOL hideBottomLine;
+
+@property (nonatomic, assign) DKYFormType formType;
 @end

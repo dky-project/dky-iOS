@@ -14,6 +14,7 @@
 #import "DKYAddProductApproveParameter.h"
 #import "DKYOrderBrowseModel.h"
 #import "DKYOrderBrowsePopupView.h"
+#import "DQTableViewCell.h"
 
 @interface DKYSampleOrderPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -34,6 +35,8 @@
 @property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
 @property (nonatomic, strong) DKYOrderBrowseModel *orderBrowseModel;
+
+@property (nonatomic, strong) NSArray *sampleValueArray;
 
 @end
 
@@ -256,13 +259,34 @@
     return YES;
 }
 
-
+- (void)setupSampleValueArray{
+//    NSMutableArray *pz = [NSMutableArray arrayWithCapacity:3];
+//    [pz addObject:@"品种"];
+//    
+//    NSMutableArray *ys = [NSMutableArray arrayWithCapacity:3];
+//    [ys addObject:@"颜色"];
+//    
+//    [pz addObject:@"1"];
+//    [pz addObject:@"2"];
+//    
+//    [ys addObject:@"5408/5012/5216/5548/5012/5216/5548/5012/5216/5548"];
+//    [ys addObject:@"5408/5012/5216/5548"];
+    
+//    for (DKYSampleValueInfoModel *model in self.sampleValues) {
+//        [pz addObject:model.ycValue];
+//        [ys addObject:model.xcValue];
+//    }
+    
+//    self.sampleValueArray = @[[pz copy],[ys copy]];
+}
 
 #pragma mark - UI
 - (void)commonInit{
     self.bounds = CGRectMake(0, 0, 514, 610);
     self.backgroundColor = [UIColor whiteColor];
 
+    [self setupSampleValueArray];
+    
     [self setupTitleView];
     [self setupTitleLabel];
     [self setupTableView];
@@ -317,6 +341,9 @@
         make.right.mas_equalTo(weakSelf);
         make.bottom.mas_equalTo(weakSelf);
     }];
+    
+    [self.tableView registerClass:[DQTableViewCell class] forCellReuseIdentifier:NSStringFromClass([DQTableViewCell class])];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)setupBtns{
@@ -355,26 +382,45 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 450;
+    if(indexPath.row == 0) return 400;
+    
+    return 30 + 30 * 3;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DKYSampleOrderViewCell *cell = [DKYSampleOrderViewCell sampleOrderViewCellWithTableView:tableView];
-    cell.sampleProductInfo = self.sampleProductInfo;
-    cell.productApproveTitleModel = self.productApproveTitle;
-    cell.addProductApproveParameter = self.addProductApproveParameter;
-    return cell;
+    if(indexPath.row == 0){
+        DKYSampleOrderViewCell *cell = [DKYSampleOrderViewCell sampleOrderViewCellWithTableView:tableView];
+        cell.sampleProductInfo = self.sampleProductInfo;
+        cell.productApproveTitleModel = self.productApproveTitle;
+        cell.addProductApproveParameter = self.addProductApproveParameter;
+        return cell;
+    }else{
+        DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+        cell.formType = DKYFormType_TypeOne;
+        cell.DataArr = [self.sampleValueArray mutableCopy];
+        cell.hideBottomLine = YES;
+        return cell;
+        
+//        static NSString *cellID = @"testCellID";
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//        if(cell == nil)
+//        {
+//            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+//        }
+//        cell.textLabel.text = @"测试数据";
+//        return cell;
+    }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
+
 
 @end
