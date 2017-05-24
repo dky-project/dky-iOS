@@ -108,6 +108,9 @@
     self.line13.itemModel.firstContent = orderBrowseModel.bzValue;
     self.line13.itemModel = self.line13.itemModel;
     
+    self.line14.itemModel.firstContent = orderBrowseModel.content;
+    self.line14.itemModel = self.line14.itemModel;
+    
     self.line15.itemModel.firstContent = orderBrowseModel.ptValue;
     self.line15.itemModel = self.line15.itemModel;
     WeakSelf(weakSelf);
@@ -236,7 +239,7 @@
     self.line14 = [self createViewWithPrevView:self.line2];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_center;
-    itemModel.firstContent = @"单面，开衫，16S";
+//    itemModel.firstContent = @"单面，开衫，16S";
     self.line14.itemModel = itemModel;
     
     self.line3 = [self createViewWithPrevView:self.line14];

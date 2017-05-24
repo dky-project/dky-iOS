@@ -79,6 +79,12 @@
     }
     
     self.textField.enabled = itemModel.enabled;
+    
+//    if(itemModel.zoomed){
+//        self.titleLabel.font = [UIFont systemFontOfSize:24];
+//        
+//        self.textField.font = [UIFont systemFontOfSize:30];
+//    }
 }
 
 - (void)clear{

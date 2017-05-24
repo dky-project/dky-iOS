@@ -32,4 +32,6 @@
 
 @property (nonatomic, assign) BOOL enabled;
 
+@property (nonatomic, assign) BOOL zoomed;
+
 @end
