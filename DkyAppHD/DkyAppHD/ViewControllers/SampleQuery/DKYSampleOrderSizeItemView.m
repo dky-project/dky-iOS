@@ -89,9 +89,9 @@
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
-        self.canEdit = NO;
-    }else{
         self.canEdit = YES;
+    }else{
+        self.canEdit = NO;
     }
     
     BOOL enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));

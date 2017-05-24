@@ -325,9 +325,9 @@
 
 #pragma mark - UI
 - (void)commonInit{
-    self.bounds = CGRectMake(0, 0, 514, 610);
+//    self.bounds = CGRectMake(0, 0, 514, 610);
     
-//    self.bounds = CGRectMake(0, 0, 700, 830);
+    self.bounds = CGRectMake(0, 0, 600, 712);
     self.backgroundColor = [UIColor whiteColor];
     
     self.group = dispatch_group_create();
