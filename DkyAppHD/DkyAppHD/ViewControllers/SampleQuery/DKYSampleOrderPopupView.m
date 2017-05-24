@@ -448,7 +448,7 @@
     }else{
         DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
         cell.formType = DKYFormType_TypeOne;
-        cell.DataArr = [self.sampleValueArray mutableCopy];
+        cell.DataArr = (self.dimListModels.count > 1)? [self.sampleValueArray mutableCopy] : nil;
         cell.hideBottomLine = YES;
         return cell;
     }
