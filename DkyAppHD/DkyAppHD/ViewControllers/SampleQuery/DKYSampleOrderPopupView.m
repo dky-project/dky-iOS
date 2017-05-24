@@ -15,6 +15,8 @@
 #import "DKYOrderBrowseModel.h"
 #import "DKYOrderBrowsePopupView.h"
 #import "DQTableViewCell.h"
+#import "DKYGetColorDimListParameter.h"
+#import "DKYColorDimListModel.h"
 
 @interface DKYSampleOrderPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -36,7 +38,10 @@
 
 @property (nonatomic, strong) DKYOrderBrowseModel *orderBrowseModel;
 
+@property (nonatomic, strong) NSArray *dimListModels;
 @property (nonatomic, strong) NSArray *sampleValueArray;
+
+@property (nonatomic, strong) dispatch_group_t group;
 
 @end
 
@@ -70,7 +75,7 @@
     contentView.popup = popup;
     
     popup.didFinishShowingCompletion = ^(){
-        [contentView getProductApproveTitleFromServer];
+        [contentView doHttpRequest];
     };
     [popup show];
     return contentView;
@@ -90,8 +95,7 @@
 }
 
 - (void)getProductApproveTitleFromServer{
-    [DKYHUDTool show];
-    
+    dispatch_group_enter(self.group);
     WeakSelf(weakSelf);
     [[DKYHttpRequestManager sharedInstance] getProductApproveTitleWithParameter:nil Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -112,10 +116,43 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
+        dispatch_group_leave(weakSelf.group);
     } failure:^(NSError *error) {
         [DKYHUDTool dismiss];
         DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
+    }];
+}
+
+- (void)getColorDimListFromServer{
+    WeakSelf(weakSelf);
+    dispatch_group_enter(self.group);
+    DKYGetColorDimListParameter *p = [[DKYGetColorDimListParameter alloc] init];
+    p.mProductId = weakSelf.sampleProductInfo.mProductId;
+    
+    [[DKYHttpRequestManager sharedInstance] getColorDimListWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.dimListModels = [DKYColorDimListModel mj_objectArrayWithKeyValuesArray:result.data];
+            [weakSelf setupSampleValueArray];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [DKYHUDTool dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            [DKYHUDTool dismiss];
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        dispatch_group_leave(weakSelf.group);
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
     }];
 }
 
@@ -199,6 +236,18 @@
     }];
 }
 
+- (void)doHttpRequest{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    [self getProductApproveTitleFromServer];
+    [self getColorDimListFromServer];
+    
+    dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
+        [DKYHUDTool dismiss];
+        [weakSelf.tableView reloadData];
+    });
+}
+
 - (void)clearDataAndUI{
     [self.popup dismiss:YES];
 }
@@ -260,30 +309,26 @@
 }
 
 - (void)setupSampleValueArray{
-//    NSMutableArray *pz = [NSMutableArray arrayWithCapacity:3];
-//    [pz addObject:@"品种"];
-//    
-//    NSMutableArray *ys = [NSMutableArray arrayWithCapacity:3];
-//    [ys addObject:@"颜色"];
-//    
-//    [pz addObject:@"1"];
-//    [pz addObject:@"2"];
-//    
-//    [ys addObject:@"5408/5012/5216/5548/5012/5216/5548/5012/5216/5548"];
-//    [ys addObject:@"5408/5012/5216/5548"];
+    NSMutableArray *pz = [NSMutableArray arrayWithCapacity:3];
+    [pz addObject:@"品种"];
     
-//    for (DKYSampleValueInfoModel *model in self.sampleValues) {
-//        [pz addObject:model.ycValue];
-//        [ys addObject:model.xcValue];
-//    }
+    NSMutableArray *ys = [NSMutableArray arrayWithCapacity:3];
+    [ys addObject:@"颜色"];
     
-//    self.sampleValueArray = @[[pz copy],[ys copy]];
+    for (DKYColorDimListModel *model in self.dimListModels) {
+        [pz addObject:model.mDimNew14Text];
+        [ys addObject:model.colorName];
+    }
+    
+    self.sampleValueArray = @[[pz copy],[ys copy]];
 }
 
 #pragma mark - UI
 - (void)commonInit{
     self.bounds = CGRectMake(0, 0, 514, 610);
     self.backgroundColor = [UIColor whiteColor];
+    
+    self.group = dispatch_group_create();
 
     [self setupSampleValueArray];
     
@@ -389,7 +434,7 @@
 {
     if(indexPath.row == 0) return 400;
     
-    return 30 + 30 * 3;
+    return 30 + (self.dimListModels.count + 1) * 30;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -406,15 +451,6 @@
         cell.DataArr = [self.sampleValueArray mutableCopy];
         cell.hideBottomLine = YES;
         return cell;
-        
-//        static NSString *cellID = @"testCellID";
-//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-//        if(cell == nil)
-//        {
-//            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-//        }
-//        cell.textLabel.text = @"测试数据";
-//        return cell;
     }
 }
 

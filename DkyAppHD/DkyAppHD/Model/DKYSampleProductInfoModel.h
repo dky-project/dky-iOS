@@ -70,4 +70,7 @@
 
 @property (nonatomic, copy) NSString *gw;
 
+// 客户端自己的属性
+@property (nonatomic, strong) NSNumber *mProductId;
+
 @end

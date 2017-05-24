@@ -88,6 +88,8 @@
 		EB195B9A1E5C41CE00116048 /* LCActionSheetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B931E5C41CE00116048 /* LCActionSheetConfig.m */; };
 		EB195B9B1E5C41CE00116048 /* NSSet+LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B951E5C41CE00116048 /* NSSet+LCActionSheet.m */; };
 		EB195B9C1E5C41CE00116048 /* UIImage+LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EB195B971E5C41CE00116048 /* UIImage+LCActionSheet.m */; };
+		EB25EEBF1ED55ED5009DA892 /* DKYGetColorDimListParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25EEBE1ED55ED5009DA892 /* DKYGetColorDimListParameter.m */; };
+		EB25EEC21ED56814009DA892 /* DKYColorDimListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25EEC11ED56814009DA892 /* DKYColorDimListModel.m */; };
 		EB3F2BD61EC94950007F1A89 /* DKYOrderBrowseFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F2BD51EC94950007F1A89 /* DKYOrderBrowseFooterView.m */; };
 		EB3F2BDA1EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F2BD81EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.m */; };
 		EB3F2BDB1EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB3F2BD91EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.xib */; };
@@ -472,6 +474,10 @@
 		EB195B951E5C41CE00116048 /* NSSet+LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+LCActionSheet.m"; sourceTree = "<group>"; };
 		EB195B961E5C41CE00116048 /* UIImage+LCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCActionSheet.h"; sourceTree = "<group>"; };
 		EB195B971E5C41CE00116048 /* UIImage+LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCActionSheet.m"; sourceTree = "<group>"; };
+		EB25EEBD1ED55ED5009DA892 /* DKYGetColorDimListParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetColorDimListParameter.h; sourceTree = "<group>"; };
+		EB25EEBE1ED55ED5009DA892 /* DKYGetColorDimListParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetColorDimListParameter.m; sourceTree = "<group>"; };
+		EB25EEC01ED56814009DA892 /* DKYColorDimListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYColorDimListModel.h; sourceTree = "<group>"; };
+		EB25EEC11ED56814009DA892 /* DKYColorDimListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYColorDimListModel.m; sourceTree = "<group>"; };
 		EB3F2BD41EC94950007F1A89 /* DKYOrderBrowseFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowseFooterView.h; sourceTree = "<group>"; };
 		EB3F2BD51EC94950007F1A89 /* DKYOrderBrowseFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowseFooterView.m; sourceTree = "<group>"; };
 		EB3F2BD71EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowsePopupViewCell.h; sourceTree = "<group>"; };
@@ -1330,6 +1336,8 @@
 				26A6FA5C1E61A08700376194 /* DKYDimNewListModel.m */,
 				26A6FA5E1E61A13C00376194 /* DKYDimNewListItemModel.h */,
 				26A6FA5F1E61A13C00376194 /* DKYDimNewListItemModel.m */,
+				EB25EEC01ED56814009DA892 /* DKYColorDimListModel.h */,
+				EB25EEC11ED56814009DA892 /* DKYColorDimListModel.m */,
 			);
 			name = "样衣查询";
 			sourceTree = "<group>";
@@ -1578,6 +1586,8 @@
 				EBA597DA1ECC3D7F00F65F03 /* DKYProductCollectParameter.m */,
 				EBB1132C1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.h */,
 				EBB1132D1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m */,
+				EB25EEBD1ED55ED5009DA892 /* DKYGetColorDimListParameter.h */,
+				EB25EEBE1ED55ED5009DA892 /* DKYGetColorDimListParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2302,6 +2312,7 @@
 				26210BEE1E59A3A900EB05D6 /* BEMCheckBox.m in Sources */,
 				EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */,
+				EB25EEC21ED56814009DA892 /* DKYColorDimListModel.m in Sources */,
 				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
 				EB97906B1E221B6F00E2985C /* MMDateView.m in Sources */,
 				EBA351791E811D9700D89BFA /* DKYStaticDimListModel.m in Sources */,
@@ -2439,6 +2450,7 @@
 				EBD694B61E277DD500F365C3 /* DKYWebViewController.m in Sources */,
 				EB506C3D1E237AA7002A1423 /* DKYOrderInquiryViewCell.m in Sources */,
 				26210BF01E59A3A900EB05D6 /* BEMPathManager.m in Sources */,
+				EB25EEBF1ED55ED5009DA892 /* DKYGetColorDimListParameter.m in Sources */,
 				EB9511A81E164444008708EF /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				EB506C351E23706F002A1423 /* DKYHomeArticleModel.m in Sources */,
 				EB9790571E22158100E2985C /* UUDatePicker_DateModel.m in Sources */,

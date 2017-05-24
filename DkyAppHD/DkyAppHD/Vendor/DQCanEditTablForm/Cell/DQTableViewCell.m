@@ -116,7 +116,7 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
             break;
         case DKYFormType_TypeOne:{
             CGFloat minWidth = 100;
-            CGFloat maxWidth = (514 - 32) / 2;
+            CGFloat maxWidth = 514 - 32;
             
             UIFont *font = [UIFont systemFontOfSize:13];
             CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
@@ -136,8 +136,9 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
                     }
                 }
                 
+                maxw += 50;
                 maxw = MIN(MAX(minWidth, maxw), maxWidth);
-                
+                maxWidth -= maxw;
                 totalWidth += maxw;
                 [mwidth addObject:@(maxw)];
             }

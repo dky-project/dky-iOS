@@ -39,6 +39,8 @@
 
 #define kAddProductDefaultUrl           @"productApprove/addProductDefault"            // 样衣查询页面下单
 
+#define kGetColorDimListUrl             @"dimNew/getColorDimList"  // 详情页下单品种，颜色
+
 #define kGetProductInfoUrl              @"product/getProductInfo"       // 样衣详细信息查询
 #define kQueryPriceListUrl              @"product/queryPriceList"       // 查询价格列表
 #define kQueryValueListUrl              @"product/queryValueList"       // 查询胸围、衣长、肩宽、袖长列表

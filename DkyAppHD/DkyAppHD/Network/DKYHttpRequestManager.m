@@ -61,6 +61,10 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithAuthorizationToken:kQueryValueListUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)getColorDimListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kGetColorDimListUrl withParameter:parameter Success:success failure:failure];
+}
+
 - (void)productApprovePageWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithAuthorizationToken:kProductApproveUrl withParameter:parameter Success:success failure:failure];
 }

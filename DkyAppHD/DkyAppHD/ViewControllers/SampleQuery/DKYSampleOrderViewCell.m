@@ -78,6 +78,24 @@ static const CGFloat basicItemHeight = 30;
     return self;
 }
 
+- (void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(20, self.tw_height - 1)];
+    [path addLineToPoint:CGPointMake(self.tw_width - 20, self.tw_height - 1)];
+    [[UIColor colorWithHex:0x999999] setStroke];
+    
+    [path setLineWidth:1];
+    [path setLineJoinStyle:kCGLineJoinRound];
+    [path setLineCapStyle:kCGLineCapButt];
+    
+    CGFloat lengths[2] = { 1, 1 };
+    CGContextSetLineDash(context, 0, lengths, 2);
+    [path stroke];
+}
+
 - (void)setSampleProductInfo:(DKYSampleProductInfoModel *)sampleProductInfo{
     _sampleProductInfo = sampleProductInfo;
     
