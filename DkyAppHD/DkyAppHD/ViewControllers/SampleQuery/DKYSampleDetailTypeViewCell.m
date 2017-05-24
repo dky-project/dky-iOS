@@ -78,6 +78,12 @@
         return mutableAttributedString;
     }];
     
+    self.ganweiLabel.text = [NSString stringWithFormat:@"杆位 : %@",model.gw];
+    [self.ganweiLabel setText:self.ganweiLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
     self.allTypeLabel.text = [NSString stringWithFormat:@"所属类别 : %@",model.mptbelongtypeText];
     
     [self.allTypeLabel setText:self.allTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {

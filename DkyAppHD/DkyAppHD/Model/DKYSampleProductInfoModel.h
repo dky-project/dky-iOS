@@ -68,4 +68,6 @@
 
 @property (nonatomic, copy) NSString *pdtPrice;
 
+@property (nonatomic, copy) NSString *gw;
+
 @end
