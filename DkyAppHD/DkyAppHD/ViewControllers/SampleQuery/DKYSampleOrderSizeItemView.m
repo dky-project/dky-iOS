@@ -84,15 +84,15 @@
        }
     
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
-        self.canEdit = YES;
-    }else{
-        self.canEdit = NO;
-    }
+//    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
+//        self.canEdit = YES;
+//    }else{
+//        self.canEdit = NO;
+//    }
     
     BOOL enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
     self.lengthView.textField.enabled = enabled;

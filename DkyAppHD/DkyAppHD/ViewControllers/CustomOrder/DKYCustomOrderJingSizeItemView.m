@@ -78,9 +78,9 @@
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
-        self.canEdit = YES;
-    }else{
         self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
     }
 }
 

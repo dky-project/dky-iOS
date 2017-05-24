@@ -79,6 +79,14 @@
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(textFrame.size.width + 10);
     }];
+    
+    if(itemModel.zoomed){
+        self.titleLabel.font = [UIFont systemFontOfSize:24];
+
+        [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(80);
+        }];
+    }
 }
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
@@ -625,7 +633,7 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf);
         make.top.mas_equalTo(weakSelf);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(45);
         make.width.mas_equalTo(40);
     }];
     label.adjustsFontSizeToFitWidth = YES;
@@ -633,7 +641,7 @@
 
 - (void)setupOptionsBtn{
     WeakSelf(weakSelf);
-    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
     btn.tag = 0;
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -643,7 +651,7 @@
         
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
         //        make.right.mas_equalTo(weakSelf);
-        make.width.mas_equalTo(130);
+        make.width.mas_equalTo(140);
     }];
     [btn setTitle:@"点击选择品种" forState:UIControlStateNormal];
     btn.originalTitle = [btn currentTitle];
@@ -658,7 +666,7 @@
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.optionsBtn);
-        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(20);
+        make.left.mas_equalTo(weakSelf.optionsBtn.mas_right).with.offset(30);
         make.width.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.optionsBtn);
     }];
@@ -675,7 +683,7 @@
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.optionsBtn);
-        make.left.mas_equalTo(weakSelf.secondBtn.mas_right).with.offset(20);
+        make.left.mas_equalTo(weakSelf.secondBtn.mas_right).with.offset(30);
         make.width.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.optionsBtn);
     }];
@@ -691,7 +699,7 @@
     btn.tag = 3;
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.optionsBtn.mas_bottom).with.offset(20);
+        make.top.mas_equalTo(weakSelf.optionsBtn.mas_bottom).with.offset(30);
         make.left.mas_equalTo(weakSelf.optionsBtn);
         make.width.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.optionsBtn);
@@ -710,7 +718,7 @@
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.fourthBtn);
-        make.left.mas_equalTo(weakSelf.fourthBtn.mas_right).with.offset(20);
+        make.left.mas_equalTo(weakSelf.fourthBtn.mas_right).with.offset(30);
         make.width.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.optionsBtn);
     }];

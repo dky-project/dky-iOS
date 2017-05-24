@@ -25,8 +25,8 @@ static const CGFloat leftOffset = 20;
 static const CGFloat hpadding = 30;
 static const CGFloat vpadding = 20;
 
-static const CGFloat basicItemWidth = 222;
-static const CGFloat basicItemHeight = 30;
+static const CGFloat basicItemWidth = 265;
+static const CGFloat basicItemHeight = 45;
 
 @interface DKYSampleOrderViewCell ()
 
@@ -349,6 +349,7 @@ static const CGFloat basicItemHeight = 30;
         }
         weakSelf.addProductApproveParameter.no = textField.text;
     };
+    itemModel.zoomed = YES;
     self.numberView.itemModel = itemModel;
 }
 
@@ -373,7 +374,7 @@ static const CGFloat basicItemHeight = 30;
         weakSelf.addProductApproveParameter.customer = textField.text;
     };
     itemModel.content = @"样衣五";
-//    itemModel.zoomed = YES;
+    itemModel.zoomed = YES;
     self.clientView.itemModel = itemModel;
 }
 
@@ -394,6 +395,7 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"*款号:";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.enabled = NO;
+    itemModel.zoomed = YES;
     
 //    itemModel.textFieldDidEndEditing = ^(UITextField *sender){
 //        
@@ -429,6 +431,7 @@ static const CGFloat basicItemHeight = 30;
         }
         weakSelf.addProductApproveParameter.mobile = textField.text;
     };
+    itemModel.zoomed = YES;
     self.phoneNumberView.itemModel = itemModel;
 }
 
@@ -441,13 +444,14 @@ static const CGFloat basicItemHeight = 30;
     [self.varietyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(80);
+        make.height.mas_equalTo(110);
 //        make.height.mas_equalTo(weakSelf.numberView);
         make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*品种:";
+    itemModel.zoomed = YES;
     self.varietyView.itemModel = itemModel;
     self.varietyView.mDimNew15IdBlock = ^(id sender, NSInteger type){
         [weakSelf dealwithMDimNew15IdSelected];
