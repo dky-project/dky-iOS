@@ -532,7 +532,7 @@
         make.top.mas_equalTo(weakSelf);
         
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
-        make.width.mas_equalTo(177);
+        make.width.mas_equalTo(215);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];

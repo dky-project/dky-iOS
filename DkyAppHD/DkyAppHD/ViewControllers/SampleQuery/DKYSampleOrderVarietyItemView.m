@@ -739,6 +739,9 @@
     view.editable = NO;
     view.adjustsFontForContentSizeCategory = YES;
     
+    view.layer.borderWidth = 1.0;
+    view.layer.borderColor = [UIColor colorWithHex:0x686868].CGColor;
+    
     self.selectedColorView = view;
     
     WeakSelf(weakSelf);
