@@ -573,7 +573,7 @@
     self.kouView.optionsBtn.enabled = canEdit;
     self.mjkView.textField.enabled = canEdit;
     self.mjBtn1.enabled = canEdit;
-    self.mjBtn1.enabled = canEdit;
+    self.mjBtn2.enabled = canEdit;
     self.mjInputView.textField.enabled = canEdit;
     self.mjInputView.textFieldTwo.enabled = canEdit;
     self.dcView.textField.enabled = canEdit;
