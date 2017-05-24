@@ -12,6 +12,7 @@
 
 @interface DKYSampleDetailTypeViewCell ()<SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sampleTypeLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *ganweiLabel;
 
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *hintLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *designDescriptionLabel;

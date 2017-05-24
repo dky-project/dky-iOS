@@ -17,6 +17,7 @@
 //#define BASE_URL     @"https:"
 
 #define BASE_URL     @"http://192.168.3.171:8888/dky-web/"
+//#define BASE_URL     @"http://192.168.68.155:8888/dky-web/"
 //#define BASE_URL     @"http://192.168.3.76:7071/dky-web/"
 
 
