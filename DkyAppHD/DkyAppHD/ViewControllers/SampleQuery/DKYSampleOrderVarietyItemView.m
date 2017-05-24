@@ -660,7 +660,7 @@
     }
     self.optionsBtn = btn;
     
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
     btn.tag = 1;
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -677,7 +677,7 @@
     }
     self.secondBtn = btn;
     
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
     btn.tag = 2;
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -694,12 +694,12 @@
     }
     self.thirdBtn = btn;
     
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
     btn.tag = 3;
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.optionsBtn.mas_bottom).with.offset(30);
+        make.top.mas_equalTo(weakSelf.optionsBtn.mas_bottom).with.offset(20);
         make.left.mas_equalTo(weakSelf.optionsBtn);
         make.width.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.optionsBtn);
@@ -712,7 +712,7 @@
     }
     self.fourthBtn = btn;
     
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
     btn.tag = 4;
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -734,9 +734,10 @@
 - (void)setupSelectedColorView{
     UITextView *view = [[UITextView alloc] initWithFrame:CGRectZero];
     [self addSubview:view];
-    view.font = [UIFont systemFontOfSize:10];
+    view.font = [UIFont systemFontOfSize:18];
     view.textColor = [UIColor colorWithHex:0x333333];
     view.editable = NO;
+    view.adjustsFontForContentSizeCategory = YES;
     
     self.selectedColorView = view;
     
@@ -747,11 +748,13 @@
 //        make.bottom.mas_equalTo(weakSelf);
 //        make.right.mas_equalTo(weakSelf.thirdBtn);
         
-        make.top.mas_equalTo(weakSelf.fourthBtn).with.offset(-10);;
-        make.left.mas_equalTo(weakSelf.colorBtn.mas_right).with.offset(20);
-        make.width.mas_equalTo(weakSelf.optionsBtn);
+        make.top.mas_equalTo(weakSelf.fourthBtn.mas_bottom).with.offset(20);;
+        make.left.mas_equalTo(weakSelf.fourthBtn);
+        make.right.mas_equalTo(weakSelf.thirdBtn);
         make.bottom.mas_equalTo(weakSelf);
     }];
+    
+//    view.backgroundColor = [UIColor randomColor];
 }
 
 #pragma mark - get & set method

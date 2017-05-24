@@ -64,6 +64,14 @@
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(textFrame.size.width + offset);
     }];
+    
+    if(itemModel.zoomed){
+        self.titleLabel.font = [UIFont systemFontOfSize:24];
+        
+        [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(80);
+        }];
+    }
 }
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
@@ -275,7 +283,7 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf);
         make.top.mas_equalTo(weakSelf);
-        make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(weakSelf);
         make.width.mas_equalTo(40);
     }];
 }
@@ -289,13 +297,14 @@
     [self.bigView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(177);
+        make.width.mas_equalTo(215);
         make.top.mas_equalTo(weakSelf);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"大";
     itemModel.content = @"点击选择大小";
+    itemModel.zoomed = YES;
     self.bigView.itemModel = itemModel;
     
     view.optionsBtn.tag = 1;
@@ -315,9 +324,9 @@
     
     WeakSelf(weakSelf);
     [self.lengthView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.bigView.mas_right).with.offset(30);
+        make.left.mas_equalTo(weakSelf.bigView.mas_right).with.offset(50);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(177);
+        make.width.mas_equalTo(215);
         make.top.mas_equalTo(weakSelf);
     }];
     
@@ -327,6 +336,7 @@
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.ycValue = textField.text;
     };
+    itemModel.zoomed = YES;
     self.lengthView.itemModel = itemModel;
 }
 

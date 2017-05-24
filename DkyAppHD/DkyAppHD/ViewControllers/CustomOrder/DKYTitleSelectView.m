@@ -34,6 +34,13 @@
 - (void)setItemModel:(DKYCustomOrderItemModel *)itemModel{
     _itemModel = itemModel;
     
+    if(itemModel.zoomed){
+        self.titleLabel.font = [UIFont systemFontOfSize:24];
+        
+        self.optionsBtn.titleLabel.font = [UIFont systemFontOfSize:24];
+        self.optionsBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    }
+    
     self.titleLabel.text = itemModel.title;
     
     [self.optionsBtn setTitle:itemModel.content forState:UIControlStateNormal];
@@ -64,7 +71,6 @@
             make.width.mas_equalTo(textFrame.size.width + 2);
         }];
     }
-
 }
 
 #pragma mark - action method

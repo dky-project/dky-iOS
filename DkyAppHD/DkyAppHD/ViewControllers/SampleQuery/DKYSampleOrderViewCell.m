@@ -444,7 +444,7 @@ static const CGFloat basicItemHeight = 45;
     [self.varietyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(110);
+        make.height.mas_equalTo(175);
 //        make.height.mas_equalTo(weakSelf.numberView);
         make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
     }];
@@ -474,6 +474,7 @@ static const CGFloat basicItemHeight = 45;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"尺寸:";
     itemModel.textFieldLeftOffset = 16;
+    itemModel.zoomed = YES;
     self.sizeView.itemModel = itemModel;
 }
 
@@ -493,6 +494,7 @@ static const CGFloat basicItemHeight = 45;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"肩型:";
     itemModel.textFieldLeftOffset = 5;
+    itemModel.zoomed = YES;
     self.jianTypeItemView.itemModel = itemModel;
 }
 
@@ -512,6 +514,7 @@ static const CGFloat basicItemHeight = 45;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"袖型:";
     itemModel.textFieldLeftOffset = 16;
+    itemModel.zoomed = YES;
     self.xiuTypeView.itemModel = itemModel;
 }
 

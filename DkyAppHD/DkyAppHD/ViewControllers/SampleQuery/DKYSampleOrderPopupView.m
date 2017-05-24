@@ -434,7 +434,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0) return 400;
+    if(indexPath.row == 0) return 565;
     
     return 30 + (self.dimListModels.count + 1) * 30;
 }

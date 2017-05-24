@@ -71,6 +71,14 @@
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(textFrame.size.width + offset);
     }];
+    
+    if(itemModel.zoomed){
+        self.titleLabel.font = [UIFont systemFontOfSize:24];
+        
+        [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(80);
+        }];
+    }
 }
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
@@ -345,7 +353,7 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf);
         make.top.mas_equalTo(weakSelf);
-        make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(weakSelf);
         make.width.mas_equalTo(40);
     }];
 }
@@ -534,6 +542,7 @@
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.xcValue = @([textField.text doubleValue]);
     };
+    itemModel.zoomed = YES;
     self.xcView.itemModel = itemModel;
 }
 

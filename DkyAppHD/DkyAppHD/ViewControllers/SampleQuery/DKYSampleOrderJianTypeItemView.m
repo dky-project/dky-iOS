@@ -69,6 +69,14 @@
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(textFrame.size.width + offset);
     }];
+    
+    if(itemModel.zoomed){
+        self.titleLabel.font = [UIFont systemFontOfSize:24];
+        
+        [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(80);
+        }];
+    }
 }
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
@@ -271,7 +279,7 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf);
         make.top.mas_equalTo(weakSelf);
-        make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(weakSelf);
         make.width.mas_equalTo(40);
     }];
 }
@@ -367,7 +375,7 @@
         make.top.mas_equalTo(weakSelf);
         
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
-        make.width.mas_equalTo(177);
+        make.width.mas_equalTo(215);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -377,6 +385,7 @@
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.hzxc1Value = @([textField.text doubleValue]);
     };
+    itemModel.zoomed = YES;
     self.gyxcView.itemModel = itemModel;
 }
 @end

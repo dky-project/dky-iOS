@@ -32,6 +32,14 @@
 - (void)setItemModel:(DKYCustomOrderItemModel *)itemModel{
     _itemModel = itemModel;
     
+    if(itemModel.zoomed){
+        self.titleLabel.font = [UIFont systemFontOfSize:24];
+        
+        self.textField.font = [UIFont systemFontOfSize:26];
+        
+        self.subTextLabel.font = [UIFont systemFontOfSize:18];
+    }
+    
     self.titleLabel.text = itemModel.title;
     self.textField.rightViewMode = itemModel.lock ? UITextFieldViewModeAlways : UITextFieldViewModeNever;
     self.textField.text = itemModel.content;
