@@ -323,6 +323,36 @@
     }
 //#endif
     
+    if(self.addProductApproveParameter.defaultHzxc1Value){
+        double value1 = [self.addProductApproveParameter.defaultHzxc1Value doubleValue];
+        double value2 = [self.addProductApproveParameter.hzxc1Value doubleValue];
+        
+        if(fabs(value1 - value2) >= 4){
+            [DKYHUDTool showInfoWithStatus:@"工艺袖长+-4公分变化"];
+            return NO;
+        }
+    }
+    
+    if(self.addProductApproveParameter.defaultYcValue){
+        double value1 = [self.addProductApproveParameter.defaultYcValue doubleValue];
+        double value2 = [self.addProductApproveParameter.ycValue doubleValue];
+        
+        if(fabs(value1 - value2) >= 4){
+            [DKYHUDTool showInfoWithStatus:@"衣长+-4公分变化"];
+            return NO;
+        }
+    }
+    
+    if(self.addProductApproveParameter.defaultXcValue){
+        double value1 = [self.addProductApproveParameter.defaultXcValue doubleValue];
+        double value2 = [self.addProductApproveParameter.xcValue doubleValue];
+        
+        if(fabs(value1 - value2) >= 4){
+            [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
+            return NO;
+        }
+    }
+    
     return YES;
 
 }

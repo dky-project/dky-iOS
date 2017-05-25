@@ -390,4 +390,10 @@
 // 表示是否要有挂件袖肥的值
 @property (nonatomic, assign) BOOL needGjxf;
 
+@property (nonatomic, strong) NSNumber *defaultXcValue;
+
+@property (nonatomic, strong) NSNumber *defaultYcValue;
+
+@property (nonatomic, strong) NSNumber *defaultHzxc1Value;
+
 @end

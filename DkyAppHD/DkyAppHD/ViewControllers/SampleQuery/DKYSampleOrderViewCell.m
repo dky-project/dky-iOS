@@ -287,6 +287,8 @@ static const CGFloat basicItemHeight = 45;
         self.addProductApproveParameter.jkValue = @([self.madeInfoByProductName.productMadeInfoView.jkValue doubleValue]);
     }
     
+    self.addProductApproveParameter.hzxc1Value = self.madeInfoByProductName.productMadeInfoView.hzxcValue;
+    
     // 袖型
     self.addProductApproveParameter.mDimNew9Id = self.madeInfoByProductName.productMadeInfoView.mDimNew9Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id): nil;
     self.addProductApproveParameter.mDimNew9Id1 = self.madeInfoByProductName.productMadeInfoView.mDimNew9Id2 ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id2): nil;
@@ -331,6 +333,11 @@ static const CGFloat basicItemHeight = 45;
     self.addProductApproveParameter.jzValue = self.madeInfoByProductName.productMadeInfoView.jzValue;
     
     self.addProductApproveParameter.mDimNew41Id = self.madeInfoByProductName.productMadeInfoView.mDimNew41Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew41Id): nil;
+    
+    
+    self.addProductApproveParameter.defaultHzxc1Value = self.addProductApproveParameter.hzxc1Value;
+    self.addProductApproveParameter.defaultYcValue = @([self.addProductApproveParameter.ycValue doubleValue]);
+    self.addProductApproveParameter.defaultXcValue = self.addProductApproveParameter.xcValue;
 }
 
 - (void)dealwithMDimNew15IdSelected{

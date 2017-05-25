@@ -169,6 +169,7 @@
     
     self.xcView.textField.text = model.xc;
     
+    self.addProductApproveParameter.defaultXcValue = @([self.xcView.textField.text doubleValue]);
     self.addProductApproveParameter.xcValue = @([self.xcView.textField.text doubleValue]);
 }
 - (void)clear{

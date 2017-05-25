@@ -593,6 +593,10 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.jzValue = self.madeInfoByProductName.productMadeInfoView.jzValue;
     
     self.addProductApproveParameter.mDimNew41Id = self.madeInfoByProductName.productMadeInfoView.mDimNew41Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew41Id): nil;
+    
+    self.addProductApproveParameter.defaultHzxc1Value = self.addProductApproveParameter.hzxc1Value;
+    self.addProductApproveParameter.defaultYcValue = @([self.addProductApproveParameter.ycValue doubleValue]);
+    self.addProductApproveParameter.defaultXcValue = self.addProductApproveParameter.xcValue;
 }
 
 - (void)dealwithMDimNew12IdSelected{
