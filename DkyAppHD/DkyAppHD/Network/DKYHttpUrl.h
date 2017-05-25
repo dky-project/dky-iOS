@@ -12,9 +12,9 @@
 // 主机
 //#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
 
-//#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
+#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
 
-#define BASE_URL     @"http://192.168.68.155:99/dky-web/"
+//#define BASE_URL     @"http://192.168.68.155:99/dky-web/"
 
 //#define BASE_URL     @"https:"
 
@@ -64,6 +64,7 @@
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询
 #define kProductApproveInfoListUrl      @"productApprove/productApproveInfoList"  // 订单详细信息查询
+#define kUpdateProductApproveUrl        @"productApprove/updateProductApprove"    // 删除订单
 
 // 收藏
 #define kProductCollectPageUrl          @"productCollect/page"                  // 收藏列表

@@ -178,6 +178,41 @@
     }];
 }
 
+- (void)updateProductApproveToServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    
+    NSMutableArray *mids = [NSMutableArray arrayWithCapacity:self.detailOrders.count];
+    for (DKYOrderItemModel *item in self.selectedOrders) {
+        [mids addObject:@(item.Id)];
+    }
+    p.ids = [mids copy];
+    
+    [[DKYHttpRequestManager sharedInstance] updateProductApproveWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            [DKYHUDTool showSuccessWithStatus:@"删除订单成功!"];
+            [weakSelf.orders removeObjectsInArray:weakSelf.selectedOrders];
+            [weakSelf.selectedOrders removeAllObjects];
+            [weakSelf.tableView reloadData];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
 #pragma mark - private method
 
 - (void)showFaxDateSelectedPicker{
@@ -282,14 +317,16 @@
     };
     
     header.deleteBtnClicked = ^(id sender){
-        weakSelf.headerView.faxDateLabel.text = @"";
-        weakSelf.headerView.clientTextField.text = @"";
-        weakSelf.headerView.sampleTextField.text = @"";
-        weakSelf.headerView.auditStatusLabel.text = @"";
-        weakSelf.selectedOrderAuditStatusModel = nil;
-        weakSelf.czDate = nil;
-        weakSelf.customer = nil;
-        weakSelf.pdt = nil;
+//        weakSelf.headerView.faxDateLabel.text = @"";
+//        weakSelf.headerView.clientTextField.text = @"";
+//        weakSelf.headerView.sampleTextField.text = @"";
+//        weakSelf.headerView.auditStatusLabel.text = @"";
+//        weakSelf.selectedOrderAuditStatusModel = nil;
+//        weakSelf.czDate = nil;
+//        weakSelf.customer = nil;
+//        weakSelf.pdt = nil;
+        
+        [weakSelf updateProductApproveToServer];
     };
     
     header.headerView.taped = ^(id sender,BOOL selected){
