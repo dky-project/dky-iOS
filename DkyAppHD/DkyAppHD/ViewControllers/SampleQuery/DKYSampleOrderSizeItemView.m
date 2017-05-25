@@ -9,6 +9,7 @@
 #import "DKYSampleOrderSizeItemView.h"
 #import "DKYTitleSelectView.h"
 #import "DKYTitleInputView.h"
+#import "DKYGetSizeDataModel.h"
 
 @interface DKYSampleOrderSizeItemView ()
 
@@ -197,6 +198,14 @@
        }
 }
 
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
+    if(model == nil) return;
+    
+    self.lengthView.textField.text = model.yc;
+    
+    self.addProductApproveParameter.ycValue = self.lengthView.textField.text;
+}
+
 - (void)clear{
     // 逻辑属性
     
@@ -260,7 +269,15 @@
         return;
     }
     
+    NSString *oldValue = self.addProductApproveParameter.xwValue;
+    
     self.addProductApproveParameter.xwValue = [models objectOrNilAtIndex:index - 1];
+    
+    if(![self.addProductApproveParameter.xwValue isEqualToString:oldValue]){
+        if(self.xwValueSelectedBlock){
+            self.xwValueSelectedBlock(self, self.addProductApproveParameter.xwValue);
+        }
+    }
 }
 
 #pragma mark - mark

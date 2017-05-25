@@ -7,6 +7,7 @@
 //
 
 #import "DKYSampleOrderXiuTypeItemView.h"
+#import "DKYGetSizeDataModel.h"
 
 @interface DKYSampleOrderXiuTypeItemView ()
 
@@ -163,6 +164,13 @@
        }
 }
 
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
+    if(model == nil) return;
+    
+    self.xcView.textField.text = model.xc;
+    
+    self.addProductApproveParameter.xcValue = @([self.xcView.textField.text doubleValue]);
+}
 - (void)clear{
     // 逻辑属性
     

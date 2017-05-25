@@ -73,4 +73,6 @@
 // 客户端自己的属性
 @property (nonatomic, strong) NSNumber *mProductId;
 
+@property (nonatomic, copy) NSString *pdt;
+
 @end

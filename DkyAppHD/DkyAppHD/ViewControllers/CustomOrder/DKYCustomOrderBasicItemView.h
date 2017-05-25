@@ -19,6 +19,8 @@
 #import "DKYStaticDimListModel.h"
 #import "DKYAddProductApproveParameter.h"
 
+
+@class DKYGetSizeDataModel;
 @interface DKYCustomOrderBasicItemView : UIView
 
 @property (nonatomic, strong) DKYCustomOrderItemModel *itemModel;
@@ -44,4 +46,6 @@
 - (void)dealwithMDimNew13IdSelected;
 
 - (void)dealwithMDimNew15IdSelected;
+
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model;
 @end

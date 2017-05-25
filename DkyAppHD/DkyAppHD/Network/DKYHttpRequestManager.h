@@ -106,6 +106,15 @@
 - (void)getColorDimListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
 
 /**
+ *   根据胸围选择获取数据
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+- (void)getSizeDataWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+
+/**
  *  订单查询
  *
  *  @param parameter parameter description

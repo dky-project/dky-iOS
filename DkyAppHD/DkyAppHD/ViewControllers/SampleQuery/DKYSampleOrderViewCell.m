@@ -18,6 +18,8 @@
 #import "DKYMadeInfoByProductNameParameter.h"
 #import "DKYSampleOrderXiuTypeItemView.h"
 #import "DKYSampleOrderJianTypeItemView.h"
+#import "DKYGetSizeDataParameter.h"
+#import "DKYGetSizeDataModel.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 20;
@@ -54,6 +56,9 @@ static const CGFloat basicItemHeight = 45;
 @property (nonatomic, weak) DKYSampleOrderXiuTypeItemView *xiuTypeView;
 
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
+
+
+@property (nonatomic, strong) DKYGetSizeDataModel *getSizeDataModel;
 
 @end
 
@@ -141,6 +146,8 @@ static const CGFloat basicItemHeight = 45;
     addProductApproveParameter.no = self.numberView.itemModel.content;
 }
 
+#pragma mark - 网络请求
+
 - (void)getMadeInfoByProductNameFromServer{
     [DKYHUDTool show];
     DKYMadeInfoByProductNameParameter *p = [[DKYMadeInfoByProductNameParameter alloc] init];
@@ -155,6 +162,37 @@ static const CGFloat basicItemHeight = 45;
             weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
             
             [weakSelf dealWithstyleNumber];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)getSizeDataFromServer:(NSString*)xwValue{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+    DKYGetSizeDataParameter *p = [[DKYGetSizeDataParameter alloc] init];
+    p.xwValue = xwValue;
+    p.pdt = self.sampleProductInfo.name;
+    
+    [[DKYHttpRequestManager sharedInstance] getSizeDataWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.getSizeDataModel = [DKYGetSizeDataModel mj_objectWithKeyValues:result.data];
+            [weakSelf.sizeView dealWithXwValueSelected:weakSelf.getSizeDataModel];
+            [weakSelf.xiuTypeView dealWithXwValueSelected:weakSelf.getSizeDataModel];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -476,6 +514,10 @@ static const CGFloat basicItemHeight = 45;
     itemModel.textFieldLeftOffset = 16;
     itemModel.zoomed = YES;
     self.sizeView.itemModel = itemModel;
+    
+    self.sizeView.xwValueSelectedBlock = ^(id sender, NSString *value) {
+        [weakSelf getSizeDataFromServer:value];
+    };
 }
 
 - (void)setupJingSizeItemView{

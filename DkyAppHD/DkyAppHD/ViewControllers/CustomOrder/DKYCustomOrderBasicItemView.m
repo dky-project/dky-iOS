@@ -43,4 +43,8 @@
     DLog(@"super do nothing");
 }
 
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
+    DLog(@"super do nothing");
+}
+
 @end

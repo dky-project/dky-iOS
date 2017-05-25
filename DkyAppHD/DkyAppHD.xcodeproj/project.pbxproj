@@ -192,6 +192,8 @@
 		EB9BBBA71E24D42100939007 /* DKYSampleProductInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA61E24D42100939007 /* DKYSampleProductInfoModel.m */; };
 		EB9BBBAA1E24DA6100939007 /* DKYSampleQueryParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */; };
 		EBA351791E811D9700D89BFA /* DKYStaticDimListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA351781E811D9700D89BFA /* DKYStaticDimListModel.m */; };
+		EBA404D41ED66BEC00901483 /* DKYGetSizeDataParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA404D31ED66BEC00901483 /* DKYGetSizeDataParameter.m */; };
+		EBA404D71ED66F7400901483 /* DKYGetSizeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA404D61ED66F7400901483 /* DKYGetSizeDataModel.m */; };
 		EBA597DB1ECC3D7F00F65F03 /* DKYProductCollectParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA597DA1ECC3D7F00F65F03 /* DKYProductCollectParameter.m */; };
 		EBA90E951E52E2EF00EA539E /* TWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA90E941E52E2EE00EA539E /* TWScrollView.m */; };
 		EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA90E981E52E55A00EA539E /* DKYOrderActionsView.m */; };
@@ -679,6 +681,10 @@
 		EB9BBBA91E24DA6100939007 /* DKYSampleQueryParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleQueryParameter.m; sourceTree = "<group>"; };
 		EBA351771E811D9700D89BFA /* DKYStaticDimListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYStaticDimListModel.h; sourceTree = "<group>"; };
 		EBA351781E811D9700D89BFA /* DKYStaticDimListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYStaticDimListModel.m; sourceTree = "<group>"; };
+		EBA404D21ED66BEC00901483 /* DKYGetSizeDataParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetSizeDataParameter.h; sourceTree = "<group>"; };
+		EBA404D31ED66BEC00901483 /* DKYGetSizeDataParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetSizeDataParameter.m; sourceTree = "<group>"; };
+		EBA404D51ED66F7400901483 /* DKYGetSizeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetSizeDataModel.h; sourceTree = "<group>"; };
+		EBA404D61ED66F7400901483 /* DKYGetSizeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetSizeDataModel.m; sourceTree = "<group>"; };
 		EBA597D91ECC3D7F00F65F03 /* DKYProductCollectParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYProductCollectParameter.h; sourceTree = "<group>"; };
 		EBA597DA1ECC3D7F00F65F03 /* DKYProductCollectParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYProductCollectParameter.m; sourceTree = "<group>"; };
 		EBA90E931E52E2EE00EA539E /* TWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWScrollView.h; sourceTree = "<group>"; };
@@ -1338,6 +1344,8 @@
 				26A6FA5F1E61A13C00376194 /* DKYDimNewListItemModel.m */,
 				EB25EEC01ED56814009DA892 /* DKYColorDimListModel.h */,
 				EB25EEC11ED56814009DA892 /* DKYColorDimListModel.m */,
+				EBA404D51ED66F7400901483 /* DKYGetSizeDataModel.h */,
+				EBA404D61ED66F7400901483 /* DKYGetSizeDataModel.m */,
 			);
 			name = "样衣查询";
 			sourceTree = "<group>";
@@ -1588,6 +1596,8 @@
 				EBB1132D1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m */,
 				EB25EEBD1ED55ED5009DA892 /* DKYGetColorDimListParameter.h */,
 				EB25EEBE1ED55ED5009DA892 /* DKYGetColorDimListParameter.m */,
+				EBA404D21ED66BEC00901483 /* DKYGetSizeDataParameter.h */,
+				EBA404D31ED66BEC00901483 /* DKYGetSizeDataParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2353,6 +2363,7 @@
 				EB16D0F41E56EC2100939072 /* DKYCustomOrderPatternItemView.m in Sources */,
 				26E870A41EA31740005A6F7F /* UIActionSheet+Blocks.m in Sources */,
 				EB97906F1E221B6F00E2985C /* MMPopupView.m in Sources */,
+				EBA404D41ED66BEC00901483 /* DKYGetSizeDataParameter.m in Sources */,
 				EB97F2B81E25C36A00BDC705 /* DQCanEditTableViewCell.m in Sources */,
 				EBD115F91EA4662600AF6F5C /* DKYTongkuan5LingItemView.m in Sources */,
 				EB97F2BA1E25C36A00BDC705 /* DQTableViewCell.m in Sources */,
@@ -2444,6 +2455,7 @@
 				26E870A81EA320F4005A6F7F /* DKYCustomOrderAllViewController.m in Sources */,
 				EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */,
 				EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */,
+				EBA404D71ED66F7400901483 /* DKYGetSizeDataModel.m in Sources */,
 				EB9ACBCB1E5EB1160007517C /* DKYMadeInfoByProductNameParameter.m in Sources */,
 				EB9ACBD71E5EE1B30007517C /* DKYProductMadeInfoViewModel.m in Sources */,
 				EB9511AD1E164444008708EF /* WXSTransitionManager+PageAnimation.m in Sources */,
