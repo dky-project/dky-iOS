@@ -131,6 +131,8 @@
  */
 @property (nonatomic, assign) NSInteger mDimNew22Id;
 
+@property (nonatomic, strong) NSNumber *hzxcValue;
+
 /**
  * 肩宽cm
  */

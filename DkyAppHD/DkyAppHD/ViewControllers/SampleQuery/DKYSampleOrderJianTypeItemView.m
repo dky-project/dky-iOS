@@ -83,6 +83,11 @@
     [super setMadeInfoByProductName:madeInfoByProductName];
     [self clear];
     
+    if(madeInfoByProductName.productMadeInfoView.hzxcValue){
+        self.gyxcView.textField.text = [NSString stringWithFormat:@"%@",madeInfoByProductName.productMadeInfoView.hzxcValue];
+        self.addProductApproveParameter.hzxc1Value = madeInfoByProductName.productMadeInfoView.hzxcValue;
+    }
+    
     if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
         self.gyxcView.textField.enabled = YES;
     }else{

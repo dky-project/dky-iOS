@@ -459,15 +459,16 @@
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
     
     WeakSelf(weakSelf);
-    pop.confirmBtnClicked = ^(id sender) {
+    pop.confirmBtnClicked = ^(NSMutableArray *selectedColors) {
         NSMutableString *selectedColor = [NSMutableString string];
-        for (DKYDahuoOrderColorModel *color in weakSelf.madeInfoByProductName.colorViewList) {
-            if(color.selected){
-                NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-                [selectedColor appendString:oneColor];
-            }
-        }
+        NSMutableArray *clrRangeArray = [NSMutableArray array];
         
+        for (DKYDahuoOrderColorModel *color in selectedColors) {
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+            [clrRangeArray addObject:color.colorName];
+        }
+        weakSelf.madeInfoByProductName.productMadeInfoView.clrRangeArray = [clrRangeArray copy];
         weakSelf.selectedColorView.text = selectedColor;
     };
 }

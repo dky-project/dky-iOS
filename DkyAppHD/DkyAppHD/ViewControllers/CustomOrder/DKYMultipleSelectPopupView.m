@@ -29,6 +29,8 @@
 
 @property (nonatomic, strong) NSNumber *colorValue;
 
+@property (nonatomic, strong) NSMutableArray *selectedColors;
+
 // 测试数据
 //@property (nonatomic, strong) NSMutableArray *colors;
 
@@ -66,15 +68,17 @@
 
 - (void)setClrRangeArray:(NSArray *)clrRangeArray{
     _clrRangeArray = clrRangeArray;
-    
-    for (DKYDahuoOrderColorModel *model in self.colorViewList) {
-        for (NSString *selectColor in clrRangeArray) {
+
+    for (NSString *selectColor in clrRangeArray) {
+        for (DKYDahuoOrderColorModel *model in self.colorViewList) {
             if([model.colorName isEqualToString:selectColor]){
                 model.selected = YES;
+                [self.selectedColors addObject:model];
                 break;
             }
         }
     }
+
     [self fetchSelectedColorInfo];
 }
 
@@ -87,26 +91,39 @@
 - (void)confirmBtnClicked:(UIButton*)sender{
     [self fetchSelectedColorInfo];
     if(self.confirmBtnClicked){
-        self.confirmBtnClicked(nil);
+        self.confirmBtnClicked(self.selectedColors);
     }
     [self dismiss];
 }
 
 - (void)fetchSelectedColorInfo{
-    NSMutableArray *selectedColor = [NSMutableArray array];
+//    NSMutableArray *selectedColor = [NSMutableArray array];
+//    
+//    for (DKYDahuoOrderColorModel *model in self.colorViewList) {
+//        if(model.selected){
+//            [selectedColor addObject:model.colorName];
+//            if(!self.colorValue){
+//                self.colorValue = @(model.colorId);
+//                self.addProductApproveParameter.colorValue = self.colorValue;
+//            }
+//        }
+//    }
     
-    for (DKYDahuoOrderColorModel *model in self.colorViewList) {
+    // 主色
+    DKYDahuoOrderColorModel *model = [self.selectedColors objectOrNilAtIndex:0];
+    self.addProductApproveParameter.colorValue = @(model.colorId);
+    
+    NSMutableArray *selectedColor = [NSMutableArray array];
+    for (DKYDahuoOrderColorModel *model in self.selectedColors) {
         if(model.selected){
             [selectedColor addObject:model.colorName];
-            if(!self.colorValue){
-                self.colorValue = @(model.colorId);
-                self.addProductApproveParameter.colorValue = self.colorValue;
-            }
         }
     }
     
     if(selectedColor.count > 0){
         self.addProductApproveParameter.colorArr = [selectedColor componentsJoinedByString:@";"];
+    }else{
+        self.addProductApproveParameter.colorArr = nil;
     }
 }
 
@@ -242,6 +259,13 @@
     
     item.selected = !item.selected;
     
+    if(item.selected){
+        // 选中
+        [self.selectedColors addObject:item];
+    }else{
+        [self.selectedColors removeObject:item];
+    }
+    
     [tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
 }
 
@@ -258,6 +282,13 @@
 //    }
 //    return _colors;
 //}
+
+- (NSMutableArray*)selectedColors{
+    if(_selectedColors == nil){
+        _selectedColors = [NSMutableArray array];
+    }
+    return _selectedColors;
+}
 
 
 @end

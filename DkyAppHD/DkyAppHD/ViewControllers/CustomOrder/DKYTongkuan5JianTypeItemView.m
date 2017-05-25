@@ -90,6 +90,11 @@
     
     self.jkView.textField.text = madeInfoByProductName.productMadeInfoView.jkValue;
     
+    if(madeInfoByProductName.productMadeInfoView.hzxcValue){
+        self.gyxcView.textField.text = [NSString stringWithFormat:@"%@",madeInfoByProductName.productMadeInfoView.hzxcValue];
+        self.addProductApproveParameter.hzxc1Value = madeInfoByProductName.productMadeInfoView.hzxcValue;
+    }
+    
 //    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
 //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
 //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
