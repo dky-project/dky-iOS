@@ -737,7 +737,6 @@
     view.font = [UIFont systemFontOfSize:18];
     view.textColor = [UIColor colorWithHex:0x333333];
     view.editable = NO;
-    view.adjustsFontForContentSizeCategory = YES;
     
     view.layer.borderWidth = 1.0;
     view.layer.borderColor = [UIColor colorWithHex:0x686868].CGColor;
