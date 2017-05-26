@@ -41,7 +41,7 @@
     
     // 实时打印设备内存信息
 #ifdef DEBUG
-    [NSTimer scheduledTimerWithTimeInterval:5.0 block:^(NSTimer * _Nonnull timer) {
+    [NSTimer scheduledTimerWithTimeInterval:50.0 block:^(NSTimer * _Nonnull timer) {
         UIDevice *device = [UIDevice currentDevice];
         DLog(@"CPU信息:");
         DLog(@"%@核CPU",@(device.cpuCount));

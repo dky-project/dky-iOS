@@ -115,21 +115,22 @@
         }
     }
     
-    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+    NSMutableArray *selectedModel = [NSMutableArray array];
+    
+    for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
             if([model.colorName isEqualToString:selectColor]){
                 model.selected = YES;
+                [selectedModel addObject:model];
                 break;
             }
         }
     }
     
     NSMutableString *selectedColor = [NSMutableString string];
-    for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.colorViewList) {
-        if(color.selected){
-            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-            [selectedColor appendString:oneColor];
-        }
+    for (DKYDahuoOrderColorModel *color in selectedModel) {
+        NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+        [selectedColor appendString:oneColor];
     }
     
     if([selectedColor isNotBlank]){
