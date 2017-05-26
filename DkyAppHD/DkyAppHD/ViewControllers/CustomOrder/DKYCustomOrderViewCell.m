@@ -405,7 +405,7 @@ static const CGFloat basicItemHeight = 30;
 - (void)mptApproveSaveToServer{
     WeakSelf(weakSelf);
     [DKYHUDTool show];
-    self.mptApproveSaveParameter.jgNo = @([self.productApproveTitleModel.code integerValue]);
+    self.mptApproveSaveParameter.jgNo = self.productApproveTitleModel.code;
     self.mptApproveSaveParameter.productName = self.productName;
     
     [[DKYHttpRequestManager sharedInstance] mptApproveSaveWithParameter:self.mptApproveSaveParameter Success:^(NSInteger statusCode, id data) {

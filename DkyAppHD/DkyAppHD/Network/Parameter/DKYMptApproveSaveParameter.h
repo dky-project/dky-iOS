@@ -12,7 +12,7 @@
 /**
  * 机构号
  */
-@property (nonatomic, strong) NSNumber *jgNo;
+@property (nonatomic, strong) NSString *jgNo;
 /**
  * 款号名称
  */
