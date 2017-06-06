@@ -2142,7 +2142,7 @@
 					EBABE89D1E14E45200B4C568 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = ARFBJ33Y9T;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					EBABE8B61E14E45200B4C568 = {
 						CreatedOnToolsVersion = 8.2;
@@ -2713,16 +2713,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ARFBJ33Y9T;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ./DkyAppHD/Application/PrefixHeader.pch;
 				INFOPLIST_FILE = DkyAppHD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dankeyun.DkyAppHD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dankeyun.DkyAppJMD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e0839733-8c1b-4334-9e94-d9d661ee616e";
-				PROVISIONING_PROFILE_SPECIFIER = DankeyunApp;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2732,17 +2732,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = ARFBJ33Y9T;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ./DkyAppHD/Application/PrefixHeader.pch;
 				INFOPLIST_FILE = DkyAppHD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dankeyun.DkyAppHD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dankeyun.DkyAppJMD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d21a0b21-26c5-46e6-899d-9da6d0cabc98";
-				PROVISIONING_PROFILE_SPECIFIER = DankeyunAppHDDistribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
