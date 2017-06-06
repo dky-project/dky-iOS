@@ -103,24 +103,24 @@
     [self addOneChlildVc:sampleQueryVc title:@"样衣查询" imageName:@"tabbar_sample" selectedImageName:@"tabbar_sample"];
     self.sampleQueryVc = sampleQueryVc;
     
-    // 定制下单
-    DKYCustomOrderAllViewController *customOrderVc = [(DKYCustomOrderAllViewController*)[DKYCustomOrderAllViewController alloc] init];
-    [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_customOrder" selectedImageName:@"tabbar_customOrder"];
-//     老机型比较卡，先让页面初始化下
-    if([UIScreen mainScreen].scale == 1){
-        customOrderVc.view.backgroundColor = [UIColor whiteColor];
-    }
-    self.customOrderVc = customOrderVc;
-    
-    // 收藏列表
-    DKYCollectListViewController *collectListVc = [[DKYCollectListViewController alloc] init];
-    [self addOneChlildVc:collectListVc title:@"收藏列表" imageName:@"tabbar_collect_list" selectedImageName:@"tabbar_collect_list"];
-    self.collectListVc = collectListVc;
-    
-    // 订单查询
-    DKYOrderInquiryViewController *orderInquiryVc = [[DKYOrderInquiryViewController alloc] init];
-    [self addOneChlildVc:orderInquiryVc title:@"订单查询" imageName:@"tabbar_order" selectedImageName:@"tabbar_order"];
-    self.orderInquiryVc = orderInquiryVc;
+//    // 定制下单
+//    DKYCustomOrderAllViewController *customOrderVc = [(DKYCustomOrderAllViewController*)[DKYCustomOrderAllViewController alloc] init];
+//    [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_customOrder" selectedImageName:@"tabbar_customOrder"];
+////     老机型比较卡，先让页面初始化下
+//    if([UIScreen mainScreen].scale == 1){
+//        customOrderVc.view.backgroundColor = [UIColor whiteColor];
+//    }
+//    self.customOrderVc = customOrderVc;
+//    
+//    // 收藏列表
+//    DKYCollectListViewController *collectListVc = [[DKYCollectListViewController alloc] init];
+//    [self addOneChlildVc:collectListVc title:@"收藏列表" imageName:@"tabbar_collect_list" selectedImageName:@"tabbar_collect_list"];
+//    self.collectListVc = collectListVc;
+//    
+//    // 订单查询
+//    DKYOrderInquiryViewController *orderInquiryVc = [[DKYOrderInquiryViewController alloc] init];
+//    [self addOneChlildVc:orderInquiryVc title:@"订单查询" imageName:@"tabbar_order" selectedImageName:@"tabbar_order"];
+//    self.orderInquiryVc = orderInquiryVc;
 }
 
 - (void)addOneChlildVc:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName

@@ -53,7 +53,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU9-Vc-oE6">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU9-Vc-oE6">
                         <rect key="frame" x="65" y="239" width="90" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="Yxv-T9-FSe"/>
