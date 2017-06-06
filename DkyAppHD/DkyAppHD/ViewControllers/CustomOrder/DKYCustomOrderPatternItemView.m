@@ -605,8 +605,12 @@
     NSArray *models = nil;
     
     switch (sender.tag) {
-        case 0:
+        case 0:{
             models = self.customOrderDimList.DIMFLAG_NEW12;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.syShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.syShow;
+            }
+        }
             break;
         case 1:
             models = self.customOrderDimList.DIMFLAG_NEW4;

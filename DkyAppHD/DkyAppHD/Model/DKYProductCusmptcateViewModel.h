@@ -28,11 +28,12 @@
 @property (nonatomic, copy) NSString * isXcAffix;
 
 @property (nonatomic, copy) NSArray * jxShow;
-@property (nonatomic, copy) NSString * lbShow;
-@property (nonatomic, copy) NSString * lxShow;
-@property (nonatomic, copy) NSString * syShow;
-@property (nonatomic, copy) NSString * xbShow;
-@property (nonatomic, copy) NSString * xkShow;
+@property (nonatomic, copy) NSArray * lbShow;
+@property (nonatomic, copy) NSArray * lxShow;
+//式样
+@property (nonatomic, copy) NSArray * syShow;
+@property (nonatomic, copy) NSArray * xbShow;
+@property (nonatomic, copy) NSArray * xkShow;
 
 @property (nonatomic, copy) NSString * xwArray;
 @property (nonatomic, copy) NSArray * xwArrayList;
