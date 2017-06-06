@@ -275,16 +275,16 @@
 
 - (void)dealWithgetPzsJsonFromServer:(NSInteger)flag value:(NSArray*)value{
     switch (flag) {
-        case 1:
+        case 2:
             self.madeInfoByProductName.productMadeInfoView.pzJsonArray = value;
             break;
-        case 2:
+        case 3:
             self.madeInfoByProductName.productMadeInfoView.zzJsonArray = value;
             break;
-        case 3:
+        case 4:
             self.madeInfoByProductName.productMadeInfoView.zxJsonArray = value;
             break;
-        case 4:
+        case 5:
             
             break;
         default:
@@ -448,7 +448,7 @@
             }
             
             if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
-                [self updateActionSheetOptionsWithFlag:1];
+                [self updateActionSheetOptionsWithFlag:2];
             }
             [self updateColorSheet];
         }
@@ -471,7 +471,7 @@
             }
             [self dealWithmDimNew15IdSelected];
             if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
-                [self updateActionSheetOptionsWithFlag:2];
+                [self updateActionSheetOptionsWithFlag:3];
             }
         } 
             break;
@@ -492,7 +492,7 @@
                 self.addProductApproveParameter.mDimNew16Id = @([model.ID integerValue]);
             }
             if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
-                [self updateActionSheetOptionsWithFlag:3];
+                [self updateActionSheetOptionsWithFlag:4];
             }
         }
             break;
