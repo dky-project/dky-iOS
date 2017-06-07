@@ -172,6 +172,7 @@
     self.addProductApproveParameter.defaultXcValue = @([self.xcView.textField.text doubleValue]);
     self.addProductApproveParameter.xcValue = @([self.xcView.textField.text doubleValue]);
 }
+
 - (void)clear{
     // 逻辑属性
     

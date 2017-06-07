@@ -9,6 +9,7 @@
 #import "DKYCustomOrderJianTypeItemView.h"
 #import "DKYTitleSelectView.h"
 #import "DKYTitleInputView.h"
+#import "DKYGetSizeDataModel.h"
 
 @interface DKYCustomOrderJianTypeItemView ()
 
@@ -218,6 +219,14 @@
     }else{
         [self dealwithMDimNew12IdSelected];
     }
+}
+
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
+    if(model == nil) return;
+    
+    self.jkView.textField.text = model.jk;
+    
+    self.addProductApproveParameter.jkValue = @([model.jk doubleValue]);
 }
 
 - (void)clear{

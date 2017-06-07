@@ -10,4 +10,6 @@
 
 @interface DKYCustomOrderSizeItemView : DKYCustomOrderBasicItemView
 
+@property (nonatomic, copy) BlockWithSenderAndModel xwValueSelectedBlock;
+
 @end
