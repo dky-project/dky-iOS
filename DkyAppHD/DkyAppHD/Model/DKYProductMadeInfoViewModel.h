@@ -68,6 +68,12 @@
 @property (nonatomic, assign) NSInteger mDimNew4Id;
 
 /**
+ * 门襟宽
+ */
+@property (nonatomic, copy) NSString *mjkValue;
+
+
+/**
  * 门禁1
  */
 

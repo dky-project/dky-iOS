@@ -276,6 +276,7 @@ static const CGFloat basicItemHeight = 45;
     self.addProductApproveParameter.mDimNew18Id = self.madeInfoByProductName.productMadeInfoView.mDimNew18Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew18Id): nil;
     self.addProductApproveParameter.mDimNew19Id = self.madeInfoByProductName.productMadeInfoView.mDimNew19Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew19Id): nil;
     
+    self.addProductApproveParameter.mjkValue = [self.madeInfoByProductName.productMadeInfoView.mjkValue isNotBlank] ? @([self.madeInfoByProductName.productMadeInfoView.mjkValue doubleValue]) : nil;
     
     // 尺寸
     self.addProductApproveParameter.xwValue = self.madeInfoByProductName.productMadeInfoView.xwValue;

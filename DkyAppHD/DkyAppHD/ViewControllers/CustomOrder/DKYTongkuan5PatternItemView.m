@@ -251,6 +251,10 @@
         self.mjInputView.textFieldTwo.text = madeInfoByProductName.productMadeInfoView.mjzzRemark;
     }
     
+    if([madeInfoByProductName.productMadeInfoView.mjkValue isNotBlank]){
+        self.mjkView.textField.text = madeInfoByProductName.productMadeInfoView.mjkValue;
+    }
+    
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 59||
