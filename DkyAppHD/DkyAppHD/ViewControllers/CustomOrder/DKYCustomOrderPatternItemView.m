@@ -640,8 +640,12 @@
         case 8:
             models = self.customOrderDimList.DIMFLAG_NEW3;
             break;
-        case 9:
+        case 9:{
             models = self.customOrderDimList.DIMFLAG_NEW18;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.gjxfShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.gjxfShow;
+            }
+        }
             break;
         case 10:
             models = self.customOrderDimList.DIMFLAG_NEW19;
@@ -688,6 +692,9 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW12;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.syShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.syShow;
+            }
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew12Id = @([model.ID integerValue]);
             DLog(@"样式 = %@",self.addProductApproveParameter.mDimNew12Id);
@@ -794,6 +801,10 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW18;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.gjxfShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.gjxfShow;
+            }
+            
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew18Id = @([model.ID integerValue]);
             break;

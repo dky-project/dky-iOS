@@ -295,11 +295,21 @@
         case 0:
             models = self.customOrderDimList.DIMFLAG_NEW28;
             break;
-        case 1:
+        case 1:{
+            // 领边
             models = self.customOrderDimList.DIMFLAG_NEW26;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.lbShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.lbShow;
+            }
+        }
             break;
-        case 2:
+        case 2:{
+            // 领型
             models = self.customOrderDimList.DIMFLAG_NEW25;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.lxShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.lxShow;
+            }
+        }
             break;
         case 3:
             models = self.staticDimListModel.DIMFLAG5;
@@ -409,6 +419,10 @@
         case 1:
             // 领边
             models = self.customOrderDimList.DIMFLAG_NEW26;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.lbShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.lbShow;
+            }
+            
             model = [models objectOrNilAtIndex:index - 1];
             // 清空
             if(!model){
@@ -422,6 +436,9 @@
         case 2:
             // 领型
             models = self.customOrderDimList.DIMFLAG_NEW25;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.lxShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.lxShow;
+            }
             
             model = [models objectOrNilAtIndex:index - 1];
             // 清空

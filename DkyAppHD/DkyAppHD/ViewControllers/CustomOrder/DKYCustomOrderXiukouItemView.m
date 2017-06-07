@@ -177,7 +177,13 @@
     
     NSMutableArray *item = @[].mutableCopy;
     
-    for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW32) {
+    NSArray *models = self.customOrderDimList.DIMFLAG_NEW32;
+    
+    if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xkShow.count > 0){
+        models = self.madeInfoByProductName.productCusmptcateView.xkShow;
+    }
+    
+    for (DKYDimlistItemModel *model in models) {
         [item addObject:model.attribname];
     }
     WeakSelf(weakSelf);
@@ -202,6 +208,10 @@
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
     NSArray *models = nil;
     models = self.customOrderDimList.DIMFLAG_NEW32;
+    
+    if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xkShow.count > 0){
+        models = self.madeInfoByProductName.productCusmptcateView.xkShow;
+    }
     
     // 清除
     if(index == 0){

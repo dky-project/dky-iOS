@@ -21,4 +21,15 @@
     self.xwArrayList = [array copy];
 }
 
++ (NSDictionary*)mj_objectClassInArray{
+    return @{@"syShow" : @"DKYDimlistItemModel",
+             @"lbShow" : @"DKYDimlistItemModel",
+             @"lxShow" : @"DKYDimlistItemModel",
+             @"gjxfShow" : @"DKYDimlistItemModel",
+             @"xbShow" : @"DKYDimlistItemModel",
+             @"xkShow" : @"DKYDimlistItemModel",
+             @"xxShow" : @"DKYDimlistItemModel",
+             };
+}
+
 @end

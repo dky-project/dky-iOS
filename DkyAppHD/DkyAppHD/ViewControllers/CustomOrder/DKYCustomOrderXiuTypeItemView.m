@@ -80,7 +80,13 @@
     if(madeInfoByProductName == nil)  return;
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id > 0){
-        for (DKYDimlistItemModel *model in self.staticDimListModel.DIMFLAG1) {
+        
+        NSArray *models = self.staticDimListModel.DIMFLAG1;
+        if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xxShow.count > 0){
+            models = self.madeInfoByProductName.productCusmptcateView.xxShow;
+        }
+        
+        for (DKYDimlistItemModel *model in models) {
             if([model.ID integerValue] == madeInfoByProductName.productMadeInfoView.mDimNew9Id){
                 [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
                 break;
@@ -285,8 +291,12 @@
     NSArray *models = nil;
     
     switch (sender.tag) {
-        case 0:
+        case 0:{
             models = self.staticDimListModel.DIMFLAG1;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xxShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.xxShow;
+            }
+        }
             break;
         case 1:
             models = self.staticDimListModel.DIMFLAG2;
@@ -334,6 +344,10 @@
             }
             
             models = self.staticDimListModel.DIMFLAG1;
+            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xxShow.count > 0){
+                models = self.madeInfoByProductName.productCusmptcateView.xxShow;
+            }
+            
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew9Id = @([model.ID integerValue]);
             [self dealWithmDimNew9IdSelected];
