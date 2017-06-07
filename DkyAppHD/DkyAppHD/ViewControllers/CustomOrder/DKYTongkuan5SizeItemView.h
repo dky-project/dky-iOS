@@ -10,4 +10,6 @@
 
 @interface DKYTongkuan5SizeItemView : DKYCustomOrderBasicItemView
 
+@property (nonatomic, copy) BlockWithSenderAndModel xwValueSelectedBlock;
+
 @end

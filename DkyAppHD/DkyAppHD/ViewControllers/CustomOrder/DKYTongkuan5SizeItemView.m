@@ -9,6 +9,7 @@
 #import "DKYTongkuan5SizeItemView.h"
 #import "DKYTitleSelectView.h"
 #import "DKYTitleInputView.h"
+#import "DKYGetSizeDataModel.h"
 
 @interface DKYTongkuan5SizeItemView ()
 
@@ -172,6 +173,15 @@
        }
 }
 
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
+    if(model == nil) return;
+    
+    self.lengthView.textField.text = model.yc;
+    
+    self.addProductApproveParameter.defaultYcValue = @([model.yc doubleValue]);
+    self.addProductApproveParameter.ycValue = self.lengthView.textField.text;
+}
+
 - (void)clear{
     // 逻辑属性
     
@@ -226,6 +236,17 @@
 }
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+//    NSArray *models = nil;
+//    models = self.madeInfoByProductName.productCusmptcateView.xwArrayList;
+//    
+//    // 清除
+//    if(index == 0){
+//        self.addProductApproveParameter.xwValue = nil;
+//        return;
+//    }
+//    
+//    self.addProductApproveParameter.xwValue = [models objectOrNilAtIndex:index - 1];
+    
     NSArray *models = nil;
     models = self.madeInfoByProductName.productCusmptcateView.xwArrayList;
     
@@ -235,7 +256,15 @@
         return;
     }
     
+    NSString *oldValue = self.addProductApproveParameter.xwValue;
+    
     self.addProductApproveParameter.xwValue = [models objectOrNilAtIndex:index - 1];
+    
+    if(![self.addProductApproveParameter.xwValue isEqualToString:oldValue]){
+        if(self.xwValueSelectedBlock){
+            self.xwValueSelectedBlock(self, self.addProductApproveParameter.xwValue);
+        }
+    }
 }
 
 #pragma mark - mark

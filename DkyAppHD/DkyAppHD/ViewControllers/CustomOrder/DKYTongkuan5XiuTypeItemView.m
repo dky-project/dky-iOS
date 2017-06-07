@@ -7,6 +7,7 @@
 //
 
 #import "DKYTongkuan5XiuTypeItemView.h"
+#import "DKYGetSizeDataModel.h"
 
 @interface DKYTongkuan5XiuTypeItemView ()
 
@@ -228,6 +229,15 @@
        }else{
            [self dealwithMDimNew12IdSelected];
        }
+}
+
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
+    if(model == nil) return;
+    
+    self.xcView.textField.text = model.xc;
+    
+    self.addProductApproveParameter.defaultXcValue = @([self.xcView.textField.text doubleValue]);
+    self.addProductApproveParameter.xcValue = @([self.xcView.textField.text doubleValue]);
 }
 
 - (void)clear{

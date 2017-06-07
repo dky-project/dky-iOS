@@ -9,6 +9,7 @@
 #import "DKYTongkuan5JianTypeItemView.h"
 #import "DKYTitleSelectView.h"
 #import "DKYTitleInputView.h"
+#import "DKYGetSizeDataModel.h"
 
 @interface DKYTongkuan5JianTypeItemView ()
 
@@ -202,6 +203,14 @@
        }
 }
 
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
+    if(model == nil) return;
+    
+    self.jkView.textField.text = model.jk;
+    
+    self.addProductApproveParameter.jkValue = @([model.jk doubleValue]);
+}
+
 - (void)clear{
     // 逻辑属性
     
@@ -309,7 +318,6 @@
         self.gyxcView.textField.enabled = YES;
     }
 }
-
 
 #pragma mark - mark
 - (void)commonInit{

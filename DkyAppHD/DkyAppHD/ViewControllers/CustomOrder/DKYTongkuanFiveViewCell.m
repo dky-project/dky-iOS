@@ -43,6 +43,8 @@
 #import "DKYAddProductApproveParameter.h"
 #import "DKYDahuoOrderColorModel.h"
 #import "NSString+STRegex.h"
+#import "DKYGetSizeDataParameter.h"
+#import "DKYGetSizeDataModel.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 53;
@@ -60,6 +62,8 @@ static const CGFloat basicItemHeight = 30;
 // 请求参数
 // 大货订单参数
 @property (nonatomic, strong) DKYMptApproveSaveParameter *mptApproveSaveParameter;
+
+@property (nonatomic, strong) DKYGetSizeDataModel *getSizeDataModel;
 
 // 编号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *numberView;
@@ -440,6 +444,38 @@ static const CGFloat basicItemHeight = 30;
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
         [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)getSizeDataFromServer:(NSString*)xwValue{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+    DKYGetSizeDataParameter *p = [[DKYGetSizeDataParameter alloc] init];
+    p.xwValue = xwValue;
+    p.pdt = self.productName;
+    
+    [[DKYHttpRequestManager sharedInstance] getSizeDataWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.getSizeDataModel = [DKYGetSizeDataModel mj_objectWithKeyValues:result.data];
+            [weakSelf.sizeView dealWithXwValueSelected:weakSelf.getSizeDataModel];
+            [weakSelf.xiuTypeView dealWithXwValueSelected:weakSelf.getSizeDataModel];
+            [weakSelf.jianTypeView dealWithXwValueSelected:weakSelf.getSizeDataModel];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
@@ -967,6 +1003,11 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"尺寸:";
     itemModel.textFieldLeftOffset = 16;
+    
+    self.sizeView.xwValueSelectedBlock = ^(id sender, NSString *value) {
+        [weakSelf getSizeDataFromServer:value];
+    };
+    
     self.sizeView.itemModel = itemModel;
 }
 

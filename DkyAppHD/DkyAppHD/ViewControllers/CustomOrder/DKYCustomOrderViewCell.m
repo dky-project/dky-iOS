@@ -477,7 +477,6 @@ static const CGFloat basicItemHeight = 30;
     }];
 }
 
-
 #pragma mark - mark - private method
 - (void)styleNumberViewDidEndEditing:(NSString *)text{
     self.productName = text;
