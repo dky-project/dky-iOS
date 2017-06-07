@@ -993,6 +993,9 @@
     itemModel.subText = @"#";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
+        if(textField.text.length > 4){
+            textField.text = [textField.text substringToIndex:4];
+        }
         weakSelf.addProductApproveParameter.dkNumber = textField.text;
     };
     self.dingView.itemModel = itemModel;
