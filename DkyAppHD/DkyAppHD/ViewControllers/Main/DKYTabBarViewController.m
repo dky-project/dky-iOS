@@ -113,9 +113,9 @@
     self.customOrderVc = customOrderVc;
     
     // 收藏列表
-    DKYCollectListViewController *collectListVc = [[DKYCollectListViewController alloc] init];
-    [self addOneChlildVc:collectListVc title:@"收藏列表" imageName:@"tabbar_collect_list" selectedImageName:@"tabbar_collect_list"];
-    self.collectListVc = collectListVc;
+//    DKYCollectListViewController *collectListVc = [[DKYCollectListViewController alloc] init];
+//    [self addOneChlildVc:collectListVc title:@"收藏列表" imageName:@"tabbar_collect_list" selectedImageName:@"tabbar_collect_list"];
+//    self.collectListVc = collectListVc;
     
     // 订单查询
     DKYOrderInquiryViewController *orderInquiryVc = [[DKYOrderInquiryViewController alloc] init];
