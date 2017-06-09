@@ -351,6 +351,8 @@
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew9Id = @([model.ID integerValue]);
             [self dealWithmDimNew9IdSelected];
+
+            self.textField.enabled = [model.attribname isEqualToString:@"其他"];
             DLog(@"第一袖型 = %@",self.addProductApproveParameter.mDimNew22Id);
             break;
         case 1:
@@ -363,6 +365,7 @@
             models = self.staticDimListModel.DIMFLAG2;
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew9Id1 = @([model.ID integerValue]);
+            self.textField2.enabled = [model.attribname isEqualToString:@"其他"];;
             break;
         case 2:
             //第三袖型
@@ -374,7 +377,7 @@
             models = self.staticDimListModel.DIMFLAG3;
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew9Id2 = @([model.ID integerValue]);
-
+            self.textField3.enabled = [model.attribname isEqualToString:@"其他"];
             break;
         default:
             break;
