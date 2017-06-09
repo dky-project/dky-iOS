@@ -276,13 +276,13 @@
 - (void)dealWithgetPzsJsonFromServer:(NSInteger)flag value:(NSArray*)value{
     switch (flag) {
         case 2:
-            self.madeInfoByProductName.productMadeInfoView.pzJsonArray = value;
-            break;
-        case 3:
             self.madeInfoByProductName.productMadeInfoView.zzJsonArray = value;
             break;
-        case 4:
+        case 3:
             self.madeInfoByProductName.productMadeInfoView.zxJsonArray = value;
+            break;
+        case 4:
+            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = value;
             break;
         case 5:
             
@@ -295,21 +295,18 @@
 
 - (void)updateActionSheetAfterGetPzsJsonFromServer:(NSInteger)flag{
     switch (flag) {
-        case 1:{
-            BOOL exist = NO;
-            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
-                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew14Id integerValue]){
-                    exist = YES;
-                    break;
-                }
-            }
-            if(!exist){
-                // 不存在，则刷新
-                [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
-            }
-        }
-            break;
         case 2:{
+//            BOOL exist = NO;
+//            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
+//                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew14Id integerValue]){
+//                    exist = YES;
+//                    break;
+//                }
+//            }
+//            if(!exist){
+//                // 不存在，则刷新
+//                [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+//            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
@@ -324,6 +321,17 @@
         }
             break;
         case 3:{
+//            BOOL exist = NO;
+//            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
+//                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
+//                    exist = YES;
+//                    break;
+//                }
+//            }
+//            if(!exist){
+//                // 不存在，则刷新
+//                [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
+//            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
@@ -334,6 +342,31 @@
             if(!exist){
                 // 不存在，则刷新
                 [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+            }
+        }
+            break;
+        case 4:{
+//            BOOL exist = NO;
+//            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
+//                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
+//                    exist = YES;
+//                    break;
+//                }
+//            }
+//            if(!exist){
+//                // 不存在，则刷新
+//                [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+//            }
+            BOOL exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew17Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                // 不存在，则刷新
+                [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
             }
         }
             break;
