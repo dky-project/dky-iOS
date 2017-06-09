@@ -172,7 +172,7 @@
     
     NSArray *models = self.customOrderDimList.DIMFLAG_NEW10;
     
-    if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xbShow.count > 0){
+    if(self.madeInfoByProductName){
         models = self.madeInfoByProductName.productCusmptcateView.xbShow;
     }
     
@@ -203,7 +203,7 @@
     NSArray *models = nil;
     models = self.customOrderDimList.DIMFLAG_NEW10;
     
-    if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xbShow.count > 0){
+    if(self.madeInfoByProductName){
         models = self.madeInfoByProductName.productCusmptcateView.xbShow;
     }
     

@@ -124,7 +124,11 @@
     if(!madeInfoByProductName) return;
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew12Id > 0){
-        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW12) {
+        NSArray *models = self.customOrderDimList.DIMFLAG_NEW12;
+        if(self.madeInfoByProductName ){
+            models = self.madeInfoByProductName.productCusmptcateView.syShow;
+        }
+        for (DKYDimlistItemModel *model in models) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew12Id){
                 [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
                 break;
@@ -151,7 +155,11 @@
     }
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew7Id > 0){
-        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW7) {
+        NSArray *models = self.customOrderDimList.DIMFLAG_NEW7;
+        if(self.madeInfoByProductName ){
+            models = self.madeInfoByProductName.productCusmptcateView.mjzzShow;
+        }
+        for (DKYDimlistItemModel *model in models) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew7Id){
                 [self.mjBtn2 setTitle:model.attribname forState:UIControlStateNormal];
                 break;
@@ -205,7 +213,11 @@
     }
 
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew18Id > 0){
-        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW18) {
+        NSArray *models = self.customOrderDimList.DIMFLAG_NEW18;
+        if(self.madeInfoByProductName){
+            models = self.madeInfoByProductName.productCusmptcateView.gjxfShow;
+        }
+        for (DKYDimlistItemModel *model in models) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew18Id){
                 [self.gjxfBtn setTitle:model.attribname forState:UIControlStateNormal];
                 break;
@@ -611,7 +623,7 @@
     switch (sender.tag) {
         case 0:{
             models = self.customOrderDimList.DIMFLAG_NEW12;
-            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.syShow.count > 0){
+            if(self.madeInfoByProductName){
                 models = self.madeInfoByProductName.productCusmptcateView.syShow;
             }
         }
@@ -622,8 +634,12 @@
         case 2:
             models = self.customOrderDimList.DIMFLAG_NEW6;
             break;
-        case 3:
+        case 3:{
             models = self.customOrderDimList.DIMFLAG_NEW7;
+            if(self.madeInfoByProductName){
+                models = self.madeInfoByProductName.productCusmptcateView.mjzzShow;
+            }
+        }
             break;
         case 4:
             models = self.customOrderDimList.DIMFLAG_NEW37;
@@ -642,7 +658,7 @@
             break;
         case 9:{
             models = self.customOrderDimList.DIMFLAG_NEW18;
-            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.gjxfShow.count > 0){
+            if(self.madeInfoByProductName){
                 models = self.madeInfoByProductName.productCusmptcateView.gjxfShow;
             }
         }
@@ -692,7 +708,7 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW12;
-            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.syShow.count > 0){
+            if(self.madeInfoByProductName ){
                 models = self.madeInfoByProductName.productCusmptcateView.syShow;
             }
             model = [models objectOrNilAtIndex:index - 1];
@@ -734,6 +750,10 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW7;
+            if(self.madeInfoByProductName){
+                models = self.madeInfoByProductName.productCusmptcateView.mjzzShow;
+            }
+            
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew7Id = @([model.ID integerValue]);
             [self dealWithmDimNew7IdSelected];
@@ -801,7 +821,7 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW18;
-            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.gjxfShow.count > 0){
+            if(self.madeInfoByProductName){
                 models = self.madeInfoByProductName.productCusmptcateView.gjxfShow;
             }
             

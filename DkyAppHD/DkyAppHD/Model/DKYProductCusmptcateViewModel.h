@@ -42,6 +42,9 @@
 //挂肩袖肥
 @property (nonatomic, copy) NSArray * gjxfShow;
 
+// 门襟组织
+@property (nonatomic, copy) NSArray *mjzzShow;
+
 @property (nonatomic, copy) NSString * xwArray;
 @property (nonatomic, copy) NSArray * xwArrayList;
 

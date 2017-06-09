@@ -82,7 +82,7 @@
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id > 0){
         
         NSArray *models = self.staticDimListModel.DIMFLAG1;
-        if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xxShow.count > 0){
+        if(self.madeInfoByProductName){
             models = self.madeInfoByProductName.productCusmptcateView.xxShow;
         }
         
@@ -293,7 +293,7 @@
     switch (sender.tag) {
         case 0:{
             models = self.staticDimListModel.DIMFLAG1;
-            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xxShow.count > 0){
+            if(self.madeInfoByProductName){
                 models = self.madeInfoByProductName.productCusmptcateView.xxShow;
             }
         }
@@ -344,7 +344,7 @@
             }
             
             models = self.staticDimListModel.DIMFLAG1;
-            if(self.madeInfoByProductName && self.madeInfoByProductName.productCusmptcateView.xxShow.count > 0){
+            if(self.madeInfoByProductName){
                 models = self.madeInfoByProductName.productCusmptcateView.xxShow;
             }
             
