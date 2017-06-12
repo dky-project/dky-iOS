@@ -29,7 +29,8 @@
              @"xbShow" : @"DKYDimlistItemModel",
              @"xkShow" : @"DKYDimlistItemModel",
              @"xxShow" : @"DKYDimlistItemModel",
-             @"mjzzShow" : @"DKYDimlistItemModel"
+             @"mjzzShow" : @"DKYDimlistItemModel",
+             @"jxShow" : @"DKYDimlistItemModel"
              };
 }
 

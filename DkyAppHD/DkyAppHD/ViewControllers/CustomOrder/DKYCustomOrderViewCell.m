@@ -164,6 +164,7 @@ static const CGFloat basicItemHeight = 30;
     [self.tangzhuItemView fetchAddProductApproveInfo];
     [self.lingView fetchAddProductApproveInfo];
     [self.patternItemView fetchAddProductApproveInfo];
+    [self.jianTypeView fetchAddProductApproveInfo];
 }
 
 - (void)reset{
