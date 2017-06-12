@@ -101,7 +101,7 @@
     for (NSString *selected in madeInfoByProductName.productMadeInfoView.hxShow) {
         for (UIButton *btn in self.options) {
             if([[btn currentTitle] isEqualToString:selected]){
-                [self checkBtnClicked:btn];
+                [self checkBtnClickedDefault:btn];
             }
         }
     }
@@ -295,6 +295,26 @@
     // isHxAffix == Y,则不可编辑
     if(self.madeInfoByProductName && [self.madeInfoByProductName.productCusmptcateView.isHxAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame) return;
     
+    sender.selected = !sender.selected;
+    switch (sender.tag) {
+        case 1:
+            self.oneView.textField.enabled = sender.selected;
+            self.oneView.textField2.enabled = sender.selected;
+            break;
+        case 2:
+            self.twoView.textField.enabled = sender.selected;
+            self.twoView.textField2.enabled = sender.selected;
+            break;
+        case 3:
+            self.threeView.textField.enabled = sender.selected;
+            self.threeView.textField2.enabled = sender.selected;
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)checkBtnClickedDefault:(UIButton*)sender{
     sender.selected = !sender.selected;
     switch (sender.tag) {
         case 1:
