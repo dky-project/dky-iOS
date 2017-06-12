@@ -83,6 +83,8 @@
             }
         }
     }
+    
+    self.textField.text = self.madeInfoByProductName.productMadeInfoView.xkRemark;
 
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||

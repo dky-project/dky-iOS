@@ -314,6 +314,10 @@
  */
 @property (nonatomic, assign) NSInteger mDimNew32Id;
 
+/**
+ * 袖口备注，其它
+ */
+@property (nonatomic, copy) NSString *xkRemark;
 
 /**
  * 加注
