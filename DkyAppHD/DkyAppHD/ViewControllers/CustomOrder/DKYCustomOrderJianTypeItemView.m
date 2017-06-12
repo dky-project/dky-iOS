@@ -193,9 +193,17 @@
                self.textField.enabled = YES;
            }
            
+           if([self.addProductApproveParameter.mDimNew22Id integerValue] == 133){
+               self.textField.enabled = YES;
+           }else{
+               self.textField.text = nil;
+               self.textField.enabled = NO;
+           }
+           
            if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131 ||
               [self.addProductApproveParameter.mDimNew22Id integerValue] == 130||
               [self.addProductApproveParameter.mDimNew22Id integerValue] == 129){
+               self.jkView.textField.text = nil;
                self.jkView.textField.enabled = NO;
            }else{
                self.jkView.textField.enabled = YES;
@@ -326,9 +334,17 @@
         self.textField.enabled = YES;
     }
     
+    if([self.addProductApproveParameter.mDimNew22Id integerValue] == 133){
+        self.textField.enabled = YES;
+    }else{
+        self.textField.text = nil;
+        self.textField.enabled = NO;
+    }
+    
     if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131 ||
        [self.addProductApproveParameter.mDimNew22Id integerValue] == 130||
        [self.addProductApproveParameter.mDimNew22Id integerValue] == 129){
+        self.jkView.textField.text = nil;
         self.jkView.textField.enabled = NO;
     }else{
         self.jkView.textField.enabled = YES;
