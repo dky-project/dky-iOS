@@ -165,6 +165,7 @@ static const CGFloat basicItemHeight = 30;
     [self.lingView fetchAddProductApproveInfo];
     [self.patternItemView fetchAddProductApproveInfo];
     [self.jianTypeView fetchAddProductApproveInfo];
+    [self.xiukouItemView fetchAddProductApproveInfo];
 }
 
 - (void)reset{
@@ -590,6 +591,9 @@ static const CGFloat basicItemHeight = 30;
     if([self.madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]){
         self.addProductApproveParameter.xcValue = @([self.madeInfoByProductName.productMadeInfoView.xcValue doubleValue]);
     }
+    self.addProductApproveParameter.qtxxValue = self.madeInfoByProductName.productMadeInfoView.qtxRemark;
+    self.addProductApproveParameter.qtxxValue1 = self.madeInfoByProductName.productMadeInfoView.qtxRemark2;
+    self.addProductApproveParameter.qtxxValue2 = self.madeInfoByProductName.productMadeInfoView.qtxRemark3;
     
     // 袖边
     self.addProductApproveParameter.xbValue = self.madeInfoByProductName.productMadeInfoView.mDimNew45Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew45Id): nil;

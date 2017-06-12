@@ -162,6 +162,19 @@
 @property (nonatomic, assign) NSInteger mDimNew9Id3;
 
 /**
+ * 其他备注
+ */
+@property (nonatomic, copy) NSString *qtxRemark;
+/**
+ * 其他备注2
+ */
+@property (nonatomic, copy) NSString *qtxRemark2;
+/**
+ * 其他备注3
+ */
+@property (nonatomic, copy) NSString *qtxRemark3;
+
+/**
  * 袖长cm
  */
 @property (nonatomic, copy) NSString * xcValue;
@@ -223,18 +236,6 @@
 @property (nonatomic, copy) NSString *lxRemark;
 
 
-/**
- * 其他备注
- */
-@property (nonatomic, copy) NSString *qtxRemark;
-/**
- * 其他备注2
- */
-@property (nonatomic, copy) NSString *qtxRemark2;
-/**
- * 其他备注3
- */
-@property (nonatomic, copy) NSString *qtxRemark3;
 /**
  * 其他领边
  */

@@ -112,6 +112,10 @@
         }
     }
     
+    self.textField.text = madeInfoByProductName.productMadeInfoView.qtxRemark;
+    self.textField2.text = madeInfoByProductName.productMadeInfoView.qtxRemark2;
+    self.textField3.text = madeInfoByProductName.productMadeInfoView.qtxRemark3;
+    
     self.xcView.textField.text = madeInfoByProductName.productMadeInfoView.xcValue;
     
     self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]));
@@ -163,6 +167,12 @@
             self.textField3.enabled = NO;
         }
     }
+}
+
+- (void)fetchAddProductApproveInfo{
+    self.addProductApproveParameter.qtxxValue = self.textField.text;
+    self.addProductApproveParameter.qtxxValue1 = self.textField2.text;
+    self.addProductApproveParameter.qtxxValue2 = self.textField3.text;
 }
 
 - (void)dealwithMDimNew12IdSelected{
