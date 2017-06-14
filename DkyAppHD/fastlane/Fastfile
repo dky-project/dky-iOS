@@ -1,0 +1,143 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.38.1"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    # cocoapods
+    
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    # scan
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    # match(type: "appstore") # more information: https://codesigning.guide
+    # gym # Build your app - more options available
+    # pilot
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here (run `fastlane actions`)
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    # match(type: "appstore")
+    # snapshot
+    # gym # Build your app - more options available
+    # deliver(force: true)
+    # frameit
+  end
+
+  desc "打包成企业版ipa"
+  lane :inhouse do |options|
+    #更新info plist文件 ENV["key"]表示从环境变量中读取值，也可以直接写死，如果要在打包时改变某些参数，可以把它们设置成环境变量
+    # update_info_plist(
+    #     plist_path: "GoodFolks/info.plist",
+    #     display_name: "新App名字",
+    #   )
+    # #更新urlType 具体用法查询action文件update_info_plist的说明
+    # update_info_plist(
+    #     xcodeproj: "GoodFolks.xcodeproj",
+    #     plist_path: "GoodFolks/info.plist",
+    #     block: lambda { |plist|
+    #       #这里我在更新微信的urlType 这个action还可以更新app的bundleid 具体可以查阅文档
+    #       urlScheme = plist["CFBundleURLTypes"].find{|scheme| scheme["CFBundleURLName"] == "weixin"}
+    #       urlScheme[:CFBundleURLSchemes] = ENV["app_urlschems_weixin"]
+    #     }
+    #   )
+    # #设置版本号
+    # increment_version_number(
+    #   version_number: ENV["app_versionName"]
+    #   )
+    # #设置build号，这些都可以写死，也可以不要这些action，也可以从环境变量中获取值
+    # increment_build_number(
+    #   build_number: ENV["app_versionCode"]
+    #   )
+    # #这个action很重要cert就是下载和安装匹配的Provision Profile文件，不用你去管那些证书不匹配的事情啦，下载的文件会存在项目根目录的build文件夹下
+    # cert(output_path:"build")
+    # #这一步就是签名了
+    # sigh(
+    #   app_identifier: ENV["app_applicationId"],
+    #   team_id:"9M8CTWAV8P",
+    #   output_path: "build"
+    #   )
+    # #最后就是打包，企业版打包，打包完成后会在项目根目录的build文件夹下生成ipa文件
+    scheme = "DkyAppHD"
+    ipa_name = "#{scheme}.ipa"
+    now = DateTime.parse(Time.now.to_s).strftime('%Y-%m-%d %H:%M:%S').to_s
+
+    output_directory = "~/Desktop/DycAppIpa/#{now}"
+    gym(
+      scheme: scheme,
+      export_method: "enterprise",
+      output_directory: output_directory,
+      )
+
+    # do some other stuff here
+end
+
+desc "打包成企业版ipa,并且上传到蒲公英"
+  lane :inhouseWithPgy do |options|
+    scheme = "DkyAppHD"
+    ipa_name = "#{scheme}.ipa"
+    now = DateTime.parse(Time.now.to_s).strftime('%Y-%m-%d %H:%M:%S').to_s
+
+    output_directory = "~/Desktop/DycAppIpa/#{now}"
+    gym(
+      scheme: scheme,
+      export_method: "enterprise",
+      output_directory: output_directory,
+      )
+
+# 上传蒲公英
+    desc = options[:desc]
+    UI.message("上传蒲公英")
+    UI.message("安装密码: 123456");
+    pgyer(api_key: "f63b993e5bb04a11ed6ae9b75014c1a8", user_key: "85826194e455eacffc58a9137b466341", password: "123456", install_type: "2", update_description: "更新版本")
+    # do some other stuff here
+end
+
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used. No personal data is recorded. 
+# Learn more at https://github.com/fastlane/fastlane#metrics
