@@ -73,7 +73,7 @@
 }
 
 - (void)fetchAddProductApproveInfo{
-    self.addProductApproveParameter.jkValue =  [self.textField.text isNotBlank] ? @([self.textField.text doubleValue]) : nil;
+    self.addProductApproveParameter.jkValue =  [self.jkView.textField.text isNotBlank] ? @([self.jkView.textField.text doubleValue]) : nil;
     self.addProductApproveParameter.hzxc1Value = [self.gyxcView.textField.text isNotBlank] ? @([self.gyxcView.textField.text doubleValue]) : nil;
 }
 
