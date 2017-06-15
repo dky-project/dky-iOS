@@ -189,6 +189,10 @@
 }
 
 - (void)qtxiTextFieldEditingChanged:(UITextField*)textField{
+    if(textField.text.length > 4){
+        textField.text = [textField.text substringToIndex:4];
+    }
+
     self.addProductApproveParameter.qtxbzzValue = textField.text;
 }
 

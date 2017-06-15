@@ -143,6 +143,10 @@
 }
 
 - (void)textFieldEditingChanged:(UITextField*)textField{
+    // 限制20
+    if(textField.text.length > 20){
+        textField.text = [textField.text substringToIndex:20];
+    }
     self.addProductApproveParameter.jzValue = textField.text;
 }
 

@@ -415,6 +415,10 @@
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textField{
+    if(textField.text.length > 4){
+        textField.text = [textField.text substringToIndex:4];
+    }
+    
     switch (textField.tag) {
         case 0:
             self.addProductApproveParameter.qtxxValue = textField.text;

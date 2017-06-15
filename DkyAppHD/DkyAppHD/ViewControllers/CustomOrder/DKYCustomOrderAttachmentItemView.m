@@ -190,6 +190,12 @@
     }
 }
 
+- (void)textFieldEditingChanged:(UITextField *)textField{
+    if(textField.text.length > 4){
+        textField.text = [textField.text substringToIndex:4];
+    }
+}
+
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
@@ -324,6 +330,7 @@
                                  NSBaselineOffsetAttributeName : @-1};
     
     self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:kSelectCanEdit attributes:attributes];
+    [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
 }
 
 #pragma mark - get & set method

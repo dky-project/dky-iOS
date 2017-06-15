@@ -325,6 +325,10 @@
 }
 
 - (void)lbTextFieldEditingChanged:(UITextField *)textField{
+    if(textField.text.length > 4){
+        textField.text = [textField.text substringToIndex:4];
+    }
+
     self.addProductApproveParameter.qtlbValue = textField.text;
 }
 
@@ -783,6 +787,10 @@
     itemModel.title = @"其他备注:";
     itemModel.subText = @"";
     itemModel.textFieldDidEditing = ^(UITextField *textField){
+        if(textField.text.length > 5){
+            textField.text = [textField.text substringToIndex:5];
+        }
+
         weakSelf.addProductApproveParameter.qtLingOther = @([textField.text doubleValue]);
     };
     self.otherMarkView.itemModel = itemModel;
@@ -807,6 +815,10 @@
     itemModel.title = @"备注:";
     itemModel.subText = @"";
     itemModel.textFieldDidEditing = ^(UITextField *textField){
+        if(textField.text.length > 15){
+            textField.text = [textField.text substringToIndex:15];
+        }
+
         weakSelf.addProductApproveParameter.lxsx5Value = textField.text;
     };
     self.markView.itemModel = itemModel;
