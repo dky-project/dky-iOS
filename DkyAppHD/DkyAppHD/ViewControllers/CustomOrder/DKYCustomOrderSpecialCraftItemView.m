@@ -100,7 +100,9 @@
         self.canEdit = NO;
     }else{
         self.canEdit = YES;
-        self.textField.enabled = NO;
+        if(!self.other.selected){
+            self.textField.enabled = NO;
+        }
     }
 }
 
