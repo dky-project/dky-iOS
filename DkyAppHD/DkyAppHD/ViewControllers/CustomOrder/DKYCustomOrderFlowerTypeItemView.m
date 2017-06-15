@@ -295,6 +295,19 @@
     // isHxAffix == Y,则不可编辑
     if(self.madeInfoByProductName && [self.madeInfoByProductName.productCusmptcateView.isHxAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame) return;
     
+    // 判断sender是未选中的，则要检查有没有查过3个
+    if(!sender.selected){
+        NSInteger selectedCount = 0;
+        for (UIButton *btn in self.options) {
+            if(btn.selected){
+                selectedCount += 1;
+            }
+            if(selectedCount >= 3){
+                return;
+            }
+        }
+    }
+    
     sender.selected = !sender.selected;
     switch (sender.tag) {
         case 1:
@@ -315,6 +328,19 @@
 }
 
 - (void)checkBtnClickedDefault:(UIButton*)sender{
+    // 判断sender是未选中的，则要检查有没有查过3个
+    if(!sender.selected){
+        NSInteger selectedCount = 0;
+        for (UIButton *btn in self.options) {
+            if(btn.selected){
+                selectedCount += 1;
+            }
+            if(selectedCount >= 3){
+                return;
+            }
+        }
+    }
+    
     sender.selected = !sender.selected;
     switch (sender.tag) {
         case 1:
