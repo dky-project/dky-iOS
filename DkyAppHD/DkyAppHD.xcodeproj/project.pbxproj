@@ -29,7 +29,6 @@
 		26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BFE1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m */; };
 		26210C021E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */; };
 		26210C051E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */; };
-		2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2622B96F1E1BEF54006CE866 /* DKYSearchView.m */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
 		263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1431E1555E7002FBB50 /* NSString+Utility.m */; };
@@ -59,6 +58,7 @@
 		26A6FA601E61A13C00376194 /* DKYDimNewListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A6FA5F1E61A13C00376194 /* DKYDimNewListItemModel.m */; };
 		26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */; };
 		26BB9A591E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */; };
+		26D2C9E61EF5683C008EABAA /* DKYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D2C9E51EF5683C008EABAA /* DKYSearchView.m */; };
 		26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */; };
 		26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C71E1A1C30008EE55F /* UIViewController+Utlity.m */; };
 		26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0CA1E1A2492008EE55F /* DKYNavigationController.m */; };
@@ -351,8 +351,6 @@
 		26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupViewCell.m; sourceTree = "<group>"; };
 		26210C031E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYMultipleSelectPopupItemModel.h; sourceTree = "<group>"; };
 		26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupItemModel.m; sourceTree = "<group>"; };
-		2622B96E1E1BEF54006CE866 /* DKYSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSearchView.h; sourceTree = SOURCE_ROOT; };
-		2622B96F1E1BEF54006CE866 /* DKYSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSearchView.m; sourceTree = SOURCE_ROOT; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
 		263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
 		263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -417,6 +415,8 @@
 		26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderFlowerTypeItemView.m; sourceTree = "<group>"; };
 		26BB9A571E57468C00E425D5 /* DKYTextFieldAndTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTextFieldAndTextFieldView.h; sourceTree = "<group>"; };
 		26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTextFieldAndTextFieldView.m; sourceTree = "<group>"; };
+		26D2C9E41EF5683C008EABAA /* DKYSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSearchView.h; sourceTree = "<group>"; };
+		26D2C9E51EF5683C008EABAA /* DKYSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSearchView.m; sourceTree = "<group>"; };
 		26DAD0C01E1A1923008EE55F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		26DAD0C61E1A1C30008EE55F /* UIViewController+Utlity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utlity.h"; sourceTree = "<group>"; };
@@ -1092,8 +1092,8 @@
 				26DAD0D91E1A47F9008EE55F /* DKYSampleQueryViewCell.h */,
 				26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */,
 				26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */,
-				2622B96E1E1BEF54006CE866 /* DKYSearchView.h */,
-				2622B96F1E1BEF54006CE866 /* DKYSearchView.m */,
+				26D2C9E41EF5683C008EABAA /* DKYSearchView.h */,
+				26D2C9E51EF5683C008EABAA /* DKYSearchView.m */,
 				EBC300561E1CB06700F602E6 /* DKYFiltrateView.h */,
 				EBC300571E1CB06700F602E6 /* DKYFiltrateView.m */,
 				EBC300591E1CC2ED00F602E6 /* DKYFiltrateOptionView.h */,
@@ -2355,6 +2355,7 @@
 				EBC300541E1CA0C700F602E6 /* SDCycleScrollView.m in Sources */,
 				EB97906E1E221B6F00E2985C /* MMPopupItem.m in Sources */,
 				EBD115ED1EA4614D00AF6F5C /* DKYTongkuan5VarietyItemView.m in Sources */,
+				26D2C9E61EF5683C008EABAA /* DKYSearchView.m in Sources */,
 				EB195B981E5C41CE00116048 /* LCActionSheet.m in Sources */,
 				EBD116111EA4B62000AF6F5C /* DKYSampleOrderJingSizeItemView.m in Sources */,
 				EBB2498A1EAEDECB008506D0 /* DKYTongkuanFiveBusinessCell.m in Sources */,
@@ -2442,7 +2443,6 @@
 				EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */,
 				26210BD71E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m in Sources */,
 				EB8FA2A31E55A0B7004BE846 /* DKYCustomOrderViewCell.m in Sources */,
-				2622B9701E1BEF54006CE866 /* DKYSearchView.m in Sources */,
 				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				EB97906A1E221B6F00E2985C /* MMAlertView.m in Sources */,
 				26210C051E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m in Sources */,
