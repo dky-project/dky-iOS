@@ -66,7 +66,8 @@ typedef NS_ENUM(NSInteger, DKYCustomOrderActionsType) {
 // 表格类型
 typedef NS_ENUM(NSInteger, DKYFormType) {
     DKYFormType_Default = 0,
-    DKYFormType_TypeOne
+    DKYFormType_TypeOne,
+    DKYFormType_TypeTwo,    // 设置表格背景色没0xf1f1f1，非这个类型，为默认的白色
 };
 
 #endif /* GlobalEnum_h */

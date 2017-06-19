@@ -96,6 +96,8 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
         return;
     }
     
+    self.contentView.backgroundColor = [UIColor whiteColor];
+    
     CGFloat totalWidth = 0;
     NSMutableArray *mwidth = [NSMutableArray arrayWithCapacity:_TotalSection];
     
@@ -144,7 +146,39 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
             }
         }
             break;
+        case DKYFormType_TypeTwo:{
+            CGFloat minWidth = 100;
+            CGFloat maxWidth = 768 - 32;
+            
+            UIFont *font = [UIFont systemFontOfSize:13];
+            CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+            NSDictionary *attributes = @{NSFontAttributeName : font};
+            NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+            
+            for (NSArray *array in DataArr) {
+                CGFloat maxw = 0;
+                
+                for (NSString *title in array) {
+                    CGRect textFrame = [title boundingRectWithSize:size
+                                                           options:options
+                                                        attributes:attributes
+                                                           context:nil];
+                    if(textFrame.size.width > maxw){
+                        maxw = textFrame.size.width;
+                    }
+                }
+                
+                maxw += 10;
+                maxw = MIN(MAX(minWidth, maxw), maxWidth);
+                maxWidth -= maxw;
+                totalWidth += maxw;
+                [mwidth addObject:@(maxw)];
+            }
+                self.contentView.backgroundColor = [UIColor colorWithHex:0xf1f1f1];
+        }
+            break;
         default:
+            self.contentView.backgroundColor = [UIColor whiteColor];
             break;
     }
     

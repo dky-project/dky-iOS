@@ -30,6 +30,8 @@
 
 @property (nonatomic, strong) NSArray *sampleValueArray;
 
+@property (nonatomic, strong) NSArray *defaultValueArray;
+
 @end
 
 @implementation DKYSampleDetailViewController
@@ -67,6 +69,8 @@
             weakSelf.sampleProductInfo = [DKYSampleProductInfoModel mj_objectWithKeyValues:result.data];
             weakSelf.sampleProductInfo.mProductId = @(weakSelf.sampleModel.mProductId);
             weakSelf.sampleProductInfo.pdt = weakSelf.sampleModel.name;
+            
+            [self setupDefaultValueArray];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -198,6 +202,36 @@
     self.sampleValueArray = @[[xw copy],[yc copy],[xc copy],[jk copy]];
 }
 
+- (void)setupDefaultValueArray{
+    NSMutableArray *pz = [NSMutableArray arrayWithCapacity:1];
+    [pz addObject:@"品种(原料)"];
+    
+    NSMutableArray *zx = [NSMutableArray arrayWithCapacity:1];
+    [zx addObject:@"针型"];
+    
+    NSMutableArray *ys = [NSMutableArray arrayWithCapacity:1];
+    [ys addObject:@"颜色"];
+    
+    NSMutableArray *xw = [NSMutableArray arrayWithCapacity:1];
+    [xw addObject:@"胸围"];
+    
+    NSMutableArray *yc = [NSMutableArray arrayWithCapacity:1];
+    [yc addObject:@"衣长"];
+    
+    NSMutableArray *xc = [NSMutableArray arrayWithCapacity:1];
+    [xc addObject:@"袖长"];
+    
+    
+    [pz addObject:self.sampleProductInfo.mDimNew14Text ? :@""];
+    [zx addObject:self.sampleProductInfo.mDimNew16Text ? :@""];
+    [ys addObject:self.sampleProductInfo.clrRange ? : @""];
+    [xw addObject:self.sampleProductInfo.defaultXwValue ? : @""];
+    [yc addObject:self.sampleProductInfo.defaultYcValue ? : @""];
+    [xc addObject:self.sampleProductInfo.defaultXcValue ? : @""];
+    
+    self.defaultValueArray = @[pz,zx,ys,xw,yc,xc];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
@@ -221,7 +255,7 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -241,13 +275,16 @@
             identifier = NSStringFromClass([DKYSampleDetailTypeViewCell class]);
             break;
         case 1:
+            identifier = NSStringFromClass([DQTableViewCell class]);
+            break;
+        case 2:
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 identifier = NSStringFromClass([DKYSampleDetailPriceViewCell class]);
             }else{
                 identifier = NSStringFromClass([DQTableViewCell class]);
             }
             break;
-        case 2:
+        case 3:
             identifier = NSStringFromClass([DQTableViewCell class]);
             break;
         default:
@@ -260,11 +297,6 @@
             DKYSampleDetailTypeViewCell *newCell = (DKYSampleDetailTypeViewCell*)cell;
             newCell.model = weakSelf.sampleProductInfo;
         }else if (indexPath.row == 2){
-            DQTableViewCell *newcell = (DQTableViewCell*)cell;
-            newcell.fd_enforceFrameLayout = YES;
-            
-            newcell.DataArr = [self.sampleValueArray mutableCopy];
-        }else{
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 DKYSampleDetailPriceViewCell *newcell = (DKYSampleDetailPriceViewCell*)cell;
                 newcell.sampleProductInfo = self.sampleProductInfo;
@@ -272,6 +304,16 @@
                 DQTableViewCell *newcell = (DQTableViewCell*)cell;
                 newcell.fd_enforceFrameLayout = YES;
                 newcell.DataArr = [self.priceArray mutableCopy];
+            }
+        }else {
+            DQTableViewCell *newcell = (DQTableViewCell*)cell;
+            newcell.fd_enforceFrameLayout = YES;
+            
+            if(indexPath.row == 1){
+                newcell.formType = DKYFormType_TypeTwo;
+                newcell.DataArr = [self.defaultValueArray mutableCopy];
+            }else{
+                newcell.DataArr = [self.sampleValueArray mutableCopy];
             }
         }
     }];
@@ -289,6 +331,15 @@
         }
             break;
         case 1:{
+            DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+            
+            cell.formType = DKYFormType_TypeTwo;
+            cell.DataArr = [self.defaultValueArray mutableCopy];
+            cell.hideBottomLine = YES;
+            return cell;
+        }
+            break;
+        case 2:{
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 DKYSampleDetailPriceViewCell *cell = [DKYSampleDetailPriceViewCell sampleDetailPriceViewCellWithTableView:tableView];
                 cell.sampleProductInfo = self.sampleProductInfo;
@@ -301,7 +352,7 @@
             }
         }
             break;
-        case 2:{
+        case 3:{
             DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
             
             cell.DataArr = [self.sampleValueArray mutableCopy];
