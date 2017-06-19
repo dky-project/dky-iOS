@@ -316,6 +316,17 @@
                 // 不存在，则刷新
                 [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
                 self.addProductApproveParameter.mDimNew15Id = nil;
+//                // 不存在，则取新的选项的第一项值
+//                if(self.madeInfoByProductName.productMadeInfoView.zzJsonArray.count == 0){
+//                    // 不存在，则刷新
+//                    [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
+//                    self.addProductApproveParameter.mDimNew15Id = nil;
+//                    return;
+//                }
+//                
+//                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zzJsonArray firstObject];
+//                [self.secondBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+//                self.addProductApproveParameter.mDimNew15Id = @([firstModel.ID integerValue]);
             }
             
             exist = NO;
@@ -327,8 +338,19 @@
             }
             if(!exist){
                 // 不存在，则刷新
-                self.addProductApproveParameter.mDimNew16Id = nil;
                 [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew16Id = nil;
+//                if(self.madeInfoByProductName.productMadeInfoView.zxJsonArray.count == 0){
+//                    // 不存在，则刷新
+//                    [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+//                    self.addProductApproveParameter.mDimNew16Id = nil;
+//                    return;
+//                }
+//                
+//                // 不存在，则取新的选项的第一项值
+//                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zxJsonArray firstObject];
+//                [self.thirdBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+//                self.addProductApproveParameter.mDimNew16Id = @([firstModel.ID integerValue]);
             }
 
             exist = NO;
@@ -339,9 +361,17 @@
                 }
             }
             if(!exist){
-                // 不存在，则刷新
-                [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
-                self.addProductApproveParameter.mDimNew17Id = nil;
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
             }
         }
             break;
@@ -366,8 +396,20 @@
             }
             if(!exist){
                 // 不存在，则刷新
-                self.addProductApproveParameter.mDimNew16Id = nil;
                 [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew16Id = nil;
+                
+//                if(self.madeInfoByProductName.productMadeInfoView.zxJsonArray.count == 0){
+//                    // 不存在，则刷新
+//                    [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+//                    self.addProductApproveParameter.mDimNew16Id = nil;
+//                    return;
+//                }
+//                
+//                // 不存在，则取新的选项的第一项值
+//                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zxJsonArray firstObject];
+//                [self.thirdBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+//                self.addProductApproveParameter.mDimNew16Id = @([firstModel.ID integerValue]);
             }
             
             exist = NO;
@@ -378,9 +420,17 @@
                 }
             }
             if(!exist){
-                // 不存在，则刷新
-                [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
-                self.addProductApproveParameter.mDimNew17Id = nil;
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
             }
 
         }
@@ -405,9 +455,17 @@
                 }
             }
             if(!exist){
-                // 不存在，则刷新
-                [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
-                self.addProductApproveParameter.mDimNew17Id = nil;
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
             }
 
         }
