@@ -791,7 +791,7 @@
             textField.text = [textField.text substringToIndex:5];
         }
 
-        weakSelf.addProductApproveParameter.qtLingOther = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.qtLingOther = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
     self.otherMarkView.itemModel = itemModel;
     

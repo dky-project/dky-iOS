@@ -423,7 +423,7 @@
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.enabled = NO;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.jkValue = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.jkValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
     self.jkView.itemModel = itemModel;
 }
@@ -452,7 +452,7 @@
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.hzxc1Value = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.hzxc1Value = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
     self.gyxcView.itemModel = itemModel;
 }

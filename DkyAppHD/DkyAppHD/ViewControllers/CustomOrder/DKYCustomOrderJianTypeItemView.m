@@ -269,7 +269,7 @@
     
     self.jkView.textField.text = model.jk;
     
-    self.addProductApproveParameter.jkValue = @([model.jk doubleValue]);
+    self.addProductApproveParameter.jkValue = [model.jk isNotBlank] ? @([model.jk doubleValue]) : nil;
 }
 
 - (void)clear{
@@ -497,7 +497,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.jkValue = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.jkValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
     self.jkView.itemModel = itemModel;
 }
@@ -520,7 +520,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.hzxc1Value = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.hzxc1Value = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
     self.gyxcView.itemModel = itemModel;
 }

@@ -1081,7 +1081,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.mjkValue = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.mjkValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;;
     };
     self.mjkView.itemModel = itemModel;
 }
@@ -1161,7 +1161,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.dc1Value = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.dc1Value = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
     self.dcView.itemModel = itemModel;
 }
@@ -1268,7 +1268,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.dcValue = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.dcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;;
     };
     self.jdInputView.itemModel = itemModel;
 }
@@ -1291,7 +1291,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.hzxcValue = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.hzxcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;;
     };
     self.gyxcView.itemModel = itemModel;
 }
@@ -1334,7 +1334,7 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.mjcValue = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.mjcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;;
     };
     self.mjcView.itemModel = itemModel;
 }

@@ -330,7 +330,7 @@
     itemModel.title = @"";
     itemModel.subText = @"cm";
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.xbcValue = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.xbcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
     self.unknowniew.itemModel = itemModel;
 }

@@ -186,7 +186,7 @@
     itemModel.title = @"工艺袖长";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.hzxc1Value = @([textField.text doubleValue]);
+        weakSelf.addProductApproveParameter.hzxc1Value = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
     self.sjxcView.itemModel = itemModel;
 }
