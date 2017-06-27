@@ -242,7 +242,7 @@
         self.mjkView.textField.text = madeInfoByProductName.productMadeInfoView.mjkValue;
     }
     
-    if(madeInfoByProductName.productMadeInfoView.hzxcValue){
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55 && madeInfoByProductName.productMadeInfoView.hzxcValue){
         self.gyxcView.textField.text = [NSString stringWithFormat:@"%@",madeInfoByProductName.productMadeInfoView.hzxcValue];
     }
     

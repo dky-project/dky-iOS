@@ -574,7 +574,9 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.mDimNew19Id = self.madeInfoByProductName.productMadeInfoView.mDimNew19Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew19Id): nil;
     
     self.addProductApproveParameter.mjkValue = [self.madeInfoByProductName.productMadeInfoView.mjkValue isNotBlank] ? @([self.madeInfoByProductName.productMadeInfoView.mjkValue doubleValue]) : nil;
-    self.addProductApproveParameter.hzxcValue = self.madeInfoByProductName.productMadeInfoView.hzxcValue;
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
+        self.addProductApproveParameter.hzxcValue = self.madeInfoByProductName.productMadeInfoView.hzxcValue;
+    }
     // 尺寸
     self.addProductApproveParameter.xwValue = self.madeInfoByProductName.productMadeInfoView.xwValue;
     self.addProductApproveParameter.ycValue = self.madeInfoByProductName.productMadeInfoView.ycValue;
@@ -583,6 +585,10 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.mDimNew22Id = self.madeInfoByProductName.productMadeInfoView.mDimNew22Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew22Id): nil;
     if([self.madeInfoByProductName.productMadeInfoView.jkValue isNotBlank]){
         self.addProductApproveParameter.jkValue = @([self.madeInfoByProductName.productMadeInfoView.jkValue doubleValue]);
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55){
+        self.addProductApproveParameter.hzxc1Value = self.madeInfoByProductName.productMadeInfoView.hzxcValue;
     }
     
     // 袖型
