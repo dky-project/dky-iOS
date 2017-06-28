@@ -149,7 +149,7 @@
             self.textField.enabled = YES;
         }
         
-        if([self.addProductApproveParameter.mDimNew22Id integerValue] == 133){
+        if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 133){
             self.textField.enabled = YES;
         }else{
             self.textField.text = nil;
@@ -173,7 +173,7 @@
             self.gyxcView.textField.enabled = YES;
         }
         
-        if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
+        if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
             self.gyxcView.textField.enabled = YES;
         }else{
             self.gyxcView.textField.text = nil;
