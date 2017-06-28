@@ -500,10 +500,10 @@ static const CGFloat basicItemHeight = 30;
         return;
     }
     
-    [self updateModelViews];
-    
     // 定制订单，默认赋值参数
     [self updateAddProductApproveParameter];
+    
+    [self updateModelViews];
 }
 
 - (BOOL)needHideKoudai{

@@ -209,10 +209,10 @@ static const CGFloat basicItemHeight = 45;
 }
 
 - (void)dealWithstyleNumber{
-    [self updateModelViews];
-    
     // 定制订单，默认赋值参数
     [self updateAddProductApproveParameter];
+    
+    [self updateModelViews];
 }
 
 - (void)updateModelViews{
