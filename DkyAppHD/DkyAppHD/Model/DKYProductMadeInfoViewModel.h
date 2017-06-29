@@ -263,6 +263,15 @@
  */
 @property (nonatomic, strong) NSArray *tzShow;
 
+//烫珠tzRemark
+@property (nonatomic, copy) NSString *tzRemark;
+
+// 绣花tzRemark1
+@property (nonatomic, copy) NSString *tzRemark1;
+
+// 串珠tzRemark2
+@property (nonatomic, copy) NSString *tzRemark2;
+
 /**
  * 口袋（勾选框列表）
  */

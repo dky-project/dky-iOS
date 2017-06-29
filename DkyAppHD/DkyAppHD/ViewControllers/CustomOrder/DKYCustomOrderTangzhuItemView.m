@@ -88,7 +88,7 @@
     for (NSString *selected in madeInfoByProductName.productMadeInfoView.tzShow) {
         for (UIButton *btn in self.options) {
             if([[btn currentTitle] isEqualToString:selected]){
-                [self checkBtnClicked:btn];
+                [self checkBtnClicked:btn needSetRemark:YES];
             }
         }
     }
@@ -229,21 +229,33 @@
 
 
 #pragma mark - action method
-- (void)checkBtnClicked:(UIButton*)sender{
+- (void)checkBtnClicked:(UIButton*)sender needSetRemark:(BOOL)setRemark{
     sender.selected = !sender.selected;
     
     switch (sender.tag) {
         case 1:
             self.oneView.textField.enabled = sender.selected;
             self.oneView.textField2.enabled = sender.selected;
+            
+            if(setRemark && [self.madeInfoByProductName.productMadeInfoView.tzRemark isNotBlank]){
+                self.oneView.textField.text = self.madeInfoByProductName.productMadeInfoView.tzRemark;
+            }
             break;
         case 2:
             self.twoView.textField.enabled = sender.selected;
             self.twoView.textField2.enabled = sender.selected;
+            
+            if(setRemark && [self.madeInfoByProductName.productMadeInfoView.tzRemark1 isNotBlank]){
+                self.twoView.textField.text = self.madeInfoByProductName.productMadeInfoView.tzRemark1;
+            }
             break;
         case 3:
             self.threeView.textField.enabled = sender.selected;
             self.threeView.textField2.enabled = sender.selected;
+            
+            if(setRemark && [self.madeInfoByProductName.productMadeInfoView.tzRemark2 isNotBlank]){
+                self.threeView.textField.text = self.madeInfoByProductName.productMadeInfoView.tzRemark2;
+            }
             break;
         default:
             break;
