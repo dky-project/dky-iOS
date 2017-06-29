@@ -89,6 +89,8 @@
         }
     }
     
+    self.textField.text = madeInfoByProductName.productMadeInfoView.qtkdRemark;
+    
     NSInteger mDimNew12Id = self.madeInfoByProductName.productMadeInfoView.mDimNew12Id;
     if(mDimNew12Id == 68 ||
        mDimNew12Id == 61 ||

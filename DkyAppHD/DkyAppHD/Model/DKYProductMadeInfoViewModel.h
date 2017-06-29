@@ -287,6 +287,9 @@
  */
 @property (nonatomic, copy) NSArray *fjShow;
 
+// 附件其他
+@property (nonatomic, copy) NSString *qtfjRemark;
+
 /**
  * 特殊工艺（勾选框列表）
  */
