@@ -9,6 +9,7 @@
 #import "DKYSampleDetailTypeViewCell.h"
 #import "SDCycleScrollView.h"
 #import "DKYSampleProductInfoModel.h"
+#import "PYPhotoBrowser.h"
 
 @interface DKYSampleDetailTypeViewCell ()<SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sampleTypeLabel;
@@ -115,9 +116,18 @@
 
 #pragma mark - SDCycleScrollViewDelegate
 
-- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
-{
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     DLog(@"---点击了第%ld张图片", (long)index);
+    // 1. 创建photoBroseView对象
+    PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
+    
+    // 2.1 设置图片源(UIImageView)数组
+    photoBroseView.sourceImgageViews = self.model.imgList;
+    // 2.2 设置初始化图片下标（即当前点击第几张图片）
+    photoBroseView.currentIndex = 2;
+    
+    // 3.显示(浏览)
+    [photoBroseView show];
 }
 
 //- (void)next:(UIBarButtonItem*)sender{
