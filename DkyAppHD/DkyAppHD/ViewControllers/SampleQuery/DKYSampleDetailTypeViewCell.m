@@ -141,12 +141,9 @@
 }
 
 #pragma mark - PYPhotoBrowseViewDelegate
-/**
- * 图片长按时调用，可通过实现该代理方法处理长按手势
- * 注意：实现该代理方法，默认长按保存效果即失效！
- */
+
 - (void)photoBrowseView:(PYPhotoBrowseView *)photoBrowseView didLongPressImage:(UIImage *)image index:(NSInteger)index{
-    // 暂时do nothing
+    // 长按图片浏览器，相应的时间，类似微信，弹出一个action sheet，有相应的操作。
 //    [self showOptionsPicker];
 }
 
