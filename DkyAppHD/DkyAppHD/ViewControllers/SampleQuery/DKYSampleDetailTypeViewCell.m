@@ -11,7 +11,7 @@
 #import "DKYSampleProductInfoModel.h"
 #import "PYPhotoBrowser.h"
 
-@interface DKYSampleDetailTypeViewCell ()<SDCycleScrollViewDelegate>
+@interface DKYSampleDetailTypeViewCell ()<SDCycleScrollViewDelegate,PYPhotoBrowseViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sampleTypeLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *ganweiLabel;
 
@@ -130,9 +130,24 @@
     photoBroseView.frameFormWindow = frameFormWindow;
     
     photoBroseView.frameToWindow = frameFormWindow;
+    photoBroseView.autoRotateImage = NO;
+    photoBroseView.showDuration = 0.75;
+    photoBroseView.hiddenDuration = 0.75;
+    
+    photoBroseView.delegate = self;
     
     // 3.显示(浏览)
     [photoBroseView show];
+}
+
+#pragma mark - PYPhotoBrowseViewDelegate
+/**
+ * 图片长按时调用，可通过实现该代理方法处理长按手势
+ * 注意：实现该代理方法，默认长按保存效果即失效！
+ */
+- (void)photoBrowseView:(PYPhotoBrowseView *)photoBrowseView didLongPressImage:(UIImage *)image index:(NSInteger)index{
+    // 暂时do nothing
+//    [self showOptionsPicker];
 }
 
 //- (void)next:(UIBarButtonItem*)sender{
@@ -143,6 +158,7 @@
 //    [self.bannerView scrollTopreviousPage];
 //}
 
+
 #pragma mark - private method
 - (void)formatMutableAttributedString:(NSMutableAttributedString*)mutableAttributedString{
     NSRange range = [mutableAttributedString.string rangeOfString:@":"];
@@ -152,6 +168,24 @@
         [mutableAttributedString addAttribute:(NSString*)kCTForegroundColorAttributeName value:(id)[UIColor colorWithHex:0x666666].CGColor range:range];
     }
 }
+
+- (void)showOptionsPicker{
+    [self.superview endEditing:YES];
+    
+    NSMutableArray *item = @[@"收藏",@"保存图片"].mutableCopy;
+    
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:nil
+                                             cancelButtonTitle:kCancelTitle
+                                                       clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+                                                           DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                       }
+                                         otherButtonTitleArray:item];
+    actionSheet.scrolling = item.count > 10;
+    actionSheet.visibleButtonCount = 10;
+    actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    [actionSheet show];
+}
+
 
 #pragma mark - UI
 

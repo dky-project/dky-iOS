@@ -17,6 +17,7 @@
 
 
 #define kDeleteTitle                @"清除"
+#define kCancelTitle                @"取消"
 
 
 #define kSelectCanEdit              @"选中可编辑"

@@ -197,6 +197,13 @@
                                                object:nil];
     
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    
+    NSArray *windows = [UIApplication sharedApplication].windows;
+    if(windows.count > 1){
+        UIWindow *lastwindow = [windows lastObject];
+        keyWindow = lastwindow;
+    }
+    
     [keyWindow addSubview:self];
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(keyWindow);
