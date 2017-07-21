@@ -207,13 +207,6 @@
 }
 
 - (void)setupBannerView{
-//    self.bannerView.delegate = self;
-//    self.bannerView.pageControlStyle = SDCycleScrollViewPageContolStyleClassic;
-//    self.bannerView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-//    self.bannerView.autoScroll = NO;
-//    self.bannerView.localizationImageNamesGroup = imageNames;
-    
-    
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero shouldInfiniteLoop:NO imageNamesGroup:nil];
     
     cycleScrollView.delegate = self;
