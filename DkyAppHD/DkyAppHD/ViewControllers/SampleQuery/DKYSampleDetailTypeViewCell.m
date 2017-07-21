@@ -150,15 +150,6 @@
 //    [self showOptionsPicker];
 }
 
-//- (void)next:(UIBarButtonItem*)sender{
-//    [self.bannerView scrollToNextPage];
-//}
-//
-//- (void)prev:(UIBarButtonItem*)sender{
-//    [self.bannerView scrollTopreviousPage];
-//}
-
-
 #pragma mark - private method
 - (void)formatMutableAttributedString:(NSMutableAttributedString*)mutableAttributedString{
     NSRange range = [mutableAttributedString.string rangeOfString:@":"];
