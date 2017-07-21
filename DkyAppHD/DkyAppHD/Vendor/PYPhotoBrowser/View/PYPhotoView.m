@@ -558,6 +558,7 @@ static CGSize originalSize;
     
     if (photo.originalImage) {
         self.image = photo.originalImage;
+        self.loadFailureView.hidden = YES;
         // 允许手势
         [self addGestureRecognizers];
         return;
