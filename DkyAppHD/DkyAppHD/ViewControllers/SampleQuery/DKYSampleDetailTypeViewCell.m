@@ -56,10 +56,6 @@
     
     self.cycleScrollView.imageURLStringsGroup = model.imgList;
     self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
-//    UIImage *image1 = [UIImage imageNamed:@"sample_detai_image1"];
-//    UIImage *image2 = [UIImage imageNamed:@"sample_detai_image2"];
-//    UIImage *image3 = [UIImage imageNamed:@"sample_detai_image3"];
-//    self.cycleScrollView.localizationImageNamesGroup = @[image1,image2,image3];
     
     NSString *name = [NSString stringWithFormat:@"款号：%@",model.name];
     self.sampleTypeLabel.text = name;
@@ -131,8 +127,8 @@
     
     photoBroseView.frameToWindow = frameFormWindow;
     photoBroseView.autoRotateImage = NO;
-    photoBroseView.showDuration = 0.75;
-    photoBroseView.hiddenDuration = 0.75;
+    photoBroseView.showDuration = 0.78;
+    photoBroseView.hiddenDuration = 0.78;
     
     photoBroseView.delegate = self;
     
