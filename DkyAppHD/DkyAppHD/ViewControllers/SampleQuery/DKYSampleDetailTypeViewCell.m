@@ -114,22 +114,30 @@
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     DLog(@"---点击了第%ld张图片", (long)index);
+    
+    // 点击图片，显示图片浏览器
+    
     // 1. 创建photoBroseView对象
     PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
     
     // 2.1 设置图片源(UIImageView)数组
     photoBroseView.imagesURL = self.model.imgList;
+    
     // 2.2 设置初始化图片下标（即当前点击第几张图片）
     photoBroseView.currentIndex = index;
 
     CGRect frameFormWindow = [cycleScrollView.superview convertRect:cycleScrollView.frame toView:[UIApplication sharedApplication].keyWindow];
     photoBroseView.frameFormWindow = frameFormWindow;
-    
     photoBroseView.frameToWindow = frameFormWindow;
+    
+    // 不转屏
     photoBroseView.autoRotateImage = NO;
+    
+    // 动画时间
     photoBroseView.showDuration = 0.78;
     photoBroseView.hiddenDuration = 0.78;
     
+    // 设置代理
     photoBroseView.delegate = self;
     
     // 3.显示(浏览)
