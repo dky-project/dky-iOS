@@ -49,6 +49,7 @@
 		2662907C1E9D039D00886274 /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290731E9D039D00886274 /* VTMagicView.m */; };
 		2662907D1E9D039D00886274 /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290751E9D039D00886274 /* VTMenuBar.m */; };
 		266290801E9D03F300886274 /* DKYSampleDetailAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */; };
+		2670F9D81F2B87F800D579B1 /* DkySampleOrderImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */; };
 		267CED471E20E93100ED5872 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED461E20E93100ED5872 /* iCarousel.m */; };
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
 		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
@@ -416,6 +417,8 @@
 		266290751E9D039D00886274 /* VTMenuBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMenuBar.m; sourceTree = "<group>"; };
 		2662907E1E9D03F300886274 /* DKYSampleDetailAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailAllViewController.h; sourceTree = "<group>"; };
 		2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailAllViewController.m; sourceTree = "<group>"; };
+		2670F9D61F2B87F800D579B1 /* DkySampleOrderImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DkySampleOrderImageViewCell.h; sourceTree = "<group>"; };
+		2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DkySampleOrderImageViewCell.m; sourceTree = "<group>"; };
 		267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemDelegate.h; sourceTree = "<group>"; };
 		267CED451E20E93100ED5872 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		267CED461E20E93100ED5872 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -1164,6 +1167,8 @@
 				EBD116031EA49D7400AF6F5C /* DKYSampleOrderPopupView.m */,
 				EBD116051EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.h */,
 				EBD116061EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.m */,
+				2670F9D61F2B87F800D579B1 /* DkySampleOrderImageViewCell.h */,
+				2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */,
 				EBD116081EA4AEA600AF6F5C /* 样衣查询下单Item View */,
 			);
 			name = View;
@@ -2573,6 +2578,7 @@
 				EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */,
 				EBC3006E1E1CD8FE00F602E6 /* TWBaseViewController.m in Sources */,
 				EB9ACBC81E5E7E930007517C /* DKYDahuoPopupView.m in Sources */,
+				2670F9D81F2B87F800D579B1 /* DkySampleOrderImageViewCell.m in Sources */,
 				EB9511A71E164444008708EF /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				EB3F2BDA1EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.m in Sources */,
 				26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */,

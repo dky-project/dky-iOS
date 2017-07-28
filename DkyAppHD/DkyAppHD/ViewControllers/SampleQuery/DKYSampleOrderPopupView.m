@@ -17,6 +17,7 @@
 #import "DQTableViewCell.h"
 #import "DKYGetColorDimListParameter.h"
 #import "DKYColorDimListModel.h"
+#import "DkySampleOrderImageViewCell.h"
 
 @interface DKYSampleOrderPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -461,14 +462,16 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 0) return 565;
     
-    return 30 + (self.dimListModels.count + 1) * 30;
+    if(indexPath.row == 1) return 30 + (self.dimListModels.count + 1) * 30;
+    
+    return 400;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -479,11 +482,14 @@
         cell.productApproveTitleModel = self.productApproveTitle;
         cell.addProductApproveParameter = self.addProductApproveParameter;
         return cell;
-    }else{
+    }else if(indexPath.row == 1){
         DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
         cell.formType = DKYFormType_TypeOne;
         cell.DataArr = (self.dimListModels.count > 1)? [self.sampleValueArray mutableCopy] : nil;
         cell.hideBottomLine = YES;
+        return cell;
+    }else{
+        DkySampleOrderImageViewCell *cell = [DkySampleOrderImageViewCell sampleOrderImageViewCellWithTableView:tableView];
         return cell;
     }
 }

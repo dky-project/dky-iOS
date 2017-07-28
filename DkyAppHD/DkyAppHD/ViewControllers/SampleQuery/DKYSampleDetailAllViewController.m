@@ -28,7 +28,7 @@
 
 - (void)commonInit{
     [self setupCustomTitle:@"产品详情"];
-//    [self setupOrderBtn];
+    [self setupOrderBtn];
     [self addChildViewController:self.magicController];
     [self.view addSubview:_magicController.view];
     

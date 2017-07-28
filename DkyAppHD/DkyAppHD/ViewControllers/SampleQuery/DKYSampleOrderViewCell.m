@@ -570,5 +570,4 @@ static const CGFloat basicItemHeight = 45;
     self.xiuTypeView.itemModel = itemModel;
 }
 
-
 @end
