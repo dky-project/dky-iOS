@@ -63,11 +63,19 @@
             viewController = (DKYTongkuanFiveViewController*)[UIStoryboard viewControllerWithClass:[DKYTongkuanFiveViewController class]];
         }
     }else{
-        NSURL *URL = [NSURL URLWithString:@"http://www.baidu.com"];
-        DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
-        webViewController.showUrlWhileLoading = NO;
+        static NSString *gridId = @"dahuo.identifier";
+        viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
         
-        viewController = webViewController;
+        NSURL *URL = [NSURL URLWithString:@"http://www.baidu.com"];
+        
+        if(!viewController){
+            DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
+            webViewController.showUrlWhileLoading = NO;
+            viewController = webViewController;
+        }else{
+            DKYWebViewController* webViewController = (DKYWebViewController*)viewController;
+            webViewController.url = [NSURL URLWithString:@"http://www.baidu.com"];
+        }
     }
     return viewController;
 }
