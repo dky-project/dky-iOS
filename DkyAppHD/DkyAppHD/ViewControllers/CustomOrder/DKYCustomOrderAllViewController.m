@@ -32,7 +32,7 @@
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
-    NSArray *titleList = @[@"默认定制款",@"同款五"];
+    NSArray *titleList = @[@"默认定制款",@"同款五",@"大货"];
     return titleList;
 }
 
@@ -56,12 +56,18 @@
         if (!viewController) {
             viewController = (DKYCustomOrderUIViewController*)[UIStoryboard viewControllerWithClass:[DKYCustomOrderUIViewController class]];
         }
-    }else{
+    }else if(pageIndex == 1){
         static NSString *gridId = @"TongkuanFive.identifier";
         viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
         if (!viewController) {
             viewController = (DKYTongkuanFiveViewController*)[UIStoryboard viewControllerWithClass:[DKYTongkuanFiveViewController class]];
         }
+    }else{
+        NSURL *URL = [NSURL URLWithString:@"http://www.baidu.com"];
+        DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
+        webViewController.showUrlWhileLoading = NO;
+        
+        viewController = webViewController;
     }
     return viewController;
 }
