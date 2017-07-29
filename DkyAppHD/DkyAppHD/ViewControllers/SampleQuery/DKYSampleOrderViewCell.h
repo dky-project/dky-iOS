@@ -19,4 +19,6 @@
 
 @property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
+@property (nonatomic, copy) BlockWithSender imageBlock;
+
 @end

@@ -35,6 +35,12 @@
     return self;
 }
 
+- (void)setImageUrl:(NSString *)imageUrl{
+    _imageUrl = [imageUrl copy];
+    
+    [self.displayImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+}
+
 #pragma mark - UI
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -53,8 +59,6 @@
         make.left.mas_equalTo(weakSelf.contentView);
         make.right.mas_equalTo(weakSelf.contentView);
     }];
-    
-    [self.displayImageView sd_setImageWithURL:[NSURL URLWithString:@"http://60.190.63.14:90/img/3502.jpg?modifieddate=1501125485000"]];
 }
 
 @end

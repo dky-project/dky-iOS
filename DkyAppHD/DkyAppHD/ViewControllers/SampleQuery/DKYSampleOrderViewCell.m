@@ -161,6 +161,10 @@ static const CGFloat basicItemHeight = 45;
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
             
+            if(weakSelf.imageBlock){
+                weakSelf.imageBlock(weakSelf.madeInfoByProductName.productMadeInfoView.imgUrl);
+            }
+            
             [weakSelf dealWithstyleNumber];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -569,5 +573,6 @@ static const CGFloat basicItemHeight = 45;
     itemModel.zoomed = YES;
     self.xiuTypeView.itemModel = itemModel;
 }
+
 
 @end

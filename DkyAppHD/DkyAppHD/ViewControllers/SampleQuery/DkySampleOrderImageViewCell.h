@@ -12,4 +12,6 @@
 
 + (instancetype)sampleOrderImageViewCellWithTableView:(UITableView *)tableView;
 
+@property (nonatomic, copy) NSString *imageUrl;
+
 @end

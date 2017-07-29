@@ -44,6 +44,8 @@
 
 @property (nonatomic, strong) dispatch_group_t group;
 
+@property (nonatomic, copy) NSString *imageUrl;
+
 @end
 
 @implementation DKYSampleOrderPopupView
@@ -476,11 +478,17 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    WeakSelf(weakSelf);
     if(indexPath.row == 0){
         DKYSampleOrderViewCell *cell = [DKYSampleOrderViewCell sampleOrderViewCellWithTableView:tableView];
         cell.sampleProductInfo = self.sampleProductInfo;
         cell.productApproveTitleModel = self.productApproveTitle;
         cell.addProductApproveParameter = self.addProductApproveParameter;
+        
+        cell.imageBlock = ^(id sender) {
+            weakSelf.imageUrl = sender;
+            [weakSelf.tableView reloadRow:2 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
+        };
         return cell;
     }else if(indexPath.row == 1){
         DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
@@ -490,6 +498,7 @@
         return cell;
     }else{
         DkySampleOrderImageViewCell *cell = [DkySampleOrderImageViewCell sampleOrderImageViewCellWithTableView:tableView];
+        cell.imageUrl = self.imageUrl;
         return cell;
     }
 }
