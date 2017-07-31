@@ -74,7 +74,7 @@
             viewController = webViewController;
         }else{
             DKYWebViewController* webViewController = (DKYWebViewController*)viewController;
-            webViewController.url = [NSURL URLWithString:@"http://www.baidu.com"];
+            webViewController.url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl]];
         }
     }
     return viewController;

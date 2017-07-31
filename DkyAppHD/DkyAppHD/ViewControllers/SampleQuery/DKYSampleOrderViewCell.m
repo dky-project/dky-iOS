@@ -43,6 +43,9 @@ static const CGFloat basicItemHeight = 45;
 // 款号
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *styleNumberView;
 
+// 数量
+@property (nonatomic, weak) DKYCustomOrderTextFieldView *sumView;
+
 // 品种
 @property (nonatomic, weak) DKYSampleOrderVarietyItemView *varietyView;
 
@@ -361,6 +364,7 @@ static const CGFloat basicItemHeight = 45;
     
     // 第二行 款号，手机号
     [self setupStyleNumberView];
+    [self setupSumView];
     [self setupPhoneNumberView];
 
     // 第三大行 品种 4个选择器
@@ -456,6 +460,31 @@ static const CGFloat basicItemHeight = 45;
     self.styleNumberView.itemModel = itemModel;
 }
 
+- (void)setupSumView{
+    DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.sumView = view;
+    
+    WeakSelf(weakSelf);
+    [self.sumView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
+        make.width.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.styleNumberView);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"数量:";
+    itemModel.content = @"1";
+    itemModel.keyboardType = UIKeyboardTypePhonePad;
+    
+    itemModel.textFieldDidEditing = ^(UITextField *textField){
+        weakSelf.addProductApproveParameter.sum = textField.text;
+    };
+    itemModel.zoomed = YES;
+    self.sumView.itemModel = itemModel;
+}
+
 - (void)setupPhoneNumberView{
     DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
@@ -463,10 +492,10 @@ static const CGFloat basicItemHeight = 45;
     
     WeakSelf(weakSelf);
     [self.phoneNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
+        make.left.mas_equalTo(weakSelf.numberView);
         make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.styleNumberView);
+        make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -498,7 +527,7 @@ static const CGFloat basicItemHeight = 45;
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
         make.height.mas_equalTo(175);
 //        make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.phoneNumberView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];

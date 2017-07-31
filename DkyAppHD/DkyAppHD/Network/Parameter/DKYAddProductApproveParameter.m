@@ -10,5 +10,14 @@
 
 @implementation DKYAddProductApproveParameter
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.sum = @"1";
+    }
+    return self;
+}
+
 
 @end

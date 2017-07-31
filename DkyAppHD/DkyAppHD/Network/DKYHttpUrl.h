@@ -12,13 +12,13 @@
 // 主机
 //#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
 
-#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
+//#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
 
 //#define BASE_URL     @"http://192.168.68.155:99/dky-web/"
 
 //#define BASE_URL     @"https:"
 
-//#define BASE_URL     @"http://192.168.3.171:8888/dky-web/"
+#define BASE_URL     @"http://192.168.3.171:8080/dky-web/"
 //#define BASE_URL     @"http://192.168.3.76:7071/dky-web/"
 
 
@@ -60,6 +60,8 @@
 
 #define kConfirmProductApproveUrl       @"productApprove/confirmProductApprove"     // 生成订单接口
 #define kGetColorListUrl                @"dimNew/getColorList"                      // 品种下拉框选择需要动态调用接口获取颜色列表
+
+#define kOrderHtmlUrl                    @"dky-web/boot/table"
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询

@@ -54,7 +54,10 @@
  */
 @property (nonatomic, copy) NSString *mobile;
 
-
+/**
+ * 数量
+ */
+@property (nonatomic, copy) NSString *sum;
 
 
 /**
