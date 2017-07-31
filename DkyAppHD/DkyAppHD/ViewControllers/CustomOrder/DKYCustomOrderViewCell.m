@@ -496,7 +496,8 @@ static const CGFloat basicItemHeight = 30;
 
 - (void)dealWithstyleNumber{
     if(self.madeInfoByProductName.isBigOrder){
-        [self showDahuoPopupView];
+//        [self showDahuoPopupView];
+        [DKYHUDTool showInfoWithStatus:@"请切换至大货订单出下单"];
         return;
     }
     
