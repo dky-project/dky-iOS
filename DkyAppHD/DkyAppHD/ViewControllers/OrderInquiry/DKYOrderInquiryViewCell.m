@@ -15,13 +15,15 @@
 
 @property (weak, nonatomic) UIImageView *rectImageView;
 @property (weak, nonatomic) UILabel *orderNumberLabel;
-@property (weak, nonatomic) UILabel *serialNumberLabel;
+
 @property (weak, nonatomic) UILabel *sourceOfSampleLabel;
-@property (weak, nonatomic) UILabel *clientLabel;
-@property (weak, nonatomic) UILabel *faxDateLabel;
-@property (weak, nonatomic) UILabel *styleLabel;
 @property (weak, nonatomic) UILabel *sizeLabel;
 @property (weak, nonatomic) UILabel *lengthLabel;
+
+//@property (weak, nonatomic) UILabel *serialNumberLabel;
+//@property (weak, nonatomic) UILabel *clientLabel;
+//@property (weak, nonatomic) UILabel *faxDateLabel;
+//@property (weak, nonatomic) UILabel *styleLabel;
 
 // image
 @property (nonatomic, strong) UIImage *normalImage;
@@ -55,15 +57,18 @@
     _itemModel = itemModel;
     
     self.orderNumberLabel.text = itemModel.displayID;
-    self.serialNumberLabel.text = itemModel.displayNo1;
+    
     self.sourceOfSampleLabel.text = itemModel.pdt;
-    self.clientLabel.text = itemModel.customer;
-    self.faxDateLabel.text = itemModel.displayFaxDate;
-    self.styleLabel.text = itemModel.mDimNew12Text;
+    
     self.sizeLabel.text = itemModel.xwValue;
     self.lengthLabel.text = itemModel.ycValue;
     
     self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
+    
+//    self.serialNumberLabel.text = itemModel.displayNo1;
+//    self.clientLabel.text = itemModel.customer;
+//    self.faxDateLabel.text = itemModel.displayFaxDate;
+//    self.styleLabel.text = itemModel.mDimNew12Text;
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -99,29 +104,9 @@
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.orderNumberLabel);
     }];
     
-    [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(weakSelf.contentView);
-        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.serialNumberLabel);
-    }];
-    
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(weakSelf.contentView);
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.sourceOfSampleLabel);
-    }];
-    
-    [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(weakSelf.contentView);
-        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.clientLabel);
-    }];
-    
-    [self.faxDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(weakSelf.contentView);
-        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.faxDateLabel);
-    }];
-    
-    [self.styleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(weakSelf.contentView);
-        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.styleLabel);
     }];
     
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -133,6 +118,26 @@
         make.centerY.mas_equalTo(weakSelf.contentView);
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.lengthLabel);
     }];
+    
+//    [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(weakSelf.contentView);
+//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.serialNumberLabel);
+//    }];
+//    
+//    [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(weakSelf.contentView);
+//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.clientLabel);
+//    }];
+//    
+//    [self.faxDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(weakSelf.contentView);
+//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.faxDateLabel);
+//    }];
+//    
+//    [self.styleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(weakSelf.contentView);
+//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.styleLabel);
+//    }];
 }
 
 #pragma mark - UI
@@ -143,14 +148,16 @@
     
     [self setupRectImageView];
     [self setupOrderNumberLabel];
-    [self setupSerialNumberLabel];
+    
     [self setupSourceOfSampleLabel];
-    [self setupClientLabel];
-    [self setupFaxDateLabel];
-    [self setupStyleLabel];
+    
     [self setupSizeLabel];
     [self setupLengthLabel];
     
+//    [self setupSerialNumberLabel];
+//    [self setupClientLabel];
+//    [self setupFaxDateLabel];
+//    [self setupStyleLabel];
 }
 
 - (void)setupRectImageView{
@@ -172,25 +179,10 @@
     self.orderNumberLabel = [self createLabelWithName:@""];
 }
 
-- (void)setupSerialNumberLabel{
-    self.serialNumberLabel = [self createLabelWithName:@""];
-}
-
 - (void)setupSourceOfSampleLabel{
     self.sourceOfSampleLabel = [self createLabelWithName:@""];
 }
 
-- (void)setupClientLabel{
-    self.clientLabel = [self createLabelWithName:@""];
-}
-
-- (void)setupFaxDateLabel{
-    self.faxDateLabel = [self createLabelWithName:@""];
-}
-
-- (void)setupStyleLabel{
-    self.styleLabel = [self createLabelWithName:@""];
-}
 
 - (void)setupSizeLabel{
     self.sizeLabel = [self createLabelWithName:@""];
@@ -212,5 +204,21 @@
     label.text = name;
     return label;
 }
+
+//- (void)setupSerialNumberLabel{
+//    self.serialNumberLabel = [self createLabelWithName:@""];
+//}
+//
+//- (void)setupClientLabel{
+//    self.clientLabel = [self createLabelWithName:@""];
+//}
+//
+//- (void)setupFaxDateLabel{
+//    self.faxDateLabel = [self createLabelWithName:@""];
+//}
+//
+//- (void)setupStyleLabel{
+//    self.styleLabel = [self createLabelWithName:@""];
+//}
 
 @end
