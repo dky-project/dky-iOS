@@ -66,15 +66,17 @@
         static NSString *gridId = @"dahuo.identifier";
         viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
         
-        NSURL *URL = [NSURL URLWithString:@"http://www.baidu.com"];
+        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl]];;
         
         if(!viewController){
             DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
             webViewController.showUrlWhileLoading = NO;
+            webViewController.showHUD = YES;
             viewController = webViewController;
         }else{
             DKYWebViewController* webViewController = (DKYWebViewController*)viewController;
-            webViewController.url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl]];
+            webViewController.showHUD = YES;
+            webViewController.url = URL;
         }
     }
     return viewController;

@@ -801,11 +801,19 @@
     
     //update the navigation bar buttons
     [self refreshButtonsState];
+    
+    if(self.showHUD){
+        [DKYHUDTool show];
+    }
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     if(self.didFinishLoadHandler){
         self.didFinishLoadHandler(webView);
+    }
+    
+    if(self.showHUD){
+        [DKYHUDTool dismiss];
     }
 }
 

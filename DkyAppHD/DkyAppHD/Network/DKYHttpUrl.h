@@ -61,7 +61,7 @@
 #define kConfirmProductApproveUrl       @"productApprove/confirmProductApprove"     // 生成订单接口
 #define kGetColorListUrl                @"dimNew/getColorList"                      // 品种下拉框选择需要动态调用接口获取颜色列表
 
-#define kOrderHtmlUrl                    @"dky-web/boot/table"
+#define kOrderHtmlUrl                    @"boot/table"
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询

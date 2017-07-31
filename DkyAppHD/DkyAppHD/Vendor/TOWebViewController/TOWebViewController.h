@@ -185,4 +185,9 @@ An optional block that when set, will be triggered each time the web view has fi
  */
 @property (nonatomic,assign)    CGFloat buttonBevelOpacity;
 
+/**
+ if show the hud
+ */
+@property (nonatomic, assign) BOOL showHUD;
+
 @end
