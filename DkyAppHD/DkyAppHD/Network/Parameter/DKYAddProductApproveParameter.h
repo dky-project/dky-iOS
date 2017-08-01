@@ -55,6 +55,11 @@
 @property (nonatomic, copy) NSString *mobile;
 
 /**
+ * 订单号
+ */
+@property (nonatomic, copy) NSString *docno;
+
+/**
  * 数量
  */
 @property (nonatomic, copy) NSString *sum;

@@ -280,6 +280,8 @@
     if(range.location != NSNotFound){
         self.addProductApproveParameter.mobile = [self.addProductApproveParameter.mobile substringToIndex:range.location];
     }
+    
+    self.addProductApproveParameter.docno = self.productApproveTitle.orderNo;
 }
 
 - (BOOL)checkForAddProductApprove{

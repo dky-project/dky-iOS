@@ -185,6 +185,8 @@
     self.addProductApproveParameter.jgno = self.productApproveTitle.code;
     self.addProductApproveParameter.czDate = self.productApproveTitle.czDate;
     self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
+    
+    self.addProductApproveParameter.docno = self.productApproveTitle.orderNo;
 }
 
 - (BOOL)checkForAddProductApprove{

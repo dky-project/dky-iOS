@@ -201,6 +201,8 @@
     self.addProductApproveParameter.czDate = self.productApproveTitle.czDate;
     self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
     
+    self.addProductApproveParameter.docno = self.productApproveTitle.orderNo;
+    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     DKYCustomOrderViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell fetchAddProductApproveInfo];
