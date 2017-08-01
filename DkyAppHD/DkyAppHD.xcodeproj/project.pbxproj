@@ -233,6 +233,7 @@
 		EBB0FB9A1F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FB991F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.m */; };
 		EBB0FB9C1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB0FB9B1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib */; };
 		EBB0FB9F1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FB9E1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m */; };
+		EBB0FBA41F3049E400BCD57C /* DKYRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FBA31F3049E400BCD57C /* DKYRecommendViewController.m */; };
 		EBB1132E1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB1132D1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m */; };
 		EBB113341ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB113331ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m */; };
 		EBB1133A1ED433BC0028FC17 /* DKYCommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB113391ED433BC0028FC17 /* DKYCommonTool.m */; };
@@ -787,6 +788,8 @@
 		EBB0FB9B1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYDahuoOrderInfoHeaderView.xib; sourceTree = "<group>"; };
 		EBB0FB9D1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDahuoOrderInquiryViewCell.h; sourceTree = "<group>"; };
 		EBB0FB9E1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDahuoOrderInquiryViewCell.m; sourceTree = "<group>"; };
+		EBB0FBA21F3049E400BCD57C /* DKYRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendViewController.h; sourceTree = "<group>"; };
+		EBB0FBA31F3049E400BCD57C /* DKYRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendViewController.m; sourceTree = "<group>"; };
 		EBB1132C1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetColorListRequestParameter.h; sourceTree = "<group>"; };
 		EBB1132D1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetColorListRequestParameter.m; sourceTree = "<group>"; };
 		EBB113321ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderXiuTypeItemView.h; sourceTree = "<group>"; };
@@ -2009,6 +2012,7 @@
 				EB95107E1E15FC2C008708EF /* CustomOrder */,
 				EB02E87F1ECC1B58006C5354 /* CollectList */,
 				EB95107D1E15FC2C008708EF /* OrderInquiry */,
+				EBB0FBA11F3049B200BCD57C /* Recommend */,
 				EB95117E1E16408C008708EF /* Login */,
 				EBD694B31E277D5100F365C3 /* Webview */,
 				EB9790721E221BDA00E2985C /* ViewTools */,
@@ -2052,6 +2056,15 @@
 				EB9884CD1E28658900BAFADE /* SXDetails.css */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EBB0FBA11F3049B200BCD57C /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				EBB0FBA21F3049E400BCD57C /* DKYRecommendViewController.h */,
+				EBB0FBA31F3049E400BCD57C /* DKYRecommendViewController.m */,
+			);
+			path = Recommend;
 			sourceTree = "<group>";
 		};
 		EBC3003F1E1CA0C700F602E6 /* SDCycleScrollView */ = {
@@ -2703,6 +2716,7 @@
 				26210BEF1E59A3A900EB05D6 /* BEMCheckBoxGroup.m in Sources */,
 				EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
+				EBB0FBA41F3049E400BCD57C /* DKYRecommendViewController.m in Sources */,
 				EBC300791E1CE6A500F602E6 /* UINavigationController+SwipeBack.m in Sources */,
 				EBA731121F21E00600FEFD69 /* PYPhotosView.m in Sources */,
 				EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */,
