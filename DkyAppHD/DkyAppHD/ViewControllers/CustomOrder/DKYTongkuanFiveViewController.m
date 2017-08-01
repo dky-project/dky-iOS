@@ -186,7 +186,7 @@
     self.addProductApproveParameter.czDate = self.productApproveTitle.czDate;
     self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
     
-    self.addProductApproveParameter.docno = self.productApproveTitle.orderNo;
+    self.addProductApproveParameter.orderNo = self.productApproveTitle.orderNo;
 }
 
 - (BOOL)checkForAddProductApprove{

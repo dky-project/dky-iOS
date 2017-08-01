@@ -57,7 +57,7 @@
 /**
  * 订单号
  */
-@property (nonatomic, copy) NSString *docno;
+@property (nonatomic, copy) NSString *orderNo;
 
 /**
  * 数量

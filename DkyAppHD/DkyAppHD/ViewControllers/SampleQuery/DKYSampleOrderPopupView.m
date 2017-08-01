@@ -281,7 +281,7 @@
         self.addProductApproveParameter.mobile = [self.addProductApproveParameter.mobile substringToIndex:range.location];
     }
     
-    self.addProductApproveParameter.docno = self.productApproveTitle.orderNo;
+    self.addProductApproveParameter.orderNo = self.productApproveTitle.orderNo;
 }
 
 - (BOOL)checkForAddProductApprove{
