@@ -226,6 +226,13 @@
 		EBABE8DB1E150CA600B4C568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABE8D71E150CA600B4C568 /* main.m */; };
 		EBABE8DC1E150CA600B4C568 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBABE8D91E150CA600B4C568 /* ViewController.m */; };
 		EBABE8E71E15120500B4C568 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBABE8E61E15120500B4C568 /* Localization.strings */; };
+		EBB0FB8F1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FB8E1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.m */; };
+		EBB0FB921F30215E00BCD57C /* DKYDahuoOrderInquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FB911F30215E00BCD57C /* DKYDahuoOrderInquiryViewController.m */; };
+		EBB0FB951F30275200BCD57C /* DKYDahuoOrderInquiryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FB941F30275200BCD57C /* DKYDahuoOrderInquiryHeaderView.m */; };
+		EBB0FB971F30277000BCD57C /* DKYDahuoOrderInquiryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB0FB961F30277000BCD57C /* DKYDahuoOrderInquiryHeaderView.xib */; };
+		EBB0FB9A1F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FB991F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.m */; };
+		EBB0FB9C1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB0FB9B1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib */; };
+		EBB0FB9F1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FB9E1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m */; };
 		EBB1132E1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB1132D1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m */; };
 		EBB113341ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB113331ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m */; };
 		EBB1133A1ED433BC0028FC17 /* DKYCommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB113391ED433BC0028FC17 /* DKYCommonTool.m */; };
@@ -768,6 +775,18 @@
 		EBABE8D81E150CA600B4C568 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EBABE8D91E150CA600B4C568 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EBABE8E61E15120500B4C568 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localization.strings; sourceTree = "<group>"; };
+		EBB0FB8D1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInquiryAllViewController.h; sourceTree = "<group>"; };
+		EBB0FB8E1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInquiryAllViewController.m; sourceTree = "<group>"; };
+		EBB0FB901F30215E00BCD57C /* DKYDahuoOrderInquiryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDahuoOrderInquiryViewController.h; sourceTree = "<group>"; };
+		EBB0FB911F30215E00BCD57C /* DKYDahuoOrderInquiryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDahuoOrderInquiryViewController.m; sourceTree = "<group>"; };
+		EBB0FB931F30275200BCD57C /* DKYDahuoOrderInquiryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDahuoOrderInquiryHeaderView.h; sourceTree = "<group>"; };
+		EBB0FB941F30275200BCD57C /* DKYDahuoOrderInquiryHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDahuoOrderInquiryHeaderView.m; sourceTree = "<group>"; };
+		EBB0FB961F30277000BCD57C /* DKYDahuoOrderInquiryHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYDahuoOrderInquiryHeaderView.xib; sourceTree = "<group>"; };
+		EBB0FB981F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDahuoOrderInfoHeaderView.h; sourceTree = "<group>"; };
+		EBB0FB991F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDahuoOrderInfoHeaderView.m; sourceTree = "<group>"; };
+		EBB0FB9B1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYDahuoOrderInfoHeaderView.xib; sourceTree = "<group>"; };
+		EBB0FB9D1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDahuoOrderInquiryViewCell.h; sourceTree = "<group>"; };
+		EBB0FB9E1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDahuoOrderInquiryViewCell.m; sourceTree = "<group>"; };
 		EBB1132C1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetColorListRequestParameter.h; sourceTree = "<group>"; };
 		EBB1132D1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetColorListRequestParameter.m; sourceTree = "<group>"; };
 		EBB113321ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderXiuTypeItemView.h; sourceTree = "<group>"; };
@@ -1453,8 +1472,12 @@
 			children = (
 				EB9790431E21E4E500E2985C /* DKYOrderInquiryViewController.h */,
 				EB9790441E21E4E500E2985C /* DKYOrderInquiryViewController.m */,
+				EBB0FB901F30215E00BCD57C /* DKYDahuoOrderInquiryViewController.h */,
+				EBB0FB911F30215E00BCD57C /* DKYDahuoOrderInquiryViewController.m */,
 				EB506C3E1E23A8B8002A1423 /* DKYOrderBrowseViewController.h */,
 				EB506C3F1E23A8B8002A1423 /* DKYOrderBrowseViewController.m */,
+				EBB0FB8D1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.h */,
+				EBB0FB8E1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.m */,
 				EB9790461E21EADB00E2985C /* View */,
 			);
 			path = OrderInquiry;
@@ -1576,6 +1599,14 @@
 				EB506C501E23C133002A1423 /* DKYOrderBrowserLineView.h */,
 				EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */,
 				EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */,
+				EBB0FB931F30275200BCD57C /* DKYDahuoOrderInquiryHeaderView.h */,
+				EBB0FB941F30275200BCD57C /* DKYDahuoOrderInquiryHeaderView.m */,
+				EBB0FB961F30277000BCD57C /* DKYDahuoOrderInquiryHeaderView.xib */,
+				EBB0FB981F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.h */,
+				EBB0FB991F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.m */,
+				EBB0FB9B1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib */,
+				EBB0FB9D1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.h */,
+				EBB0FB9E1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2358,6 +2389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB0FB971F30277000BCD57C /* DKYDahuoOrderInquiryHeaderView.xib in Resources */,
 				EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */,
 				EBABE8E71E15120500B4C568 /* Localization.strings in Resources */,
 				267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */,
@@ -2376,6 +2408,7 @@
 				263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */,
 				EBD694D31E2785BB00F365C3 /* TOWebViewControllerLocalizable.strings in Resources */,
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
+				EBB0FB9C1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib in Resources */,
 				EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */,
 				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
 				EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */,
@@ -2475,6 +2508,7 @@
 				EB8FA2A61E55AD99004BE846 /* DKYCustomOrderTextFieldView.m in Sources */,
 				EBA731111F21E00600FEFD69 /* PYPhotoCell.m in Sources */,
 				EBD116001EA47BC800AF6F5C /* DKYTestTableViewCell.m in Sources */,
+				EBB0FB951F30275200BCD57C /* DKYDahuoOrderInquiryHeaderView.m in Sources */,
 				EB95117D1E162E31008708EF /* UIStoryboard+Utility.m in Sources */,
 				EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */,
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
@@ -2491,6 +2525,7 @@
 				EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */,
 				EB25EEC21ED56814009DA892 /* DKYColorDimListModel.m in Sources */,
+				EBB0FB8F1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.m in Sources */,
 				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
 				EB97906B1E221B6F00E2985C /* MMDateView.m in Sources */,
 				EBA351791E811D9700D89BFA /* DKYStaticDimListModel.m in Sources */,
@@ -2619,7 +2654,9 @@
 				EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */,
 				EBB59ED11E56C35400F88A4C /* DKYCustomOrderVarietyView.m in Sources */,
 				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,
+				EBB0FB921F30215E00BCD57C /* DKYDahuoOrderInquiryViewController.m in Sources */,
 				EB97F2C71E26018F00BDC705 /* DKYOrderAuditStatusModel.m in Sources */,
+				EBB0FB9A1F30292B00BCD57C /* DKYDahuoOrderInfoHeaderView.m in Sources */,
 				EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */,
 				26210BD71E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m in Sources */,
 				EB8FA2A31E55A0B7004BE846 /* DKYCustomOrderViewCell.m in Sources */,
@@ -2638,6 +2675,7 @@
 				EBA404D71ED66F7400901483 /* DKYGetSizeDataModel.m in Sources */,
 				EBA7310B1F21E00600FEFD69 /* PYPhotosViewController.m in Sources */,
 				EB9ACBCB1E5EB1160007517C /* DKYMadeInfoByProductNameParameter.m in Sources */,
+				EBB0FB9F1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m in Sources */,
 				EB9ACBD71E5EE1B30007517C /* DKYProductMadeInfoViewModel.m in Sources */,
 				EB9511AD1E164444008708EF /* WXSTransitionManager+PageAnimation.m in Sources */,
 				EBD694B61E277DD500F365C3 /* DKYWebViewController.m in Sources */,
