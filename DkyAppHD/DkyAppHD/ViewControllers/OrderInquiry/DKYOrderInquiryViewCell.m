@@ -139,7 +139,7 @@
     }];
     
     [self.pictureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(48, 48));
+        make.size.mas_equalTo(CGSizeMake(72, 72));
         make.centerY.mas_equalTo(weakSelf.contentView);
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.pictureLabel);
     }];

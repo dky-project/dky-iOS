@@ -80,14 +80,15 @@
     
     
     [self setupOrderNumberLabel];
+    
+    [self setupPictureLabel];
+    
     [self setupSourceOfSampleLabel];
     [self setupSizeLabel];
     [self setupLengthLabel];
     
     [self setupOrderAmountLabel];
     [self setupCountLabel];
-    
-    [self setupPictureLabel];
     
 //  [self setupSerialNumberLabel];
 //    [self setupClientLabel];
@@ -118,7 +119,7 @@
     WeakSelf(weakSelf);
     self.sourceOfSampleLabel = [self createLabelWithName:@"来源样衣"];
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(45);
+        make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }
@@ -127,7 +128,7 @@
     WeakSelf(weakSelf);
     self.sizeLabel = [self createLabelWithName:@"大"];
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(70);
+        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }
@@ -136,7 +137,7 @@
     WeakSelf(weakSelf);
     self.lengthLabel = [self createLabelWithName:@"长"];
     [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(70);
+        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }
@@ -145,7 +146,7 @@
     WeakSelf(weakSelf);
     self.orderAmountLabel = [self createLabelWithName:@"订单金额"];
     [self.orderAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(70);
+        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }
@@ -154,7 +155,7 @@
     WeakSelf(weakSelf);
     self.countLabel = [self createLabelWithName:@"数量"];
     [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.orderAmountLabel.mas_right).with.offset(70);
+        make.left.mas_equalTo(weakSelf.orderAmountLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }
@@ -163,7 +164,7 @@
     WeakSelf(weakSelf);
     self.pictureLabel = [self createLabelWithName:@"图片"];
     [self.pictureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.countLabel.mas_right).with.offset(70);
+        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }
