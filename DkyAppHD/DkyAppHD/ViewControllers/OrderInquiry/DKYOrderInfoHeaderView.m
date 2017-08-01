@@ -87,6 +87,8 @@
     [self setupOrderAmountLabel];
     [self setupCountLabel];
     
+    [self setupPictureLabel];
+    
 //  [self setupSerialNumberLabel];
 //    [self setupClientLabel];
 //    [self setupFaxDateLabel];
@@ -153,6 +155,15 @@
     self.countLabel = [self createLabelWithName:@"数量"];
     [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.orderAmountLabel.mas_right).with.offset(70);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupPictureLabel{
+    WeakSelf(weakSelf);
+    self.pictureLabel = [self createLabelWithName:@"图片"];
+    [self.pictureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.countLabel.mas_right).with.offset(70);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }

@@ -10,8 +10,9 @@
 #import "DKYOrderInquiryHeaderView.h"
 #import "DKYOrderInfoHeaderView.h"
 #import "DKYOrderItemModel.h"
+#import "PYPhotoBrowser.h"
 
-@interface DKYOrderInquiryViewCell ()
+@interface DKYOrderInquiryViewCell ()<PYPhotoBrowseViewDelegate>
 
 @property (weak, nonatomic) UIImageView *rectImageView;
 @property (weak, nonatomic) UILabel *orderNumberLabel;
@@ -19,6 +20,10 @@
 @property (weak, nonatomic) UILabel *sourceOfSampleLabel;
 @property (weak, nonatomic) UILabel *sizeLabel;
 @property (weak, nonatomic) UILabel *lengthLabel;
+
+@property (nonatomic, weak) UILabel *orderAmountLabel;
+@property (nonatomic, weak) UILabel *countLabel;
+@property (nonatomic, weak) UIImageView *pictureImageView;
 
 //@property (weak, nonatomic) UILabel *serialNumberLabel;
 //@property (weak, nonatomic) UILabel *clientLabel;
@@ -64,6 +69,10 @@
     self.lengthLabel.text = itemModel.ycValue;
     
     self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
+    
+    self.orderAmountLabel.text = @"1000";
+    self.countLabel.text = @"123";
+    [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:@"http://60.190.63.14:90/img_sl/3502.jpg?modifieddate=1497749658000"]];
     
 //    self.serialNumberLabel.text = itemModel.displayNo1;
 //    self.clientLabel.text = itemModel.customer;
@@ -119,6 +128,22 @@
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.lengthLabel);
     }];
     
+    [self.orderAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(weakSelf.contentView);
+        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.orderAmountLabel);
+    }];
+    
+    [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(weakSelf.contentView);
+        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.countLabel);
+    }];
+    
+    [self.pictureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(48, 48));
+        make.centerY.mas_equalTo(weakSelf.contentView);
+        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.pictureLabel);
+    }];
+    
 //    [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.centerY.mas_equalTo(weakSelf.contentView);
 //        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.serialNumberLabel);
@@ -140,6 +165,13 @@
 //    }];
 }
 
+#pragma mark - PYPhotoBrowseViewDelegate
+
+- (void)photoBrowseView:(PYPhotoBrowseView *)photoBrowseView didLongPressImage:(UIImage *)image index:(NSInteger)index{
+    // 长按图片浏览器，相应的时间，类似微信，弹出一个action sheet，有相应的操作。
+    //    [self showOptionsPicker];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
@@ -153,6 +185,11 @@
     
     [self setupSizeLabel];
     [self setupLengthLabel];
+    
+    [self setupOrderAmountLabel];
+    [self setupCountLabel];
+    
+    [self setupPictureLabel];
     
 //    [self setupSerialNumberLabel];
 //    [self setupClientLabel];
@@ -191,6 +228,57 @@
 - (void)setupLengthLabel{
     self.lengthLabel = [self createLabelWithName:@""];
 }
+
+- (void)setupOrderAmountLabel{
+    self.orderAmountLabel = [self createLabelWithName:@""];
+}
+
+- (void)setupCountLabel{
+    self.countLabel = [self createLabelWithName:@""];
+}
+
+- (void)setupPictureLabel{
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+
+    [self.contentView addSubview:imageView];
+    self.pictureImageView = imageView;
+    self.pictureImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    self.pictureImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        // 点击图片，显示图片浏览器
+        
+        // 1. 创建photoBroseView对象
+        PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
+        
+        // 2.1 设置图片源(UIImageView)数组
+        photoBroseView.imagesURL = @[@"http://60.190.63.14:90/img_sl/3502.jpg?modifieddate=1497749658000"];
+        
+        // 2.2 设置初始化图片下标（即当前点击第几张图片）
+        photoBroseView.currentIndex = 0;
+        
+        CGRect frameFormWindow = [self convertRect:self.pictureImageView.frame toView:[UIApplication sharedApplication].keyWindow];
+        photoBroseView.frameFormWindow = frameFormWindow;
+        photoBroseView.frameToWindow = frameFormWindow;
+        
+        // 不转屏
+        photoBroseView.autoRotateImage = NO;
+        
+        // 动画时间
+        photoBroseView.showDuration = 0.78;
+        photoBroseView.hiddenDuration = 0.78;
+        
+        // 设置代理
+        photoBroseView.delegate = self;
+        
+        // 3.显示(浏览)
+        [photoBroseView show];
+
+    }];
+    
+    [self.pictureImageView addGestureRecognizer:tap];
+}
+
 
 - (UILabel*)createLabelWithName:(NSString*)name{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];

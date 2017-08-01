@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -147,7 +147,7 @@
                     <rect key="frame" x="0.0" y="240" width="768" height="60"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mqn-JB-hkv">
-                            <rect key="frame" x="22" y="24.5" width="11" height="11"/>
+                            <rect key="frame" x="32" y="24.5" width="11" height="11"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="11" id="FAm-mq-5to"/>
                                 <constraint firstAttribute="width" constant="11" id="mJR-BQ-jiw"/>
@@ -156,7 +156,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="Mqn-JB-hkv" firstAttribute="leading" secondItem="LVu-jE-9bc" secondAttribute="leading" constant="22" id="W3X-do-GtM"/>
+                        <constraint firstItem="Mqn-JB-hkv" firstAttribute="leading" secondItem="LVu-jE-9bc" secondAttribute="leading" constant="32" id="W3X-do-GtM"/>
                         <constraint firstItem="Mqn-JB-hkv" firstAttribute="centerY" secondItem="LVu-jE-9bc" secondAttribute="centerY" id="dPu-Em-cfL"/>
                         <constraint firstAttribute="height" constant="60" id="oiu-Ar-U6Q"/>
                     </constraints>

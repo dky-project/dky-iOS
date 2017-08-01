@@ -22,6 +22,7 @@
 
 @property (nonatomic, weak) UILabel *orderAmountLabel;
 @property (nonatomic, weak) UILabel *countLabel;
+@property (nonatomic, weak) UILabel *pictureLabel;
 
 //@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
 //@property (weak, nonatomic) IBOutlet UILabel *clientLabel;
