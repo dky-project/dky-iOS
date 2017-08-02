@@ -8,6 +8,7 @@
 
 #import "DKYDisplayViewController.h"
 #import "DKYDisplayHeaderView.h"
+#import "DKYDisplayImageViewCell.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -32,27 +33,47 @@
 }
 
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    if(section == 0) return 1;
+    
+    return 8;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if(section == 0) return CGFLOAT_MIN;
+    
+    return 24;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 200;
+    if(indexPath.section == 0 && indexPath.row == 0) return 300;
+    
+    return 44;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 0 && indexPath.row == 0){
+        DKYDisplayImageViewCell *cell = [DKYDisplayImageViewCell displayImageViewCellWithTableView:tableView];
+        return cell;
+    }
+    
     static NSString *cellID = @"testCellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if(cell == nil)
     {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
-    cell.textLabel.text = @"测试数据";
-    cell.backgroundColor = [UIColor randomColor];
+    
+    NSArray *title = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@类",title[indexPath.row]];
     return cell;
 }
 
@@ -85,7 +106,7 @@
         make.left.mas_equalTo(weakSelf.view);
         make.right.mas_equalTo(weakSelf.view);
         make.top.mas_equalTo(weakSelf.view);
-        make.height.mas_equalTo(65);
+        make.height.mas_equalTo(110);
     }];
 }
 

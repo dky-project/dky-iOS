@@ -299,6 +299,7 @@
 		EBD5E2791F319B8700B98F46 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E2781F319B8700B98F46 /* QMUIConfigurationTemplate.m */; };
 		EBD5E27C1F31A24A00B98F46 /* UIViewController+BackWithGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E27B1F31A24A00B98F46 /* UIViewController+BackWithGesture.m */; };
 		EBD5E27F1F31A67600B98F46 /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E27E1F31A67600B98F46 /* NSString+URL.m */; };
+		EBD5E2821F31AAB900B98F46 /* DKYDisplayImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E2811F31AAB900B98F46 /* DKYDisplayImageViewCell.m */; };
 		EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694981E271C7900F365C3 /* TWLineLayout.m */; };
 		EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */; };
 		EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */; };
@@ -922,6 +923,8 @@
 		EBD5E27B1F31A24A00B98F46 /* UIViewController+BackWithGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackWithGesture.m"; sourceTree = "<group>"; };
 		EBD5E27D1F31A67600B98F46 /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
 		EBD5E27E1F31A67600B98F46 /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
+		EBD5E2801F31AAB900B98F46 /* DKYDisplayImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayImageViewCell.h; sourceTree = "<group>"; };
+		EBD5E2811F31AAB900B98F46 /* DKYDisplayImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayImageViewCell.m; sourceTree = "<group>"; };
 		EBD694971E271C7900F365C3 /* TWLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLineLayout.h; sourceTree = "<group>"; };
 		EBD694981E271C7900F365C3 /* TWLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLineLayout.m; sourceTree = "<group>"; };
 		EBD6949A1E272DB000F365C3 /* DKYHomeItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemViewCell.h; sourceTree = "<group>"; };
@@ -2244,6 +2247,8 @@
 			children = (
 				EBD5E2721F3173AC00B98F46 /* DKYDisplayHeaderView.h */,
 				EBD5E2731F3173AC00B98F46 /* DKYDisplayHeaderView.m */,
+				EBD5E2801F31AAB900B98F46 /* DKYDisplayImageViewCell.h */,
+				EBD5E2811F31AAB900B98F46 /* DKYDisplayImageViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2719,6 +2724,7 @@
 				EBA90E991E52E55A00EA539E /* DKYOrderActionsView.m in Sources */,
 				EBA404D71ED66F7400901483 /* DKYGetSizeDataModel.m in Sources */,
 				EBA7310B1F21E00600FEFD69 /* PYPhotosViewController.m in Sources */,
+				EBD5E2821F31AAB900B98F46 /* DKYDisplayImageViewCell.m in Sources */,
 				EBD5E27C1F31A24A00B98F46 /* UIViewController+BackWithGesture.m in Sources */,
 				EB9ACBCB1E5EB1160007517C /* DKYMadeInfoByProductNameParameter.m in Sources */,
 				EBB0FB9F1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m in Sources */,

@@ -70,7 +70,7 @@
     
     WeakSelf(weakSelf);
     [self.groupNumberTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf).with.offset(64);
+        make.left.mas_equalTo(weakSelf).with.offset(58);
         make.centerY.mas_equalTo(weakSelf);
         make.width.mas_equalTo(200);
         make.height.mas_equalTo(35);
