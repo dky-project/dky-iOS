@@ -296,6 +296,7 @@
 		EBD304A51F20AE6400CA400C /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD304A21F20AE6400CA400C /* DACircularProgressView.m */; };
 		EBD304A61F20AE6400CA400C /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD304A41F20AE6400CA400C /* DALabeledCircularProgressView.m */; };
 		EBD304A91F20AEA000CA400C /* FLAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD304A81F20AEA000CA400C /* FLAnimatedImageView+WebCache.m */; };
+		EBD5E2701F316C0100B98F46 /* DKYDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E26F1F316C0100B98F46 /* DKYDisplayViewController.m */; };
 		EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694981E271C7900F365C3 /* TWLineLayout.m */; };
 		EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */; };
 		EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */; };
@@ -914,6 +915,8 @@
 		EBD304A41F20AE6400CA400C /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
 		EBD304A71F20AEA000CA400C /* FLAnimatedImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImageView+WebCache.h"; sourceTree = "<group>"; };
 		EBD304A81F20AEA000CA400C /* FLAnimatedImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImageView+WebCache.m"; sourceTree = "<group>"; };
+		EBD5E26E1F316C0100B98F46 /* DKYDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayViewController.h; sourceTree = "<group>"; };
+		EBD5E26F1F316C0100B98F46 /* DKYDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayViewController.m; sourceTree = "<group>"; };
 		EBD694971E271C7900F365C3 /* TWLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLineLayout.h; sourceTree = "<group>"; };
 		EBD694981E271C7900F365C3 /* TWLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLineLayout.m; sourceTree = "<group>"; };
 		EBD6949A1E272DB000F365C3 /* DKYHomeItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemViewCell.h; sourceTree = "<group>"; };
@@ -2013,6 +2016,7 @@
 				EB02E87F1ECC1B58006C5354 /* CollectList */,
 				EB95107D1E15FC2C008708EF /* OrderInquiry */,
 				EBB0FBA11F3049B200BCD57C /* Recommend */,
+				EBD5E26D1F316BEC00B98F46 /* Display */,
 				EB95117E1E16408C008708EF /* Login */,
 				EBD694B31E277D5100F365C3 /* Webview */,
 				EB9790721E221BDA00E2985C /* ViewTools */,
@@ -2226,6 +2230,15 @@
 				EBD304A41F20AE6400CA400C /* DALabeledCircularProgressView.m */,
 			);
 			path = DACircularProgress;
+			sourceTree = "<group>";
+		};
+		EBD5E26D1F316BEC00B98F46 /* Display */ = {
+			isa = PBXGroup;
+			children = (
+				EBD5E26E1F316C0100B98F46 /* DKYDisplayViewController.h */,
+				EBD5E26F1F316C0100B98F46 /* DKYDisplayViewController.m */,
+			);
+			path = Display;
 			sourceTree = "<group>";
 		};
 		EBD694A71E277B4700F365C3 /* RxWebViewController */ = {
@@ -2585,6 +2598,7 @@
 				EB97906F1E221B6F00E2985C /* MMPopupView.m in Sources */,
 				EBA404D41ED66BEC00901483 /* DKYGetSizeDataParameter.m in Sources */,
 				EB97F2B81E25C36A00BDC705 /* DQCanEditTableViewCell.m in Sources */,
+				EBD5E2701F316C0100B98F46 /* DKYDisplayViewController.m in Sources */,
 				EBA731101F21E00600FEFD69 /* PYPhotoBrowseView.m in Sources */,
 				EBD304A91F20AEA000CA400C /* FLAnimatedImageView+WebCache.m in Sources */,
 				EBD115F91EA4662600AF6F5C /* DKYTongkuan5LingItemView.m in Sources */,
