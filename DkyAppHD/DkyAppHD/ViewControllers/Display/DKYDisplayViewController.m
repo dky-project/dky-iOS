@@ -7,8 +7,13 @@
 //
 
 #import "DKYDisplayViewController.h"
+#import "DKYDisplayHeaderView.h"
 
-@interface DKYDisplayViewController ()
+@interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, weak) UITableView *tableView;
+
+@property (nonatomic, weak) DKYDisplayHeaderView *headerView;
 
 @end
 
@@ -33,6 +38,24 @@
     [self setupCustomTitle:@"陈列"];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
+    
+    [self setupHeaderView];
+}
+
+- (void)setupHeaderView{
+    DKYDisplayHeaderView *headerView = [[DKYDisplayHeaderView alloc] initWithFrame:CGRectZero];
+    
+    [self.view addSubview:headerView];
+    
+    self.headerView = headerView;
+    
+    WeakSelf(weakSelf);
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view);
+        make.right.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.view);
+        make.height.mas_equalTo(65);
+    }];
 }
 
 - (void)setupCustomTitle:(NSString*)title;

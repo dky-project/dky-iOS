@@ -297,6 +297,7 @@
 		EBD304A61F20AE6400CA400C /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD304A41F20AE6400CA400C /* DALabeledCircularProgressView.m */; };
 		EBD304A91F20AEA000CA400C /* FLAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD304A81F20AEA000CA400C /* FLAnimatedImageView+WebCache.m */; };
 		EBD5E2701F316C0100B98F46 /* DKYDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E26F1F316C0100B98F46 /* DKYDisplayViewController.m */; };
+		EBD5E2741F3173AC00B98F46 /* DKYDisplayHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E2731F3173AC00B98F46 /* DKYDisplayHeaderView.m */; };
 		EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694981E271C7900F365C3 /* TWLineLayout.m */; };
 		EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */; };
 		EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */; };
@@ -917,6 +918,8 @@
 		EBD304A81F20AEA000CA400C /* FLAnimatedImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImageView+WebCache.m"; sourceTree = "<group>"; };
 		EBD5E26E1F316C0100B98F46 /* DKYDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayViewController.h; sourceTree = "<group>"; };
 		EBD5E26F1F316C0100B98F46 /* DKYDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayViewController.m; sourceTree = "<group>"; };
+		EBD5E2721F3173AC00B98F46 /* DKYDisplayHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayHeaderView.h; sourceTree = "<group>"; };
+		EBD5E2731F3173AC00B98F46 /* DKYDisplayHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayHeaderView.m; sourceTree = "<group>"; };
 		EBD694971E271C7900F365C3 /* TWLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLineLayout.h; sourceTree = "<group>"; };
 		EBD694981E271C7900F365C3 /* TWLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLineLayout.m; sourceTree = "<group>"; };
 		EBD6949A1E272DB000F365C3 /* DKYHomeItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemViewCell.h; sourceTree = "<group>"; };
@@ -2237,8 +2240,18 @@
 			children = (
 				EBD5E26E1F316C0100B98F46 /* DKYDisplayViewController.h */,
 				EBD5E26F1F316C0100B98F46 /* DKYDisplayViewController.m */,
+				EBD5E2711F31738000B98F46 /* View */,
 			);
 			path = Display;
+			sourceTree = "<group>";
+		};
+		EBD5E2711F31738000B98F46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBD5E2721F3173AC00B98F46 /* DKYDisplayHeaderView.h */,
+				EBD5E2731F3173AC00B98F46 /* DKYDisplayHeaderView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		EBD694A71E277B4700F365C3 /* RxWebViewController */ = {
@@ -2516,6 +2529,7 @@
 				EBC300521E1CA0C700F602E6 /* TAPageControl.m in Sources */,
 				EBABE8DC1E150CA600B4C568 /* ViewController.m in Sources */,
 				EBC300501E1CA0C700F602E6 /* TAAnimatedDotView.m in Sources */,
+				EBD5E2741F3173AC00B98F46 /* DKYDisplayHeaderView.m in Sources */,
 				EB9884CC1E2864B400BAFADE /* DKYHtmlHelper.m in Sources */,
 				EB506C471E23B24C002A1423 /* TWBackgroundView.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,

@@ -146,6 +146,16 @@ static char UIButtonOriginalTitleoKey = '\0';
             [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
             [btn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0xE3E3E3]] forState:UIControlStateDisabled];
             break;
+            
+        case UIButtonCustomType_Twelve:
+            [btn setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+            btn.titleLabel.adjustsFontSizeToFitWidth = YES;
+            btn.layer.borderWidth = 1.0;
+            btn.layer.borderColor = [UIColor colorWithHex:0x686868].CGColor;
+            [btn setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+            [btn setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0xE3E3E3]] forState:UIControlStateDisabled];
+            break;
         default:
             break;
     }
