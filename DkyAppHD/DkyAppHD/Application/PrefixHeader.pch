@@ -65,6 +65,8 @@
 #import "LCActionSheet.h"
 #import "RMUniversalAlert.h"
 #import "DKYCommonTool.h"
+#import <QMUIKit/QMUIKit.h>
+#import "QMUIConfigurationTemplate.h"
 #endif
 
 

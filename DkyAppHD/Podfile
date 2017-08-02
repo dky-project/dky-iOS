@@ -14,4 +14,6 @@ pod 'MJExtension'
 pod 'YYCategories'
 pod 'MBProgressHUD'
 pod 'SVProgressHUD'
+
+pod 'QMUIKit'
 end
