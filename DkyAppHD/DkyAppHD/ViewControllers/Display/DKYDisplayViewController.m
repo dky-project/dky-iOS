@@ -31,6 +31,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 200;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellID = @"testCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = @"测试数据";
+    cell.backgroundColor = [UIColor randomColor];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
 #pragma mark - UI
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
@@ -40,6 +69,8 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
     [self setupHeaderView];
+    
+    [self setupTableView];
 }
 
 - (void)setupHeaderView{
@@ -57,6 +88,26 @@
         make.height.mas_equalTo(65);
     }];
 }
+
+- (void)setupTableView{
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.showsVerticalScrollIndicator = YES;
+    tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView = tableView;
+    [self.view addSubview:tableView];
+    
+    WeakSelf(weakSelf);
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view);
+        make.right.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.headerView.mas_bottom);
+        make.bottom.mas_equalTo(weakSelf.view);
+    }];
+}
+
 
 - (void)setupCustomTitle:(NSString*)title;
 {

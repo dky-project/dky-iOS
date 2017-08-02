@@ -298,6 +298,7 @@
 		EBD5E2741F3173AC00B98F46 /* DKYDisplayHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E2731F3173AC00B98F46 /* DKYDisplayHeaderView.m */; };
 		EBD5E2791F319B8700B98F46 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E2781F319B8700B98F46 /* QMUIConfigurationTemplate.m */; };
 		EBD5E27C1F31A24A00B98F46 /* UIViewController+BackWithGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E27B1F31A24A00B98F46 /* UIViewController+BackWithGesture.m */; };
+		EBD5E27F1F31A67600B98F46 /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5E27E1F31A67600B98F46 /* NSString+URL.m */; };
 		EBD694991E271C7900F365C3 /* TWLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694981E271C7900F365C3 /* TWLineLayout.m */; };
 		EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD6949B1E272DB000F365C3 /* DKYHomeItemViewCell.m */; };
 		EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD6949C1E272DB000F365C3 /* DKYHomeItemViewCell.xib */; };
@@ -919,6 +920,8 @@
 		EBD5E2781F319B8700B98F46 /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		EBD5E27A1F31A24A00B98F46 /* UIViewController+BackWithGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackWithGesture.h"; sourceTree = "<group>"; };
 		EBD5E27B1F31A24A00B98F46 /* UIViewController+BackWithGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackWithGesture.m"; sourceTree = "<group>"; };
+		EBD5E27D1F31A67600B98F46 /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
+		EBD5E27E1F31A67600B98F46 /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		EBD694971E271C7900F365C3 /* TWLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWLineLayout.h; sourceTree = "<group>"; };
 		EBD694981E271C7900F365C3 /* TWLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWLineLayout.m; sourceTree = "<group>"; };
 		EBD6949A1E272DB000F365C3 /* DKYHomeItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemViewCell.h; sourceTree = "<group>"; };
@@ -1076,6 +1079,8 @@
 				26A6FA591E61878300376194 /* NSObject+Utility.m */,
 				EBD5E27A1F31A24A00B98F46 /* UIViewController+BackWithGesture.h */,
 				EBD5E27B1F31A24A00B98F46 /* UIViewController+BackWithGesture.m */,
+				EBD5E27D1F31A67600B98F46 /* NSString+URL.h */,
+				EBD5E27E1F31A67600B98F46 /* NSString+URL.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2530,6 +2535,7 @@
 				EBD5E2741F3173AC00B98F46 /* DKYDisplayHeaderView.m in Sources */,
 				EB9884CC1E2864B400BAFADE /* DKYHtmlHelper.m in Sources */,
 				EB506C471E23B24C002A1423 /* TWBackgroundView.m in Sources */,
+				EBD5E27F1F31A67600B98F46 /* NSString+URL.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,
 				EB97F2B91E25C36A00BDC705 /* DQFormCollectionViewCell.m in Sources */,
 				266290781E9D039D00886274 /* UIScrollView+VTMagic.m in Sources */,

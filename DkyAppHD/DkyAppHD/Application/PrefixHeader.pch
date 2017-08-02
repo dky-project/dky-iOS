@@ -67,6 +67,8 @@
 #import "DKYCommonTool.h"
 #import <QMUIKit/QMUIKit.h>
 #import "QMUIConfigurationTemplate.h"
+#import "AFNetworking.h"
+#import "NSString+URL.h"
 #endif
 
 
