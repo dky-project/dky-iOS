@@ -45,7 +45,7 @@
     
     DLog(@"%@",NSStringFromCGRect(self.bigImageView.frame));
     
-    self.gridView.frame = CGRectMake(kScreenWidth - 32 - 300, 0, 300, 300);
+    self.gridView.frame = CGRectMake(kScreenWidth - 32 - 400, 0, 400, 444);
 }
 
 #pragma mark - UI
@@ -83,7 +83,7 @@
     count = 3;
     
     self.gridView.columnCount = 3;
-    self.gridView.rowHeight = (300 - 4.5 * 2) / 3;
+    self.gridView.rowHeight = (444 - 5 * 2) / 3;
     self.gridView.separatorWidth = 5;
     self.gridView.separatorColor = [UIColor whiteColor];
     self.gridView.separatorDashed = NO;
