@@ -28,7 +28,17 @@
     return self;
 }
 
-
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    WeakSelf(weakSelf);
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf);
+        make.right.mas_equalTo(weakSelf);
+        make.top.mas_equalTo(weakSelf);
+        make.bottom.mas_equalTo(weakSelf.titleLabel.mas_top);
+    }];
+}
 #pragma mark - UI
 - (void)commonInit{
     [self setupTitleLabel];
@@ -40,14 +50,6 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
     [self addSubview:imageView];
     self.imageView = imageView;
-    
-    WeakSelf(weakSelf);
-    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf);
-        make.right.mas_equalTo(weakSelf);
-        make.top.mas_equalTo(weakSelf);
-        make.bottom.mas_equalTo(weakSelf.titleLabel.mas_top);
-    }];
     
     self.imageView.backgroundColor = [UIColor randomColor];
 }
