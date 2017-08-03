@@ -58,21 +58,16 @@
     
     self.orderNumberLabel.text = itemModel.displayID;
     
-    self.sourceOfSampleLabel.text = itemModel.pdt;
+    self.sourceOfSampleLabel.text = itemModel.productName;
     
-    self.sizeLabel.text = itemModel.xwValue;
-    self.lengthLabel.text = itemModel.ycValue;
+    self.sizeLabel.text = itemModel.colorName;
+    self.lengthLabel.text = itemModel.sizeName;
     
     self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
     
-    self.orderAmountLabel.text = @"1000";
-    self.countLabel.text = @"123";
-    [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:@"http://60.190.63.14:90/img_sl/3502.jpg?modifieddate=1497749658000"]];
-    
-    //    self.serialNumberLabel.text = itemModel.displayNo1;
-    //    self.clientLabel.text = itemModel.customer;
-    //    self.faxDateLabel.text = itemModel.displayFaxDate;
-    //    self.styleLabel.text = itemModel.mDimNew12Text;
+    self.orderAmountLabel.text = itemModel.amount;
+    self.countLabel.text = itemModel.qty;
+    [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.imgUrl]];
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -138,26 +133,6 @@
         make.centerY.mas_equalTo(weakSelf.contentView);
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.pictureLabel);
     }];
-    
-    //    [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.centerY.mas_equalTo(weakSelf.contentView);
-    //        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.serialNumberLabel);
-    //    }];
-    //
-    //    [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.centerY.mas_equalTo(weakSelf.contentView);
-    //        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.clientLabel);
-    //    }];
-    //
-    //    [self.faxDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.centerY.mas_equalTo(weakSelf.contentView);
-    //        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.faxDateLabel);
-    //    }];
-    //
-    //    [self.styleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.centerY.mas_equalTo(weakSelf.contentView);
-    //        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.styleLabel);
-    //    }];
 }
 
 #pragma mark - PYPhotoBrowseViewDelegate
@@ -185,11 +160,6 @@
     [self setupCountLabel];
     
     [self setupPictureLabel];
-    
-    //    [self setupSerialNumberLabel];
-    //    [self setupClientLabel];
-    //    [self setupFaxDateLabel];
-    //    [self setupStyleLabel];
 }
 
 - (void)setupRectImageView{
@@ -198,7 +168,6 @@
     UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
     self.normalImage = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
     
-    //    self.selectedImage = [UIImage imageNamed:@"select_icon"];
     self.selectedImage = [UIImage imageWithColor:[UIColor colorWithHex:0x3c3562] size:CGSizeMake(11, 11)];
     
     imageView.image = self.normalImage;
@@ -247,7 +216,7 @@
         PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
         
         // 2.1 设置图片源(UIImageView)数组
-        photoBroseView.imagesURL = @[@"http://60.190.63.14:90/img_sl/3502.jpg?modifieddate=1497749658000"];
+        photoBroseView.imagesURL = @[self.itemModel.imgUrl];
         
         // 2.2 设置初始化图片下标（即当前点击第几张图片）
         photoBroseView.currentIndex = 0;

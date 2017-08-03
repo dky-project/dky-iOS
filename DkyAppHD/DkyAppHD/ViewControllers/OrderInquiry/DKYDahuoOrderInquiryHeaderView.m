@@ -38,18 +38,6 @@
 
 #pragma mark - action method
 
-- (void)faxDateLabelTapped:(UITapGestureRecognizer*)ges{
-    if(self.faxDateBlock){
-        self.faxDateBlock(self);
-    }
-}
-
-- (void)auditStatusLabelTapped:(UITapGestureRecognizer*)ges{
-    if(self.auditStatusBlock){
-        self.auditStatusBlock(self);
-    }
-}
-
 - (IBAction)batchPreviewBtnClicked:(UIButton *)sender {
     if(self.batchPreviewBtnClicked){
         self.batchPreviewBtnClicked(self);
@@ -75,28 +63,28 @@
     
     UIView *placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     placeholderView.backgroundColor = [UIColor whiteColor];
-    self.clientTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.clientTextField.leftView = placeholderView;
+    self.kuanhaoTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.kuanhaoTextField.leftView = placeholderView;
     
     placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     placeholderView.backgroundColor = [UIColor whiteColor];
-    self.sampleTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.sampleTextField.leftView = placeholderView;
+    self.sizeTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.sizeTextField.leftView = placeholderView;
     
-    self.clientTextField.placeholder = @"客户";
-    self.sampleTextField.placeholder = @"样衣";
+    placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    placeholderView.backgroundColor = [UIColor whiteColor];
+    self.colorTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.colorTextField.leftView = placeholderView;
+    
+    self.kuanhaoTextField.placeholder = @"请输入款号";
+    self.sizeTextField.placeholder = @"请输入尺寸";
+    self.colorTextField.placeholder = @"请输入颜色";
     
     UIImage *image = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(120, 38)];
     image = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
     [self.findBtn setBackgroundImage:image forState:UIControlStateNormal];
     [self.deleteBtn setBackgroundImage:image forState:UIControlStateNormal];
     [self.batchPreviewBtn setBackgroundImage:image forState:UIControlStateNormal];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(faxDateLabelTapped:)];
-    [self.faxDateLabel addGestureRecognizer:tap];
-    
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(auditStatusLabelTapped:)];
-    [self.auditStatusLabel addGestureRecognizer:tap];
 }
 
 - (UUDatePicker*)datePicker{

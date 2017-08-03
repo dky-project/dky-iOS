@@ -8,8 +8,6 @@
 
 #import "DKYDahuoOrderInquiryViewController.h"
 #import "DKYDahuoOrderInquiryHeaderView.h"
-#import "WGBDatePickerView.h"
-#import "DKYDatePickerView.h"
 #import "MMPopupItem.h"
 #import "MMSheetView.h"
 #import "MMPopupWindow.h"
@@ -20,25 +18,32 @@
 #import "DKYOrderAuditStatusModel.h"
 #import "DKYOrderInquiryParameter.h"
 #import "DKYOrderItemDetailModel.h"
+#import "DKYDahuoOrderInquiryParameter.h"
 
-@interface DKYDahuoOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
+@interface DKYDahuoOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, weak) DKYDahuoOrderInquiryHeaderView *headerView;
-
-@property (nonatomic,strong) WGBDatePickerView *datePickView;
 
 @property (nonatomic, strong) NSMutableArray *orders;
 
 @property (nonatomic, assign) NSInteger pageNum;
 
-@property (nonatomic, strong) NSArray *orderAuditStatusModels;
+// 查询的3个条件
+/**
+ * 款号
+ */
+@property (nonatomic, copy) NSString *productName;
 
-// 查询的4个条件
-@property (nonatomic, strong) DKYOrderAuditStatusModel *selectedOrderAuditStatusModel;
-@property (nonatomic, copy) NSString *czDate;
-@property (nonatomic, copy) NSString *customer;
-@property (nonatomic, copy) NSString *pdt;
+/**
+ * 颜色
+ */
+@property (nonatomic, copy) NSString *colorName;
+
+/**
+ * 尺寸
+ */
+@property (nonatomic, copy) NSString *sizeName;
 
 // 批量预览的数据
 @property (nonatomic, strong) NSMutableArray *selectedOrders;
@@ -62,19 +67,19 @@
 }
 
 #pragma mark - 网络请求
-- (void)productApprovePageFromServer{
+- (void)productApproveBmptPageFromServer{
     WeakSelf(weakSelf);
     //    dispatch_group_enter(self.group);
-    DKYOrderInquiryParameter *p = [[DKYOrderInquiryParameter alloc] init];
+    DKYDahuoOrderInquiryParameter *p = [[DKYDahuoOrderInquiryParameter alloc] init];
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
     p.pageSize = @(kPageSize);
-    p.czDate = self.czDate;
-    p.customer = self.customer;
-    p.pdt = self.pdt;
-    p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
+    p.productName = self.productName;
+    p.colorName = self.colorName;
+    p.sizeName = self.sizeName;
     
-    [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
+    
+    [[DKYHttpRequestManager sharedInstance] productApproveBmptPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.tableView.mj_header endRefreshing];
@@ -102,18 +107,19 @@
     }];
 }
 
-- (void)loadMoreProductApprovePageFromServer{
+- (void)loadMoreProductApproveBmptPageFromServer{
     WeakSelf(weakSelf);
     //    dispatch_group_enter(self.group);
-    DKYOrderInquiryParameter *p = [[DKYOrderInquiryParameter alloc] init];
+    DKYDahuoOrderInquiryParameter *p = [[DKYDahuoOrderInquiryParameter alloc] init];
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
-    p.czDate = self.czDate;
-    p.customer = self.customer;
-    p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
     
-    [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
+    p.productName = self.productName;
+    p.colorName = self.colorName;
+    p.sizeName = self.sizeName;
+
+    [[DKYHttpRequestManager sharedInstance] productApproveBmptPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.tableView.mj_footer endRefreshing];
@@ -210,46 +216,7 @@
 
 #pragma mark - private method
 
-- (void)showFaxDateSelectedPicker{
-    //        DKYDatePickerView *pic = [[DKYDatePickerView alloc] init];
-    //        pic.doneBlock = ^(DKYDatePickerView *picker, DkyButtonStatusType type){
-    //            DLog(@"%@",picker.selectedDate);
-    //        };
-    //        [pic show];
-    [self.view endEditing:YES];
-    [self.datePickView show];
-}
-
-- (void)showAuditStatusSelectedPicker{
-    WeakSelf(weakSelf);
-    [self.view endEditing:YES];
-    MMPopupItemHandler block = ^(NSInteger index){
-        weakSelf.selectedOrderAuditStatusModel = [weakSelf.orderAuditStatusModels objectOrNilAtIndex:index];
-        
-        NSString *displayName = [NSString stringWithFormat:@"  %@",weakSelf.selectedOrderAuditStatusModel.statusName ?:@""];
-        weakSelf.headerView.auditStatusLabel.text = displayName;
-    };
-    
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.orderAuditStatusModels.count + 1];
-    for (DKYOrderAuditStatusModel *model in self.orderAuditStatusModels) {
-        [items addObject:MMItemMake(model.statusName, MMItemTypeNormal, block)];
-    }
-    
-    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"审核状态"
-                                                          items:[items copy]];
-    //    sheetView.attachedView = self.view;
-    [MMPopupWindow sharedWindow].touchWildToHide = YES;
-    [sheetView show];
-}
-
 - (void)showOrderPreview{
-    //    DKYOrderBrowseViewController *vc = [[DKYOrderBrowseViewController alloc] init];
-    //    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    //    vc.modalPresentationStyle = UIModalPresentationPopover;
-    //    vc.preferredContentSize = CGSizeMake(514, 610);
-    //    UIPopoverPresentationController *popover = vc.popoverPresentationController;
-    //    popover.sourceView = self.view;
-    //    [self presentViewController:vc animated:YES completion:nil];
     [self.view endEditing:YES];
     DKYOrderBrowseView *browseView = [DKYOrderBrowseView show];
     browseView.detailOrders = self.detailOrders;
@@ -262,7 +229,6 @@
     
     [self setupCustomTitle:@"订单查询"];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
-    //    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithHex:0x2D2D33]];
     
     [self setupHeaderView];
     [self setupTableView];
@@ -281,15 +247,7 @@
         make.top.mas_equalTo(weakSelf.view).with.offset(0);
         make.height.mas_equalTo(300);
     }];
-    
-    header.faxDateBlock = ^(id sender){
-        [weakSelf showFaxDateSelectedPicker];
-    };
-    
-    header.auditStatusBlock = ^(id sender){
-        [weakSelf showAuditStatusSelectedPicker];
-    };
-    
+
     header.batchPreviewBtnClicked = ^(id sender){
         if(weakSelf.selectedOrders.count == 0){
             [DKYHUDTool showInfoWithStatus:@"请至少选择一条订单记录"];
@@ -299,14 +257,21 @@
     };
     
     header.findBtnClicked = ^(id sender){
-        weakSelf.pdt = weakSelf.headerView.sampleTextField.text;
-        weakSelf.customer =weakSelf.headerView.clientTextField.text;
-        if(weakSelf.pdt .length == 0){
-            weakSelf.pdt = nil;
+        weakSelf.productName = weakSelf.headerView.kuanhaoTextField.text;
+        weakSelf.colorName =weakSelf.headerView.colorTextField.text;
+        weakSelf.sizeName =weakSelf.headerView.sizeTextField.text;
+        
+        if(weakSelf.productName .length == 0){
+            weakSelf.productName = nil;
         }
-        if(weakSelf.customer.length == 0){
-            weakSelf.customer = nil;
+        if(weakSelf.colorName.length == 0){
+            weakSelf.colorName = nil;
         }
+        
+        if(weakSelf.sizeName.length == 0){
+            weakSelf.sizeName = nil;
+        }
+        
         [weakSelf.tableView.mj_header beginRefreshing];
     };
     
@@ -354,13 +319,13 @@
 -(void)setupRefreshControl{
     WeakSelf(weakSelf);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
-        [weakSelf productApprovePageFromServer];
+        [weakSelf productApproveBmptPageFromServer];
     }];
     header.lastUpdatedTimeKey = [NSString stringWithFormat:@"%@Key",[self class]];
     self.tableView.mj_header = header;
     
     MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(){
-        [weakSelf loadMoreProductApprovePageFromServer];
+        [weakSelf loadMoreProductApproveBmptPageFromServer];
     }];
     footer.automaticallyHidden = YES;
     self.tableView.mj_footer = footer;
@@ -427,29 +392,6 @@
     [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
 }
 
-#pragma mark- <WGBDatePickerViewDelegate>
-//当时间改变时触发
-- (void)changeTime:(NSDate *)date{
-    
-}
-
-//确定时间
-- (void)determine:(NSDate *)date{
-    DLog(@"选中时间 = %@",[self.datePickView stringFromDate:date]);
-    self.czDate = [self.datePickView stringFromDate:date];
-    self.headerView.faxDateLabel.text = [NSString stringWithFormat:@"   %@",self.czDate];
-}
-
-#pragma mark - get & set method
-- (WGBDatePickerView *)datePickView{
-    if (!_datePickView) {
-        _datePickView =[[WGBDatePickerView alloc] initWithFrame:self.view.bounds type:UIDatePickerModeDate];
-        _datePickView.delegate = self;
-        _datePickView.title =@"传真日期";
-    }
-    return _datePickView;
-}
-
 #pragma mark - get & set method
 
 - (NSMutableArray*)orders{
@@ -457,17 +399,6 @@
         _orders = [NSMutableArray array];
     }
     return _orders;
-}
-
-// orderAuditStatusModels
-- (NSArray*)orderAuditStatusModels{
-    if(_orderAuditStatusModels == nil){
-        DKYOrderAuditStatusModel *model1 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"审核中" code:DKYOrderAuditStatusType_Auding];
-        DKYOrderAuditStatusModel *model2 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"审核通过" code:DKYOrderAuditStatusType_Success];
-        DKYOrderAuditStatusModel *model3 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"审核不通过" code:DKYOrderAuditStatusType_Fail];
-        _orderAuditStatusModels = @[model1,model2,model3];
-    }
-    return _orderAuditStatusModels;
 }
 
 - (NSMutableArray*)selectedOrders{

@@ -119,7 +119,7 @@
     WeakSelf(weakSelf);
     self.sourceOfSampleLabel = [self createLabelWithName:@"款号"];
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(70);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }

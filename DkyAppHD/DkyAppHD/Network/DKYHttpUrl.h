@@ -68,6 +68,8 @@
 #define kProductApproveInfoListUrl      @"productApprove/productApproveInfoList"  // 订单详细信息查询
 #define kUpdateProductApproveUrl        @"productApprove/updateProductApprove"    // 删除订单
 
+#define kProductApproveBmptPageUrl      @"productApprove/bmptPage"              // 大货订单查询
+
 // 收藏
 #define kProductCollectPageUrl          @"productCollect/page"                  // 收藏列表
 #define kAddProductCollectUrl           @"productCollect/addProductCollect"     // 添加收藏

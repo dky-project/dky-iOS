@@ -258,6 +258,7 @@
 		EBBF21461F32CF520047471B /* DKYDisplayActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF21451F32CF520047471B /* DKYDisplayActionView.m */; };
 		EBBF214A1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF21481F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.m */; };
 		EBBF214B1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBF21491F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib */; };
+		EBBF21611F32F78B0047471B /* DKYDahuoOrderInquiryParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF21601F32F78B0047471B /* DKYDahuoOrderInquiryParameter.m */; };
 		EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */; };
 		EBC3004F1E1CA0C700F602E6 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300421E1CA0C700F602E6 /* TAAbstractDotView.m */; };
 		EBC300501E1CA0C700F602E6 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300441E1CA0C700F602E6 /* TAAnimatedDotView.m */; };
@@ -847,6 +848,8 @@
 		EBBF21471F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayCategoryDahuoViewCell.h; sourceTree = "<group>"; };
 		EBBF21481F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayCategoryDahuoViewCell.m; sourceTree = "<group>"; };
 		EBBF21491F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYDisplayCategoryDahuoViewCell.xib; sourceTree = "<group>"; };
+		EBBF215F1F32F78B0047471B /* DKYDahuoOrderInquiryParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDahuoOrderInquiryParameter.h; sourceTree = "<group>"; };
+		EBBF21601F32F78B0047471B /* DKYDahuoOrderInquiryParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDahuoOrderInquiryParameter.m; sourceTree = "<group>"; };
 		EBC3003C1E1CA05300F602E6 /* DKYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeViewController.h; sourceTree = "<group>"; };
 		EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeViewController.m; sourceTree = "<group>"; };
 		EBC300411E1CA0C700F602E6 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -1730,6 +1733,8 @@
 				EB25EEBE1ED55ED5009DA892 /* DKYGetColorDimListParameter.m */,
 				EBA404D21ED66BEC00901483 /* DKYGetSizeDataParameter.h */,
 				EBA404D31ED66BEC00901483 /* DKYGetSizeDataParameter.m */,
+				EBBF215F1F32F78B0047471B /* DKYDahuoOrderInquiryParameter.h */,
+				EBBF21601F32F78B0047471B /* DKYDahuoOrderInquiryParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2572,6 +2577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC300521E1CA0C700F602E6 /* TAPageControl.m in Sources */,
+				EBBF21611F32F78B0047471B /* DKYDahuoOrderInquiryParameter.m in Sources */,
 				EBABE8DC1E150CA600B4C568 /* ViewController.m in Sources */,
 				EBC300501E1CA0C700F602E6 /* TAAnimatedDotView.m in Sources */,
 				EBD5E2741F3173AC00B98F46 /* DKYDisplayHeaderView.m in Sources */,

@@ -72,7 +72,7 @@
     
     self.orderAmountLabel.text = @"1000";
     self.countLabel.text = @"123";
-    [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:@"http://60.190.63.14:90/img_sl/3502.jpg?modifieddate=1497749658000"]];
+    [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.imgUrl]];
     
 //    self.serialNumberLabel.text = itemModel.displayNo1;
 //    self.clientLabel.text = itemModel.customer;
@@ -245,6 +245,7 @@
     self.pictureImageView.contentMode = UIViewContentModeScaleAspectFit;
     
     self.pictureImageView.userInteractionEnabled = YES;
+    WeakSelf(weakSelf);
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
         // 点击图片，显示图片浏览器
         
@@ -252,7 +253,7 @@
         PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
         
         // 2.1 设置图片源(UIImageView)数组
-        photoBroseView.imagesURL = @[@"http://60.190.63.14:90/img_sl/3502.jpg?modifieddate=1497749658000"];
+        photoBroseView.imagesURL = @[weakSelf.itemModel.imgUrl];
         
         // 2.2 设置初始化图片下标（即当前点击第几张图片）
         photoBroseView.currentIndex = 0;
