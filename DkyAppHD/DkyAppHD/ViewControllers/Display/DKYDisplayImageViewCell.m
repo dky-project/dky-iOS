@@ -45,7 +45,7 @@
     
     DLog(@"%@",NSStringFromCGRect(self.bigImageView.frame));
     
-    self.gridView.frame = CGRectMake(300 + 58 + 52, 0, 300, 300);
+    self.gridView.frame = CGRectMake(kScreenWidth - 32 - 300, 0, 300, 300);
 }
 
 #pragma mark - UI
@@ -64,7 +64,7 @@
     
     WeakSelf(weakSelf);
     [self.bigImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.contentView).with.offset(58);
+        make.left.mas_equalTo(weakSelf.contentView).with.offset(32);
         make.top.mas_equalTo(weakSelf.contentView);
         make.bottom.mas_equalTo(weakSelf.contentView);
         make.width.mas_equalTo(300);
