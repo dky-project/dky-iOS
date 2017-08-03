@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DKYDisplayCategoryViewCell" id="KGk-i7-Jjw" customClass="DKYDisplayCategoryViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="768" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFe-wV-9sg">
+                        <rect key="frame" x="32" y="0.0" width="83" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="83" id="PYM-Bw-WEJ"/>
+                            <constraint firstAttribute="height" constant="40" id="Xkg-dq-p6c"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r50-02-sdV">
+                        <rect key="frame" x="120.5" y="0.0" width="83" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="颜色">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om3-jr-Hw8">
+                        <rect key="frame" x="209" y="0.0" width="83" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="大">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXO-JH-hmf">
+                        <rect key="frame" x="297.5" y="0.0" width="83" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="长">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZi-wi-sls">
+                        <rect key="frame" x="651.5" y="0.0" width="83" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="收藏">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="袖长" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ux-W0-nH5" customClass="QMUITextField">
+                        <rect key="frame" x="386" y="0.0" width="83" height="40"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="数量" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWC-Td-xEn" customClass="QMUITextField">
+                        <rect key="frame" x="474.5" y="0.0" width="83" height="40"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6cc-Vu-A31" customClass="QMUITextField">
+                        <rect key="frame" x="563" y="0.0" width="83" height="40"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WXO-JH-hmf" firstAttribute="height" secondItem="om3-jr-Hw8" secondAttribute="height" id="22B-6a-VOX"/>
+                    <constraint firstItem="4Ux-W0-nH5" firstAttribute="width" secondItem="WXO-JH-hmf" secondAttribute="width" id="23i-qo-slf"/>
+                    <constraint firstItem="om3-jr-Hw8" firstAttribute="top" secondItem="r50-02-sdV" secondAttribute="top" id="2zy-Wl-LEz"/>
+                    <constraint firstItem="om3-jr-Hw8" firstAttribute="height" secondItem="r50-02-sdV" secondAttribute="height" id="3jU-qc-zcs"/>
+                    <constraint firstItem="r50-02-sdV" firstAttribute="height" secondItem="cFe-wV-9sg" secondAttribute="height" id="Cfo-Nv-iVD"/>
+                    <constraint firstItem="WXO-JH-hmf" firstAttribute="leading" secondItem="om3-jr-Hw8" secondAttribute="trailing" constant="5.7000000000000002" id="ENL-O5-C0v"/>
+                    <constraint firstItem="vWC-Td-xEn" firstAttribute="leading" secondItem="4Ux-W0-nH5" secondAttribute="trailing" constant="5.7000000000000002" id="I50-fQ-FxB"/>
+                    <constraint firstItem="WXO-JH-hmf" firstAttribute="width" secondItem="om3-jr-Hw8" secondAttribute="width" id="If3-ok-Kbm"/>
+                    <constraint firstItem="cFe-wV-9sg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="IgI-6H-1Hp"/>
+                    <constraint firstItem="r50-02-sdV" firstAttribute="top" secondItem="cFe-wV-9sg" secondAttribute="top" id="JjT-CI-Mtp"/>
+                    <constraint firstItem="om3-jr-Hw8" firstAttribute="width" secondItem="r50-02-sdV" secondAttribute="width" id="M2P-vn-TCA"/>
+                    <constraint firstItem="cFe-wV-9sg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="N9y-iJ-XfG"/>
+                    <constraint firstItem="om3-jr-Hw8" firstAttribute="leading" secondItem="r50-02-sdV" secondAttribute="trailing" constant="5.7000000000000002" id="NWb-sW-XRm"/>
+                    <constraint firstItem="r50-02-sdV" firstAttribute="width" secondItem="cFe-wV-9sg" secondAttribute="width" id="OAj-1D-BK9"/>
+                    <constraint firstItem="6cc-Vu-A31" firstAttribute="leading" secondItem="vWC-Td-xEn" secondAttribute="trailing" constant="5.7000000000000002" id="POS-tA-kkB"/>
+                    <constraint firstItem="4Ux-W0-nH5" firstAttribute="top" secondItem="WXO-JH-hmf" secondAttribute="top" id="RlC-jW-5CQ"/>
+                    <constraint firstItem="WXO-JH-hmf" firstAttribute="top" secondItem="om3-jr-Hw8" secondAttribute="top" id="Zba-wa-9WW"/>
+                    <constraint firstItem="4Ux-W0-nH5" firstAttribute="height" secondItem="WXO-JH-hmf" secondAttribute="height" id="bJh-cb-Jfx"/>
+                    <constraint firstItem="r50-02-sdV" firstAttribute="leading" secondItem="cFe-wV-9sg" secondAttribute="trailing" constant="5.7000000000000002" id="fDd-UR-S8x"/>
+                    <constraint firstItem="vWC-Td-xEn" firstAttribute="height" secondItem="4Ux-W0-nH5" secondAttribute="height" id="ixN-k7-qSW"/>
+                    <constraint firstItem="4Ux-W0-nH5" firstAttribute="leading" secondItem="WXO-JH-hmf" secondAttribute="trailing" constant="5.7000000000000002" id="krU-a9-7B1"/>
+                    <constraint firstItem="6cc-Vu-A31" firstAttribute="height" secondItem="vWC-Td-xEn" secondAttribute="height" id="lVe-cl-6fZ"/>
+                    <constraint firstItem="6cc-Vu-A31" firstAttribute="width" secondItem="vWC-Td-xEn" secondAttribute="width" id="mJv-ih-aA1"/>
+                    <constraint firstItem="vWC-Td-xEn" firstAttribute="top" secondItem="4Ux-W0-nH5" secondAttribute="top" id="nVl-Cc-FdH"/>
+                    <constraint firstItem="vWC-Td-xEn" firstAttribute="width" secondItem="4Ux-W0-nH5" secondAttribute="width" id="pJd-Ui-98Y"/>
+                    <constraint firstItem="6cc-Vu-A31" firstAttribute="top" secondItem="vWC-Td-xEn" secondAttribute="top" id="zGp-4R-0xp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="amountTextField" destination="vWC-Td-xEn" id="axA-5c-wSC"/>
+                <outlet property="collectBtn" destination="nZi-wi-sls" id="kmS-Bt-hbK"/>
+                <outlet property="colorBtn" destination="r50-02-sdV" id="zUn-cL-4cP"/>
+                <outlet property="lengthBtn" destination="WXO-JH-hmf" id="IJA-P0-VPf"/>
+                <outlet property="moneyTextField" destination="6cc-Vu-A31" id="iuO-oC-tHa"/>
+                <outlet property="sizeBtn" destination="om3-jr-Hw8" id="VZL-LH-p4r"/>
+                <outlet property="titleLabel" destination="cFe-wV-9sg" id="QwQ-TS-him"/>
+                <outlet property="xcTextField" destination="4Ux-W0-nH5" id="h7v-dG-TKH"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

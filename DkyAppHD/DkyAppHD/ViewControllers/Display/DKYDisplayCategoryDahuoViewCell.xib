@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DKYDisplayCategoryDahuoViewCell" id="thC-sn-kej" customClass="DKYDisplayCategoryDahuoViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="thC-sn-kej" id="fti-4o-n2c">
+                <rect key="frame" x="0.0" y="0.0" width="768" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwV-l6-GFI">
+                        <rect key="frame" x="32" y="0.0" width="83" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="83" id="nNf-fa-ERu"/>
+                            <constraint firstAttribute="height" constant="40" id="xre-Vd-NrS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2z-Gh-7MF">
+                        <rect key="frame" x="120.5" y="0.0" width="83" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="颜色">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKE-nm-wwc">
+                        <rect key="frame" x="209" y="0.0" width="83" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="尺寸">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7K1-s1-phU">
+                        <rect key="frame" x="297.5" y="0.0" width="83" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="长">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvZ-QM-ywm">
+                        <rect key="frame" x="651.5" y="0.0" width="83" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="收藏">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="袖长" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sT2-hT-Waw" customClass="QMUITextField">
+                        <rect key="frame" x="386" y="0.0" width="83" height="40"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="数量" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8iq-hq-dYf" customClass="QMUITextField">
+                        <rect key="frame" x="474.5" y="0.0" width="83" height="40"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4U8-zb-Can" customClass="QMUITextField">
+                        <rect key="frame" x="563" y="0.0" width="83" height="40"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="f2z-Gh-7MF" firstAttribute="width" secondItem="uwV-l6-GFI" secondAttribute="width" id="290-1n-LZB"/>
+                    <constraint firstItem="sT2-hT-Waw" firstAttribute="height" secondItem="7K1-s1-phU" secondAttribute="height" id="4Qo-mS-fpn"/>
+                    <constraint firstItem="8iq-hq-dYf" firstAttribute="leading" secondItem="sT2-hT-Waw" secondAttribute="trailing" constant="5.7000000000000002" id="62h-K2-PSx"/>
+                    <constraint firstItem="uwV-l6-GFI" firstAttribute="top" secondItem="fti-4o-n2c" secondAttribute="top" id="B4V-aN-JPn"/>
+                    <constraint firstItem="sT2-hT-Waw" firstAttribute="leading" secondItem="7K1-s1-phU" secondAttribute="trailing" constant="5.7000000000000002" id="BI2-uX-jXf"/>
+                    <constraint firstItem="cKE-nm-wwc" firstAttribute="top" secondItem="f2z-Gh-7MF" secondAttribute="top" id="Bvk-jr-3i8"/>
+                    <constraint firstItem="4U8-zb-Can" firstAttribute="width" secondItem="8iq-hq-dYf" secondAttribute="width" id="Fbr-8X-JeG"/>
+                    <constraint firstItem="7K1-s1-phU" firstAttribute="top" secondItem="cKE-nm-wwc" secondAttribute="top" id="I8u-Qs-o0B"/>
+                    <constraint firstItem="7K1-s1-phU" firstAttribute="height" secondItem="cKE-nm-wwc" secondAttribute="height" id="NFN-qp-Jnc"/>
+                    <constraint firstItem="4U8-zb-Can" firstAttribute="top" secondItem="8iq-hq-dYf" secondAttribute="top" id="Rfo-dO-HIe"/>
+                    <constraint firstItem="f2z-Gh-7MF" firstAttribute="top" secondItem="uwV-l6-GFI" secondAttribute="top" id="RnH-Qx-hIm"/>
+                    <constraint firstItem="7K1-s1-phU" firstAttribute="width" secondItem="cKE-nm-wwc" secondAttribute="width" id="SPb-2q-tQd"/>
+                    <constraint firstItem="8iq-hq-dYf" firstAttribute="top" secondItem="sT2-hT-Waw" secondAttribute="top" id="Xon-cc-Ygn"/>
+                    <constraint firstItem="cKE-nm-wwc" firstAttribute="leading" secondItem="f2z-Gh-7MF" secondAttribute="trailing" constant="5.7000000000000002" id="YzQ-rJ-AaO"/>
+                    <constraint firstItem="uwV-l6-GFI" firstAttribute="leading" secondItem="fti-4o-n2c" secondAttribute="leading" constant="32" id="aos-lS-FcP"/>
+                    <constraint firstItem="sT2-hT-Waw" firstAttribute="width" secondItem="7K1-s1-phU" secondAttribute="width" id="bju-EU-z2R"/>
+                    <constraint firstItem="cKE-nm-wwc" firstAttribute="width" secondItem="f2z-Gh-7MF" secondAttribute="width" id="dJQ-ZD-fHS"/>
+                    <constraint firstItem="f2z-Gh-7MF" firstAttribute="height" secondItem="uwV-l6-GFI" secondAttribute="height" id="dMi-bR-NY7"/>
+                    <constraint firstItem="cKE-nm-wwc" firstAttribute="height" secondItem="f2z-Gh-7MF" secondAttribute="height" id="feB-Bt-UFe"/>
+                    <constraint firstItem="7K1-s1-phU" firstAttribute="leading" secondItem="cKE-nm-wwc" secondAttribute="trailing" constant="5.7000000000000002" id="i27-eQ-Lxv"/>
+                    <constraint firstItem="8iq-hq-dYf" firstAttribute="width" secondItem="sT2-hT-Waw" secondAttribute="width" id="mXA-wu-qBK"/>
+                    <constraint firstItem="f2z-Gh-7MF" firstAttribute="leading" secondItem="uwV-l6-GFI" secondAttribute="trailing" constant="5.7000000000000002" id="rLM-Ha-Vrc"/>
+                    <constraint firstItem="sT2-hT-Waw" firstAttribute="top" secondItem="7K1-s1-phU" secondAttribute="top" id="tJH-r7-iY2"/>
+                    <constraint firstItem="4U8-zb-Can" firstAttribute="leading" secondItem="8iq-hq-dYf" secondAttribute="trailing" constant="5.7000000000000002" id="xhT-d7-ufd"/>
+                    <constraint firstItem="4U8-zb-Can" firstAttribute="height" secondItem="8iq-hq-dYf" secondAttribute="height" id="xq2-Yu-xld"/>
+                    <constraint firstItem="8iq-hq-dYf" firstAttribute="height" secondItem="sT2-hT-Waw" secondAttribute="height" id="ybP-0a-7FJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="amountTextField" destination="8iq-hq-dYf" id="nu0-IX-3Dq"/>
+                <outlet property="collectBtn" destination="dvZ-QM-ywm" id="AD0-i8-QWy"/>
+                <outlet property="colorBtn" destination="f2z-Gh-7MF" id="XlP-Fs-aJR"/>
+                <outlet property="lengthBtn" destination="7K1-s1-phU" id="Moo-Po-UBC"/>
+                <outlet property="moneyTextField" destination="4U8-zb-Can" id="85y-Qo-0Fg"/>
+                <outlet property="sizeBtn" destination="cKE-nm-wwc" id="Es4-q8-796"/>
+                <outlet property="titleLabel" destination="uwV-l6-GFI" id="hi9-6c-3te"/>
+                <outlet property="xcTextField" destination="sT2-hT-Waw" id="9fq-fU-M9N"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

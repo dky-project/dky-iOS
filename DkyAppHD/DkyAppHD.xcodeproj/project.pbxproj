@@ -251,6 +251,13 @@
 		EBB59ED41E56D70200F88A4C /* DKYMultipleSelectPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59ED31E56D70200F88A4C /* DKYMultipleSelectPopupView.m */; };
 		EBBD5A721E25160F00037B85 /* DKYQueryPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */; };
 		EBBF21391F32B3D70047471B /* DKYDisplaySmallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF21381F32B3D70047471B /* DKYDisplaySmallImageView.m */; };
+		EBBF213D1F32B8BF0047471B /* DKYDisplayCategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF213B1F32B8BF0047471B /* DKYDisplayCategoryViewCell.m */; };
+		EBBF213E1F32B8BF0047471B /* DKYDisplayCategoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBF213C1F32B8BF0047471B /* DKYDisplayCategoryViewCell.xib */; };
+		EBBF21421F32CC540047471B /* DKYDisplaySumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF21401F32CC540047471B /* DKYDisplaySumViewCell.m */; };
+		EBBF21431F32CC540047471B /* DKYDisplaySumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBF21411F32CC540047471B /* DKYDisplaySumViewCell.xib */; };
+		EBBF21461F32CF520047471B /* DKYDisplayActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF21451F32CF520047471B /* DKYDisplayActionView.m */; };
+		EBBF214A1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF21481F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.m */; };
+		EBBF214B1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBF21491F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib */; };
 		EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */; };
 		EBC3004F1E1CA0C700F602E6 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300421E1CA0C700F602E6 /* TAAbstractDotView.m */; };
 		EBC300501E1CA0C700F602E6 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300441E1CA0C700F602E6 /* TAAnimatedDotView.m */; };
@@ -829,6 +836,17 @@
 		EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYQueryPriceModel.m; sourceTree = "<group>"; };
 		EBBF21371F32B3D70047471B /* DKYDisplaySmallImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplaySmallImageView.h; sourceTree = "<group>"; };
 		EBBF21381F32B3D70047471B /* DKYDisplaySmallImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplaySmallImageView.m; sourceTree = "<group>"; };
+		EBBF213A1F32B8BF0047471B /* DKYDisplayCategoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayCategoryViewCell.h; sourceTree = "<group>"; };
+		EBBF213B1F32B8BF0047471B /* DKYDisplayCategoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayCategoryViewCell.m; sourceTree = "<group>"; };
+		EBBF213C1F32B8BF0047471B /* DKYDisplayCategoryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYDisplayCategoryViewCell.xib; sourceTree = "<group>"; };
+		EBBF213F1F32CC540047471B /* DKYDisplaySumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplaySumViewCell.h; sourceTree = "<group>"; };
+		EBBF21401F32CC540047471B /* DKYDisplaySumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplaySumViewCell.m; sourceTree = "<group>"; };
+		EBBF21411F32CC540047471B /* DKYDisplaySumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYDisplaySumViewCell.xib; sourceTree = "<group>"; };
+		EBBF21441F32CF520047471B /* DKYDisplayActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayActionView.h; sourceTree = "<group>"; };
+		EBBF21451F32CF520047471B /* DKYDisplayActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayActionView.m; sourceTree = "<group>"; };
+		EBBF21471F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayCategoryDahuoViewCell.h; sourceTree = "<group>"; };
+		EBBF21481F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayCategoryDahuoViewCell.m; sourceTree = "<group>"; };
+		EBBF21491F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYDisplayCategoryDahuoViewCell.xib; sourceTree = "<group>"; };
 		EBC3003C1E1CA05300F602E6 /* DKYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeViewController.h; sourceTree = "<group>"; };
 		EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeViewController.m; sourceTree = "<group>"; };
 		EBC300411E1CA0C700F602E6 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -2248,12 +2266,23 @@
 		EBD5E2711F31738000B98F46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EBBF21441F32CF520047471B /* DKYDisplayActionView.h */,
+				EBBF21451F32CF520047471B /* DKYDisplayActionView.m */,
 				EBD5E2721F3173AC00B98F46 /* DKYDisplayHeaderView.h */,
 				EBD5E2731F3173AC00B98F46 /* DKYDisplayHeaderView.m */,
 				EBD5E2801F31AAB900B98F46 /* DKYDisplayImageViewCell.h */,
 				EBD5E2811F31AAB900B98F46 /* DKYDisplayImageViewCell.m */,
 				EBBF21371F32B3D70047471B /* DKYDisplaySmallImageView.h */,
 				EBBF21381F32B3D70047471B /* DKYDisplaySmallImageView.m */,
+				EBBF213A1F32B8BF0047471B /* DKYDisplayCategoryViewCell.h */,
+				EBBF213B1F32B8BF0047471B /* DKYDisplayCategoryViewCell.m */,
+				EBBF213C1F32B8BF0047471B /* DKYDisplayCategoryViewCell.xib */,
+				EBBF21471F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.h */,
+				EBBF21481F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.m */,
+				EBBF21491F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib */,
+				EBBF213F1F32CC540047471B /* DKYDisplaySumViewCell.h */,
+				EBBF21401F32CC540047471B /* DKYDisplaySumViewCell.m */,
+				EBBF21411F32CC540047471B /* DKYDisplaySumViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2445,6 +2474,7 @@
 				EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */,
 				EBABE8E71E15120500B4C568 /* Localization.strings in Resources */,
 				267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */,
+				EBBF21431F32CC540047471B /* DKYDisplaySumViewCell.xib in Resources */,
 				EBD694AF1E277B4700F365C3 /* backItemImage_hl@2x.png in Resources */,
 				EBA7310F1F21E00600FEFD69 /* PYPhotosView.bundle in Resources */,
 				EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */,
@@ -2461,11 +2491,13 @@
 				EBD694D31E2785BB00F365C3 /* TOWebViewControllerLocalizable.strings in Resources */,
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
 				EBB0FB9C1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib in Resources */,
+				EBBF214B1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib in Resources */,
 				EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */,
 				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
 				EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */,
 				EB9884CE1E28658900BAFADE /* SXDetails.css in Resources */,
 				EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */,
+				EBBF213E1F32B8BF0047471B /* DKYDisplayCategoryViewCell.xib in Resources */,
 				EB41AC4D1E1F9E7F0015A7CF /* DKYHomeItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2705,6 +2737,7 @@
 				EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */,
 				26210BE01E59740A00EB05D6 /* DKYCustomOrderLingItemView.m in Sources */,
 				EB16D0FB1E56F25000939072 /* DKYTitleInputView.m in Sources */,
+				EBBF21461F32CF520047471B /* DKYDisplayActionView.m in Sources */,
 				2609BD531E7D56380063D6FF /* DKYMptApproveSaveParameter.m in Sources */,
 				EBA731091F21E00600FEFD69 /* PYPhotosPreviewController.m in Sources */,
 				EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */,
@@ -2761,6 +2794,7 @@
 				26210BEF1E59A3A900EB05D6 /* BEMCheckBoxGroup.m in Sources */,
 				EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
+				EBBF21421F32CC540047471B /* DKYDisplaySumViewCell.m in Sources */,
 				EBB0FBA41F3049E400BCD57C /* DKYRecommendViewController.m in Sources */,
 				EBA731121F21E00600FEFD69 /* PYPhotosView.m in Sources */,
 				EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */,
@@ -2774,9 +2808,11 @@
 				EBA980831ECD91D60080FC79 /* DKYTongkuan5PatternItemView.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				EBB480B21E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m in Sources */,
+				EBBF214A1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.m in Sources */,
 				EB9BBB9E1E24711D00939007 /* DKYOrderBrowserLineItemModel.m in Sources */,
 				2662907D1E9D039D00886274 /* VTMenuBar.m in Sources */,
 				EBD115F01EA4624300AF6F5C /* DKYTongkuan5SizeItemView.m in Sources */,
+				EBBF213D1F32B8BF0047471B /* DKYDisplayCategoryViewCell.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
 				EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */,
 				26210BE31E59775300EB05D6 /* DKYCustomOrderTypeOneView.m in Sources */,

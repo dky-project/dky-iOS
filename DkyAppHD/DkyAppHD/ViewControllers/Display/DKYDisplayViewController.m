@@ -9,12 +9,18 @@
 #import "DKYDisplayViewController.h"
 #import "DKYDisplayHeaderView.h"
 #import "DKYDisplayImageViewCell.h"
+#import "DKYDisplayCategoryViewCell.h"
+#import "DKYDisplaySumViewCell.h"
+#import "DKYDisplayActionView.h"
+#import "DKYDisplayCategoryDahuoViewCell.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, weak) UITableView *tableView;
 
 @property (nonatomic, weak) DKYDisplayHeaderView *headerView;
+
+@property (nonatomic, weak) DKYDisplayActionView *actionsView;
 
 @end
 
@@ -40,7 +46,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(section == 0) return 1;
     
-    return 8;
+    return 2 + 2 + 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -56,7 +62,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0 && indexPath.row == 0) return 300;
     
-    return 44;
+    return 60;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -65,15 +71,18 @@
         return cell;
     }
     
-    static NSString *cellID = @"testCellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+    if(indexPath.section == 1 && (indexPath.row == 0 || indexPath.row == 1)){
+        
+        DKYDisplayCategoryDahuoViewCell *cell = [DKYDisplayCategoryDahuoViewCell displayCategoryDahuoViewCellWithTableView:tableView];
+        return cell;
     }
     
-    NSArray *title = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@类",title[indexPath.row]];
+    if(indexPath.section == 1 && indexPath.row == 4){
+        DKYDisplaySumViewCell *cell = [DKYDisplaySumViewCell displaySumViewCellWithTableView:tableView];
+        return cell;
+    }
+    
+    DKYDisplayCategoryViewCell *cell = [DKYDisplayCategoryViewCell displayCategoryViewCellWithTableView:tableView];
     return cell;
 }
 
@@ -92,6 +101,8 @@
     [self setupHeaderView];
     
     [self setupTableView];
+    
+    [self setupActionView];
 }
 
 - (void)setupHeaderView{
@@ -125,10 +136,31 @@
         make.left.mas_equalTo(weakSelf.view);
         make.right.mas_equalTo(weakSelf.view);
         make.top.mas_equalTo(weakSelf.headerView.mas_bottom);
-        make.bottom.mas_equalTo(weakSelf.view);
+        make.bottom.mas_equalTo(weakSelf.view).with.offset(-105);
     }];
 }
 
+
+- (void)setupActionView{
+    DKYDisplayActionView *actionView = [DKYDisplayActionView displayActionViewView];
+    [self.view addSubview:actionView];
+    self.actionsView = actionView;
+    WeakSelf(weakSelf);
+    [self.actionsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view);
+        make.right.mas_equalTo(weakSelf.view);
+        make.bottom.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.tableView.mas_bottom);
+    }];
+    
+    actionView.confirmBtnClicked = ^(UIButton* sender){
+        
+    };
+    
+    actionView.saveBtnClicked = ^(UIButton *sender){
+        
+    };
+}
 
 - (void)setupCustomTitle:(NSString*)title;
 {
