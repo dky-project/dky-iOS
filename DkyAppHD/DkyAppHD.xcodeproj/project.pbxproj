@@ -250,6 +250,7 @@
 		EBB59ED11E56C35400F88A4C /* DKYCustomOrderVarietyView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59ED01E56C35400F88A4C /* DKYCustomOrderVarietyView.m */; };
 		EBB59ED41E56D70200F88A4C /* DKYMultipleSelectPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB59ED31E56D70200F88A4C /* DKYMultipleSelectPopupView.m */; };
 		EBBD5A721E25160F00037B85 /* DKYQueryPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */; };
+		EBBF21391F32B3D70047471B /* DKYDisplaySmallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF21381F32B3D70047471B /* DKYDisplaySmallImageView.m */; };
 		EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */; };
 		EBC3004F1E1CA0C700F602E6 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300421E1CA0C700F602E6 /* TAAbstractDotView.m */; };
 		EBC300501E1CA0C700F602E6 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300441E1CA0C700F602E6 /* TAAnimatedDotView.m */; };
@@ -826,6 +827,8 @@
 		EBB59ED31E56D70200F88A4C /* DKYMultipleSelectPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupView.m; sourceTree = "<group>"; };
 		EBBD5A701E25160F00037B85 /* DKYQueryPriceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYQueryPriceModel.h; sourceTree = "<group>"; };
 		EBBD5A711E25160F00037B85 /* DKYQueryPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYQueryPriceModel.m; sourceTree = "<group>"; };
+		EBBF21371F32B3D70047471B /* DKYDisplaySmallImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplaySmallImageView.h; sourceTree = "<group>"; };
+		EBBF21381F32B3D70047471B /* DKYDisplaySmallImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplaySmallImageView.m; sourceTree = "<group>"; };
 		EBC3003C1E1CA05300F602E6 /* DKYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeViewController.h; sourceTree = "<group>"; };
 		EBC3003D1E1CA05300F602E6 /* DKYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeViewController.m; sourceTree = "<group>"; };
 		EBC300411E1CA0C700F602E6 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -2249,6 +2252,8 @@
 				EBD5E2731F3173AC00B98F46 /* DKYDisplayHeaderView.m */,
 				EBD5E2801F31AAB900B98F46 /* DKYDisplayImageViewCell.h */,
 				EBD5E2811F31AAB900B98F46 /* DKYDisplayImageViewCell.m */,
+				EBBF21371F32B3D70047471B /* DKYDisplaySmallImageView.h */,
+				EBBF21381F32B3D70047471B /* DKYDisplaySmallImageView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2631,6 +2636,7 @@
 				EBB480BB1E5C15F500AC36D0 /* DKYCustomOrderDimList.m in Sources */,
 				EB3F2BD61EC94950007F1A89 /* DKYOrderBrowseFooterView.m in Sources */,
 				EB843C461E82474400E4856E /* DKYAddProductApproveParameter.m in Sources */,
+				EBBF21391F32B3D70047471B /* DKYDisplaySmallImageView.m in Sources */,
 				EB195B9A1E5C41CE00116048 /* LCActionSheetConfig.m in Sources */,
 				EBB113341ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,

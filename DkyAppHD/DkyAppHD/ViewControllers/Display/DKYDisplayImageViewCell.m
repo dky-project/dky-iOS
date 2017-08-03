@@ -7,7 +7,7 @@
 //
 
 #import "DKYDisplayImageViewCell.h"
-
+#import "DKYDisplaySmallImageView.h"
 
 @interface DKYDisplayImageViewCell ()
 
@@ -96,9 +96,8 @@
 //    }];
     
     for (int i = 0; i < 8; ++i) {
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+        DKYDisplaySmallImageView *imageView = [[DKYDisplaySmallImageView alloc]initWithFrame:CGRectZero];
         [self.gridView addSubview:imageView];
-        imageView.backgroundColor = [UIColor randomColor];
     }
 }
 
