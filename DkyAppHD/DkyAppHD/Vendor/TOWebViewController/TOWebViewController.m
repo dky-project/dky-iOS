@@ -790,7 +790,7 @@
         shouldStart = self.shouldStartLoadRequestHandler(request, navigationType);
     
     //TODO: Implement TOModalWebViewController Delegate callback
-    
+
     return shouldStart;
 }
 
@@ -801,10 +801,6 @@
     
     //update the navigation bar buttons
     [self refreshButtonsState];
-    
-    if(self.showHUD){
-        [DKYHUDTool show];
-    }
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{

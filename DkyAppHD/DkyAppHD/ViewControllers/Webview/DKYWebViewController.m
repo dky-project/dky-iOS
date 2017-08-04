@@ -70,6 +70,10 @@
 //    self.navigationController.navigationBar.tintColor = tintColor;
 //    self.navigationController.navigationBar.barTintColor = barTintColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:tintColor}];
+    
+    if(self.showHUD){
+        [DKYHUDTool show];
+    }
 }
 
 #pragma mark - 导航栏上按钮action 时间

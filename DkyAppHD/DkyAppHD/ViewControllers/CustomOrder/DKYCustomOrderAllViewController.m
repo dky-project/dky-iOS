@@ -9,6 +9,7 @@
 #import "DKYCustomOrderAllViewController.h"
 #import "DKYCustomOrderUIViewController.h"
 #import "DKYTongkuanFiveViewController.h"
+#import "DKYAccountManager.h"
 
 @interface DKYCustomOrderAllViewController ()
 
@@ -66,8 +67,11 @@
         static NSString *gridId = @"dahuo.identifier";
         viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
         
-        NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl]];;
+        NSDictionary *params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer]};
         
+        NSString *url = [NSString addQueryParametersUrl:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl] parameters:params];
+        
+        NSURL *URL = [NSURL URLWithString:url];
         if(!viewController){
             DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
             webViewController.showUrlWhileLoading = NO;
