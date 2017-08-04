@@ -95,8 +95,9 @@
 //        make.left.mas_equalTo(weakSelf.bigImageView.mas_right).with.offset(52);
 //    }];
     
-    for (int i = 0; i < 8; ++i) {
+    for (NSInteger i = 0; i < 8; ++i) {
         DKYDisplaySmallImageView *imageView = [[DKYDisplaySmallImageView alloc]initWithFrame:CGRectZero];
+        imageView.kuanhao = [NSString stringWithFormat:@"款号%@",@(i)];
         [self.gridView addSubview:imageView];
     }
 }

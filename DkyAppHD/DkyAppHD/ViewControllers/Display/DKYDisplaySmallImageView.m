@@ -39,6 +39,12 @@
         make.bottom.mas_equalTo(weakSelf.titleLabel.mas_top);
     }];
 }
+
+- (void)setKuanhao:(NSString *)kuanhao{
+    _kuanhao = [kuanhao copy];
+    
+    self.titleLabel.text = kuanhao;
+}
 #pragma mark - UI
 - (void)commonInit{
     [self setupTitleLabel];

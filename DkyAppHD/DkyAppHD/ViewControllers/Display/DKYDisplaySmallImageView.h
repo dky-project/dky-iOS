@@ -10,4 +10,7 @@
 
 @interface DKYDisplaySmallImageView : UIView
 
+// 测试属性
+@property (nonatomic, copy) NSString *kuanhao;
+
 @end
