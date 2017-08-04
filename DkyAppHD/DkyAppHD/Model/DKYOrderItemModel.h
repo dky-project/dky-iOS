@@ -36,6 +36,10 @@
 @property (nonatomic, assign) NSInteger no1;
 @property (nonatomic, copy) NSString *imgUrl;
 
+@property (nonatomic, copy) NSString *sum;
+
+@property (nonatomic, copy) NSString *totalAmount;
+
 /**
  * 款号
  */

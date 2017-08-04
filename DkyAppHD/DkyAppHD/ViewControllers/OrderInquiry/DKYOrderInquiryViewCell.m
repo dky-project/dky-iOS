@@ -70,8 +70,8 @@
     
     self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
     
-    self.orderAmountLabel.text = @"1000";
-    self.countLabel.text = @"123";
+    self.orderAmountLabel.text = itemModel.totalAmount;
+    self.countLabel.text = itemModel.sum;
     [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.imgUrl]];
     
 //    self.serialNumberLabel.text = itemModel.displayNo1;
