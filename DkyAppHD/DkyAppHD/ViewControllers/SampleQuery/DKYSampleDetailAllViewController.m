@@ -50,9 +50,24 @@
     
     WeakSelf(weakSelf);
     self.rightBtnClicked = ^(UIButton *sender) {
-        DKYSampleDetailViewController *vc =(DKYSampleDetailViewController*) weakSelf.magicController.currentViewController;
-        DKYSampleProductInfoModel *model = vc.sampleProductInfo;
-        [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];
+        if(NO){
+            DKYSampleDetailViewController *vc =(DKYSampleDetailViewController*) weakSelf.magicController.currentViewController;
+            DKYSampleProductInfoModel *model = vc.sampleProductInfo;
+            [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];
+        }else{
+            NSDictionary *params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer]};
+            
+            NSString *url = [NSString addQueryParametersUrl:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl] parameters:params];
+            
+            NSURL *URL = [NSURL URLWithString:url];
+            DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
+            webViewController.showUrlWhileLoading = NO;
+            webViewController.showHUD = YES;
+            webViewController.navigationButtonsHidden = YES;
+            webViewController.showPageTitles = NO;
+            webViewController.navigationItem.title = @"大货";
+            [weakSelf.navigationController pushViewController:webViewController animated:YES];
+        }
     };
 }
 
