@@ -75,6 +75,9 @@
 #define kAddProductCollectUrl           @"productCollect/addProductCollect"     // 添加收藏
 #define kDelProductCollectUrl           @"productCollect/delProductCollect"     // 取消收藏
 
+/**陈列，搭配*/
+#define kGetProductListByGroupNoUrl     @"product/getProductListByGroupNo"      // 根据组号查询
+
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
 

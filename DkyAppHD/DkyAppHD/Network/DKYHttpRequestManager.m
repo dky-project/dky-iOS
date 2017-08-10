@@ -137,6 +137,10 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithNoAuthorizationToken:kProductApproveBmptPageUrl withParameter:parameter Success:success failure:failure];
 }
 
+-(void)getProductListByGroupNoWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kGetProductListByGroupNoUrl withParameter:parameter Success:success failure:failure];
+}
+
 
 #pragma mark - private method
 - (void)p_doPostWithAuthorizationToken:(NSString*)url withParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
@@ -200,6 +204,9 @@ static DKYHttpRequestManager *sharedInstance = nil;
     NSDictionary *pDict = nil;
     if(parameter){
         pDict = [parameter mj_keyValues];
+    }else{
+        DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+        pDict = [p mj_keyValues];
     }
     
     NSDictionary *hDict = nil;
@@ -230,6 +237,9 @@ static DKYHttpRequestManager *sharedInstance = nil;
     NSDictionary *pDict = nil;
     if(parameter){
         pDict = parameter.mj_keyValues;
+    }else{
+        DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+        pDict = [p mj_keyValues];
     }
     
     [self.httpRequestTool doGet:url

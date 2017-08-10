@@ -13,6 +13,8 @@
 #import "DKYDisplaySumViewCell.h"
 #import "DKYDisplayActionView.h"
 #import "DKYDisplayCategoryDahuoViewCell.h"
+#import "DKYGetProductListByGroupNoParameter.h"
+#import "DKYGetProductListByGroupNoModel.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -21,6 +23,10 @@
 @property (nonatomic, weak) DKYDisplayHeaderView *headerView;
 
 @property (nonatomic, weak) DKYDisplayActionView *actionsView;
+
+@property (nonatomic, strong) DKYGetProductListByGroupNoParameter *getProductListByGroupNoParameter;
+
+@property (nonatomic, strong) DKYGetProductListByGroupNoModel *getProductListByGroupNoModel;
 
 @end
 
@@ -36,6 +42,33 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 网络请求
+- (void)getProductListByGroupNoFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    
+    [[DKYHttpRequestManager sharedInstance] getProductListByGroupNoWithParameter:self.getProductListByGroupNoParameter Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.getProductListByGroupNoModel = [DKYGetProductListByGroupNoModel mj_objectWithKeyValues:result.data];
+            
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
 }
 
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
@@ -60,7 +93,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 0 && indexPath.row == 0) return 436;
+    if(indexPath.section == 0 && indexPath.row == 0) return 825;
     
     return 60;
 }
@@ -94,7 +127,7 @@
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:@"陈列"];
+    [self setupCustomTitle:@"搭配"];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
@@ -119,6 +152,23 @@
         make.top.mas_equalTo(weakSelf.view);
         make.height.mas_equalTo(110);
     }];
+    
+    self.headerView.searchBtnClicked = ^(id sender) {
+//        if(![weakSelf.getProductListByGroupNoParameter.groupNo isNotBlank]){
+//            [DKYHUDTool showErrorWithStatus:@"组号不能为空"];
+//            return;
+//        }
+        
+//        [weakSelf getProductListByGroupNoFromServer];
+    };
+    
+    self.headerView.preBtnClicked = ^(id sender) {
+        
+    };
+    
+    self.headerView.nextBtnClicked = ^(id sender) {
+        
+    };
 }
 
 - (void)setupTableView{
@@ -180,5 +230,11 @@
     self.navigationItem.titleView = titleLabel;
 }
 
+- (DKYGetProductListByGroupNoParameter*)getProductListByGroupNoParameter{
+    if(_getProductListByGroupNoParameter == nil){
+        _getProductListByGroupNoParameter = [[DKYGetProductListByGroupNoParameter alloc] init];
+    }
+    return _getProductListByGroupNoParameter;
+}
 
 @end

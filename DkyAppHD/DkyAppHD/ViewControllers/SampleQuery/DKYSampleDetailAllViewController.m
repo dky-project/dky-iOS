@@ -50,7 +50,7 @@
     
     WeakSelf(weakSelf);
     self.rightBtnClicked = ^(UIButton *sender) {
-        if(NO){
+        if(YES){
             DKYSampleDetailViewController *vc =(DKYSampleDetailViewController*) weakSelf.magicController.currentViewController;
             DKYSampleProductInfoModel *model = vc.sampleProductInfo;
             [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];

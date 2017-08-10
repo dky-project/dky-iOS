@@ -266,6 +266,15 @@
  */
 - (void)productApproveBmptPageWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
 
+/**
+ *  搭配组号查询
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+-(void)getProductListByGroupNoWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+
 
 +(instancetype)sharedInstance;
 

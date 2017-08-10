@@ -134,7 +134,7 @@
     
     // 陈列功能
     DKYDisplayViewController *displayVc = [[DKYDisplayViewController alloc] init];
-    [self addOneChlildVc:displayVc title:@"陈列" imageName:@"tabbar_display" selectedImageName:@"tabbar_display"];
+    [self addOneChlildVc:displayVc title:@"搭配" imageName:@"tabbar_display" selectedImageName:@"tabbar_display"];
     self.displayVc = displayVc;
 }
 

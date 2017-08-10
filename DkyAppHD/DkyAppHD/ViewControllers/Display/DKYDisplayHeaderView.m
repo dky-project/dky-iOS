@@ -7,6 +7,7 @@
 //
 
 #import "DKYDisplayHeaderView.h"
+#import "DKYGetProductListByGroupNoParameter.h"
 
 @interface DKYDisplayHeaderView ()
 
@@ -92,6 +93,7 @@
     }];
     
     [btn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        weakSelf.getProductListByGroupNoParameter.groupNo = weakSelf.groupNumberTextField.text;
         if(weakSelf.searchBtnClicked){
             weakSelf.searchBtnClicked(nil);
         }

@@ -9,11 +9,17 @@
 #import "DKYDisplayImageViewCell.h"
 #import "DKYDisplaySmallImageView.h"
 
+#define kSmallImageWidth           (174.5)
+#define kSmallImageHeight          (273.5)
+#define kMargin                    (2)
+
 @interface DKYDisplayImageViewCell ()
 
 @property (nonatomic, weak) UIImageView *bigImageView;
 
 @property(nonatomic, strong) QMUIGridView *gridView;
+
+@property(nonatomic, strong) QMUIGridView *lineGridView;
 
 @end
 
@@ -45,7 +51,12 @@
     
     DLog(@"%@",NSStringFromCGRect(self.bigImageView.frame));
     
-    self.gridView.frame = CGRectMake(kScreenWidth - 32 - 400, 0, 400, 436);
+    CGFloat height = kSmallImageHeight * 2 + kMargin;
+    CGFloat width = kSmallImageWidth * 2 + kMargin;
+    
+    self.gridView.frame = CGRectMake(kScreenWidth - 32 - width, 0, width, height);
+    
+    self.lineGridView.frame = CGRectMake(32, height + kMargin, kScreenWidth - 32 * 2, kSmallImageHeight);
 }
 
 #pragma mark - UI
@@ -66,8 +77,8 @@
     [self.bigImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.contentView).with.offset(32);
         make.top.mas_equalTo(weakSelf.contentView);
-        make.bottom.mas_equalTo(weakSelf.contentView);
-        make.width.mas_equalTo(300);
+        make.height.mas_equalTo(kSmallImageHeight * 2 + kMargin);
+        make.width.mas_equalTo(kSmallImageWidth * 2 + kMargin);
     }];
     
     self.bigImageView.backgroundColor = [UIColor randomColor];
@@ -80,11 +91,13 @@
     
     
     NSInteger count = (arc4random() % 8 + 3 - 1) % 3;
-    count = 3;
+    count = 2;
     
-    self.gridView.columnCount = 3;
-    self.gridView.rowHeight = (436 - 5 * 2) / 3;
-    self.gridView.separatorWidth = 5;
+    CGFloat height = kSmallImageHeight * 2 + kMargin;
+    
+    self.gridView.columnCount = count;
+    self.gridView.rowHeight = (height - kMargin) / 2;
+    self.gridView.separatorWidth = 2;
     self.gridView.separatorColor = [UIColor whiteColor];
     self.gridView.separatorDashed = NO;
     
@@ -95,10 +108,28 @@
 //        make.left.mas_equalTo(weakSelf.bigImageView.mas_right).with.offset(52);
 //    }];
     
-    for (NSInteger i = 0; i < 8; ++i) {
+    for (NSInteger i = 0; i < 4; ++i) {
         DKYDisplaySmallImageView *imageView = [[DKYDisplaySmallImageView alloc]initWithFrame:CGRectZero];
         imageView.kuanhao = [NSString stringWithFormat:@"款号%@",@(i)];
         [self.gridView addSubview:imageView];
+    }
+    
+    gridView = [[QMUIGridView alloc] init];
+    [self.contentView addSubview:gridView];
+    self.lineGridView = gridView;
+
+    // 1行 4个
+    self.lineGridView.columnCount = 4;
+    self.lineGridView.rowHeight = kSmallImageHeight;
+    self.lineGridView.separatorWidth = 2;
+    self.lineGridView.separatorColor = [UIColor whiteColor];
+    self.lineGridView.separatorDashed = NO;
+
+    
+    for (NSInteger i = 4; i < 8; ++i) {
+        DKYDisplaySmallImageView *imageView = [[DKYDisplaySmallImageView alloc]initWithFrame:CGRectZero];
+        imageView.kuanhao = [NSString stringWithFormat:@"款号%@",@(i)];
+        [self.lineGridView addSubview:imageView];
     }
 }
 

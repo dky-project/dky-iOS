@@ -112,6 +112,8 @@
 		EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */; };
 		EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */; };
 		EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */; };
+		EB6DFFD11F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */; };
+		EB6DFFD51F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6DFFD41F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m */; };
 		EB843C461E82474400E4856E /* DKYAddProductApproveParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB843C451E82474400E4856E /* DKYAddProductApproveParameter.m */; };
 		EB8FA2A31E55A0B7004BE846 /* DKYCustomOrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8FA2A21E55A0B7004BE846 /* DKYCustomOrderViewCell.m */; };
 		EB8FA2A61E55AD99004BE846 /* DKYCustomOrderTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8FA2A51E55AD99004BE846 /* DKYCustomOrderTextFieldView.m */; };
@@ -561,6 +563,10 @@
 		EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderBrowserLineView.xib; sourceTree = "<group>"; };
 		EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		EB6DFFCF1F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGroupNoParameter.h; sourceTree = "<group>"; };
+		EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductListByGroupNoParameter.m; sourceTree = "<group>"; };
+		EB6DFFD31F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGroupNoModel.h; sourceTree = "<group>"; };
+		EB6DFFD41F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductListByGroupNoModel.m; sourceTree = "<group>"; };
 		EB843C441E82474400E4856E /* DKYAddProductApproveParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYAddProductApproveParameter.h; sourceTree = "<group>"; };
 		EB843C451E82474400E4856E /* DKYAddProductApproveParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAddProductApproveParameter.m; sourceTree = "<group>"; };
 		EB8FA2A11E55A0B7004BE846 /* DKYCustomOrderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderViewCell.h; sourceTree = "<group>"; };
@@ -1420,6 +1426,7 @@
 				EB506C3A1E237098002A1423 /* 样衣查询 */,
 				EB9BBB9B1E2470F200939007 /* 订单查询 */,
 				2620D6DF1E55F16700BC0668 /* 定制订单 */,
+				EB6DFFD21F3ABAC7004C7CC4 /* 搭配(原陈列) */,
 				EB506C301E23706F002A1423 /* DKYPageModel.h */,
 				EB506C311E23706F002A1423 /* DKYPageModel.m */,
 			);
@@ -1491,6 +1498,15 @@
 				EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */,
 			);
 			path = TTTAttributedLabel;
+			sourceTree = "<group>";
+		};
+		EB6DFFD21F3ABAC7004C7CC4 /* 搭配(原陈列) */ = {
+			isa = PBXGroup;
+			children = (
+				EB6DFFD31F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.h */,
+				EB6DFFD41F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m */,
+			);
+			name = "搭配(原陈列)";
 			sourceTree = "<group>";
 		};
 		EB9510791E15F9F8008708EF /* Main */ = {
@@ -1735,6 +1751,8 @@
 				EBA404D31ED66BEC00901483 /* DKYGetSizeDataParameter.m */,
 				EBBF215F1F32F78B0047471B /* DKYDahuoOrderInquiryParameter.h */,
 				EBBF21601F32F78B0047471B /* DKYDahuoOrderInquiryParameter.m */,
+				EB6DFFCF1F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.h */,
+				EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2743,6 +2761,7 @@
 				EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */,
 				26210BE01E59740A00EB05D6 /* DKYCustomOrderLingItemView.m in Sources */,
 				EB16D0FB1E56F25000939072 /* DKYTitleInputView.m in Sources */,
+				EB6DFFD51F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m in Sources */,
 				EBBF21461F32CF520047471B /* DKYDisplayActionView.m in Sources */,
 				2609BD531E7D56380063D6FF /* DKYMptApproveSaveParameter.m in Sources */,
 				EBA731091F21E00600FEFD69 /* PYPhotosPreviewController.m in Sources */,
@@ -2828,6 +2847,7 @@
 				EBB59EC81E56A58500F88A4C /* DKYCustomOrderBasicItemView.m in Sources */,
 				EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */,
 				EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
+				EB6DFFD11F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EBD1160E1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.m in Sources */,
 				EBB480B81E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m in Sources */,
