@@ -62,6 +62,11 @@
  */
 @property (nonatomic, copy) NSString *qty;
 
+/**
+ * 大图
+ */
+@property (nonatomic, copy) NSString *bigImgUrl;
+
 
 // 客户端自己属性
 @property (nonatomic, copy) NSString *displayID;

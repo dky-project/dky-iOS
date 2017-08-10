@@ -154,12 +154,12 @@
     }];
     
     self.headerView.searchBtnClicked = ^(id sender) {
-//        if(![weakSelf.getProductListByGroupNoParameter.groupNo isNotBlank]){
-//            [DKYHUDTool showErrorWithStatus:@"组号不能为空"];
-//            return;
-//        }
+        if(![weakSelf.getProductListByGroupNoParameter.groupNo isNotBlank]){
+            [DKYHUDTool showErrorWithStatus:@"组号不能为空"];
+            return;
+        }
         
-//        [weakSelf getProductListByGroupNoFromServer];
+        [weakSelf getProductListByGroupNoFromServer];
     };
     
     self.headerView.preBtnClicked = ^(id sender) {

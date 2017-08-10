@@ -145,6 +145,9 @@
 #ifdef DEBUG
     self.userNameTextField.text = @"nea@burgeon.com.cn";
     self.passwordTextField.text = @"henlo.net";
+    
+    self.userNameTextField.text = @"X31";
+    self.passwordTextField.text = @"123";
 #endif
 }
 

@@ -253,7 +253,7 @@
         PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
         
         // 2.1 设置图片源(UIImageView)数组
-        photoBroseView.imagesURL = @[weakSelf.itemModel.imgUrl];
+        photoBroseView.imagesURL = @[weakSelf.itemModel.bigImgUrl];
         
         // 2.2 设置初始化图片下标（即当前点击第几张图片）
         photoBroseView.currentIndex = 0;
