@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYGetProductListByGroupNoModel;
 @interface DKYDisplayCategoryDahuoViewCell : UITableViewCell
 
 + (instancetype)displayCategoryDahuoViewCellWithTableView:(UITableView *)tableView;
+
+@property (nonatomic, strong) DKYGetProductListByGroupNoModel *getProductListByGroupNoModel;
 
 @end

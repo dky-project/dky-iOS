@@ -7,6 +7,7 @@
 //
 
 #import "DKYDisplaySmallImageView.h"
+#import "DKYGetProductListByGroupNoModel.h"
 
 @interface DKYDisplaySmallImageView ()
 
@@ -32,6 +33,13 @@
     [super layoutSubviews];
     
     WeakSelf(weakSelf);
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf);
+        make.right.mas_equalTo(weakSelf);
+        make.bottom.mas_equalTo(weakSelf);
+        make.height.mas_equalTo(12);
+    }];
+    
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf);
         make.right.mas_equalTo(weakSelf);
@@ -40,11 +48,13 @@
     }];
 }
 
-- (void)setKuanhao:(NSString *)kuanhao{
-    _kuanhao = [kuanhao copy];
-    
-    self.titleLabel.text = kuanhao;
+- (void)setGetProductListByGroupNoModel:(DKYGetProductListByGroupNoModel *)getProductListByGroupNoModel{
+    _getProductListByGroupNoModel = getProductListByGroupNoModel;
+
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:getProductListByGroupNoModel.imgUrl] placeholderImage:nil];
+    self.titleLabel.text = getProductListByGroupNoModel.productName;
 }
+
 #pragma mark - UI
 - (void)commonInit{
     [self setupTitleLabel];
@@ -57,7 +67,7 @@
     [self addSubview:imageView];
     self.imageView = imageView;
     
-    self.imageView.backgroundColor = [UIColor randomColor];
+    self.imageView.backgroundColor = [UIColor colorWithHex:0xF0F0F0];
 }
 
 - (void)setupTitleLabel{
@@ -68,15 +78,6 @@
     
     [self addSubview:label];
     self.titleLabel = label;
-    WeakSelf(weakSelf);
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf);
-        make.right.mas_equalTo(weakSelf);
-        make.bottom.mas_equalTo(weakSelf);
-        make.height.mas_equalTo(12);
-    }];
-    
-    label.text = @"款号";
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "DKYDisplayImageViewCell.h"
 #import "DKYDisplaySmallImageView.h"
+#import "DKYGetProductListByGroupNoModel.h"
 
 #define kSmallImageWidth           (174.5)
 #define kSmallImageHeight          (273.5)
@@ -20,6 +21,13 @@
 @property(nonatomic, strong) QMUIGridView *gridView;
 
 @property(nonatomic, strong) QMUIGridView *lineGridView;
+
+@property (nonatomic, strong) NSMutableArray *topImageViews;
+
+@property (nonatomic, strong) NSMutableArray *bottomImageViews;
+@property (nonatomic, strong) NSArray *smallImages;
+
+@property (nonatomic, strong) NSMutableArray *imageViews;
 
 @end
 
@@ -43,20 +51,52 @@
     return self;
 }
 
+- (void)setProductList:(NSArray *)productList{
+    _productList = productList;
+    
+    NSMutableArray *marr = [NSMutableArray arrayWithCapacity:productList.count];
+    [self.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [marr addObject:obj.imgUrl];
+    }];
+    
+    self.smallImages = marr.copy;
+}
+
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    [self.bigImageView setNeedsLayout];
-    [self.bigImageView layoutIfNeeded];
+    NSInteger count = self.productList.count > 4 ? 4 : self.productList.count;
     
-    DLog(@"%@",NSStringFromCGRect(self.bigImageView.frame));
+    for (NSInteger i = 0; i < count; ++i) {
+        DKYDisplaySmallImageView *imageView = [self.imageViews objectAtIndex:i];
+        imageView.getProductListByGroupNoModel = [self.productList objectAtIndex:i];
+        
+        imageView.hidden = NO;
+    }
     
-    CGFloat height = kSmallImageHeight * 2 + kMargin;
-    CGFloat width = kSmallImageWidth * 2 + kMargin;
+    for (NSInteger i = count; i < 4; ++i) {
+        DKYDisplaySmallImageView *imageView = [self.imageViews objectAtIndex:i];
+        imageView.hidden = YES;
+    }
     
-    self.gridView.frame = CGRectMake(kScreenWidth - 32 - width, 0, width, height);
+    // 下面一行
+    if(self.productList.count <= 4){
+        self.lineGridView.hidden = YES;
+        return;
+    }
     
-    self.lineGridView.frame = CGRectMake(32, height + kMargin, kScreenWidth - 32 * 2, kSmallImageHeight);
+    self.lineGridView.hidden = NO;
+    
+    for (NSInteger i = count; i < self.productList.count; ++i) {
+        DKYDisplaySmallImageView *imageView = [self.imageViews objectAtIndex:i];
+        imageView.getProductListByGroupNoModel = [self.productList objectAtIndex:i];
+        imageView.hidden = NO;
+    }
+    
+    for (NSInteger i = self.productList.count; i < 8; ++i) {
+        DKYDisplaySmallImageView *imageView = [self.imageViews objectAtIndex:i];
+        imageView.hidden = YES;
+    }
 }
 
 #pragma mark - UI
@@ -89,34 +129,17 @@
     [self.contentView addSubview:gridView];
     self.gridView = gridView;
     
-    
-    NSInteger count = (arc4random() % 8 + 3 - 1) % 3;
-    count = 2;
+    gridView = [[QMUIGridView alloc] init];
+    [self.contentView addSubview:gridView];
+    self.lineGridView = gridView;
     
     CGFloat height = kSmallImageHeight * 2 + kMargin;
     
-    self.gridView.columnCount = count;
+    self.gridView.columnCount = 2;
     self.gridView.rowHeight = (height - kMargin) / 2;
     self.gridView.separatorWidth = 2;
     self.gridView.separatorColor = [UIColor whiteColor];
     self.gridView.separatorDashed = NO;
-    
-//    WeakSelf(weakSelf);
-//    [self.gridView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(weakSelf.bigImageView);
-//        make.centerY.mas_equalTo(weakSelf.contentView);
-//        make.left.mas_equalTo(weakSelf.bigImageView.mas_right).with.offset(52);
-//    }];
-    
-    for (NSInteger i = 0; i < 4; ++i) {
-        DKYDisplaySmallImageView *imageView = [[DKYDisplaySmallImageView alloc]initWithFrame:CGRectZero];
-        imageView.kuanhao = [NSString stringWithFormat:@"款号%@",@(i)];
-        [self.gridView addSubview:imageView];
-    }
-    
-    gridView = [[QMUIGridView alloc] init];
-    [self.contentView addSubview:gridView];
-    self.lineGridView = gridView;
 
     // 1行 4个
     self.lineGridView.columnCount = 4;
@@ -124,13 +147,47 @@
     self.lineGridView.separatorWidth = 2;
     self.lineGridView.separatorColor = [UIColor whiteColor];
     self.lineGridView.separatorDashed = NO;
-
     
-    for (NSInteger i = 4; i < 8; ++i) {
+    
+    height = kSmallImageHeight * 2 + kMargin;
+    CGFloat width = kSmallImageWidth * 2 + kMargin;
+    self.gridView.frame = CGRectMake(kScreenWidth - 32 - width, 0, width, height);
+    self.lineGridView.frame = CGRectMake(32, height + kMargin, kScreenWidth - 32 * 2, kSmallImageHeight);
+    
+    for (NSInteger i = 0; i < 4; ++i) {
         DKYDisplaySmallImageView *imageView = [[DKYDisplaySmallImageView alloc]initWithFrame:CGRectZero];
-        imageView.kuanhao = [NSString stringWithFormat:@"款号%@",@(i)];
-        [self.lineGridView addSubview:imageView];
+        [self.gridView addSubview:imageView];
+        [self.imageViews addObject:imageView];
     }
+    
+    for (NSInteger i = 0; i < 4; ++i) {
+        DKYDisplaySmallImageView *imageView = [[DKYDisplaySmallImageView alloc]initWithFrame:CGRectZero];
+        [self.lineGridView addSubview:imageView];
+        [self.imageViews addObject:imageView];
+    }
+}
+
+#pragma mark - get & set method
+
+- (NSMutableArray*)imageViews{
+    if(_imageViews == nil){
+        _imageViews = [NSMutableArray array];
+    }
+    return _imageViews;
+}
+
+- (NSMutableArray*)topImageViews{
+    if(_topImageViews == nil){
+        _topImageViews = [NSMutableArray array];
+    }
+    return _topImageViews;
+}
+
+- (NSMutableArray*)bottomImageViews{
+    if(_bottomImageViews == nil){
+        _bottomImageViews = [NSMutableArray array];
+    }
+    return _bottomImageViews;
 }
 
 @end

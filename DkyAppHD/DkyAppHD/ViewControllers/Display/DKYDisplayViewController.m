@@ -25,8 +25,7 @@
 @property (nonatomic, weak) DKYDisplayActionView *actionsView;
 
 @property (nonatomic, strong) DKYGetProductListByGroupNoParameter *getProductListByGroupNoParameter;
-
-@property (nonatomic, strong) DKYGetProductListByGroupNoModel *getProductListByGroupNoModel;
+@property (nonatomic, strong) NSArray *productList;
 
 @end
 
@@ -53,8 +52,9 @@
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-            weakSelf.getProductListByGroupNoModel = [DKYGetProductListByGroupNoModel mj_objectWithKeyValues:result.data];
+            weakSelf.productList = [DKYGetProductListByGroupNoModel mj_objectArrayWithKeyValuesArray:result.data];
             
+            [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -77,9 +77,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(section == 0) return 1;
+    if(section == 0) return self.productList ? 1 : 0;
     
-    return 2 + 2 + 1;
+    return self.productList.count > 0 ? self.productList.count + 1 : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -93,7 +93,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 0 && indexPath.row == 0) return 825;
+    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 : 550;
     
     return 60;
 }
@@ -101,21 +101,24 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0 && indexPath.row == 0){
         DKYDisplayImageViewCell *cell = [DKYDisplayImageViewCell displayImageViewCellWithTableView:tableView];
+        cell.productList = self.productList;
         return cell;
     }
     
-    if(indexPath.section == 1 && (indexPath.row == 0 || indexPath.row == 1)){
-        
-        DKYDisplayCategoryDahuoViewCell *cell = [DKYDisplayCategoryDahuoViewCell displayCategoryDahuoViewCellWithTableView:tableView];
-        return cell;
-    }
-    
-    if(indexPath.section == 1 && indexPath.row == 4){
+    if(indexPath.section == 1 && indexPath.row == self.productList.count){
         DKYDisplaySumViewCell *cell = [DKYDisplaySumViewCell displaySumViewCellWithTableView:tableView];
         return cell;
     }
     
+    DKYGetProductListByGroupNoModel *model = [self.productList objectAtIndex:indexPath.row];
+    if([model.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame){
+        DKYDisplayCategoryDahuoViewCell *cell = [DKYDisplayCategoryDahuoViewCell displayCategoryDahuoViewCellWithTableView:tableView];
+        cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row];
+        return cell;
+    }
+
     DKYDisplayCategoryViewCell *cell = [DKYDisplayCategoryViewCell displayCategoryViewCellWithTableView:tableView];
+    cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -152,6 +155,8 @@
         make.top.mas_equalTo(weakSelf.view);
         make.height.mas_equalTo(110);
     }];
+    
+    self.headerView.getProductListByGroupNoParameter = self.getProductListByGroupNoParameter;
     
     self.headerView.searchBtnClicked = ^(id sender) {
         if(![weakSelf.getProductListByGroupNoParameter.groupNo isNotBlank]){

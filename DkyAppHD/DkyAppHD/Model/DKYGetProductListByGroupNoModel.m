@@ -10,4 +10,8 @@
 
 @implementation DKYGetProductListByGroupNoModel
 
++ (NSDictionary*)mj_objectClassInArray{
+    return @{@"colorViewList" : @"DKYDahuoOrderColorModel"};
+}
+
 @end

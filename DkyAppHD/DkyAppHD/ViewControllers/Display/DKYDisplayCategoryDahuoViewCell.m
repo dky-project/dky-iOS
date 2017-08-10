@@ -7,6 +7,7 @@
 //
 
 #import "DKYDisplayCategoryDahuoViewCell.h"
+#import "DKYGetProductListByGroupNoModel.h"
 
 @interface DKYDisplayCategoryDahuoViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -39,13 +40,20 @@
     [self commonInit];
 }
 
+- (void)setGetProductListByGroupNoModel:(DKYGetProductListByGroupNoModel *)getProductListByGroupNoModel{
+    _getProductListByGroupNoModel = getProductListByGroupNoModel;
+    
+    self.titleLabel.text = getProductListByGroupNoModel.productName;
+}
+
 
 #pragma mark - UI
 
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.titleLabel.text = @"A款";
+    self.titleLabel.adjustsFontSizeToFitWidth = YES;
+    
     [self p_customSunview:self.titleLabel];
     
     [self p_customSunview:self.colorBtn];

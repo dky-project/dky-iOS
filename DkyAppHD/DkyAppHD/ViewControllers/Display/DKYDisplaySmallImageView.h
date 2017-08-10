@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYGetProductListByGroupNoModel;
 @interface DKYDisplaySmallImageView : UIView
 
-// 测试属性
-@property (nonatomic, copy) NSString *kuanhao;
+@property (nonatomic, strong) DKYGetProductListByGroupNoModel *getProductListByGroupNoModel;
 
 @end
