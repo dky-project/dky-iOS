@@ -12,11 +12,20 @@
 
 @property (nonatomic, strong) NSArray * colorViewList;
 @property (nonatomic, copy) NSString * imgUrl;
-@property (nonatomic, strong) NSNumber *mDimNew14Id;
+@property (nonatomic, copy) NSString *mDimNew14Id;
 @property (nonatomic, strong) NSNumber *mProductId;
 @property (nonatomic, copy) NSString * mptbelongtype;
 @property (nonatomic, copy) NSString * xwValue;
 @property (nonatomic, copy) NSString * ycValue;
 @property (nonatomic, copy) NSString *productName;
+@property (nonatomic, copy) NSString *isYcAffix;
+
+@property (nonatomic, strong) NSArray *xwArrayJson;
+
+@property (nonatomic, strong) NSArray *sizeViewList;
+
+@property (nonatomic, copy) NSArray *pzJsonstr;
+
+
 
 @end

@@ -63,9 +63,20 @@
 }
 
 - (void)setupImageView{
+    WeakSelf(weakSelf);
+    
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
     [self addSubview:imageView];
     self.imageView = imageView;
+    
+    imageView.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        if(weakSelf.imageTaped){
+            weakSelf.imageTaped(weakSelf.imageView);
+        }
+    }];
+    [imageView addGestureRecognizer:tap];
     
     self.imageView.backgroundColor = [UIColor colorWithHex:0xF0F0F0];
 }

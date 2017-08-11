@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) DKYGetProductListByGroupNoModel *getProductListByGroupNoModel;
 
+@property (nonatomic, copy) BlockWithSender imageTaped;
+
 @end

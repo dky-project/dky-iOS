@@ -11,7 +11,9 @@
 @implementation DKYGetProductListByGroupNoModel
 
 + (NSDictionary*)mj_objectClassInArray{
-    return @{@"colorViewList" : @"DKYDahuoOrderColorModel"};
+    return @{@"colorViewList" : @"DKYDahuoOrderColorModel",
+             @"sizeViewList":@"DKYSizeViewListItemModel",
+             @"pzJsonstr":@"DKYDimlistItemModel"};
 }
 
 @end

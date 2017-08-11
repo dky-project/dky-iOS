@@ -9,16 +9,26 @@
 #import "DKYDisplayCategoryViewCell.h"
 #import "DKYGetProductListByGroupNoModel.h"
 #import "DKYDahuoOrderColorModel.h"
+#import "DKYGetSizeDataParameter.h"
+#import "DKYGetSizeDataModel.h"
+#import "DKYDimlistItemModel.h"
+#import "DKYGetColorDimListParameter.h"
+#import "DKYColorDimListModel.h"
 
 @interface DKYDisplayCategoryViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *pinzhongBtn;
 @property (weak, nonatomic) IBOutlet UIButton *colorBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sizeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *lengthBtn;
+@property (weak, nonatomic) IBOutlet QMUITextField *lengthTextFied;
 @property (weak, nonatomic) IBOutlet QMUITextField *xcTextField;
 @property (weak, nonatomic) IBOutlet QMUITextField *amountTextField;
 @property (weak, nonatomic) IBOutlet QMUITextField *moneyTextField;
 @property (weak, nonatomic) IBOutlet UIButton *collectBtn;
+
+
+@property (nonatomic, strong) DKYGetSizeDataModel *getSizeDataModel;
 
 @end
 
@@ -47,8 +57,87 @@
     self.titleLabel.text = getProductListByGroupNoModel.productName;
     
     [self.sizeBtn setTitle:getProductListByGroupNoModel.xwValue forState:UIControlStateNormal];
-    [self.lengthBtn setTitle:getProductListByGroupNoModel.ycValue forState:UIControlStateNormal];
+    self.lengthTextFied.text = getProductListByGroupNoModel.ycValue;
+    
+    for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
+        if([getProductListByGroupNoModel.mDimNew14Id isEqualToString:model.ID]){
+            [self.pinzhongBtn setTitle:model.attribname forState:UIControlStateNormal];
+        }
+    }
+    
+    if([getProductListByGroupNoModel.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+        self.lengthTextFied.enabled = NO;
+    }else{
+        self.lengthTextFied.enabled = YES;
+    }
 }
+
+#pragma mark - 网络请求
+- (void)getSizeDataFromServer:(NSString*)xwValue{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+    DKYGetSizeDataParameter *p = [[DKYGetSizeDataParameter alloc] init];
+    p.xwValue = xwValue;
+    p.pdt = self.getProductListByGroupNoModel.productName;
+    
+    [[DKYHttpRequestManager sharedInstance] getSizeDataWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.getSizeDataModel = [DKYGetSizeDataModel mj_objectWithKeyValues:result.data];
+            
+            weakSelf.lengthTextFied.text = weakSelf.getSizeDataModel.yc;
+            weakSelf.xcTextField.text = weakSelf.getSizeDataModel.xc;
+            
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)getColorDimListFromServer:(NSString*)mDimNew14Id{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    DKYGetColorDimListParameter *p = [[DKYGetColorDimListParameter alloc] init];
+    p.mProductId = weakSelf.getProductListByGroupNoModel.mProductId;
+    p.mDimNew14Id = mDimNew14Id;
+    
+    [[DKYHttpRequestManager sharedInstance] getColorDimListWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            NSArray *array = [DKYDahuoOrderColorModel mj_objectArrayWithKeyValuesArray:result.data];
+            weakSelf.getProductListByGroupNoModel.colorViewList = array;
+            
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [DKYHUDTool dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            [DKYHUDTool dismiss];
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
 
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
@@ -63,8 +152,8 @@
 
     switch (sender.tag) {
         case 0:{
-            for (DKYDahuoOrderColorModel *model in self.getProductListByGroupNoModel.colorViewList) {
-                [item addObject:model.colorName];
+            for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
+                [item addObject:model.attribname];
             }
         }
             break;
@@ -73,14 +162,12 @@
                 [item addObject:model.colorName];
             }
         }
-            
             break;
         case 2:{
-            for (DKYDahuoOrderColorModel *model in self.getProductListByGroupNoModel.colorViewList) {
-                [item addObject:model.colorName];
+            for(NSDictionary *dic in self.getProductListByGroupNoModel.xwArrayJson){
+                [item addObject:[dic objectForKey:@"value"]];
             }
         }
-            
             break;
           default:
             break;
@@ -106,7 +193,49 @@
 }
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
+    
+    switch (tag) {
+        case 0:{
+            // 清除
+            if(index == 0){
+                return;
+            }
+            
+            
+            models = self.getProductListByGroupNoModel.pzJsonstr;
+            DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
+            
+            [self getColorDimListFromServer:model.ID];
+        }
+            break;
+        case 1:{
 
+        }
+            break;
+        case 2:{
+            // 清除
+            if(index == 0){
+                return;
+            }
+            
+            models = self.getProductListByGroupNoModel.xwArrayJson;
+        
+//            NSString *oldValue = self.addProductApproveParameter.xwValue;
+        
+//            self.addProductApproveParameter.xwValue = [models objectOrNilAtIndex:index - 1];
+        
+//            if(![self.addProductApproveParameter.xwValue isEqualToString:oldValue]){
+
+//            }
+            NSDictionary *dic = [self.getProductListByGroupNoModel.xwArrayJson objectOrNilAtIndex:index - 1];
+            
+            [self getSizeDataFromServer:[dic objectForKey:@"value"]];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 
@@ -120,27 +249,35 @@
     
     [self p_customSunview:self.titleLabel];
     
+    // 品种
+    [self p_customSunview:self.pinzhongBtn];
+    self.pinzhongBtn.originalTitle = [self.pinzhongBtn currentTitle];
+    self.pinzhongBtn.extraInfo = [self.pinzhongBtn currentTitle];
+    self.pinzhongBtn.tag = 0;
+    [self.pinzhongBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        [weakSelf showOptionsPicker:weakSelf.pinzhongBtn];
+    }];
+    
+    // 颜色
     [self p_customSunview:self.colorBtn];
-    self.colorBtn.tag = 0;
+    self.colorBtn.originalTitle = [self.colorBtn currentTitle];
+    self.colorBtn.extraInfo = [self.colorBtn currentTitle];
+    self.colorBtn.tag = 1;
     [self.colorBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         [weakSelf showOptionsPicker:weakSelf.colorBtn];
     }];
     
+    // 大
     [self p_customSunview:self.sizeBtn];
     self.sizeBtn.originalTitle = [self.sizeBtn currentTitle];
     self.sizeBtn.extraInfo = [self.sizeBtn currentTitle];
-    self.sizeBtn.tag = 1;
+    self.sizeBtn.tag = 2;
     [self.sizeBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         [weakSelf showOptionsPicker:weakSelf.sizeBtn];
     }];
     
-    [self p_customSunview:self.lengthBtn];
-    self.lengthBtn.originalTitle = [self.lengthBtn currentTitle];
-    self.lengthBtn.extraInfo = [self.lengthBtn currentTitle];
-    self.lengthBtn.tag = 2;
-    [self.lengthBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        [weakSelf showOptionsPicker:weakSelf.lengthBtn];
-    }];
+    // 长
+    [self p_customSunview:self.lengthTextFied];
     
     [self p_customSunview:self.xcTextField];
     
@@ -169,6 +306,7 @@
     if([view isMemberOfClass:[QMUITextField class]]){
         QMUITextField *textField = (QMUITextField*)view;
         textField.textInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+        textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
     }
 }
 @end

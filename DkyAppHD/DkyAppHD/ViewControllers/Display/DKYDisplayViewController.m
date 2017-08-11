@@ -164,6 +164,8 @@
             return;
         }
         
+        [weakSelf.view endEditing:YES];
+        
         [weakSelf getProductListByGroupNoFromServer];
     };
     

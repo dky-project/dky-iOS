@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSNumber *mProductId;
 
+@property (nonatomic, copy) NSString *mDimNew14Id;
+
 @end

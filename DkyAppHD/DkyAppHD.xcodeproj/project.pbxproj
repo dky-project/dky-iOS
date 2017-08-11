@@ -285,6 +285,7 @@
 		EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		EBC6149F1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC6149E1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m */; };
 		EBC6DD711E94D9A800BE2510 /* DKYGetPzsJsonParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC6DD701E94D9A800BE2510 /* DKYGetPzsJsonParameter.m */; };
+		EBCBE11C1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBE11B1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m */; };
 		EBD115E61EA4583700AF6F5C /* DKYTongkuanFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115E51EA4583700AF6F5C /* DKYTongkuanFiveViewController.m */; };
 		EBD115ED1EA4614D00AF6F5C /* DKYTongkuan5VarietyItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115EC1EA4614D00AF6F5C /* DKYTongkuan5VarietyItemView.m */; };
 		EBD115F01EA4624300AF6F5C /* DKYTongkuan5SizeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD115EF1EA4624300AF6F5C /* DKYTongkuan5SizeItemView.m */; };
@@ -904,6 +905,8 @@
 		EBC6149E1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowsePopupView.m; sourceTree = "<group>"; };
 		EBC6DD6F1E94D9A800BE2510 /* DKYGetPzsJsonParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetPzsJsonParameter.h; sourceTree = "<group>"; };
 		EBC6DD701E94D9A800BE2510 /* DKYGetPzsJsonParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetPzsJsonParameter.m; sourceTree = "<group>"; };
+		EBCBE11A1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSizeViewListItemModel.h; sourceTree = "<group>"; };
+		EBCBE11B1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSizeViewListItemModel.m; sourceTree = "<group>"; };
 		EBD115E41EA4583700AF6F5C /* DKYTongkuanFiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTongkuanFiveViewController.h; sourceTree = "<group>"; };
 		EBD115E51EA4583700AF6F5C /* DKYTongkuanFiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuanFiveViewController.m; sourceTree = "<group>"; };
 		EBD115EB1EA4614D00AF6F5C /* DKYTongkuan5VarietyItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5VarietyItemView.h; sourceTree = "<group>"; };
@@ -1505,6 +1508,8 @@
 			children = (
 				EB6DFFD31F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.h */,
 				EB6DFFD41F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m */,
+				EBCBE11A1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.h */,
+				EBCBE11B1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m */,
 			);
 			name = "搭配(原陈列)";
 			sourceTree = "<group>";
@@ -2709,6 +2714,7 @@
 				26E780681E7D52DD0023FAD0 /* DKYVipNameParameter.m in Sources */,
 				EBD115E61EA4583700AF6F5C /* DKYTongkuanFiveViewController.m in Sources */,
 				EB9511AE1E164444008708EF /* WXSTransitionManager+SpreadAnimation.m in Sources */,
+				EBCBE11C1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m in Sources */,
 				26A6FA601E61A13C00376194 /* DKYDimNewListItemModel.m in Sources */,
 				EBD304A61F20AE6400CA400C /* DALabeledCircularProgressView.m in Sources */,
 				EB97F2BC1E25C36A00BDC705 /* DQFormHeader.m in Sources */,
