@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet QMUITextField *lengthTextFied;
 @property (weak, nonatomic) IBOutlet QMUITextField *xcTextField;
 @property (weak, nonatomic) IBOutlet QMUITextField *amountTextField;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 @property (weak, nonatomic) IBOutlet QMUITextField *moneyTextField;
 @property (weak, nonatomic) IBOutlet DKYDisplayCollectButton *collectBtn;
 
@@ -352,7 +353,7 @@
     
     [self p_customSunview:self.amountTextField];
     
-    [self p_customSunview:self.moneyTextField];
+    [self p_customSunview:self.moneyLabel];
     
     // 收藏
     [self p_customSunview:self.collectBtn];

@@ -30,6 +30,7 @@
 @property (nonatomic, strong) DKYGetProductListByGroupNoParameter *getProductListByGroupNoParameterEx;
 
 @property (nonatomic, strong) NSArray *productList;
+@property (nonatomic, strong) NSArray *parameters;
 
 @property (nonatomic, assign) NSInteger pageNo;
 @property (nonatomic, assign) NSInteger totalPageNum;
