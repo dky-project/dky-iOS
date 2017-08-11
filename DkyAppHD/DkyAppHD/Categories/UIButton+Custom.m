@@ -100,6 +100,11 @@ static char UIButtonOriginalTitleoKey = '\0';
             [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             self.titleLabel.font = [UIFont systemFontOfSize:13.0];
             break;
+        case UIButtonCustomType_Thirteen:
+            [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+            imageS = [UIImage imageWithColor:[UIColor colorWithHex:0xff5c5f]];
+            imageD = [UIImage imageWithColor:[UIColor colorWithHex:0xbdbdbd]];
+            break;
         default:
             break;
     }

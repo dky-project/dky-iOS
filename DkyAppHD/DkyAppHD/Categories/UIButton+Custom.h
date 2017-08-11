@@ -25,6 +25,8 @@ typedef NS_ENUM(NSInteger, UIButtonCustomType) {
     UIButtonCustomType_Eleven, // six 类似，字体大一点
     
     UIButtonCustomType_Twelve,  // 白底，和边框，黑字
+    
+    UIButtonCustomType_Thirteen, // 收藏按钮，颜色类似 UIButtonCustomType_Ten
 };
 
 @interface UIButton (Custom)

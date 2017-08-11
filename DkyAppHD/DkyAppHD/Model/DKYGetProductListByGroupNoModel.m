@@ -16,4 +16,8 @@
              @"pzJsonstr":@"DKYDimlistItemModel"};
 }
 
+- (void)mj_keyValuesDidFinishConvertingToObject{
+    self.isCollected = (!([self.iscollect integerValue] == 1));
+}
+
 @end

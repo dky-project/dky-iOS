@@ -26,6 +26,9 @@
 
 @property (nonatomic, copy) NSArray *pzJsonstr;
 
+@property (nonatomic, strong) NSNumber *iscollect;
 
+// 客户端自己的属性
+@property (nonatomic, assign) BOOL isCollected;
 
 @end

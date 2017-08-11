@@ -80,7 +80,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZi-wi-sls">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZi-wi-sls" customClass="DKYDisplayCollectButton">
                         <rect key="frame" x="660" y="0.0" width="74.5" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="收藏">

@@ -14,6 +14,8 @@
 #import "DKYDimlistItemModel.h"
 #import "DKYGetColorDimListParameter.h"
 #import "DKYColorDimListModel.h"
+#import "DKYProductCollectParameter.h"
+#import "DKYDisplayCollectButton.h"
 
 @interface DKYDisplayCategoryViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -25,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet QMUITextField *xcTextField;
 @property (weak, nonatomic) IBOutlet QMUITextField *amountTextField;
 @property (weak, nonatomic) IBOutlet QMUITextField *moneyTextField;
-@property (weak, nonatomic) IBOutlet UIButton *collectBtn;
+@property (weak, nonatomic) IBOutlet DKYDisplayCollectButton *collectBtn;
 
 
 @property (nonatomic, strong) DKYGetSizeDataModel *getSizeDataModel;
@@ -70,6 +72,8 @@
     }else{
         self.lengthTextFied.enabled = YES;
     }
+    
+    self.collectBtn.selected = getProductListByGroupNoModel.isCollected;
 }
 
 #pragma mark - 网络请求
@@ -137,6 +141,71 @@
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
+
+- (void)delProductCollectToServer{
+    [DKYHUDTool show];
+    
+    DKYProductCollectParameter *p = [[DKYProductCollectParameter alloc] init];
+    p.productId = self.getProductListByGroupNoModel.mProductId;
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] delProductCollectWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 生成订单成功
+            [DKYHUDTool showSuccessWithStatus:@"取消收藏成功!"];
+            
+            weakSelf.getProductListByGroupNoModel.isCollected = !weakSelf.getProductListByGroupNoModel.isCollected;
+            weakSelf.collectBtn.selected = NO;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)addProductCollectToServer{
+    [DKYHUDTool show];
+    
+    DKYProductCollectParameter *p = [[DKYProductCollectParameter alloc] init];
+    p.productId = self.getProductListByGroupNoModel.mProductId;
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] addProductCollectWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 生成订单成功
+            [DKYHUDTool showSuccessWithStatus:@"收藏成功!"];
+            
+            weakSelf.getProductListByGroupNoModel.isCollected = !weakSelf.getProductListByGroupNoModel.isCollected;
+            weakSelf.collectBtn.selected = YES;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
 
 
 #pragma mark - action method
@@ -285,7 +354,19 @@
     
     [self p_customSunview:self.moneyTextField];
     
+    // 收藏
     [self p_customSunview:self.collectBtn];
+    [self.collectBtn customButtonWithTypeEx:UIButtonCustomType_Thirteen];
+    [self.collectBtn setTitle:@"收藏" forState:UIControlStateNormal];
+    [self.collectBtn setTitle:@"取消收藏" forState:UIControlStateSelected];
+    [self.collectBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        if(weakSelf.getProductListByGroupNoModel.isCollected){
+            // 已经是收藏状态
+            [weakSelf delProductCollectToServer];
+        }else{
+            [weakSelf addProductCollectToServer];
+        }
+    }];
 }
 
 - (void)p_customSunview:(UIView*)view{

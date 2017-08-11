@@ -15,6 +15,7 @@
 #import "DKYDisplayCategoryDahuoViewCell.h"
 #import "DKYGetProductListByGroupNoParameter.h"
 #import "DKYGetProductListByGroupNoModel.h"
+#import "DKYPageModel.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -25,7 +26,13 @@
 @property (nonatomic, weak) DKYDisplayActionView *actionsView;
 
 @property (nonatomic, strong) DKYGetProductListByGroupNoParameter *getProductListByGroupNoParameter;
+
+@property (nonatomic, strong) DKYGetProductListByGroupNoParameter *getProductListByGroupNoParameterEx;
+
 @property (nonatomic, strong) NSArray *productList;
+
+@property (nonatomic, assign) NSInteger pageNo;
+@property (nonatomic, assign) NSInteger totalPageNum;
 
 @end
 
@@ -52,7 +59,42 @@
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-            weakSelf.productList = [DKYGetProductListByGroupNoModel mj_objectArrayWithKeyValuesArray:result.data];
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            
+            weakSelf.productList = [DKYGetProductListByGroupNoModel mj_objectArrayWithKeyValuesArray:page.items];
+            weakSelf.pageNo = page.pageNo;
+            weakSelf.totalPageNum = page.totalPageNum;
+            
+            [weakSelf.tableView reloadData];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)getProductListByGroupNoFromServerForNextAndPrev{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    
+    [[DKYHttpRequestManager sharedInstance] getProductListByGroupNoWithParameter:self.getProductListByGroupNoParameterEx Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            
+            weakSelf.productList = [DKYGetProductListByGroupNoModel mj_objectArrayWithKeyValuesArray:page.items];
+            weakSelf.pageNo = page.pageNo;
+            weakSelf.totalPageNum = page.totalPageNum;
             
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -139,6 +181,10 @@
     [self setupTableView];
     
     [self setupActionView];
+    
+    self.pageNo = 1;
+    self.getProductListByGroupNoParameterEx.pageNo = @(self.pageNo);
+    [self getProductListByGroupNoFromServerForNextAndPrev];
 }
 
 - (void)setupHeaderView{
@@ -170,11 +216,21 @@
     };
     
     self.headerView.preBtnClicked = ^(id sender) {
+        if(self.pageNo <= 1) return;
         
+        weakSelf.getProductListByGroupNoParameterEx.groupNo = weakSelf.getProductListByGroupNoParameter.groupNo;
+        weakSelf.getProductListByGroupNoParameterEx.pageNo = @(--self.pageNo);
+        
+        [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
     };
     
     self.headerView.nextBtnClicked = ^(id sender) {
+        if(self.pageNo >= self.totalPageNum) return ;
         
+        weakSelf.getProductListByGroupNoParameterEx.groupNo = weakSelf.getProductListByGroupNoParameter.groupNo;
+         weakSelf.getProductListByGroupNoParameterEx.pageNo = @(++self.pageNo);
+        
+        [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
     };
 }
 
@@ -242,6 +298,15 @@
         _getProductListByGroupNoParameter = [[DKYGetProductListByGroupNoParameter alloc] init];
     }
     return _getProductListByGroupNoParameter;
+}
+
+- (DKYGetProductListByGroupNoParameter*)getProductListByGroupNoParameterEx{
+    if(_getProductListByGroupNoParameterEx == nil){
+        _getProductListByGroupNoParameterEx = [[DKYGetProductListByGroupNoParameter alloc] init];
+        _getProductListByGroupNoParameterEx.pageSize = @(1);
+        _getProductListByGroupNoParameterEx.pageNo = @(1);
+    }
+    return _getProductListByGroupNoParameterEx;
 }
 
 @end
