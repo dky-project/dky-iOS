@@ -49,6 +49,24 @@
     _getProductListByGroupNoModel = getProductListByGroupNoModel;
     
     self.titleLabel.text = getProductListByGroupNoModel.productName;
+    
+    // 颜色
+    if(self.getProductListByGroupNoModel.addDpGroupBmptParam.colorId){
+        for (DKYDahuoOrderColorModel *model in self.getProductListByGroupNoModel.colorViewList) {
+            if([self.getProductListByGroupNoModel.addDpGroupBmptParam.colorId isEqualToNumber:@(model.colorId)]){
+                [self.colorBtn setTitle:model.colorName forState:UIControlStateNormal];
+            }
+        }
+    }
+    
+    // 尺寸
+    if(self.getProductListByGroupNoModel.addDpGroupBmptParam.sizeId){
+        for (DKYSizeViewListItemModel *model in self.getProductListByGroupNoModel.sizeViewList) {
+            if([model.sizeId isEqualToNumber:self.getProductListByGroupNoModel.addDpGroupBmptParam.sizeId]){
+                [self.sizeBtn setTitle:model.sizeName forState:UIControlStateNormal];
+            }
+        }
+    }
 }
 
 - (void)delProductCollectToServer{
@@ -133,12 +151,14 @@
         }
             break;
         case 1:{
+            // 颜色
             for (DKYDahuoOrderColorModel *model in self.getProductListByGroupNoModel.colorViewList) {
                 [item addObject:model.colorName];
             }
         }
             break;
         case 2:{
+            // 尺寸
             for (DKYSizeViewListItemModel *model in self.getProductListByGroupNoModel.sizeViewList) {
                 [item addObject:model.sizeName];
             }
@@ -172,7 +192,38 @@
 }
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
+    NSArray *models = nil;
     
+    switch (tag) {
+        case 0:{
+
+        }
+            break;
+        case 1:{
+            // 颜色
+            if(index == 0){
+                self.getProductListByGroupNoModel.addDpGroupBmptParam.colorId = nil;
+                return;
+            }
+            
+            DKYDahuoOrderColorModel *model =  [self.getProductListByGroupNoModel.colorViewList objectOrNilAtIndex:index - 1];
+            self.getProductListByGroupNoModel.addDpGroupBmptParam.colorId = @(model.colorId);
+        }
+            break;
+        case 2:{
+            // 尺寸
+            if(index == 0){
+                self.getProductListByGroupNoModel.addDpGroupBmptParam.sizeId = nil;
+                return;
+            }
+
+            DKYSizeViewListItemModel *model = [self.getProductListByGroupNoModel.sizeViewList objectOrNilAtIndex:index - 1];
+            self.getProductListByGroupNoModel.addDpGroupBmptParam.sizeId = model.sizeId;
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 

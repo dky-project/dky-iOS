@@ -334,6 +334,9 @@
 		EBD694DA1E2785BB00F365C3 /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD694CF1E2785BB00F365C3 /* UIImage+TOWebViewControllerIcons.m */; };
 		EBD694DC1E27861000F365C3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD694DB1E27861000F365C3 /* MessageUI.framework */; };
 		EBD694DE1E27861900F365C3 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD694DD1E27861900F365C3 /* Twitter.framework */; };
+		EBD8251C1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD8251B1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.m */; };
+		EBD8251F1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD8251E1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.m */; };
+		EBD825221F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD825211F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1006,6 +1009,12 @@
 		EBD694D21E2785BB00F365C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOWebViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		EBD694DB1E27861000F365C3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EBD694DD1E27861900F365C3 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		EBD8251A1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYAddProductDpGroupParameter.h; sourceTree = "<group>"; };
+		EBD8251B1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAddProductDpGroupParameter.m; sourceTree = "<group>"; };
+		EBD8251D1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYAddDpGroupApproveParamModel.h; sourceTree = "<group>"; };
+		EBD8251E1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAddDpGroupApproveParamModel.m; sourceTree = "<group>"; };
+		EBD825201F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYAddDpGroupBmptParamModel.h; sourceTree = "<group>"; };
+		EBD825211F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAddDpGroupBmptParamModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1513,6 +1522,10 @@
 				EB6DFFD41F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m */,
 				EBCBE11A1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.h */,
 				EBCBE11B1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m */,
+				EBD8251D1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.h */,
+				EBD8251E1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.m */,
+				EBD825201F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.h */,
+				EBD825211F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m */,
 			);
 			name = "搭配(原陈列)";
 			sourceTree = "<group>";
@@ -1761,6 +1774,8 @@
 				EBBF21601F32F78B0047471B /* DKYDahuoOrderInquiryParameter.m */,
 				EB6DFFCF1F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.h */,
 				EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */,
+				EBD8251A1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.h */,
+				EBD8251B1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2696,6 +2711,7 @@
 				EBD5E2701F316C0100B98F46 /* DKYDisplayViewController.m in Sources */,
 				EBA731101F21E00600FEFD69 /* PYPhotoBrowseView.m in Sources */,
 				EBD304A91F20AEA000CA400C /* FLAnimatedImageView+WebCache.m in Sources */,
+				EBD8251F1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.m in Sources */,
 				EBD115F91EA4662600AF6F5C /* DKYTongkuan5LingItemView.m in Sources */,
 				EB97F2BA1E25C36A00BDC705 /* DQTableViewCell.m in Sources */,
 				EB9511A91E164444008708EF /* WXSTransitionManager+BrickAnimation.m in Sources */,
@@ -2765,6 +2781,7 @@
 				EBD694DA1E2785BB00F365C3 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				EB9ACBDA1E5EE4E10007517C /* DKYProductCusmptcateViewModel.m in Sources */,
 				EBD116141EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.m in Sources */,
+				EBD8251C1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.m in Sources */,
 				EB195B9C1E5C41CE00116048 /* UIImage+LCActionSheet.m in Sources */,
 				EBC300651E1CCC0A00F602E6 /* JXTAlertView.m in Sources */,
 				EB9790491E21EAF500E2985C /* DKYOrderInquiryHeaderView.m in Sources */,
@@ -2851,6 +2868,7 @@
 				EBD115F01EA4624300AF6F5C /* DKYTongkuan5SizeItemView.m in Sources */,
 				EBBF213D1F32B8BF0047471B /* DKYDisplayCategoryViewCell.m in Sources */,
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
+				EBD825221F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m in Sources */,
 				EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */,
 				26210BE31E59775300EB05D6 /* DKYCustomOrderTypeOneView.m in Sources */,
 				EB506C461E23B24C002A1423 /* KLCPopup.m in Sources */,

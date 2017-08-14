@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DKYAddDpGroupApproveParamModel.h"
+#import "DKYAddDpGroupBmptParamModel.h"
 
 @interface DKYGetProductListByGroupNoModel : NSObject
 
@@ -30,5 +32,10 @@
 
 // 客户端自己的属性
 @property (nonatomic, assign) BOOL isCollected;
+
+@property (nonatomic, assign) BOOL isBigOrder;
+
+@property (nonatomic, strong) DKYAddDpGroupApproveParamModel *addDpGroupApproveParam;
+@property (nonatomic, strong) DKYAddDpGroupBmptParamModel *addDpGroupBmptParam;
 
 @end

@@ -16,6 +16,7 @@
 #import "DKYGetProductListByGroupNoParameter.h"
 #import "DKYGetProductListByGroupNoModel.h"
 #import "DKYPageModel.h"
+#import "DKYAddProductDpGroupParameter.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -30,7 +31,6 @@
 @property (nonatomic, strong) DKYGetProductListByGroupNoParameter *getProductListByGroupNoParameterEx;
 
 @property (nonatomic, strong) NSArray *productList;
-@property (nonatomic, strong) NSArray *parameters;
 
 @property (nonatomic, assign) NSInteger pageNo;
 @property (nonatomic, assign) NSInteger totalPageNum;
@@ -114,6 +114,47 @@
     }];
 }
 
+- (void)addProductDpGroup{
+//    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    DKYAddProductDpGroupParameter *p = [[DKYAddProductDpGroupParameter alloc] init];
+    
+    NSMutableArray *arr1 = [NSMutableArray array];
+    NSMutableArray *arr2 = [NSMutableArray array];
+    
+    for (DKYGetProductListByGroupNoModel *model in self.productList) {
+        if(model.isBigOrder){
+            [arr2 addObject:model.addDpGroupBmptParam];
+        }else{
+            [arr1 addObject:model.addDpGroupApproveParam];
+        }
+    }
+    
+    p.addDpGroupApproveParamList = arr1.copy;
+    p.addDpGroupBmptParamList = arr2.copy;
+    
+    [[DKYHttpRequestManager sharedInstance] addProductDpGroupWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            [DKYHUDTool showSuccessWithStatus:@"保存订单成功!"];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+
+}
+
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -154,7 +195,7 @@
     }
     
     DKYGetProductListByGroupNoModel *model = [self.productList objectAtIndex:indexPath.row];
-    if([model.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame){
+    if(model.isBigOrder){
         DKYDisplayCategoryDahuoViewCell *cell = [DKYDisplayCategoryDahuoViewCell displayCategoryDahuoViewCellWithTableView:tableView];
         cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row];
         return cell;
@@ -272,7 +313,10 @@
     };
     
     actionView.saveBtnClicked = ^(UIButton *sender){
+        // 1.检查参数
         
+        // 2.调用接口
+        [weakSelf addProductDpGroup];
     };
 }
 

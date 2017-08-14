@@ -78,6 +78,8 @@
 /**陈列，搭配*/
 #define kGetProductListByGroupNoUrl     @"product/getProductListByGroupNo"      // 根据组号查询
 
+#define kAddProductDpGroupUrl           @"productApprove/addProductDpGroup"     // 搭配下单
+
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
 

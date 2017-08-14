@@ -58,12 +58,13 @@
     _getProductListByGroupNoModel = getProductListByGroupNoModel;
     
     self.titleLabel.text = getProductListByGroupNoModel.productName;
+    // 大，长
+    [self.sizeBtn setTitle:getProductListByGroupNoModel.addDpGroupApproveParam.xwValue forState:UIControlStateNormal];
+    self.lengthTextFied.text = getProductListByGroupNoModel.addDpGroupApproveParam.ycValue;
     
-    [self.sizeBtn setTitle:getProductListByGroupNoModel.xwValue forState:UIControlStateNormal];
-    self.lengthTextFied.text = getProductListByGroupNoModel.ycValue;
-    
+    // 品种
     for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
-        if([getProductListByGroupNoModel.mDimNew14Id isEqualToString:model.ID]){
+        if([getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id isEqualToNumber:@([model.ID integerValue])]){
             [self.pinzhongBtn setTitle:model.attribname forState:UIControlStateNormal];
         }
     }
@@ -96,6 +97,8 @@
             weakSelf.lengthTextFied.text = weakSelf.getSizeDataModel.yc;
             weakSelf.xcTextField.text = weakSelf.getSizeDataModel.xc;
             
+            weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue = weakSelf.getSizeDataModel.yc;
+            weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = weakSelf.getSizeDataModel.xc;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -222,18 +225,21 @@
 
     switch (sender.tag) {
         case 0:{
+            // 品种
             for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
                 [item addObject:model.attribname];
             }
         }
             break;
         case 1:{
+            // 颜色
             for (DKYDahuoOrderColorModel *model in self.getProductListByGroupNoModel.colorViewList) {
                 [item addObject:model.colorName];
             }
         }
             break;
         case 2:{
+            // 大
             for(NSDictionary *dic in self.getProductListByGroupNoModel.xwArrayJson){
                 [item addObject:[dic objectForKey:@"value"]];
             }
@@ -267,8 +273,9 @@
     
     switch (tag) {
         case 0:{
-            // 清除
+            // 品种
             if(index == 0){
+                self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = nil;
                 return;
             }
             
@@ -276,16 +283,26 @@
             models = self.getProductListByGroupNoModel.pzJsonstr;
             DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
             
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = @([model.ID integerValue]);
+            
             [self getColorDimListFromServer:model.ID];
         }
             break;
         case 1:{
-
+            // 颜色
+            if(index == 0){
+                self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
+                return;
+            }
+            
+            DKYDahuoOrderColorModel *model =  [self.getProductListByGroupNoModel.colorViewList objectOrNilAtIndex:index - 1];
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = model.colorName;
         }
             break;
         case 2:{
-            // 清除
+            // 大
             if(index == 0){
+                self.getProductListByGroupNoModel.addDpGroupApproveParam.xwValue = nil;
                 return;
             }
             
@@ -299,6 +316,7 @@
 
 //            }
             NSDictionary *dic = [self.getProductListByGroupNoModel.xwArrayJson objectOrNilAtIndex:index - 1];
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.xwValue = [dic objectForKey:@"value"];
             
             [self getSizeDataFromServer:[dic objectForKey:@"value"]];
         }
@@ -348,6 +366,9 @@
     
     // 长
     [self p_customSunview:self.lengthTextFied];
+    [self.lengthTextFied addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
+        weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue = sender.text;
+    }];
     
     [self p_customSunview:self.xcTextField];
     

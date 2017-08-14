@@ -18,6 +18,20 @@
 
 - (void)mj_keyValuesDidFinishConvertingToObject{
     self.isCollected = (!([self.iscollect integerValue] == 1));
+    self.isBigOrder = ([self.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame);
+    
+    if(self.isBigOrder){
+        self.addDpGroupBmptParam = [[DKYAddDpGroupBmptParamModel alloc] init];
+        self.addDpGroupBmptParam.mProductId = self.mProductId;
+        self.addDpGroupBmptParam.pdt = self.productName;
+    }else{
+        self.addDpGroupApproveParam = [[DKYAddDpGroupApproveParamModel alloc] init];
+        self.addDpGroupApproveParam.mProductId = self.mProductId;
+        self.addDpGroupApproveParam.pdt = self.productName;
+        self.addDpGroupApproveParam.mDimNew14Id = @([self.mDimNew14Id integerValue]);
+        self.addDpGroupApproveParam.xwValue = self.xwValue;
+        self.addDpGroupApproveParam.ycValue = self.ycValue;
+    }
 }
 
 @end
