@@ -57,7 +57,8 @@
         if(!model.isBigOrder){
             [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];
         }else{
-            NSDictionary *params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer]};
+            NSDictionary *params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer],
+                                     @"productName":model.name};
             
             NSString *url = [NSString addQueryParametersUrl:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl] parameters:params];
             
