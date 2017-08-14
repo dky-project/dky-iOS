@@ -25,6 +25,8 @@
 @property (nonatomic, weak) UILabel *countLabel;
 @property (nonatomic, weak) UIImageView *pictureImageView;
 
+@property (nonatomic, weak) UILabel *colorLabel;
+
 //@property (weak, nonatomic) UILabel *serialNumberLabel;
 //@property (weak, nonatomic) UILabel *clientLabel;
 //@property (weak, nonatomic) UILabel *faxDateLabel;
@@ -74,6 +76,8 @@
     self.countLabel.text = itemModel.sum;
     [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.imgUrl]];
     
+    self.colorLabel.text = itemModel.colorName;
+    
 //    self.serialNumberLabel.text = itemModel.displayNo1;
 //    self.clientLabel.text = itemModel.customer;
 //    self.faxDateLabel.text = itemModel.displayFaxDate;
@@ -116,6 +120,11 @@
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(weakSelf.contentView);
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.sourceOfSampleLabel);
+    }];
+    
+    [self.colorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(weakSelf.contentView);
+        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.colorLabel);
     }];
     
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -182,7 +191,7 @@
     [self setupOrderNumberLabel];
     
     [self setupSourceOfSampleLabel];
-    
+    [self setupColorLabel];
     [self setupSizeLabel];
     [self setupLengthLabel];
     
@@ -220,6 +229,9 @@
     self.sourceOfSampleLabel = [self createLabelWithName:@""];
 }
 
+- (void)setupColorLabel{
+    self.colorLabel = [self createLabelWithName:@""];
+}
 
 - (void)setupSizeLabel{
     self.sizeLabel = [self createLabelWithName:@""];

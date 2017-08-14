@@ -9,6 +9,7 @@
 #import "DKYSampleDetailAllViewController.h"
 #import "DKYSampleDetailViewController.h"
 #import "DKYSampleOrderPopupView.h"
+#import "DKYSampleProductInfoModel.h"
 
 @interface DKYSampleDetailAllViewController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 
@@ -50,9 +51,10 @@
     
     WeakSelf(weakSelf);
     self.rightBtnClicked = ^(UIButton *sender) {
-        if(YES){
-            DKYSampleDetailViewController *vc =(DKYSampleDetailViewController*) weakSelf.magicController.currentViewController;
-            DKYSampleProductInfoModel *model = vc.sampleProductInfo;
+        DKYSampleDetailViewController *vc =(DKYSampleDetailViewController*) weakSelf.magicController.currentViewController;
+        DKYSampleProductInfoModel *model = vc.sampleProductInfo;
+        
+        if(!model.isBigOrder){
             [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];
         }else{
             NSDictionary *params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer]};

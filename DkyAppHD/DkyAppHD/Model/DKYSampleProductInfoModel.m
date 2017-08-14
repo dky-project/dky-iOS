@@ -49,6 +49,8 @@
     if(!self.gw){
         self.gw = @"";
     }
+    
+    self.isBigOrder = ([self.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame);
 }
 
 @end

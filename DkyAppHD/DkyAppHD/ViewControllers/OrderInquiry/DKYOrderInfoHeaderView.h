@@ -24,6 +24,8 @@
 @property (nonatomic, weak) UILabel *countLabel;
 @property (nonatomic, weak) UILabel *pictureLabel;
 
+@property (nonatomic, weak) UILabel *colorLabel;
+
 //@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
 //@property (weak, nonatomic) IBOutlet UILabel *clientLabel;
 //@property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;

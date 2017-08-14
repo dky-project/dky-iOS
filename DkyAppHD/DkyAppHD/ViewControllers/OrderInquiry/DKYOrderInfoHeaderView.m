@@ -84,6 +84,7 @@
     [self setupPictureLabel];
     
     [self setupSourceOfSampleLabel];
+    [self setupColorLabel];
     [self setupSizeLabel];
     [self setupLengthLabel];
     
@@ -115,11 +116,29 @@
     }];
 }
 
+- (void)setupPictureLabel{
+    WeakSelf(weakSelf);
+    self.pictureLabel = [self createLabelWithName:@"图片"];
+    [self.pictureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(60);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
 - (void)setupSourceOfSampleLabel{
     WeakSelf(weakSelf);
-    self.sourceOfSampleLabel = [self createLabelWithName:@"来源样衣"];
+    self.sourceOfSampleLabel = [self createLabelWithName:@"款号"];
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(60);
+        make.centerY.mas_equalTo(weakSelf);
+    }];
+}
+
+- (void)setupColorLabel{
+    WeakSelf(weakSelf);
+    self.colorLabel = [self createLabelWithName:@"颜色"];
+    [self.colorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }
@@ -128,7 +147,7 @@
     WeakSelf(weakSelf);
     self.sizeLabel = [self createLabelWithName:@"大"];
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.colorLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }
@@ -156,15 +175,6 @@
     self.countLabel = [self createLabelWithName:@"数量"];
     [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.orderAmountLabel.mas_right).with.offset(60);
-        make.centerY.mas_equalTo(weakSelf);
-    }];
-}
-
-- (void)setupPictureLabel{
-    WeakSelf(weakSelf);
-    self.pictureLabel = [self createLabelWithName:@"图片"];
-    [self.pictureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf);
     }];
 }

@@ -75,4 +75,6 @@
 
 @property (nonatomic, copy) NSString *pdt;
 
+@property (nonatomic, assign) BOOL isBigOrder;
+
 @end
