@@ -34,4 +34,10 @@
     }
 }
 
+- (void)setSum:(NSInteger)sum{
+    _sum = sum;
+    
+    self.sumText = [NSString stringWithFormat:@"%@",@(sum)];
+}
+
 @end

@@ -62,6 +62,8 @@
     [self.sizeBtn setTitle:getProductListByGroupNoModel.addDpGroupApproveParam.xwValue forState:UIControlStateNormal];
     self.lengthTextFied.text = getProductListByGroupNoModel.addDpGroupApproveParam.ycValue;
     
+    self.xcTextField.text = getProductListByGroupNoModel.addDpGroupApproveParam.xcValue;
+    
     // 品种
     for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
         if([getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id isEqualToString:model.ID]){
@@ -370,9 +372,19 @@
         weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue = sender.text;
     }];
     
+    // 袖长
     [self p_customSunview:self.xcTextField];
+    [self.xcTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
+        weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = sender.text;
+    }];
     
+    // 数量
     [self p_customSunview:self.amountTextField];
+    [self.amountTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
+        weakSelf.getProductListByGroupNoModel.sum = [sender.text integerValue];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount" : sender.text}];
+    }];
     
     [self p_customSunview:self.moneyLabel];
     

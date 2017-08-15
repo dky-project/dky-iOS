@@ -18,6 +18,8 @@
 #import "DKYPageModel.h"
 #import "DKYAddProductDpGroupParameter.h"
 #import "DKYAddProductDpGroupJsonParameter.h"
+#import "DKYAddProductDpGroupResponseModel.h"
+#import "DKYConfirmProductApproveParameter.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -35,6 +37,8 @@
 
 @property (nonatomic, assign) NSInteger pageNo;
 @property (nonatomic, assign) NSInteger totalPageNum;
+
+@property (nonatomic, strong) DKYAddProductDpGroupResponseModel *addProductDpGroupResponseModel;
 
 @end
 
@@ -116,7 +120,7 @@
 }
 
 - (void)addProductDpGroup{
-//    WeakSelf(weakSelf);
+    WeakSelf(weakSelf);
     [DKYHUDTool show];
     DKYAddProductDpGroupParameter *p = [[DKYAddProductDpGroupParameter alloc] init];
     p.version = nil;
@@ -145,7 +149,9 @@
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-            [DKYHUDTool showSuccessWithStatus:@"保存订单成功!"];
+            weakSelf.addProductDpGroupResponseModel = [DKYAddProductDpGroupResponseModel mj_objectWithKeyValues:result.data];
+            
+            [DKYHUDTool showSuccessWithStatus:@"保存成功！"];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -161,6 +167,45 @@
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 
+}
+
+// 确认下单
+- (void)confirmProductApproveToServer{
+    [DKYHUDTool show];
+    
+    DKYConfirmProductApproveParameter *p = [[DKYConfirmProductApproveParameter alloc] init];
+    p.bmptIds = self.addProductDpGroupResponseModel.bmptIds;
+    p.approveIds = self.addProductDpGroupResponseModel.approveIds;
+    
+    WeakSelf(weakSelf);
+    [[DKYHttpRequestManager sharedInstance] confirmProductApproveWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            // 生成订单成功
+            [DKYHUDTool showSuccessWithStatus:@"确认下单成功!"];
+            
+            weakSelf.addProductDpGroupResponseModel = nil;
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                weakSelf.pageNo = 1;
+                weakSelf.getProductListByGroupNoParameterEx.pageNo = @(self.pageNo);
+                [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
+            });
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
 }
 
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
@@ -317,7 +362,7 @@
     }];
     
     actionView.confirmBtnClicked = ^(UIButton* sender){
-        
+        [weakSelf confirmProductApproveToServer];
     };
     
     actionView.saveBtnClicked = ^(UIButton *sender){

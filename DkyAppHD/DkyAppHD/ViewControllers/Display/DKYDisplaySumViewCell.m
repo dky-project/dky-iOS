@@ -7,6 +7,7 @@
 //
 
 #import "DKYDisplaySumViewCell.h"
+#import "DKYGetProductListByGroupNoModel.h"
 
 @interface DKYDisplaySumViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *ammountSumLabel;
@@ -32,11 +33,29 @@
     [self commonInit];
 }
 
+- (void)setProductList:(NSArray *)productList{
+    _productList = productList;
+    
+    NSInteger sum = 0;
+    
+    for (DKYGetProductListByGroupNoModel *model in productList) {
+        sum += model.sum;
+    }
+    
+    self.ammountSumLabel.text = (sum > 0) ? [NSString stringWithFormat:@"%@",@(sum)] : @"合计";
+}
+
+- (void)amuntTextFieldChanged:(NSNotification*)notification{
+    
+}
 
 #pragma mark - UI
 
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(amuntTextFieldChanged:) name:kDisplayAmountChangedNotification object:nil];
     
     [self p_customSunview:self.ammountSumLabel];
     [self p_customSunview:self.moneySumLabel];
@@ -62,4 +81,9 @@
         textField.textInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     }
 }
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 @end

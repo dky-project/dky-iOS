@@ -15,4 +15,6 @@
 
 @property (nonatomic, strong) DKYGetProductListByGroupNoModel *getProductListByGroupNoModel;
 
+@property (nonatomic, copy) BlockWithSender amountTextFieldChanged;
+
 @end

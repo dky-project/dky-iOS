@@ -38,4 +38,7 @@
 @property (nonatomic, strong) DKYAddDpGroupApproveParamModel *addDpGroupApproveParam;
 @property (nonatomic, strong) DKYAddDpGroupBmptParamModel *addDpGroupBmptParam;
 
+@property (nonatomic, assign) NSInteger sum;
+@property (nonatomic, copy) NSString *sumText;
+
 @end

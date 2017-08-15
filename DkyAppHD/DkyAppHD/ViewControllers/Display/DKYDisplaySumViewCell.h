@@ -12,4 +12,6 @@
 
 + (instancetype)displaySumViewCellWithTableView:(UITableView *)tableView;
 
+@property (nonatomic, strong) NSArray *productList;
+
 @end

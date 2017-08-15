@@ -69,5 +69,7 @@ typedef void(^BlockWithSenderAndModel)(id sender, id model);
 //消息通知
 #define kUserNotLoginNotification @"UserNotLoginNotification"
 
+#define kDisplayAmountChangedNotification   @"DisplayAmountChangedNotification"
+
 
 #endif /* Constant_h */

@@ -256,7 +256,14 @@
         [weakSelf showOptionsPicker:weakSelf.sizeBtn];
     }];
 
+    // 数量
     [self p_customSunview:self.amountTextField];
+    [self.amountTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
+        weakSelf.getProductListByGroupNoModel.sum = [sender.text integerValue];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount":sender.text}];
+    }];
+    
     [self p_customSunview:self.moneyLabel];
     
     // 收藏
