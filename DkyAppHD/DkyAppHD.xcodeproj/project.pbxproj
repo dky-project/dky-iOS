@@ -111,6 +111,7 @@
 		EB506C4F1E23BD81002A1423 /* DKYOrderBrowserViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB506C4D1E23BD81002A1423 /* DKYOrderBrowserViewCell.xib */; };
 		EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */; };
 		EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */; };
+		EB5D73311F42D2920054D2F8 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5D73301F42D2920054D2F8 /* UIAlertController+Blocks.m */; };
 		EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */; };
 		EB6DFFD11F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */; };
 		EB6DFFD51F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6DFFD41F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m */; };
@@ -569,6 +570,8 @@
 		EB506C501E23C133002A1423 /* DKYOrderBrowserLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserLineView.h; sourceTree = "<group>"; };
 		EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserLineView.m; sourceTree = "<group>"; };
 		EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderBrowserLineView.xib; sourceTree = "<group>"; };
+		EB5D732F1F42D2920054D2F8 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		EB5D73301F42D2920054D2F8 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		EB6DFFCF1F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGroupNoParameter.h; sourceTree = "<group>"; };
@@ -1104,6 +1107,8 @@
 		263CC1381E1555E7002FBB50 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				EB5D732F1F42D2920054D2F8 /* UIAlertController+Blocks.h */,
+				EB5D73301F42D2920054D2F8 /* UIAlertController+Blocks.m */,
 				26EC02951E751D0700469C5C /* NSString+STRegex.h */,
 				26EC02961E751D0700469C5C /* NSString+STRegex.m */,
 				EB97909B1E224CEE00E2985C /* SDWebImageManager+Utility.h */,
@@ -2925,6 +2930,7 @@
 				EB9790451E21E4E500E2985C /* DKYOrderInquiryViewController.m in Sources */,
 				EB195B991E5C41CE00116048 /* LCActionSheetCell.m in Sources */,
 				EBD694D71E2785BB00F365C3 /* TOActivityChrome.m in Sources */,
+				EB5D73311F42D2920054D2F8 /* UIAlertController+Blocks.m in Sources */,
 				EBC6DD711E94D9A800BE2510 /* DKYGetPzsJsonParameter.m in Sources */,
 				2662907C1E9D039D00886274 /* VTMagicView.m in Sources */,
 				EB9511811E1640A5008708EF /* DKYLoginViewController.m in Sources */,

@@ -151,7 +151,19 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.addProductDpGroupResponseModel = [DKYAddProductDpGroupResponseModel mj_objectWithKeyValues:result.data];
             
-            [DKYHUDTool showSuccessWithStatus:@"保存成功！"];
+            [UIAlertController showAlertInViewController:weakSelf
+                                               withTitle:@"提示"
+                                                 message:@"保存成功！"
+                                       cancelButtonTitle:@"关闭"
+                                  destructiveButtonTitle:nil
+                                       otherButtonTitles:@[@"确认下单"]
+                                                tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
+                                                    if (buttonIndex == controller.cancelButtonIndex) {
+                                                        
+                                                    } else if (buttonIndex >= controller.firstOtherButtonIndex) {
+                                                        [weakSelf confirmProductApproveToServer];
+                                                    }
+                                                }];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
