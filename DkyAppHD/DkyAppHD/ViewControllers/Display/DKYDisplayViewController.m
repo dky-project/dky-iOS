@@ -199,6 +199,7 @@
             [DKYHUDTool showSuccessWithStatus:@"确认下单成功!"];
             
             weakSelf.addProductDpGroupResponseModel = nil;
+            [weakSelf.headerView clear];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 weakSelf.pageNo = 1;
@@ -340,10 +341,10 @@
     self.headerView.getProductListByGroupNoParameter = self.getProductListByGroupNoParameter;
     
     self.headerView.searchBtnClicked = ^(id sender) {
-        if(![weakSelf.getProductListByGroupNoParameter.groupNo isNotBlank]){
-            [DKYHUDTool showErrorWithStatus:@"组号不能为空"];
-            return;
-        }
+//        if(![weakSelf.getProductListByGroupNoParameter.groupNo isNotBlank]){
+//            [DKYHUDTool showErrorWithStatus:@"组号不能为空"];
+//            return;
+//        }
         
         [weakSelf.view endEditing:YES];
         

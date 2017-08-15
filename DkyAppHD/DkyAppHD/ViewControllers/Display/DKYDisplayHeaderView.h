@@ -19,4 +19,6 @@
 
 @property (nonatomic, strong) DKYGetProductListByGroupNoParameter *getProductListByGroupNoParameter;
 
+- (void)clear;
+
 @end

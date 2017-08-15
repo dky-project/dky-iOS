@@ -32,6 +32,11 @@
     return self;
 }
 
+- (void)clear{
+    self.groupNumberTextField.text = nil;
+    self.getProductListByGroupNoParameter.groupNo = nil;
+}
+
 #pragma mark - UI
 - (void)commonInit{
     [self setupGroupNumberTextField];

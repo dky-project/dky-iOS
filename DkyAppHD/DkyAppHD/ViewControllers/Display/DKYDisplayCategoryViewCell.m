@@ -64,6 +64,8 @@
     
     self.xcTextField.text = getProductListByGroupNoModel.addDpGroupApproveParam.xcValue;
     
+    self.amountTextField.text = getProductListByGroupNoModel.sumText;
+    
     // 品种
     for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
         if([getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id isEqualToString:model.ID]){

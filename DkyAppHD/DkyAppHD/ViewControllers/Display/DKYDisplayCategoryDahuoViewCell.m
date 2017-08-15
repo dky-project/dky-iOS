@@ -67,6 +67,8 @@
             }
         }
     }
+    
+    self.amountTextField.text = getProductListByGroupNoModel.sumText;
 }
 
 - (void)delProductCollectToServer{
@@ -192,8 +194,6 @@
 }
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
-    NSArray *models = nil;
-    
     switch (tag) {
         case 0:{
 

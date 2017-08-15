@@ -37,7 +37,9 @@
 - (void)setSum:(NSInteger)sum{
     _sum = sum;
     
-    self.sumText = [NSString stringWithFormat:@"%@",@(sum)];
+    if(sum > 0){
+        self.sumText = [NSString stringWithFormat:@"%@",@(sum)];
+    }
 }
 
 @end
