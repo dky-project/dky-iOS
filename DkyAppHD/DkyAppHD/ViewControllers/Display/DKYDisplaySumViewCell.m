@@ -36,17 +36,21 @@
 - (void)setProductList:(NSArray *)productList{
     _productList = productList;
     
+    [self updateSum];
+}
+
+- (void)amuntTextFieldChanged:(NSNotification*)notification{
+    [self updateSum];
+}
+
+- (void)updateSum{
     NSInteger sum = 0;
     
-    for (DKYGetProductListByGroupNoModel *model in productList) {
+    for (DKYGetProductListByGroupNoModel *model in self.productList) {
         sum += model.sum;
     }
     
     self.ammountSumLabel.text = (sum > 0) ? [NSString stringWithFormat:@"%@",@(sum)] : @"合计";
-}
-
-- (void)amuntTextFieldChanged:(NSNotification*)notification{
-    
 }
 
 #pragma mark - UI

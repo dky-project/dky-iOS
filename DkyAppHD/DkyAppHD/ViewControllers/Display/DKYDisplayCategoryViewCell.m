@@ -385,7 +385,8 @@
     [self.amountTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
         weakSelf.getProductListByGroupNoModel.sum = [sender.text integerValue];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount" : sender.text}];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount" : sender.text}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:nil];
     }];
     
     [self p_customSunview:self.moneyLabel];

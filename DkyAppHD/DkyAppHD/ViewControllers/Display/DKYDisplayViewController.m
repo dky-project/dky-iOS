@@ -283,6 +283,7 @@
     
     if(indexPath.section == 1 && indexPath.row == self.productList.count){
         DKYDisplaySumViewCell *cell = [DKYDisplaySumViewCell displaySumViewCellWithTableView:tableView];
+        cell.productList = self.productList;
         return cell;
     }
     
