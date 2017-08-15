@@ -64,7 +64,7 @@
     
     // 品种
     for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
-        if([getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id isEqualToNumber:@([model.ID integerValue])]){
+        if([getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id isEqualToString:model.ID]){
             [self.pinzhongBtn setTitle:model.attribname forState:UIControlStateNormal];
         }
     }
@@ -283,7 +283,7 @@
             models = self.getProductListByGroupNoModel.pzJsonstr;
             DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
             
-            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = @([model.ID integerValue]);
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = model.ID;
             
             [self getColorDimListFromServer:model.ID];
         }

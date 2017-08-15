@@ -337,6 +337,7 @@
 		EBD8251C1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD8251B1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.m */; };
 		EBD8251F1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD8251E1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.m */; };
 		EBD825221F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD825211F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m */; };
+		EBD825251F428A35000C77E3 /* DKYAddProductDpGroupJsonParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD825241F428A35000C77E3 /* DKYAddProductDpGroupJsonParameter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1015,6 +1016,8 @@
 		EBD8251E1F417E9F000C77E3 /* DKYAddDpGroupApproveParamModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAddDpGroupApproveParamModel.m; sourceTree = "<group>"; };
 		EBD825201F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYAddDpGroupBmptParamModel.h; sourceTree = "<group>"; };
 		EBD825211F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAddDpGroupBmptParamModel.m; sourceTree = "<group>"; };
+		EBD825231F428A35000C77E3 /* DKYAddProductDpGroupJsonParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYAddProductDpGroupJsonParameter.h; sourceTree = "<group>"; };
+		EBD825241F428A35000C77E3 /* DKYAddProductDpGroupJsonParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYAddProductDpGroupJsonParameter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1776,6 +1779,8 @@
 				EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */,
 				EBD8251A1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.h */,
 				EBD8251B1F417E4A000C77E3 /* DKYAddProductDpGroupParameter.m */,
+				EBD825231F428A35000C77E3 /* DKYAddProductDpGroupJsonParameter.h */,
+				EBD825241F428A35000C77E3 /* DKYAddProductDpGroupJsonParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2743,6 +2748,7 @@
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
 				EB9ACBD11E5EB8EC0007517C /* DKYDahuoOrderColorModel.m in Sources */,
 				EB97909D1E224CEE00E2985C /* SDWebImageManager+Utility.m in Sources */,
+				EBD825251F428A35000C77E3 /* DKYAddProductDpGroupJsonParameter.m in Sources */,
 				EB9511B71E16659C008708EF /* NSObject+Extension.m in Sources */,
 				EBA7310A1F21E00600FEFD69 /* PYPhotosReaderController.m in Sources */,
 				EB97F2C41E25FC4B00BDC705 /* DKYOrderItemModel.m in Sources */,

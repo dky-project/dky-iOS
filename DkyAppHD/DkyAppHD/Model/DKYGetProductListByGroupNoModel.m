@@ -28,7 +28,7 @@
         self.addDpGroupApproveParam = [[DKYAddDpGroupApproveParamModel alloc] init];
         self.addDpGroupApproveParam.mProductId = self.mProductId;
         self.addDpGroupApproveParam.pdt = self.productName;
-        self.addDpGroupApproveParam.mDimNew14Id = @([self.mDimNew14Id integerValue]);
+        self.addDpGroupApproveParam.mDimNew14Id = self.mDimNew14Id;
         self.addDpGroupApproveParam.xwValue = self.xwValue;
         self.addDpGroupApproveParam.ycValue = self.ycValue;
     }

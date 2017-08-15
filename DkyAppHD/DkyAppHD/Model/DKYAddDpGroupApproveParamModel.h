@@ -21,7 +21,7 @@
 /**
  * 品种
  */
-@property (nonatomic, strong) NSNumber *mDimNew14Id;
+@property (nonatomic, copy) NSString *mDimNew14Id;
 /**
  *  大（尺寸）
  */

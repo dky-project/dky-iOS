@@ -17,6 +17,7 @@
 #import "DKYGetProductListByGroupNoModel.h"
 #import "DKYPageModel.h"
 #import "DKYAddProductDpGroupParameter.h"
+#import "DKYAddProductDpGroupJsonParameter.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -118,6 +119,7 @@
 //    WeakSelf(weakSelf);
     [DKYHUDTool show];
     DKYAddProductDpGroupParameter *p = [[DKYAddProductDpGroupParameter alloc] init];
+    p.version = nil;
     
     NSMutableArray *arr1 = [NSMutableArray array];
     NSMutableArray *arr2 = [NSMutableArray array];
@@ -133,7 +135,13 @@
     p.addDpGroupApproveParamList = arr1.copy;
     p.addDpGroupBmptParamList = arr2.copy;
     
-    [[DKYHttpRequestManager sharedInstance] addProductDpGroupWithParameter:p Success:^(NSInteger statusCode, id data) {
+    NSDictionary *data = [p mj_keyValues];
+    NSString *jsonStr = [data jsonStringEncoded];
+
+    DKYAddProductDpGroupJsonParameter *parameter = [[DKYAddProductDpGroupJsonParameter alloc] init];
+    parameter.paramJson = jsonStr;
+    
+    [[DKYHttpRequestManager sharedInstance] addProductDpGroupWithParameter:parameter Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
