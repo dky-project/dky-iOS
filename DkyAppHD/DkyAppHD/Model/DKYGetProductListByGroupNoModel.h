@@ -41,4 +41,6 @@
 @property (nonatomic, assign) NSInteger sum;
 @property (nonatomic, copy) NSString *sumText;
 
+@property (nonatomic, strong) NSString *defaultXcValue;
+
 @end

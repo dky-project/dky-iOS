@@ -101,6 +101,8 @@
             
             weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue = weakSelf.getSizeDataModel.yc;
             weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = weakSelf.getSizeDataModel.xc;
+            
+            weakSelf.getProductListByGroupNoModel.defaultXcValue = weakSelf.getSizeDataModel.xc;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];

@@ -220,6 +220,33 @@
     }];
 }
 
+#pragma mark - help method
+- (BOOL)checkForSave{
+    for (DKYGetProductListByGroupNoModel *model in self.productList) {
+        if(!model.isBigOrder &&model.defaultXcValue){
+            double value1 = [model.addDpGroupApproveParam.xcValue doubleValue];
+            double value2 = [model.defaultXcValue doubleValue];
+            
+            if(fabs(value1 - value2) > 4){
+                [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
+                return NO;
+            }
+        }
+    }
+
+    return YES;
+    
+}
+
+- (BOOL)checkForConfirm{
+    if(!self.addProductDpGroupResponseModel) {
+        [DKYHUDTool showInfoWithStatus:@"请先保存订单"];
+        return NO;
+    }
+    return YES;
+}
+
+
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -374,11 +401,14 @@
     }];
     
     actionView.confirmBtnClicked = ^(UIButton* sender){
+        if(![weakSelf checkForConfirm]) return ;
+        
         [weakSelf confirmProductApproveToServer];
     };
     
     actionView.saveBtnClicked = ^(UIButton *sender){
         // 1.检查参数
+        if(![weakSelf checkForSave]) return;
         
         // 2.调用接口
         [weakSelf addProductDpGroup];
