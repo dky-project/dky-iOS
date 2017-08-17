@@ -30,5 +30,10 @@
  */
 @property (nonatomic, strong) NSNumber *colorId;
 
+/**
+ * 数量
+ */
+@property (nonatomic, strong) NSNumber *sum;
+
 
 @end

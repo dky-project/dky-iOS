@@ -39,4 +39,9 @@
  */
 @property (nonatomic, copy) NSString *colorArr;
 
+/**
+ * 数量
+ */
+@property (nonatomic, strong) NSNumber *sum;
+
 @end

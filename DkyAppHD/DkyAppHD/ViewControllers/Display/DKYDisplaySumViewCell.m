@@ -45,12 +45,17 @@
 
 - (void)updateSum{
     NSInteger sum = 0;
-    
+    double sumMoney = 0;
     for (DKYGetProductListByGroupNoModel *model in self.productList) {
         sum += model.sum;
+        sumMoney += model.sum * [model.price doubleValue];
     }
     
     self.ammountSumLabel.text = (sum > 0) ? [NSString stringWithFormat:@"%@",@(sum)] : @"合计";
+
+    NSString *sumMoneyText = [NSString formatRateStringWithRate:sumMoney];
+    
+    self.moneySumLabel.text = (sum > 0) ? sumMoneyText : @"合计";
 }
 
 #pragma mark - UI

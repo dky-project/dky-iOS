@@ -69,6 +69,8 @@
     }
     
     self.amountTextField.text = getProductListByGroupNoModel.sumText;
+    
+    [self updateWhenSUmChanged];
 }
 
 - (void)delProductCollectToServer{
@@ -134,7 +136,6 @@
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
-
 
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
@@ -226,7 +227,16 @@
     }
 }
 
-
+- (void)updateWhenSUmChanged{
+    if(self.getProductListByGroupNoModel.sum > 0){
+        double sum = self.getProductListByGroupNoModel.sum * [self.getProductListByGroupNoModel.price doubleValue];
+        NSString *sumMoney = [NSString formatRateStringWithRate:sum];
+        
+        self.moneyLabel.text = sumMoney;
+    }else{
+        self.moneyLabel.text = @"金额";
+    }
+}
 #pragma mark - UI
 
 - (void)commonInit{
@@ -260,6 +270,8 @@
     [self p_customSunview:self.amountTextField];
     [self.amountTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
         weakSelf.getProductListByGroupNoModel.sum = [sender.text integerValue];
+        
+        [weakSelf updateWhenSUmChanged];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount":sender.text}];
     }];

@@ -224,16 +224,58 @@
 #pragma mark - help method
 - (BOOL)checkForSave{
     for (DKYGetProductListByGroupNoModel *model in self.productList) {
-        if(!model.isBigOrder &&model.defaultXcValue){
-            double value1 = [model.addDpGroupApproveParam.xcValue doubleValue];
-            double value2 = [model.defaultXcValue doubleValue];
-            
-            if(fabs(value1 - value2) > 4){
-                [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
+        NSInteger sum = model.sum;
+        if(sum == 0){
+            [DKYHUDTool showInfoWithStatus:@"数量为0！"];
+            return NO;
+        }
+        
+        if(model.isBigOrder){
+            if(!model.addDpGroupBmptParam.colorId){
+                [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
                 return NO;
             }
+            
+            if(!model.addDpGroupBmptParam.sizeId){
+                [DKYHUDTool showInfoWithStatus:@"尺寸不能为空！"];
+                return NO;
+            }
+        }else{
+            if(![model.addDpGroupApproveParam.mDimNew14Id isNotBlank]){
+                [DKYHUDTool showInfoWithStatus:@"品种不能为空！"];
+                return NO;
+            }
+            
+#ifndef DEBUG
+            if(![model.addDpGroupApproveParam.colorArr isNotBlank]){
+                [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
+                return NO;
+            }
+#endif
+            
+            
+            if(![model.addDpGroupApproveParam.xwValue isNotBlank]){
+                [DKYHUDTool showInfoWithStatus:@"胸围不能为空！"];
+                return NO;
+            }
+            
+            if(![model.addDpGroupApproveParam.ycValue isNotBlank]){
+                [DKYHUDTool showInfoWithStatus:@"衣长不能为空！"];
+                return NO;
+            }
+            
+            // 袖长
+            if(!model.isBigOrder &&model.defaultXcValue){
+                double value1 = [model.addDpGroupApproveParam.xcValue doubleValue];
+                double value2 = [model.defaultXcValue doubleValue];
+                
+                if(fabs(value1 - value2) > 4){
+                    [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
+                    return NO;
+                }
+            }
         }
-    }
+}
 
     return YES;
     

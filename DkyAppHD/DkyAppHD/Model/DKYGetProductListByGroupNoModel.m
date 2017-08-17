@@ -39,6 +39,12 @@
     
     if(sum > 0){
         self.sumText = [NSString stringWithFormat:@"%@",@(sum)];
+        
+        if(self.isBigOrder){
+            self.addDpGroupBmptParam.sum = @(sum);
+        }else{
+            self.addDpGroupApproveParam.sum = @(sum);
+        }
     }
 }
 

@@ -16,6 +16,7 @@
 #import "DKYColorDimListModel.h"
 #import "DKYProductCollectParameter.h"
 #import "DKYDisplayCollectButton.h"
+#import "NSString+Utility.h"
 
 @interface DKYDisplayCategoryViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -64,7 +65,17 @@
     
     self.xcTextField.text = getProductListByGroupNoModel.addDpGroupApproveParam.xcValue;
     
+    // 数量
     self.amountTextField.text = getProductListByGroupNoModel.sumText;
+    
+    if(getProductListByGroupNoModel.sum > 0){
+        double sum = getProductListByGroupNoModel.sum * [getProductListByGroupNoModel.price doubleValue];
+        NSString *sumMoney = [NSString formatRateStringWithRate:sum];
+        
+        self.moneyLabel.text = sumMoney;
+    }else{
+        self.moneyLabel.text = @"金额";
+    }
     
     // 品种
     for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
@@ -80,6 +91,8 @@
     }
     
     self.collectBtn.selected = getProductListByGroupNoModel.isCollected;
+    
+    [self updateWhenSUmChanged];
 }
 
 #pragma mark - 网络请求
@@ -332,6 +345,16 @@
     }
 }
 
+- (void)updateWhenSUmChanged{
+    if(self.getProductListByGroupNoModel.sum > 0){
+        double sum = self.getProductListByGroupNoModel.sum * [self.getProductListByGroupNoModel.price doubleValue];
+        NSString *sumMoney = [NSString formatRateStringWithRate:sum];
+        
+        self.moneyLabel.text = sumMoney;
+    }else{
+        self.moneyLabel.text = @"金额";
+    }
+}
 
 #pragma mark - UI
 
@@ -386,6 +409,8 @@
     [self p_customSunview:self.amountTextField];
     [self.amountTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
         weakSelf.getProductListByGroupNoModel.sum = [sender.text integerValue];
+        
+        [weakSelf updateWhenSUmChanged];
         
 //        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount" : sender.text}];
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:nil];
