@@ -30,6 +30,8 @@
 @property (nonatomic, weak) UIButton *colorBtn;
 @property (nonatomic, weak) UITextView *selectedColorView;
 
+@property (nonatomic, weak) UIButton *colorGroupBtn;
+
 @end
 
 @implementation DKYSampleOrderVarietyItemView
@@ -432,10 +434,20 @@
             }
         }
             break;
+        case 5:{
+            models = self.madeInfoByProductName.colorRangeViewList;
+        }
+            break;
     }
     
-    for (DKYDimlistItemModel *model in models) {
-        [item addObject:model.attribname];
+    if(sender.tag != 5){
+        for (DKYDimlistItemModel *model in models) {
+            [item addObject:model.attribname];
+        }
+    }else{
+        for (NSDictionary *dict in models) {
+            [item addObject:[dict objectForKey:@"colorName"]];
+        }
     }
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
@@ -444,7 +456,7 @@
                                              cancelButtonTitle:kDeleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
-                                                           if(buttonIndex != 0){
+                                                           if(buttonIndex != 0 && sender.tag != 5){
                                                                [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
                                                            }else{
                                                                [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
@@ -546,7 +558,65 @@
             }
         }
             break;
+        case 5:{
+            models = self.madeInfoByProductName.colorRangeViewList;
+            
+            NSDictionary *colorGroup = [models objectOrNilAtIndex:index - 1];
+            
+            NSString *color = [colorGroup objectForKey:@"colorName"];
+            
+            // 解析选中颜色，取出()前面
+            NSArray *temp = [color componentsSeparatedByString:@","];
+            
+            NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
+            
+            for (NSString *item in temp) {
+                NSRange range = [item rangeOfString:@"("];
+                NSString *colorName = nil;
+                if(range.location != NSNotFound){
+                    colorName = [item substringToIndex:range.location];
+                }else{
+                    colorName = item;
+                }
+                
+                [colors addObject:colorName];
+            }
+            
+            [self colorGroupSelected:colors.copy];
+            
+            DLog(@"colors = %@",colors);
+        }
+            break;
+
     }
+}
+
+- (void)colorGroupSelected:(NSArray*)selectedColors{
+    NSMutableString *selectedColor = [NSMutableString string];
+    NSMutableArray *clrRangeArray = [NSMutableArray array];
+
+    for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.displayColorViewList) {
+        BOOL match = NO;
+        for (NSString *colorName in selectedColors) {
+            if([color.colorName isEqualToString:colorName]){
+                color.selected = YES;
+                match = YES;
+                break;
+            }
+        }
+        
+        if(!match){
+            color.selected = NO;
+        }else{
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+            
+            [clrRangeArray addObject:color.colorName];
+        }
+    }
+    
+    self.madeInfoByProductName.productMadeInfoView.clrRangeArray = [clrRangeArray copy];
+    self.selectedColorView.text = selectedColor;
 }
 
 - (void)dealWithmDimNew15IdSelected{
@@ -775,6 +845,27 @@
     }
     
     self.colorBtn = btn;
+    
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
+    [self addSubview:btn];
+    btn.tag = 5;
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.fourthBtn);
+        make.left.mas_equalTo(weakSelf.colorBtn.mas_right).with.offset(30);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
+        make.height.mas_equalTo(weakSelf.optionsBtn);
+    }];
+    [btn setTitle:@"点击选择推荐色" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
+    
+//    btn.titleLabel.numberOfLines = 0;
+    btn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    
+    self.colorGroupBtn = btn;
 }
 
 - (void)setupSelectedColorView{

@@ -17,6 +17,11 @@
 // 大货订单时候用的action sheet 数组
 @property (nonatomic, strong) NSArray *colorViewList;
 
+/**
+ * 颜色组
+ */
+@property (nonatomic, strong) NSArray *colorRangeViewList;
+
 @property (nonatomic, strong) NSArray *sizeViewList;
 
 @property (nonatomic, strong) DKYProductMadeInfoViewModel *productMadeInfoView;
