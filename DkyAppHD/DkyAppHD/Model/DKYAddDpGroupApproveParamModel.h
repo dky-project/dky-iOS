@@ -44,4 +44,9 @@
  */
 @property (nonatomic, strong) NSNumber *sum;
 
+/**
+ * 针型
+ */
+@property (nonatomic, strong) NSNumber *mDimNew16Id;
+
 @end

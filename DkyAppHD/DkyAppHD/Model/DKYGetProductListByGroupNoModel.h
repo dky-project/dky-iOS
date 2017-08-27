@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray * colorViewList;
 @property (nonatomic, copy) NSString * imgUrl;
 @property (nonatomic, copy) NSString *mDimNew14Id;
+@property (nonatomic, strong) NSNumber *mDimNew16Id;
 @property (nonatomic, strong) NSNumber *mProductId;
 @property (nonatomic, copy) NSString * mptbelongtype;
 @property (nonatomic, copy) NSString * xwValue;
@@ -31,6 +32,8 @@
 @property (nonatomic, strong) NSNumber *price;
 
 @property (nonatomic, strong) NSNumber *iscollect;
+
+@property (nonatomic, strong) NSArray *zxJsonstr;
 
 // 客户端自己的属性
 @property (nonatomic, assign) BOOL isCollected;

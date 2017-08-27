@@ -21,6 +21,7 @@
 @interface DKYDisplayCategoryViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pinzhongBtn;
+@property (weak, nonatomic) IBOutlet UIButton *zhenxingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *colorBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sizeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *lengthBtn;
@@ -81,6 +82,13 @@
     for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
         if([getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id isEqualToString:model.ID]){
             [self.pinzhongBtn setTitle:model.attribname forState:UIControlStateNormal];
+        }
+    }
+    
+    // 针型
+    for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.zxJsonstr) {
+        if([getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id isEqualToNumber:@([model.ID integerValue])]){
+            [self.zhenxingBtn setTitle:model.attribname forState:UIControlStateNormal];
         }
     }
     
@@ -264,6 +272,13 @@
             }
         }
             break;
+        case 3:{
+            // 针型
+            for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.zxJsonstr) {
+                [item addObject:model.attribname];
+            }
+        }
+            break;
           default:
             break;
     }
@@ -340,6 +355,20 @@
             [self getSizeDataFromServer:[dic objectForKey:@"value"]];
         }
             break;
+        case 4:{
+            // 品种
+            if(index == 0){
+                self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id = nil;
+                return;
+            }
+            
+            
+            models = self.getProductListByGroupNoModel.zxJsonstr;
+            DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
+            
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id = @([model.ID integerValue]);
+        }
+            break;
         default:
             break;
     }
@@ -373,6 +402,15 @@
     self.pinzhongBtn.tag = 0;
     [self.pinzhongBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         [weakSelf showOptionsPicker:weakSelf.pinzhongBtn];
+    }];
+    
+    // 针型
+    [self p_customSunview:self.zhenxingBtn];
+    self.zhenxingBtn.originalTitle = [self.zhenxingBtn currentTitle];
+    self.zhenxingBtn.extraInfo = [self.zhenxingBtn currentTitle];
+    self.zhenxingBtn.tag = 3;
+    [self.zhenxingBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        [weakSelf showOptionsPicker:weakSelf.zhenxingBtn];
     }];
     
     // 颜色

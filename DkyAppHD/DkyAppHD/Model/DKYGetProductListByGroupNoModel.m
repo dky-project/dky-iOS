@@ -13,7 +13,8 @@
 + (NSDictionary*)mj_objectClassInArray{
     return @{@"colorViewList" : @"DKYDahuoOrderColorModel",
              @"sizeViewList":@"DKYSizeViewListItemModel",
-             @"pzJsonstr":@"DKYDimlistItemModel"};
+             @"pzJsonstr":@"DKYDimlistItemModel",
+             @"zxJsonstr":@"DKYDimlistItemModel"};
 }
 
 - (void)mj_keyValuesDidFinishConvertingToObject{
@@ -31,6 +32,7 @@
         self.addDpGroupApproveParam.mDimNew14Id = self.mDimNew14Id;
         self.addDpGroupApproveParam.xwValue = self.xwValue;
         self.addDpGroupApproveParam.ycValue = self.ycValue;
+        self.addDpGroupApproveParam.mDimNew16Id = self.mDimNew16Id;
     }
 }
 
