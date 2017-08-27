@@ -80,6 +80,8 @@
 
 #define kAddProductDpGroupUrl           @"productApprove/addProductDpGroup"     // 搭配下单
 
+#define kGetProductPriceUrl     @"product/getProductPrice"      // 获取价格
+
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
 

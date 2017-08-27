@@ -145,6 +145,9 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithAuthorizationToken:kAddProductDpGroupUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)getProductPriceWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kGetProductPriceUrl withParameter:parameter Success:success failure:failure];
+}
 
 #pragma mark - private method
 - (void)p_doPostWithAuthorizationToken:(NSString*)url withParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{

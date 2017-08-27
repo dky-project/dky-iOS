@@ -17,6 +17,7 @@
 #import "DKYProductCollectParameter.h"
 #import "DKYDisplayCollectButton.h"
 #import "NSString+Utility.h"
+#import "DKYGetProductPriceParameter.h"
 
 @interface DKYDisplayCategoryViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -100,7 +101,7 @@
     
     self.collectBtn.selected = getProductListByGroupNoModel.isCollected;
     
-    [self updateWhenSUmChanged];
+    [self updateWhenSumChanged];
 }
 
 #pragma mark - 网络请求
@@ -126,6 +127,8 @@
             weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = weakSelf.getSizeDataModel.xc;
             
             weakSelf.getProductListByGroupNoModel.defaultXcValue = weakSelf.getSizeDataModel.xc;
+            
+            [weakSelf getProductPriceFromServer];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -237,7 +240,45 @@
     }];
 }
 
-
+- (void)getProductPriceFromServer{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+    
+    DKYGetProductPriceParameter *p = [[DKYGetProductPriceParameter alloc] init];
+    
+    p.pdt = self.getProductListByGroupNoModel.productName;
+    p.pdtId = self.getProductListByGroupNoModel.mProductId;
+    p.mptbelongtype = self.getProductListByGroupNoModel.mptbelongtype;
+    p.mDimNew14Id = @([self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id integerValue]);
+    p.mDimNew16Id = self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id;
+    p.xwValue = self.getProductListByGroupNoModel.addDpGroupApproveParam.xwValue;
+    p.xcValue = self.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue;
+    p.ycValue = self.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue;
+    
+    [[DKYHttpRequestManager sharedInstance] getProductPriceWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.getProductListByGroupNoModel.price = result.data;
+            [weakSelf updateWhenSumChanged];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:nil];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
 
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
@@ -320,6 +361,7 @@
             self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = model.ID;
             
             [self getColorDimListFromServer:model.ID];
+            [self getProductPriceFromServer];
         }
             break;
         case 1:{
@@ -355,8 +397,8 @@
             [self getSizeDataFromServer:[dic objectForKey:@"value"]];
         }
             break;
-        case 4:{
-            // 品种
+        case 3:{
+            // 针型
             if(index == 0){
                 self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id = nil;
                 return;
@@ -367,6 +409,8 @@
             DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
             
             self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id = @([model.ID integerValue]);
+            
+            [self getProductPriceFromServer];
         }
             break;
         default:
@@ -374,7 +418,7 @@
     }
 }
 
-- (void)updateWhenSUmChanged{
+- (void)updateWhenSumChanged{
     if(self.getProductListByGroupNoModel.sum > 0){
         double sum = self.getProductListByGroupNoModel.sum * [self.getProductListByGroupNoModel.price doubleValue];
         NSString *sumMoney = [NSString formatRateStringWithRate:sum];
@@ -435,12 +479,14 @@
     [self p_customSunview:self.lengthTextFied];
     [self.lengthTextFied addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
         weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue = sender.text;
+        [weakSelf getProductPriceFromServer];
     }];
     
     // 袖长
     [self p_customSunview:self.xcTextField];
     [self.xcTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
         weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = sender.text;
+        [weakSelf getProductPriceFromServer];
     }];
     
     // 数量
@@ -448,7 +494,7 @@
     [self.amountTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
         weakSelf.getProductListByGroupNoModel.sum = [sender.text integerValue];
         
-        [weakSelf updateWhenSUmChanged];
+        [weakSelf updateWhenSumChanged];
         
 //        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount" : sender.text}];
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:nil];
@@ -490,6 +536,7 @@
         QMUITextField *textField = (QMUITextField*)view;
         textField.textInsets = UIEdgeInsetsMake(0, 5, 0, 0);
         textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+        textField.shouldResponseToProgrammaticallyTextChanges = NO;
     }
 }
 @end

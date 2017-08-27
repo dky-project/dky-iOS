@@ -40,6 +40,7 @@
 		263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */; };
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
+		264C3C9B1F53057A00F47747 /* DKYGetProductPriceParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */; };
 		266290761E9D039D00886274 /* UIButton+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290631E9D039D00886274 /* UIButton+VTMagic.m */; };
 		266290771E9D039D00886274 /* UIColor+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290651E9D039D00886274 /* UIColor+VTMagic.m */; };
 		266290781E9D039D00886274 /* UIScrollView+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 266290671E9D039D00886274 /* UIScrollView+VTMagic.m */; };
@@ -427,6 +428,8 @@
 		263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestTool.m; sourceTree = "<group>"; };
 		263CC1731E155CED002FBB50 /* DKYHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpRequestManager.h; sourceTree = "<group>"; };
 		263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestManager.m; sourceTree = "<group>"; };
+		264C3C991F53057A00F47747 /* DKYGetProductPriceParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductPriceParameter.h; sourceTree = "<group>"; };
+		264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductPriceParameter.m; sourceTree = "<group>"; };
 		266290621E9D039D00886274 /* UIButton+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+VTMagic.h"; sourceTree = "<group>"; };
 		266290631E9D039D00886274 /* UIButton+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+VTMagic.m"; sourceTree = "<group>"; };
 		266290641E9D039D00886274 /* UIColor+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VTMagic.h"; sourceTree = "<group>"; };
@@ -1796,6 +1799,8 @@
 				EBD825241F428A35000C77E3 /* DKYAddProductDpGroupJsonParameter.m */,
 				EBD825291F42C36D000C77E3 /* DKYConfirmProductApproveParameter.h */,
 				EBD8252A1F42C36D000C77E3 /* DKYConfirmProductApproveParameter.m */,
+				264C3C991F53057A00F47747 /* DKYGetProductPriceParameter.h */,
+				264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2760,6 +2765,7 @@
 				26A6FA601E61A13C00376194 /* DKYDimNewListItemModel.m in Sources */,
 				EBD304A61F20AE6400CA400C /* DALabeledCircularProgressView.m in Sources */,
 				EB97F2BC1E25C36A00BDC705 /* DQFormHeader.m in Sources */,
+				264C3C9B1F53057A00F47747 /* DKYGetProductPriceParameter.m in Sources */,
 				EBC6149F1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m in Sources */,
 				263CC15E1E1555E7002FBB50 /* UIColor+Utility.m in Sources */,
 				EB9ACBD11E5EB8EC0007517C /* DKYDahuoOrderColorModel.m in Sources */,
