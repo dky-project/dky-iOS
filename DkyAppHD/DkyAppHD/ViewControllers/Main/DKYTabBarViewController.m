@@ -99,9 +99,9 @@
 - (void)addAllChildVcs
 {
     // 首页
-    DKYHomeViewController *homeVc = [[DKYHomeViewController alloc] init];
-    [self addOneChlildVc:homeVc title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home"];
-    self.homeVc = homeVc;
+//    DKYHomeViewController *homeVc = [[DKYHomeViewController alloc] init];
+//    [self addOneChlildVc:homeVc title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home"];
+//    self.homeVc = homeVc;
     
     // 样衣查询
     DKYSampleQueryViewController *sampleQueryVc = [[DKYSampleQueryViewController alloc] init];
@@ -109,18 +109,18 @@
     self.sampleQueryVc = sampleQueryVc;
     
     // 定制下单
-    DKYCustomOrderAllViewController *customOrderVc = [(DKYCustomOrderAllViewController*)[DKYCustomOrderAllViewController alloc] init];
-    [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_customOrder" selectedImageName:@"tabbar_customOrder"];
-//     老机型比较卡，先让页面初始化下
-    if([UIScreen mainScreen].scale == 1){
-        customOrderVc.view.backgroundColor = [UIColor whiteColor];
-    }
-    self.customOrderVc = customOrderVc;
+//    DKYCustomOrderAllViewController *customOrderVc = [(DKYCustomOrderAllViewController*)[DKYCustomOrderAllViewController alloc] init];
+//    [self addOneChlildVc:customOrderVc title:@"定制下单" imageName:@"tabbar_customOrder" selectedImageName:@"tabbar_customOrder"];
+////     老机型比较卡，先让页面初始化下
+//    if([UIScreen mainScreen].scale == 1){
+//        customOrderVc.view.backgroundColor = [UIColor whiteColor];
+//    }
+//    self.customOrderVc = customOrderVc;
     
     // 收藏列表
-//    DKYCollectListViewController *collectListVc = [[DKYCollectListViewController alloc] init];
-//    [self addOneChlildVc:collectListVc title:@"收藏列表" imageName:@"tabbar_collect_list" selectedImageName:@"tabbar_collect_list"];
-//    self.collectListVc = collectListVc;
+    DKYCollectListViewController *collectListVc = [[DKYCollectListViewController alloc] init];
+    [self addOneChlildVc:collectListVc title:@"收藏列表" imageName:@"tabbar_collect_list" selectedImageName:@"tabbar_collect_list"];
+    self.collectListVc = collectListVc;
     
     // 订单查询
     DKYOrderInquiryAllViewController *orderInquiryVc = [[DKYOrderInquiryAllViewController alloc] init];
@@ -128,9 +128,9 @@
     self.orderInquiryVc = orderInquiryVc;
     
     // 推荐功能
-    DKYRecommendViewController *recommendVc = [[DKYRecommendViewController alloc] init];
-    [self addOneChlildVc:recommendVc title:@"推荐" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
-    self.recommendVc = recommendVc;
+//    DKYRecommendViewController *recommendVc = [[DKYRecommendViewController alloc] init];
+//    [self addOneChlildVc:recommendVc title:@"推荐" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
+//    self.recommendVc = recommendVc;
     
     // 陈列功能
     DKYDisplayViewController *displayVc = [[DKYDisplayViewController alloc] init];
