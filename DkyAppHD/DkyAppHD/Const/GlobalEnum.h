@@ -70,4 +70,11 @@ typedef NS_ENUM(NSInteger, DKYFormType) {
     DKYFormType_TypeTwo,    // 设置表格背景色没0xf1f1f1，非这个类型，为默认的白色
 };
 
+// 详情下单颜色选中类型
+typedef NS_ENUM(NSInteger, DKYDetailOrderSelectedColorType) {
+    DKYDetailOrderSelectedColorType_Unset = 0,
+    DKYDetailOrderSelectedColorType_MulSelected, // 多选
+    DKYDetailOrderSelectedColorType_ColorGroup,    // 颜色组
+};
+
 #endif /* GlobalEnum_h */

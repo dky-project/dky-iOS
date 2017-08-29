@@ -266,6 +266,7 @@ static const CGFloat basicItemHeight = 45;
     
     if(selectedColor.count > 0){
         self.addProductApproveParameter.colorArr = [selectedColor componentsJoinedByString:@";"];
+        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
     }
     
     // 式样

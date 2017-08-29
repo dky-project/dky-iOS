@@ -160,6 +160,14 @@
     if([selectedColor isNotBlank]){
         self.selectedColorView.text = selectedColor;
     }
+    
+    if(selectedModel.count > 0){
+        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
+        self.colorGroupBtn.enabled = NO;
+    }else{
+        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
+        self.colorGroupBtn.enabled = YES;
+    }
 }
 
 - (void)clear{
@@ -594,6 +602,7 @@
 - (void)colorGroupSelected:(NSArray*)selectedColors{
     NSMutableString *selectedColor = [NSMutableString string];
     NSMutableArray *clrRangeArray = [NSMutableArray array];
+    NSMutableArray *selectedColorModels = [NSMutableArray array];
 
     for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.displayColorViewList) {
         BOOL match = NO;
@@ -612,11 +621,30 @@
             [selectedColor appendString:oneColor];
             
             [clrRangeArray addObject:color.colorName];
+            [selectedColorModels addObject:color];
         }
     }
     
-    self.madeInfoByProductName.productMadeInfoView.clrRangeArray = [clrRangeArray copy];
+    // 主色
+    DKYDahuoOrderColorModel *model = [selectedColorModels objectOrNilAtIndex:0];
+    self.addProductApproveParameter.colorValue = @(model.colorId);
+
+    
+    if(selectedColorModels.count > 0){
+        self.addProductApproveParameter.colorArr = [clrRangeArray componentsJoinedByString:@";"];
+    }else{
+        self.addProductApproveParameter.colorArr = nil;
+    }
+    
     self.selectedColorView.text = selectedColor;
+    
+    if(selectedColors.count == 0){
+        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
+        self.colorBtn.enabled = YES;
+    }else{
+        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_ColorGroup;
+        self.colorBtn.enabled = NO;
+    }
 }
 
 - (void)dealWithmDimNew15IdSelected{
@@ -727,6 +755,14 @@
         }
         weakSelf.madeInfoByProductName.productMadeInfoView.clrRangeArray = [clrRangeArray copy];
         weakSelf.selectedColorView.text = selectedColor;
+        
+        if(selectedColors.count > 0){
+            weakSelf.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
+            weakSelf.colorGroupBtn.enabled = NO;
+        }else{
+            weakSelf.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
+            weakSelf.colorGroupBtn.enabled = YES;
+        }
     };
 }
 #pragma mark - mark

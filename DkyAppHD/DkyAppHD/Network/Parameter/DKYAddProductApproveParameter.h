@@ -404,4 +404,9 @@
 
 @property (nonatomic, strong) NSNumber *defaultHzxc1Value;
 
+/**
+ 表示是多选的，还是颜色组选的
+ */
+@property (nonatomic, assign) DKYDetailOrderSelectedColorType colorSource;
+
 @end
