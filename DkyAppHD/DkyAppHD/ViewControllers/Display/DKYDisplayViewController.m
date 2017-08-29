@@ -224,12 +224,12 @@
 #pragma mark - help method
 - (BOOL)checkForSave{
     for (DKYGetProductListByGroupNoModel *model in self.productList) {
-        NSInteger sum = model.sum;
-        if(sum == 0){
-            [DKYHUDTool showInfoWithStatus:@"数量为0！"];
-            return NO;
-        }
-        
+//        NSInteger sum = model.sum;
+//        if(sum == 0){
+//            [DKYHUDTool showInfoWithStatus:@"数量为0！"];
+//            return NO;
+//        }
+//        
         if(model.isBigOrder){
             if(!model.addDpGroupBmptParam.colorId){
                 [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
