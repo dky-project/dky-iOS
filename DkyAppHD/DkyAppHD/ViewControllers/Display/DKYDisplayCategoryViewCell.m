@@ -159,6 +159,20 @@
             NSArray *array = [DKYDahuoOrderColorModel mj_objectArrayWithKeyValuesArray:result.data];
             weakSelf.getProductListByGroupNoModel.colorViewList = array;
             
+            if([weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr isNotBlank]){
+                bool mached = NO;
+                for(DKYDahuoOrderColorModel *color in array){
+                    if([color.colorName isEqualToString:weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr]){
+                        mached = YES;
+                        break;
+                    }
+                }
+                if(!mached){
+                    weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
+                    [weakSelf.colorBtn setTitle:weakSelf.colorBtn.originalTitle forState:UIControlStateNormal];
+                }
+            }
+            
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [DKYHUDTool dismiss];
