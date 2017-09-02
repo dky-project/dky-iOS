@@ -32,6 +32,11 @@
 
 @property (nonatomic, weak) UIButton *colorGroupBtn;
 
+// 调用另外的接口返回的选项数组
+@property (nonatomic, copy) NSArray *zbJsonArray;
+@property (nonatomic, copy) NSArray *zxJsonArray;
+@property (nonatomic, copy) NSArray *zzJsonArray;
+
 @end
 
 @implementation DKYSampleOrderVarietyItemView
@@ -194,9 +199,16 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             NSDictionary *dict = (NSDictionary*)result.data;
-            NSArray *value = [dict objectForKey:@"value"];
-            NSArray *array = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
-            [weakSelf dealWithgetPzsJsonFromServer:flag value:array];
+            NSArray *value = [dict objectForKey:@"zbJson"];
+            weakSelf.zbJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
+            
+            value = [dict objectForKey:@"zxJson"];
+            weakSelf.zxJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
+            
+            value = [dict objectForKey:@"zzJson"];
+            weakSelf.zzJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
+            
+            [weakSelf dealWithgetPzsJsonFromServer:flag value:nil];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -286,13 +298,16 @@
 - (void)dealWithgetPzsJsonFromServer:(NSInteger)flag value:(NSArray*)value{
     switch (flag) {
         case 2:
-            self.madeInfoByProductName.productMadeInfoView.zzJsonArray = value;
+            self.madeInfoByProductName.productMadeInfoView.zzJsonArray = self.zzJsonArray;
+            self.madeInfoByProductName.productMadeInfoView.zxJsonArray = self.zxJsonArray;
+            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = self.zbJsonArray;
             break;
         case 3:
-            self.madeInfoByProductName.productMadeInfoView.zxJsonArray = value;
+            self.madeInfoByProductName.productMadeInfoView.zxJsonArray = self.zxJsonArray;
+            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = self.zbJsonArray;
             break;
         case 4:
-            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = value;
+            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = self.zbJsonArray;
             break;
         case 5:
             
