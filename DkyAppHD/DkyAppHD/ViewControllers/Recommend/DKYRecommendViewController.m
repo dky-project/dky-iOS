@@ -7,6 +7,7 @@
 //
 
 #import "DKYRecommendViewController.h"
+#import "DKYRecommendSmallImageViewCell.h"
 
 @interface DKYRecommendViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -43,10 +44,16 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
+    if(indexPath.section == 0){
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
+        
+        cell.backgroundColor = [UIColor randomColor];
+        return cell;
+    }
     
-    cell.backgroundColor = [UIColor randomColor];
+    DKYRecommendSmallImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYRecommendSmallImageViewCell class]) forIndexPath:indexPath];
     return cell;
+    
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -57,9 +64,7 @@
     }
     
     
-//    CGFloat width = (kScreenWidth - 5 * 26) / 4;
-    CGFloat width = 160;
-    size = CGSizeMake(width, width);
+    size = CGSizeMake(174, 273.5);
     
     return size;
 }
@@ -88,7 +93,7 @@
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:@"推荐"];
+    [self setupCustomTitle:@"陈列"];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
@@ -98,6 +103,7 @@
 - (void)setupCollectionView{
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    flowLayout.minimumInteritemSpacing = 2;
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     
     collectionView.delegate = self;
@@ -111,6 +117,7 @@
     [self.view addSubview:collectionView];
     
     [collectionView registerClass:[UICollectionViewCell class]forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    [collectionView registerClass:[DKYRecommendSmallImageViewCell class] forCellWithReuseIdentifier:NSStringFromClass([DKYRecommendSmallImageViewCell class])];
     
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -29,6 +29,7 @@
 		26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BFE1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m */; };
 		26210C021E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */; };
 		26210C051E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */; };
+		2637029B1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
 		263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1431E1555E7002FBB50 /* NSString+Utility.m */; };
@@ -404,6 +405,8 @@
 		26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupViewCell.m; sourceTree = "<group>"; };
 		26210C031E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYMultipleSelectPopupItemModel.h; sourceTree = "<group>"; };
 		26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupItemModel.m; sourceTree = "<group>"; };
+		263702991F585BD2000991C5 /* DKYRecommendSmallImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendSmallImageViewCell.h; sourceTree = "<group>"; };
+		2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendSmallImageViewCell.m; sourceTree = "<group>"; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
 		263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
 		263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1105,6 +1108,15 @@
 				26210BEC1E59A3A900EB05D6 /* BEMPathManager.m */,
 			);
 			path = BEMCheckBox;
+			sourceTree = "<group>";
+		};
+		2637029C1F5A452B000991C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				263702991F585BD2000991C5 /* DKYRecommendSmallImageViewCell.h */,
+				2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		263CC1381E1555E7002FBB50 /* Categories */ = {
@@ -2171,6 +2183,7 @@
 			children = (
 				EBB0FBA21F3049E400BCD57C /* DKYRecommendViewController.h */,
 				EBB0FBA31F3049E400BCD57C /* DKYRecommendViewController.m */,
+				2637029C1F5A452B000991C5 /* Views */,
 			);
 			path = Recommend;
 			sourceTree = "<group>";
@@ -2782,6 +2795,7 @@
 				EB9ACBC81E5E7E930007517C /* DKYDahuoPopupView.m in Sources */,
 				2670F9D81F2B87F800D579B1 /* DkySampleOrderImageViewCell.m in Sources */,
 				EB9511A71E164444008708EF /* WXSPercentDrivenInteractiveTransition.m in Sources */,
+				2637029B1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m in Sources */,
 				EB3F2BDA1EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.m in Sources */,
 				26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */,
 				EB9511AC1E164444008708EF /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,

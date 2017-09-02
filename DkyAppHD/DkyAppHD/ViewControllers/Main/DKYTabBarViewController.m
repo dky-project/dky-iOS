@@ -129,7 +129,7 @@
     
     // 推荐功能
     DKYRecommendViewController *recommendVc = [[DKYRecommendViewController alloc] init];
-    [self addOneChlildVc:recommendVc title:@"推荐" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
+    [self addOneChlildVc:recommendVc title:@"陈列" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
     self.recommendVc = recommendVc;
     
     // 陈列功能
