@@ -383,10 +383,10 @@
     self.headerView.getProductListByGroupNoParameter = self.getProductListByGroupNoParameter;
     
     self.headerView.searchBtnClicked = ^(id sender) {
-//        if(![weakSelf.getProductListByGroupNoParameter.groupNo isNotBlank]){
-//            [DKYHUDTool showErrorWithStatus:@"组号不能为空"];
-//            return;
-//        }
+        if(![weakSelf.getProductListByGroupNoParameter.groupNo isNotBlank]){
+            [DKYHUDTool showErrorWithStatus:@"组号不能为空"];
+            return;
+        }
         
         [weakSelf.view endEditing:YES];
         
