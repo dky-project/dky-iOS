@@ -241,26 +241,21 @@ static const CGFloat basicItemHeight = 45;
     self.addProductApproveParameter.mDimNew17Id = self.madeInfoByProductName.productMadeInfoView.mDimNew17Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew17Id): nil;
     
     //颜色
-    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+    NSMutableArray *selectedColor = [NSMutableArray array];
+    for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
             if([model.colorName isEqualToString:selectColor]){
                 model.selected = YES;
+                [selectedColor addObject:selectColor];
                 break;
             }
         }
     }
     
-    NSMutableArray *selectedColor = [NSMutableArray array];
     for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
         if(model.selected){
             self.addProductApproveParameter.colorValue = @(model.colorId);
             break;
-        }
-    }
-    
-    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-        if(model.selected){
-            [selectedColor addObject:model.colorName];
         }
     }
     
