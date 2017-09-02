@@ -101,6 +101,9 @@
     
     self.collectBtn.selected = getProductListByGroupNoModel.isCollected;
     
+    // 袖长
+    self.xcTextField.text = getProductListByGroupNoModel.xcValue;
+    
     [self updateWhenSumChanged];
 }
 

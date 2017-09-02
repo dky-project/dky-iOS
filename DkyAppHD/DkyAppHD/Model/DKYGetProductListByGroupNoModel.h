@@ -33,6 +33,8 @@
 
 @property (nonatomic, strong) NSNumber *iscollect;
 
+@property (nonatomic, copy) NSString *xcValue;
+
 @property (nonatomic, strong) NSArray *zxJsonstr;
 
 // 客户端自己的属性
