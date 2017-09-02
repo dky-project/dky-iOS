@@ -321,17 +321,6 @@
 - (void)updateActionSheetAfterGetPzsJsonFromServer:(NSInteger)flag{
     switch (flag) {
         case 2:{
-//            BOOL exist = NO;
-//            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
-//                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew14Id integerValue]){
-//                    exist = YES;
-//                    break;
-//                }
-//            }
-//            if(!exist){
-//                // 不存在，则刷新
-//                [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
-//            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
@@ -342,21 +331,46 @@
             if(!exist){
                 // 不存在，则刷新
                 [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew15Id = nil;
+            }
+            
+            exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                // 不存在，则刷新
+                [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew16Id = nil;
+
+            }
+            
+            exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew17Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
             }
         }
             break;
         case 3:{
-//            BOOL exist = NO;
-//            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
-//                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
-//                    exist = YES;
-//                    break;
-//                }
-//            }
-//            if(!exist){
-//                // 不存在，则刷新
-//                [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
-//            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
@@ -367,21 +381,33 @@
             if(!exist){
                 // 不存在，则刷新
                 [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew16Id = nil;
             }
+            
+            exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew17Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
+            }
+            
         }
             break;
         case 4:{
-//            BOOL exist = NO;
-//            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
-//                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
-//                    exist = YES;
-//                    break;
-//                }
-//            }
-//            if(!exist){
-//                // 不存在，则刷新
-//                [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
-//            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew17Id integerValue]){
@@ -390,9 +416,19 @@
                 }
             }
             if(!exist){
-                // 不存在，则刷新
-                [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
             }
+            
         }
             break;
         default:
