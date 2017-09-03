@@ -231,10 +231,10 @@
 //        }
 //        
         if(model.isBigOrder){
-            if(!model.addDpGroupBmptParam.colorId){
-                [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
-                return NO;
-            }
+//            if(!model.addDpGroupBmptParam.colorId){
+//                [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
+//                return NO;
+//            }
             
             if(!model.addDpGroupBmptParam.sizeId){
                 [DKYHUDTool showInfoWithStatus:@"尺寸不能为空！"];
@@ -246,12 +246,12 @@
                 return NO;
             }
             
-#ifndef DEBUG
-            if(![model.addDpGroupApproveParam.colorArr isNotBlank]){
-                [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
-                return NO;
-            }
-#endif
+//#ifndef DEBUG
+//            if(![model.addDpGroupApproveParam.colorArr isNotBlank]){
+//                [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
+//                return NO;
+//            }
+//#endif
             
             
             if(![model.addDpGroupApproveParam.xwValue isNotBlank]){
