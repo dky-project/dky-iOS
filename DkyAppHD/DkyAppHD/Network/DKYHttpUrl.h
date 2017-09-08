@@ -82,6 +82,9 @@
 
 #define kGetProductPriceUrl     @"product/getProductPrice"      // 获取价格
 
+// 成列
+#define kGetProductListByGhUrl  @"product/getProductListByGh"  // 陈列
+
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
 

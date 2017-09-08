@@ -18,6 +18,8 @@
 #import "DKYOrderInquiryAllViewController.h"
 #import "DKYRecommendViewController.h"
 #import "DKYDisplayViewController.h"
+#import "DKYRecommendEntryViewController.h"
+#import "DKYDisplayEntryViewController.h"
 
 @interface DKYTabBarViewController ()<UITabBarControllerDelegate>
 
@@ -26,8 +28,8 @@
 @property (nonatomic, weak) DKYCustomOrderAllViewController *customOrderVc;
 @property (nonatomic, weak) DKYCollectListViewController *collectListVc;
 @property (nonatomic, weak) DKYOrderInquiryAllViewController *orderInquiryVc;
-@property (nonatomic, weak) DKYRecommendViewController *recommendVc;
-@property (nonatomic, weak) DKYDisplayViewController *displayVc;
+@property (nonatomic, weak) DKYRecommendEntryViewController *recommendVc;
+@property (nonatomic, weak) DKYDisplayEntryViewController *displayVc;
 
 @end
 
@@ -155,15 +157,20 @@
 }
 
 - (void)setupRecommendVc{
-    DKYRecommendViewController *recommendVc = [[DKYRecommendViewController alloc] init];
+//    DKYRecommendViewController *recommendVc = [[DKYRecommendViewController alloc] init];
+    DKYRecommendEntryViewController *recommendVc = [[DKYRecommendEntryViewController alloc] init];
     [self addOneChlildVc:recommendVc title:@"陈列" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
     self.recommendVc = recommendVc;
 }
 
 - (void)setupDisplayVc{
-    DKYDisplayViewController *displayVc = [[DKYDisplayViewController alloc] init];
+//    DKYDisplayViewController *displayVc = [[DKYDisplayViewController alloc] init];
+    DKYDisplayEntryViewController *displayVc = [[DKYDisplayEntryViewController alloc] init];
+    
     [self addOneChlildVc:displayVc title:@"搭配" imageName:@"tabbar_display" selectedImageName:@"tabbar_display"];
     self.displayVc = displayVc;
+
+
 }
 
 - (void)addOneChlildVc:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName

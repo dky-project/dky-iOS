@@ -149,6 +149,10 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithAuthorizationToken:kGetProductPriceUrl withParameter:parameter Success:success failure:failure];
 }
 
+- (void)getProductListByGhWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kGetProductListByGhUrl withParameter:parameter Success:success failure:failure];
+}
+
 #pragma mark - private method
 - (void)p_doPostWithAuthorizationToken:(NSString*)url withParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     NSDictionary *pDict = nil;

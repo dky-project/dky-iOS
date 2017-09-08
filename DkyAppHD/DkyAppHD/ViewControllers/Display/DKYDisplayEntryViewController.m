@@ -1,30 +1,27 @@
 //
-//  DKYRecommendViewController.m
+//  DKYDisplayEntryViewController.m
 //  DkyAppHD
 //
-//  Created by HaKim on 2017/8/1.
+//  Created by 胡金丽 on 2017/9/8.
 //  Copyright © 2017年 haKim. All rights reserved.
 //
 
-#import "DKYRecommendViewController.h"
-#import "DKYRecommendSmallImageViewCell.h"
-#import "DKYGetProductListByGhParameter.h"
+#import "DKYDisplayEntryViewController.h"
+#import "DKYDisplayViewController.h"
 
-@interface DKYRecommendViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface DKYDisplayEntryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
 
 @end
 
-@implementation DKYRecommendViewController
+@implementation DKYDisplayEntryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     [self commonInit];
-    
-    [self getProductListByGhFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,93 +29,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 网络请求
-- (void)getProductListByGhFromServer{
-    WeakSelf(weakSelf);
-    [DKYHUDTool show];
-    DKYGetProductListByGhParameter *p = [[DKYGetProductListByGhParameter alloc] init];
-    p.gh = @1;
-    
-    [[DKYHttpRequestManager sharedInstance] getProductListByGroupNoWithParameter:p Success:^(NSInteger statusCode, id data) {
-        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
-        DkyHttpResponseCode retCode = [result.code integerValue];
-        if (retCode == DkyHttpResponseCode_Success) {
-            
-        }else if (retCode == DkyHttpResponseCode_NotLogin) {
-            // 用户未登录,弹出登录页面
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
-            [DKYHUDTool showErrorWithStatus:result.msg];
-        }else{
-            NSString *retMsg = result.msg;
-            [DKYHUDTool showErrorWithStatus:retMsg];
-        }
-        [DKYHUDTool dismiss];
-    } failure:^(NSError *error) {
-        DLog(@"Error = %@",error.description);
-        [DKYHUDTool dismiss];
-        [DKYHUDTool showErrorWithStatus:kNetworkError];
-    }];
-}
-
 #pragma mark - collectionView delegate & datasource
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView{
-    return 2;
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section == 0) return 1;
-    
-    return arc4random() % 100;
+    return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0){
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-        
-        cell.backgroundColor = [UIColor randomColor];
-        return cell;
-    }
-    
-    DKYRecommendSmallImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYRecommendSmallImageViewCell class]) forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor randomColor];
     return cell;
-    
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGSize size = CGSizeZero;
-    if(indexPath.section == 0 && indexPath.item == 0) {
-        size = CGSizeMake(kScreenWidth - 26 * 2, 9 * (kScreenWidth - 26 * 2) / 20);
-        return size;
-    }
-    
-    
-    size = CGSizeMake(174, 273.5);
-    
+    CGSize size = CGSizeMake(220, 290);
     return size;
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    UIEdgeInsets insets = UIEdgeInsetsZero;
-    
-    if(section == 0){
-        insets = UIEdgeInsetsMake(28, 0, 0, 0);
-        return insets;
-    }
-    
-    insets = UIEdgeInsetsMake(28, 26, 0, 26);
-    
+    UIEdgeInsets insets = {28,26,0,26};
     return insets;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    DKYDisplayViewController *vc = [[DKYDisplayViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
-
-
-
 #pragma mark - UI
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
@@ -133,7 +75,7 @@
 - (void)setupCollectionView{
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    flowLayout.minimumInteritemSpacing = 2;
+    flowLayout.minimumLineSpacing = 28;
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     
     collectionView.delegate = self;
@@ -147,7 +89,6 @@
     [self.view addSubview:collectionView];
     
     [collectionView registerClass:[UICollectionViewCell class]forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
-    [collectionView registerClass:[DKYRecommendSmallImageViewCell class] forCellWithReuseIdentifier:NSStringFromClass([DKYRecommendSmallImageViewCell class])];
     
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {

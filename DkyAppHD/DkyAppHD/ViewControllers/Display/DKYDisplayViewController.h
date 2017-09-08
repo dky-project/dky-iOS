@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DKYDisplayViewController : UIViewController
+@interface DKYDisplayViewController : TWBaseViewController
 
 @end

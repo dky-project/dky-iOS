@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DKYRecommendViewController : UIViewController
+@interface DKYRecommendViewController : TWBaseViewController
 
 @end
