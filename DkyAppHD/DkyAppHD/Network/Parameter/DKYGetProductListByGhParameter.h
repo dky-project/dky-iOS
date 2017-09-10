@@ -10,8 +10,8 @@
 
 @interface DKYGetProductListByGhParameter : DKYHttpRequestParameter
 
-@property (nonatomic, strong) NSNumber *gh;
+//@property (nonatomic, strong) NSNumber *gh;
 
-//@property (nonatomic, copy) NSString *gh;
+@property (nonatomic, copy) NSString *gh;
 
 @end

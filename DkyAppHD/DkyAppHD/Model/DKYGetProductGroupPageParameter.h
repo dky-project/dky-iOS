@@ -10,6 +10,6 @@
 
 @interface DKYGetProductGroupPageParameter : DKYHttpRequestParameter
 
-@property (nonatomic, strong) NSNumber *groupNo;
+@property (nonatomic, copy) NSString *groupNo;
 
 @end

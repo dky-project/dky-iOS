@@ -46,7 +46,7 @@
     WeakSelf(weakSelf);
     [DKYHUDTool show];
     DKYGetProductListByGhParameter *p = [[DKYGetProductListByGhParameter alloc] init];
-    p.gh = @1;
+    p.gh = self.gh;
     
     [[DKYHttpRequestManager sharedInstance] getProductListByGhWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -54,6 +54,9 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             weakSelf.productList = [DKYGetProductListByGhModel mj_objectArrayWithKeyValuesArray:page.items];
+            
+            weakSelf.pageNo = page.pageNo;
+            weakSelf.totalPageNum = page.totalPageNum;
             
             [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -139,6 +142,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setupCustomTitle:@"陈列"];
     
+    self.pageNo = 1;
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
     [self setupHeaderView];
@@ -162,10 +167,18 @@
     
     self.headerView.preBtnClicked = ^(id sender) {
         if(self.pageNo <= 1) return;
+        
+        --self.pageNo;
+        
+        [self getProductListByGhFromServer];
     };
     
     self.headerView.nextBtnClicked = ^(id sender) {
         if(self.pageNo >= self.totalPageNum) return ;
+        
+        ++self.pageNo;
+        
+        [self getProductListByGhFromServer];
     };
 }
 

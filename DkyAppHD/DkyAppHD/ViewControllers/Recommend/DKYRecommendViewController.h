@@ -10,4 +10,6 @@
 
 @interface DKYRecommendViewController : TWBaseViewController
 
+@property (nonatomic, copy) NSString *gh;
+
 @end

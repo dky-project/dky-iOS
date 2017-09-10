@@ -7,6 +7,7 @@
 //
 
 #import "DKYRecommendEntryViewCell.h"
+#import "DKYGetProductListGhPageModel.h"
 
 @interface DKYRecommendEntryViewCell()
 
@@ -23,10 +24,19 @@
     [self commonInit];
 }
 
+- (void)setGetProductListGhPageModel:(DKYGetProductListGhPageModel *)getProductListGhPageModel{
+    _getProductListGhPageModel = getProductListGhPageModel;
+    
+    NSURL *url = [NSURL URLWithString:getProductListGhPageModel.clImgUrl];
+    
+    [self.imageView sd_setImageWithURL:url placeholderImage:nil];
+    self.sampleIdLabel.text = getProductListGhPageModel.gh;
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
-    self.imageView.backgroundColor = [UIColor randomColor];
+    
 }
 
 @end

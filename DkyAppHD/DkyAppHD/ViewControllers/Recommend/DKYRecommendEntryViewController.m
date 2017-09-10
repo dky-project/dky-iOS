@@ -12,6 +12,7 @@
 #import "DKYSearchView.h"
 #import "DKYRecommendFilterView.h"
 #import "DKYGetProductListGhPageParameter.h"
+#import "DKYGetProductListGhPageModel.h"
 
 @interface DKYRecommendEntryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -49,8 +50,7 @@
     [DKYHUDTool show];
     
     DKYGetProductListGhPageParameter *p = [[DKYGetProductListGhPageParameter alloc] init];
-    p.gh = @([self.filtrateView.name integerValue]);
-    p.gh = @1;
+    p.gh = self.filtrateView.name;
     p.pageSize = @(kPageSize);
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
@@ -62,9 +62,11 @@
         [weakSelf.collectionView.mj_header endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
-            
+            NSArray* array = [DKYGetProductListGhPageModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.productList removeAllObjects];
+            [weakSelf.productList addObjectsFromArray:array];
             
+            [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -87,8 +89,7 @@
     [DKYHUDTool show];
     
     DKYGetProductListGhPageParameter *p = [[DKYGetProductListGhPageParameter alloc] init];
-    p.gh = @([self.filtrateView.name integerValue]);
-    p.gh = @1;
+    p.gh = self.filtrateView.name;
     p.pageSize = @(kPageSize);
     NSInteger pageNo = self.pageNum;
     p.pageNo = @(++pageNo);
@@ -98,10 +99,15 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         
         [weakSelf.collectionView.mj_footer endRefreshing];
+        [DKYHUDTool dismiss];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            if(page.items.count == 0) return;
             
+            NSArray* array = [DKYGetProductListGhPageModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf.productList addObjectsFromArray:array];
             
+            [weakSelf.collectionView reloadData];
             ++weakSelf.pageNum;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -111,7 +117,6 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
-        [DKYHUDTool dismiss];
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
         [weakSelf.collectionView.mj_footer endRefreshing];
@@ -181,7 +186,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYRecommendEntryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYRecommendEntryViewCell class]) forIndexPath:indexPath];
-    
+    cell.getProductListGhPageModel = [self.productList objectOrNilAtIndex:indexPath.item];
     return cell;
 }
 
@@ -198,6 +203,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DKYRecommendViewController *vc = [[DKYRecommendViewController alloc] init];
+    DKYGetProductListGhPageModel *model = [self.productList objectOrNilAtIndex:indexPath.item];
+    vc.gh = model.gh;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark - UI

@@ -51,7 +51,7 @@
     [DKYHUDTool show];
     
     DKYGetProductGroupPageParameter *p = [[DKYGetProductGroupPageParameter alloc] init];
-    p.groupNo = [self.filtrateView.name isNotBlank] ? @([self.filtrateView.name integerValue]) : nil;
+    p.groupNo = self.filtrateView.name;
     p.pageSize = @(kPageSize);
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
@@ -91,8 +91,7 @@
     [DKYHUDTool show];
     
     DKYGetProductGroupPageParameter *p = [[DKYGetProductGroupPageParameter alloc] init];
-    p.groupNo = @([self.filtrateView.name integerValue]);
-    p.groupNo = @1;
+    p.groupNo = self.filtrateView.name;
     p.pageSize = @(kPageSize);
     NSInteger pageNo = self.pageNum;
     p.pageNo = @(++pageNo);

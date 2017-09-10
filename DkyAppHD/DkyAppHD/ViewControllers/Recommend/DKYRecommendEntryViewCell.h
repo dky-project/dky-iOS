@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYGetProductListGhPageModel;
 @interface DKYRecommendEntryViewCell : UICollectionViewCell
 
+@property (nonatomic, strong) DKYGetProductListGhPageModel *getProductListGhPageModel;
 
 @end
