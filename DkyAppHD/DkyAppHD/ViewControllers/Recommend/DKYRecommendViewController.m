@@ -9,10 +9,13 @@
 #import "DKYRecommendViewController.h"
 #import "DKYRecommendSmallImageViewCell.h"
 #import "DKYGetProductListByGhParameter.h"
+#import "DKYGetProductListByGhModel.h"
 
 @interface DKYRecommendViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
+
+@property (nonatomic, strong) NSArray *productList;
 
 @end
 
@@ -39,11 +42,14 @@
     DKYGetProductListByGhParameter *p = [[DKYGetProductListByGhParameter alloc] init];
     p.gh = @1;
     
-    [[DKYHttpRequestManager sharedInstance] getProductListByGroupNoWithParameter:p Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] getProductListByGhWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            weakSelf.productList = [DKYGetProductListByGhModel mj_objectArrayWithKeyValuesArray:page.items];
             
+            [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -69,7 +75,7 @@
 {
     if (section == 0) return 1;
     
-    return arc4random() % 100;
+    return self.productList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -82,6 +88,8 @@
     }
     
     DKYRecommendSmallImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYRecommendSmallImageViewCell class]) forIndexPath:indexPath];
+    
+    cell.getProductListByGhModel = [self.productList objectOrNilAtIndex:indexPath.item];
     return cell;
     
 }

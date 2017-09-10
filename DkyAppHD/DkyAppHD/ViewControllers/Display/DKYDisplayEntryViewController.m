@@ -8,10 +8,19 @@
 
 #import "DKYDisplayEntryViewController.h"
 #import "DKYDisplayViewController.h"
+#import "DKYDisplayEntryViewCell.h"
+#import "DKYSearchView.h"
+#import "DKYDisplayFilterView.h"
 
 @interface DKYDisplayEntryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
+
+@property (nonatomic, weak) DKYSearchView *searchView;
+
+@property (nonatomic, weak) DKYDisplayFilterView *filtrateView;
+
+@property (nonatomic, weak) UIButton *backgroundBtn;
 
 @end
 
@@ -29,6 +38,54 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - action method
+- (void)backgroundBtnClicked:(UIButton*)sender{
+    [self.view endEditing:YES];
+    [self hideBackgroundMask:YES animated:YES];
+    [self hideFilterView:YES animated:YES];
+    
+    [self.collectionView.mj_header beginRefreshing];
+}
+
+- (void)hideFilterView:(BOOL)hide animated:(BOOL)animated{
+    CGRect frame = CGRectZero;
+    if(!hide) {
+        // 显示
+        [self.filtrateView.superview bringSubviewToFront:self.filtrateView];
+        [self.searchView.superview bringSubviewToFront:self.searchView];
+        frame = CGRectMake(26, 28, kScreenWidth - 26 * 2, 120);
+        self.filtrateView.alpha = hide ? 0.0 : 1.0;
+    }else{
+        frame = CGRectMake(self.searchView.centerX, self.searchView.centerY, 0, 0);
+    }
+    
+    if(!animated){
+        self.filtrateView.frame = frame;
+        self.filtrateView.alpha = hide ? 0.0 : 1.0;
+        return;
+    }
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        self.filtrateView.frame = frame;
+        self.filtrateView.alpha = hide ? 0.0 : 1.0;
+    } completion:^(BOOL finished) {
+    }];
+}
+
+#pragma mark - private method
+
+- (void)hideBackgroundMask:(BOOL)hide animated:(BOOL)animated{
+    if(!animated){
+        self.backgroundBtn.alpha = hide ? 0.0 : 1.0;
+        return;
+    }
+    [UIView animateWithDuration:0.7 animations:^{
+        self.backgroundBtn.alpha = hide ? 0.0 : 1.0;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
 #pragma mark - collectionView delegate & datasource
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView{
     return 1;
@@ -41,8 +98,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor randomColor];
+    DKYDisplayEntryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYDisplayEntryViewCell class]) forIndexPath:indexPath];
+    
+    
     return cell;
 }
 
@@ -70,6 +128,10 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
     [self setupCollectionView];
+    
+    [self setupBackgroundBtn];
+    [self setupSearchView];
+    [self setupFiltrateView];
 }
 
 - (void)setupCollectionView{
@@ -89,6 +151,7 @@
     [self.view addSubview:collectionView];
     
     [collectionView registerClass:[UICollectionViewCell class]forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([DKYDisplayEntryViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([DKYDisplayEntryViewCell class])];
     
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,6 +182,48 @@
     self.collectionView.mj_footer = footer;
     
     [self.collectionView.mj_header beginRefreshing];
+}
+
+- (void)setupSearchView{
+    DKYSearchView *view = [[DKYSearchView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:view];
+    self.searchView = view;
+    
+    self.searchView.tw_width = 66;
+    self.searchView.tw_height = 66;
+    self.searchView.layer.cornerRadius = self.searchView.tw_height / 2.0;
+    self.searchView.tw_x  = 14;
+    self.searchView.tw_y = 14;
+    
+    WeakSelf(weakSelf);
+    self.searchView.searchBtnClicked = ^(DKYSearchView *searchView){
+        [weakSelf hideBackgroundMask:NO animated:YES];
+        [weakSelf hideFilterView:NO animated:YES];
+    };
+}
+
+- (void)setupFiltrateView{
+    DKYDisplayFilterView *view = [[DKYDisplayFilterView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:view];
+    self.filtrateView = view;
+    
+    self.filtrateView.frame = CGRectMake(26, 28, kScreenWidth - 26 * 2, 120);
+    [self hideFilterView:YES animated:NO];
+}
+
+- (void)setupBackgroundBtn{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(backgroundBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    self.backgroundBtn = btn;
+    
+    self.backgroundBtn.backgroundColor = [UIColor colorWithHex:0x000000 alpha:0.65];
+    
+    [self.backgroundBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
+    
+    [self hideBackgroundMask:YES animated:NO];
 }
 
 - (void)setupCustomTitle:(NSString*)title;

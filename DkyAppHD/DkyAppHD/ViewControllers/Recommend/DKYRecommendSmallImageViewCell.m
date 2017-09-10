@@ -7,6 +7,7 @@
 //
 
 #import "DKYRecommendSmallImageViewCell.h"
+#import "DKYGetProductListByGhModel.h"
 
 @interface DKYRecommendSmallImageViewCell ()
 
@@ -54,6 +55,17 @@
     }];
 }
 
+- (void)setGetProductListByGhModel:(DKYGetProductListByGhModel *)getProductListByGhModel{
+    _getProductListByGhModel = getProductListByGhModel;
+    
+    NSURL *url = [NSURL URLWithString:getProductListByGhModel.imgUrl];
+    [self.imageView sd_setImageWithURL:url placeholderImage:nil];
+    
+    self.titleLabel.text = getProductListByGhModel.productName;
+    
+    self.markLabel.hidden = !getProductListByGhModel.isCollected;
+}
+
 #pragma mark - UI
 - (void)commonInit{
     [self setupTitleLabel];
@@ -67,8 +79,6 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:imageView];
     self.imageView = imageView;
-    
-    self.imageView.backgroundColor = [UIColor colorWithHex:0xF0F0F0];
 }
 
 - (void)setupTitleLabel{
@@ -79,8 +89,6 @@
     
     [self.contentView addSubview:label];
     self.titleLabel = label;
-    
-    self.titleLabel.text = @"2005";
 }
 
 - (void)setupMarkLabel{
@@ -94,10 +102,10 @@
     label.layer.cornerRadius = 10;
     
     label.backgroundColor = [UIColor colorWithHex:0x315F7F];
+    label.backgroundColor = [UIColor colorWithHex:0xff5c5f];
     
     [self.contentView addSubview:label];
     self.markLabel = label;
-    
-    self.markLabel.text = @"1";
+    self.markLabel.hidden = YES;
 }
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYGetProductListByGhModel;
 @interface DKYRecommendSmallImageViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) DKYGetProductListByGhModel *getProductListByGhModel;
 
 @end
