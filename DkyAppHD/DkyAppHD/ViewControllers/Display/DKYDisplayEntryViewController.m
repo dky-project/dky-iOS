@@ -12,6 +12,8 @@
 #import "DKYSearchView.h"
 #import "DKYDisplayFilterView.h"
 #import "DKYGetProductGroupPageParameter.h"
+#import "DKYGetProductGroupPageModel.h"
+#import "DKYDisplayViewController.h"
 
 @interface DKYDisplayEntryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -24,6 +26,8 @@
 @property (nonatomic, weak) UIButton *backgroundBtn;
 
 @property (nonatomic, assign) NSInteger pageNum;
+
+@property (nonatomic, strong) NSMutableArray *productList;
 
 @end
 
@@ -47,20 +51,24 @@
     [DKYHUDTool show];
     
     DKYGetProductGroupPageParameter *p = [[DKYGetProductGroupPageParameter alloc] init];
-    p.groupNo = @([self.filtrateView.name integerValue]);
-    p.groupNo = @1;
+    p.groupNo = [self.filtrateView.name isNotBlank] ? @([self.filtrateView.name integerValue]) : nil;
     p.pageSize = @(kPageSize);
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
     
     
-    [[DKYHttpRequestManager sharedInstance] getProductGroupPageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] getProductGroupPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.collectionView.mj_header endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            NSArray *array = [DKYGetProductGroupPageModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf.productList removeAllObjects];
             
+            [weakSelf.productList addObjectsFromArray:array];
+            
+            [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -89,15 +97,21 @@
     NSInteger pageNo = self.pageNum;
     p.pageNo = @(++pageNo);
     
-    [[DKYHttpRequestManager sharedInstance] getProductGroupPageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] getProductGroupPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.collectionView.mj_footer endRefreshing];
-        
+         [DKYHUDTool dismiss];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             
+            if(page.items.count == 0) return;
             
+            NSArray *array = [DKYGetProductGroupPageModel mj_objectArrayWithKeyValuesArray:page.items];
+            
+            [weakSelf.productList addObjectsFromArray:array];
+            
+            [weakSelf.collectionView reloadData];
             ++weakSelf.pageNum;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -107,7 +121,6 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
-        [DKYHUDTool dismiss];
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
         [weakSelf.collectionView.mj_footer endRefreshing];
@@ -171,14 +184,14 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.productList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYDisplayEntryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYDisplayEntryViewCell class]) forIndexPath:indexPath];
     
-    
+    cell.getProductGroupPageModel = [self.productList objectOrNilAtIndex:indexPath.item];
     return cell;
 }
 
@@ -195,6 +208,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DKYDisplayViewController *vc = [[DKYDisplayViewController alloc] init];
+    DKYGetProductGroupPageModel *model = [self.productList objectOrNilAtIndex:indexPath.item];
+    
+    vc.groupNo =model.groupNo;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark - UI
@@ -319,6 +335,14 @@
                                            context:nil];;
     titleLabel.text = title;
     self.navigationItem.titleView = titleLabel;
+}
+
+#pragma mark - get & set method
+- (NSMutableArray*)productList{
+    if(_productList == nil){
+        _productList = [NSMutableArray array];
+    }
+    return _productList;
 }
 
 @end

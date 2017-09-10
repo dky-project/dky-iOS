@@ -362,6 +362,10 @@
     
     self.pageNo = 1;
     self.getProductListByGroupNoParameterEx.pageNo = @(self.pageNo);
+    
+    self.getProductListByGroupNoParameter.groupNo = self.groupNo;
+    self.getProductListByGroupNoParameterEx.groupNo = self.groupNo;
+    
     [self getProductListByGroupNoFromServerForNextAndPrev];
 }
 

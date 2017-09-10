@@ -10,4 +10,6 @@
 
 @interface DKYDisplayViewController : TWBaseViewController
 
+@property (nonatomic, copy) NSString *groupNo;
+
 @end

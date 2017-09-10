@@ -23,7 +23,6 @@
     [self commonInit];
 }
 
-
 #pragma mark - UI
 
 - (void)commonInit{

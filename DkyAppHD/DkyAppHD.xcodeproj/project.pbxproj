@@ -43,6 +43,7 @@
 		263702CF1F650D01000991C5 /* DKYRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702CE1F650D01000991C5 /* DKYRecommendHeaderView.m */; };
 		263702D21F652C9A000991C5 /* DKYGetProductGroupPageParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702D11F652C9A000991C5 /* DKYGetProductGroupPageParameter.m */; };
 		263702D81F65321B000991C5 /* DKYGetProductListGhPageParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702D71F65321B000991C5 /* DKYGetProductListGhPageParameter.m */; };
+		263702DB1F65377B000991C5 /* DKYGetProductGroupPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702DA1F65377B000991C5 /* DKYGetProductGroupPageModel.m */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
 		263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1431E1555E7002FBB50 /* NSString+Utility.m */; };
@@ -444,6 +445,8 @@
 		263702D11F652C9A000991C5 /* DKYGetProductGroupPageParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductGroupPageParameter.m; sourceTree = "<group>"; };
 		263702D61F65321B000991C5 /* DKYGetProductListGhPageParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListGhPageParameter.h; sourceTree = "<group>"; };
 		263702D71F65321B000991C5 /* DKYGetProductListGhPageParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductListGhPageParameter.m; sourceTree = "<group>"; };
+		263702D91F65377B000991C5 /* DKYGetProductGroupPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductGroupPageModel.h; sourceTree = "<group>"; };
+		263702DA1F65377B000991C5 /* DKYGetProductGroupPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductGroupPageModel.m; sourceTree = "<group>"; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
 		263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
 		263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1613,6 +1616,8 @@
 				EBD825271F42A2C4000C77E3 /* DKYAddProductDpGroupResponseModel.m */,
 				263702D01F652C9A000991C5 /* DKYGetProductGroupPageParameter.h */,
 				263702D11F652C9A000991C5 /* DKYGetProductGroupPageParameter.m */,
+				263702D91F65377B000991C5 /* DKYGetProductGroupPageModel.h */,
+				263702DA1F65377B000991C5 /* DKYGetProductGroupPageModel.m */,
 			);
 			name = "搭配(原陈列)";
 			sourceTree = "<group>";
@@ -3039,6 +3044,7 @@
 				263702C81F650BA0000991C5 /* DKYRecommendEntryViewCell.m in Sources */,
 				EB97906C1E221B6F00E2985C /* MMPinView.m in Sources */,
 				263702CC1F650C36000991C5 /* DKYRecommendFilterView.m in Sources */,
+				263702DB1F65377B000991C5 /* DKYGetProductGroupPageModel.m in Sources */,
 				EBB1133A1ED433BC0028FC17 /* DKYCommonTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,6 +25,8 @@
 
 @property (nonatomic, assign) NSInteger pageNum;
 
+@property (nonatomic, strong) NSMutableArray *productList;
+
 @end
 
 @implementation DKYRecommendEntryViewController
@@ -61,6 +63,8 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             
+            [weakSelf.productList removeAllObjects];
+            
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -89,7 +93,7 @@
     NSInteger pageNo = self.pageNum;
     p.pageNo = @(++pageNo);
     
-    [[DKYHttpRequestManager sharedInstance] getProductListGhPageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] getProductListGhPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         
@@ -171,13 +175,12 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.productList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYRecommendEntryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYRecommendEntryViewCell class]) forIndexPath:indexPath];
-    
     
     return cell;
 }
@@ -320,6 +323,12 @@
     self.navigationItem.titleView = titleLabel;
 }
 
-
+#pragma mark - get & set method
+- (NSMutableArray*)productList{
+    if(_productList == nil){
+        _productList = [NSMutableArray array];
+    }
+    return _productList;
+}
 
 @end

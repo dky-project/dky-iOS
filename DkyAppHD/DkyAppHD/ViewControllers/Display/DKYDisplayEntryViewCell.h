@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYGetProductGroupPageModel;
 @interface DKYDisplayEntryViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) DKYGetProductGroupPageModel *getProductGroupPageModel;
 
 @end

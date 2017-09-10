@@ -7,6 +7,7 @@
 //
 
 #import "DKYDisplayEntryViewCell.h"
+#import "DKYGetProductGroupPageModel.h"
 
 @interface DKYDisplayEntryViewCell ()
 
@@ -23,11 +24,20 @@
     [self commonInit];
 }
 
+- (void)setGetProductGroupPageModel:(DKYGetProductGroupPageModel *)getProductGroupPageModel{
+    _getProductGroupPageModel = getProductGroupPageModel;
+    
+    NSURL *url = [NSURL URLWithString:getProductGroupPageModel.dpImgUrl];
+    
+    [self.imageView sd_setImageWithURL:url placeholderImage:nil];
+    self.sampleIdLabel.text = getProductGroupPageModel.groupNo;
+}
+
 
 #pragma mark - UI
 
 - (void)commonInit{
-    self.imageView.backgroundColor = [UIColor randomColor];
+    
 }
 
 @end
