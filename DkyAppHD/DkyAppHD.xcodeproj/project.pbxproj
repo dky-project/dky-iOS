@@ -41,6 +41,8 @@
 		263702C91F650BA0000991C5 /* DKYRecommendEntryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263702C71F650BA0000991C5 /* DKYRecommendEntryViewCell.xib */; };
 		263702CC1F650C36000991C5 /* DKYRecommendFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */; };
 		263702CF1F650D01000991C5 /* DKYRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702CE1F650D01000991C5 /* DKYRecommendHeaderView.m */; };
+		263702D21F652C9A000991C5 /* DKYGetProductGroupPageParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702D11F652C9A000991C5 /* DKYGetProductGroupPageParameter.m */; };
+		263702D81F65321B000991C5 /* DKYGetProductListGhPageParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702D71F65321B000991C5 /* DKYGetProductListGhPageParameter.m */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
 		263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1431E1555E7002FBB50 /* NSString+Utility.m */; };
@@ -438,6 +440,10 @@
 		263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendFilterView.m; sourceTree = "<group>"; };
 		263702CD1F650D01000991C5 /* DKYRecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendHeaderView.h; sourceTree = "<group>"; };
 		263702CE1F650D01000991C5 /* DKYRecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendHeaderView.m; sourceTree = "<group>"; };
+		263702D01F652C9A000991C5 /* DKYGetProductGroupPageParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductGroupPageParameter.h; sourceTree = "<group>"; };
+		263702D11F652C9A000991C5 /* DKYGetProductGroupPageParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductGroupPageParameter.m; sourceTree = "<group>"; };
+		263702D61F65321B000991C5 /* DKYGetProductListGhPageParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListGhPageParameter.h; sourceTree = "<group>"; };
+		263702D71F65321B000991C5 /* DKYGetProductListGhPageParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductListGhPageParameter.m; sourceTree = "<group>"; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
 		263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
 		263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1605,6 +1611,8 @@
 				EBD825211F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m */,
 				EBD825261F42A2C4000C77E3 /* DKYAddProductDpGroupResponseModel.h */,
 				EBD825271F42A2C4000C77E3 /* DKYAddProductDpGroupResponseModel.m */,
+				263702D01F652C9A000991C5 /* DKYGetProductGroupPageParameter.h */,
+				263702D11F652C9A000991C5 /* DKYGetProductGroupPageParameter.m */,
 			);
 			name = "搭配(原陈列)";
 			sourceTree = "<group>";
@@ -1863,6 +1871,8 @@
 				264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */,
 				2637029D1F62DF1A000991C5 /* DKYGetProductListByGhParameter.h */,
 				2637029E1F62DF1A000991C5 /* DKYGetProductListByGhParameter.m */,
+				263702D61F65321B000991C5 /* DKYGetProductListGhPageParameter.h */,
+				263702D71F65321B000991C5 /* DKYGetProductListGhPageParameter.m */,
 			);
 			path = Parameter;
 			sourceTree = "<group>";
@@ -2727,6 +2737,7 @@
 				EB9884CC1E2864B400BAFADE /* DKYHtmlHelper.m in Sources */,
 				EB506C471E23B24C002A1423 /* TWBackgroundView.m in Sources */,
 				EBD5E27F1F31A67600B98F46 /* NSString+URL.m in Sources */,
+				263702D21F652C9A000991C5 /* DKYGetProductGroupPageParameter.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,
 				EB97F2B91E25C36A00BDC705 /* DQFormCollectionViewCell.m in Sources */,
 				266290781E9D039D00886274 /* UIScrollView+VTMagic.m in Sources */,
@@ -3000,6 +3011,7 @@
 				EBA980801ECD8CC50080FC79 /* DKYTongkuanFiveViewCellEx.m in Sources */,
 				263702C01F64FD3E000991C5 /* DKYDisplayEntryViewCell.m in Sources */,
 				EBD694D91E2785BB00F365C3 /* TOWebViewController.m in Sources */,
+				263702D81F65321B000991C5 /* DKYGetProductListGhPageParameter.m in Sources */,
 				EBB1132E1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m in Sources */,
 				EB506C2A1E236D22002A1423 /* DKYHomeCellTableViewCell.m in Sources */,
 				EB9BBBA71E24D42100939007 /* DKYSampleProductInfoModel.m in Sources */,

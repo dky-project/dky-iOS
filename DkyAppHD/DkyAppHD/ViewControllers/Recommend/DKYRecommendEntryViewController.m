@@ -11,6 +11,7 @@
 #import "DKYRecommendEntryViewCell.h"
 #import "DKYSearchView.h"
 #import "DKYRecommendFilterView.h"
+#import "DKYGetProductListGhPageParameter.h"
 
 @interface DKYRecommendEntryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -21,6 +22,8 @@
 @property (nonatomic, weak) DKYRecommendFilterView *filtrateView;
 
 @property (nonatomic, weak) UIButton *backgroundBtn;
+
+@property (nonatomic, assign) NSInteger pageNum;
 
 @end
 
@@ -36,6 +39,81 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 网络请求
+- (void)getProductListGhPageFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    
+    DKYGetProductListGhPageParameter *p = [[DKYGetProductListGhPageParameter alloc] init];
+    p.gh = @([self.filtrateView.name integerValue]);
+    p.gh = @1;
+    p.pageSize = @(kPageSize);
+    self.pageNum = 1;
+    p.pageNo = @(self.pageNum);
+    
+    
+    [[DKYHttpRequestManager sharedInstance] getProductListGhPageWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        [weakSelf.collectionView.mj_header endRefreshing];
+        if (retCode == DkyHttpResponseCode_Success) {
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [weakSelf.collectionView.mj_header endRefreshing];
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)loadMoreGetProductListGhPageFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    
+    DKYGetProductListGhPageParameter *p = [[DKYGetProductListGhPageParameter alloc] init];
+    p.gh = @([self.filtrateView.name integerValue]);
+    p.gh = @1;
+    p.pageSize = @(kPageSize);
+    NSInteger pageNo = self.pageNum;
+    p.pageNo = @(++pageNo);
+    
+    [[DKYHttpRequestManager sharedInstance] getProductListGhPageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        
+        [weakSelf.collectionView.mj_footer endRefreshing];
+        if (retCode == DkyHttpResponseCode_Success) {
+            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            
+            
+            ++weakSelf.pageNum;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [weakSelf.collectionView.mj_footer endRefreshing];
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
 }
 
 #pragma mark - action method
@@ -168,15 +246,13 @@
 -(void)setupRefreshControl{
     WeakSelf(weakSelf);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf.collectionView.mj_header endRefreshing];
-        });
+        [weakSelf getProductListGhPageFromServer];
     }];
     header.lastUpdatedTimeKey = [NSString stringWithFormat:@"%@Key",[self class]];
     self.collectionView.mj_header = header;
     
     MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(){
-        [weakSelf.collectionView.mj_footer endRefreshing];
+        [weakSelf loadMoreGetProductListGhPageFromServer];
     }];
     footer.automaticallyHidden = YES;
     self.collectionView.mj_footer = footer;
