@@ -37,6 +37,9 @@
 		263702C01F64FD3E000991C5 /* DKYDisplayEntryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702BE1F64FD3E000991C5 /* DKYDisplayEntryViewCell.m */; };
 		263702C11F64FD3E000991C5 /* DKYDisplayEntryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263702BF1F64FD3E000991C5 /* DKYDisplayEntryViewCell.xib */; };
 		263702C41F6502B5000991C5 /* DKYDisplayFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702C31F6502B5000991C5 /* DKYDisplayFilterView.m */; };
+		263702C81F650BA0000991C5 /* DKYRecommendEntryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702C61F650BA0000991C5 /* DKYRecommendEntryViewCell.m */; };
+		263702C91F650BA0000991C5 /* DKYRecommendEntryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263702C71F650BA0000991C5 /* DKYRecommendEntryViewCell.xib */; };
+		263702CC1F650C36000991C5 /* DKYRecommendFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
 		263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1431E1555E7002FBB50 /* NSString+Utility.m */; };
@@ -427,6 +430,11 @@
 		263702BF1F64FD3E000991C5 /* DKYDisplayEntryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYDisplayEntryViewCell.xib; sourceTree = "<group>"; };
 		263702C21F6502B5000991C5 /* DKYDisplayFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDisplayFilterView.h; sourceTree = "<group>"; };
 		263702C31F6502B5000991C5 /* DKYDisplayFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayFilterView.m; sourceTree = "<group>"; };
+		263702C51F650BA0000991C5 /* DKYRecommendEntryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendEntryViewCell.h; sourceTree = "<group>"; };
+		263702C61F650BA0000991C5 /* DKYRecommendEntryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendEntryViewCell.m; sourceTree = "<group>"; };
+		263702C71F650BA0000991C5 /* DKYRecommendEntryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYRecommendEntryViewCell.xib; sourceTree = "<group>"; };
+		263702CA1F650C36000991C5 /* DKYRecommendFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendFilterView.h; sourceTree = "<group>"; };
+		263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendFilterView.m; sourceTree = "<group>"; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
 		263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
 		263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1135,6 +1143,11 @@
 			children = (
 				263702991F585BD2000991C5 /* DKYRecommendSmallImageViewCell.h */,
 				2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */,
+				263702C51F650BA0000991C5 /* DKYRecommendEntryViewCell.h */,
+				263702C61F650BA0000991C5 /* DKYRecommendEntryViewCell.m */,
+				263702C71F650BA0000991C5 /* DKYRecommendEntryViewCell.xib */,
+				263702CA1F650C36000991C5 /* DKYRecommendFilterView.h */,
+				263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2610,6 +2623,7 @@
 				EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */,
 				EBD116011EA47BC800AF6F5C /* DKYTestTableViewCell.xib in Resources */,
 				EB506C4F1E23BD81002A1423 /* DKYOrderBrowserViewCell.xib in Resources */,
+				263702C91F650BA0000991C5 /* DKYRecommendEntryViewCell.xib in Resources */,
 				EB97904B1E21EB4200E2985C /* DKYOrderInquiryHeaderView.xib in Resources */,
 				EBD694D41E2785BB00F365C3 /* Info.plist in Resources */,
 				EBC3007F1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib in Resources */,
@@ -3004,7 +3018,9 @@
 				EB9511811E1640A5008708EF /* DKYLoginViewController.m in Sources */,
 				EBD694B01E277B4700F365C3 /* RxWebViewController.m in Sources */,
 				EB506C4A1E23B2C0002A1423 /* DKYOrderBrowseView.m in Sources */,
+				263702C81F650BA0000991C5 /* DKYRecommendEntryViewCell.m in Sources */,
 				EB97906C1E221B6F00E2985C /* MMPinView.m in Sources */,
+				263702CC1F650C36000991C5 /* DKYRecommendFilterView.m in Sources */,
 				EBB1133A1ED433BC0028FC17 /* DKYCommonTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
