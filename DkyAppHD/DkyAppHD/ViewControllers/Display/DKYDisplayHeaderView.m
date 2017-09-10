@@ -39,8 +39,8 @@
 
 #pragma mark - UI
 - (void)commonInit{
-    [self setupGroupNumberTextField];
-    [self setupSearchBtn];
+//    [self setupGroupNumberTextField];
+//    [self setupSearchBtn];
     
     [self setupPreBtn];
     [self setupNextBtn];
@@ -114,9 +114,11 @@
     
     WeakSelf(weakSelf);
     [self.preBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(weakSelf.searchBtn);
+        make.size.mas_equalTo(CGSizeMake(150, 35));
         make.centerY.mas_equalTo(weakSelf);
-        make.left.mas_equalTo(weakSelf.searchBtn.mas_right).with.offset(50);
+        make.left.mas_equalTo(weakSelf).with.offset(32);
+        //        make.size.mas_equalTo(weakSelf.searchBtn);
+//        make.left.mas_equalTo(weakSelf.searchBtn.mas_right).with.offset(50);
     }];
     
     [btn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
@@ -135,7 +137,7 @@
     
     WeakSelf(weakSelf);
     [self.nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(weakSelf.searchBtn);
+        make.size.mas_equalTo(weakSelf.preBtn);
         make.centerY.mas_equalTo(weakSelf);
         make.left.mas_equalTo(weakSelf.preBtn.mas_right).with.offset(50);
     }];
