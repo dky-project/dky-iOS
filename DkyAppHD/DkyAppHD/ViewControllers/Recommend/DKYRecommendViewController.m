@@ -10,12 +10,18 @@
 #import "DKYRecommendSmallImageViewCell.h"
 #import "DKYGetProductListByGhParameter.h"
 #import "DKYGetProductListByGhModel.h"
+#import "DKYRecommendHeaderView.h"
 
 @interface DKYRecommendViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
 
+@property (nonatomic, weak) DKYRecommendHeaderView *headerView;
+
 @property (nonatomic, strong) NSArray *productList;
+
+@property (nonatomic, assign) NSInteger pageNo;
+@property (nonatomic, assign) NSInteger totalPageNum;
 
 @end
 
@@ -135,7 +141,32 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
+    [self setupHeaderView];
     [self setupCollectionView];
+}
+
+- (void)setupHeaderView{
+    DKYRecommendHeaderView *headerView = [[DKYRecommendHeaderView alloc] initWithFrame:CGRectZero];
+    
+    [self.view addSubview:headerView];
+    
+    self.headerView = headerView;
+    
+    WeakSelf(weakSelf);
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view);
+        make.right.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo(weakSelf.view);
+        make.height.mas_equalTo(110);
+    }];
+    
+    self.headerView.preBtnClicked = ^(id sender) {
+        if(self.pageNo <= 1) return;
+    };
+    
+    self.headerView.nextBtnClicked = ^(id sender) {
+        if(self.pageNo >= self.totalPageNum) return ;
+    };
 }
 
 - (void)setupCollectionView{
@@ -150,7 +181,7 @@
     collectionView.alwaysBounceVertical = YES;
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.showsHorizontalScrollIndicator = NO;
-    collectionView.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
+    collectionView.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:collectionView];
     
@@ -159,7 +190,8 @@
     
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.view.mas_top).with.offset(0);
+//        make.top.equalTo(weakSelf.view.mas_top).with.offset(0);
+        make.top.mas_equalTo(weakSelf.headerView.mas_bottom);
         make.left.equalTo(weakSelf.view.mas_left).with.offset(0);
         make.right.equalTo(weakSelf.view.mas_right).with.offset(0);
         make.bottom.equalTo(weakSelf.view.mas_bottom).with.offset(0);

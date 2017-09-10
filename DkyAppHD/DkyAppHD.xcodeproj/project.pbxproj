@@ -40,6 +40,7 @@
 		263702C81F650BA0000991C5 /* DKYRecommendEntryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702C61F650BA0000991C5 /* DKYRecommendEntryViewCell.m */; };
 		263702C91F650BA0000991C5 /* DKYRecommendEntryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263702C71F650BA0000991C5 /* DKYRecommendEntryViewCell.xib */; };
 		263702CC1F650C36000991C5 /* DKYRecommendFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */; };
+		263702CF1F650D01000991C5 /* DKYRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702CE1F650D01000991C5 /* DKYRecommendHeaderView.m */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
 		263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1431E1555E7002FBB50 /* NSString+Utility.m */; };
@@ -435,6 +436,8 @@
 		263702C71F650BA0000991C5 /* DKYRecommendEntryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYRecommendEntryViewCell.xib; sourceTree = "<group>"; };
 		263702CA1F650C36000991C5 /* DKYRecommendFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendFilterView.h; sourceTree = "<group>"; };
 		263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendFilterView.m; sourceTree = "<group>"; };
+		263702CD1F650D01000991C5 /* DKYRecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendHeaderView.h; sourceTree = "<group>"; };
+		263702CE1F650D01000991C5 /* DKYRecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendHeaderView.m; sourceTree = "<group>"; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
 		263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
 		263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1148,6 +1151,8 @@
 				263702C71F650BA0000991C5 /* DKYRecommendEntryViewCell.xib */,
 				263702CA1F650C36000991C5 /* DKYRecommendFilterView.h */,
 				263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */,
+				263702CD1F650D01000991C5 /* DKYRecommendHeaderView.h */,
+				263702CE1F650D01000991C5 /* DKYRecommendHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2784,6 +2789,7 @@
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
 				EB9790711E221B6F00E2985C /* MMSheetView.m in Sources */,
 				EBD5E2791F319B8700B98F46 /* QMUIConfigurationTemplate.m in Sources */,
+				263702CF1F650D01000991C5 /* DKYRecommendHeaderView.m in Sources */,
 				EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */,
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
 				EBD694D51E2785BB00F365C3 /* NJKWebViewProgress.m in Sources */,
