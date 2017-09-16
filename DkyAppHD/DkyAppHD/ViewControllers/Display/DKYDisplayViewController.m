@@ -38,6 +38,8 @@
 @property (nonatomic, assign) NSInteger pageNo;
 @property (nonatomic, assign) NSInteger totalPageNum;
 
+@property (nonatomic, assign) NSInteger groupNo_;
+
 @property (nonatomic, strong) DKYAddProductDpGroupResponseModel *addProductDpGroupResponseModel;
 
 @end
@@ -101,6 +103,7 @@
             weakSelf.productList = [DKYGetProductListByGroupNoModel mj_objectArrayWithKeyValuesArray:page.items];
             weakSelf.pageNo = page.pageNo;
             weakSelf.totalPageNum = page.totalPageNum;
+            weakSelf.groupNo_ = [weakSelf.getProductListByGroupNoParameterEx.groupNo integerValue];
             
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -363,6 +366,8 @@
     [self setupActionView];
     
     self.pageNo = 1;
+    self.groupNo_ = [self.groupNo integerValue];
+    
     self.getProductListByGroupNoParameterEx.pageNo = @(self.pageNo);
     
     self.getProductListByGroupNoParameter.groupNo = self.groupNo;
@@ -400,19 +405,20 @@
     };
     
     self.headerView.preBtnClicked = ^(id sender) {
-        if(self.pageNo <= 1) return;
+        NSInteger groupNo = self.groupNo_;
+        --groupNo;
         
-        weakSelf.getProductListByGroupNoParameterEx.groupNo = weakSelf.getProductListByGroupNoParameter.groupNo;
-        weakSelf.getProductListByGroupNoParameterEx.pageNo = @(--self.pageNo);
+        weakSelf.getProductListByGroupNoParameterEx.groupNo = [NSString stringWithFormat:@"%@",@(groupNo)];
+        
         
         [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
     };
     
     self.headerView.nextBtnClicked = ^(id sender) {
-        if(self.pageNo >= self.totalPageNum) return ;
+        NSInteger groupNo = self.groupNo_;
+        ++groupNo;
         
-        weakSelf.getProductListByGroupNoParameterEx.groupNo = weakSelf.getProductListByGroupNoParameter.groupNo;
-         weakSelf.getProductListByGroupNoParameterEx.pageNo = @(++self.pageNo);
+        weakSelf.getProductListByGroupNoParameterEx.groupNo = [NSString stringWithFormat:@"%@",@(groupNo)];
         
         [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
     };
