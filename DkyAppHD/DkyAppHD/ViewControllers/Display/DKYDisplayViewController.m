@@ -132,10 +132,13 @@
     NSMutableArray *arr2 = [NSMutableArray array];
     
     for (DKYGetProductListByGroupNoModel *model in self.productList) {
-        if(model.isBigOrder){
-            [arr2 addObject:model.addDpGroupBmptParam];
-        }else{
-            [arr1 addObject:model.addDpGroupApproveParam];
+        if(model.sum > 0){
+            if(model.isBigOrder){
+                [arr2 addObject:model.addDpGroupBmptParam];
+            }else{
+                if(model.sum)
+                    [arr1 addObject:model.addDpGroupApproveParam];
+            }
         }
     }
     
@@ -226,6 +229,16 @@
 
 #pragma mark - help method
 - (BOOL)checkForSave{
+    // 检查总数
+    NSInteger sum = 0;
+    for (DKYGetProductListByGroupNoModel *model in self.productList) {
+        sum += model.sum;
+    }
+    if(sum == 0){
+        [DKYHUDTool showInfoWithStatus:@"请填写数据！"];
+        return NO;
+    }
+    
     for (DKYGetProductListByGroupNoModel *model in self.productList) {
 //        NSInteger sum = model.sum;
 //        if(sum == 0){
