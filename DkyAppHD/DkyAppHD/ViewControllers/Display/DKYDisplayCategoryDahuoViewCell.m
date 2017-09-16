@@ -70,7 +70,7 @@
     
     self.amountTextField.text = getProductListByGroupNoModel.sumText;
     
-    [self updateWhenSUmChanged];
+    [self updateWhenSumChanged];
 }
 
 - (void)delProductCollectToServer{
@@ -227,7 +227,7 @@
     }
 }
 
-- (void)updateWhenSUmChanged{
+- (void)updateWhenSumChanged{
     if(self.getProductListByGroupNoModel.sum > 0){
         double sum = self.getProductListByGroupNoModel.sum * [self.getProductListByGroupNoModel.price doubleValue];
         NSString *sumMoney = [NSString formatRateStringWithRate:sum];
@@ -271,7 +271,7 @@
     [self.amountTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
         weakSelf.getProductListByGroupNoModel.sum = [sender.text integerValue];
         
-        [weakSelf updateWhenSUmChanged];
+        [weakSelf updateWhenSumChanged];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount":sender.text}];
     }];
