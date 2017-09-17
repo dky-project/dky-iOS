@@ -276,6 +276,10 @@ static const CGFloat basicItemHeight = 30;
     
     self.xiuTypeView.staticDimListModel = productApproveTitleModel.staticDimListModel;
     self.lingView.staticDimListModel = productApproveTitleModel.staticDimListModel;
+    
+    self.addProductApproveParameter.no = productApproveTitleModel.no;
+    self.numberView.itemModel.content = productApproveTitleModel.no;
+    self.numberView.itemModel = self.numberView.itemModel;
 }
 
 - (void)setAddProductApproveParameter:(DKYAddProductApproveParameter *)addProductApproveParameter{
