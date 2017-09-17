@@ -23,6 +23,8 @@
 @property (nonatomic, assign) NSInteger pageNo;
 @property (nonatomic, assign) NSInteger totalPageNum;
 
+@property (nonatomic, assign) NSInteger gh_;
+
 @end
 
 @implementation DKYRecommendViewController
@@ -57,6 +59,8 @@
             
             weakSelf.pageNo = page.pageNo;
             weakSelf.totalPageNum = page.totalPageNum;
+            
+            weakSelf.gh_ = [p.gh integerValue];
             
             [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -143,6 +147,7 @@
     [self setupCustomTitle:@"陈列"];
     
     self.pageNo = 1;
+    self.gh_ = [self.gh integerValue];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
@@ -166,18 +171,25 @@
     }];
     
     self.headerView.preBtnClicked = ^(id sender) {
-        if(self.pageNo <= 1) return;
+//        if(self.pageNo <= 1) return;
+//        --self.pageNo;
         
-        --self.pageNo;
+        NSInteger gh = self.gh_;
+        --gh;
+        
+        self.gh = [NSString stringWithFormat:@"%@",@(gh)];
         
         [self getProductListByGhFromServer];
     };
     
     self.headerView.nextBtnClicked = ^(id sender) {
-        if(self.pageNo >= self.totalPageNum) return ;
+//        if(self.pageNo >= self.totalPageNum) return ;
+//        ++self.pageNo;
         
-        ++self.pageNo;
+        NSInteger gh = self.gh_;
+        ++gh;
         
+        self.gh = [NSString stringWithFormat:@"%@",@(gh)];
         [self getProductListByGhFromServer];
     };
 }
