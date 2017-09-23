@@ -36,7 +36,7 @@
     [_magicController.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
-    
+    [_magicController.magicView reloadData];
     [_magicController.magicView reloadDataToPage:self.currentIndex];
 }
 
@@ -98,6 +98,7 @@
     if (!viewController) {
         viewController = (DKYSampleDetailViewController*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController class]];
     }
+    DLog(@"DKYSampleDetailViewController = %@",viewController);
     viewController.sampleModel = [self.samples objectOrNilAtIndex:pageIndex];
     return viewController;
 }

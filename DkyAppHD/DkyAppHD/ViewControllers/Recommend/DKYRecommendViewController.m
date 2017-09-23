@@ -11,6 +11,8 @@
 #import "DKYGetProductListByGhParameter.h"
 #import "DKYGetProductListByGhModel.h"
 #import "DKYRecommendHeaderView.h"
+#import "DKYSampleModel.h"
+#import "DKYSampleDetailAllViewController.h"
 
 @interface DKYRecommendViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -24,6 +26,8 @@
 @property (nonatomic, assign) NSInteger totalPageNum;
 
 @property (nonatomic, assign) NSInteger gh_;
+
+@property (nonatomic, strong) NSMutableArray *samples;
 
 @end
 
@@ -56,6 +60,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             weakSelf.productList = [DKYGetProductListByGhModel mj_objectArrayWithKeyValuesArray:page.items];
+            [weakSelf setupSanmples];
             
             weakSelf.pageNo = page.pageNo;
             weakSelf.totalPageNum = page.totalPageNum;
@@ -77,6 +82,26 @@
         [DKYHUDTool dismiss];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
+}
+
+#pragma mark - private method
+- (void)setupSanmples{
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.productList.count];
+    
+    for(DKYGetProductListByGhModel *model in self.productList){
+        DKYSampleModel *sample = [[DKYSampleModel alloc] init];
+        sample.name = model.productName;
+        sample.mProductId = [model.mProductId integerValue];
+        sample.imgUrl1 = model.imgUrl;
+        sample.iscollect = model.iscollect;
+        
+        sample.sampleId = [NSString stringWithFormat:@"%@",@(sample.mProductId)];
+        
+        sample.collected = ([sample.iscollect integerValue] == 2) ? YES : NO;
+        [array addObject:sample];
+    }
+    
+    self.samples = [array copy];
 }
 
 #pragma mark - collectionView delegate & datasource
@@ -135,10 +160,13 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    if(indexPath.section == 1){
+        DKYSampleDetailAllViewController *vc = [[DKYSampleDetailAllViewController alloc] init];
+        vc.samples = self.samples;
+        vc.currentIndex = indexPath.item;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
-
-
 
 #pragma mark - UI
 - (void)commonInit{
