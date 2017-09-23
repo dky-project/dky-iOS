@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) TWNavBtnItem *leftBtnItem;
 
+@property (nonatomic, assign) BOOL firstLoaded;
+
 @end
 
 @implementation DKYWebViewController
@@ -21,6 +23,7 @@
     self = [super init];
     if (self) {
         self.showActionButton = NO;
+        self.firstLoaded = YES;
     }
     return self;
 }
@@ -38,6 +41,7 @@
 {
     if (self = [super initWithCoder:aDecoder]){
         self.showActionButton = NO;
+        self.firstLoaded = YES;
     }
     
     return self;
@@ -47,6 +51,7 @@
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]){
         self.showActionButton = NO;
+        self.firstLoaded = YES;
     }
     
     return self;
@@ -71,8 +76,13 @@
 //    self.navigationController.navigationBar.barTintColor = barTintColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:tintColor}];
     
-    if(self.showHUD){
+    if(self.showHUD && !self.firstLoaded){
         [DKYHUDTool show];
+        self.url = [NSURL URLWithString:self.url.absoluteString];
+    }
+    
+    if(self.firstLoaded){
+        self.firstLoaded = NO;
     }
 }
 
