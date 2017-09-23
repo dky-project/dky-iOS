@@ -153,7 +153,7 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"净胸围";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
-    itemModel.enabled = NO;
+//    itemModel.enabled = NO;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.jxwValue = textField.text;
     };
