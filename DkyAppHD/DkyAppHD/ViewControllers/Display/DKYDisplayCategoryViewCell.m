@@ -18,6 +18,7 @@
 #import "DKYDisplayCollectButton.h"
 #import "NSString+Utility.h"
 #import "DKYGetProductPriceParameter.h"
+#import "DKYGetPzsJsonParameter.h"
 
 @interface DKYDisplayCategoryViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -35,6 +36,8 @@
 
 
 @property (nonatomic, strong) DKYGetSizeDataModel *getSizeDataModel;
+
+@property (nonatomic, strong) dispatch_group_t group;
 
 @end
 
@@ -147,12 +150,12 @@
     }];
 }
 
-- (void)getColorDimListFromServer:(NSString*)mDimNew14Id{
+- (void)getColorDimListFromServer{
     WeakSelf(weakSelf);
     [DKYHUDTool show];
     DKYGetColorDimListParameter *p = [[DKYGetColorDimListParameter alloc] init];
     p.mProductId = weakSelf.getProductListByGroupNoModel.mProductId;
-    p.mDimNew14Id = mDimNew14Id;
+    p.mDimNew14Id = self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id;
     
     [[DKYHttpRequestManager sharedInstance] getColorDimListWithParameter:p Success:^(NSInteger statusCode, id data) {
         [DKYHUDTool dismiss];
@@ -297,7 +300,78 @@
     }];
 }
 
+- (void)getPzsJsonFromServer{
+    WeakSelf(weakSelf);
+    
+    DKYGetPzsJsonParameter *p = [[DKYGetPzsJsonParameter alloc] init];
+    p.flag = [NSString stringWithFormat:@"%@",@(2)];
+    p.productId = self.getProductListByGroupNoModel.mProductId;
+    
+    
+    p.mDimNew14Id = @([self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id integerValue]);
+    
+    p.mDimNew16Id = @([self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id integerValue]);
+    
+    [[DKYHttpRequestManager sharedInstance] getPzsJsonWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            NSDictionary *dict = (NSDictionary*)result.data;
+            
+            NSArray *value = [dict objectForKey:@"zxJson"];
+            weakSelf.getProductListByGroupNoModel.zxJsonstr = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
+            
+            [weakSelf dealWithgetPzsJsonFromServer:2 value:nil];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)pinzhongChanged{
+    [DKYHUDTool show];
+    
+    [self getColorDimListFromServer];
+    [self getProductPriceFromServer];
+    [self getPzsJsonFromServer];
+    
+    dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
+        [DKYHUDTool dismiss];
+        
+    });
+}
+
 #pragma mark - action method
+- (void)dealWithgetPzsJsonFromServer:(NSInteger)flag value:(NSArray*)value{
+    [self updateActionSheetAfterGetPzsJsonFromServer:flag];
+}
+
+- (void)updateActionSheetAfterGetPzsJsonFromServer:(NSInteger)flag{
+    BOOL exist = NO;
+    
+    for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.zxJsonstr) {
+        if([model.ID integerValue] == [self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id integerValue]){
+            exist = YES;
+            break;
+        }
+    }
+    
+    if(!exist){
+        // 不存在，则刷新
+        [self.zhenxingBtn setTitle:self.zhenxingBtn.originalTitle forState:UIControlStateNormal];
+        self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id = nil;
+        
+    }
+}
+
 - (void)optionsBtnClicked:(UIButton*)sender{
     
 }
@@ -377,8 +451,7 @@
             
             self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = model.ID;
             
-            [self getColorDimListFromServer:model.ID];
-            [self getProductPriceFromServer];
+            [self pinzhongChanged];
         }
             break;
         case 1:{
@@ -400,14 +473,6 @@
             }
             
             models = self.getProductListByGroupNoModel.xwArrayJson;
-        
-//            NSString *oldValue = self.addProductApproveParameter.xwValue;
-        
-//            self.addProductApproveParameter.xwValue = [models objectOrNilAtIndex:index - 1];
-        
-//            if(![self.addProductApproveParameter.xwValue isEqualToString:oldValue]){
-
-//            }
             NSDictionary *dic = [self.getProductListByGroupNoModel.xwArrayJson objectOrNilAtIndex:index - 1];
             self.getProductListByGroupNoModel.addDpGroupApproveParam.xwValue = [dic objectForKey:@"value"];
             
@@ -455,6 +520,8 @@
     self.titleLabel.adjustsFontSizeToFitWidth = YES;
     
     [self p_customSunview:self.titleLabel];
+    
+    self.group = dispatch_group_create();
     
     // 品种
     [self p_customSunview:self.pinzhongBtn];
