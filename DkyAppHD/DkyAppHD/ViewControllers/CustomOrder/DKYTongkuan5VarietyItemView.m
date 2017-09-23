@@ -27,6 +27,11 @@
 @property (nonatomic, weak) UIButton *colorBtn;
 @property (nonatomic, weak) UITextView *selectedColorView;
 
+// 调用另外的接口返回的选项数组
+@property (nonatomic, copy) NSArray *zbJsonArray;
+@property (nonatomic, copy) NSArray *zxJsonArray;
+@property (nonatomic, copy) NSArray *zzJsonArray;
+
 @end
 
 @implementation DKYTongkuan5VarietyItemView
@@ -153,7 +158,6 @@
     [DKYHUDTool show];
     
     WeakSelf(weakSelf);
-    //    self.getPzsJsonParameter = nil;
     NSInteger flag = [self.getPzsJsonParameter.flag integerValue];
     [[DKYHttpRequestManager sharedInstance] getPzsJsonWithParameter:self.getPzsJsonParameter Success:^(NSInteger statusCode, id data) {
         [DKYHUDTool dismiss];
@@ -161,9 +165,16 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             NSDictionary *dict = (NSDictionary*)result.data;
-            NSArray *value = [dict objectForKey:@"value"];
-            NSArray *array = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
-            [weakSelf dealWithgetPzsJsonFromServer:flag value:array];
+            NSArray *value = [dict objectForKey:@"zbJson"];
+            weakSelf.zbJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
+            
+            value = [dict objectForKey:@"zxJson"];
+            weakSelf.zxJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
+            
+            value = [dict objectForKey:@"zzJson"];
+            weakSelf.zzJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
+            
+            [weakSelf dealWithgetPzsJsonFromServer:flag value:nil];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -182,13 +193,16 @@
 - (void)dealWithgetPzsJsonFromServer:(NSInteger)flag value:(NSArray*)value{
     switch (flag) {
         case 2:
-            self.madeInfoByProductName.productMadeInfoView.zzJsonArray = value;
+            self.madeInfoByProductName.productMadeInfoView.zzJsonArray = self.zzJsonArray;
+            self.madeInfoByProductName.productMadeInfoView.zxJsonArray = self.zxJsonArray;
+            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = self.zbJsonArray;
             break;
         case 3:
-            self.madeInfoByProductName.productMadeInfoView.zxJsonArray = value;
+            self.madeInfoByProductName.productMadeInfoView.zxJsonArray = self.zxJsonArray;
+            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = self.zbJsonArray;
             break;
         case 4:
-            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = value;
+            self.madeInfoByProductName.productMadeInfoView.zbJsonArray = self.zbJsonArray;
             break;
         case 5:
             
@@ -202,17 +216,7 @@
 - (void)updateActionSheetAfterGetPzsJsonFromServer:(NSInteger)flag{
     switch (flag) {
         case 2:{
-            //            BOOL exist = NO;
-            //            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
-            //                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew14Id integerValue]){
-            //                    exist = YES;
-            //                    break;
-            //                }
-            //            }
-            //            if(!exist){
-            //                // 不存在，则刷新
-            //                [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
-            //            }
+
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
@@ -223,21 +227,45 @@
             if(!exist){
                 // 不存在，则刷新
                 [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew15Id = nil;
+            }
+            
+            exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                // 不存在，则刷新
+                [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew16Id = nil;
+            }
+            
+            exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew17Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
             }
         }
             break;
         case 3:{
-            //            BOOL exist = NO;
-            //            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
-            //                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
-            //                    exist = YES;
-            //                    break;
-            //                }
-            //            }
-            //            if(!exist){
-            //                // 不存在，则刷新
-            //                [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
-            //            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
@@ -248,21 +276,34 @@
             if(!exist){
                 // 不存在，则刷新
                 [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew16Id = nil;
+
             }
+            
+            exist = NO;
+            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
+                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew17Id integerValue]){
+                    exist = YES;
+                    break;
+                }
+            }
+            if(!exist){
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
+            }
+            
         }
             break;
         case 4:{
-            //            BOOL exist = NO;
-            //            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
-            //                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
-            //                    exist = YES;
-            //                    break;
-            //                }
-            //            }
-            //            if(!exist){
-            //                // 不存在，则刷新
-            //                [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
-            //            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew17Id integerValue]){
@@ -271,9 +312,19 @@
                 }
             }
             if(!exist){
-                // 不存在，则刷新
-                [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 0){
+                    // 不存在，则刷新
+                    [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
+                    self.addProductApproveParameter.mDimNew17Id = nil;
+                    return;
+                }
+                
+                // 不存在，则取新的选项的第一项值
+                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zbJsonArray firstObject];
+                [self.fourthBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                self.addProductApproveParameter.mDimNew17Id = @([firstModel.ID integerValue]);
             }
+            
         }
             break;
         default:
