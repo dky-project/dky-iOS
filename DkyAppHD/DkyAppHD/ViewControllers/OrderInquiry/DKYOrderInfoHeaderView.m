@@ -19,6 +19,9 @@
 
 @property (nonatomic, copy) UIImage *selectedImage;
 
+@property (nonatomic, weak) UILabel *amountSumLabel;
+
+@property (nonatomic, weak) UILabel *moneySumLabel;
 @end
 
 @implementation DKYOrderInfoHeaderView
@@ -91,6 +94,9 @@
     [self setupOrderAmountLabel];
     [self setupCountLabel];
     
+    [self setupMoneySumLabel];
+    [self setupAmountSumLabel];
+    
 //  [self setupSerialNumberLabel];
 //    [self setupClientLabel];
 //    [self setupFaxDateLabel];
@@ -112,7 +118,7 @@
     self.orderNumberLabel = [self createLabelWithName:@"序号"];
     [self.orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.imageView.mas_right).with.offset(48);
-        make.centerY.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
@@ -121,7 +127,7 @@
     self.pictureLabel = [self createLabelWithName:@"图片"];
     [self.pictureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(60);
-        make.centerY.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
@@ -130,7 +136,7 @@
     self.sourceOfSampleLabel = [self createLabelWithName:@"款号"];
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(60);
-        make.centerY.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
@@ -139,7 +145,7 @@
     self.colorLabel = [self createLabelWithName:@"颜色"];
     [self.colorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(60);
-        make.centerY.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
@@ -148,7 +154,7 @@
     self.sizeLabel = [self createLabelWithName:@"大"];
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.colorLabel.mas_right).with.offset(60);
-        make.centerY.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
@@ -157,7 +163,7 @@
     self.lengthLabel = [self createLabelWithName:@"长"];
     [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(60);
-        make.centerY.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
@@ -166,7 +172,7 @@
     self.orderAmountLabel = [self createLabelWithName:@"订单金额"];
     [self.orderAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(60);
-        make.centerY.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
@@ -175,7 +181,25 @@
     self.countLabel = [self createLabelWithName:@"数量"];
     [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.orderAmountLabel.mas_right).with.offset(60);
-        make.centerY.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf.imageView);
+    }];
+}
+
+- (void)setupMoneySumLabel{
+    WeakSelf(weakSelf);
+    self.moneySumLabel = [self createLabelWithName:@"20000000"];
+    [self.moneySumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(weakSelf.orderAmountLabel);
+        make.bottom.mas_equalTo(weakSelf).with.offset(-10);
+    }];
+}
+
+- (void)setupAmountSumLabel{
+    WeakSelf(weakSelf);
+    self.amountSumLabel = [self createLabelWithName:@"14365"];
+    [self.amountSumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(weakSelf.countLabel);
+        make.bottom.mas_equalTo(weakSelf.moneySumLabel);
     }];
 }
 
