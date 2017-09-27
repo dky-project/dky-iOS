@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYOrderInqueryTotalMapModel;
 @interface DKYOrderInfoHeaderView : UIView
 
 + (instancetype)orderInfoHeaderViewWithTableView:(UITableView *)tableView;
@@ -32,5 +33,7 @@
 //@property (weak, nonatomic) IBOutlet UILabel *styleLabel;
 
 @property (nonatomic, copy) BlockWithSenderAndBOOL taped;
+
+@property (nonatomic, strong) DKYOrderInqueryTotalMapModel *orderInqueryTotalMapModel ;
 
 @end

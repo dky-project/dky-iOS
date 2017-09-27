@@ -86,6 +86,8 @@
 		26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0D71E1A45EB008EE55F /* DKYHUDTool.m */; };
 		26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */; };
 		26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */; };
+		26E42A8F1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E42A8E1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m */; };
+		26E42A921F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E42A911F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m */; };
 		26E780681E7D52DD0023FAD0 /* DKYVipNameParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */; };
 		26E8709B1EA31685005A6F7F /* RMPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870981EA31685005A6F7F /* RMPopoverPresentationController.m */; };
 		26E8709C1EA31685005A6F7F /* RMUniversalAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E8709A1EA31685005A6F7F /* RMUniversalAlert.m */; };
@@ -537,6 +539,10 @@
 		26DAD0D91E1A47F9008EE55F /* DKYSampleQueryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKYSampleQueryViewCell.h; path = "DkyAppHD/Manager&Tool/DKYSampleQueryViewCell.h"; sourceTree = SOURCE_ROOT; };
 		26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKYSampleQueryViewCell.m; path = "DkyAppHD/Manager&Tool/DKYSampleQueryViewCell.m"; sourceTree = SOURCE_ROOT; };
 		26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DKYSampleQueryViewCell.xib; path = "DkyAppHD/Manager&Tool/DKYSampleQueryViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		26E42A8D1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInqueryPageModel.h; sourceTree = "<group>"; };
+		26E42A8E1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInqueryPageModel.m; sourceTree = "<group>"; };
+		26E42A901F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderInqueryTotalMapModel.h; sourceTree = "<group>"; };
+		26E42A911F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInqueryTotalMapModel.m; sourceTree = "<group>"; };
 		26E780661E7D52DD0023FAD0 /* DKYVipNameParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYVipNameParameter.h; sourceTree = "<group>"; };
 		26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYVipNameParameter.m; sourceTree = "<group>"; };
 		26E870971EA31685005A6F7F /* RMPopoverPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPopoverPresentationController.h; sourceTree = "<group>"; };
@@ -1951,6 +1957,10 @@
 				EB9BBB9D1E24711D00939007 /* DKYOrderBrowserLineItemModel.m */,
 				EB97F2C51E26018F00BDC705 /* DKYOrderAuditStatusModel.h */,
 				EB97F2C61E26018F00BDC705 /* DKYOrderAuditStatusModel.m */,
+				26E42A8D1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.h */,
+				26E42A8E1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m */,
+				26E42A901F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.h */,
+				26E42A911F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m */,
 			);
 			name = "订单查询";
 			sourceTree = "<group>";
@@ -2805,6 +2815,7 @@
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
 				EB506C341E23706F002A1423 /* DKYBootImageModel.m in Sources */,
 				EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */,
+				26E42A8F1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
 				26E870A51EA31740005A6F7F /* UIAlertView+Blocks.m in Sources */,
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
@@ -2978,6 +2989,7 @@
 				26210BEF1E59A3A900EB05D6 /* BEMCheckBoxGroup.m in Sources */,
 				EB9790751E221C0D00E2985C /* DKYDatePickerView.m in Sources */,
 				263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */,
+				26E42A921F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m in Sources */,
 				EBBF21421F32CC540047471B /* DKYDisplaySumViewCell.m in Sources */,
 				EBB0FBA41F3049E400BCD57C /* DKYRecommendViewController.m in Sources */,
 				EBA731121F21E00600FEFD69 /* PYPhotosView.m in Sources */,

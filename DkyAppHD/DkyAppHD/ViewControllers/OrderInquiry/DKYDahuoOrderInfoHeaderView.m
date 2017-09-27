@@ -7,6 +7,7 @@
 //
 
 #import "DKYDahuoOrderInfoHeaderView.h"
+#import "DKYOrderInqueryTotalMapModel.h"
 
 @interface DKYDahuoOrderInfoHeaderView ()
 
@@ -46,6 +47,13 @@
         [self commonInit];
     }
     return self;
+}
+
+- (void)setOrderInqueryTotalMapModel:(DKYOrderInqueryTotalMapModel *)orderInqueryTotalMapModel{
+    _orderInqueryTotalMapModel = orderInqueryTotalMapModel;
+    
+    self.amountSumLabel.text = [NSString stringWithFormat:@"%@",orderInqueryTotalMapModel.TOTALCOUNT ? : @0];
+    self.moneySumLabel.text = [NSString stringWithFormat:@"%@",orderInqueryTotalMapModel.TOTALAMOUNT ? : @0];
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -178,7 +186,7 @@
 
 - (void)setupMoneySumLabel{
     WeakSelf(weakSelf);
-    self.moneySumLabel = [self createLabelWithName:@"20000000"];
+    self.moneySumLabel = [self createLabelWithName:@""];
     [self.moneySumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(weakSelf.orderAmountLabel);
         make.bottom.mas_equalTo(weakSelf).with.offset(-10);
@@ -187,7 +195,7 @@
 
 - (void)setupAmountSumLabel{
     WeakSelf(weakSelf);
-    self.amountSumLabel = [self createLabelWithName:@"14365"];
+    self.amountSumLabel = [self createLabelWithName:@""];
     [self.amountSumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(weakSelf.countLabel);
         make.bottom.mas_equalTo(weakSelf.moneySumLabel);

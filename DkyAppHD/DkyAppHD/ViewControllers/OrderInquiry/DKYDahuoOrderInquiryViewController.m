@@ -19,6 +19,8 @@
 #import "DKYOrderInquiryParameter.h"
 #import "DKYOrderItemDetailModel.h"
 #import "DKYDahuoOrderInquiryParameter.h"
+#import "DKYOrderInqueryPageModel.h"
+#import "DKYOrderInqueryTotalMapModel.h"
 
 @interface DKYDahuoOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -49,6 +51,8 @@
 @property (nonatomic, strong) NSMutableArray *selectedOrders;
 
 @property (nonatomic, strong) NSArray *detailOrders;
+
+@property (nonatomic, strong) DKYOrderInqueryTotalMapModel *orderInqueryTotalMapModel;
 
 @end
 
@@ -84,12 +88,14 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.tableView.mj_header endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
-            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            DKYOrderInqueryPageModel *page = [DKYOrderInqueryPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYOrderItemModel mj_objectArrayWithKeyValuesArray:page.items];
+            weakSelf.orderInqueryTotalMapModel = page.totalMap;
             [weakSelf.selectedOrders removeAllObjects];
             [weakSelf.orders removeAllObjects];
             [weakSelf.orders addObjectsFromArray:samples];
             [weakSelf.tableView reloadData];
+            weakSelf.headerView.headerView.orderInqueryTotalMapModel = weakSelf.orderInqueryTotalMapModel;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -124,11 +130,13 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.tableView.mj_footer endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
-            DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
+            DKYOrderInqueryPageModel *page = [DKYOrderInqueryPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYOrderItemModel mj_objectArrayWithKeyValuesArray:page.items];
+            weakSelf.orderInqueryTotalMapModel = page.totalMap;
             [weakSelf.orders addObjectsFromArray:samples];
             weakSelf.pageNum++;
             [weakSelf.tableView reloadData];
+            weakSelf.headerView.headerView.orderInqueryTotalMapModel = weakSelf.orderInqueryTotalMapModel;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
