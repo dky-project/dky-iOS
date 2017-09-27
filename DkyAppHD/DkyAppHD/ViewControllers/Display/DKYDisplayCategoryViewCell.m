@@ -310,7 +310,7 @@
     
     p.mDimNew14Id = @([self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id integerValue]);
     
-    p.mDimNew16Id = @([self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id integerValue]);
+//    p.mDimNew16Id = @([self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id integerValue]);
     
     [[DKYHttpRequestManager sharedInstance] getPzsJsonWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
