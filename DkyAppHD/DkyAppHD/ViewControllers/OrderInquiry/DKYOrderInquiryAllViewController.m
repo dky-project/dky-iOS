@@ -30,7 +30,7 @@
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
-    NSArray *titleList = @[@"定制",@"大货"];
+    NSArray *titleList = @[@"毛衫类",@"其他类"];
     return titleList;
 }
 
