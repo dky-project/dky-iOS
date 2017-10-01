@@ -2211,8 +2211,8 @@
 				EB95107E1E15FC2C008708EF /* CustomOrder */,
 				EB02E87F1ECC1B58006C5354 /* CollectList */,
 				EB95107D1E15FC2C008708EF /* OrderInquiry */,
-				EBB0FBA11F3049B200BCD57C /* Recommend */,
-				EBD5E26D1F316BEC00B98F46 /* Display */,
+				EBB0FBA11F3049B200BCD57C /* Display */,
+				EBD5E26D1F316BEC00B98F46 /* Recommend */,
 				EB95117E1E16408C008708EF /* Login */,
 				EBD694B31E277D5100F365C3 /* Webview */,
 				EB9790721E221BDA00E2985C /* ViewTools */,
@@ -2258,7 +2258,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		EBB0FBA11F3049B200BCD57C /* Recommend */ = {
+		EBB0FBA11F3049B200BCD57C /* Display */ = {
 			isa = PBXGroup;
 			children = (
 				263702A01F62E567000991C5 /* DKYRecommendEntryViewController.h */,
@@ -2267,6 +2267,7 @@
 				EBB0FBA31F3049E400BCD57C /* DKYRecommendViewController.m */,
 				2637029C1F5A452B000991C5 /* Views */,
 			);
+			name = Display;
 			path = Recommend;
 			sourceTree = "<group>";
 		};
@@ -2419,7 +2420,7 @@
 			path = DACircularProgress;
 			sourceTree = "<group>";
 		};
-		EBD5E26D1F316BEC00B98F46 /* Display */ = {
+		EBD5E26D1F316BEC00B98F46 /* Recommend */ = {
 			isa = PBXGroup;
 			children = (
 				263702A31F62E7DD000991C5 /* DKYDisplayEntryViewController.h */,
@@ -2428,6 +2429,7 @@
 				EBD5E26F1F316C0100B98F46 /* DKYDisplayViewController.m */,
 				EBD5E2711F31738000B98F46 /* View */,
 			);
+			name = Recommend;
 			path = Display;
 			sourceTree = "<group>";
 		};

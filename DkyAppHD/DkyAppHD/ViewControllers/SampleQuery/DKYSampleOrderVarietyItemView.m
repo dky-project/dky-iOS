@@ -917,11 +917,31 @@
     
     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
-    btn.tag = 4;
+    btn.tag = 5;
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.fourthBtn);
         make.left.mas_equalTo(weakSelf.fourthBtn.mas_right).with.offset(30);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
+        make.height.mas_equalTo(weakSelf.optionsBtn);
+    }];
+    [btn setTitle:@"设计师推荐色" forState:UIControlStateNormal];
+    btn.originalTitle = [btn currentTitle];
+    if(btn.currentTitle.length > 2){
+        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
+    }
+    
+//    btn.titleLabel.numberOfLines = 0;
+    btn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.colorGroupBtn = btn;
+    
+    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
+    [self addSubview:btn];
+    btn.tag = 4;
+    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.fourthBtn);
+        make.left.mas_equalTo(weakSelf.colorGroupBtn.mas_right).with.offset(30);
         make.width.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.optionsBtn);
     }];
@@ -932,27 +952,6 @@
     }
     
     self.colorBtn = btn;
-    
-    btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
-    [self addSubview:btn];
-    btn.tag = 5;
-    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.fourthBtn);
-        make.left.mas_equalTo(weakSelf.colorBtn.mas_right).with.offset(30);
-        make.width.mas_equalTo(weakSelf.optionsBtn);
-        make.height.mas_equalTo(weakSelf.optionsBtn);
-    }];
-    [btn setTitle:@"点击选择推荐色" forState:UIControlStateNormal];
-    btn.originalTitle = [btn currentTitle];
-    if(btn.currentTitle.length > 2){
-        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
-    }
-    
-//    btn.titleLabel.numberOfLines = 0;
-    btn.titleLabel.adjustsFontSizeToFitWidth = YES;
-    
-    self.colorGroupBtn = btn;
 }
 
 - (void)setupSelectedColorView{
