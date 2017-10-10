@@ -45,15 +45,6 @@
         
         self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:itemModel.placeholder attributes:attributes];
     }
-
-    if(itemModel.title.length >0 && [itemModel.title hasPrefix:@"*"]){
-        NSDictionary *dict = @{NSForegroundColorAttributeName : self.titleLabel.textColor,
-                               NSFontAttributeName : self.titleLabel.font};
-        NSMutableAttributedString *atitle = [[NSMutableAttributedString alloc] initWithString:itemModel.title attributes:dict];
-        
-        [atitle addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 1)];
-        self.titleLabel.attributedText = atitle;
-    }
     
     UIFont *font = self.titleLabel.font;
     CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
@@ -88,6 +79,15 @@
         [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(80);
         }];
+    }
+    
+    if(itemModel.title.length >0 && [itemModel.title hasPrefix:@"*"]){
+        NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor blackColor],
+                               NSFontAttributeName : self.titleLabel.font};
+        NSMutableAttributedString *atitle = [[NSMutableAttributedString alloc] initWithString:itemModel.title attributes:dict];
+        
+        [atitle addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 1)];
+        self.titleLabel.attributedText = atitle;
     }
 }
 

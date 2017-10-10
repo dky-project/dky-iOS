@@ -655,6 +655,24 @@
     NSMutableArray *clrRangeArray = [NSMutableArray array];
     NSMutableArray *selectedColorModels = [NSMutableArray array];
 
+    for (NSString *colorName in selectedColors) {
+        BOOL match = NO;
+        DKYDahuoOrderColorModel *color  = nil;
+        for (color in self.madeInfoByProductName.displayColorViewList) {
+            if([color.colorName isEqualToString:colorName]){
+                color.selected = YES;
+                match = YES;
+                break;
+            }
+        }
+        if(match){
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+            
+            [clrRangeArray addObject:color.colorName];
+            [selectedColorModels addObject:color];
+        }
+    }
     for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.displayColorViewList) {
         BOOL match = NO;
         for (NSString *colorName in selectedColors) {
@@ -667,12 +685,6 @@
         
         if(!match){
             color.selected = NO;
-        }else{
-            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-            [selectedColor appendString:oneColor];
-            
-            [clrRangeArray addObject:color.colorName];
-            [selectedColorModels addObject:color];
         }
     }
     
@@ -927,10 +939,8 @@
     }];
     [btn setTitle:@"设计师推荐色" forState:UIControlStateNormal];
     btn.originalTitle = [btn currentTitle];
-    if(btn.currentTitle.length > 2){
-        btn.extraInfo = [btn.currentTitle substringFromIndex:2];
-    }
-    
+    btn.extraInfo = [btn currentTitle];
+
 //    btn.titleLabel.numberOfLines = 0;
     btn.titleLabel.adjustsFontSizeToFitWidth = YES;
     self.colorGroupBtn = btn;

@@ -440,6 +440,7 @@ static const CGFloat basicItemHeight = 45;
         make.left.mas_equalTo(weakSelf.numberView);
         make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
+    
         make.top.mas_equalTo(weakSelf.numberView.mas_bottom).with.offset(vpadding);
     }];
     
