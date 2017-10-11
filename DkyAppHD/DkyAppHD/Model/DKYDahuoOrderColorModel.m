@@ -10,4 +10,8 @@
 
 @implementation DKYDahuoOrderColorModel
 
+- (BOOL)selected{
+    return self.selectedCount > 0;
+}
+
 @end

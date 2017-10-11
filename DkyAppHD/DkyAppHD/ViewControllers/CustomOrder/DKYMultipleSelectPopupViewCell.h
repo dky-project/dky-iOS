@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong) DKYDahuoOrderColorModel *itemModel;
 
+@property (nonatomic, copy) BlockWithSender cancelBtnClicked;
+
 @end

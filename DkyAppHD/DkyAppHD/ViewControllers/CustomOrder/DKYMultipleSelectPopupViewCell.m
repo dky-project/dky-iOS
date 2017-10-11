@@ -12,12 +12,15 @@
 @interface DKYMultipleSelectPopupViewCell ()
 
 @property (weak, nonatomic) UIImageView *rectImageView;
+@property (nonatomic, weak) UILabel *countLabel;
 
 @property (nonatomic, weak) UILabel *contentLabel;
 // image
 @property (nonatomic, strong) UIImage *normalImage;
 
 @property (nonatomic, copy) UIImage *selectedImage;
+
+@property (nonatomic, weak) UIButton *cancelBtn;
 
 @end
 
@@ -45,8 +48,10 @@
 - (void)setItemModel:(DKYDahuoOrderColorModel *)itemModel{
     _itemModel = itemModel;
     
-    self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
+//    self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
     self.contentLabel.text = [NSString stringWithFormat:@"%@(%@)",itemModel.colorName,itemModel.colorDesc];
+    self.countLabel.text = itemModel.selected ? [NSString stringWithFormat:@"%@",@(itemModel.selectedCount)] : nil;
+    self.cancelBtn.hidden = !itemModel.selected;
 }
 
 #pragma mark - UI
@@ -54,6 +59,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self setupRectImageView];
     [self setupContentLabel];
+    [self setupCancleBtn];
 }
 
 - (void)setupRectImageView{
@@ -76,6 +82,19 @@
         make.left.mas_equalTo(weakSelf.contentView).with.offset(32);
         make.centerY.mas_equalTo(weakSelf.contentView);
     }];
+    
+    self.rectImageView.hidden = YES;
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.font = [UIFont boldSystemFontOfSize:16];
+    label.textColor = [UIColor colorWithHex:0x3c3562];
+    label.textAlignment = NSTextAlignmentLeft;
+    
+    [self.contentView addSubview:label];
+    self.countLabel = label;
+    [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(weakSelf.rectImageView);
+    }];
 }
 
 - (void)setupContentLabel{
@@ -93,7 +112,34 @@
         make.bottom.mas_equalTo(weakSelf.contentView);
         make.right.mas_equalTo(weakSelf.contentView);
     }];
+}
 
+- (void)setupCancleBtn{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn customButtonWithTypeEx:UIButtonCustomType_Ten];
+    [btn setTitle:@"取消" forState:UIControlStateNormal];
+    btn.selected = YES;
+    btn.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    btn.layer.cornerRadius = 14;
+    
+    [self.contentView addSubview:btn];
+    self.cancelBtn = btn;
+    WeakSelf(weakSelf);
+    
+    [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(80);
+        make.height.mas_equalTo(28);
+        make.centerY.mas_equalTo(weakSelf.contentView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-32);
+    }];
+    
+    weakSelf.cancelBtn.hidden = YES;
+    
+    [weakSelf.cancelBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(UIButton*  _Nonnull sender) {
+        if(weakSelf.cancelBtnClicked){
+            weakSelf.cancelBtnClicked(sender);
+        }
+    }];
 }
 
 @end

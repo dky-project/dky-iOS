@@ -68,11 +68,15 @@
 
 - (void)setClrRangeArray:(NSArray *)clrRangeArray{
     _clrRangeArray = clrRangeArray;
+    
+    for (DKYDahuoOrderColorModel *model in self.colorViewList) {
+        model.selectedCount = 0;
+    }
 
     for (NSString *selectColor in clrRangeArray) {
         for (DKYDahuoOrderColorModel *model in self.colorViewList) {
             if([model.colorName isEqualToString:selectColor]){
-                model.selected = YES;
+                ++model.selectedCount;
                 [self.selectedColors addObject:model];
                 break;
             }
@@ -235,9 +239,25 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    WeakSelf(weakSelf);
     DKYMultipleSelectPopupViewCell *cell = [DKYMultipleSelectPopupViewCell multipleSelectPopupViewCellWithTableView:tableView];
     DKYDahuoOrderColorModel *item = [self.colorViewList objectOrNilAtIndex:indexPath.row];
     cell.itemModel = item;
+    cell.cancelBtnClicked = ^(id sender) {
+        if(item.selectedCount == 0) return ;
+        
+        --item.selectedCount;
+        __block NSInteger index = 0;
+        [weakSelf.selectedColors enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if(obj == item){
+                index = idx;
+                *stop = YES;
+            }
+        }];
+        [weakSelf.selectedColors removeObjectAtIndex:index];
+        [weakSelf.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
+    };
+    
     return cell;
 }
 
@@ -245,26 +265,13 @@
 {
     DKYDahuoOrderColorModel *item = [self.colorViewList objectOrNilAtIndex:indexPath.row];
     
-    if(!item.selected){
-        NSInteger count = 0;
-        for (DKYDahuoOrderColorModel *item in self.colorViewList) {
-            if(item.selected){
-                ++count;
-            }
-            if(count >= self.maxSelectedNumber){
-                return;
-            }
-        }
+    if(self.selectedColors.count >= self.maxSelectedNumber){
+        return;
     }
     
-    item.selected = !item.selected;
-    
-    if(item.selected){
-        // 选中
-        [self.selectedColors addObject:item];
-    }else{
-        [self.selectedColors removeObject:item];
-    }
+    // 选中
+    [self.selectedColors addObject:item];
+    ++item.selectedCount;
     
     [tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
 }
