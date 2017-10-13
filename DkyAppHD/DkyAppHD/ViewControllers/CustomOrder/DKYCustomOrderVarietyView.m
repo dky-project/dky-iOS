@@ -214,10 +214,7 @@
             for (DKYDahuoOrderColorModel *model in colorArray) {
                 for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
                     if([model.colorName isEqualToString:selectColor]){
-                        model.selected = YES;
-                        break;
-                    }else{
-                        model.selected = NO;
+                        ++model.selectedCount;
                     }
                 }
             }
