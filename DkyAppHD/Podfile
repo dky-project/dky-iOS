@@ -15,6 +15,7 @@ pod 'YYCategories'
 pod 'YYCache'
 pod 'MBProgressHUD'
 pod 'SVProgressHUD'
+pod 'VTMagic'
 
 pod 'QMUIKit'
 end

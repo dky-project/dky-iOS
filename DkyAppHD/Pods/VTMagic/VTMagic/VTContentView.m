@@ -23,6 +23,7 @@
 @implementation VTContentView
 
 #pragma mark - Lifecycle
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {

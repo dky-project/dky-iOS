@@ -37,7 +37,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.appearanceState = VTAppearanceStateWillAppear;
+    _appearanceState = VTAppearanceStateWillAppear;
     if (!_magicView.isSwitching) {
         [_currentViewController beginAppearanceTransition:YES animated:animated];
     }
@@ -46,7 +46,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.appearanceState = VTAppearanceStateDidAppear;
+    _appearanceState = VTAppearanceStateDidAppear;
     if (!_magicView.isSwitching) {
         [_currentViewController endAppearanceTransition];
     }
@@ -55,7 +55,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    self.appearanceState = VTAppearanceStateWillDisappear;
+    _appearanceState = VTAppearanceStateWillDisappear;
     if (!_magicView.isSwitching) {
         [_currentViewController beginAppearanceTransition:NO animated:animated];
     }
@@ -64,13 +64,13 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    self.appearanceState = VTAppearanceStateDidDisappear;
+    _appearanceState = VTAppearanceStateDidDisappear;
     if (!_magicView.isSwitching) {
         [_currentViewController endAppearanceTransition];
     }
 }
 
-#pragma mark - forward appearance methods
+#pragma mark - 禁止自动触发appearance methods
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods {
     return NO;
 }
@@ -86,28 +86,15 @@
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
-    return @[];
+    return nil;
 }
 
 - (UIButton *)magicView:(VTMagicView *)magicView menuItemAtIndex:(NSUInteger)itemIndex {
-    static NSString *itemIdentifier = @"itemIdentifier";
-    UIButton *menuItem = [magicView dequeueReusableItemWithIdentifier:itemIdentifier];
-    if (!menuItem) {
-        menuItem = [UIButton buttonWithType:UIButtonTypeCustom];
-        [menuItem setTitleColor:RGBCOLOR(50, 50, 50) forState:UIControlStateNormal];
-        [menuItem setTitleColor:RGBCOLOR(169, 37, 37) forState:UIControlStateSelected];
-        menuItem.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:15.f];
-    }
-    return menuItem;
+    return nil;
 }
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageInde {
-    static NSString *pageId = @"page.identifier";
-    UIViewController *viewController = [magicView dequeueReusablePageWithIdentifier:pageId];
-    if (!viewController) {
-        viewController = [[UIViewController alloc] init];
-    }
-    return viewController;
+    return nil;
 }
 
 #pragma mark - VTMagicViewDelegate

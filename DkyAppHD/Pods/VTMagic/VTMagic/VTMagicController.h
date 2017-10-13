@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+VTMagic.h"
-#import "UIButton+VTMagic.h"
 #import "VTMagicMacros.h"
 #import "VTMagicView.h"
 

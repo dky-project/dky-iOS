@@ -18,8 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /****************************************data source****************************************/
 @protocol VTMagicViewDataSource <NSObject>
-
-@required
 /**
  *  获取所有菜单名，数组中存放字符串类型对象
  *
@@ -83,7 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  根据itemIndex获取对应menuItem的宽度，若返回结果为0，内部将自动计算其宽度
- *  通常情况下只需设置itemSpacing或itemWidth即可
  *
  *  @param magicView self
  *  @param itemIndex menuItem对应的索引
@@ -94,7 +91,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  根据itemIndex获取对应slider的宽度，若返回结果为0，内部将自动计算其宽度
- *  通常情况下只需设置sliderWidth、sliderExtension或bubbleInset即可
  *
  *  @param magicView self
  *  @param itemIndex slider对应的索引
@@ -117,6 +113,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  代理
+ *  若delegate为UIViewController并且实现了VTMagicProtocol协议，
+ *  则主控制器(mainViewController)默认与其相同
  */
 @property (nonatomic, weak, nullable) id<VTMagicViewDelegate> delegate;
 
@@ -144,8 +142,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  导航菜单item的预览数，默认为1
- *
- *  @warning displayCentered为YES时，该属性无效
  */
 @property (nonatomic, assign) NSUInteger previewItems;
 
@@ -259,11 +255,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly, getter=isSwitching) BOOL switching;
 
 /**
- *  被选中的menuItem是否居中显示，默认NO
- */
-@property (nonatomic, assign) BOOL displayCentered;
-
-/**
  *  页面滑到两侧边缘时是否需要反弹效果，默认NO
  */
 @property (nonatomic, assign) BOOL bounces;
@@ -355,11 +346,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat headerHeight;
 
 /**
- *  item之间的实际间距
- */
-@property (nonatomic, assign) CGFloat acturalSpacing;
-
-/**
  *  两个导航菜单item文本之间的间距，默认是25，其优先级低于itemWidth
  *  如果菜单item包含图片，则实际间距可能会更小
  *
@@ -407,8 +393,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  更新菜单标题，但不重新加载页面
- *
- *  @warning 仅限于菜单顺序和页数不改变的情况下，一般情况下建议使用reloadData方法
+ *  仅限于菜单顺序和页数不改变的情况下
+ *  一般情况下建议使用reloadData方法
  */
 - (void)reloadMenuTitles;
 
@@ -468,7 +454,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)switchToPage:(NSUInteger)pageIndex animated:(BOOL)animated;
 
 /**
- *  处理UIPanGestureRecognizer手势，用于解决页面内嵌webView时无法响应手势问题
+ *  处理UIPanGestureRecognizer手势，用于解决页面内嵌UIWebView时无法响应手势问题
  *
  *  @param recognizer 手势
  */
