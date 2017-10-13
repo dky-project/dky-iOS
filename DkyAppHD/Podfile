@@ -12,6 +12,7 @@ pod 'IQKeyboardManager'
 pod 'SAMKeychain'
 pod 'MJExtension'
 pod 'YYCategories'
+pod 'YYCache'
 pod 'MBProgressHUD'
 pod 'SVProgressHUD'
 

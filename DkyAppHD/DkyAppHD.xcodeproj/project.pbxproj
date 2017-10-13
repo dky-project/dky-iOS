@@ -179,10 +179,6 @@
 		EB97907C1E22371B00E2985C /* DKYOrderInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97907B1E22371B00E2985C /* DKYOrderInfoHeaderView.m */; };
 		EB97907E1E22373500E2985C /* DKYOrderInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB97907D1E22373500E2985C /* DKYOrderInfoHeaderView.xib */; };
 		EB9790851E22421400E2985C /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790841E22421400E2985C /* Foundation+Log.m */; };
-		EB97908F1E22459300E2985C /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790881E22459300E2985C /* YYCache.m */; };
-		EB9790901E22459300E2985C /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97908A1E22459300E2985C /* YYDiskCache.m */; };
-		EB9790911E22459300E2985C /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97908C1E22459300E2985C /* YYKVStorage.m */; };
-		EB9790921E22459300E2985C /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB97908E1E22459300E2985C /* YYMemoryCache.m */; };
 		EB9790951E2245A000E2985C /* YYCache+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790931E2245A000E2985C /* YYCache+Utility.m */; };
 		EB9790971E22466200E2985C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9790961E22466200E2985C /* libsqlite3.tbd */; };
 		EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9790991E2246F800E2985C /* DKYLoginUserRequestParameter.m */; };
@@ -725,14 +721,6 @@
 		EB97907B1E22371B00E2985C /* DKYOrderInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInfoHeaderView.m; sourceTree = "<group>"; };
 		EB97907D1E22373500E2985C /* DKYOrderInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderInfoHeaderView.xib; sourceTree = "<group>"; };
 		EB9790841E22421400E2985C /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
-		EB9790871E22459300E2985C /* YYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCache.h; sourceTree = "<group>"; };
-		EB9790881E22459300E2985C /* YYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCache.m; sourceTree = "<group>"; };
-		EB9790891E22459300E2985C /* YYDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDiskCache.h; sourceTree = "<group>"; };
-		EB97908A1E22459300E2985C /* YYDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDiskCache.m; sourceTree = "<group>"; };
-		EB97908B1E22459300E2985C /* YYKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKVStorage.h; sourceTree = "<group>"; };
-		EB97908C1E22459300E2985C /* YYKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKVStorage.m; sourceTree = "<group>"; };
-		EB97908D1E22459300E2985C /* YYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMemoryCache.h; sourceTree = "<group>"; };
-		EB97908E1E22459300E2985C /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
 		EB9790931E2245A000E2985C /* YYCache+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YYCache+Utility.m"; sourceTree = "<group>"; };
 		EB9790941E2245A000E2985C /* YYCache+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YYCache+Utility.h"; sourceTree = "<group>"; };
 		EB9790961E22466200E2985C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1893,21 +1881,6 @@
 			path = Parameter;
 			sourceTree = "<group>";
 		};
-		EB9790861E22459300E2985C /* YYCache */ = {
-			isa = PBXGroup;
-			children = (
-				EB9790871E22459300E2985C /* YYCache.h */,
-				EB9790881E22459300E2985C /* YYCache.m */,
-				EB9790891E22459300E2985C /* YYDiskCache.h */,
-				EB97908A1E22459300E2985C /* YYDiskCache.m */,
-				EB97908B1E22459300E2985C /* YYKVStorage.h */,
-				EB97908C1E22459300E2985C /* YYKVStorage.m */,
-				EB97908D1E22459300E2985C /* YYMemoryCache.h */,
-				EB97908E1E22459300E2985C /* YYMemoryCache.m */,
-			);
-			path = YYCache;
-			sourceTree = "<group>";
-		};
 		EB97F2A61E25C36A00BDC705 /* DQCanEditTablForm */ = {
 			isa = PBXGroup;
 			children = (
@@ -2185,7 +2158,6 @@
 				EBD694A71E277B4700F365C3 /* RxWebViewController */,
 				EB97F2A61E25C36A00BDC705 /* DQCanEditTablForm */,
 				EB506C411E23B24C002A1423 /* KLCPopup */,
-				EB9790861E22459300E2985C /* YYCache */,
 				EB9790581E221B6F00E2985C /* MMPopupView */,
 				EB9790511E22158100E2985C /* UUDatePicker */,
 				EB97904D1E22118500E2985C /* WGBDatePickerView */,
@@ -2791,7 +2763,6 @@
 				EB95117D1E162E31008708EF /* UIStoryboard+Utility.m in Sources */,
 				EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */,
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
-				EB9790911E22459300E2985C /* YYKVStorage.m in Sources */,
 				EBA731081F21E00600FEFD69 /* PYPhotosNavigationController.m in Sources */,
 				EB9790951E2245A000E2985C /* YYCache+Utility.m in Sources */,
 				EBD694D81E2785BB00F365C3 /* TOActivitySafari.m in Sources */,
@@ -2810,7 +2781,6 @@
 				EBA351791E811D9700D89BFA /* DKYStaticDimListModel.m in Sources */,
 				EB9790501E22118500E2985C /* WGBDatePickerView.m in Sources */,
 				26210BF31E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m in Sources */,
-				EB97908F1E22459300E2985C /* YYCache.m in Sources */,
 				EB9ACBCE1E5EB8A30007517C /* DKYMadeInfoByProductNameModel.m in Sources */,
 				263CC15D1E1555E7002FBB50 /* UIColor+RandomColor.m in Sources */,
 				EB97F2BD1E25C36A00BDC705 /* DQTextField.m in Sources */,
@@ -2921,7 +2891,6 @@
 				EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */,
 				EB506C401E23A8B8002A1423 /* DKYOrderBrowseViewController.m in Sources */,
 				26210BDA1E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m in Sources */,
-				EB9790921E22459300E2985C /* YYMemoryCache.m in Sources */,
 				EBD3049F1F20AE5F00CA400C /* FLAnimatedImageView.m in Sources */,
 				EBA731131F21E00600FEFD69 /* PYPhotoView.m in Sources */,
 				EBD116071EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.m in Sources */,
@@ -2993,7 +2962,6 @@
 				EB41AC4B1E1F9DF60015A7CF /* DKYHomeItemView.m in Sources */,
 				266290771E9D039D00886274 /* UIColor+VTMagic.m in Sources */,
 				EB97F2B71E25C36A00BDC705 /* DQCanEditCell.m in Sources */,
-				EB9790901E22459300E2985C /* YYDiskCache.m in Sources */,
 				EBD694A61E2768D600F365C3 /* DKYHomeArticleDetailModel.m in Sources */,
 				EBD115F61EA464C900AF6F5C /* DKYTongkuan5JianTypeItemView.m in Sources */,
 				EBD116041EA49D7400AF6F5C /* DKYSampleOrderPopupView.m in Sources */,
