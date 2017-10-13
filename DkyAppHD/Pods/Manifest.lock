@@ -204,6 +204,7 @@ PODS:
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
   - SVProgressHUD (2.2.1)
+  - TTTAttributedLabel (2.0.0)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
   - VTMagic/Core (1.2.4)
@@ -223,6 +224,7 @@ DEPENDENCIES:
   - SAMKeychain
   - SDWebImage
   - SVProgressHUD
+  - TTTAttributedLabel
   - VTMagic
   - YYCache
   - YYCategories
@@ -238,10 +240,11 @@ SPEC CHECKSUMS:
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: fbfe1249b8fbf4ca3aa21916bebc4a6ac95b19b5
+PODFILE CHECKSUM: 18409010af48b2df282700fab31f2dffcc80f4b6
 
 COCOAPODS: 1.4.0.beta.1

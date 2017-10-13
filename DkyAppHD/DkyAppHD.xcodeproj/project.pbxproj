@@ -123,7 +123,6 @@
 		EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */; };
 		EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */; };
 		EB5D73311F42D2920054D2F8 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5D73301F42D2920054D2F8 /* UIAlertController+Blocks.m */; };
-		EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */; };
 		EB6DFFD11F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */; };
 		EB6DFFD51F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6DFFD41F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m */; };
 		EB843C461E82474400E4856E /* DKYAddProductApproveParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB843C451E82474400E4856E /* DKYAddProductApproveParameter.m */; };
@@ -595,8 +594,6 @@
 		EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderBrowserLineView.xib; sourceTree = "<group>"; };
 		EB5D732F1F42D2920054D2F8 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		EB5D73301F42D2920054D2F8 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
-		EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
-		EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		EB6DFFCF1F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGroupNoParameter.h; sourceTree = "<group>"; };
 		EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductListByGroupNoParameter.m; sourceTree = "<group>"; };
 		EB6DFFD31F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGroupNoModel.h; sourceTree = "<group>"; };
@@ -1536,15 +1533,6 @@
 			path = KLCPopup;
 			sourceTree = "<group>";
 		};
-		EB6B06B01E1E14AD00F2F108 /* TTTAttributedLabel */ = {
-			isa = PBXGroup;
-			children = (
-				EB6B06B11E1E14AD00F2F108 /* TTTAttributedLabel.h */,
-				EB6B06B21E1E14AD00F2F108 /* TTTAttributedLabel.m */,
-			);
-			path = TTTAttributedLabel;
-			sourceTree = "<group>";
-		};
 		EB6DFFD21F3ABAC7004C7CC4 /* 搭配(原陈列) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2106,7 +2094,6 @@
 				EB9790511E22158100E2985C /* UUDatePicker */,
 				EB97904D1E22118500E2985C /* WGBDatePickerView */,
 				267CED441E20E93100ED5872 /* iCarousel */,
-				EB6B06B01E1E14AD00F2F108 /* TTTAttributedLabel */,
 				EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */,
 				EBA90E921E52E2EE00EA539E /* TWScrollView */,
 				EBC300691E1CD8FE00F602E6 /* TWBaseViewController */,
@@ -2747,7 +2734,6 @@
 				EB9790711E221B6F00E2985C /* MMSheetView.m in Sources */,
 				EBD5E2791F319B8700B98F46 /* QMUIConfigurationTemplate.m in Sources */,
 				263702CF1F650D01000991C5 /* DKYRecommendHeaderView.m in Sources */,
-				EB6B06B31E1E14AD00F2F108 /* TTTAttributedLabel.m in Sources */,
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
 				EBD694D51E2785BB00F365C3 /* NJKWebViewProgress.m in Sources */,
 				EBD694A21E27629D00F365C3 /* DKYHomeItemTwoViewCell.m in Sources */,

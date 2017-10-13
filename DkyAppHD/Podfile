@@ -4,18 +4,23 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'DkyAppHD' do
 
-pod 'SDWebImage'
-pod 'MJRefresh'
 pod 'AFNetworking'
+pod 'SDWebImage'
+
 pod 'Masonry'
 pod 'IQKeyboardManager'
-pod 'SAMKeychain'
+
+pod 'VTMagic'
+pod 'MBProgressHUD'
+pod 'SVProgressHUD'
+pod 'TTTAttributedLabel'
+pod 'MJRefresh'
+
 pod 'MJExtension'
 pod 'YYCategories'
 pod 'YYCache'
-pod 'MBProgressHUD'
-pod 'SVProgressHUD'
-pod 'VTMagic'
+pod 'SAMKeychain'
+
 
 pod 'QMUIKit'
 end
