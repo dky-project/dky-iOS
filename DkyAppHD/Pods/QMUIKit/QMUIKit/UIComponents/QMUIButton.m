@@ -8,8 +8,6 @@
 
 #import "QMUIButton.h"
 #import "QMUICore.h"
-#import "QMUICommonViewController.h"
-#import "QMUINavigationController.h"
 #import "UIImage+QMUI.h"
 #import "UIViewController+QMUI.h"
 #import "CALayer+QMUI.h"
@@ -548,6 +546,18 @@
     }
 }
 
+- (void)setTintColorAdjustsTitleAndImage:(UIColor *)tintColorAdjustsTitleAndImage {
+    if (tintColorAdjustsTitleAndImage) {
+        self.tintColor = tintColorAdjustsTitleAndImage;
+        self.adjustsTitleTintColorAutomatically = YES;
+        self.adjustsImageTintColorAutomatically = YES;
+    }
+}
+
+- (UIColor *)tintColorAdjustsTitleAndImage {
+    return self.tintColor;
+}
+
 @end
 
 @interface QMUINavigationButton()
@@ -624,9 +634,11 @@
 }
 
 - (void)renderButtonStyle {
-    
+    UIFont *font = NavBarButtonFont;
+    if (font) {
+        self.titleLabel.font = font;
+    }
     self.titleLabel.backgroundColor = UIColorClear;
-    self.titleLabel.font = NavBarButtonFont;
     self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     self.contentMode = UIViewContentModeCenter;
     self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -639,7 +651,10 @@
         case QMUINavigationButtonTypeImage:
             break;
         case QMUINavigationButtonTypeBold: {
-            self.titleLabel.font = NavBarButtonFontBold;
+            font = NavBarButtonFontBold;
+            if (font) {
+                self.titleLabel.font = font;
+            }
         }
             break;
         case QMUINavigationButtonTypeBack: {
@@ -786,9 +801,12 @@
             
         case QMUINavigationButtonTypeBold:
         {
-            UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:target action:selector];
-            [barButtonItem setTitleTextAttributes:@{NSFontAttributeName:NavBarButtonFontBold} forState:UIControlStateNormal];
+            UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleDone target:target action:selector];
             barButtonItem.tintColor = tintColor;
+            if (NavBarButtonFontBold) {
+                [barButtonItem setTitleTextAttributes:@{NSFontAttributeName:NavBarButtonFontBold} forState:UIControlStateNormal];
+                [barButtonItem setTitleTextAttributes:[barButtonItem titleTextAttributesForState:UIControlStateNormal] forState:UIControlStateHighlighted];// iOS 11 如果不显式设置 highlighted 的样式，点击时字体会从加粗变成默认，导致抖动
+            }
             return barButtonItem;
         }
             break;
