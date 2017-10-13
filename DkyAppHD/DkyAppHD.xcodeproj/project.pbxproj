@@ -285,10 +285,6 @@
 		EBC300721E1CDC8500F602E6 /* DKYSampleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300711E1CDC8500F602E6 /* DKYSampleDetailViewController.m */; };
 		EBC3007E1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */; };
 		EBC3007F1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */; };
-		EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300821E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m */; };
-		EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300841E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m */; };
-		EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */; };
-		EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		EBC6149F1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC6149E1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m */; };
 		EBC6DD711E94D9A800BE2510 /* DKYGetPzsJsonParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC6DD701E94D9A800BE2510 /* DKYGetPzsJsonParameter.m */; };
 		EBCBE11C1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBE11B1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m */; };
@@ -912,14 +908,6 @@
 		EBC3007B1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailTypeViewCell.h; sourceTree = "<group>"; };
 		EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailTypeViewCell.m; sourceTree = "<group>"; };
 		EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYSampleDetailTypeViewCell.xib; sourceTree = "<group>"; };
-		EBC300811E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
-		EBC300821E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
-		EBC300831E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
-		EBC300841E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
-		EBC300851E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
-		EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
-		EBC300871E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
-		EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 		EBC6149D1EC94131004AD4A5 /* DKYOrderBrowsePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowsePopupView.h; sourceTree = "<group>"; };
 		EBC6149E1EC94131004AD4A5 /* DKYOrderBrowsePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowsePopupView.m; sourceTree = "<group>"; };
 		EBC6DD6F1E94D9A800BE2510 /* DKYGetPzsJsonParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetPzsJsonParameter.h; sourceTree = "<group>"; };
@@ -2081,7 +2069,6 @@
 				EB9790581E221B6F00E2985C /* MMPopupView */,
 				EB9790511E22158100E2985C /* UUDatePicker */,
 				EB97904D1E22118500E2985C /* WGBDatePickerView */,
-				EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */,
 				EBA90E921E52E2EE00EA539E /* TWScrollView */,
 				EBC300691E1CD8FE00F602E6 /* TWBaseViewController */,
 				EBC3005C1E1CCC0A00F602E6 /* JXTAlertManager */,
@@ -2227,21 +2214,6 @@
 				EBC3006D1E1CD8FE00F602E6 /* TWNavBtnItem.m */,
 			);
 			path = TWBaseViewController;
-			sourceTree = "<group>";
-		};
-		EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */ = {
-			isa = PBXGroup;
-			children = (
-				EBC300811E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.h */,
-				EBC300821E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m */,
-				EBC300831E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.h */,
-				EBC300841E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m */,
-				EBC300851E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.h */,
-				EBC300861E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m */,
-				EBC300871E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.h */,
-				EBC300881E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m */,
-			);
-			path = "UITableView-FDTemplateLayoutCell";
 			sourceTree = "<group>";
 		};
 		EBD115EA1EA460EB00AF6F5C /* 同款5Item View */ = {
@@ -2688,7 +2660,6 @@
 				2620D6E51E55FF6000BC0668 /* DKYDeliveryDateView.m in Sources */,
 				EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */,
 				26210BEE1E59A3A900EB05D6 /* BEMCheckBox.m in Sources */,
-				EBC3008A1E1CF5E200F602E6 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */,
 				EB25EEC21ED56814009DA892 /* DKYColorDimListModel.m in Sources */,
 				EBB0FB8F1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.m in Sources */,
@@ -2838,7 +2809,6 @@
 				EBD6949D1E272DB000F365C3 /* DKYHomeItemViewCell.m in Sources */,
 				26210BD71E59669C00EB05D6 /* DKYCustomOrderJianTypeItemView.m in Sources */,
 				EB8FA2A31E55A0B7004BE846 /* DKYCustomOrderViewCell.m in Sources */,
-				EBC3008B1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				EB97906A1E221B6F00E2985C /* MMAlertView.m in Sources */,
 				263702DE1F655BC2000991C5 /* DKYGetProductListGhPageModel.m in Sources */,
 				26210C051E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m in Sources */,
@@ -2911,7 +2881,6 @@
 				EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */,
 				EBB59EC81E56A58500F88A4C /* DKYCustomOrderBasicItemView.m in Sources */,
 				EBC3005B1E1CC2ED00F602E6 /* DKYFiltrateOptionView.m in Sources */,
-				EBC3008C1E1CF5E200F602E6 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				EB6DFFD11F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m in Sources */,
 				26DAD0D81E1A45EB008EE55F /* DKYHUDTool.m in Sources */,
 				EBD1160E1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.m in Sources */,
@@ -2920,7 +2889,6 @@
 				26E8709C1EA31685005A6F7F /* RMUniversalAlert.m in Sources */,
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
 				26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */,
-				EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				EBA7310E1F21E00600FEFD69 /* PYProgressView.m in Sources */,
 				EBA980801ECD8CC50080FC79 /* DKYTongkuanFiveViewCellEx.m in Sources */,
 				263702C01F64FD3E000991C5 /* DKYDisplayEntryViewCell.m in Sources */,

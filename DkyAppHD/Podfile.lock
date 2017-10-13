@@ -206,6 +206,7 @@ PODS:
   - SDWebImage/Core (4.1.2)
   - SVProgressHUD (2.2.1)
   - TTTAttributedLabel (2.0.0)
+  - UITableView+FDTemplateLayoutCell (1.6)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
   - VTMagic/Core (1.2.4)
@@ -227,6 +228,7 @@ DEPENDENCIES:
   - SDWebImage
   - SVProgressHUD
   - TTTAttributedLabel
+  - UITableView+FDTemplateLayoutCell
   - VTMagic
   - YYCache
   - YYCategories
@@ -244,10 +246,11 @@ SPEC CHECKSUMS:
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 8d73ac441acbed1f406c76c2ed5c6b6c863fcecb
+PODFILE CHECKSUM: 7d2f8f1e63e25800e82992574538d05231ca9234
 
 COCOAPODS: 1.4.0.beta.1

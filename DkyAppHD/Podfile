@@ -8,6 +8,7 @@ pod 'AFNetworking'
 pod 'SDWebImage'
 
 pod 'Masonry'
+pod 'UITableView+FDTemplateLayoutCell'
 pod 'IQKeyboardManager'
 
 pod 'VTMagic'
