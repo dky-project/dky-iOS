@@ -18,15 +18,11 @@
 const UIEdgeInsets QMUICommonTableViewControllerInitialContentInsetNotSet = {-1, -1, -1, -1};
 const NSInteger kSectionHeaderFooterLabelTag = 1024;
 
-@interface QMUICommonTableViewController () {
-    BOOL                    _shouldShowSearchBar;
-    QMUISearchController    *_searchController;
-    UISearchBar             *_searchBar;
-}
+@interface QMUICommonTableViewController ()
 
-@property(nonatomic,strong,readwrite) QMUITableView *tableView;
-@property(nonatomic,assign) BOOL hasSetInitialContentInset;
-@property(nonatomic,assign) BOOL hasHideTableHeaderViewInitial;
+@property(nonatomic, strong, readwrite) QMUITableView *tableView;
+@property(nonatomic, assign) BOOL hasSetInitialContentInset;
+@property(nonatomic, assign) BOOL hasHideTableHeaderViewInitial;
 
 @end
 
@@ -105,13 +101,11 @@ const NSInteger kSectionHeaderFooterLabelTag = 1024;
 - (void)initSubviews {
     [super initSubviews];
     [self initTableView];
-    [self initSearchController];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView qmui_clearsSelection];
-    [self.searchController.tableView qmui_clearsSelection];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -188,22 +182,10 @@ const NSInteger kSectionHeaderFooterLabelTag = 1024;
     }
     [self.tableView addSubview:self.emptyView];
     [self layoutEmptyView];
-    if ([self shouldHideSearchBarWhenEmptyViewShowing] && self.tableView.tableHeaderView == self.searchBar) {
-        self.tableView.tableHeaderView = nil;
-    }
 }
 
 - (void)hideEmptyView {
     [self.emptyView removeFromSuperview];
-BeginIgnoreDeprecatedWarning
-    if (self.shouldShowSearchBar && [self shouldHideSearchBarWhenEmptyViewShowing] && self.tableView.tableHeaderView == nil) {
-EndIgnoreDeprecatedWarning
-        [self initSearchController];
-        // 隐藏 emptyView 后重新设置 tableHeaderView，会导致原先 shouldHideTableHeaderViewInitial 隐藏头部的操作被重置，所以下面的 force 参数要传 YES
-        // https://github.com/QMUI/QMUI_iOS/issues/128
-        self.tableView.tableHeaderView = self.searchBar;
-        [self hideTableHeaderViewInitialIfCanWithAnimated:NO force:YES];
-    }
 }
 
 - (BOOL)layoutEmptyView {
@@ -280,33 +262,28 @@ EndIgnoreDeprecatedWarning
     return headerFooterView;
 }
 
-/**
- * iOS5之前的版本，如果viewForHeaderInSection返回的是nil，那么heightForHeaderInSection会自动计算数值为0，iOS5以及之后的版本，则不会自动计算，需要手动来计算heightForHeaderInSection。
- *
- * Apple Document: Prior to iOS 5.0, table views would automatically resize the heights of headers to 0 for sections where tableView:viewForHeaderInSection: returned a nil view. In iOS 5.0 and later, you must return the actual height for each section header in this method.
- * @see https://developer.apple.com/library/ios/DOCUMENTATION/UIKit/Reference/UITableViewDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UITableViewDelegate/tableView%3aheightForHeaderInSection%3a
- */
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if ([tableView.delegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
         UIView *view = [tableView.delegate tableView:tableView viewForHeaderInSection:section];
         if (view) {
             CGFloat height = [view sizeThatFits:CGSizeMake(CGRectGetWidth(tableView.bounds), CGFLOAT_MAX)].height;
-            return fmax(height, tableView.style == UITableViewStylePlain ? TableViewSectionHeaderHeight : TableViewGroupedSectionHeaderHeight);
+            return height;
         }
     }
-    // 默认 plain 类型直接设置为 0，TableViewSectionHeaderHeight 是在需要重写 headerHeight 的时候才用的
-    return tableView.style == UITableViewStylePlain ? 0 : TableViewGroupedSectionHeaderHeight;
+    // 分别测试过 iOS 11 前后的系统版本，最终总结，对于 Plain 类型的 tableView 而言，要去掉 header / footer 请使用 0，对于 Grouped 类型的 tableView 而言，要去掉 header / footer 请使用 CGFLOAT_MIN
+    return tableView.style == UITableViewStylePlain ? 0 : TableViewGroupedSectionHeaderDefaultHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if ([tableView.delegate respondsToSelector:@selector(tableView:viewForFooterInSection:)]) {
         UIView *view = [tableView.delegate tableView:tableView viewForFooterInSection:section];
         if (view) {
-            return MAX(CGRectGetHeight(view.bounds), tableView.style == UITableViewStylePlain ? TableViewSectionFooterHeight : TableViewGroupedSectionFooterHeight);
+            CGFloat height = [view sizeThatFits:CGSizeMake(CGRectGetWidth(tableView.bounds), CGFLOAT_MAX)].height;
+            return height;
         }
     }
-    // 默认 plain 类型直接设置为 0，TableViewSectionFooterHeight 是在需要重写 footerHeight 的时候才用的
-    return tableView.style == UITableViewStylePlain ? 0 : TableViewGroupedSectionFooterHeight;
+    // 分别测试过 iOS 11 前后的系统版本，最终总结，对于 Plain 类型的 tableView 而言，要去掉 header / footer 请使用 0，对于 Grouped 类型的 tableView 而言，要去掉 header / footer 请使用 CGFLOAT_MIN
+    return tableView.style == UITableViewStylePlain ? 0 : TableViewGroupedSectionFooterDefaultHeight;
 }
 
 // 是否有定义某个section的header title
@@ -355,70 +332,6 @@ EndIgnoreDeprecatedWarning
 
 - (BOOL)shouldHideTableHeaderViewInitial {
     return NO;
-}
-
-@end
-
-
-@implementation QMUICommonTableViewController (Search)
-
-- (BOOL)shouldShowSearchBar {
-    return _shouldShowSearchBar;
-}
-
-- (void)setShouldShowSearchBar:(BOOL)shouldShowSearchBar {
-    BOOL isValueChanged = _shouldShowSearchBar != shouldShowSearchBar;
-    if (!isValueChanged) {
-        return;
-    }
-    
-    _shouldShowSearchBar = shouldShowSearchBar;
-    
-    if (shouldShowSearchBar) {
-        [self initSearchController];
-    } else {
-        if (self.searchBar) {
-            if (self.tableView.tableHeaderView == self.searchBar) {
-                self.tableView.tableHeaderView = nil;
-            }
-            [self.searchBar removeFromSuperview];
-            _searchBar = nil;
-        }
-        if (self.searchController) {
-            self.searchController.searchResultsDelegate = nil;
-            _searchController = nil;
-        }
-    }
-}
-
-- (QMUISearchController *)searchController {
-    return _searchController;
-}
-
-- (UISearchBar *)searchBar {
-    return _searchBar;
-}
-
-- (void)initSearchController {
-BeginIgnoreDeprecatedWarning
-    if ([self isViewLoaded] && self.shouldShowSearchBar && !self.searchController) {
-EndIgnoreDeprecatedWarning
-        _searchController = [[QMUISearchController alloc] initWithContentsViewController:self];
-        self.searchController.searchResultsDelegate = self;
-        self.searchController.searchBar.placeholder = @"搜索";
-        self.tableView.tableHeaderView = self.searchController.searchBar;
-        _searchBar = self.searchController.searchBar;
-    }
-}
-
-- (BOOL)shouldHideSearchBarWhenEmptyViewShowing {
-    return NO;
-}
-
-#pragma mark - <QMUISearchControllerDelegate>
-
-- (void)searchController:(QMUISearchController *)searchController updateResultsForSearchString:(NSString *)searchString {
-    
 }
 
 @end

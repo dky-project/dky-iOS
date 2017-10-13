@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIKitExtensions/QMUISegmentedControl.h
+../../../QMUIKit/QMUIKit/UIComponents/QMUISegmentedControl.h

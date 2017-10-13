@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIKitExtensions/QMUISearchController.h
+../../../QMUIKit/QMUIKit/UIComponents/QMUISearchController.h

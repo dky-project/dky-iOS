@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "QMUINavigationController.h"
 
 /**
  *  维护项目全局 UI 配置的单例，通过业务项目自己的 QMUIConfigurationTemplate 来为这个单例赋值，而业务代码里则通过 QMUIConfigurationMacros.h 文件里的宏来使用这些值。
@@ -153,8 +152,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) UIFont   *tableViewSectionFooterFont;
 @property(nonatomic, strong, nullable) UIColor  *tableViewSectionHeaderTextColor;
 @property(nonatomic, strong, nullable) UIColor  *tableViewSectionFooterTextColor;
-@property(nonatomic, assign) CGFloat            tableViewSectionHeaderHeight;
-@property(nonatomic, assign) CGFloat            tableViewSectionFooterHeight;
 @property(nonatomic, assign) UIEdgeInsets       tableViewSectionHeaderContentInset;
 @property(nonatomic, assign) UIEdgeInsets       tableViewSectionFooterContentInset;
 
@@ -162,8 +159,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) UIFont   *tableViewGroupedSectionFooterFont;
 @property(nonatomic, strong, nullable) UIColor  *tableViewGroupedSectionHeaderTextColor;
 @property(nonatomic, strong, nullable) UIColor  *tableViewGroupedSectionFooterTextColor;
-@property(nonatomic, assign) CGFloat            tableViewGroupedSectionHeaderHeight;
-@property(nonatomic, assign) CGFloat            tableViewGroupedSectionFooterHeight;
+@property(nonatomic, assign) CGFloat            tableViewGroupedSectionHeaderDefaultHeight;
+@property(nonatomic, assign) CGFloat            tableViewGroupedSectionFooterDefaultHeight;
 @property(nonatomic, assign) UIEdgeInsets       tableViewGroupedSectionHeaderContentInset;
 @property(nonatomic, assign) UIEdgeInsets       tableViewGroupedSectionFooterContentInset;
 

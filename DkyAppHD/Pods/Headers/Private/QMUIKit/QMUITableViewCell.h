@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIKitExtensions/QMUITableViewCell.h
+../../../QMUIKit/QMUIKit/UIComponents/QMUITableViewCell.h
