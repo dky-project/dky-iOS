@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		157E3D5E49F6D5353573ED36 /* libPods-DkyAppHD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */; };
 		2609BD531E7D56380063D6FF /* DKYMptApproveSaveParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609BD521E7D56380063D6FF /* DKYMptApproveSaveParameter.m */; };
+		261EA3DA1F9100FD008F8962 /* UIDevice+LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 261EA3D71F9100FC008F8962 /* UIDevice+LCActionSheet.m */; };
+		261EA3DB1F9100FD008F8962 /* LCActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261EA3D81F9100FC008F8962 /* LCActionSheetViewController.m */; };
 		2620D6DE1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620D6DD1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m */; };
 		2620D6E21E55F5F800BC0668 /* DKYCustomOrderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620D6E11E55F5F800BC0668 /* DKYCustomOrderItemModel.m */; };
 		2620D6E51E55FF6000BC0668 /* DKYDeliveryDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620D6E41E55FF6000BC0668 /* DKYDeliveryDateView.m */; };
@@ -360,6 +362,10 @@
 /* Begin PBXFileReference section */
 		2609BD511E7D56380063D6FF /* DKYMptApproveSaveParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYMptApproveSaveParameter.h; sourceTree = "<group>"; };
 		2609BD521E7D56380063D6FF /* DKYMptApproveSaveParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMptApproveSaveParameter.m; sourceTree = "<group>"; };
+		261EA3D61F9100FC008F8962 /* UIDevice+LCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+LCActionSheet.h"; sourceTree = "<group>"; };
+		261EA3D71F9100FC008F8962 /* UIDevice+LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+LCActionSheet.m"; sourceTree = "<group>"; };
+		261EA3D81F9100FC008F8962 /* LCActionSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCActionSheetViewController.m; sourceTree = "<group>"; };
+		261EA3D91F9100FD008F8962 /* LCActionSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCActionSheetViewController.h; sourceTree = "<group>"; };
 		2620D6DC1E55E90900BC0668 /* DKYCustomOrderBusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderBusinessCell.h; sourceTree = "<group>"; };
 		2620D6DD1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderBusinessCell.m; sourceTree = "<group>"; };
 		2620D6E01E55F5F800BC0668 /* DKYCustomOrderItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderItemModel.h; sourceTree = "<group>"; };
@@ -1394,6 +1400,10 @@
 		EB195B8D1E5C41CE00116048 /* LCActionSheet */ = {
 			isa = PBXGroup;
 			children = (
+				261EA3D91F9100FD008F8962 /* LCActionSheetViewController.h */,
+				261EA3D81F9100FC008F8962 /* LCActionSheetViewController.m */,
+				261EA3D61F9100FC008F8962 /* UIDevice+LCActionSheet.h */,
+				261EA3D71F9100FC008F8962 /* UIDevice+LCActionSheet.m */,
 				EB195B8E1E5C41CE00116048 /* LCActionSheet.h */,
 				EB195B8F1E5C41CE00116048 /* LCActionSheet.m */,
 				EB195B901E5C41CE00116048 /* LCActionSheetCell.h */,
@@ -2632,6 +2642,7 @@
 				2620D6E51E55FF6000BC0668 /* DKYDeliveryDateView.m in Sources */,
 				EBC3003E1E1CA05300F602E6 /* DKYHomeViewController.m in Sources */,
 				26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */,
+				261EA3DB1F9100FD008F8962 /* LCActionSheetViewController.m in Sources */,
 				EB25EEC21ED56814009DA892 /* DKYColorDimListModel.m in Sources */,
 				EBB0FB8F1F301E5E00BCD57C /* DKYOrderInquiryAllViewController.m in Sources */,
 				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
@@ -2770,6 +2781,7 @@
 				EBBF21461F32CF520047471B /* DKYDisplayActionView.m in Sources */,
 				2609BD531E7D56380063D6FF /* DKYMptApproveSaveParameter.m in Sources */,
 				EBA731091F21E00600FEFD69 /* PYPhotosPreviewController.m in Sources */,
+				261EA3DA1F9100FD008F8962 /* UIDevice+LCActionSheet.m in Sources */,
 				EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */,
 				EBB59ED11E56C35400F88A4C /* DKYCustomOrderVarietyView.m in Sources */,
 				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,

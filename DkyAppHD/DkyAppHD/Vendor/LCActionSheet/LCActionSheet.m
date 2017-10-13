@@ -3,19 +3,39 @@
 //  LCActionSheet
 //
 //  Created by Leo on 2015/4/27.
-//  Copyright © 2016年 Leo（http://LeoDev.me）. All rights reserved.
 //
+//  Copyright (c) 2015-2017 Leo <leodaxia@gmail.com>
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+
 
 #import "LCActionSheet.h"
 #import "LCActionSheetCell.h"
-#import "Masonry.h"
-#import "NSSet+LCActionSheet.h"
+#import "LCActionSheetViewController.h"
 #import "UIImage+LCActionSheet.h"
+#import "UIDevice+LCActionSheet.h"
+#import "Masonry.h"
 
 
 @interface LCActionSheet () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
-@property (nonatomic, strong) NSArray *otherButtonTitles;
+@property (nonatomic, strong) NSArray<NSString *> *otherButtonTitles;
 
 @property (nonatomic, assign) CGSize titleTextSize;
 
@@ -31,9 +51,15 @@
 
 @property (nonatomic, weak) UIView *lineView;
 
+@property (nullable, nonatomic, strong) UIWindow *window;
+
 @end
 
 @implementation LCActionSheet
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 + (instancetype)sheetWithTitle:(NSString *)title delegate:(id<LCActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... {
     id eachObject;
@@ -53,15 +79,7 @@
                  otherButtonTitleArray:tempOtherButtonTitles];
 }
 
-+ (instancetype)sheetWithTitle:(NSString *)title delegate:(id<LCActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitleArray:(NSArray *)otherButtonTitleArray {
-    
-    return [[self alloc] initWithTitle:title
-                              delegate:delegate
-                     cancelButtonTitle:cancelButtonTitle
-                 otherButtonTitleArray:otherButtonTitleArray];
-}
-
-+ (instancetype)sheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle clicked:(LCActionSheetClickedHandle)clickedHandle otherButtonTitles:(NSString *)otherButtonTitles, ... {
++ (instancetype)sheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle clicked:(LCActionSheetClickedHandler)clickedHandler otherButtonTitles:(NSString *)otherButtonTitles, ... {
     id eachObject;
     va_list argumentList;
     NSMutableArray *tempOtherButtonTitles = nil;
@@ -75,21 +93,55 @@
     }
     return [[self alloc] initWithTitle:title
                      cancelButtonTitle:cancelButtonTitle
-                               clicked:clickedHandle
+                               clicked:clickedHandler
                  otherButtonTitleArray:tempOtherButtonTitles];
 }
 
-+ (instancetype)sheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle clicked:(LCActionSheetClickedHandle)clickedHandle otherButtonTitleArray:(NSArray *)otherButtonTitleArray {
++ (instancetype)sheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle didDismiss:(LCActionSheetDidDismissHandler)didDismissHandler otherButtonTitles:(NSString *)otherButtonTitles, ... {
+    id eachObject;
+    va_list argumentList;
+    NSMutableArray *tempOtherButtonTitles = nil;
+    if (otherButtonTitles) {
+        tempOtherButtonTitles = [[NSMutableArray alloc] initWithObjects:otherButtonTitles, nil];
+        va_start(argumentList, otherButtonTitles);
+        while ((eachObject = va_arg(argumentList, id))) {
+            [tempOtherButtonTitles addObject:eachObject];
+        }
+        va_end(argumentList);
+    }
+    return [[self alloc] initWithTitle:title
+                     cancelButtonTitle:cancelButtonTitle
+                            didDismiss:didDismissHandler
+                 otherButtonTitleArray:tempOtherButtonTitles];
+}
+
++ (instancetype)sheetWithTitle:(NSString *)title delegate:(id<LCActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitleArray:(NSArray<NSString *> *)otherButtonTitleArray {
+    
+    return [[self alloc] initWithTitle:title
+                              delegate:delegate
+                     cancelButtonTitle:cancelButtonTitle
+                 otherButtonTitleArray:otherButtonTitleArray];
+}
+
++ (instancetype)sheetWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle clicked:(LCActionSheetClickedHandler)clickedHandler otherButtonTitleArray:(NSArray<NSString *> *)otherButtonTitleArray {
     
     return [[self alloc] initWithTitle:title
                      cancelButtonTitle:cancelButtonTitle
-                               clicked:clickedHandle
+                               clicked:clickedHandler
+                 otherButtonTitleArray:otherButtonTitleArray];
+}
+
++ (instancetype)sheetWithTitle:(NSString *)title cancelButtonTitle:(nullable NSString *)cancelButtonTitle didDismiss:(nullable LCActionSheetDidDismissHandler)didDismissHandler otherButtonTitleArray:(nullable NSArray<NSString *> *)otherButtonTitleArray {
+    
+    return [[self alloc] initWithTitle:title
+                     cancelButtonTitle:cancelButtonTitle
+                            didDismiss:didDismissHandler
                  otherButtonTitleArray:otherButtonTitleArray];
 }
 
 - (instancetype)initWithTitle:(NSString *)title delegate:(id<LCActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... {
     if (self = [super init]) {
-        [self config:[LCActionSheetConfig shared]];
+        [self config:LCActionSheetConfig.config];
         
         id eachObject;
         va_list argumentList;
@@ -113,9 +165,9 @@
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle clicked:(LCActionSheetClickedHandle)clickedHandle otherButtonTitles:(NSString *)otherButtonTitles, ... {
+- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle clicked:(LCActionSheetClickedHandler)clickedHandler otherButtonTitles:(NSString *)otherButtonTitles, ... {
     if (self = [super init]) {
-        [self config:[LCActionSheetConfig shared]];
+        [self config:LCActionSheetConfig.config];
         
         id eachObject;
         va_list argumentList;
@@ -131,7 +183,7 @@
         
         self.title             = title;
         self.cancelButtonTitle = cancelButtonTitle;
-        self.clickedHandle     = clickedHandle;
+        self.clickedHandler    = clickedHandler;
         self.otherButtonTitles = tempOtherButtonTitles;
         
         [self setupView];
@@ -139,9 +191,35 @@
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title delegate:(id<LCActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitleArray:(NSArray *)otherButtonTitleArray {
+- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle didDismiss:(LCActionSheetDidDismissHandler)didDismissHandler otherButtonTitles:(NSString *)otherButtonTitles, ... {
     if (self = [super init]) {
-        [self config:[LCActionSheetConfig shared]];
+        [self config:LCActionSheetConfig.config];
+        
+        id eachObject;
+        va_list argumentList;
+        NSMutableArray *tempOtherButtonTitles = nil;
+        if (otherButtonTitles) {
+            tempOtherButtonTitles = [[NSMutableArray alloc] initWithObjects:otherButtonTitles, nil];
+            va_start(argumentList, otherButtonTitles);
+            while ((eachObject = va_arg(argumentList, id))) {
+                [tempOtherButtonTitles addObject:eachObject];
+            }
+            va_end(argumentList);
+        }
+        
+        self.title             = title;
+        self.cancelButtonTitle = cancelButtonTitle;
+        self.didDismissHandler = didDismissHandler;
+        self.otherButtonTitles = tempOtherButtonTitles;
+        
+        [self setupView];
+    }
+    return self;
+}
+
+- (instancetype)initWithTitle:(NSString *)title delegate:(id<LCActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitleArray:(NSArray<NSString *> *)otherButtonTitleArray {
+    if (self = [super init]) {
+        [self config:LCActionSheetConfig.config];
         
         self.title             = title;
         self.delegate          = delegate;
@@ -153,13 +231,27 @@
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle clicked:(LCActionSheetClickedHandle)clickedHandle otherButtonTitleArray:(NSArray *)otherButtonTitleArray {
+- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle clicked:(LCActionSheetClickedHandler)clickedHandler otherButtonTitleArray:(NSArray<NSString *> *)otherButtonTitleArray {
     if (self = [super init]) {
-        [self config:[LCActionSheetConfig shared]];
+        [self config:LCActionSheetConfig.config];
         
         self.title             = title;
         self.cancelButtonTitle = cancelButtonTitle;
-        self.clickedHandle     = clickedHandle;
+        self.clickedHandler    = clickedHandler;
+        self.otherButtonTitles = otherButtonTitleArray;
+        
+        [self setupView];
+    }
+    return self;
+}
+
+- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle didDismiss:(LCActionSheetDidDismissHandler)didDismissHandler otherButtonTitleArray:(NSArray<NSString *> *)otherButtonTitleArray {
+    if (self = [super init]) {
+        [self config:LCActionSheetConfig.config];
+        
+        self.title             = title;
+        self.cancelButtonTitle = cancelButtonTitle;
+        self.didDismissHandler = didDismissHandler;
         self.otherButtonTitles = otherButtonTitleArray;
         
         [self setupView];
@@ -186,28 +278,18 @@
     _blurEffectStyle           = config.blurEffectStyle;
     _titleEdgeInsets           = config.titleEdgeInsets;
     _separatorColor            = config.separatorColor;
-    
+    _autoHideWhenDeviceRotated = config.autoHideWhenDeviceRotated;
+    _numberOfTitleLines        = config.numberOfTitleLines;
+  
     return self;
 }
 
 - (void)setupView {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleDidChangeStatusBarOrientation)
-                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
-                                               object:nil];
-    
-    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
-    
-    NSArray *windows = [UIApplication sharedApplication].windows;
-    if(windows.count > 1){
-        UIWindow *lastwindow = [windows lastObject];
-        keyWindow = lastwindow;
-    }
-    
-    [keyWindow addSubview:self];
-    [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(keyWindow);
-    }];
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self
+                           selector:@selector(handleDidChangeStatusBarOrientation)
+                               name:UIApplicationDidChangeStatusBarOrientationNotification
+                             object:nil];
     
     UIView *bottomView = [[UIView alloc] init];
     [self addSubview:bottomView];
@@ -217,7 +299,7 @@
         CGFloat height =
         (self.title.length > 0 ? self.titleTextSize.height + 2.0f + (self.titleEdgeInsets.top + self.titleEdgeInsets.bottom) : 0) +
         (self.otherButtonTitles.count > 0 ? (self.canScrolling ? MIN(self.visibleButtonCount, self.otherButtonTitles.count) : self.otherButtonTitles.count) * self.buttonHeight : 0) +
-        (self.cancelButtonTitle.length > 0 ? 5.0f + self.buttonHeight : 0);
+        (self.cancelButtonTitle.length > 0 ? 5.0f + self.buttonHeight : 0) + ([[UIDevice currentDevice] lc_isX] ? 34.0 : 0);
         
         make.height.equalTo(@(height));
         make.bottom.equalTo(self).offset(height);
@@ -227,7 +309,7 @@
     UIView *darkView                = [[UIView alloc] init];
     darkView.alpha                  = 0;
     darkView.userInteractionEnabled = NO;
-    darkView.backgroundColor        = LC_ACTION_SHEET_COLOR(46, 49, 50);
+    darkView.backgroundColor        = kLCActionSheetColor(46, 49, 50);
     [self addSubview:darkView];
     [darkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self);
@@ -320,7 +402,7 @@
     cancelButton.titleLabel.font = self.buttonFont;
     [cancelButton setTitle:self.cancelButtonTitle forState:UIControlStateNormal];
     [cancelButton setTitleColor:self.buttonColor forState:UIControlStateNormal];
-    [cancelButton setBackgroundImage:[UIImage imageWithColor:self.separatorColor]
+    [cancelButton setBackgroundImage:[UIImage lc_imageWithColor:self.separatorColor]
                             forState:UIControlStateHighlighted];
     [cancelButton addTarget:self
                      action:@selector(cancelButtonClicked)
@@ -328,7 +410,7 @@
     [bottomView addSubview:cancelButton];
     [cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(bottomView);
-        make.bottom.equalTo(bottomView);
+        make.bottom.equalTo(bottomView).offset([[UIDevice currentDevice] lc_isX] ? -34.0 : 0);
         
         CGFloat height = self.cancelButtonTitle.length > 0 ? self.buttonHeight : 0;
         make.height.equalTo(@(height));
@@ -336,13 +418,13 @@
     self.cancelButton = cancelButton;
 }
 
-- (void)appendButtonTitles:(NSString *)buttonTitles, ... {
+- (void)appendButtonsWithTitles:(NSString *)titles, ... {
     id eachObject;
     va_list argumentList;
     NSMutableArray *tempButtonTitles = nil;
-    if (buttonTitles) {
-        tempButtonTitles = [[NSMutableArray alloc] initWithObjects:buttonTitles, nil];
-        va_start(argumentList, buttonTitles);
+    if (titles) {
+        tempButtonTitles = [[NSMutableArray alloc] initWithObjects:titles, nil];
+        va_start(argumentList, titles);
         while ((eachObject = va_arg(argumentList, id))) {
             [tempButtonTitles addObject:eachObject];
         }
@@ -356,12 +438,48 @@
     [self updateTableView];
 }
 
+- (void)appendButtonWithTitle:(NSString *)title atIndex:(NSInteger)index {
+#ifdef DEBUG
+    NSAssert(index != 0, @"Index 0 is cancel button");
+    NSAssert(index <= self.otherButtonTitles.count + 1, @"Index crossed");
+#endif
+    
+    NSMutableArray<NSString *> *arrayM = [NSMutableArray arrayWithArray:self.otherButtonTitles];
+    [arrayM insertObject:title atIndex:index - 1];
+    self.otherButtonTitles = [NSArray arrayWithArray:arrayM];
+    
+    [self.tableView reloadData];
+    [self updateBottomView];
+    [self updateTableView];
+}
+
+- (void)appendButtonsWithTitles:(NSArray<NSString *> *)titles atIndexes:(NSIndexSet *)indexes {
+#ifdef DEBUG
+    NSAssert(titles.count == indexes.count, @"Count of titles differs from count of indexs");
+#endif
+    
+    NSMutableIndexSet *indexSetM = [[NSMutableIndexSet alloc] init];
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+#ifdef DEBUG
+        NSAssert(idx != 0, @"Index 0 is cancel button");
+        NSAssert(idx <= self.otherButtonTitles.count + indexes.count, @"Index crossed");
+#endif
+        
+        [indexSetM addIndex:idx - 1];
+    }];
+    
+    NSMutableArray<NSString *> *arrayM = [NSMutableArray arrayWithArray:self.otherButtonTitles];
+    [arrayM insertObjects:titles atIndexes:indexSetM];
+    self.otherButtonTitles = [NSArray arrayWithArray:arrayM];
+    
+    [self.tableView reloadData];
+    [self updateBottomView];
+    [self updateTableView];
+}
+    
 - (void)handleDidChangeStatusBarOrientation {
-    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-    if (orientation == UIInterfaceOrientationLandscapeRight || orientation ==UIInterfaceOrientationLandscapeLeft) {
-        self.blurEffectView.contentMode = UIViewContentModeScaleAspectFill;
-    } else {
-        self.blurEffectView.contentMode = UIViewContentModeBottom;
+    if (self.autoHideWhenDeviceRotated) {
+        [self hideWithButtonIndex:self.cancelButtonIndex];
     }
 }
 
@@ -413,10 +531,10 @@
     [self updateCancelButton];
 }
 
-- (void)setDestructiveButtonIndexSet:(NSSet *)destructiveButtonIndexSet {
+- (void)setDestructiveButtonIndexSet:(NSIndexSet *)destructiveButtonIndexSet {
     _destructiveButtonIndexSet = destructiveButtonIndexSet;
     
-    if ([destructiveButtonIndexSet lc_contains:0]) {
+    if ([destructiveButtonIndexSet containsIndex:0]) {
         [self.cancelButton setTitleColor:self.destructiveButtonColor forState:UIControlStateNormal];
     } else {
         [self.cancelButton setTitleColor:self.buttonColor forState:UIControlStateNormal];
@@ -425,11 +543,11 @@
     [self.tableView reloadData];
 }
 
-- (void)setRedButtonIndexSet:(NSSet *)redButtonIndexSet {
+- (void)setRedButtonIndexSet:(NSIndexSet *)redButtonIndexSet {
     self.destructiveButtonIndexSet = redButtonIndexSet;
 }
 
-- (NSSet *)redButtonIndexSet {
+- (NSIndexSet *)redButtonIndexSet {
     return self.destructiveButtonIndexSet;
 }
 
@@ -468,7 +586,7 @@
 - (void)setDestructiveButtonColor:(UIColor *)aDestructiveButtonColor {
     _destructiveButtonColor = aDestructiveButtonColor;
     
-    if ([self.destructiveButtonIndexSet lc_contains:0]) {
+    if ([self.destructiveButtonIndexSet containsIndex:0]) {
         [self.cancelButton setTitleColor:self.destructiveButtonColor forState:UIControlStateNormal];
     } else {
         [self.cancelButton setTitleColor:self.buttonColor forState:UIControlStateNormal];
@@ -530,9 +648,17 @@
     
     self.lineView.backgroundColor = separatorColor;
     self.divisionView.backgroundColor = separatorColor;
-    [self.cancelButton setBackgroundImage:[UIImage imageWithColor:separatorColor]
+    [self.cancelButton setBackgroundImage:[UIImage lc_imageWithColor:separatorColor]
                                  forState:UIControlStateHighlighted];
     [self.tableView reloadData];
+}
+
+- (void)setNumberOfTitleLines:(NSInteger)numberOfTitleLines {
+    _numberOfTitleLines = numberOfTitleLines;
+    
+    [self updateBottomView];
+    [self updateTitleLabel];
+    [self updateTableView];
 }
 
 - (CGSize)titleTextSize {
@@ -551,15 +677,28 @@
                              options:opts
                           attributes:attrs
                              context:nil].size;
-    
+    if (self.numberOfTitleLines != 0) {
+      // with no attribute string use 'lineHeight' to acquire single line height.
+      _titleTextSize.height = MIN(_titleTextSize.height, self.titleFont.lineHeight * self.numberOfTitleLines);
+    }
     return _titleTextSize;
+}
+
+- (NSString *)buttonTitleAtIndex:(NSInteger)index {
+    NSString *buttonTitle = nil;
+    if (index == 0) {
+        buttonTitle = self.cancelButtonTitle;
+    } else {
+        buttonTitle = self.otherButtonTitles[index - 1];
+    }
+    return buttonTitle;
 }
 
 #pragma mark - Update Views
 
 - (void)updateBottomView {
     [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
-        CGFloat height = (self.title.length > 0 ? self.titleTextSize.height + 2.0f + (self.titleEdgeInsets.top + self.titleEdgeInsets.bottom) : 0) + (self.otherButtonTitles.count > 0 ? (self.canScrolling ? MIN(self.visibleButtonCount, self.otherButtonTitles.count) : self.otherButtonTitles.count) * self.buttonHeight : 0) + (self.cancelButtonTitle.length > 0 ? 5.0f + self.buttonHeight : 0);
+        CGFloat height = (self.title.length > 0 ? self.titleTextSize.height + 2.0f + (self.titleEdgeInsets.top + self.titleEdgeInsets.bottom) : 0) + (self.otherButtonTitles.count > 0 ? (self.canScrolling ? MIN(self.visibleButtonCount, self.otherButtonTitles.count) : self.otherButtonTitles.count) * self.buttonHeight : 0) + (self.cancelButtonTitle.length > 0 ? 5.0f + self.buttonHeight : 0) + ([[UIDevice currentDevice] lc_isX] ? 34.0 : 0);
         make.height.equalTo(@(height));
     }];
 }
@@ -608,32 +747,49 @@
         [self.delegate willPresentActionSheet:self];
     }
     
-    if (self.willPresentHandle) {
-        self.willPresentHandle(self);
+    if (self.willPresentHandler) {
+        self.willPresentHandler(self);
     }
     
-    [self layoutIfNeeded];
+    LCActionSheetViewController *viewController = [[LCActionSheetViewController alloc] init];
+    viewController.statusBarHidden = [UIApplication sharedApplication].statusBarHidden;
+    viewController.statusBarStyle = [UIApplication sharedApplication].statusBarStyle;
+    
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    window.windowLevel = UIWindowLevelStatusBar;
+    window.rootViewController = viewController;
+    [window makeKeyAndVisible];
+    self.window = window;
+    
+    [viewController.view addSubview:self];
+    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(viewController.view);
+    }];
+    
+    [self.window layoutIfNeeded];
     
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:self.animationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         
-        weakSelf.darkView.alpha = self.darkOpacity;
-        weakSelf.darkView.userInteractionEnabled = !self.darkViewNoTaped;
+        strongSelf.darkView.alpha = strongSelf.darkOpacity;
+        strongSelf.darkView.userInteractionEnabled = !strongSelf.darkViewNoTaped;
         
-        [weakSelf.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self);
+        [strongSelf.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(strongSelf);
         }];
         
-        [weakSelf layoutIfNeeded];
+        [strongSelf layoutIfNeeded];
         
     } completion:^(BOOL finished) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         
-        if ([weakSelf.delegate respondsToSelector:@selector(didPresentActionSheet:)]) {
-            [weakSelf.delegate didPresentActionSheet:self];
+        if ([strongSelf.delegate respondsToSelector:@selector(didPresentActionSheet:)]) {
+            [strongSelf.delegate didPresentActionSheet:strongSelf];
         }
         
-        if (weakSelf.didPresentHandle) {
-            weakSelf.didPresentHandle(self);
+        if (strongSelf.didPresentHandler) {
+            strongSelf.didPresentHandler(strongSelf);
         }
     }];
 }
@@ -643,33 +799,39 @@
         [self.delegate actionSheet:self willDismissWithButtonIndex:buttonIndex];
     }
     
-    if (self.willDismissHandle) {
-        self.willDismissHandle(self, buttonIndex);
+    if (self.willDismissHandler) {
+        self.willDismissHandler(self, buttonIndex);
     }
     
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:self.animationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         
-        weakSelf.darkView.alpha = 0;
-        weakSelf.darkView.userInteractionEnabled = NO;
+        strongSelf.darkView.alpha = 0;
+        strongSelf.darkView.userInteractionEnabled = NO;
         
-        [weakSelf.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
-            CGFloat height = (self.title.length > 0 ? self.titleTextSize.height + 2.0f + (self.titleEdgeInsets.top + self.titleEdgeInsets.bottom) : 0) + (self.otherButtonTitles.count > 0 ? (self.canScrolling ? MIN(self.visibleButtonCount, self.otherButtonTitles.count) : self.otherButtonTitles.count) * self.buttonHeight : 0) + (self.cancelButtonTitle.length > 0 ? 5.0f + self.buttonHeight : 0);
-            make.bottom.equalTo(self).offset(height);
+        [strongSelf.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = (strongSelf.title.length > 0 ? strongSelf.titleTextSize.height + 2.0f + (strongSelf.titleEdgeInsets.top + strongSelf.titleEdgeInsets.bottom) : 0) + (strongSelf.otherButtonTitles.count > 0 ? (strongSelf.canScrolling ? MIN(strongSelf.visibleButtonCount, strongSelf.otherButtonTitles.count) : strongSelf.otherButtonTitles.count) * strongSelf.buttonHeight : 0) + (strongSelf.cancelButtonTitle.length > 0 ? 5.0f + strongSelf.buttonHeight : 0);
+            make.bottom.equalTo(strongSelf).offset(height);
         }];
         
-        [weakSelf layoutIfNeeded];
+        [strongSelf layoutIfNeeded];
         
     } completion:^(BOOL finished) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         
-        [weakSelf removeFromSuperview];
+        [strongSelf removeFromSuperview];
         
-        if ([weakSelf.delegate respondsToSelector:@selector(actionSheet:didDismissWithButtonIndex:)]) {
-            [weakSelf.delegate actionSheet:self didDismissWithButtonIndex:buttonIndex];
+        strongSelf.window.rootViewController = nil;
+        strongSelf.window.hidden = YES;
+        strongSelf.window = nil;
+        
+        if ([strongSelf.delegate respondsToSelector:@selector(actionSheet:didDismissWithButtonIndex:)]) {
+            [strongSelf.delegate actionSheet:strongSelf didDismissWithButtonIndex:buttonIndex];
         }
         
-        if (weakSelf.didDismissHandle) {
-            weakSelf.didDismissHandle(self, buttonIndex);
+        if (strongSelf.didDismissHandler) {
+            strongSelf.didDismissHandler(strongSelf, buttonIndex);
         }
     }];
 }
@@ -692,8 +854,8 @@
         [self.delegate actionSheet:self clickedButtonAtIndex:0];
     }
     
-    if (self.clickedHandle) {
-        self.clickedHandle(self, 0);
+    if (self.clickedHandler) {
+        self.clickedHandler(self, 0);
     }
     
     [self hideWithButtonIndex:0];
@@ -706,8 +868,8 @@
         [self.delegate actionSheet:self clickedButtonAtIndex:indexPath.row + 1];
     }
     
-    if (self.clickedHandle) {
-        self.clickedHandle(self, indexPath.row + 1);
+    if (self.clickedHandler) {
+        self.clickedHandler(self, indexPath.row + 1);
     }
     
     [self hideWithButtonIndex:indexPath.row + 1];
@@ -741,7 +903,7 @@
     }
     
     if (self.destructiveButtonIndexSet) {
-        if ([self.destructiveButtonIndexSet lc_contains:(int)indexPath.row + 1]) {
+        if ([self.destructiveButtonIndexSet containsIndex:indexPath.row + 1]) {
             cell.titleLabel.textColor = self.destructiveButtonColor;
         } else {
             cell.titleLabel.textColor = self.buttonColor;

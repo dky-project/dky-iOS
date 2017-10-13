@@ -1,8 +1,8 @@
 //
-//  UIImage+LCActionSheet.m
+//  LCActionSheetViewController.h
 //  LCActionSheet
 //
-//  Created by Leo on 2016/11/29.
+//  Created by Leo on 12/05/2017.
 //
 //  Copyright (c) 2015-2017 Leo <leodaxia@gmail.com>
 //
@@ -25,21 +25,23 @@
 //  SOFTWARE.
 
 
-#import "UIImage+LCActionSheet.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIImage (LCActionSheet)
 
-+ (instancetype)lc_imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 2.0f, 2.0f);
+NS_ASSUME_NONNULL_BEGIN
+
+@interface LCActionSheetViewController : UIViewController
+
+/**
+ Status bar hidden. Same as the original.
+ */
+@property (nonatomic, assign) BOOL statusBarHidden;
     
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
+/**
+ Status bar style. Same as the original.
+ */
+@property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
 @end
+
+NS_ASSUME_NONNULL_END

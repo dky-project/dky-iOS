@@ -1,8 +1,8 @@
 //
-//  UIImage+LCActionSheet.m
+//  UIDevice+LCActionSheet.m
 //  LCActionSheet
 //
-//  Created by Leo on 2016/11/29.
+//  Created by Leo on 2017/10/10.
 //
 //  Copyright (c) 2015-2017 Leo <leodaxia@gmail.com>
 //
@@ -24,22 +24,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
+#import "UIDevice+LCActionSheet.h"
 
-#import "UIImage+LCActionSheet.h"
+@implementation UIDevice (LCActionSheet)
 
-@implementation UIImage (LCActionSheet)
-
-+ (instancetype)lc_imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 2.0f, 2.0f);
-    
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
+- (BOOL)lc_isX {
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    return MAX(screenSize.width, screenSize.height) == 812.0;
 }
 
 @end

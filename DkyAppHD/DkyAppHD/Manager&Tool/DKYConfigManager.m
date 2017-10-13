@@ -33,11 +33,11 @@
     cache.config.maxCacheAge = 60 * 60 * 24 * 365;
     
     // 统一配置 Config 作用于全局样式
-    LCActionSheetConfig *config = [LCActionSheetConfig shared];
+    LCActionSheetConfig *config = [LCActionSheetConfig config];
     config.scrolling = YES;
     config.visibleButtonCount = 10;
     config.cancelButtonTitle  = @"清除";
-    config.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    config.destructiveButtonIndexSet = [NSIndexSet indexSetWithIndex:0];
     
     // 启动 QMUI 的样式配置模板
     [QMUIConfigurationTemplate setupConfigurationTemplate];

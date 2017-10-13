@@ -117,7 +117,7 @@
                                              otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
     actionSheet.visibleButtonCount = 10;
-    actionSheet.destructiveButtonIndexSet = [NSSet setWithObjects:@0, nil];
+    actionSheet.destructiveButtonIndexSet = [NSIndexSet indexSetWithIndex:0];
     [actionSheet show];
 }
 

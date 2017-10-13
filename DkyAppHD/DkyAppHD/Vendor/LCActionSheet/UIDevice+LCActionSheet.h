@@ -1,8 +1,8 @@
 //
-//  UIImage+LCActionSheet.m
+//  UIDevice+LCActionSheet.h
 //  LCActionSheet
 //
-//  Created by Leo on 2016/11/29.
+//  Created by Leo on 2017/10/10.
 //
 //  Copyright (c) 2015-2017 Leo <leodaxia@gmail.com>
 //
@@ -25,21 +25,24 @@
 //  SOFTWARE.
 
 
-#import "UIImage+LCActionSheet.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIImage (LCActionSheet)
 
-+ (instancetype)lc_imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 2.0f, 2.0f);
-    
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UIDevice (LCActionSheet)
+
+/**
+ Return `YES` if current device is iPhone X.
+ 
+ iPhone X
+ - Top:     +14.0pt
+ - Bottom:  +34.0pt
+ 
+ @return Whether it is iPhone X
+ */
+- (BOOL)lc_isX;
 
 @end
+
+NS_ASSUME_NONNULL_END
