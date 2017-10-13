@@ -59,7 +59,6 @@
 		264C3C9B1F53057A00F47747 /* DKYGetProductPriceParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */; };
 		266290801E9D03F300886274 /* DKYSampleDetailAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */; };
 		2670F9D81F2B87F800D579B1 /* DkySampleOrderImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */; };
-		267CED471E20E93100ED5872 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED461E20E93100ED5872 /* iCarousel.m */; };
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
 		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
 		268BC24B1E6477D60042E16D /* MDHTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 268BC24A1E6477D60042E16D /* MDHTMLLabel.m */; };
@@ -470,8 +469,6 @@
 		2670F9D61F2B87F800D579B1 /* DkySampleOrderImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DkySampleOrderImageViewCell.h; sourceTree = "<group>"; };
 		2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DkySampleOrderImageViewCell.m; sourceTree = "<group>"; };
 		267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemDelegate.h; sourceTree = "<group>"; };
-		267CED451E20E93100ED5872 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
-		267CED461E20E93100ED5872 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		267CED4A1E20EF2E00ED5872 /* DKYHomeItemTwoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemTwoView.h; sourceTree = "<group>"; };
 		267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemTwoView.m; sourceTree = "<group>"; };
 		267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemTwoView.xib; sourceTree = "<group>"; };
@@ -1184,15 +1181,6 @@
 				EBD5E27E1F31A67600B98F46 /* NSString+URL.m */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		267CED441E20E93100ED5872 /* iCarousel */ = {
-			isa = PBXGroup;
-			children = (
-				267CED451E20E93100ED5872 /* iCarousel.h */,
-				267CED461E20E93100ED5872 /* iCarousel.m */,
-			);
-			path = iCarousel;
 			sourceTree = "<group>";
 		};
 		267CED481E20EEF400ED5872 /* View */ = {
@@ -2093,7 +2081,6 @@
 				EB9790581E221B6F00E2985C /* MMPopupView */,
 				EB9790511E22158100E2985C /* UUDatePicker */,
 				EB97904D1E22118500E2985C /* WGBDatePickerView */,
-				267CED441E20E93100ED5872 /* iCarousel */,
 				EBC300801E1CF5E200F602E6 /* UITableView-FDTemplateLayoutCell */,
 				EBA90E921E52E2EE00EA539E /* TWScrollView */,
 				EBC300691E1CD8FE00F602E6 /* TWBaseViewController */,
@@ -2934,7 +2921,6 @@
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
 				26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */,
 				EBC300891E1CF5E200F602E6 /* UITableView+FDIndexPathHeightCache.m in Sources */,
-				267CED471E20E93100ED5872 /* iCarousel.m in Sources */,
 				EBA7310E1F21E00600FEFD69 /* PYProgressView.m in Sources */,
 				EBA980801ECD8CC50080FC79 /* DKYTongkuanFiveViewCellEx.m in Sources */,
 				263702C01F64FD3E000991C5 /* DKYDisplayEntryViewCell.m in Sources */,

@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - iCarousel (1.8.3)
   - IQKeyboardManager (5.0.4)
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
@@ -215,6 +216,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - iCarousel
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD
@@ -231,6 +233,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   IQKeyboardManager: 1df9c0f147af1681cfb2d9977bc30309d45a7e76
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -245,6 +248,6 @@ SPEC CHECKSUMS:
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 18409010af48b2df282700fab31f2dffcc80f4b6
+PODFILE CHECKSUM: 8d73ac441acbed1f406c76c2ed5c6b6c863fcecb
 
 COCOAPODS: 1.4.0.beta.1
