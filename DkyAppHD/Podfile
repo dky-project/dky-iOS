@@ -17,6 +17,7 @@ pod 'SVProgressHUD'
 pod 'TTTAttributedLabel'
 pod 'MJRefresh'
 pod 'iCarousel'
+pod 'RMUniversalAlert'
 
 pod 'MJExtension'
 pod 'YYCategories'

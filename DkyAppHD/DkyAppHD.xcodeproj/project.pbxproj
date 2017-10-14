@@ -78,11 +78,6 @@
 		26E42A8F1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E42A8E1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m */; };
 		26E42A921F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E42A911F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m */; };
 		26E780681E7D52DD0023FAD0 /* DKYVipNameParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */; };
-		26E8709B1EA31685005A6F7F /* RMPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870981EA31685005A6F7F /* RMPopoverPresentationController.m */; };
-		26E8709C1EA31685005A6F7F /* RMUniversalAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E8709A1EA31685005A6F7F /* RMUniversalAlert.m */; };
-		26E870A31EA31740005A6F7F /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E8709E1EA31740005A6F7F /* UIAlertController+Blocks.m */; };
-		26E870A41EA31740005A6F7F /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A01EA31740005A6F7F /* UIActionSheet+Blocks.m */; };
-		26E870A51EA31740005A6F7F /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A21EA31740005A6F7F /* UIAlertView+Blocks.m */; };
 		26E870A81EA320F4005A6F7F /* DKYCustomOrderAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */; };
 		26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC02961E751D0700469C5C /* NSString+STRegex.m */; };
 		EB02E8821ECC1C02006C5354 /* DKYCollectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02E8811ECC1C02006C5354 /* DKYCollectListViewController.m */; };
@@ -119,7 +114,6 @@
 		EB506C4F1E23BD81002A1423 /* DKYOrderBrowserViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB506C4D1E23BD81002A1423 /* DKYOrderBrowserViewCell.xib */; };
 		EB506C521E23C133002A1423 /* DKYOrderBrowserLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */; };
 		EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */; };
-		EB5D73311F42D2920054D2F8 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5D73301F42D2920054D2F8 /* UIAlertController+Blocks.m */; };
 		EB6DFFD11F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */; };
 		EB6DFFD51F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6DFFD41F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m */; };
 		EB843C461E82474400E4856E /* DKYAddProductApproveParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB843C451E82474400E4856E /* DKYAddProductApproveParameter.m */; };
@@ -499,16 +493,6 @@
 		26E42A911F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInqueryTotalMapModel.m; sourceTree = "<group>"; };
 		26E780661E7D52DD0023FAD0 /* DKYVipNameParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYVipNameParameter.h; sourceTree = "<group>"; };
 		26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYVipNameParameter.m; sourceTree = "<group>"; };
-		26E870971EA31685005A6F7F /* RMPopoverPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPopoverPresentationController.h; sourceTree = "<group>"; };
-		26E870981EA31685005A6F7F /* RMPopoverPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPopoverPresentationController.m; sourceTree = "<group>"; };
-		26E870991EA31685005A6F7F /* RMUniversalAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMUniversalAlert.h; sourceTree = "<group>"; };
-		26E8709A1EA31685005A6F7F /* RMUniversalAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMUniversalAlert.m; sourceTree = "<group>"; };
-		26E8709D1EA31740005A6F7F /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
-		26E8709E1EA31740005A6F7F /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
-		26E8709F1EA31740005A6F7F /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
-		26E870A01EA31740005A6F7F /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
-		26E870A11EA31740005A6F7F /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
-		26E870A21EA31740005A6F7F /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		26E870A61EA320F4005A6F7F /* DKYCustomOrderAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderAllViewController.h; sourceTree = "<group>"; };
 		26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderAllViewController.m; sourceTree = "<group>"; };
 		26EC02951E751D0700469C5C /* NSString+STRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STRegex.h"; sourceTree = "<group>"; };
@@ -579,8 +563,6 @@
 		EB506C501E23C133002A1423 /* DKYOrderBrowserLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserLineView.h; sourceTree = "<group>"; };
 		EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserLineView.m; sourceTree = "<group>"; };
 		EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderBrowserLineView.xib; sourceTree = "<group>"; };
-		EB5D732F1F42D2920054D2F8 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
-		EB5D73301F42D2920054D2F8 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		EB6DFFCF1F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGroupNoParameter.h; sourceTree = "<group>"; };
 		EB6DFFD01F3AB8F3004C7CC4 /* DKYGetProductListByGroupNoParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductListByGroupNoParameter.m; sourceTree = "<group>"; };
 		EB6DFFD31F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGroupNoModel.h; sourceTree = "<group>"; };
@@ -1110,8 +1092,6 @@
 		263CC1381E1555E7002FBB50 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				EB5D732F1F42D2920054D2F8 /* UIAlertController+Blocks.h */,
-				EB5D73301F42D2920054D2F8 /* UIAlertController+Blocks.m */,
 				26EC02951E751D0700469C5C /* NSString+STRegex.h */,
 				26EC02961E751D0700469C5C /* NSString+STRegex.m */,
 				EB97909B1E224CEE00E2985C /* SDWebImageManager+Utility.h */,
@@ -1235,23 +1215,6 @@
 				EBD116081EA4AEA600AF6F5C /* 样衣查询下单Item View */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		26E870961EA31685005A6F7F /* RMUniversalAlert */ = {
-			isa = PBXGroup;
-			children = (
-				26E8709D1EA31740005A6F7F /* UIAlertController+Blocks.h */,
-				26E8709E1EA31740005A6F7F /* UIAlertController+Blocks.m */,
-				26E8709F1EA31740005A6F7F /* UIActionSheet+Blocks.h */,
-				26E870A01EA31740005A6F7F /* UIActionSheet+Blocks.m */,
-				26E870A11EA31740005A6F7F /* UIAlertView+Blocks.h */,
-				26E870A21EA31740005A6F7F /* UIAlertView+Blocks.m */,
-				26E870971EA31685005A6F7F /* RMPopoverPresentationController.h */,
-				26E870981EA31685005A6F7F /* RMPopoverPresentationController.m */,
-				26E870991EA31685005A6F7F /* RMUniversalAlert.h */,
-				26E8709A1EA31685005A6F7F /* RMUniversalAlert.m */,
-			);
-			path = RMUniversalAlert;
 			sourceTree = "<group>";
 		};
 		801E36D74F282E89EAC268B3 /* Frameworks */ = {
@@ -2041,7 +2004,6 @@
 				EBA730E41F21E00600FEFD69 /* PYPhotoBrowser */,
 				EBD304A01F20AE6400CA400C /* DACircularProgress */,
 				EBD304991F20AE5F00CA400C /* FLAnimatedImage */,
-				26E870961EA31685005A6F7F /* RMUniversalAlert */,
 				268BC2481E6477D60042E16D /* MDHTMLLabel */,
 				EB195B8D1E5C41CE00116048 /* LCActionSheet */,
 				EBD694B71E2785BB00F365C3 /* TOWebViewController */,
@@ -2661,7 +2623,6 @@
 				263702A51F62E7DD000991C5 /* DKYDisplayEntryViewController.m in Sources */,
 				EBA7310D1F21E00600FEFD69 /* PYPhotoBrowserConst.m in Sources */,
 				EBA731071F21E00600FEFD69 /* UIView+PYExtension.m in Sources */,
-				26E8709B1EA31685005A6F7F /* RMPopoverPresentationController.m in Sources */,
 				EBD694B11E277B4700F365C3 /* RxWebViewNavigationViewController.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
@@ -2669,7 +2630,6 @@
 				EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */,
 				26E42A8F1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
-				26E870A51EA31740005A6F7F /* UIAlertView+Blocks.m in Sources */,
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
 				EB9790711E221B6F00E2985C /* MMSheetView.m in Sources */,
 				EBD5E2791F319B8700B98F46 /* QMUIConfigurationTemplate.m in Sources */,
@@ -2689,7 +2649,6 @@
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
 				EB9790781E222A7900E2985C /* DKYHttpRequestParameter.m in Sources */,
 				EB16D0F41E56EC2100939072 /* DKYCustomOrderPatternItemView.m in Sources */,
-				26E870A41EA31740005A6F7F /* UIActionSheet+Blocks.m in Sources */,
 				EB97906F1E221B6F00E2985C /* MMPopupView.m in Sources */,
 				EBA404D41ED66BEC00901483 /* DKYGetSizeDataParameter.m in Sources */,
 				EB97F2B81E25C36A00BDC705 /* DQCanEditTableViewCell.m in Sources */,
@@ -2714,7 +2673,6 @@
 				26210C021E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m in Sources */,
 				26210BF91E59B5CD00EB05D6 /* DKYCustomOrderXiukouItemView.m in Sources */,
 				26DAD0D21E1A32D0008EE55F /* DKYAccountManager.m in Sources */,
-				26E870A31EA31740005A6F7F /* UIAlertController+Blocks.m in Sources */,
 				26A6FA5A1E61878300376194 /* NSObject+Utility.m in Sources */,
 				EB9ACBD41E5EB8FD0007517C /* DKYDahuoOrderSizeModel.m in Sources */,
 				26E780681E7D52DD0023FAD0 /* DKYVipNameParameter.m in Sources */,
@@ -2866,7 +2824,6 @@
 				EBD1160E1EA4B2BE00AF6F5C /* DKYSampleOrderSizeItemView.m in Sources */,
 				EBB480B81E5C0C5000AC36D0 /* DKYProductApproveTitleModel.m in Sources */,
 				EBB3BAF91E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m in Sources */,
-				26E8709C1EA31685005A6F7F /* RMUniversalAlert.m in Sources */,
 				EBC300681E1CD4F900F602E6 /* DKYBaseViewController.m in Sources */,
 				26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */,
 				EBA7310E1F21E00600FEFD69 /* PYProgressView.m in Sources */,
@@ -2891,7 +2848,6 @@
 				EB195B991E5C41CE00116048 /* LCActionSheetCell.m in Sources */,
 				EBD694D71E2785BB00F365C3 /* TOActivityChrome.m in Sources */,
 				263702C41F6502B5000991C5 /* DKYDisplayFilterView.m in Sources */,
-				EB5D73311F42D2920054D2F8 /* UIAlertController+Blocks.m in Sources */,
 				EBC6DD711E94D9A800BE2510 /* DKYGetPzsJsonParameter.m in Sources */,
 				EB9511811E1640A5008708EF /* DKYLoginViewController.m in Sources */,
 				EBD694B01E277B4700F365C3 /* RxWebViewController.m in Sources */,
