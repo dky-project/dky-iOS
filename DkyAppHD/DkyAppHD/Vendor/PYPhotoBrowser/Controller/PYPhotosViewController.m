@@ -59,6 +59,7 @@
 // 图片单击
 - (void)imagePageDidChanged:(NSNotification *)notification
 {
+    
     // 取出选中图片
     NSDictionary *userInfo = notification.userInfo;
     PYPhotoView *photoView = userInfo[PYImagePageDidChangedNotification];
