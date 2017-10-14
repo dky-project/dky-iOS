@@ -15,7 +15,7 @@
     }
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.labelText = text;
+    hud.label.text = text;
     // 设置图片
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
     // 再设置模式
@@ -25,7 +25,7 @@
     hud.removeFromSuperViewOnHide = YES;
     
     // 0.7秒之后再消失
-    [hud hide:YES afterDelay:0.7];
+    [hud hideAnimated:YES afterDelay:0.7];
 }
 
 #pragma mark 显示错误信息

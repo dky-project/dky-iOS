@@ -25,7 +25,7 @@
     manager.shouldResignOnTouchOutside = YES;
     manager.shouldToolbarUsesTextFieldTintColor = NO;
     manager.enableAutoToolbar = YES;
-    manager.shouldShowTextFieldPlaceholder = NO;
+    manager.shouldShowToolbarPlaceholder = NO;
     manager.toolbarTintColor = [UIColor colorWithHex:0x0074fb];
     
     // SDWebimage 缓存，保存1年
