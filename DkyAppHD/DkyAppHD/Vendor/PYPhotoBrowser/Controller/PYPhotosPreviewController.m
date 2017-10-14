@@ -18,6 +18,7 @@
 
 /** 记录statusBar是否隐藏 */
 @property (nonatomic, assign, getter=isStatusBarHidden) BOOL statusBarHidden;
+
 /** 是否正在执行动画 */
 @property (nonatomic, assign, getter=isNavBarAnimating) BOOL navBarAnimating;
 

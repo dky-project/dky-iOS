@@ -68,6 +68,7 @@
         pageLabel.textAlignment = NSTextAlignmentCenter;
         _pageLabel = pageLabel;
     }
+    
     // 判断是否显示_pageLabel
     // 取出指示类型
     _pageLabel.hidden = self.selectedPhotoView.photosView.hiddenPageControl || (self.selectedPhotoView.photosView.pageType == PYPhotosViewPageTypeControll && _pageControl.numberOfPages < 10);

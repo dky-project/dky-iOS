@@ -14,6 +14,7 @@
 {
     // 设置主题颜色
     UINavigationBar *navBar = self.navigationBar;
+    
     // 设置背景颜色
     navBar.barTintColor = PYBarTintColor;
     // 设置背景图片(为了避免appearance背景图影响)
