@@ -10,4 +10,6 @@
 
 @interface DKYTongkuan5JianTypeItemView : DKYCustomOrderBasicItemView
 
+@property (nonatomic, copy) BlockWithSenderAndType mDimNew22IdBlock;
+
 @end

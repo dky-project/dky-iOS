@@ -82,31 +82,6 @@
     return self;
 }
 
-- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled{
-    [super setUserInteractionEnabled:userInteractionEnabled];
-    
-    self.optionsBtn.enabled = userInteractionEnabled;
-    self.dingView.textField.enabled = userInteractionEnabled;
-    self.kouView.optionsBtn.enabled = userInteractionEnabled;
-    self.mjkView.textField.enabled = userInteractionEnabled;
-    self.mjBtn1.enabled = userInteractionEnabled;
-    self.mjBtn2.enabled = userInteractionEnabled;
-    self.mjInputView.textField.enabled = userInteractionEnabled;
-    self.mjInputView.textFieldTwo.enabled = userInteractionEnabled;
-    self.dcView.textField.enabled = userInteractionEnabled;
-    self.suiBtn.enabled = userInteractionEnabled;
-    self.klbBtn.enabled = userInteractionEnabled;
-    self.kkBtn.enabled = userInteractionEnabled;
-    self.jdBtn.enabled = userInteractionEnabled;
-    self.jdInputView.textField.enabled = userInteractionEnabled;
-    self.gyxcView.textField.enabled = userInteractionEnabled;
-    
-    self.qlbBtn.enabled = userInteractionEnabled;
-    self.mjcView.textField.enabled = userInteractionEnabled;
-    self.gjxfBtn.enabled = userInteractionEnabled;
-    self.syBtn.enabled = userInteractionEnabled;
-}
-
 - (void)setItemModel:(DKYCustomOrderItemModel *)itemModel{
     [super setItemModel:itemModel];
     
@@ -149,7 +124,11 @@
     if(!madeInfoByProductName) return;
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew12Id > 0){
-        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW12) {
+        NSArray *models = self.customOrderDimList.DIMFLAG_NEW12;
+        if(self.madeInfoByProductName ){
+            models = self.madeInfoByProductName.productCusmptcateView.syShow;
+        }
+        for (DKYDimlistItemModel *model in models) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew12Id){
                 [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
                 break;
@@ -176,7 +155,11 @@
     }
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew7Id > 0){
-        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW7) {
+        NSArray *models = self.customOrderDimList.DIMFLAG_NEW7;
+        if(self.madeInfoByProductName ){
+            models = self.madeInfoByProductName.productCusmptcateView.mjzzShow;
+        }
+        for (DKYDimlistItemModel *model in models) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew7Id){
                 [self.mjBtn2 setTitle:model.attribname forState:UIControlStateNormal];
                 break;
@@ -230,7 +213,11 @@
     }
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew18Id > 0){
-        for (DKYDimlistItemModel *model in self.customOrderDimList.DIMFLAG_NEW18) {
+        NSArray *models = self.customOrderDimList.DIMFLAG_NEW18;
+        if(self.madeInfoByProductName){
+            models = self.madeInfoByProductName.productCusmptcateView.gjxfShow;
+        }
+        for (DKYDimlistItemModel *model in models) {
             if([model.ID integerValue] == self.madeInfoByProductName.productMadeInfoView.mDimNew18Id){
                 [self.gjxfBtn setTitle:model.attribname forState:UIControlStateNormal];
                 break;
@@ -255,7 +242,7 @@
         self.mjkView.textField.text = madeInfoByProductName.productMadeInfoView.mjkValue;
     }
     
-    if(madeInfoByProductName.productMadeInfoView.hzxcValue){
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55 && madeInfoByProductName.productMadeInfoView.hzxcValue){
         self.gyxcView.textField.text = [NSString stringWithFormat:@"%@",madeInfoByProductName.productMadeInfoView.hzxcValue];
     }
     
@@ -606,7 +593,7 @@
     self.kouView.optionsBtn.enabled = canEdit;
     self.mjkView.textField.enabled = canEdit;
     self.mjBtn1.enabled = canEdit;
-    self.mjBtn1.enabled = canEdit;
+    self.mjBtn2.enabled = canEdit;
     self.mjInputView.textField.enabled = canEdit;
     self.mjInputView.textFieldTwo.enabled = canEdit;
     self.dcView.textField.enabled = canEdit;
@@ -638,8 +625,12 @@
     NSArray *models = nil;
     
     switch (sender.tag) {
-        case 0:
+        case 0:{
             models = self.customOrderDimList.DIMFLAG_NEW12;
+            if(self.madeInfoByProductName){
+                models = self.madeInfoByProductName.productCusmptcateView.syShow;
+            }
+        }
             break;
         case 1:
             models = self.customOrderDimList.DIMFLAG_NEW4;
@@ -647,8 +638,12 @@
         case 2:
             models = self.customOrderDimList.DIMFLAG_NEW6;
             break;
-        case 3:
+        case 3:{
             models = self.customOrderDimList.DIMFLAG_NEW7;
+            if(self.madeInfoByProductName){
+                models = self.madeInfoByProductName.productCusmptcateView.mjzzShow;
+            }
+        }
             break;
         case 4:
             models = self.customOrderDimList.DIMFLAG_NEW37;
@@ -665,8 +660,12 @@
         case 8:
             models = self.customOrderDimList.DIMFLAG_NEW3;
             break;
-        case 9:
+        case 9:{
             models = self.customOrderDimList.DIMFLAG_NEW18;
+            if(self.madeInfoByProductName){
+                models = self.madeInfoByProductName.productCusmptcateView.gjxfShow;
+            }
+        }
             break;
         case 10:
             models = self.customOrderDimList.DIMFLAG_NEW19;
@@ -713,6 +712,9 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW12;
+            if(self.madeInfoByProductName ){
+                models = self.madeInfoByProductName.productCusmptcateView.syShow;
+            }
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew12Id = @([model.ID integerValue]);
             DLog(@"样式 = %@",self.addProductApproveParameter.mDimNew12Id);
@@ -752,6 +754,10 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW7;
+            if(self.madeInfoByProductName){
+                models = self.madeInfoByProductName.productCusmptcateView.mjzzShow;
+            }
+            
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew7Id = @([model.ID integerValue]);
             [self dealWithmDimNew7IdSelected];
@@ -819,6 +825,10 @@
             }
             
             models = self.customOrderDimList.DIMFLAG_NEW18;
+            if(self.madeInfoByProductName){
+                models = self.madeInfoByProductName.productCusmptcateView.gjxfShow;
+            }
+            
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew18Id = @([model.ID integerValue]);
             break;
@@ -842,9 +852,9 @@
 - (void)dealWithmDimNew12IdSelected{
     self.canEdit = YES;
     self.addProductApproveParameter.needGjxf = YES;
-//    if(self.mDimNew12IdBlock){
-//        self.mDimNew12IdBlock(nil,0);
-//    }
+    if(self.mDimNew12IdBlock){
+        self.mDimNew12IdBlock(nil,0);
+    }
     
     if(self.addProductApproveParameter.mDimNew12Id == nil){
         [self clear];
@@ -998,6 +1008,7 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 - (void)setupDingView{
@@ -1018,8 +1029,12 @@
     itemModel.subText = @"#";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
+        if(textField.text.length > 4){
+            textField.text = [textField.text substringToIndex:4];
+        }
         weakSelf.addProductApproveParameter.dkNumber = textField.text;
     };
+    itemModel.enabled = NO;
     self.dingView.itemModel = itemModel;
 }
 
@@ -1042,6 +1057,7 @@
     self.kouView.itemModel = itemModel;
     view.optionsBtn.tag = 1;
     view.optionsBtn.originalTitle = [view.optionsBtn currentTitle];
+    view.optionsBtn.enabled = NO;
     if(itemModel.content.length > 2){
         view.optionsBtn.extraInfo = [itemModel.content substringFromIndex:2];
     }
@@ -1068,8 +1084,9 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.mjkValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
+        weakSelf.addProductApproveParameter.mjkValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;;
     };
+    itemModel.enabled = NO;
     self.mjkView.itemModel = itemModel;
 }
 
@@ -1092,6 +1109,7 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 - (void)setupMjBtn2{
@@ -1113,13 +1131,15 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 - (void)setupMjInputView{
     DKYTextFieldAndTextFieldView *view = [[DKYTextFieldAndTextFieldView alloc] initWithFrame:CGRectZero];
     [self addSubview:view];
     self.mjInputView = view;
-    
+    view.textField.enabled = NO;
+    view.textFieldTwo.enabled = NO;
     WeakSelf(weakSelf);
     [self.mjInputView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(weakSelf.titleLabel);
@@ -1150,6 +1170,7 @@
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.dc1Value = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
+    itemModel.enabled = NO;
     self.dcView.itemModel = itemModel;
 }
 
@@ -1172,6 +1193,7 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 - (void)setupKlbBtn{
@@ -1193,6 +1215,7 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 - (void)setupKkBtn{
@@ -1214,6 +1237,7 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 - (void)setupJdBtn{
@@ -1235,6 +1259,7 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 - (void)setupJdInputView{
@@ -1255,8 +1280,9 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.dcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
+        weakSelf.addProductApproveParameter.dcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;;
     };
+    itemModel.enabled = NO;
     self.jdInputView.itemModel = itemModel;
 }
 
@@ -1278,8 +1304,9 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.hzxcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
+        weakSelf.addProductApproveParameter.hzxcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;;
     };
+    itemModel.enabled = NO;
     self.gyxcView.itemModel = itemModel;
 }
 
@@ -1301,6 +1328,7 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 - (void)setupMjcView{
@@ -1321,8 +1349,9 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.mjcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
+        weakSelf.addProductApproveParameter.mjcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;;
     };
+    itemModel.enabled = NO;
     self.mjcView.itemModel = itemModel;
 }
 
@@ -1364,6 +1393,7 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
+    btn.enabled = NO;
 }
 
 @end

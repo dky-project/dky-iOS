@@ -120,6 +120,11 @@
     self.textField.text = nil;
 }
 
+- (void)setCanEdit:(BOOL)canEdit{
+    [super setCanEdit:canEdit];
+    self.textField.enabled = canEdit;
+}
+
 - (void)layoutSubviews{
     [super layoutSubviews];
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectZero];

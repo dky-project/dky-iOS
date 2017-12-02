@@ -40,6 +40,10 @@
     self.textField.enabled = !itemModel.lock;
     self.textField.keyboardType = itemModel.keyboardType;
     self.textField2.keyboardType = itemModel.keyboardType;
+    
+    self.textField.enabled = itemModel.enabled;
+    self.textField2.enabled = itemModel.enabled;
+    
     if(itemModel.placeholder.length > 0){
         NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor colorWithHex:0x999999],
                                      NSFontAttributeName : [UIFont systemFontOfSize:12],

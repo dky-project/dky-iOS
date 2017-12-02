@@ -75,33 +75,28 @@
     
     self.lengthView.textField.text = madeInfoByProductName.productMadeInfoView.ycValue;
     
-    if([madeInfoByProductName.productMadeInfoView.xwValue isNotBlank]){
-        [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
-    }else{
-        [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
-    }
+    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131 ||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55 ||
+       (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
+        madeInfoByProductName.productMadeInfoView.mDimNew15Id == 36)){
+           [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+       }else{
+           [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
+       }
     
-//    self.lengthView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
     
-//    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131 ||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55 ||
-//       (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
-//        madeInfoByProductName.productMadeInfoView.mDimNew15Id == 36)){
-//           [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
-//       }else{
-//           [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
-//       }
-//    
+    //    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
+    //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
+    //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
+    //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+    //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
+    //        self.canEdit = YES;
+    //    }else{
+    //        self.canEdit = NO;
+    //    }
     
-//    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60){
-//        self.canEdit = NO;
-//    }else{
-//        self.canEdit = YES;
-//    }
+    BOOL enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
+    self.lengthView.textField.enabled = enabled;
 }
 
 - (void)dealwithMDimNew22IdSelected{
@@ -236,16 +231,16 @@
 }
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
-//    NSArray *models = nil;
-//    models = self.madeInfoByProductName.productCusmptcateView.xwArrayList;
-//    
-//    // 清除
-//    if(index == 0){
-//        self.addProductApproveParameter.xwValue = nil;
-//        return;
-//    }
-//    
-//    self.addProductApproveParameter.xwValue = [models objectOrNilAtIndex:index - 1];
+    //    NSArray *models = nil;
+    //    models = self.madeInfoByProductName.productCusmptcateView.xwArrayList;
+    //
+    //    // 清除
+    //    if(index == 0){
+    //        self.addProductApproveParameter.xwValue = nil;
+    //        return;
+    //    }
+    //
+    //    self.addProductApproveParameter.xwValue = [models objectOrNilAtIndex:index - 1];
     
     NSArray *models = nil;
     models = self.madeInfoByProductName.productCusmptcateView.xwArrayList;

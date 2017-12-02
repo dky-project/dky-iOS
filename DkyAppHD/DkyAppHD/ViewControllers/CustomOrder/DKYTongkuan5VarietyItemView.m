@@ -9,6 +9,7 @@
 #import "DKYTongkuan5VarietyItemView.h"
 #import "DKYMultipleSelectPopupView.h"
 #import "DKYGetPzsJsonParameter.h"
+#import "DKYGetColorListRequestParameter.h"
 
 @interface DKYTongkuan5VarietyItemView ()
 
@@ -24,6 +25,9 @@
 
 @property (nonatomic, strong) DKYGetPzsJsonParameter *getPzsJsonParameter;
 
+@property (nonatomic, strong) DKYGetColorListRequestParameter *getColorListRequestParameter;
+
+
 @property (nonatomic, weak) UIButton *colorBtn;
 @property (nonatomic, weak) UITextView *selectedColorView;
 
@@ -35,7 +39,6 @@
 @end
 
 @implementation DKYTongkuan5VarietyItemView
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -151,6 +154,7 @@
     [self.secondBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
     [self.thirdBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
     [self.fourthBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+    self.selectedColorView.text = nil;
 }
 
 #pragma mark - 网络请求
@@ -158,6 +162,7 @@
     [DKYHUDTool show];
     
     WeakSelf(weakSelf);
+    //    self.getPzsJsonParameter = nil;
     NSInteger flag = [self.getPzsJsonParameter.flag integerValue];
     [[DKYHttpRequestManager sharedInstance] getPzsJsonWithParameter:self.getPzsJsonParameter Success:^(NSInteger statusCode, id data) {
         [DKYHUDTool dismiss];
@@ -175,6 +180,74 @@
             weakSelf.zzJsonArray = [DKYDimlistItemModel mj_objectArrayWithKeyValuesArray:value];
             
             [weakSelf dealWithgetPzsJsonFromServer:flag value:nil];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)getColorListFromServer{
+    [DKYHUDTool show];
+    
+    WeakSelf(weakSelf);
+    
+    [[DKYHttpRequestManager sharedInstance] getColorListWithParameter:self.getColorListRequestParameter Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            NSArray *colorArray = [DKYDahuoOrderColorModel mj_objectArrayWithKeyValuesArray:result.data];
+            weakSelf.madeInfoByProductName.displayColorViewList = colorArray;
+            
+            // 刷新UI
+            for (DKYDahuoOrderColorModel *model in colorArray) {
+                for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+                    if([model.colorName isEqualToString:selectColor]){
+                        ++model.selectedCount;
+                    }
+                }
+            }
+            
+            NSMutableString *selectedColor = [NSMutableString string];
+            for (DKYDahuoOrderColorModel *color in colorArray) {
+                if(color.selected){
+                    NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+                    [selectedColor appendString:oneColor];
+                }
+            }
+            
+            self.selectedColorView.text = selectedColor;
+            
+            // 刷新参数
+            self.addProductApproveParameter.colorValue = nil;
+            self.addProductApproveParameter.colorArr = nil;
+            
+            NSMutableArray *selectedColorId = [NSMutableArray array];
+            for (DKYDahuoOrderColorModel *model in colorArray) {
+                if(model.selected){
+                    self.addProductApproveParameter.colorValue = @(model.colorId);
+                    break;
+                }
+            }
+            
+            for (DKYDahuoOrderColorModel *model in colorArray) {
+                if(model.selected){
+                    [selectedColorId addObject:model.colorName];
+                }
+            }
+            
+            if(selectedColorId.count > 0){
+                self.addProductApproveParameter.colorArr = [selectedColorId componentsJoinedByString:@";"];
+            }
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -216,7 +289,17 @@
 - (void)updateActionSheetAfterGetPzsJsonFromServer:(NSInteger)flag{
     switch (flag) {
         case 2:{
-
+            //            BOOL exist = NO;
+            //            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.pzJsonArray) {
+            //                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew14Id integerValue]){
+            //                    exist = YES;
+            //                    break;
+            //                }
+            //            }
+            //            if(!exist){
+            //                // 不存在，则刷新
+            //                [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
+            //            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
@@ -228,6 +311,17 @@
                 // 不存在，则刷新
                 [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
                 self.addProductApproveParameter.mDimNew15Id = nil;
+                //                // 不存在，则取新的选项的第一项值
+                //                if(self.madeInfoByProductName.productMadeInfoView.zzJsonArray.count == 0){
+                //                    // 不存在，则刷新
+                //                    [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
+                //                    self.addProductApproveParameter.mDimNew15Id = nil;
+                //                    return;
+                //                }
+                //
+                //                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zzJsonArray firstObject];
+                //                [self.secondBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                //                self.addProductApproveParameter.mDimNew15Id = @([firstModel.ID integerValue]);
             }
             
             exist = NO;
@@ -241,6 +335,17 @@
                 // 不存在，则刷新
                 [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
                 self.addProductApproveParameter.mDimNew16Id = nil;
+                //                if(self.madeInfoByProductName.productMadeInfoView.zxJsonArray.count == 0){
+                //                    // 不存在，则刷新
+                //                    [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+                //                    self.addProductApproveParameter.mDimNew16Id = nil;
+                //                    return;
+                //                }
+                //
+                //                // 不存在，则取新的选项的第一项值
+                //                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zxJsonArray firstObject];
+                //                [self.thirdBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                //                self.addProductApproveParameter.mDimNew16Id = @([firstModel.ID integerValue]);
             }
             
             exist = NO;
@@ -266,6 +371,17 @@
         }
             break;
         case 3:{
+            //            BOOL exist = NO;
+            //            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zzJsonArray) {
+            //                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew15Id integerValue]){
+            //                    exist = YES;
+            //                    break;
+            //                }
+            //            }
+            //            if(!exist){
+            //                // 不存在，则刷新
+            //                [self.secondBtn setTitle:self.secondBtn.originalTitle forState:UIControlStateNormal];
+            //            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
@@ -277,7 +393,18 @@
                 // 不存在，则刷新
                 [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
                 self.addProductApproveParameter.mDimNew16Id = nil;
-
+                
+                //                if(self.madeInfoByProductName.productMadeInfoView.zxJsonArray.count == 0){
+                //                    // 不存在，则刷新
+                //                    [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+                //                    self.addProductApproveParameter.mDimNew16Id = nil;
+                //                    return;
+                //                }
+                //
+                //                // 不存在，则取新的选项的第一项值
+                //                DKYDimlistItemModel *firstModel = [self.madeInfoByProductName.productMadeInfoView.zxJsonArray firstObject];
+                //                [self.thirdBtn setTitle:firstModel.attribname forState:UIControlStateNormal];
+                //                self.addProductApproveParameter.mDimNew16Id = @([firstModel.ID integerValue]);
             }
             
             exist = NO;
@@ -304,6 +431,17 @@
         }
             break;
         case 4:{
+            //            BOOL exist = NO;
+            //            for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zxJsonArray) {
+            //                if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew16Id integerValue]){
+            //                    exist = YES;
+            //                    break;
+            //                }
+            //            }
+            //            if(!exist){
+            //                // 不存在，则刷新
+            //                [self.thirdBtn setTitle:self.thirdBtn.originalTitle forState:UIControlStateNormal];
+            //            }
             BOOL exist = NO;
             for (DKYDimlistItemModel *model in self.madeInfoByProductName.productMadeInfoView.zbJsonArray) {
                 if([model.ID integerValue] == [self.addProductApproveParameter.mDimNew17Id integerValue]){
@@ -440,6 +578,8 @@
             if(self.madeInfoByProductName && self.addProductApproveParameter.mDimNew14Id != nil &&([self.addProductApproveParameter.mDimNew14Id integerValue] != [oldOption integerValue])){
                 [self updateActionSheetOptionsWithFlag:2];
             }
+            
+            [self updateColorSheet];
         }
             break;
         case 1:{
@@ -506,7 +646,9 @@
 }
 
 - (void)dealWithmDimNew15IdSelected{
-    
+    if(self.mDimNew15IdBlock){
+        self.mDimNew15IdBlock(nil,0);
+    }
 }
 
 - (void)updateActionSheetOptionsWithFlag:(NSInteger)flag{
@@ -519,6 +661,63 @@
     if([self checkForupdateActionSheetOptions]){
         [self getPzsJsonFromServer];
     }
+}
+
+- (void)updateColorSheet{
+    self.getColorListRequestParameter.mDimNew14Id = self.addProductApproveParameter.mDimNew14Id;
+    
+    // 品种选择了清除
+    if(self.addProductApproveParameter.mDimNew14Id == nil){
+        
+        // 恢复默认情况 UI
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+            for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+                if([model.colorName isEqualToString:selectColor]){
+                    model.selected = YES;
+                    break;
+                }else{
+                    model.selected = NO;
+                }
+            }
+        }
+        
+        NSMutableString *selectedColor = [NSMutableString string];
+        for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.colorViewList) {
+            if(color.selected){
+                NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+                [selectedColor appendString:oneColor];
+            }
+        }
+        
+        if([selectedColor isNotBlank]){
+            self.selectedColorView.text = selectedColor;
+        }
+        
+        
+        // 恢复参数默认情况
+        NSMutableArray *selectedColorId = [NSMutableArray array];
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+            if(model.selected){
+                self.addProductApproveParameter.colorValue = @(model.colorId);
+                break;
+            }
+        }
+        
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+            if(model.selected){
+                [selectedColorId addObject:model.colorName];
+            }
+        }
+        
+        if(selectedColorId.count > 0){
+            self.addProductApproveParameter.colorArr = [selectedColorId componentsJoinedByString:@";"];
+        }
+        
+        self.madeInfoByProductName.displayColorViewList = self.madeInfoByProductName.colorViewList;
+        return;
+    }
+    
+    [self getColorListFromServer];
 }
 
 - (BOOL)checkForupdateActionSheetOptions{
@@ -540,9 +739,8 @@
 - (void)showMultipleSelectPopupView{
     DKYMultipleSelectPopupView *pop = [DKYMultipleSelectPopupView show];
     pop.addProductApproveParameter = self.addProductApproveParameter;
-    pop.colorViewList = self.madeInfoByProductName.colorViewList;
+    pop.colorViewList = self.madeInfoByProductName.displayColorViewList;
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
-    
     WeakSelf(weakSelf);
     pop.confirmBtnClicked = ^(NSMutableArray *selectedColors) {
         NSMutableString *selectedColor = [NSMutableString string];
@@ -673,7 +871,6 @@
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
     }
-    
     self.colorBtn = btn;
 }
 
@@ -695,7 +892,6 @@
     }];
 }
 
-
 #pragma mark - get & set method
 - (DKYGetPzsJsonParameter*)getPzsJsonParameter{
     if(_getPzsJsonParameter == nil){
@@ -704,7 +900,11 @@
     return _getPzsJsonParameter;
 }
 
-
-
+- (DKYGetColorListRequestParameter*)getColorListRequestParameter{
+    if(_getColorListRequestParameter == nil){
+        _getColorListRequestParameter = [[DKYGetColorListRequestParameter alloc] init];
+    }
+    return _getColorListRequestParameter;
+}
 
 @end

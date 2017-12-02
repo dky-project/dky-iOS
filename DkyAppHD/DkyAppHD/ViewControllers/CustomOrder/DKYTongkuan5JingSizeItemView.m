@@ -73,15 +73,15 @@
     
     if(!madeInfoByProductName) return;
     
-//    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54 ||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
-//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
-//        self.canEdit = YES;
-//    }else{
-//        self.canEdit = NO;
-//    }
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54 ||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
+        self.canEdit = YES;
+    }else{
+        self.canEdit = NO;
+    }
 }
 
 - (void)dealwithMDimNew12IdSelected{
@@ -153,7 +153,6 @@
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"净胸围";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
-//    itemModel.enabled = NO;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.jxwValue = textField.text;
     };
@@ -171,10 +170,6 @@
         make.height.mas_equalTo(weakSelf.titleLabel);
         make.width.mas_equalTo(196);
         make.top.mas_equalTo(weakSelf);
-//        make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
-//        make.height.mas_equalTo(weakSelf.titleLabel);
-//        make.width.mas_equalTo(196);
-//        make.top.mas_equalTo(weakSelf);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];

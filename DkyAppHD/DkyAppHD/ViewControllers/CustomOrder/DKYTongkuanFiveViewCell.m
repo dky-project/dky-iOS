@@ -141,12 +141,15 @@ static const CGFloat basicItemHeight = 30;
 @implementation DKYTongkuanFiveViewCell
 
 + (instancetype)tongkuanFiveViewCellWithTableView:(UITableView *)tableView{
-    static NSString *cellID = @"DKYTongkuanFiveViewCell";
-    DKYTongkuanFiveViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if(cell == nil)
-    {
-        cell = [[DKYTongkuanFiveViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-    }
+//    static NSString *cellID = @"DKYTongkuanFiveViewCell";
+//    DKYTongkuanFiveViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//    if(cell == nil)
+//    {
+//        cell = [[DKYTongkuanFiveViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+//    }
+    
+    // 偷懒方法，清空所有数据
+    DKYTongkuanFiveViewCell *cell = [[DKYTongkuanFiveViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     return cell;
 }
 
@@ -167,6 +170,8 @@ static const CGFloat basicItemHeight = 30;
     [self.tangzhuItemView fetchAddProductApproveInfo];
     [self.lingView fetchAddProductApproveInfo];
     [self.patternItemView fetchAddProductApproveInfo];
+    [self.jianTypeView fetchAddProductApproveInfo];
+    [self.xiukouItemView fetchAddProductApproveInfo];
 }
 
 - (void)reset{
@@ -182,7 +187,7 @@ static const CGFloat basicItemHeight = 30;
     // UI 属性
     // 第一行 款号，客户，手机号
     [self.numberView clear];
-//    [self.clientView clear];
+    [self.clientView clear];
     [self.phoneNumberView clear];
     
     // 第二行 款号，性别
@@ -309,7 +314,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)updateModelViews{
-    //    WeakSelf(weakSelf);
+//    WeakSelf(weakSelf);
     self.xiuBianView.madeInfoByProductName = self.madeInfoByProductName;
     self.jianTypeView.madeInfoByProductName = self.madeInfoByProductName;
     self.flowerTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
@@ -333,20 +338,20 @@ static const CGFloat basicItemHeight = 30;
         [self.displayImageView sd_setImageWithURL:url];
     }
     
-    //    WeakSelf(weakSelf);
-    //    if([self needHideKoudai]){
-    //        self.koudaiItemView.hidden = YES;
-    //        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
-    //            make.height.mas_equalTo(0);
-    //            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(0);
-    //        }];
-    //    }else{
-    //        self.koudaiItemView.hidden = NO;
-    //        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
-    //            make.height.mas_equalTo(80);
-    //            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(vpadding);
-    //        }];
-    //    }
+//    WeakSelf(weakSelf);
+//    if([self needHideKoudai]){
+//        self.koudaiItemView.hidden = YES;
+//        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(0);
+//            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(0);
+//        }];
+//    }else{
+//        self.koudaiItemView.hidden = NO;
+//        [self.koudaiItemView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(80);
+//            make.top.mas_equalTo(weakSelf.tangzhuItemView.mas_bottom).with.offset(vpadding);
+//        }];
+//    }
 }
 
 #pragma mark - 网络请你去
@@ -362,8 +367,8 @@ static const CGFloat basicItemHeight = 30;
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
-            //            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew13Id = 364;
-            //            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew12Id = 367;
+//            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew13Id = 364;
+//            weakSelf.madeInfoByProductName.productMadeInfoView.mDimNew12Id = 367;
             [weakSelf dealWithstyleNumber];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -381,13 +386,13 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)getVipInfoFromServer:(NSString*)phone{
-    //    [DKYHUDTool show];
+//    [DKYHUDTool show];
     
     WeakSelf(weakSelf);
     DKYVipNameParameter *p = [[DKYVipNameParameter alloc] init];
     p.phone = phone;
     [[DKYHttpRequestManager sharedInstance] getVipInfoWithParameter:p Success:^(NSInteger statusCode, id data) {
-        //        [DKYHUDTool dismiss];
+//        [DKYHUDTool dismiss];
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
@@ -398,18 +403,18 @@ static const CGFloat basicItemHeight = 30;
                 weakSelf.phoneNumberView.itemModel = weakSelf.phoneNumberView.itemModel;
             }
         }
-        //        else if (retCode == DkyHttpResponseCode_NotLogin) {
-        //            // 用户未登录,弹出登录页面
-        //            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
-        //            [DKYHUDTool showErrorWithStatus:result.msg];
-        //        }else{
-        //            NSString *retMsg = result.msg;
-        //            [DKYHUDTool showErrorWithStatus:retMsg];
-        //        }
+//        else if (retCode == DkyHttpResponseCode_NotLogin) {
+//            // 用户未登录,弹出登录页面
+//            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+//            [DKYHUDTool showErrorWithStatus:result.msg];
+//        }else{
+//            NSString *retMsg = result.msg;
+//            [DKYHUDTool showErrorWithStatus:retMsg];
+//        }
     } failure:^(NSError *error) {
-        //        [DKYHUDTool dismiss];
-        //        DLog(@"Error = %@",error.description);
-        //        [DKYHUDTool showErrorWithStatus:kNetworkError];
+//        [DKYHUDTool dismiss];
+//        DLog(@"Error = %@",error.description);
+//        [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
 
@@ -427,7 +432,7 @@ static const CGFloat basicItemHeight = 30;
             [DKYHUDTool showSuccessWithStatus:@"下单成功!"];
             
             // 清空数据
-            [weakSelf reset];
+            //[weakSelf reset];
             
             // 重新刷新页面
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -501,7 +506,8 @@ static const CGFloat basicItemHeight = 30;
 
 - (void)dealWithstyleNumber{
     if(self.madeInfoByProductName.isBigOrder){
-        [self showDahuoPopupView];
+//        [self showDahuoPopupView];
+        [DKYHUDTool showInfoWithStatus:@"请切换至大货订单出下单"];
         return;
     }
     
@@ -579,9 +585,9 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.mDimNew19Id = self.madeInfoByProductName.productMadeInfoView.mDimNew19Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew19Id): nil;
     
     self.addProductApproveParameter.mjkValue = [self.madeInfoByProductName.productMadeInfoView.mjkValue isNotBlank] ? @([self.madeInfoByProductName.productMadeInfoView.mjkValue doubleValue]) : nil;
-    
-    self.addProductApproveParameter.hzxcValue = self.madeInfoByProductName.productMadeInfoView.hzxcValue;
-    
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55){
+        self.addProductApproveParameter.hzxcValue = self.madeInfoByProductName.productMadeInfoView.hzxcValue;
+    }
     // 尺寸
     self.addProductApproveParameter.xwValue = self.madeInfoByProductName.productMadeInfoView.xwValue;
     self.addProductApproveParameter.ycValue = self.madeInfoByProductName.productMadeInfoView.ycValue;
@@ -592,6 +598,10 @@ static const CGFloat basicItemHeight = 30;
         self.addProductApproveParameter.jkValue = @([self.madeInfoByProductName.productMadeInfoView.jkValue doubleValue]);
     }
     
+    if(self.madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55){
+        self.addProductApproveParameter.hzxc1Value = self.madeInfoByProductName.productMadeInfoView.hzxcValue;
+    }
+    
     // 袖型
     self.addProductApproveParameter.mDimNew9Id = self.madeInfoByProductName.productMadeInfoView.mDimNew9Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id): nil;
     self.addProductApproveParameter.mDimNew9Id1 = self.madeInfoByProductName.productMadeInfoView.mDimNew9Id2 ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id2): nil;
@@ -599,6 +609,9 @@ static const CGFloat basicItemHeight = 30;
     if([self.madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]){
         self.addProductApproveParameter.xcValue = @([self.madeInfoByProductName.productMadeInfoView.xcValue doubleValue]);
     }
+    self.addProductApproveParameter.qtxxValue = self.madeInfoByProductName.productMadeInfoView.qtxRemark;
+    self.addProductApproveParameter.qtxxValue1 = self.madeInfoByProductName.productMadeInfoView.qtxRemark2;
+    self.addProductApproveParameter.qtxxValue2 = self.madeInfoByProductName.productMadeInfoView.qtxRemark3;
     
     // 袖边
     self.addProductApproveParameter.xbValue = self.madeInfoByProductName.productMadeInfoView.mDimNew45Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew45Id): nil;
@@ -615,10 +628,10 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.mDimNew26Id = self.madeInfoByProductName.productMadeInfoView.mDimNew26Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew26Id): nil;
     self.addProductApproveParameter.mDimNew25Id = self.madeInfoByProductName.productMadeInfoView.mDimNew25Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew25Id): nil;
     
-    
+
     self.addProductApproveParameter.mDimNew10Id = self.madeInfoByProductName.productMadeInfoView.mDimNew10Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew10Id): nil;
     self.addProductApproveParameter.mDimNew32Id = self.madeInfoByProductName.productMadeInfoView.mDimNew32Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew32Id): nil;
-    
+
     self.addProductApproveParameter.lxsx5Value = self.madeInfoByProductName.productMadeInfoView.lxRemark;
     
     // 下边
@@ -631,12 +644,14 @@ static const CGFloat basicItemHeight = 30;
         self.addProductApproveParameter.xkccValue = @([self.madeInfoByProductName.productMadeInfoView.xkccValue doubleValue]);
     }
     self.addProductApproveParameter.mDimNew32Id = self.madeInfoByProductName.productMadeInfoView.mDimNew32Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew32Id): nil;
+    
     self.addProductApproveParameter.qtxkValue = self.madeInfoByProductName.productMadeInfoView.xkRemark;
     
     // 加注
     self.addProductApproveParameter.jzValue = self.madeInfoByProductName.productMadeInfoView.jzValue;
     
     self.addProductApproveParameter.mDimNew41Id = self.madeInfoByProductName.productMadeInfoView.mDimNew41Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew41Id): nil;
+    
     
     self.addProductApproveParameter.defaultHzxc1Value = self.addProductApproveParameter.hzxc1Value;
     self.addProductApproveParameter.defaultYcValue = @([self.addProductApproveParameter.ycValue doubleValue]);
@@ -701,9 +716,9 @@ static const CGFloat basicItemHeight = 30;
 
 #pragma mark - action method
 - (void)optionsBtnClicked:(UIButton*)sender{
-    //    if(self.optionsBtnClicked){
-    //        self.optionsBtnClicked(sender,sender.tag);
-    //    }
+//    if(self.optionsBtnClicked){
+//        self.optionsBtnClicked(sender,sender.tag);
+//    }
     [self showOptionsPicker];
 }
 
@@ -713,7 +728,7 @@ static const CGFloat basicItemHeight = 30;
     MMPopupItemHandler block = ^(NSInteger index){
         DLog(@"++++++++ index = %@",@(index));
     };
-    
+
     NSArray *item = @[@"1",@"2",@"3",@"4",@"5"];
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:item.count + 1];
     for (NSString *str in item) {
@@ -934,10 +949,10 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"*手机号:";
     itemModel.keyboardType = UIKeyboardTypePhonePad;
     itemModel.textFieldDidEndEditing = ^(UITextField *textField){
-        //        if(![textField.text isValidPhoneNum]){
-        //            [DKYHUDTool showInfoWithStatus:@"请输入有效的手机号！"];
-        //            return;
-        //        }
+//        if(![textField.text isValidPhoneNum]){
+//            [DKYHUDTool showInfoWithStatus:@"请输入有效的手机号！"];
+//            return;
+//        }
         [weakSelf getVipInfoFromServer:textField.text];
     };
     
@@ -945,7 +960,7 @@ static const CGFloat basicItemHeight = 30;
         if (textField.text.length > 11) {
             textField.text = [textField.text substringToIndex:11];
         }
-        
+
         weakSelf.addProductApproveParameter.mobile = textField.text;
     };
     self.phoneNumberView.itemModel = itemModel;
@@ -967,9 +982,9 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*品种:";
     self.varietyView.itemModel = itemModel;
-//    self.varietyView.mDimNew15IdBlock = ^(id sender, NSInteger type){
-//        [weakSelf dealwithMDimNew15IdSelected];
-//    };
+    self.varietyView.mDimNew15IdBlock = ^(id sender, NSInteger type){
+        [weakSelf dealwithMDimNew15IdSelected];
+    };
 }
 
 - (void)setupPatternItemView{
@@ -988,10 +1003,9 @@ static const CGFloat basicItemHeight = 30;
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*式样:";
     self.patternItemView.itemModel = itemModel;
-    self.patternItemView.userInteractionEnabled = NO;
-//    self.patternItemView.mDimNew12IdBlock = ^(id sender,NSInteger type){
-//        [weakSelf dealwithMDimNew12IdSelected];
-//    };
+    self.patternItemView.mDimNew12IdBlock = ^(id sender,NSInteger type){
+        [weakSelf dealwithMDimNew12IdSelected];
+    };
 }
 
 - (void)setupSizeView{
@@ -1055,9 +1069,9 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"肩型:";
     itemModel.textFieldLeftOffset = 16;
     self.jianTypeView.itemModel = itemModel;
-//    self.jianTypeView.mDimNew22IdBlock = ^(id sender,NSInteger type){
-//        [weakSelf dealwithMDimNew22IdSelected];
-//    };
+    self.jianTypeView.mDimNew22IdBlock = ^(id sender,NSInteger type){
+        [weakSelf dealwithMDimNew22IdSelected];
+    };
 }
 
 - (void)setupXiuTypeView{
@@ -1078,6 +1092,7 @@ static const CGFloat basicItemHeight = 30;
     itemModel.title = @"袖型:";
     itemModel.textFieldLeftOffset = 16;
     self.xiuTypeView.itemModel = itemModel;
+
 }
 
 - (void)setupXiuBianView{
@@ -1246,7 +1261,7 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.xiabianItemView.itemModel = itemModel;
     
-    self.xiabianItemView.userInteractionEnabled = NO;
+    self.xiabianItemView.canEdit = NO;
 }
 
 - (void)setupXiukouItemView{
@@ -1267,7 +1282,7 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.xiukouItemView.itemModel = itemModel;
     
-    self.xiukouItemView.userInteractionEnabled = NO;
+    self.xiukouItemView.canEdit = NO;
 }
 
 - (void)setupAddMarkView{
@@ -1288,7 +1303,7 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.addMarkView.itemModel = itemModel;
     
-    self.addMarkView.userInteractionEnabled = NO;
+    self.addMarkView.canEdit = NO;
 }
 
 - (void)setupMatchItemView{
@@ -1309,12 +1324,12 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.matchItemView.itemModel = itemModel;
     
-    self.matchItemView.userInteractionEnabled = NO;
+    self.matchItemView.canEdit = NO;
 }
 
 - (void)setupDisplayImageView{
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-    //    imageView.image = [UIImage imageNamed:@"login_placeholder"];
+//    imageView.image = [UIImage imageNamed:@"login_placeholder"];
     [self.contentView addSubview:imageView];
     self.displayImageView = imageView;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -1335,5 +1350,82 @@ static const CGFloat basicItemHeight = 30;
     }
     return _mptApproveSaveParameter;
 }
+
+
+//[RMUniversalAlert showAlertInViewController:self
+//                                  withTitle:@"同款5下单"
+//                                    message:@"选择同款5下单，会清空之前的下单操作！"
+//                          cancelButtonTitle:@"取消"
+//                     destructiveButtonTitle:nil
+//                          otherButtonTitles:@[@"确定"]
+//                                   tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
+//                                       if (buttonIndex == alert.cancelButtonIndex) {
+//                                           NSLog(@"Cancel Tapped");
+//                                       } else if (buttonIndex == alert.destructiveButtonIndex) {
+//                                           NSLog(@"Delete Tapped");
+//                                       } else if (buttonIndex >= alert.firstOtherButtonIndex) {
+//                                           NSLog(@"Other Button Index %ld", (long)buttonIndex - alert.firstOtherButtonIndex);
+//                                       }
+//                                   }];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//- (void)setupTitleLabel{
+//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+//    label.font = [UIFont boldSystemFontOfSize:15];
+//    label.textColor = [UIColor blackColor];
+//    label.textAlignment = NSTextAlignmentLeft;
+//    
+//    [self.contentView addSubview:label];
+//    self.titleLabel = label;
+//    WeakSelf(weakSelf);
+//    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(weakSelf.contentView).with.offset(72);
+//        make.top.mas_equalTo(weakSelf.contentView).with.offset(42);
+//        make.width.mas_equalTo(80);
+//    }];
+//
+//    label.adjustsFontSizeToFitWidth = YES;
+//    
+//    label.text = @"标题标题";
+//}
+//
+//- (void)setupOptionsBtn{
+//    WeakSelf(weakSelf);
+//    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+//    [self.contentView addSubview:btn];
+//    [btn setTitle:@"点击选中内容" forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(CGSizeMake(160, 28));
+//        make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
+//        make.top.mas_equalTo(weakSelf.contentView).with.offset(37);
+//    }];
+//}
+//
+//- (void)setupCustomOrderTextFieldView{
+//    
+//}
 
 @end
