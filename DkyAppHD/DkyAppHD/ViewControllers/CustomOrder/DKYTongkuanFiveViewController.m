@@ -66,7 +66,7 @@
             weakSelf.needUpdate = NO;
             weakSelf.productApproveTitle = [DKYProductApproveTitleModel mj_objectWithKeyValues:result.data];
             weakSelf.addProductApproveParameter = [[DKYAddProductApproveParameter alloc] init];
-            weakSelf.addProductApproveParameter.customer = @"同款五";
+//            weakSelf.addProductApproveParameter.customer = @"同款五";
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -235,35 +235,35 @@
     }
     //#endif
     
-    if(self.addProductApproveParameter.defaultHzxc1Value){
-        double value1 = [self.addProductApproveParameter.defaultHzxc1Value doubleValue];
-        double value2 = [self.addProductApproveParameter.hzxc1Value doubleValue];
-        
-        if(fabs(value1 - value2) > 4){
-            [DKYHUDTool showInfoWithStatus:@"工艺袖长+-4公分变化"];
-            return NO;
-        }
-    }
+//    if(self.addProductApproveParameter.defaultHzxc1Value){
+//        double value1 = [self.addProductApproveParameter.defaultHzxc1Value doubleValue];
+//        double value2 = [self.addProductApproveParameter.hzxc1Value doubleValue];
+//        
+//        if(fabs(value1 - value2) > 4){
+//            [DKYHUDTool showInfoWithStatus:@"工艺袖长+-4公分变化"];
+//            return NO;
+//        }
+//    }
     
-    if(self.addProductApproveParameter.defaultYcValue){
-        double value1 = [self.addProductApproveParameter.defaultYcValue doubleValue];
-        double value2 = [self.addProductApproveParameter.ycValue doubleValue];
-        
-        if(fabs(value1 - value2) >= 4){
-            [DKYHUDTool showInfoWithStatus:@"衣长+-4公分变化"];
-            return NO;
-        }
-    }
+//    if(self.addProductApproveParameter.defaultYcValue){
+//        double value1 = [self.addProductApproveParameter.defaultYcValue doubleValue];
+//        double value2 = [self.addProductApproveParameter.ycValue doubleValue];
+//
+//        if(fabs(value1 - value2) >= 4){
+//            [DKYHUDTool showInfoWithStatus:@"衣长+-4公分变化"];
+//            return NO;
+//        }
+//    }
     
-    if(self.addProductApproveParameter.defaultXcValue){
-        double value1 = [self.addProductApproveParameter.defaultXcValue doubleValue];
-        double value2 = [self.addProductApproveParameter.xcValue doubleValue];
-        
-        if(fabs(value1 - value2) >= 4){
-            [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
-            return NO;
-        }
-    }
+//    if(self.addProductApproveParameter.defaultXcValue){
+//        double value1 = [self.addProductApproveParameter.defaultXcValue doubleValue];
+//        double value2 = [self.addProductApproveParameter.xcValue doubleValue];
+//        
+//        if(fabs(value1 - value2) >= 4){
+//            [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
+//            return NO;
+//        }
+//    }
     
     return YES;
 }

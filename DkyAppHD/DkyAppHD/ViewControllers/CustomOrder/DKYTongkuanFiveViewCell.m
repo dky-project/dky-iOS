@@ -878,8 +878,8 @@ static const CGFloat basicItemHeight = 30;
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*客户:";
-    itemModel.content = @"同款五";
-    itemModel.enabled = NO;
+//    itemModel.content = @"同款五";
+//    itemModel.enabled = NO;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         // 客户号
         weakSelf.addProductApproveParameter.customer = textField.text;

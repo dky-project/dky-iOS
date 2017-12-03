@@ -234,8 +234,8 @@
     
     [self setupStyleNumberTextField];
     
-    [self setupRecommendBtn];
-    [self setupRankBtn];
+//    [self setupRecommendBtn];
+//    [self setupRankBtn];
 //    [self test];
 }
 

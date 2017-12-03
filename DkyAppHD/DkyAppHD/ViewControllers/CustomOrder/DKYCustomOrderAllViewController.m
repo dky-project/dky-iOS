@@ -33,7 +33,8 @@
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
-    NSArray *titleList = @[@"默认定制款",@"同款五",@"大货"];
+//    NSArray *titleList = @[@"默认定制款",@"同款五",@"大货"];
+    NSArray *titleList = @[@"同款五"];
     return titleList;
 }
 
@@ -52,10 +53,16 @@
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
     UIViewController *viewController = nil;
     if(pageIndex == 0){
-        static NSString *gridId = @"CustomOrder.identifier";
+//        static NSString *gridId = @"CustomOrder.identifier";
+//        viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
+//        if (!viewController) {
+//            viewController = (DKYCustomOrderUIViewController*)[UIStoryboard viewControllerWithClass:[DKYCustomOrderUIViewController class]];
+//        }
+        
+        static NSString *gridId = @"TongkuanFive.identifier";
         viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
         if (!viewController) {
-            viewController = (DKYCustomOrderUIViewController*)[UIStoryboard viewControllerWithClass:[DKYCustomOrderUIViewController class]];
+            viewController = (DKYTongkuanFiveViewController*)[UIStoryboard viewControllerWithClass:[DKYTongkuanFiveViewController class]];
         }
     }else if(pageIndex == 1){
         static NSString *gridId = @"TongkuanFive.identifier";
