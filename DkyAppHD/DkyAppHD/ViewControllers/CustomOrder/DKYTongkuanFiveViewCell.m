@@ -546,6 +546,7 @@ static const CGFloat basicItemHeight = 30;
         for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
             if([model.colorName isEqualToString:selectColor]){
                 model.selected = YES;
+                model.selectedCount++;
                 break;
             }
         }
@@ -1153,7 +1154,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.flowerTypeItemView.itemModel = itemModel;
     
-    self.flowerTypeItemView.userInteractionEnabled = NO;
+//    self.flowerTypeItemView.userInteractionEnabled = NO;
+    self.flowerTypeItemView.canEdit = NO;
 }
 
 - (void)setupTangzhuItemView{
@@ -1175,7 +1177,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.tangzhuItemView.itemModel = itemModel;
     
-    self.tangzhuItemView.userInteractionEnabled = NO;
+//    self.tangzhuItemView.userInteractionEnabled = NO;
+    self.tangzhuItemView.canEdit = NO;
 }
 
 - (void)setupKoudaiItemView{
@@ -1197,7 +1200,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.koudaiItemView.itemModel = itemModel;
     
-    self.koudaiItemView.userInteractionEnabled = NO;
+//    self.koudaiItemView.userInteractionEnabled = NO;
+    self.koudaiItemView.canEdit = NO;
 }
 
 - (void)setupAttachmentItemView{
@@ -1219,7 +1223,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.attachmentItemView.itemModel = itemModel;
     
-    self.attachmentItemView.userInteractionEnabled = NO;
+//    self.attachmentItemView.userInteractionEnabled = NO;
+    self.attachmentItemView.canEdit = NO;
 }
 
 - (void)setupSpecialCraftItemView{
@@ -1240,7 +1245,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 0;
     self.specialCraftItemView.itemModel = itemModel;
     
-    self.specialCraftItemView.userInteractionEnabled = NO;
+//    self.specialCraftItemView.userInteractionEnabled = NO;
+    self.specialCraftItemView.canEdit = NO;
 }
 
 - (void)setupXiabianItemView{

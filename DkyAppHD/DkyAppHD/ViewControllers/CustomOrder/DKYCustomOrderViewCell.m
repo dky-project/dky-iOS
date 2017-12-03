@@ -540,6 +540,7 @@ static const CGFloat basicItemHeight = 30;
         for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
             if([model.colorName isEqualToString:selectColor]){
                 model.selected = YES;
+                model.selectedCount++;
                 break;
             }
         }
