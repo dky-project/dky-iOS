@@ -55,6 +55,12 @@
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
 		264C3C9B1F53057A00F47747 /* DKYGetProductPriceParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */; };
+		2658366F1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658366E1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m */; };
+		265836721FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265836711FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m */; };
+		265836751FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265836741FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.m */; };
+		265836781FD444C900BAEA87 /* DKYTongkuan5AttachmentItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265836771FD444C900BAEA87 /* DKYTongkuan5AttachmentItemView.m */; };
+		2658367B1FD4454300BAEA87 /* DKYTongkuan5SpecialCraftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658367A1FD4454300BAEA87 /* DKYTongkuan5SpecialCraftItemView.m */; };
+		2658367E1FD445F300BAEA87 /* DKYTongkuan5XiabianItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658367D1FD445F300BAEA87 /* DKYTongkuan5XiabianItemView.m */; };
 		266290801E9D03F300886274 /* DKYSampleDetailAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */; };
 		2670F9D81F2B87F800D579B1 /* DkySampleOrderImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */; };
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
@@ -448,6 +454,18 @@
 		263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestManager.m; sourceTree = "<group>"; };
 		264C3C991F53057A00F47747 /* DKYGetProductPriceParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductPriceParameter.h; sourceTree = "<group>"; };
 		264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductPriceParameter.m; sourceTree = "<group>"; };
+		2658366D1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5FlowerTypeItemView.h; sourceTree = "<group>"; };
+		2658366E1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5FlowerTypeItemView.m; sourceTree = "<group>"; };
+		265836701FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5TangzhuItemView.h; sourceTree = "<group>"; };
+		265836711FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5TangzhuItemView.m; sourceTree = "<group>"; };
+		265836731FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5KoudaiItemView.h; sourceTree = "<group>"; };
+		265836741FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5KoudaiItemView.m; sourceTree = "<group>"; };
+		265836761FD444C900BAEA87 /* DKYTongkuan5AttachmentItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5AttachmentItemView.h; sourceTree = "<group>"; };
+		265836771FD444C900BAEA87 /* DKYTongkuan5AttachmentItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5AttachmentItemView.m; sourceTree = "<group>"; };
+		265836791FD4454300BAEA87 /* DKYTongkuan5SpecialCraftItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5SpecialCraftItemView.h; sourceTree = "<group>"; };
+		2658367A1FD4454300BAEA87 /* DKYTongkuan5SpecialCraftItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5SpecialCraftItemView.m; sourceTree = "<group>"; };
+		2658367C1FD445F300BAEA87 /* DKYTongkuan5XiabianItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5XiabianItemView.h; sourceTree = "<group>"; };
+		2658367D1FD445F300BAEA87 /* DKYTongkuan5XiabianItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5XiabianItemView.m; sourceTree = "<group>"; };
 		2662907E1E9D03F300886274 /* DKYSampleDetailAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailAllViewController.h; sourceTree = "<group>"; };
 		2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailAllViewController.m; sourceTree = "<group>"; };
 		2670F9D61F2B87F800D579B1 /* DkySampleOrderImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DkySampleOrderImageViewCell.h; sourceTree = "<group>"; };
@@ -2181,6 +2199,18 @@
 				EBA980881ECD9ED40080FC79 /* DKYTongkuan5XiuBianItemView.m */,
 				EBD115F71EA4662600AF6F5C /* DKYTongkuan5LingItemView.h */,
 				EBD115F81EA4662600AF6F5C /* DKYTongkuan5LingItemView.m */,
+				2658366D1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.h */,
+				2658366E1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m */,
+				265836701FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.h */,
+				265836711FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m */,
+				265836731FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.h */,
+				265836741FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.m */,
+				265836761FD444C900BAEA87 /* DKYTongkuan5AttachmentItemView.h */,
+				265836771FD444C900BAEA87 /* DKYTongkuan5AttachmentItemView.m */,
+				265836791FD4454300BAEA87 /* DKYTongkuan5SpecialCraftItemView.h */,
+				2658367A1FD4454300BAEA87 /* DKYTongkuan5SpecialCraftItemView.m */,
+				2658367C1FD445F300BAEA87 /* DKYTongkuan5XiabianItemView.h */,
+				2658367D1FD445F300BAEA87 /* DKYTongkuan5XiabianItemView.m */,
 			);
 			name = "同款5Item View";
 			sourceTree = "<group>";
@@ -2594,6 +2624,7 @@
 				EBB0FB951F30275200BCD57C /* DKYDahuoOrderInquiryHeaderView.m in Sources */,
 				EB95117D1E162E31008708EF /* UIStoryboard+Utility.m in Sources */,
 				EB95117A1E162D33008708EF /* DKYGuidenceViewController.m in Sources */,
+				265836721FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m in Sources */,
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
 				EBA731081F21E00600FEFD69 /* PYPhotosNavigationController.m in Sources */,
 				EB9790951E2245A000E2985C /* YYCache+Utility.m in Sources */,
@@ -2712,6 +2743,8 @@
 				26210BF61E59B5B500EB05D6 /* DKYCustomOrderXiabianItemView.m in Sources */,
 				EBB480BE1E5C165C00AC36D0 /* DKYDimlistItemModel.m in Sources */,
 				EB9511B01E164444008708EF /* WXSTransitionManager+TypeTool.m in Sources */,
+				265836781FD444C900BAEA87 /* DKYTongkuan5AttachmentItemView.m in Sources */,
+				2658366F1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m in Sources */,
 				EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */,
 				EB506C401E23A8B8002A1423 /* DKYOrderBrowseViewController.m in Sources */,
 				26210BDA1E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m in Sources */,
@@ -2801,6 +2834,7 @@
 				EB506C361E23706F002A1423 /* DKYPageModel.m in Sources */,
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
 				EBD694D61E2785BB00F365C3 /* NJKWebViewProgressView.m in Sources */,
+				2658367B1FD4454300BAEA87 /* DKYTongkuan5SpecialCraftItemView.m in Sources */,
 				26210BD41E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.m in Sources */,
 				EBA980861ECD9B3A0080FC79 /* DKYTongkuan5XiuTypeItemView.m in Sources */,
 				EBA980831ECD91D60080FC79 /* DKYTongkuan5PatternItemView.m in Sources */,
@@ -2829,6 +2863,7 @@
 				EBA7310E1F21E00600FEFD69 /* PYProgressView.m in Sources */,
 				EBA980801ECD8CC50080FC79 /* DKYTongkuanFiveViewCellEx.m in Sources */,
 				263702C01F64FD3E000991C5 /* DKYDisplayEntryViewCell.m in Sources */,
+				2658367E1FD445F300BAEA87 /* DKYTongkuan5XiabianItemView.m in Sources */,
 				EBD694D91E2785BB00F365C3 /* TOWebViewController.m in Sources */,
 				263702D81F65321B000991C5 /* DKYGetProductListGhPageParameter.m in Sources */,
 				EBB1132E1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m in Sources */,
@@ -2841,6 +2876,7 @@
 				EB97907C1E22371B00E2985C /* DKYOrderInfoHeaderView.m in Sources */,
 				263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */,
 				EB02E8821ECC1C02006C5354 /* DKYCollectListViewController.m in Sources */,
+				265836751FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.m in Sources */,
 				EB9790851E22421400E2985C /* Foundation+Log.m in Sources */,
 				EB9511A61E164444008708EF /* UIViewController+WXSTransitionProperty.m in Sources */,
 				EBABE8DA1E150CA600B4C568 /* AppDelegate.m in Sources */,

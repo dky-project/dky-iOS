@@ -23,16 +23,17 @@
 #import "DKYTongkuan5XiuTypeItemView.h"
 #import "DKYTongkuan5XiuBianItemView.h"
 #import "DKYTongkuan5LingItemView.h"
+#import "DKYTongkuan5FlowerTypeItemView.h"
+#import "DKYTongkuan5TangzhuItemView.h"
+#import "DKYTongkuan5KoudaiItemView.h"
+#import "DKYTongkuan5AttachmentItemView.h"
+#import "DKYTongkuan5SpecialCraftItemView.h"
+#import "DKYTongkuan5XiabianItemView.h"
 
 
-#import "DKYCustomOrderSpecialCraftItemView.h"
-#import "DKYCustomOrderXiabianItemView.h"
 #import "DKYCustomOrderXiukouItemView.h"
 #import "DKYCustomOrderMatchItemView.h"
-#import "DKYCustomOrderFlowerTypeItemView.h"
-#import "DKYCustomOrderTangzhuItemView.h"
-#import "DKYCustomOrderKoudaiItemView.h"
-#import "DKYCustomOrderAttachmentItemView.h"
+
 #import "DKYProductApproveTitleModel.h"
 #import "DKYDahuoPopupView.h"
 #import "DKYMadeInfoByProductNameParameter.h"
@@ -105,22 +106,22 @@ static const CGFloat basicItemHeight = 30;
 @property (nonatomic, weak) DKYTongkuan5LingItemView *lingView;
 
 // 花型
-@property (nonatomic, weak) DKYCustomOrderFlowerTypeItemView *flowerTypeItemView;
+@property (nonatomic, weak) DKYTongkuan5FlowerTypeItemView *flowerTypeItemView;
 
 // 烫珠
-@property (nonatomic, weak) DKYCustomOrderTangzhuItemView *tangzhuItemView;
+@property (nonatomic, weak) DKYTongkuan5TangzhuItemView *tangzhuItemView;
 
 // 口袋
-@property (nonatomic, weak) DKYCustomOrderKoudaiItemView *koudaiItemView;
+@property (nonatomic, weak) DKYTongkuan5KoudaiItemView *koudaiItemView;
 
 // 附件
-@property (nonatomic, weak) DKYCustomOrderAttachmentItemView *attachmentItemView;
+@property (nonatomic, weak) DKYTongkuan5AttachmentItemView *attachmentItemView;
 
 // 特殊工艺
-@property (nonatomic, weak) DKYCustomOrderSpecialCraftItemView *specialCraftItemView;
+@property (nonatomic, weak) DKYTongkuan5SpecialCraftItemView *specialCraftItemView;
 
 // 下边
-@property (nonatomic, weak) DKYCustomOrderXiabianItemView *xiabianItemView;
+@property (nonatomic, weak) DKYTongkuan5XiabianItemView *xiabianItemView;
 
 // 袖口
 @property (nonatomic, weak) DKYCustomOrderXiukouItemView *xiukouItemView;
@@ -1136,7 +1137,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupFlowerTypeItemView{
-    DKYCustomOrderFlowerTypeItemView *view = [[DKYCustomOrderFlowerTypeItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5FlowerTypeItemView *view = [[DKYTongkuan5FlowerTypeItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.flowerTypeItemView = view;
     
@@ -1159,7 +1160,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupTangzhuItemView{
-    DKYCustomOrderTangzhuItemView *view = [[DKYCustomOrderTangzhuItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5TangzhuItemView *view = [[DKYTongkuan5TangzhuItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.tangzhuItemView = view;
     
@@ -1182,7 +1183,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupKoudaiItemView{
-    DKYCustomOrderKoudaiItemView *view = [[DKYCustomOrderKoudaiItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5KoudaiItemView *view = [[DKYTongkuan5KoudaiItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.koudaiItemView = view;
     
@@ -1205,7 +1206,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupAttachmentItemView{
-    DKYCustomOrderAttachmentItemView *view = [[DKYCustomOrderAttachmentItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5AttachmentItemView *view = [[DKYTongkuan5AttachmentItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.attachmentItemView = view;
     
@@ -1228,7 +1229,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupSpecialCraftItemView{
-    DKYCustomOrderSpecialCraftItemView *view = [[DKYCustomOrderSpecialCraftItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5SpecialCraftItemView *view = [[DKYTongkuan5SpecialCraftItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.specialCraftItemView = view;
     
@@ -1250,7 +1251,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupXiabianItemView{
-    DKYCustomOrderXiabianItemView *view = [[DKYCustomOrderXiabianItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5XiabianItemView *view = [[DKYTongkuan5XiabianItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.xiabianItemView = view;
     
