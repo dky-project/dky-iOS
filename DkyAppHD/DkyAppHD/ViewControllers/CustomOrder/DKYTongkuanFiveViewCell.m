@@ -29,10 +29,9 @@
 #import "DKYTongkuan5AttachmentItemView.h"
 #import "DKYTongkuan5SpecialCraftItemView.h"
 #import "DKYTongkuan5XiabianItemView.h"
-
-
-#import "DKYCustomOrderXiukouItemView.h"
-#import "DKYCustomOrderMatchItemView.h"
+#import "DKYTongkuan5XiukouItemView.h"
+#import "DKYTongkuan5AddMarkItemView.h"
+#import "DKYTongkuan5MatchItemView.h"
 
 #import "DKYProductApproveTitleModel.h"
 #import "DKYDahuoPopupView.h"
@@ -124,13 +123,13 @@ static const CGFloat basicItemHeight = 30;
 @property (nonatomic, weak) DKYTongkuan5XiabianItemView *xiabianItemView;
 
 // 袖口
-@property (nonatomic, weak) DKYCustomOrderXiukouItemView *xiukouItemView;
+@property (nonatomic, weak) DKYTongkuan5XiukouItemView *xiukouItemView;
 
 // 加注
-@property (nonatomic, weak) DKYCustomOrderAddMarkItemView *addMarkView;
+@property (nonatomic, weak) DKYTongkuan5AddMarkItemView *addMarkView;
 
 // 配套
-@property (nonatomic, weak) DKYCustomOrderMatchItemView *matchItemView;
+@property (nonatomic, weak)  DKYTongkuan5MatchItemView*matchItemView;
 
 // 图片
 @property (nonatomic, weak) UIImageView *displayImageView;
@@ -1272,7 +1271,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupXiukouItemView{
-    DKYCustomOrderXiukouItemView *view = [[DKYCustomOrderXiukouItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5XiukouItemView *view = [[DKYTongkuan5XiukouItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.xiukouItemView = view;
     
@@ -1293,7 +1292,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupAddMarkView{
-    DKYCustomOrderAddMarkItemView *view = [[DKYCustomOrderAddMarkItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5AddMarkItemView *view = [[DKYTongkuan5AddMarkItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.addMarkView = view;
     
@@ -1314,7 +1313,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupMatchItemView{
-    DKYCustomOrderMatchItemView *view = [[DKYCustomOrderMatchItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5MatchItemView *view = [[DKYTongkuan5MatchItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.matchItemView = view;
     
