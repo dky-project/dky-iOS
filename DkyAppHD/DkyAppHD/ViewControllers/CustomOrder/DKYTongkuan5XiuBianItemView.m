@@ -93,8 +93,8 @@
     //
     self.unknowniew.textField.text = self.madeInfoByProductName.productMadeInfoView.xbcValue;
     
-    
-    //self.textField.hidden = (madeInfoByProductName.productMadeInfoView.mDimNew46Id != 397);
+    self.textField.text = self.madeInfoByProductName.productMadeInfoView.xbRemark;
+    self.textField.hidden = (madeInfoByProductName.productMadeInfoView.mDimNew46Id != 397);
     
 //    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19 ||
 //       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366 ||

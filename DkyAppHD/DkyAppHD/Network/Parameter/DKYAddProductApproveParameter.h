@@ -258,8 +258,6 @@
  */
 @property (nonatomic, copy) NSString *qtxbzzValue;
 
-
-
 /**
  *  领
  */

@@ -157,7 +157,7 @@
                 [weakSelf confirmProductApproveToServer:sender];
             } cancelBtnBlock:^(DKYOrderBrowsePopupView* sender) {
                 DLog(@"取消");
-                [weakSelf clearDataAndUI];
+//                [weakSelf clearDataAndUI];
                 [sender dismiss];
             }];
             pop.orderBrowseModel = weakSelf.orderBrowseModel;
@@ -206,6 +206,10 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     DKYCustomOrderViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell fetchAddProductApproveInfo];
+    
+    if(self.addProductApproveParameter.mjkValue == nil){
+        self.addProductApproveParameter.mjkValue = @1;
+    }
 }
 
 #pragma mark - private method

@@ -143,7 +143,7 @@
                 [weakSelf confirmProductApproveToServer:sender];
             } cancelBtnBlock:^(DKYOrderBrowsePopupView* sender) {
                 DLog(@"取消");
-                [weakSelf clearDataAndUI];
+//                [weakSelf clearDataAndUI];
                 [sender dismiss];
             }];
             pop.orderBrowseModel = weakSelf.orderBrowseModel;            return;
@@ -187,6 +187,11 @@
     self.addProductApproveParameter.fhDate = self.productApproveTitle.sendDate;
     
     self.addProductApproveParameter.orderNo = self.productApproveTitle.orderNo;
+    
+    if(self.addProductApproveParameter.mjkValue == nil){
+        self.addProductApproveParameter.mjkValue = @1;
+    }
+
 }
 
 - (BOOL)checkForAddProductApprove{
@@ -235,35 +240,35 @@
     }
     //#endif
     
-    if(self.addProductApproveParameter.defaultHzxc1Value){
-        double value1 = [self.addProductApproveParameter.defaultHzxc1Value doubleValue];
-        double value2 = [self.addProductApproveParameter.hzxc1Value doubleValue];
-        
-        if(fabs(value1 - value2) > 4){
-            [DKYHUDTool showInfoWithStatus:@"工艺袖长+-4公分变化"];
-            return NO;
-        }
-    }
-    
-    if(self.addProductApproveParameter.defaultYcValue){
-        double value1 = [self.addProductApproveParameter.defaultYcValue doubleValue];
-        double value2 = [self.addProductApproveParameter.ycValue doubleValue];
-        
-        if(fabs(value1 - value2) >= 4){
-            [DKYHUDTool showInfoWithStatus:@"衣长+-4公分变化"];
-            return NO;
-        }
-    }
-    
-    if(self.addProductApproveParameter.defaultXcValue){
-        double value1 = [self.addProductApproveParameter.defaultXcValue doubleValue];
-        double value2 = [self.addProductApproveParameter.xcValue doubleValue];
-        
-        if(fabs(value1 - value2) >= 4){
-            [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
-            return NO;
-        }
-    }
+//    if(self.addProductApproveParameter.defaultHzxc1Value){
+//        double value1 = [self.addProductApproveParameter.defaultHzxc1Value doubleValue];
+//        double value2 = [self.addProductApproveParameter.hzxc1Value doubleValue];
+//
+//        if(fabs(value1 - value2) > 4){
+//            [DKYHUDTool showInfoWithStatus:@"工艺袖长+-4公分变化"];
+//            return NO;
+//        }
+//    }
+//
+//    if(self.addProductApproveParameter.defaultYcValue){
+//        double value1 = [self.addProductApproveParameter.defaultYcValue doubleValue];
+//        double value2 = [self.addProductApproveParameter.ycValue doubleValue];
+//
+//        if(fabs(value1 - value2) >= 4){
+//            [DKYHUDTool showInfoWithStatus:@"衣长+-4公分变化"];
+//            return NO;
+//        }
+//    }
+//
+//    if(self.addProductApproveParameter.defaultXcValue){
+//        double value1 = [self.addProductApproveParameter.defaultXcValue doubleValue];
+//        double value2 = [self.addProductApproveParameter.xcValue doubleValue];
+//
+//        if(fabs(value1 - value2) >= 4){
+//            [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
+//            return NO;
+//        }
+//    }
     
     return YES;
 }

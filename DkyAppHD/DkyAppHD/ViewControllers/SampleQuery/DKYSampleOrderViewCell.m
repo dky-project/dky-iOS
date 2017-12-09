@@ -246,6 +246,7 @@ static const CGFloat basicItemHeight = 45;
         for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
             if([model.colorName isEqualToString:selectColor]){
                 model.selected = YES;
+                model.selectedCount++;
                 [selectedColor addObject:selectColor];
                 break;
             }
