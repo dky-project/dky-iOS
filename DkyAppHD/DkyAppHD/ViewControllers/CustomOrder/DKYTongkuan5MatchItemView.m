@@ -66,7 +66,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    [self clear];
+//    [self clear];
     if(madeInfoByProductName == nil)  return;
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew41Id > 0){
@@ -78,35 +78,35 @@
         }
     }
     
-    if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
-        madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
-        self.optionsBtn.enabled = NO;
-    }else{
-        self.optionsBtn.enabled = YES;
-    }
+//    if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+//        madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
+//        self.optionsBtn.enabled = NO;
+//    }else{
+//        self.optionsBtn.enabled = YES;
+//    }
 }
 
 - (void)dealwithMDimNew12IdSelected{
-    if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
-        [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
-       ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
-        [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
-           self.canEdit = NO;
-       }else{
-           self.canEdit = YES;
-       }
+//    if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+//        [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+//       ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+//        [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
+//           self.canEdit = NO;
+//       }else{
+//           self.canEdit = YES;
+//       }
 }
 
 - (void)dealwithMDimNew13IdSelected{
-    if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
-        [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
-       ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
-        [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
-           self.optionsBtn.enabled = NO;
-       }else{
-           self.optionsBtn.enabled = YES;
-       }
+//    if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+//        [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+//       ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+//        [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
+//           self.optionsBtn.enabled = NO;
+//       }else{
+//           self.optionsBtn.enabled = YES;
+//       }
 }
 
 - (void)clear{
@@ -116,7 +116,6 @@
     self.canEdit = YES;
     
     [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
-    
 }
 
 - (void)setCanEdit:(BOOL)canEdit{

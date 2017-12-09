@@ -69,7 +69,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    [self clear];
+//    [self clear];
     
     if(madeInfoByProductName == nil)  return;
     
@@ -88,38 +88,38 @@
     
     self.textField.text = madeInfoByProductName.productMadeInfoView.xbRemark;
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
-       ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
-         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
-        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367)){
-           self.canEdit = NO;
-       }else{
-           self.canEdit = YES;
-           
-           self.textField.enabled = NO;
-           if(madeInfoByProductName.productMadeInfoView.mDimNew10Id == 176){
-               self.textField.enabled = YES;
-           }
-       }
+//    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
+//       ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+//         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+//        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367)){
+//           self.canEdit = NO;
+//       }else{
+//           self.canEdit = YES;
+//
+//           self.textField.enabled = NO;
+//           if(madeInfoByProductName.productMadeInfoView.mDimNew10Id == 176){
+//               self.textField.enabled = YES;
+//           }
+//       }
 }
 
 - (void)dealwithMDimNew12IdSelected{
-    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
-       (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
-         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
-        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
-         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368))){
-            self.canEdit = NO;
-        }else{
-            self.canEdit = YES;
-            
-            self.textField.enabled = NO;
-            if([self.addProductApproveParameter.mDimNew10Id integerValue] == 176){
-                self.textField.enabled = YES;
-            }
-        }
+//    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+//       (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+//         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+//        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+//         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368))){
+//            self.canEdit = NO;
+//        }else{
+//            self.canEdit = YES;
+//
+//            self.textField.enabled = NO;
+//            if([self.addProductApproveParameter.mDimNew10Id integerValue] == 176){
+//                self.textField.enabled = YES;
+//            }
+//        }
 }
 
 - (void)dealwithMDimNew13IdSelected{
@@ -127,7 +127,7 @@
         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
-           self.canEdit = NO;
+//           self.canEdit = NO;
        }else{
            [self dealwithMDimNew12IdSelected];
        }
@@ -225,11 +225,11 @@
 }
 
 - (void)dealwithmDimNew10IdSelected{
-    self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+    //self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
     
-    if([self.addProductApproveParameter.mDimNew10Id integerValue] == 176){
-        self.textField.enabled = YES;
-    }
+//    if([self.addProductApproveParameter.mDimNew10Id integerValue] == 176){
+//        self.textField.enabled = YES;
+//    }
 }
 
 #pragma mark - mark

@@ -70,7 +70,7 @@
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
     
-    [self clear];
+//    [self clear];
     if(!madeInfoByProductName) return;
     
     self.lengthView.textField.text = madeInfoByProductName.productMadeInfoView.ycValue;
@@ -95,8 +95,8 @@
     //        self.canEdit = NO;
     //    }
     
-    BOOL enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
-    self.lengthView.textField.enabled = enabled;
+//    BOOL enabled = !([madeInfoByProductName.productCusmptcateView.isYcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.ycValue isNotBlank]));
+//    self.lengthView.textField.enabled = enabled;
 }
 
 - (void)dealwithMDimNew22IdSelected{
@@ -126,15 +126,15 @@
            }
        }else {
            [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
-           if([self.addProductApproveParameter.mDimNew12Id integerValue] == 54 ||
-              [self.addProductApproveParameter.mDimNew12Id integerValue]== 53||
-              [self.addProductApproveParameter.mDimNew12Id integerValue] == 19||
-              [self.addProductApproveParameter.mDimNew12Id integerValue] == 60||
-              [self.addProductApproveParameter.mDimNew12Id integerValue] == 55){
-               self.canEdit = YES;
-           }else{
-               self.canEdit = NO;
-           }
+//           if([self.addProductApproveParameter.mDimNew12Id integerValue] == 54 ||
+//              [self.addProductApproveParameter.mDimNew12Id integerValue]== 53||
+//              [self.addProductApproveParameter.mDimNew12Id integerValue] == 19||
+//              [self.addProductApproveParameter.mDimNew12Id integerValue] == 60||
+//              [self.addProductApproveParameter.mDimNew12Id integerValue] == 55){
+//               self.canEdit = YES;
+//           }else{
+//               self.canEdit = NO;
+//           }
        }
 }
 

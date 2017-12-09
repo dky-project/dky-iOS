@@ -77,7 +77,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    [self clear];
+//    [self clear];
     if(!madeInfoByProductName) return;
     
     for (UIButton *btn in self.options) {
@@ -94,16 +94,16 @@
     
     self.textField.text = madeInfoByProductName.productMadeInfoView.qttsgyRemark;
     
-    if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
-        madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
-        self.canEdit = NO;
-    }else{
-        self.canEdit = YES;
-        if(!self.other.selected){
-            self.textField.enabled = NO;
-        }
-    }
+//    if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+//        madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367){
+//        self.canEdit = NO;
+//    }else{
+//        self.canEdit = YES;
+//        if(!self.other.selected){
+//            self.textField.enabled = NO;
+//        }
+//    }
 }
 
 - (void)fetchAddProductApproveInfo{
@@ -138,14 +138,14 @@
 }
 
 - (void)dealwithMDimNew12IdSelected{
-    if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
-        [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
-       ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
-        [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
-           self.canEdit = NO;
-       }else{
-           self.canEdit = YES;
-       }
+//    if(([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+//        [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+//       ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+//        [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
+//           self.canEdit = NO;
+//       }else{
+//           self.canEdit = YES;
+//       }
 }
 
 - (void)dealwithMDimNew13IdSelected{
@@ -153,7 +153,7 @@
         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
-           self.canEdit = NO;
+//           self.canEdit = NO;
        }else{
            [self dealwithMDimNew12IdSelected];
        }

@@ -90,7 +90,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    [self clear];
+//    [self clear];
     if(!madeInfoByProductName) return;
     
     if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
@@ -104,14 +104,14 @@
        ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
          madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
         madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367)){
-           self.canEdit = NO;
+//           self.canEdit = NO;
        }else{
-           self.canEdit = YES;
+//           self.canEdit = YES;
            
-           if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
-              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56){
-               self.textField.enabled = NO;
-           }
+//           if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
+//              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56){
+//               self.textField.enabled = NO;
+//           }
            
            if([madeInfoByProductName.productMadeInfoView.lwqt isNotBlank]){
                self.oneView.textField.text = madeInfoByProductName.productMadeInfoView.lwqt;
@@ -166,21 +166,21 @@
            self.markView.textField.text = madeInfoByProductName.productMadeInfoView.lxRemark;
            self.otherMarkView.textField.text = madeInfoByProductName.productMadeInfoView.qtxRemark;
            
-           self.otherMarkView.textField.enabled = NO;
-           self.likouView.textField.enabled = NO;
-           if(madeInfoByProductName.productMadeInfoView.mDimNew25Id == 299 ||
-              madeInfoByProductName.productMadeInfoView.mDimNew25Id == 302){
-               self.likouView.textField.enabled = YES;
-               self.otherMarkView.textField.enabled = NO;
-           }else if(madeInfoByProductName.productMadeInfoView.mDimNew25Id == 270){
-               self.likouView.textField.enabled = NO;
-               self.otherMarkView.textField.enabled = YES;
-           }
+//           self.otherMarkView.textField.enabled = NO;
+//           self.likouView.textField.enabled = NO;
+//           if(madeInfoByProductName.productMadeInfoView.mDimNew25Id == 299 ||
+//              madeInfoByProductName.productMadeInfoView.mDimNew25Id == 302){
+//               self.likouView.textField.enabled = YES;
+//               self.otherMarkView.textField.enabled = NO;
+//           }else if(madeInfoByProductName.productMadeInfoView.mDimNew25Id == 270){
+//               self.likouView.textField.enabled = NO;
+//               self.otherMarkView.textField.enabled = YES;
+//           }
            
-           self.textField.enabled = NO;
-           if(madeInfoByProductName.productMadeInfoView.mDimNew26Id == 232){
-               self.textField.enabled = YES;
-           }
+//           self.textField.enabled = NO;
+//           if(madeInfoByProductName.productMadeInfoView.mDimNew26Id == 232){
+//               self.textField.enabled = YES;
+//           }
        }
 }
 
@@ -190,42 +190,42 @@
 }
 
 - (void)dealwithMDimNew12IdSelected{
-    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 56){
-        self.textField.enabled = NO;
-    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
-             [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
-             [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
-             [self.addProductApproveParameter.mDimNew12Id integerValue] == 62||
-             [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
-             [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
-             [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
-             [self.addProductApproveParameter.mDimNew12Id integerValue] == 309||
-             (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
-               [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
-              ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
-               [self.addProductApproveParameter.mDimNew12Id integerValue] == 368))){
-                  self.canEdit = NO;
-              }else{
-                  self.canEdit = YES;
-                  
-                  
-                  self.otherMarkView.textField.enabled = NO;
-                  self.likouView.textField.enabled = NO;
-                  if([self.addProductApproveParameter.mDimNew25Id integerValue] == 299 ||
-                     [self.addProductApproveParameter.mDimNew25Id integerValue] == 302){
-                      self.likouView.textField.enabled = YES;
-                      self.otherMarkView.textField.enabled = NO;
-                  }else if([self.addProductApproveParameter.mDimNew25Id integerValue] == 270){
-                      self.likouView.textField.enabled = NO;
-                      self.otherMarkView.textField.enabled = YES;
-                  }
-                  
-                  self.textField.enabled = NO;
-                  if([self.addProductApproveParameter.mDimNew26Id integerValue] == 232){
-                      self.textField.enabled = YES;
-                  }
-              }
+//    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 56){
+//        self.textField.enabled = NO;
+//    }else if([self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+//             [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+//             [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
+//             [self.addProductApproveParameter.mDimNew12Id integerValue] == 62||
+//             [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
+//             [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
+//             [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
+//             [self.addProductApproveParameter.mDimNew12Id integerValue] == 309||
+//             (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+//               [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+//              ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+//               [self.addProductApproveParameter.mDimNew12Id integerValue] == 368))){
+//                  self.canEdit = NO;
+//              }else{
+//                  self.canEdit = YES;
+//
+//
+//                  self.otherMarkView.textField.enabled = NO;
+//                  self.likouView.textField.enabled = NO;
+//                  if([self.addProductApproveParameter.mDimNew25Id integerValue] == 299 ||
+//                     [self.addProductApproveParameter.mDimNew25Id integerValue] == 302){
+//                      self.likouView.textField.enabled = YES;
+//                      self.otherMarkView.textField.enabled = NO;
+//                  }else if([self.addProductApproveParameter.mDimNew25Id integerValue] == 270){
+//                      self.likouView.textField.enabled = NO;
+//                      self.otherMarkView.textField.enabled = YES;
+//                  }
+//
+//                  self.textField.enabled = NO;
+//                  if([self.addProductApproveParameter.mDimNew26Id integerValue] == 232){
+//                      self.textField.enabled = YES;
+//                  }
+//              }
 }
 
 - (void)clear{
@@ -350,10 +350,10 @@
 }
 
 - (void)dealWithLingSelected:(NSInteger)index{
-    self.lbcBtn.enabled = YES;
-    self.lbBtn.enabled = YES;
-    self.lxBtn.enabled = YES;
-    self.sizeView.textField.enabled = YES;
+//    self.lbcBtn.enabled = YES;
+//    self.lbBtn.enabled = YES;
+//    self.lxBtn.enabled = YES;
+//    self.sizeView.textField.enabled = YES;
     
     DKYDimlistItemModel *model = [self.staticDimListModel.DIMFLAG5 objectOrNilAtIndex:index - 1];
     if(!model) {
@@ -361,46 +361,20 @@
         return;
     }
     
-    if([model.attribname isEqualToString:@"领边"]){
-        self.lbcBtn.enabled = NO;
-        self.lbBtn.enabled = NO;
-        self.sizeView.textField.enabled = NO;
-    }else if([model.attribname isEqualToString:@"领型"]){
-        self.lxBtn.enabled = NO;
-    }else if([model.attribname isEqualToString:@"完全"]){
-        self.lbcBtn.enabled = NO;
-        self.lbBtn.enabled = NO;
-        self.lxBtn.enabled = NO;
-        self.sizeView.textField.enabled = NO;
-    }
+//    if([model.attribname isEqualToString:@"领边"]){
+//        self.lbcBtn.enabled = NO;
+//        self.lbBtn.enabled = NO;
+//        self.sizeView.textField.enabled = NO;
+//    }else if([model.attribname isEqualToString:@"领型"]){
+//        self.lxBtn.enabled = NO;
+//    }else if([model.attribname isEqualToString:@"完全"]){
+//        self.lbcBtn.enabled = NO;
+//        self.lbBtn.enabled = NO;
+//        self.lxBtn.enabled = NO;
+//        self.sizeView.textField.enabled = NO;
+//    }
     [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
     self.addProductApproveParameter.lingValue = model.attribname;
-    //    switch (index) {
-    //        case 1:{
-    //            // 领边
-    //            self.lbcBtn.enabled = NO;
-    //            self.lbBtn.enabled = NO;
-    //            self.sizeView.textField.enabled = NO;
-    //        }
-    //            break;
-    //        case 2:{
-    //            // 领型
-    //            self.lxBtn.enabled = NO;
-    //        }
-    //            break;
-    //
-    //        case 3:{
-    //            // 完全
-    //            self.lbcBtn.enabled = NO;
-    //            self.lbBtn.enabled = NO;
-    //            self.lxBtn.enabled = NO;
-    //            self.sizeView.textField.enabled = NO;
-    //        }
-    //            break;
-    //
-    //        default:
-    //            break;
-    //    }
 }
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
@@ -463,38 +437,38 @@
 }
 
 - (void)dealwithmDimNew25IdSelected{
-    self.otherMarkView.textField.enabled = NO;
-    self.likouView.textField.enabled = NO;
-    if([self.addProductApproveParameter.mDimNew25Id integerValue] == 299 ||
-       [self.addProductApproveParameter.mDimNew25Id integerValue] == 302){
-        self.likouView.textField.enabled = YES;
-        self.otherMarkView.textField.enabled = NO;
-    }else if([self.addProductApproveParameter.mDimNew25Id integerValue] == 270){
-        self.likouView.textField.enabled = NO;
-        self.otherMarkView.textField.enabled = YES;
-    }
+//    self.otherMarkView.textField.enabled = NO;
+//    self.likouView.textField.enabled = NO;
+//    if([self.addProductApproveParameter.mDimNew25Id integerValue] == 299 ||
+//       [self.addProductApproveParameter.mDimNew25Id integerValue] == 302){
+//        self.likouView.textField.enabled = YES;
+//        self.otherMarkView.textField.enabled = NO;
+//    }else if([self.addProductApproveParameter.mDimNew25Id integerValue] == 270){
+//        self.likouView.textField.enabled = NO;
+//        self.otherMarkView.textField.enabled = YES;
+//    }
     
     if(self.addProductApproveParameter.mDimNew26Id && self.addProductApproveParameter.mDimNew25Id){
         self.addProductApproveParameter.lingValue = nil;
         [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
-        self.optionsBtn.enabled = NO;
+//        self.optionsBtn.enabled = NO;
     }else{
-        self.optionsBtn.enabled = YES;
+//        self.optionsBtn.enabled = YES;
     }
 }
 
 - (void)dealwithmDimNew26IdSelected{
-    self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
-    if([self.addProductApproveParameter.mDimNew26Id integerValue] == 232){
-        self.textField.enabled = YES;
-    }
+//    self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+//    if([self.addProductApproveParameter.mDimNew26Id integerValue] == 232){
+//        self.textField.enabled = YES;
+//    }
     
     if(self.addProductApproveParameter.mDimNew25Id && self.addProductApproveParameter.mDimNew26Id){
         self.addProductApproveParameter.lingValue = nil;
         [self.optionsBtn setTitle:self.optionsBtn.originalTitle forState:UIControlStateNormal];
-        self.optionsBtn.enabled = NO;
+//        self.optionsBtn.enabled = NO;
     }else{
-        self.optionsBtn.enabled = YES;
+//        self.optionsBtn.enabled = YES;
     }
 }
 
@@ -503,7 +477,7 @@
         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
-           self.canEdit = NO;
+//           self.canEdit = NO;
        }else{
            [self dealwithMDimNew12IdSelected];
        }

@@ -14,7 +14,7 @@
 #import "DKYCustomOrderTextFieldView.h"
 #import "DKYCustomOrderTextFieldView.h"
 #import "DKYCustomOrderItemModel.h"
-#import "DKYCustomOrderGenderItemView.h"
+#import "DKYTongkuan5GenderItemView.h"
 #import "DKYTongkuan5VarietyItemView.h"
 #import "DKYTongkuan5PatternItemView.h"
 #import "DKYTongkuan5SizeItemView.h"
@@ -78,7 +78,7 @@ static const CGFloat basicItemHeight = 30;
 @property (nonatomic, weak) DKYCustomOrderTextFieldView *styleNumberView;
 
 // 性别
-@property (nonatomic, weak) DKYCustomOrderGenderItemView *genderItemView;
+@property (nonatomic, weak) DKYTongkuan5GenderItemView *genderItemView;
 
 // 品种
 @property (nonatomic, weak) DKYTongkuan5VarietyItemView *varietyView;
@@ -888,7 +888,7 @@ static const CGFloat basicItemHeight = 30;
 }
 
 - (void)setupGenderItemView{
-    DKYCustomOrderGenderItemView *view = [[DKYCustomOrderGenderItemView alloc] initWithFrame:CGRectZero];
+    DKYTongkuan5GenderItemView *view = [[DKYTongkuan5GenderItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
     self.genderItemView = view;
     
@@ -902,6 +902,7 @@ static const CGFloat basicItemHeight = 30;
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
     itemModel.title = @"*性别:";
+    itemModel.enabled = NO;
     self.genderItemView.itemModel = itemModel;
     self.genderItemView.mDimNew13IdBlock = ^(id sender, NSInteger type){
         [weakSelf dealwithMDimNew13IdSelected];
@@ -1154,8 +1155,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.flowerTypeItemView.itemModel = itemModel;
     
-//    self.flowerTypeItemView.userInteractionEnabled = NO;
-    self.flowerTypeItemView.canEdit = NO;
+    self.flowerTypeItemView.userInteractionEnabled = NO;
+//    self.flowerTypeItemView.canEdit = NO;
 }
 
 - (void)setupTangzhuItemView{
@@ -1177,8 +1178,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.tangzhuItemView.itemModel = itemModel;
     
-//    self.tangzhuItemView.userInteractionEnabled = NO;
-    self.tangzhuItemView.canEdit = NO;
+    self.tangzhuItemView.userInteractionEnabled = NO;
+//    self.tangzhuItemView.canEdit = NO;
 }
 
 - (void)setupKoudaiItemView{
@@ -1200,8 +1201,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.koudaiItemView.itemModel = itemModel;
     
-//    self.koudaiItemView.userInteractionEnabled = NO;
-    self.koudaiItemView.canEdit = NO;
+    self.koudaiItemView.userInteractionEnabled = NO;
+//    self.koudaiItemView.canEdit = NO;
 }
 
 - (void)setupAttachmentItemView{
@@ -1223,8 +1224,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 16;
     self.attachmentItemView.itemModel = itemModel;
     
-//    self.attachmentItemView.userInteractionEnabled = NO;
-    self.attachmentItemView.canEdit = NO;
+    self.attachmentItemView.userInteractionEnabled = NO;
+//    self.attachmentItemView.canEdit = NO;
 }
 
 - (void)setupSpecialCraftItemView{
@@ -1245,8 +1246,8 @@ static const CGFloat basicItemHeight = 30;
     itemModel.textFieldLeftOffset = 0;
     self.specialCraftItemView.itemModel = itemModel;
     
-//    self.specialCraftItemView.userInteractionEnabled = NO;
-    self.specialCraftItemView.canEdit = NO;
+    self.specialCraftItemView.userInteractionEnabled = NO;
+//    self.specialCraftItemView.canEdit = NO;
 }
 
 - (void)setupXiabianItemView{

@@ -62,12 +62,14 @@
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(textFrame.size.width + 10);
     }];
+    
+    self.optionsBtn.enabled = itemModel.enabled;
 }
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
     
-    [self clear];
+//    [self clear];
     
     if(!madeInfoByProductName) return;
     

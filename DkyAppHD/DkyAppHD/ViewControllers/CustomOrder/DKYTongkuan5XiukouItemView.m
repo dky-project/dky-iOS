@@ -68,7 +68,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    [self clear];
+//    [self clear];
     if(madeInfoByProductName == nil)  return;
     
     if(self.madeInfoByProductName.productMadeInfoView.xkccValue > 0){
@@ -86,64 +86,64 @@
     
     self.textField.text = self.madeInfoByProductName.productMadeInfoView.xkRemark;
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57 ||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 59||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61||
-       ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
-         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
-        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367)){
-           self.canEdit = NO;
-       }else{
-           self.canEdit = YES;
-           
-           self.textField.enabled = NO;
-           if(madeInfoByProductName.productMadeInfoView.mDimNew32Id == 148){
-               self.textField.enabled = YES;
-           }
-       }
+//    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57 ||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 59||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309||
+//       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61||
+//       ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+//         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+//        madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367)){
+//           self.canEdit = NO;
+//       }else{
+//           self.canEdit = YES;
+//
+//           self.textField.enabled = NO;
+//           if(madeInfoByProductName.productMadeInfoView.mDimNew32Id == 148){
+//               self.textField.enabled = YES;
+//           }
+//       }
 }
 
 - (void)dealwithMDimNew12IdSelected{
-    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 57||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 56||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 58||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 59||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 63||
-       [self.addProductApproveParameter.mDimNew12Id integerValue]== 62||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 309||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 61||
-       (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
-         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
-        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
-         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368))){
-            self.canEdit = NO;
-        }else{
-            self.canEdit = YES;
-            
-            self.textField.enabled = NO;
-            if([self.addProductApproveParameter.mDimNew32Id integerValue] == 148){
-                self.textField.enabled = YES;
-            }
-        }
+//    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 57||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 56||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 58||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 59||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 63||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue]== 62||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 309||
+//       [self.addProductApproveParameter.mDimNew12Id integerValue] == 61||
+//       (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+//         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+//        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+//         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368))){
+//            self.canEdit = NO;
+//        }else{
+//            self.canEdit = YES;
+//
+//            self.textField.enabled = NO;
+//            if([self.addProductApproveParameter.mDimNew32Id integerValue] == 148){
+//                self.textField.enabled = YES;
+//            }
+//        }
 }
 
 - (void)clear{
@@ -228,11 +228,11 @@
 }
 
 - (void)dealwithmDimNew32IdSelected{
-    self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+    //self.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
     
-    if([self.addProductApproveParameter.mDimNew32Id integerValue] == 148){
-        self.textField.enabled = YES;
-    }
+//    if([self.addProductApproveParameter.mDimNew32Id integerValue] == 148){
+//        self.textField.enabled = YES;
+//    }
 }
 
 - (void)dealwithMDimNew13IdSelected{
@@ -240,7 +240,7 @@
         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)){
-           self.canEdit = NO;
+//           self.canEdit = NO;
        }else{
            [self dealwithmDimNew32IdSelected];
        }

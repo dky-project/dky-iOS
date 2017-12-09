@@ -119,7 +119,7 @@
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
     
-    [self clear];
+//    [self clear];
     
     if(!madeInfoByProductName) return;
     
@@ -280,18 +280,18 @@
         [self updateSubviewStatus:10 canEdit:NO];
     }
     
-    self.mjInputView.textField.enabled = NO;
-    self.mjInputView.textFieldTwo.enabled = NO;
-    
-    if(madeInfoByProductName.productMadeInfoView.mDimNew7Id == 196||
-       madeInfoByProductName.productMadeInfoView.mDimNew7Id == 189){
-        self.mjInputView.textField.enabled = YES;
-        self.mjInputView.textFieldTwo.enabled = NO;
-    }else if(madeInfoByProductName.productMadeInfoView.mDimNew7Id == 198){
-        self.mjInputView.textField.enabled = NO;
-        self.mjInputView.textFieldTwo.enabled = YES;
-    }
-    
+//    self.mjInputView.textField.enabled = NO;
+//    self.mjInputView.textFieldTwo.enabled = NO;
+//    
+//    if(madeInfoByProductName.productMadeInfoView.mDimNew7Id == 196||
+//       madeInfoByProductName.productMadeInfoView.mDimNew7Id == 189){
+//        self.mjInputView.textField.enabled = YES;
+//        self.mjInputView.textFieldTwo.enabled = NO;
+//    }else if(madeInfoByProductName.productMadeInfoView.mDimNew7Id == 198){
+//        self.mjInputView.textField.enabled = NO;
+//        self.mjInputView.textFieldTwo.enabled = YES;
+//    }
+
     if((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
        (madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367||
@@ -333,252 +333,253 @@
 }
 
 - (void)updateSubviewStatus:(NSInteger)type canEdit:(BOOL)canEdit{
-    self.canEdit = YES;
+//    self.canEdit = YES;
     self.addProductApproveParameter.needGjxf = YES;
     switch (type) {
         case 0:{
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
-            
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
         }
             break;
         case 1:
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.gjxfBtn.enabled = canEdit;
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.gjxfBtn.enabled = canEdit;
             self.addProductApproveParameter.needGjxf = canEdit;
             break;
         case 2:
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
             break;
         case 3:
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
             break;
         case 4:
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
-            
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.syBtn.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.syBtn.enabled = canEdit;
             break;
         case 5:{
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
-            
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.gjxfBtn.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.gjxfBtn.enabled = canEdit;
             self.addProductApproveParameter.needGjxf = canEdit;
         }
             break;
         case 6:{
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
-            
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.gjxfBtn.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.gjxfBtn.enabled = canEdit;
             self.addProductApproveParameter.needGjxf = canEdit;
         }
             break;
         case 7:{
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
-            
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.gjxfBtn.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.gjxfBtn.enabled = canEdit;
+//            self.syBtn.enabled = canEdit;
             self.addProductApproveParameter.needGjxf = canEdit;
-            self.syBtn.enabled = canEdit;
         }
             break;
         case 8:{
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
-            
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.gjxfBtn.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.gjxfBtn.enabled = canEdit;
+//            self.syBtn.enabled = canEdit;
             self.addProductApproveParameter.needGjxf = canEdit;
-            self.syBtn.enabled = canEdit;
         }
             break;
         case 9:{
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
-            
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.gjxfBtn.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.gjxfBtn.enabled = canEdit;
+//            self.syBtn.enabled = canEdit;
             self.addProductApproveParameter.needGjxf = canEdit;
-            self.syBtn.enabled = canEdit;
         }
             break;
         case 10:{
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.gjxfBtn.enabled = canEdit;
+//            self.syBtn.enabled = canEdit;
             
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.gjxfBtn.enabled = canEdit;
             self.addProductApproveParameter.needGjxf = canEdit;
-            self.syBtn.enabled = canEdit;
         }
             break;
         case 11:{
-            self.dingView.textField.enabled = canEdit;
-            self.kouView.optionsBtn.enabled = canEdit;
-            self.mjkView.textField.enabled = canEdit;
-            
-            self.mjBtn1.enabled = canEdit;
-            self.mjBtn2.enabled = canEdit;
-            
-            self.mjInputView.textField.enabled = canEdit;
-            self.mjInputView.textFieldTwo.enabled = canEdit;
-            
-            self.dcView.textField.enabled = canEdit;
-            self.suiBtn.enabled = canEdit;
-            self.klbBtn.enabled = canEdit;
-            self.kkBtn.enabled = canEdit;
-            self.jdBtn.enabled = canEdit;
-            self.jdInputView.textField.enabled = canEdit;
-            self.gyxcView.textField.enabled = canEdit;
-            self.qlbBtn.enabled = canEdit;
-            self.mjcView.textField.enabled = canEdit;
-            self.gjxfBtn.enabled = canEdit;
+//            self.dingView.textField.enabled = canEdit;
+//            self.kouView.optionsBtn.enabled = canEdit;
+//            self.mjkView.textField.enabled = canEdit;
+//
+//            self.mjBtn1.enabled = canEdit;
+//            self.mjBtn2.enabled = canEdit;
+//
+//            self.mjInputView.textField.enabled = canEdit;
+//            self.mjInputView.textFieldTwo.enabled = canEdit;
+//
+//            self.dcView.textField.enabled = canEdit;
+//            self.suiBtn.enabled = canEdit;
+//            self.klbBtn.enabled = canEdit;
+//            self.kkBtn.enabled = canEdit;
+//            self.jdBtn.enabled = canEdit;
+//            self.jdInputView.textField.enabled = canEdit;
+//            self.gyxcView.textField.enabled = canEdit;
+//            self.qlbBtn.enabled = canEdit;
+//            self.mjcView.textField.enabled = canEdit;
+//            self.gjxfBtn.enabled = canEdit;
+//            self.syBtn.enabled = canEdit;
             self.addProductApproveParameter.needGjxf = canEdit;
-            self.syBtn.enabled = canEdit;
         }
             break;
         default:
@@ -850,14 +851,14 @@
 }
 
 - (void)dealWithmDimNew12IdSelected{
-    self.canEdit = YES;
+//    self.canEdit = YES;
     self.addProductApproveParameter.needGjxf = YES;
     if(self.mDimNew12IdBlock){
         self.mDimNew12IdBlock(nil,0);
     }
     
     if(self.addProductApproveParameter.mDimNew12Id == nil){
-        [self clear];
+//        [self clear];
         self.addProductApproveParameter.needGjxf = NO;
         return;
     }
@@ -912,17 +913,17 @@
 }
 
 - (void)dealWithmDimNew7IdSelected{
-    self.mjInputView.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
-    self.mjInputView.textFieldTwo.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+    //self.mjInputView.textField.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
+    //self.mjInputView.textFieldTwo.enabled = [self.addProductApproveParameter.pdt isNotBlank] ? NO : YES;
     
-    if([self.addProductApproveParameter.mDimNew7Id integerValue] == 196||
-       [self.addProductApproveParameter.mDimNew7Id integerValue] == 189){
-        self.mjInputView.textField.enabled = YES;
-        self.mjInputView.textFieldTwo.enabled = NO;
-    }else if([self.addProductApproveParameter.mDimNew7Id integerValue] == 198){
-        self.mjInputView.textField.enabled = NO;
-        self.mjInputView.textFieldTwo.enabled = YES;
-    }
+//    if([self.addProductApproveParameter.mDimNew7Id integerValue] == 196||
+//       [self.addProductApproveParameter.mDimNew7Id integerValue] == 189){
+//        self.mjInputView.textField.enabled = YES;
+//        self.mjInputView.textFieldTwo.enabled = NO;
+//    }else if([self.addProductApproveParameter.mDimNew7Id integerValue] == 198){
+//        self.mjInputView.textField.enabled = NO;
+//        self.mjInputView.textFieldTwo.enabled = YES;
+//    }
 }
 
 
