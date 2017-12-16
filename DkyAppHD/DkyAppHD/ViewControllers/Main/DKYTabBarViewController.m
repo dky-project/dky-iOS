@@ -113,13 +113,13 @@
     
     
     // 订单查询
-    [self setupOrderInqueryVc];
+    //[self setupOrderInqueryVc];
     
     // 推荐功能
-    [self setupRecommendVc];
+    //[self setupRecommendVc];
     
     // 陈列功能
-    [self setupDisplayVc];
+    //[self setupDisplayVc];
 }
 
 - (void)setupHomeVc{

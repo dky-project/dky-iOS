@@ -33,7 +33,8 @@
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
-    NSArray *titleList = @[@"默认定制款",@"同款五",@"大货"];
+    //NSArray *titleList = @[@"默认定制款",@"同款五",@"大货"];
+    NSArray *titleList = @[@"大货"];
     return titleList;
 }
 
@@ -52,10 +53,28 @@
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
     UIViewController *viewController = nil;
     if(pageIndex == 0){
-        static NSString *gridId = @"CustomOrder.identifier";
+//        static NSString *gridId = @"CustomOrder.identifier";
+//        viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
+//        if (!viewController) {
+//            viewController = (DKYCustomOrderUIViewController*)[UIStoryboard viewControllerWithClass:[DKYCustomOrderUIViewController class]];
+//        }
+        static NSString *gridId = @"dahuo.identifier";
         viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
-        if (!viewController) {
-            viewController = (DKYCustomOrderUIViewController*)[UIStoryboard viewControllerWithClass:[DKYCustomOrderUIViewController class]];
+        
+        NSDictionary *params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer]};
+        
+        NSString *url = [NSString addQueryParametersUrl:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl] parameters:params];
+        
+        NSURL *URL = [NSURL URLWithString:url];
+        if(!viewController){
+            DKYWebViewController* webViewController = [[DKYWebViewController alloc] initWithURL:URL];
+            webViewController.showUrlWhileLoading = NO;
+            webViewController.showHUD = YES;
+            viewController = webViewController;
+        }else{
+            DKYWebViewController* webViewController = (DKYWebViewController*)viewController;
+            webViewController.showHUD = YES;
+            webViewController.url = URL;
         }
     }else if(pageIndex == 1){
         static NSString *gridId = @"TongkuanFive.identifier";

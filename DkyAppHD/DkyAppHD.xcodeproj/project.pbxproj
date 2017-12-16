@@ -3108,7 +3108,7 @@
 				INFOPLIST_FILE = DkyAppHD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dankeyun.DkyAppHD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dankeyun.DkyAppJMD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3128,7 +3128,7 @@
 				INFOPLIST_FILE = DkyAppHD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dankeyun.DkyAppHD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dankeyun.DkyAppJMD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
