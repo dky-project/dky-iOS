@@ -18,6 +18,7 @@ pod 'TTTAttributedLabel'
 pod 'MJRefresh'
 pod 'iCarousel'
 pod 'RMUniversalAlert'
+pod 'YYText'
 
 pod 'MJExtension'
 pod 'YYCategories'

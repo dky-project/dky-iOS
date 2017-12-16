@@ -223,6 +223,7 @@ PODS:
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - AFNetworking
@@ -242,6 +243,7 @@ DEPENDENCIES:
   - VTMagic
   - YYCache
   - YYCategories
+  - YYText
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -264,7 +266,8 @@ SPEC CHECKSUMS:
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 30771157ffd50861555e7a300b4da8734677cb6a
+PODFILE CHECKSUM: 4c976f4d6d8b08c9cd4f6a4b6606b5986535a2c4
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.3.1

@@ -107,7 +107,6 @@
             weakSelf.productApproveTitle = [DKYProductApproveTitleModel mj_objectWithKeyValues:result.data];
             weakSelf.addProductApproveParameter = [[DKYAddProductApproveParameter alloc] init];
             DKYSampleOrderViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-            cell.productApproveTitleModel = weakSelf.productApproveTitle;
             cell.addProductApproveParameter = weakSelf.addProductApproveParameter;
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面

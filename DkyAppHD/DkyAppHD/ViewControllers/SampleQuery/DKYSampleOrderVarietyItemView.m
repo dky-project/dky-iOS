@@ -11,6 +11,8 @@
 #import "DKYGetPzsJsonParameter.h"
 #import "DKYDahuoOrderColorModel.h"
 #import "DKYGetColorListRequestParameter.h"
+#import <YYText/YYText.h>
+#import "UIColor+RandomColor.h"
 
 @interface DKYSampleOrderVarietyItemView ()
 
@@ -28,7 +30,7 @@
 @property (nonatomic, strong) DKYGetColorListRequestParameter *getColorListRequestParameter;
 
 @property (nonatomic, weak) UIButton *colorBtn;
-@property (nonatomic, weak) UITextView *selectedColorView;
+@property (nonatomic, weak) YYTextView *selectedColorView;
 
 @property (nonatomic, weak) UIButton *colorGroupBtn;
 
@@ -142,8 +144,6 @@
         }
     }
     
-    
-    
     NSMutableArray *selectedModel = [NSMutableArray array];
     
     for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
@@ -157,13 +157,28 @@
     }
     
     NSMutableString *selectedColor = [NSMutableString string];
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@""];
     for (DKYDahuoOrderColorModel *color in selectedModel) {
         NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
         [selectedColor appendString:oneColor];
+        NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:oneColor];
+        YYTextBorder *border = [[YYTextBorder alloc] init];
+        border.fillColor = [UIColor randomColor];
+        border.lineStyle = YYTextLineStyleSingle;
+        [tagText setYy_textBackgroundBorder:border];
+        
+        [text appendAttributedString:tagText];
+        
+        NSMutableAttributedString *blank = [[NSMutableAttributedString alloc] initWithString:@"   "];
+        YYTextBorder *blank_border = [[YYTextBorder alloc] init];
+        blank_border.fillColor = [UIColor whiteColor];
+        blank_border.lineStyle = YYTextLineStyleSingle;
+        [blank setYy_textBackgroundBorder:blank_border];
+        [text appendAttributedString:blank];
     }
     
     if([selectedColor isNotBlank]){
-        self.selectedColorView.text = selectedColor;
+        self.selectedColorView.attributedText = text;
     }
     
     if(selectedModel.count > 0){
@@ -648,10 +663,10 @@
 }
 
 - (void)colorGroupSelected:(NSArray*)selectedColors{
-    NSMutableString *selectedColor = [NSMutableString string];
     NSMutableArray *clrRangeArray = [NSMutableArray array];
     NSMutableArray *selectedColorModels = [NSMutableArray array];
-
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@""];
+    
     for (NSString *colorName in selectedColors) {
         BOOL match = NO;
         DKYDahuoOrderColorModel *color  = nil;
@@ -664,10 +679,24 @@
         }
         if(match){
             NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-            [selectedColor appendString:oneColor];
             
             [clrRangeArray addObject:color.colorName];
             [selectedColorModels addObject:color];
+            
+            NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:oneColor];
+            YYTextBorder *border = [[YYTextBorder alloc] init];
+            border.fillColor = [UIColor randomColor];
+            border.lineStyle = YYTextLineStyleSingle;
+            [tagText setYy_textBackgroundBorder:border];
+            
+            [text appendAttributedString:tagText];
+            
+            NSMutableAttributedString *blank = [[NSMutableAttributedString alloc] initWithString:@"   "];
+            YYTextBorder *blank_border = [[YYTextBorder alloc] init];
+            blank_border.fillColor = [UIColor whiteColor];
+            blank_border.lineStyle = YYTextLineStyleSingle;
+            [blank setYy_textBackgroundBorder:blank_border];
+            [text appendAttributedString:blank];
         }
     }
     for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.displayColorViewList) {
@@ -696,7 +725,7 @@
         self.addProductApproveParameter.colorArr = nil;
     }
     
-    self.selectedColorView.text = selectedColor;
+    self.selectedColorView.attributedText = text;
     
     if(selectedColors.count == 0){
         self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
@@ -805,16 +834,32 @@
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
     WeakSelf(weakSelf);
     pop.confirmBtnClicked = ^(NSMutableArray *selectedColors) {
-        NSMutableString *selectedColor = [NSMutableString string];
         NSMutableArray *clrRangeArray = [NSMutableArray array];
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@""];
         
         for (DKYDahuoOrderColorModel *color in selectedColors) {
             NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-            [selectedColor appendString:oneColor];
             [clrRangeArray addObject:color.colorName];
+            
+            NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:oneColor];
+            YYTextBorder *border = [[YYTextBorder alloc] init];
+            border.fillColor = [UIColor randomColor];
+            border.lineStyle = YYTextLineStyleSingle;
+            [tagText setYy_textBackgroundBorder:border];
+           
+            
+            [text appendAttributedString:tagText];
+            
+            NSMutableAttributedString *blank = [[NSMutableAttributedString alloc] initWithString:@"   "];
+            YYTextBorder *blank_border = [[YYTextBorder alloc] init];
+            blank_border.fillColor = [UIColor whiteColor];
+            blank_border.lineStyle = YYTextLineStyleSingle;
+            [blank setYy_textBackgroundBorder:blank_border];
+            [text appendAttributedString:blank];
         }
         weakSelf.madeInfoByProductName.productMadeInfoView.clrRangeArray = [clrRangeArray copy];
-        weakSelf.selectedColorView.text = selectedColor;
+        
+        self.selectedColorView.attributedText = text;
         
         if(selectedColors.count > 0){
             weakSelf.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
@@ -962,7 +1007,7 @@
 }
 
 - (void)setupSelectedColorView{
-    UITextView *view = [[UITextView alloc] initWithFrame:CGRectZero];
+    YYTextView *view = [[YYTextView alloc] initWithFrame:CGRectZero];
     [self addSubview:view];
     view.font = [UIFont systemFontOfSize:18];
     view.textColor = [UIColor colorWithHex:0x333333];
@@ -975,11 +1020,6 @@
     
     WeakSelf(weakSelf);
     [self.selectedColorView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(weakSelf.colorBtn).with.offset(-10);
-//        make.left.mas_equalTo(weakSelf.colorBtn).with.offset(20);
-//        make.bottom.mas_equalTo(weakSelf);
-//        make.right.mas_equalTo(weakSelf.thirdBtn);
-        
         make.top.mas_equalTo(weakSelf.fourthBtn.mas_bottom).with.offset(20);;
         make.left.mas_equalTo(weakSelf.fourthBtn);
         make.right.mas_equalTo(weakSelf.thirdBtn);
