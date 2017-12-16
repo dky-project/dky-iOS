@@ -577,7 +577,7 @@ static const CGFloat basicItemHeight = 45;
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"肩型:";
+    itemModel.title = @"工艺袖长";
     itemModel.textFieldLeftOffset = 5;
     itemModel.zoomed = YES;
     self.jianTypeItemView.itemModel = itemModel;
@@ -597,7 +597,7 @@ static const CGFloat basicItemHeight = 45;
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"袖型:";
+    itemModel.title = @"袖长";
     itemModel.textFieldLeftOffset = 16;
     itemModel.zoomed = YES;
     self.xiuTypeView.itemModel = itemModel;

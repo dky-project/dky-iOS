@@ -90,6 +90,39 @@
     self.xcView.textField.text = madeInfoByProductName.productMadeInfoView.xcValue;
     
     self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]));
+    
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 57||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 55||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 56||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 58||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 59||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 63||
+       [self.addProductApproveParameter.mDimNew12Id integerValue]== 62||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 309||
+       [self.addProductApproveParameter.mDimNew12Id integerValue] == 61||
+       (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
+         [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
+        ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)
+        )
+       ){
+            self.canEdit = NO;
+        }else{
+            self.canEdit = YES;
+            
+            if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
+                self.xcView.textField.enabled = NO;
+            }else{
+                self.xcView.textField.enabled = YES;
+            }
+        }
 }
 
 - (void)dealwithMDimNew12IdSelected{
@@ -112,35 +145,19 @@
        (([self.addProductApproveParameter.mDimNew13Id integerValue] == 364||
          [self.addProductApproveParameter.mDimNew13Id integerValue] == 365)&&
         ([self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
-         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368))){
-            self.canEdit = NO;
+         [self.addProductApproveParameter.mDimNew12Id integerValue] == 368)
+        )
+       ){
+        self.canEdit = NO;
+    }else{
+        self.canEdit = YES;
+        
+        if(self.madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
+            self.xcView.textField.enabled = NO;
         }else{
-            self.canEdit = YES;
-            
-            if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
-                self.xcView.textField.enabled = NO;
-            }else{
-                self.xcView.textField.enabled = YES;
-            }
-            
-            self.textField.enabled = NO;
-            self.textField2.enabled = NO;
-            self.textField3.enabled = NO;
-            
-            if([self.addProductApproveParameter.mDimNew9Id integerValue] == 185){
-                self.textField.enabled = YES;
-                self.textField2.enabled = NO;
-                self.textField3.enabled = NO;
-            }else if([self.addProductApproveParameter.mDimNew9Id integerValue] == -1){
-                self.textField.enabled = YES;
-                self.textField2.enabled = NO;
-                self.textField3.enabled = YES;
-            }else if([self.addProductApproveParameter.mDimNew9Id integerValue] == -2){
-                self.textField.enabled = YES;
-                self.textField2.enabled = YES;
-                self.textField3.enabled = NO;
-            }
+            self.xcView.textField.enabled = YES;
         }
+    }
 }
 
 - (void)dealwithMDimNew22IdSelected{

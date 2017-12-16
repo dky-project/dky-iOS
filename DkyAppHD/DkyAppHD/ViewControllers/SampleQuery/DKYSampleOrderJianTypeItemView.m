@@ -71,10 +71,10 @@
     }];
     
     if(itemModel.zoomed){
-        self.titleLabel.font = [UIFont systemFontOfSize:24];
+        self.titleLabel.font = [UIFont systemFontOfSize:22];
         
         [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(80);
+            make.width.mas_equalTo(100);
         }];
     }
 }
@@ -88,11 +88,33 @@
         self.addProductApproveParameter.hzxc1Value = madeInfoByProductName.productMadeInfoView.hzxcValue;
     }
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
-        self.gyxcView.textField.enabled = YES;
-    }else{
-        self.gyxcView.textField.enabled = NO;
-    }
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 62||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309||
+       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61||
+       ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+         madeInfoByProductName.productMadeInfoView.mDimNew13Id == 365)&&
+        (madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367||
+         madeInfoByProductName.productMadeInfoView.mDimNew12Id == 368)
+        )){
+           self.canEdit = NO;
+       }else{
+           self.canEdit = YES;
+           
+           if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
+               self.gyxcView.textField.enabled = YES;
+           }else{
+               self.gyxcView.textField.enabled = NO;
+           }
+       }
 }
 
 - (void)dealwithMDimNew12IdSelected{
@@ -117,25 +139,10 @@
             self.canEdit = YES;
             
             if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
-                self.textField.enabled = NO;
-            }else{
-                self.textField.enabled = YES;
-            }
-            
-            if([self.addProductApproveParameter.mDimNew22Id integerValue] == 131 ||
-               [self.addProductApproveParameter.mDimNew22Id integerValue] == 130||
-               [self.addProductApproveParameter.mDimNew22Id integerValue] == 129){
-                self.jkView.textField.enabled = NO;
-            }else{
-                self.jkView.textField.enabled = YES;
-            }
-            
-            if([self.addProductApproveParameter.mDimNew22Id integerValue] == 133){
-                self.gyxcView.textField.enabled = NO;
-            }else{
                 self.gyxcView.textField.enabled = YES;
+            }else{
+                self.gyxcView.textField.enabled = NO;
             }
-            
         }
 }
 
@@ -380,7 +387,7 @@
         make.top.mas_equalTo(weakSelf);
         
         make.left.mas_equalTo(weakSelf.titleLabel.mas_right);
-        make.width.mas_equalTo(215);
+        make.width.mas_equalTo(218);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
