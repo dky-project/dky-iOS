@@ -283,6 +283,10 @@
     }
     
     self.addProductApproveParameter.orderNo = self.productApproveTitle.orderNo;
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    DKYSampleOrderViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell fetchAddProductApproveInfo];
 }
 
 - (BOOL)checkForAddProductApprove{
@@ -472,7 +476,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0) return 630;
+    if(indexPath.row == 0) return 680;
     
     if(indexPath.row == 1) return 30 + (self.dimListModels.count + 1) * 30;
     

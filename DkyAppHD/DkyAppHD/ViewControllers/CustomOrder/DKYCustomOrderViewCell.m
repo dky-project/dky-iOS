@@ -986,8 +986,8 @@ static const CGFloat basicItemHeight = 30;
     [self.patternItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(230);
-        make.top.mas_equalTo(weakSelf.varietyView.mas_bottom).with.offset(vpadding);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.patternItemView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];

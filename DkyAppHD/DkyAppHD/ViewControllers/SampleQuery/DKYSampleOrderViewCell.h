@@ -21,4 +21,6 @@
 
 @property (nonatomic, copy) BlockWithSender imageBlock;
 
+- (void)fetchAddProductApproveInfo;
+
 @end

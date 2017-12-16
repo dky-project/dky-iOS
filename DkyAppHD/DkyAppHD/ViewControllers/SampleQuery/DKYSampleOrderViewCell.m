@@ -20,6 +20,7 @@
 #import "DKYSampleOrderJianTypeItemView.h"
 #import "DKYGetSizeDataParameter.h"
 #import "DKYGetSizeDataModel.h"
+#import "DKYSampleOrderPatternItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 20;
@@ -48,6 +49,9 @@ static const CGFloat basicItemHeight = 45;
 
 // 品种
 @property (nonatomic, weak) DKYSampleOrderVarietyItemView *varietyView;
+
+// 式样
+@property (nonatomic, weak) DKYSampleOrderPatternItemView *patternItemView;
 
 // 尺寸View
 @property (nonatomic, weak) DKYSampleOrderSizeItemView *sizeView;
@@ -84,6 +88,10 @@ static const CGFloat basicItemHeight = 45;
         [self commonInit];
     }
     return self;
+}
+
+- (void)fetchAddProductApproveInfo{
+    [self.patternItemView fetchAddProductApproveInfo];
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -123,7 +131,7 @@ static const CGFloat basicItemHeight = 45;
     self.xiuTypeView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.sizeView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.jianTypeItemView.customOrderDimList = productApproveTitleModel.dimListModel;
-    
+    self.patternItemView.customOrderDimList = productApproveTitleModel.dimListModel;
     
     DKYCustomOrderItemModel *model = self.numberView.itemModel;
     model.content = productApproveTitleModel.no;
@@ -141,6 +149,7 @@ static const CGFloat basicItemHeight = 45;
     self.sizeView.addProductApproveParameter = addProductApproveParameter;
     self.jianTypeItemView.addProductApproveParameter = addProductApproveParameter;
     self.xiuTypeView.addProductApproveParameter = addProductApproveParameter;
+    self.patternItemView.addProductApproveParameter = addProductApproveParameter;
     
     // 设置默认值
     addProductApproveParameter.mobile = self.phoneNumberView.itemModel.content;
@@ -229,6 +238,7 @@ static const CGFloat basicItemHeight = 45;
     self.sizeView.madeInfoByProductName = self.madeInfoByProductName;
     self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
     self.jianTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.patternItemView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 // 款号输入之后，有默认回来的参数，先进行赋值
@@ -368,6 +378,9 @@ static const CGFloat basicItemHeight = 45;
 
     // 第三大行 品种 4个选择器
     [self setupVarietyView];
+    
+    // 第四大行， 式样
+    [self setupPatternItemView];
     
     // 第五大行，尺寸
     [self setupSizeView];
@@ -539,6 +552,28 @@ static const CGFloat basicItemHeight = 45;
     };
 }
 
+- (void)setupPatternItemView{
+    DKYSampleOrderPatternItemView *view = [[DKYSampleOrderPatternItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.patternItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.patternItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.varietyView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*式样:";
+    itemModel.zoomed = YES;
+    self.patternItemView.itemModel = itemModel;
+//    self.patternItemView.mDimNew12IdBlock = ^(id sender,NSInteger type){
+//        [weakSelf dealwithMDimNew12IdSelected];
+//    };
+}
+
 - (void)setupSizeView{
     DKYSampleOrderSizeItemView *view = [[DKYSampleOrderSizeItemView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:view];
@@ -549,7 +584,7 @@ static const CGFloat basicItemHeight = 45;
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.varietyView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.patternItemView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
