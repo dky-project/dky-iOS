@@ -152,6 +152,8 @@ static const CGFloat basicItemHeight = 45;
 #pragma mark - 网络请求
 
 - (void)getMadeInfoByProductNameFromServer{
+    if(self.madeInfoByProductName) return;
+    
     [DKYHUDTool show];
     DKYMadeInfoByProductNameParameter *p = [[DKYMadeInfoByProductNameParameter alloc] init];
     p.productName = self.styleNumberView.itemModel.content;
@@ -165,7 +167,7 @@ static const CGFloat basicItemHeight = 45;
             weakSelf.madeInfoByProductName = [DKYMadeInfoByProductNameModel mj_objectWithKeyValues:result.data];
             
             if(weakSelf.imageBlock){
-                weakSelf.imageBlock(weakSelf.madeInfoByProductName.productMadeInfoView.imgUrl);
+                weakSelf.imageBlock(weakSelf.madeInfoByProductName.productMadeInfoView.imgUrlList);
             }
             
             [weakSelf dealWithstyleNumber];

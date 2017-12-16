@@ -46,6 +46,8 @@
 
 @property (nonatomic, copy) NSString *imageUrl;
 
+@property (nonatomic, copy) NSArray *imgUrlList;
+
 @end
 
 @implementation DKYSampleOrderPopupView
@@ -474,7 +476,7 @@
     
     if(indexPath.row == 1) return 30 + (self.dimListModels.count + 1) * 30;
     
-    return 400;
+    return 1180;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -487,7 +489,7 @@
         cell.addProductApproveParameter = self.addProductApproveParameter;
         
         cell.imageBlock = ^(id sender) {
-            weakSelf.imageUrl = sender;
+            weakSelf.imgUrlList = sender;
             [weakSelf.tableView reloadRow:2 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
         };
         return cell;
@@ -499,7 +501,7 @@
         return cell;
     }else{
         DkySampleOrderImageViewCell *cell = [DkySampleOrderImageViewCell sampleOrderImageViewCellWithTableView:tableView];
-        cell.imageUrl = self.imageUrl;
+        cell.imgUrlList = self.imgUrlList;
         return cell;
     }
 }

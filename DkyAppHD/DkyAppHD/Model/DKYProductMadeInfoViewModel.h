@@ -343,18 +343,20 @@
  */
 @property (nonatomic, assign) NSInteger mDimNew41Id;
 
-
 /**
  * 展示的图片地址
  */
 @property (nonatomic, copy) NSString *imgUrl;
 
+/**
+ * 展示的图片地址,给详情下单展示用，展示3张图片
+ */
+@property(nonatomic, copy) NSArray *imgUrlList;
 
 /**
  * 尺寸类型
  */
 @property (nonatomic, copy) NSString * sizeType;
-
 
 /**
  * 品种json字符串

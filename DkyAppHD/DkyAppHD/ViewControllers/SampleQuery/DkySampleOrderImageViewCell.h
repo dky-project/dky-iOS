@@ -14,4 +14,6 @@
 
 @property (nonatomic, copy) NSString *imageUrl;
 
+@property (nonatomic, copy) NSArray *imgUrlList;
+
 @end
