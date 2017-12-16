@@ -76,7 +76,7 @@
 
 - (void)setMadeInfoByProductName:(DKYMadeInfoByProductNameModel *)madeInfoByProductName{
     [super setMadeInfoByProductName:madeInfoByProductName];
-    [self clear];
+//    [self clear];
     if(madeInfoByProductName == nil)  return;
     
     if(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id > 0){
