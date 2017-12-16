@@ -546,7 +546,7 @@
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
-    itemModel.title = @"袖长:";
+    itemModel.title = @"";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){

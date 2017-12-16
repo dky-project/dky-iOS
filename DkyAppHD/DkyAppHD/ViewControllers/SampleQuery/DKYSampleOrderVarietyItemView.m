@@ -952,7 +952,7 @@
         make.width.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.optionsBtn);
     }];
-    [btn setTitle:@"点击多选颜色" forState:UIControlStateNormal];
+    [btn setTitle:@"自选颜色" forState:UIControlStateNormal];
     btn.originalTitle = [btn currentTitle];
     if(btn.currentTitle.length > 2){
         btn.extraInfo = [btn.currentTitle substringFromIndex:2];
