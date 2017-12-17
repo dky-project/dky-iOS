@@ -161,17 +161,22 @@
     for (DKYDahuoOrderColorModel *color in selectedModel) {
         NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
         [selectedColor appendString:oneColor];
+        
         NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:oneColor];
-        YYTextBorder *border = [[YYTextBorder alloc] init];
-        border.fillColor = [UIColor randomColor];
-        border.lineStyle = YYTextLineStyleSingle;
-        [tagText setYy_textBackgroundBorder:border];
+        tagText.yy_color = [UIColor colorWithHex:0x333333];
+        tagText.yy_font = [UIFont systemFontOfSize:18];
+        
+//        YYTextBorder *border = [[YYTextBorder alloc] init];
+//        border.fillColor = [UIColor randomColor];
+//        border.lineStyle = YYTextLineStyleSingle;
+//        [tagText setYy_textBackgroundBorder:border];
         
         [text appendAttributedString:tagText];
         
         NSMutableAttributedString *blank = [[NSMutableAttributedString alloc] initWithString:@"   "];
+        blank.yy_font = [UIFont systemFontOfSize:12];
         YYTextBorder *blank_border = [[YYTextBorder alloc] init];
-        blank_border.fillColor = [UIColor whiteColor];
+        blank_border.fillColor = [UIColor clearColor];
         blank_border.lineStyle = YYTextLineStyleSingle;
         [blank setYy_textBackgroundBorder:blank_border];
         [text appendAttributedString:blank];
@@ -684,16 +689,20 @@
             [selectedColorModels addObject:color];
             
             NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:oneColor];
-            YYTextBorder *border = [[YYTextBorder alloc] init];
-            border.fillColor = [UIColor randomColor];
-            border.lineStyle = YYTextLineStyleSingle;
-            [tagText setYy_textBackgroundBorder:border];
+            tagText.yy_color = [UIColor colorWithHex:0x333333];
+            tagText.yy_font = [UIFont systemFontOfSize:18];
+            
+            //        YYTextBorder *border = [[YYTextBorder alloc] init];
+            //        border.fillColor = [UIColor randomColor];
+            //        border.lineStyle = YYTextLineStyleSingle;
+            //        [tagText setYy_textBackgroundBorder:border];
             
             [text appendAttributedString:tagText];
             
             NSMutableAttributedString *blank = [[NSMutableAttributedString alloc] initWithString:@"   "];
+            blank.yy_font = [UIFont systemFontOfSize:12];
             YYTextBorder *blank_border = [[YYTextBorder alloc] init];
-            blank_border.fillColor = [UIColor whiteColor];
+            blank_border.fillColor = [UIColor clearColor];
             blank_border.lineStyle = YYTextLineStyleSingle;
             [blank setYy_textBackgroundBorder:blank_border];
             [text appendAttributedString:blank];
@@ -842,17 +851,20 @@
             [clrRangeArray addObject:color.colorName];
             
             NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:oneColor];
-            YYTextBorder *border = [[YYTextBorder alloc] init];
-            border.fillColor = [UIColor randomColor];
-            border.lineStyle = YYTextLineStyleSingle;
-            [tagText setYy_textBackgroundBorder:border];
-           
+            tagText.yy_color = [UIColor colorWithHex:0x333333];
+            tagText.yy_font = [UIFont systemFontOfSize:18];
+            
+            //        YYTextBorder *border = [[YYTextBorder alloc] init];
+            //        border.fillColor = [UIColor randomColor];
+            //        border.lineStyle = YYTextLineStyleSingle;
+            //        [tagText setYy_textBackgroundBorder:border];
             
             [text appendAttributedString:tagText];
             
             NSMutableAttributedString *blank = [[NSMutableAttributedString alloc] initWithString:@"   "];
+            blank.yy_font = [UIFont systemFontOfSize:12];
             YYTextBorder *blank_border = [[YYTextBorder alloc] init];
-            blank_border.fillColor = [UIColor whiteColor];
+            blank_border.fillColor = [UIColor clearColor];
             blank_border.lineStyle = YYTextLineStyleSingle;
             [blank setYy_textBackgroundBorder:blank_border];
             [text appendAttributedString:blank];
