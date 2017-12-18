@@ -284,7 +284,7 @@
     
     self.addProductApproveParameter.orderNo = self.productApproveTitle.orderNo;
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     DKYSampleOrderViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell fetchAddProductApproveInfo];
 }
