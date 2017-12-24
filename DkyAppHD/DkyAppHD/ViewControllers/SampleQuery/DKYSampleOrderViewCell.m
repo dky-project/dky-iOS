@@ -363,6 +363,11 @@ static const CGFloat basicItemHeight = 45;
     [self.sizeView dealwithMDimNew15IdSelected];
 }
 
+- (void)dealwithMDimNew12IdSelected{
+    [self.jianTypeItemView dealwithMDimNew12IdSelected];
+    [self.xiuTypeView dealwithMDimNew12IdSelected];
+}
+
 #pragma mark - UI
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -569,9 +574,9 @@ static const CGFloat basicItemHeight = 45;
     itemModel.title = @"*式样:";
     itemModel.zoomed = YES;
     self.patternItemView.itemModel = itemModel;
-//    self.patternItemView.mDimNew12IdBlock = ^(id sender,NSInteger type){
-//        [weakSelf dealwithMDimNew12IdSelected];
-//    };
+    self.patternItemView.mDimNew12IdBlock = ^(id sender,NSInteger type){
+        [weakSelf dealwithMDimNew12IdSelected];
+    };
 }
 
 - (void)setupSizeView{

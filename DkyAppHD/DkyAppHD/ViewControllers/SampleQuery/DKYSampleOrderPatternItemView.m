@@ -172,9 +172,24 @@
             model = [models objectOrNilAtIndex:index - 1];
             self.addProductApproveParameter.mDimNew12Id = @([model.ID integerValue]);
             DLog(@"样式 = %@",self.addProductApproveParameter.mDimNew12Id);
+            [self dealWithmDimNew12IdSelected];
             break;
         default:
             break;
+    }
+}
+- (void)dealWithmDimNew12IdSelected{
+    self.canEdit = YES;
+    self.addProductApproveParameter.needGjxf = YES;
+    
+    if(self.mDimNew12IdBlock){
+        self.mDimNew12IdBlock(nil,0);
+    }
+    
+    if(self.addProductApproveParameter.mDimNew12Id == nil){
+        [self clear];
+        self.addProductApproveParameter.needGjxf = NO;
+        return;
     }
 }
 
