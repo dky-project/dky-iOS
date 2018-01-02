@@ -92,6 +92,17 @@
        madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
            self.canEdit = YES;
        }else{
+           // 工艺袖长不显示
+           if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
+              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
+              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
+              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
+              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366||
+              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
+               self.canEdit = NO;
+           }
+           
+           // 两个都不显示
            if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
               madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
               madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367||
@@ -118,6 +129,17 @@
        [self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
         self.canEdit = YES;
     }else{
+        // 工艺袖长不显示
+        if([self.addProductApproveParameter.mDimNew12Id integerValue] == 19||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 53||
+           [self.addProductApproveParameter.mDimNew12Id integerValue]== 60||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 54||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 366||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 57){
+            self.canEdit = NO;
+        }
+        
+        // 两个都不显示
         if([self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
            [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
            [self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
