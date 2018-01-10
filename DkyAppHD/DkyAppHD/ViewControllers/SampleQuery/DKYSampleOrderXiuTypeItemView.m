@@ -91,20 +91,19 @@
     
     self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]));
     
-    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366||
-       madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
+    // 不显示袖长
+    if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+       madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
+        self.canEdit = NO;
+    }else{
+        if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 19||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
             self.canEdit = YES;
         }else{
-            // 不显示袖长
-            if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
-               madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131){
-                self.canEdit = NO;
-            }
-            
             // 两个都显示
             if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
                madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
@@ -125,41 +124,42 @@
                 self.canEdit = NO;
             }
         }
+    }
 }
 
 - (void)dealwithMDimNew12IdSelected{
-    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 19||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 53||
-       [self.addProductApproveParameter.mDimNew12Id integerValue]== 60||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 54||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 366||
-       [self.addProductApproveParameter.mDimNew12Id integerValue] == 57){
-        self.canEdit = YES;
+    // 不显示袖长
+    if([self.addProductApproveParameter.mDimNew12Id integerValue] == 55||
+       [self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
+        self.canEdit = NO;
     }else{
-        // 不显示袖长
-        if([self.addProductApproveParameter.mDimNew12Id integerValue] == 55||
-           [self.addProductApproveParameter.mDimNew22Id integerValue] == 131){
-            self.canEdit = NO;
-        }
-        
-        // 两个都显示
-        if([self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 368||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
-           [self.addProductApproveParameter.mDimNew12Id integerValue]== 309||
-           [self.addProductApproveParameter.mDimNew12Id integerValue]== 61||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 62||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 63||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
-           [self.addProductApproveParameter.mDimNew12Id integerValue]== 56||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 59||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 58||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 64){
-            self.canEdit = NO;
+        if([self.addProductApproveParameter.mDimNew12Id integerValue] == 19||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 53||
+           [self.addProductApproveParameter.mDimNew12Id integerValue]== 60||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 54||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 366||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 57){
+            self.canEdit = YES;
+        }else{
+            // 两个都显示
+            if([self.addProductApproveParameter.mDimNew12Id integerValue] == 307||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 369||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 367||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 368||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 308||
+               [self.addProductApproveParameter.mDimNew12Id integerValue]== 309||
+               [self.addProductApproveParameter.mDimNew12Id integerValue]== 61||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 62||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 63||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 65||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 68||
+               [self.addProductApproveParameter.mDimNew12Id integerValue]== 56||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 59||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 58||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
+               [self.addProductApproveParameter.mDimNew12Id integerValue] == 64){
+                self.canEdit = NO;
+            }
         }
     }
 }
