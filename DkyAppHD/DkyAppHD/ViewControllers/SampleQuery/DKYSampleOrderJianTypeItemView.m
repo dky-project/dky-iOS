@@ -97,8 +97,7 @@
               madeInfoByProductName.productMadeInfoView.mDimNew12Id == 53||
               madeInfoByProductName.productMadeInfoView.mDimNew12Id == 60||
               madeInfoByProductName.productMadeInfoView.mDimNew12Id == 54||
-              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366||
-              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
+              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 366){
                self.canEdit = NO;
            }
            
@@ -118,7 +117,8 @@
               madeInfoByProductName.productMadeInfoView.mDimNew12Id == 59||
               madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
               madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
-              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64){
+              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
+              madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57){
                self.canEdit = NO;
            }
        }
@@ -134,8 +134,7 @@
            [self.addProductApproveParameter.mDimNew12Id integerValue] == 53||
            [self.addProductApproveParameter.mDimNew12Id integerValue]== 60||
            [self.addProductApproveParameter.mDimNew12Id integerValue] == 54||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 366||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 57){
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 366){
             self.canEdit = NO;
         }
         
@@ -155,7 +154,8 @@
            [self.addProductApproveParameter.mDimNew12Id integerValue] == 59||
            [self.addProductApproveParameter.mDimNew12Id integerValue] == 58||
            [self.addProductApproveParameter.mDimNew12Id integerValue] == 355||
-           [self.addProductApproveParameter.mDimNew12Id integerValue] == 64){
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 64||
+           [self.addProductApproveParameter.mDimNew12Id integerValue] == 57){
             self.canEdit = NO;
         }
     }
