@@ -758,12 +758,15 @@
         }
     }
     
-    // 主色
-    DKYDahuoOrderColorModel *model = [selectedColorModels objectOrNilAtIndex:0];
-    self.addProductApproveParameter.colorValue = @(model.colorId);
-
-    
     if(selectedColorModels.count > 0){
+        // 主色
+        DKYDahuoOrderColorModel *model = [selectedColorModels objectOrNilAtIndex:0];
+        self.addProductApproveParameter.colorValue = @(model.colorId);
+        self.madeInfoByProductName.productMadeInfoView.clrRangeArray = [clrRangeArray copy];
+        
+        for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.displayColorViewList){
+            color.selectedCount = 0;
+        }
         self.addProductApproveParameter.colorArr = [clrRangeArray componentsJoinedByString:@";"];
     }else{
         self.addProductApproveParameter.colorArr = nil;
