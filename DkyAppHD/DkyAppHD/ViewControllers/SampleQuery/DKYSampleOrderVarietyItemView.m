@@ -839,7 +839,7 @@
     pop.addProductApproveParameter = self.addProductApproveParameter;
     pop.colorViewList = self.madeInfoByProductName.displayColorViewList;
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
-    pop.fromGroup = NO;
+    pop.fromGroup = formGroup;
     WeakSelf(weakSelf);
     pop.cancelBtnClicked  = ^(DKYMultipleSelectPopupView *sender){
         if(sender.fromGroup){
