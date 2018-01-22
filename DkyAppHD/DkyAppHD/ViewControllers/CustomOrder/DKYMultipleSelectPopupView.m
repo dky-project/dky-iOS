@@ -89,6 +89,10 @@
 #pragma mark - action method
 
 - (void)closeBtnClicked:(UIButton*)sender{
+    if(self.cancelBtnClicked){
+        self.cancelBtnClicked(self);
+    }
+
     [self dismiss];
 }
 

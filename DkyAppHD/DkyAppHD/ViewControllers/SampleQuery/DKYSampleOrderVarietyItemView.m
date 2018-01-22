@@ -132,46 +132,69 @@
             }
         }
     }
-    
-    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
-            if([model.colorName isEqualToString:selectColor]){
-                model.selected = YES;
-                break;
+    if(self.madeInfoByProductName.colorRangeViewList.count > 0){
+        NSDictionary *model =[self.madeInfoByProductName.colorRangeViewList firstObject];
+        NSString *color = [model objectForKey:@"colorName"];
+        
+        // 解析选中颜色，取出()前面
+        NSArray *temp = [color componentsSeparatedByString:@","];
+        
+        NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
+        
+        for (NSString *item in temp) {
+            NSRange range = [item rangeOfString:@"("];
+            NSString *colorName = nil;
+            if(range.location != NSNotFound){
+                colorName = [item substringToIndex:range.location];
+            }else{
+                colorName = item;
             }
+            
+            [colors addObject:colorName];
         }
-    }
-    
-    
-    
-    NSMutableArray *selectedModel = [NSMutableArray array];
-    
-    for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
-        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-            if([model.colorName isEqualToString:selectColor]){
-                model.selected = YES;
-                [selectedModel addObject:model];
-                break;
-            }
-        }
-    }
-    
-    NSMutableString *selectedColor = [NSMutableString string];
-    for (DKYDahuoOrderColorModel *color in selectedModel) {
-        NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-        [selectedColor appendString:oneColor];
-    }
-    
-    if([selectedColor isNotBlank]){
-        self.selectedColorView.text = selectedColor;
-    }
-    
-    if(selectedModel.count > 0){
-        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
-        self.colorGroupBtn.enabled = NO;
+        
+        [self colorGroupSelected:colors.copy];
+        
+        DLog(@"colors = %@",colors);
     }else{
-        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
-        self.colorGroupBtn.enabled = YES;
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+            for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+                if([model.colorName isEqualToString:selectColor]){
+                    model.selected = YES;
+                    break;
+                }
+            }
+        }
+        
+        NSMutableArray *selectedModel = [NSMutableArray array];
+        
+        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+            for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+                if([model.colorName isEqualToString:selectColor]){
+                    model.selected = YES;
+                    [selectedModel addObject:model];
+                    break;
+                }
+            }
+        }
+        
+        NSMutableString *selectedColor = [NSMutableString string];
+        for (DKYDahuoOrderColorModel *color in selectedModel) {
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+        }
+        
+        if([selectedColor isNotBlank]){
+            self.selectedColorView.text = selectedColor;
+        }
+        
+        if(selectedModel.count > 0){
+            self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
+            self.colorGroupBtn.enabled = NO;
+        }else{
+            self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
+            self.colorGroupBtn.enabled = YES;
+        }
     }
 }
 
@@ -439,7 +462,7 @@
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
     if(sender.tag == 4){
-        [self showMultipleSelectPopupView];
+        [self showMultipleSelectPopupView:NO];
         return;
     }
     
@@ -452,7 +475,8 @@
     
     NSMutableArray *item = @[].mutableCopy;
     NSArray *models = nil;
-    
+    NSString *deleteTitle = kDeleteTitle;
+
     switch (sender.tag) {
         case 0:{
             if(self.madeInfoByProductName){
@@ -492,6 +516,7 @@
             break;
         case 5:{
             models = self.madeInfoByProductName.colorRangeViewList;
+            deleteTitle = @"自选颜色";
         }
             break;
     }
@@ -509,7 +534,7 @@
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
     WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
-                                             cancelButtonTitle:kDeleteTitle
+                                             cancelButtonTitle:deleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex != 0 && sender.tag != 5){
@@ -615,6 +640,13 @@
         }
             break;
         case 5:{
+            if(index == 0){
+                self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
+                self.colorBtn.enabled = YES;
+                [self showMultipleSelectPopupView:YES];
+                return;
+            }
+
             models = self.madeInfoByProductName.colorRangeViewList;
             
             NSDictionary *colorGroup = [models objectOrNilAtIndex:index - 1];
@@ -685,12 +717,16 @@
         }
     }
     
-    // 主色
-    DKYDahuoOrderColorModel *model = [selectedColorModels objectOrNilAtIndex:0];
-    self.addProductApproveParameter.colorValue = @(model.colorId);
-
-    
     if(selectedColorModels.count > 0){
+        // 主色
+        DKYDahuoOrderColorModel *model = [selectedColorModels objectOrNilAtIndex:0];
+        self.addProductApproveParameter.colorValue = @(model.colorId);
+        self.madeInfoByProductName.productMadeInfoView.clrRangeArray = [clrRangeArray copy];
+        
+        for (DKYDahuoOrderColorModel *color in self.madeInfoByProductName.displayColorViewList){
+            color.selectedCount = 0;
+        }
+
         self.addProductApproveParameter.colorArr = [clrRangeArray componentsJoinedByString:@";"];
     }else{
         self.addProductApproveParameter.colorArr = nil;
@@ -798,12 +834,20 @@
     return YES;
 }
 
-- (void)showMultipleSelectPopupView{
+- (void)showMultipleSelectPopupView:(BOOL)formGroup{
     DKYMultipleSelectPopupView *pop = [DKYMultipleSelectPopupView show];
     pop.addProductApproveParameter = self.addProductApproveParameter;
     pop.colorViewList = self.madeInfoByProductName.displayColorViewList;
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
+    pop.fromGroup = NO;
     WeakSelf(weakSelf);
+    pop.cancelBtnClicked  = ^(DKYMultipleSelectPopupView *sender){
+        if(sender.fromGroup){
+            self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_ColorGroup;
+            self.colorBtn.enabled = NO;
+        }
+    };
+
     pop.confirmBtnClicked = ^(NSMutableArray *selectedColors) {
         NSMutableString *selectedColor = [NSMutableString string];
         NSMutableArray *clrRangeArray = [NSMutableArray array];
