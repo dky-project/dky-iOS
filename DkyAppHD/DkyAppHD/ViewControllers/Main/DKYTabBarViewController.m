@@ -101,13 +101,13 @@
 - (void)addAllChildVcs
 {
     // 首页
-    //[self setupHomeVc];
+    [self setupHomeVc];
     
     // 样衣查询
     [self setupSampleQueryVc];
     
     // 定制下单
-    //[self setupCustomOrderVc];
+    [self setupCustomOrderVc];
     
     // 收藏列表
     [self setupCollectListVc];
