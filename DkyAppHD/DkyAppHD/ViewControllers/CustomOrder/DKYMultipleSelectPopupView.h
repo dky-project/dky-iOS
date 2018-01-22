@@ -25,4 +25,9 @@
 
 @property (nonatomic, copy) BlockWithSender confirmBtnClicked;
 
+@property (nonatomic, copy) BlockWithSender cancelBtnClicked;
+
+@property (nonatomic, assign) BOOL fromGroup;
+
+
 @end
