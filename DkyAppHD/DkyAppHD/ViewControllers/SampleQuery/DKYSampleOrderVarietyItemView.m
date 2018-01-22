@@ -135,63 +135,90 @@
         }
     }
     
-    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
-            if([model.colorName isEqualToString:selectColor]){
-                model.selected = YES;
-                break;
+    if(self.madeInfoByProductName.colorRangeViewList.count > 0){
+        NSDictionary *model =[self.madeInfoByProductName.colorRangeViewList firstObject];
+        NSString *color = [model objectForKey:@"colorName"];
+        
+        // 解析选中颜色，取出()前面
+        NSArray *temp = [color componentsSeparatedByString:@","];
+        
+        NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
+        
+        for (NSString *item in temp) {
+            NSRange range = [item rangeOfString:@"("];
+            NSString *colorName = nil;
+            if(range.location != NSNotFound){
+                colorName = [item substringToIndex:range.location];
+            }else{
+                colorName = item;
             }
+            
+            [colors addObject:colorName];
         }
-    }
-    
-    NSMutableArray *selectedModel = [NSMutableArray array];
-    
-    for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
-        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-            if([model.colorName isEqualToString:selectColor]){
-                model.selected = YES;
-                [selectedModel addObject:model];
-                break;
-            }
-        }
-    }
-    
-    NSMutableString *selectedColor = [NSMutableString string];
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@""];
-    for (DKYDahuoOrderColorModel *color in selectedModel) {
-        NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-        [selectedColor appendString:oneColor];
         
-        NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:oneColor];
-        tagText.yy_color = [UIColor colorWithHex:0x333333];
-        tagText.yy_font = [UIFont systemFontOfSize:18];
+        [self colorGroupSelected:colors.copy];
         
-//        YYTextBorder *border = [[YYTextBorder alloc] init];
-//        border.fillColor = [UIColor randomColor];
-//        border.lineStyle = YYTextLineStyleSingle;
-//        [tagText setYy_textBackgroundBorder:border];
+        DLog(@"colors = %@",colors);
         
-        [text appendAttributedString:tagText];
-        
-        NSMutableAttributedString *blank = [[NSMutableAttributedString alloc] initWithString:@"   "];
-        blank.yy_font = [UIFont systemFontOfSize:12];
-        YYTextBorder *blank_border = [[YYTextBorder alloc] init];
-        blank_border.fillColor = [UIColor clearColor];
-        blank_border.lineStyle = YYTextLineStyleSingle;
-        [blank setYy_textBackgroundBorder:blank_border];
-        [text appendAttributedString:blank];
-    }
-    
-    if([selectedColor isNotBlank]){
-        self.selectedColorView.attributedText = text;
-    }
-    
-    if(selectedModel.count > 0){
-        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
-        self.colorGroupBtn.enabled = NO;
     }else{
-        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
-        self.colorGroupBtn.enabled = YES;
+        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+            for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+                if([model.colorName isEqualToString:selectColor]){
+                    model.selected = YES;
+                    break;
+                }
+            }
+        }
+        
+        NSMutableArray *selectedModel = [NSMutableArray array];
+        
+        for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
+            for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
+                if([model.colorName isEqualToString:selectColor]){
+                    model.selected = YES;
+                    [selectedModel addObject:model];
+                    break;
+                }
+            }
+        }
+        
+        NSMutableString *selectedColor = [NSMutableString string];
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@""];
+        for (DKYDahuoOrderColorModel *color in selectedModel) {
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+            
+            NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:oneColor];
+            tagText.yy_color = [UIColor colorWithHex:0x333333];
+            tagText.yy_font = [UIFont systemFontOfSize:18];
+            
+            //        YYTextBorder *border = [[YYTextBorder alloc] init];
+            //        border.fillColor = [UIColor randomColor];
+            //        border.lineStyle = YYTextLineStyleSingle;
+            //        [tagText setYy_textBackgroundBorder:border];
+            
+            [text appendAttributedString:tagText];
+            
+            NSMutableAttributedString *blank = [[NSMutableAttributedString alloc] initWithString:@"   "];
+            blank.yy_font = [UIFont systemFontOfSize:12];
+            YYTextBorder *blank_border = [[YYTextBorder alloc] init];
+            blank_border.fillColor = [UIColor clearColor];
+            blank_border.lineStyle = YYTextLineStyleSingle;
+            [blank setYy_textBackgroundBorder:blank_border];
+            [text appendAttributedString:blank];
+        }
+        
+        if([selectedColor isNotBlank]){
+            self.selectedColorView.attributedText = text;
+        }
+        
+        if(selectedModel.count > 0){
+            self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
+            self.colorGroupBtn.enabled = NO;
+        }else{
+            self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
+            self.colorGroupBtn.enabled = YES;
+        }
     }
 }
 
