@@ -486,7 +486,7 @@
     //        self.optionsBtnClicked(sender,sender.tag);
     //    }
     if(sender.tag == 4){
-        [self showMultipleSelectPopupView];
+        [self showMultipleSelectPopupView:NO];
         return;
     }
     
@@ -499,6 +499,7 @@
     
     NSMutableArray *item = @[].mutableCopy;
     NSArray *models = nil;
+    NSString *deleteTitle = kDeleteTitle;
     
     switch (sender.tag) {
         case 0:{
@@ -539,6 +540,7 @@
             break;
         case 5:{
             models = self.madeInfoByProductName.colorRangeViewList;
+            deleteTitle = @"自选颜色";
         }
             break;
     }
@@ -556,7 +558,7 @@
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
     WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
-                                             cancelButtonTitle:kDeleteTitle
+                                             cancelButtonTitle:deleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex != 0 && sender.tag != 5){
@@ -662,6 +664,12 @@
         }
             break;
         case 5:{
+            if(index == 0){
+                self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
+                self.colorBtn.enabled = YES;
+                [self showMultipleSelectPopupView:YES];
+                return;
+            }
             models = self.madeInfoByProductName.colorRangeViewList;
             
             NSDictionary *colorGroup = [models objectOrNilAtIndex:index - 1];
@@ -763,7 +771,7 @@
     
     self.selectedColorView.attributedText = text;
     
-    if(selectedColors.count == 0){
+    if(clrRangeArray.count == 0){
         self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_Unset;
         self.colorBtn.enabled = YES;
     }else{
@@ -863,12 +871,20 @@
     return YES;
 }
 
-- (void)showMultipleSelectPopupView{
+- (void)showMultipleSelectPopupView:(BOOL)formGroup{
     DKYMultipleSelectPopupView *pop = [DKYMultipleSelectPopupView show];
     pop.addProductApproveParameter = self.addProductApproveParameter;
     pop.colorViewList = self.madeInfoByProductName.displayColorViewList;
     pop.clrRangeArray = self.madeInfoByProductName.productMadeInfoView.clrRangeArray;
+    pop.fromGroup = NO;
     WeakSelf(weakSelf);
+    pop.cancelBtnClicked  = ^(DKYMultipleSelectPopupView *sender){
+        if(sender.fromGroup){
+            self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_ColorGroup;
+            self.colorBtn.enabled = NO;
+        }
+    };
+    
     pop.confirmBtnClicked = ^(NSMutableArray *selectedColors) {
         NSMutableArray *clrRangeArray = [NSMutableArray array];
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@""];
