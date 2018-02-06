@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,69 +19,79 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFe-wV-9sg">
-                        <rect key="frame" x="32" y="0.0" width="67" height="40"/>
+                        <rect key="frame" x="32" y="0.0" width="60.5" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="67" id="PYM-Bw-WEJ"/>
+                            <constraint firstAttribute="width" constant="60.700000000000003" id="PYM-Bw-WEJ"/>
                             <constraint firstAttribute="height" constant="40" id="Xkg-dq-p6c"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIQ-kt-qkM">
+                        <rect key="frame" x="96" y="0.0" width="60.5" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="gHb-aR-B5N"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="品类">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7a-vE-Oj7">
-                        <rect key="frame" x="102.5" y="0.0" width="66.5" height="40"/>
+                        <rect key="frame" x="161" y="0.0" width="60.5" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="品种">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r50-02-sdV">
-                        <rect key="frame" x="243.5" y="0.0" width="67" height="40"/>
+                        <rect key="frame" x="289.5" y="0.0" width="61" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="颜色">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om3-jr-Hw8">
-                        <rect key="frame" x="314.5" y="0.0" width="67" height="40"/>
+                        <rect key="frame" x="354.5" y="0.0" width="60.5" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="大">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="长" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlu-te-mfX" customClass="QMUITextField">
-                        <rect key="frame" x="385.5" y="0.0" width="67" height="40"/>
+                        <rect key="frame" x="419" y="0.0" width="60.5" height="40"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="袖长" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ux-W0-nH5" customClass="QMUITextField">
-                        <rect key="frame" x="456.5" y="0.0" width="67" height="40"/>
+                        <rect key="frame" x="483.5" y="0.0" width="61" height="40"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="数量" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWC-Td-xEn" customClass="QMUITextField">
-                        <rect key="frame" x="527.5" y="0.0" width="66.5" height="40"/>
+                        <rect key="frame" x="548.5" y="0.0" width="61" height="40"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金额" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRE-Av-Bd7">
-                        <rect key="frame" x="598" y="0.0" width="67" height="40"/>
+                        <rect key="frame" x="613.5" y="0.0" width="61" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZi-wi-sls" customClass="DKYDisplayCollectButton">
-                        <rect key="frame" x="669" y="0.0" width="66.5" height="40"/>
+                        <rect key="frame" x="678.5" y="0.0" width="61" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="收藏">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxa-62-xNH">
-                        <rect key="frame" x="173" y="0.0" width="66.5" height="40"/>
+                        <rect key="frame" x="225.5" y="0.0" width="60" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="针型">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,8 +108,10 @@
                     <constraint firstItem="vWC-Td-xEn" firstAttribute="height" secondItem="4Ux-W0-nH5" secondAttribute="height" id="4AA-Q7-Da5"/>
                     <constraint firstItem="4Ux-W0-nH5" firstAttribute="leading" secondItem="hlu-te-mfX" secondAttribute="trailing" constant="4" id="6Xx-e6-ILo"/>
                     <constraint firstItem="hlu-te-mfX" firstAttribute="height" secondItem="om3-jr-Hw8" secondAttribute="height" id="6w5-eB-tP1"/>
+                    <constraint firstItem="RIQ-kt-qkM" firstAttribute="width" secondItem="cFe-wV-9sg" secondAttribute="width" id="7yK-0k-lbg"/>
                     <constraint firstItem="r50-02-sdV" firstAttribute="height" secondItem="cFe-wV-9sg" secondAttribute="height" id="Cfo-Nv-iVD"/>
                     <constraint firstItem="mxa-62-xNH" firstAttribute="top" secondItem="x7a-vE-Oj7" secondAttribute="top" id="DbX-wy-O4L"/>
+                    <constraint firstItem="RIQ-kt-qkM" firstAttribute="leading" secondItem="cFe-wV-9sg" secondAttribute="trailing" constant="4" id="HmZ-G6-hEL"/>
                     <constraint firstItem="cFe-wV-9sg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="IgI-6H-1Hp"/>
                     <constraint firstItem="r50-02-sdV" firstAttribute="top" secondItem="cFe-wV-9sg" secondAttribute="top" id="JjT-CI-Mtp"/>
                     <constraint firstItem="hlu-te-mfX" firstAttribute="width" secondItem="om3-jr-Hw8" secondAttribute="width" id="LFH-Dv-hR8"/>
@@ -118,8 +130,9 @@
                     <constraint firstItem="4Ux-W0-nH5" firstAttribute="top" secondItem="hlu-te-mfX" secondAttribute="top" id="VQB-zj-iZ9"/>
                     <constraint firstItem="JRE-Av-Bd7" firstAttribute="height" secondItem="vWC-Td-xEn" secondAttribute="height" id="VaR-5R-aeM"/>
                     <constraint firstItem="nZi-wi-sls" firstAttribute="leading" secondItem="JRE-Av-Bd7" secondAttribute="trailing" constant="4" id="WEr-sc-aiN"/>
-                    <constraint firstItem="x7a-vE-Oj7" firstAttribute="leading" secondItem="cFe-wV-9sg" secondAttribute="trailing" constant="4" id="Zbd-tM-23Q"/>
+                    <constraint firstItem="x7a-vE-Oj7" firstAttribute="leading" secondItem="cFe-wV-9sg" secondAttribute="trailing" constant="68.700000000000003" id="Zbd-tM-23Q"/>
                     <constraint firstItem="mxa-62-xNH" firstAttribute="width" secondItem="x7a-vE-Oj7" secondAttribute="width" id="ZvU-0V-RFU"/>
+                    <constraint firstItem="RIQ-kt-qkM" firstAttribute="top" secondItem="cFe-wV-9sg" secondAttribute="top" id="mzs-HY-9g8"/>
                     <constraint firstItem="nZi-wi-sls" firstAttribute="width" secondItem="JRE-Av-Bd7" secondAttribute="width" id="ota-ck-xbk"/>
                     <constraint firstItem="JRE-Av-Bd7" firstAttribute="width" secondItem="vWC-Td-xEn" secondAttribute="width" id="otv-ak-kuO"/>
                     <constraint firstItem="x7a-vE-Oj7" firstAttribute="height" secondItem="cFe-wV-9sg" secondAttribute="height" id="rSe-1T-fUD"/>
@@ -135,6 +148,7 @@
                 <outlet property="colorBtn" destination="r50-02-sdV" id="zUn-cL-4cP"/>
                 <outlet property="lengthTextFied" destination="hlu-te-mfX" id="ISh-3f-IIc"/>
                 <outlet property="moneyLabel" destination="JRE-Av-Bd7" id="4OM-KJ-JYJ"/>
+                <outlet property="pinleiBtn" destination="RIQ-kt-qkM" id="d5Q-li-oO8"/>
                 <outlet property="pinzhongBtn" destination="x7a-vE-Oj7" id="c96-dk-Vhc"/>
                 <outlet property="sizeBtn" destination="om3-jr-Hw8" id="VZL-LH-p4r"/>
                 <outlet property="titleLabel" destination="cFe-wV-9sg" id="QwQ-TS-him"/>

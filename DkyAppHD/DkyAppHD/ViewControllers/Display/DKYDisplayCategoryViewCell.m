@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet QMUITextField *moneyTextField;
 @property (weak, nonatomic) IBOutlet DKYDisplayCollectButton *collectBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton *pinleiBtn;
 
 @property (nonatomic, strong) DKYGetSizeDataModel *getSizeDataModel;
 
@@ -522,6 +523,15 @@
     [self p_customSunview:self.titleLabel];
     
     self.group = dispatch_group_create();
+    
+    // 品类
+    [self p_customSunview:self.pinleiBtn];
+    self.pinleiBtn.originalTitle = [self.pinleiBtn currentTitle];
+    self.pinleiBtn.extraInfo = [self.pinleiBtn currentTitle];
+    self.pinleiBtn.tag = 4;
+    [self.pinleiBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        [weakSelf showOptionsPicker:weakSelf.pinleiBtn];
+    }];
     
     // 品种
     [self p_customSunview:self.pinzhongBtn];
