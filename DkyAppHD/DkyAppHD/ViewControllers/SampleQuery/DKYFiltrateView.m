@@ -31,6 +31,8 @@
 
 @property (nonatomic, weak) UIButton *rankBtn;
 
+@property (nonatomic, weak) UIButton *maijiaxiuBtn;
+
 @end
 
 @implementation DKYFiltrateView
@@ -105,6 +107,11 @@
 - (void)rankBtnClicked:(UIButton*)sender{
     sender.selected = !sender.selected;
     self.sampleQueryParameter.isRank = sender.selected ? @"Y" : @"N";
+}
+
+- (void)maijiaxiuBtnClicked:(UIButton*)sender{
+    sender.selected = !sender.selected;
+    //self.sampleQueryParameter.isRank = sender.selected ? @"Y" : @"N";
 }
 
 #pragma mark - private method
@@ -236,6 +243,7 @@
     
     [self setupRecommendBtn];
     [self setupRankBtn];
+    [self setupMaijiaxiuBtn];
 //    [self test];
 }
 
@@ -475,6 +483,22 @@
     }];
     self.rankBtn = btn;
     [btn setTitle:@"销量排行" forState:UIControlStateNormal];
+}
+
+- (void)setupMaijiaxiuBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(maijiaxiuBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.styleNumberTextField);
+        make.top.mas_equalTo(weakSelf.styleNumberTextField);
+        
+        make.left.mas_equalTo(weakSelf.rankBtn.mas_right).with.offset(kOptionViewMargin);
+        make.width.mas_equalTo(kOptionViewHeight);
+    }];
+    self.rankBtn = btn;
+    [btn setTitle:@"买家秀" forState:UIControlStateNormal];
 }
 
 - (void)test{
