@@ -28,9 +28,11 @@
     _getProductGroupPageModel = getProductGroupPageModel;
     
     NSURL *url = [NSURL URLWithString:getProductGroupPageModel.dpImgUrl];
-    
     [self.imageView sd_setImageWithURL:url placeholderImage:nil];
-    self.sampleIdLabel.text = getProductGroupPageModel.groupNo;
+    
+    NSMutableString *groupNo = [NSMutableString stringWithString:@"搭配组："];
+    [groupNo appendString:getProductGroupPageModel.groupNo];
+    self.sampleIdLabel.text = groupNo;
 }
 
 
