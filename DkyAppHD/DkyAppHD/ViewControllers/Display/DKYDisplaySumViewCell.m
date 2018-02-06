@@ -54,6 +54,7 @@
     self.ammountSumLabel.text = (sum > 0) ? [NSString stringWithFormat:@"%@",@(sum)] : @"合计";
 
     NSString *sumMoneyText = [NSString formatRateStringWithRate:sumMoney];
+    sumMoneyText = [NSString stringWithFormat:@"%@元",sumMoneyText];
     
     self.moneySumLabel.text = (sum > 0) ? sumMoneyText : @"合计";
 }

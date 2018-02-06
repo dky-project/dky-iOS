@@ -505,6 +505,7 @@
     if(self.getProductListByGroupNoModel.sum > 0){
         double sum = self.getProductListByGroupNoModel.sum * [self.getProductListByGroupNoModel.price doubleValue];
         NSString *sumMoney = [NSString formatRateStringWithRate:sum];
+        sumMoney = [NSString stringWithFormat:@"%@元",sumMoney];
         
         self.moneyLabel.text = sumMoney;
     }else{

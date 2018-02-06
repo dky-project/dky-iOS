@@ -105,7 +105,7 @@
             weakSelf.totalPageNum = page.totalPageNum;
             weakSelf.groupNo_ = [weakSelf.getProductListByGroupNoParameterEx.groupNo integerValue];
             
-            [weakSelf setupCustomTitle:[NSString stringWithFormat:@"%@",@(weakSelf.groupNo_)]];
+//            [weakSelf setupCustomTitle:[NSString stringWithFormat:@"%@",@(weakSelf.groupNo_)]];
             
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -370,7 +370,8 @@
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:self.groupNo];
+    [self setupCustomTitle:@"搭配"];
+    
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
@@ -489,7 +490,7 @@
 - (void)setupCustomTitle:(NSString*)title;
 {
     UILabel *titleLabel = [[UILabel alloc]init];
-    titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    titleLabel.font = [UIFont boldSystemFontOfSize:15];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     
