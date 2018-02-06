@@ -303,7 +303,7 @@
         make.left.mas_equalTo(opention1.mas_right).with.offset(kOptionViewMargin);
         make.bottom.mas_equalTo(opention1);
     }];
-    opention2.title = @"大类";
+    opention2.title = @"品类";
     opention2.optionViewTaped = ^(DKYFiltrateOptionView *view){
         [weakSelf optionViewTaped:view];
     };

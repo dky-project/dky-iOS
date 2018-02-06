@@ -32,7 +32,10 @@
     [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 //    self.sampleNameLabel.text = itemModel.name;
-    self.sampleIdLabel.text = itemModel.name;
+    NSMutableString *name = [NSMutableString stringWithString:itemModel.name];
+    [name appendString:@" "];
+    [name appendString:@"上衣"];
+    self.sampleIdLabel.text = name;
 
     self.cancelBtn.selected = itemModel.collected;
 }
