@@ -29,35 +29,35 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2z-Gh-7MF">
-                        <rect key="frame" x="96.5" y="0.0" width="60.5" height="40"/>
+                        <rect key="frame" x="291" y="0.0" width="60.5" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="颜色">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKE-nm-wwc">
-                        <rect key="frame" x="161" y="0.0" width="60.5" height="40"/>
+                        <rect key="frame" x="355.5" y="0.0" width="60.5" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="尺寸">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8n6-KX-2E8">
-                        <rect key="frame" x="225.5" y="0.0" width="60.5" height="40"/>
+                        <rect key="frame" x="420" y="0.0" width="60.5" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="长">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7K1-s1-phU">
-                        <rect key="frame" x="290" y="0.0" width="60.5" height="40"/>
+                        <rect key="frame" x="484.5" y="0.0" width="60.5" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="长">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="袖长" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sT2-hT-Waw" customClass="QMUITextField">
-                        <rect key="frame" x="354.5" y="0.0" width="60.5" height="40"/>
+                        <rect key="frame" x="549" y="0.0" width="60.5" height="40"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -90,6 +90,7 @@
                     <constraint firstItem="uwV-l6-GFI" firstAttribute="top" secondItem="fti-4o-n2c" secondAttribute="top" id="B4V-aN-JPn"/>
                     <constraint firstItem="sT2-hT-Waw" firstAttribute="leading" secondItem="7K1-s1-phU" secondAttribute="trailing" constant="4" id="BI2-uX-jXf"/>
                     <constraint firstItem="cKE-nm-wwc" firstAttribute="top" secondItem="f2z-Gh-7MF" secondAttribute="top" id="Bvk-jr-3i8"/>
+                    <constraint firstItem="f2z-Gh-7MF" firstAttribute="leading" secondItem="fti-4o-n2c" secondAttribute="leading" constant="291" id="Cxc-kc-rbt"/>
                     <constraint firstItem="8n6-KX-2E8" firstAttribute="top" secondItem="cKE-nm-wwc" secondAttribute="top" id="Gcy-1B-MUI"/>
                     <constraint firstItem="r75-ya-9xB" firstAttribute="top" secondItem="8iq-hq-dYf" secondAttribute="top" id="GzK-Tr-zjY"/>
                     <constraint firstItem="dvZ-QM-ywm" firstAttribute="leading" secondItem="r75-ya-9xB" secondAttribute="trailing" constant="4" id="Htb-lq-qHs"/>
@@ -113,7 +114,6 @@
                     <constraint firstItem="dvZ-QM-ywm" firstAttribute="top" secondItem="r75-ya-9xB" secondAttribute="top" id="dRu-9T-c96"/>
                     <constraint firstItem="cKE-nm-wwc" firstAttribute="height" secondItem="f2z-Gh-7MF" secondAttribute="height" id="feB-Bt-UFe"/>
                     <constraint firstItem="8n6-KX-2E8" firstAttribute="width" secondItem="cKE-nm-wwc" secondAttribute="width" id="keM-XH-kvB"/>
-                    <constraint firstItem="f2z-Gh-7MF" firstAttribute="leading" secondItem="uwV-l6-GFI" secondAttribute="trailing" constant="4" id="rLM-Ha-Vrc"/>
                     <constraint firstItem="sT2-hT-Waw" firstAttribute="top" secondItem="7K1-s1-phU" secondAttribute="top" id="tJH-r7-iY2"/>
                     <constraint firstItem="dvZ-QM-ywm" firstAttribute="height" secondItem="r75-ya-9xB" secondAttribute="height" id="u9r-E1-fGm"/>
                     <constraint firstItem="7K1-s1-phU" firstAttribute="leading" secondItem="8n6-KX-2E8" secondAttribute="trailing" constant="4" id="vk8-cS-Hzs"/>
