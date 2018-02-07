@@ -91,6 +91,8 @@
 		26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC02961E751D0700469C5C /* NSString+STRegex.m */; };
 		26F69A64202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */; };
 		26F69A65202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */; };
+		26F69A69202B4EDC00CDB858 /* DKYMatchHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F69A67202B4EDC00CDB858 /* DKYMatchHeaderViewCell.m */; };
+		26F69A6A202B4EDC00CDB858 /* DKYMatchHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F69A68202B4EDC00CDB858 /* DKYMatchHeaderViewCell.xib */; };
 		EB02E8821ECC1C02006C5354 /* DKYCollectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02E8811ECC1C02006C5354 /* DKYCollectListViewController.m */; };
 		EB02E88C1ECC2EB6006C5354 /* DKYCollectListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02E88A1ECC2EB6006C5354 /* DKYCollectListViewCell.m */; };
 		EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB02E88B1ECC2EB6006C5354 /* DKYCollectListViewCell.xib */; };
@@ -529,6 +531,9 @@
 		26F69A61202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYDisplayBigImaeViewCell.h; sourceTree = "<group>"; };
 		26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayBigImaeViewCell.m; sourceTree = "<group>"; };
 		26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYDisplayBigImaeViewCell.xib; sourceTree = "<group>"; };
+		26F69A66202B4EDC00CDB858 /* DKYMatchHeaderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYMatchHeaderViewCell.h; sourceTree = "<group>"; };
+		26F69A67202B4EDC00CDB858 /* DKYMatchHeaderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYMatchHeaderViewCell.m; sourceTree = "<group>"; };
+		26F69A68202B4EDC00CDB858 /* DKYMatchHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYMatchHeaderViewCell.xib; sourceTree = "<group>"; };
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2319,6 +2324,9 @@
 				EBBF21411F32CC540047471B /* DKYDisplaySumViewCell.xib */,
 				EBCBE11D1F3D9751008D7A3C /* DKYDisplayCollectButton.h */,
 				EBCBE11E1F3D9751008D7A3C /* DKYDisplayCollectButton.m */,
+				26F69A66202B4EDC00CDB858 /* DKYMatchHeaderViewCell.h */,
+				26F69A67202B4EDC00CDB858 /* DKYMatchHeaderViewCell.m */,
+				26F69A68202B4EDC00CDB858 /* DKYMatchHeaderViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2515,6 +2523,7 @@
 				EBD694AF1E277B4700F365C3 /* backItemImage_hl@2x.png in Resources */,
 				EBA7310F1F21E00600FEFD69 /* PYPhotosView.bundle in Resources */,
 				EBD6949E1E272DB000F365C3 /* DKYHomeItemViewCell.xib in Resources */,
+				26F69A6A202B4EDC00CDB858 /* DKYMatchHeaderViewCell.xib in Resources */,
 				EBD694AE1E277B4700F365C3 /* backItemImage@2x.png in Resources */,
 				EB506C541E23C141002A1423 /* DKYOrderBrowserLineView.xib in Resources */,
 				EBD116011EA47BC800AF6F5C /* DKYTestTableViewCell.xib in Resources */,
@@ -2863,6 +2872,7 @@
 				2658367B1FD4454300BAEA87 /* DKYTongkuan5SpecialCraftItemView.m in Sources */,
 				26210BD41E59614000EB05D6 /* DKYCustomOrderJingSizeItemView.m in Sources */,
 				EBA980861ECD9B3A0080FC79 /* DKYTongkuan5XiuTypeItemView.m in Sources */,
+				26F69A69202B4EDC00CDB858 /* DKYMatchHeaderViewCell.m in Sources */,
 				EBA980831ECD91D60080FC79 /* DKYTongkuan5PatternItemView.m in Sources */,
 				263CC1601E1555E7002FBB50 /* UIImage+Color.m in Sources */,
 				EBB480B21E5BDDE200AC36D0 /* DKYCustomOrderKoudaiItemView.m in Sources */,

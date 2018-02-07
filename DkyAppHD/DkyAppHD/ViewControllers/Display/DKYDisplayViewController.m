@@ -20,6 +20,7 @@
 #import "DKYAddProductDpGroupJsonParameter.h"
 #import "DKYAddProductDpGroupResponseModel.h"
 #import "DKYConfirmProductApproveParameter.h"
+#import "DKYMatchHeaderViewCell.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -321,7 +322,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(section == 0) return self.productList ? 1 : 0;
     
-    return self.productList.count > 0 ? self.productList.count + 1 : 0;
+    return self.productList.count > 0 ? self.productList.count + 2 : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -355,15 +356,20 @@
         return cell;
     }
     
-    DKYGetProductListByGroupNoModel *model = [self.productList objectAtIndex:indexPath.row];
+    if(indexPath.section == 1 && indexPath.row == 0){
+        DKYMatchHeaderViewCell *cell = [DKYMatchHeaderViewCell matchHeaderViewCellWithTableView:tableView];
+        return cell;
+    }
+    
+    DKYGetProductListByGroupNoModel *model = [self.productList objectAtIndex:indexPath.row - 1];
     if(model.isBigOrder){
         DKYDisplayCategoryDahuoViewCell *cell = [DKYDisplayCategoryDahuoViewCell displayCategoryDahuoViewCellWithTableView:tableView];
-        cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row];
+        cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row - 1];
         return cell;
     }
 
     DKYDisplayCategoryViewCell *cell = [DKYDisplayCategoryViewCell displayCategoryViewCellWithTableView:tableView];
-    cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row];
+    cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row - 1];
     return cell;
 }
 
