@@ -42,6 +42,8 @@
 
 @property (nonatomic, strong) DKYAddProductDpGroupResponseModel *addProductDpGroupResponseModel;
 
+@property (nonatomic, copy) NSString *bigImageUrl;
+
 @end
 
 @implementation DKYDisplayViewController
@@ -72,6 +74,7 @@
             weakSelf.productList = [DKYGetProductListByGroupNoModel mj_objectArrayWithKeyValuesArray:page.items];
             weakSelf.pageNo = page.pageNo;
             weakSelf.totalPageNum = page.totalPageNum;
+            weakSelf.bigImageUrl = [result.data objectForKey:@"bigImageUrl"];
             
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -106,7 +109,7 @@
             weakSelf.groupNo_ = [weakSelf.getProductListByGroupNoParameterEx.groupNo integerValue];
             
 //            [weakSelf setupCustomTitle:[NSString stringWithFormat:@"%@",@(weakSelf.groupNo_)]];
-            
+            weakSelf.bigImageUrl = [result.data objectForKey:@"bigImageUrl"];
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -332,7 +335,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 : 550;
+    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 + 17 : 550 + 17;
     
     return 60;
 }
@@ -341,6 +344,8 @@
     if(indexPath.section == 0 && indexPath.row == 0){
         DKYDisplayImageViewCell *cell = [DKYDisplayImageViewCell displayImageViewCellWithTableView:tableView];
         cell.productList = self.productList;
+        cell.bigImageUrl = self.bigImageUrl;
+        cell.groupNo = self.groupNo;
         return cell;
     }
     

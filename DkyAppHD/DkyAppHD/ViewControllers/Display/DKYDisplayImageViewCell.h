@@ -14,4 +14,8 @@
 
 @property (nonatomic, strong) NSArray *productList;
 
+@property (nonatomic, copy) NSString *bigImageUrl;
+
+@property (nonatomic, copy) NSString *groupNo;
+
 @end
