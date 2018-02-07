@@ -89,6 +89,8 @@
 		26E780681E7D52DD0023FAD0 /* DKYVipNameParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */; };
 		26E870A81EA320F4005A6F7F /* DKYCustomOrderAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */; };
 		26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC02961E751D0700469C5C /* NSString+STRegex.m */; };
+		26F69A64202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */; };
+		26F69A65202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */; };
 		EB02E8821ECC1C02006C5354 /* DKYCollectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02E8811ECC1C02006C5354 /* DKYCollectListViewController.m */; };
 		EB02E88C1ECC2EB6006C5354 /* DKYCollectListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02E88A1ECC2EB6006C5354 /* DKYCollectListViewCell.m */; };
 		EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB02E88B1ECC2EB6006C5354 /* DKYCollectListViewCell.xib */; };
@@ -524,6 +526,9 @@
 		26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderAllViewController.m; sourceTree = "<group>"; };
 		26EC02951E751D0700469C5C /* NSString+STRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STRegex.h"; sourceTree = "<group>"; };
 		26EC02961E751D0700469C5C /* NSString+STRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+STRegex.m"; sourceTree = "<group>"; };
+		26F69A61202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYDisplayBigImaeViewCell.h; sourceTree = "<group>"; };
+		26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayBigImaeViewCell.m; sourceTree = "<group>"; };
+		26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYDisplayBigImaeViewCell.xib; sourceTree = "<group>"; };
 		39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FED25E22BF796984B1EE55C /* Pods-DkyAppHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.release.xcconfig"; sourceTree = "<group>"; };
 		69E913B8C432C75EFBD8F8DE /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DkyAppHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DkyAppHD/Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1101,6 +1106,9 @@
 				263702CB1F650C36000991C5 /* DKYRecommendFilterView.m */,
 				263702CD1F650D01000991C5 /* DKYRecommendHeaderView.h */,
 				263702CE1F650D01000991C5 /* DKYRecommendHeaderView.m */,
+				26F69A61202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.h */,
+				26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */,
+				26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2519,6 +2527,7 @@
 				EB3F2BDB1EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.xib in Resources */,
 				263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */,
 				EBD694D31E2785BB00F365C3 /* TOWebViewControllerLocalizable.strings in Resources */,
+				26F69A65202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib in Resources */,
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
 				EBB0FB9C1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib in Resources */,
 				EBBF214B1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib in Resources */,
@@ -2881,6 +2890,7 @@
 				EBA980801ECD8CC50080FC79 /* DKYTongkuanFiveViewCellEx.m in Sources */,
 				263702C01F64FD3E000991C5 /* DKYDisplayEntryViewCell.m in Sources */,
 				2658367E1FD445F300BAEA87 /* DKYTongkuan5XiabianItemView.m in Sources */,
+				26F69A64202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m in Sources */,
 				EBD694D91E2785BB00F365C3 /* TOWebViewController.m in Sources */,
 				263702D81F65321B000991C5 /* DKYGetProductListGhPageParameter.m in Sources */,
 				EBB1132E1ED3DEFF0028FC17 /* DKYGetColorListRequestParameter.m in Sources */,

@@ -30,7 +30,7 @@
     NSURL *url = [NSURL URLWithString:getProductListGhPageModel.clImgUrl];
     
     [self.imageView sd_setImageWithURL:url placeholderImage:nil];
-    NSMutableString *gw = [NSMutableString stringWithFormat:@"杆位：%@",getProductListGhPageModel.gh];
+    NSString *gw = [NSString stringWithFormat:@"杆位：%@",getProductListGhPageModel.gh];
     self.sampleIdLabel.text = gw;
 }
 
