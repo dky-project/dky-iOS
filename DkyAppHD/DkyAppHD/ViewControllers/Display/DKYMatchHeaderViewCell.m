@@ -32,11 +32,13 @@
 
 - (void)commonInit{
     //[self p_customSunview:self.kuanhaoLabel];
-//    for(UIView *view in self.contentView.subviews){
-//        if([view isMemberOfClass:[UILabel class]]){
-//            [self p_customSunview:view];
-//        }
-//    }
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    for(UIView *view in self.contentView.subviews){
+        if([view isMemberOfClass:[UILabel class]]){
+            [self p_customSunview:view];
+        }
+    }
 }
 
 - (void)p_customSunview:(UIView*)view{
