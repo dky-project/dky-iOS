@@ -412,6 +412,13 @@
             }
         }
             break;
+        case 4:{
+            // 品类
+            for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
+                [item addObject:model.attribname];
+            }
+        }
+            break;
           default:
             break;
     }
@@ -494,6 +501,20 @@
             self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id = @([model.ID integerValue]);
             
             [self getProductPriceFromServer];
+        }
+            break;
+        case 4:{
+            // 品类
+            if(index == 0){
+                self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = nil;
+                return;
+            }
+            
+            models = self.getProductListByGroupNoModel.pzJsonstr;
+            DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
+            
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = model.ID;
+            
         }
             break;
         default:

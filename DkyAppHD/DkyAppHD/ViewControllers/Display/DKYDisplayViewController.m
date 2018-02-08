@@ -338,6 +338,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 + 17 : 550 + 17;
     
+    if(indexPath.section == 1 && indexPath.row == 0) return 45;
+    
     return 60;
 }
 
@@ -350,7 +352,7 @@
         return cell;
     }
     
-    if(indexPath.section == 1 && indexPath.row == self.productList.count){
+    if(indexPath.section == 1 && indexPath.row == self.productList.count + 1){
         DKYDisplaySumViewCell *cell = [DKYDisplaySumViewCell displaySumViewCellWithTableView:tableView];
         cell.productList = self.productList;
         return cell;
