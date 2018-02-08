@@ -65,6 +65,7 @@
 		265836841FD44B4E00BAEA87 /* DKYTongkuan5AddMarkItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265836831FD44B4E00BAEA87 /* DKYTongkuan5AddMarkItemView.m */; };
 		265836871FD44BC300BAEA87 /* DKYTongkuan5MatchItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265836861FD44BC300BAEA87 /* DKYTongkuan5MatchItemView.m */; };
 		266290801E9D03F300886274 /* DKYSampleDetailAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */; };
+		266A9B26202C94A600F56879 /* DKYHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266A9B25202C94A600F56879 /* DKYHelpViewController.m */; };
 		2670F9D81F2B87F800D579B1 /* DkySampleOrderImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */; };
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
 		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
@@ -481,6 +482,8 @@
 		265836861FD44BC300BAEA87 /* DKYTongkuan5MatchItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5MatchItemView.m; sourceTree = "<group>"; };
 		2662907E1E9D03F300886274 /* DKYSampleDetailAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailAllViewController.h; sourceTree = "<group>"; };
 		2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailAllViewController.m; sourceTree = "<group>"; };
+		266A9B24202C94A600F56879 /* DKYHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYHelpViewController.h; sourceTree = "<group>"; };
+		266A9B25202C94A600F56879 /* DKYHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYHelpViewController.m; sourceTree = "<group>"; };
 		2670F9D61F2B87F800D579B1 /* DkySampleOrderImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DkySampleOrderImageViewCell.h; sourceTree = "<group>"; };
 		2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DkySampleOrderImageViewCell.m; sourceTree = "<group>"; };
 		267CED431E20DB1600ED5872 /* DKYHomeItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemDelegate.h; sourceTree = "<group>"; };
@@ -1168,6 +1171,15 @@
 				EBD5E27E1F31A67600B98F46 /* NSString+URL.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		266A9B23202C91B700F56879 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				266A9B24202C94A600F56879 /* DKYHelpViewController.h */,
+				266A9B25202C94A600F56879 /* DKYHelpViewController.m */,
+			);
+			path = Help;
 			sourceTree = "<group>";
 		};
 		267CED481E20EEF400ED5872 /* View */ = {
@@ -2074,6 +2086,7 @@
 				EB95107D1E15FC2C008708EF /* OrderInquiry */,
 				EBB0FBA11F3049B200BCD57C /* Display */,
 				EBD5E26D1F316BEC00B98F46 /* Recommend */,
+				266A9B23202C91B700F56879 /* Help */,
 				EB95117E1E16408C008708EF /* Login */,
 				EBD694B31E277D5100F365C3 /* Webview */,
 				EB9790721E221BDA00E2985C /* ViewTools */,
@@ -2809,6 +2822,7 @@
 				261EA3DA1F9100FD008F8962 /* UIDevice+LCActionSheet.m in Sources */,
 				EB97909A1E2246F800E2985C /* DKYLoginUserRequestParameter.m in Sources */,
 				EBB59ED11E56C35400F88A4C /* DKYCustomOrderVarietyView.m in Sources */,
+				266A9B26202C94A600F56879 /* DKYHelpViewController.m in Sources */,
 				267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */,
 				EBB0FB921F30215E00BCD57C /* DKYDahuoOrderInquiryViewController.m in Sources */,
 				EB97F2C71E26018F00BDC705 /* DKYOrderAuditStatusModel.m in Sources */,

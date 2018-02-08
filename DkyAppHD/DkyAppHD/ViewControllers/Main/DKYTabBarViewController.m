@@ -20,6 +20,7 @@
 #import "DKYDisplayViewController.h"
 #import "DKYRecommendEntryViewController.h"
 #import "DKYDisplayEntryViewController.h"
+#import "DKYHelpViewController.h"
 
 @interface DKYTabBarViewController ()<UITabBarControllerDelegate>
 
@@ -30,7 +31,7 @@
 @property (nonatomic, weak) DKYOrderInquiryAllViewController *orderInquiryVc;
 @property (nonatomic, weak) DKYRecommendEntryViewController *recommendVc;
 @property (nonatomic, weak) DKYDisplayEntryViewController *displayVc;
-
+@property (nonatomic, weak) DKYHelpViewController *helpVc;
 @end
 
 @implementation DKYTabBarViewController
@@ -120,6 +121,9 @@
     
     // 陈列功能
     [self setupDisplayVc];
+    
+    // 帮助
+    [self setupHelpVc];
 }
 
 - (void)setupHomeVc{
@@ -169,8 +173,15 @@
     
     [self addOneChlildVc:displayVc title:@"搭配" imageName:@"tabbar_display" selectedImageName:@"tabbar_display"];
     self.displayVc = displayVc;
+}
 
-
+- (void)setupHelpVc{
+    NSURL *URL = [NSURL URLWithString:@"https://www.baidu.com"];
+    
+    DKYHelpViewController* helpVc = [[DKYHelpViewController alloc] initWithURL:URL];
+    
+    [self addOneChlildVc:helpVc title:@"帮助" imageName:@"tabbar_help" selectedImageName:@"tabbar_help"];
+    self.helpVc = helpVc;
 }
 
 - (void)addOneChlildVc:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName
