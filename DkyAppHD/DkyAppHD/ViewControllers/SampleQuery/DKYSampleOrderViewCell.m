@@ -241,30 +241,7 @@ static const CGFloat basicItemHeight = 45;
     self.addProductApproveParameter.mDimNew17Id = self.madeInfoByProductName.productMadeInfoView.mDimNew17Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew17Id): nil;
     
     //颜色
-    NSMutableArray *selectedColor = [NSMutableArray array];
-    for (NSString *selectColor in self.madeInfoByProductName.productMadeInfoView.clrRangeArray) {
-        for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-            if([model.colorName isEqualToString:selectColor]){
-                model.selected = YES;
-                model.selectedCount++;
-                [selectedColor addObject:selectColor];
-                break;
-            }
-        }
-    }
-    
-    for (DKYDahuoOrderColorModel *model in self.madeInfoByProductName.colorViewList) {
-        if(model.selected){
-            self.addProductApproveParameter.colorValue = @(model.colorId);
-            break;
-        }
-    }
-    
-    if(selectedColor.count > 0){
-        self.addProductApproveParameter.colorArr = [selectedColor componentsJoinedByString:@";"];
-        self.addProductApproveParameter.colorSource = DKYDetailOrderSelectedColorType_MulSelected;
-    }
-    
+
     // 式样
     self.addProductApproveParameter.mDimNew12Id = self.madeInfoByProductName.productMadeInfoView.mDimNew12Id ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew12Id): nil;
     self.addProductApproveParameter.dkNumber = self.madeInfoByProductName.productMadeInfoView.dkValue;
