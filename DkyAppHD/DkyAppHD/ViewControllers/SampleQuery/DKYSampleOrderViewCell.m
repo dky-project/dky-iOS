@@ -332,24 +332,26 @@ static const CGFloat basicItemHeight = 45;
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    // 第一行 款号，客户，手机号
+    // 第一行 编号
     [self setupNumberView];
-    [self setupClientView];
     
-    // 第二行 款号，手机号
+    // 第二行 客户，手机号
+    [self setupClientView];
+    [self setupPhoneNumberView];
+    
+    // 款号 ，数量
     [self setupStyleNumberView];
     [self setupSumView];
-    [self setupPhoneNumberView];
 
     // 第三大行 品种 4个选择器
     [self setupVarietyView];
-    
+
     // 第五大行，尺寸
     [self setupSizeView];
 
     // 第六大行，净尺寸
     [self setupJingSizeItemView];
-    
+
     // 第七大行,肩型
     [self setupJanTypeView];
 }
@@ -391,10 +393,11 @@ static const CGFloat basicItemHeight = 45;
     
     WeakSelf(weakSelf);
     [self.clientView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
+        make.left.mas_equalTo(weakSelf.numberView);
         make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.numberView);
+        
+        make.top.mas_equalTo(weakSelf.numberView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -418,8 +421,7 @@ static const CGFloat basicItemHeight = 45;
         make.left.mas_equalTo(weakSelf.numberView);
         make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
-    
-        make.top.mas_equalTo(weakSelf.numberView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.clientView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -442,9 +444,9 @@ static const CGFloat basicItemHeight = 45;
     
     WeakSelf(weakSelf);
     [self.sumView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
-        make.width.mas_equalTo(weakSelf.numberView);
-        make.height.mas_equalTo(weakSelf.numberView);
+        make.left.mas_equalTo(weakSelf.styleNumberView.mas_right).with.offset(hpadding);
+        make.width.mas_equalTo(weakSelf.styleNumberView);
+        make.height.mas_equalTo(weakSelf.styleNumberView);
         make.top.mas_equalTo(weakSelf.styleNumberView);
     }];
     
@@ -467,10 +469,10 @@ static const CGFloat basicItemHeight = 45;
     
     WeakSelf(weakSelf);
     [self.phoneNumberView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.numberView);
+        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
         make.width.mas_equalTo(weakSelf.numberView);
         make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.clientView);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -502,7 +504,7 @@ static const CGFloat basicItemHeight = 45;
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
         make.height.mas_equalTo(175);
 //        make.height.mas_equalTo(weakSelf.numberView);
-        make.top.mas_equalTo(weakSelf.phoneNumberView.mas_bottom).with.offset(vpadding);
+        make.top.mas_equalTo(weakSelf.styleNumberView.mas_bottom).with.offset(vpadding);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
