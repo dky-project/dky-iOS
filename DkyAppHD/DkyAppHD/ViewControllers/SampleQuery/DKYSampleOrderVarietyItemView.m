@@ -146,6 +146,30 @@
         }
     }
     
+    if(self.madeInfoByProductName.productMadeInfoView.pzJsonArray.count == 1){
+        self.optionsBtn.enabled = NO;
+    }else{
+        self.optionsBtn.enabled = YES;
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.zzJsonArray.count == 1){
+        self.secondBtn.enabled = NO;
+    }else{
+        self.secondBtn.enabled = YES;
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.zxJsonArray.count == 1){
+        self.thirdBtn.enabled = NO;
+    }else{
+        self.thirdBtn.enabled = YES;
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 1){
+        self.fourthBtn.enabled = NO;
+    }else{
+        self.fourthBtn.enabled = YES;
+    }
+    
     if(self.madeInfoByProductName.colorRangeViewList.count > 0){
         NSDictionary *model =[self.madeInfoByProductName.colorRangeViewList firstObject];
         NSString *color = [model objectForKey:@"colorName"];
@@ -349,7 +373,7 @@
                     // 不存在，则刷新
                     [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
                     self.addProductApproveParameter.mDimNew17Id = nil;
-                    return;
+                    break;
                 }
                 
                 // 不存在，则取新的选项的第一项值
@@ -385,7 +409,7 @@
                     // 不存在，则刷新
                     [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
                     self.addProductApproveParameter.mDimNew17Id = nil;
-                    return;
+                    break;
                 }
                 
                 // 不存在，则取新的选项的第一项值
@@ -409,7 +433,7 @@
                     // 不存在，则刷新
                     [self.fourthBtn setTitle:self.fourthBtn.originalTitle forState:UIControlStateNormal];
                     self.addProductApproveParameter.mDimNew17Id = nil;
-                    return;
+                    break;
                 }
                 
                 // 不存在，则取新的选项的第一项值
@@ -422,6 +446,34 @@
             break;
         default:
             break;
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.pzJsonArray.count == 1 &&
+       self.addProductApproveParameter.mDimNew14Id != nil){
+        self.optionsBtn.enabled = NO;
+    }else{
+        self.optionsBtn.enabled = YES;
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.zzJsonArray.count == 1&&
+       self.addProductApproveParameter.mDimNew15Id != nil){
+        self.secondBtn.enabled = NO;
+    }else{
+        self.secondBtn.enabled = YES;
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.zxJsonArray.count == 1&&
+       self.addProductApproveParameter.mDimNew16Id != nil){
+        self.thirdBtn.enabled = NO;
+    }else{
+        self.thirdBtn.enabled = YES;
+    }
+    
+    if(self.madeInfoByProductName.productMadeInfoView.zbJsonArray.count == 1&&
+       self.addProductApproveParameter.mDimNew17Id != nil){
+        self.fourthBtn.enabled = NO;
+    }else{
+        self.fourthBtn.enabled = YES;
     }
 }
 
