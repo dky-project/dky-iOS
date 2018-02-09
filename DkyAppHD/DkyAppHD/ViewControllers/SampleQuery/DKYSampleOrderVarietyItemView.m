@@ -514,6 +514,10 @@
     actionSheet.scrolling = item.count > 10;
     actionSheet.visibleButtonCount = 10;
     actionSheet.destructiveButtonIndexSet = [NSIndexSet indexSetWithIndex:0];
+    if(sender.tag == 5){
+        actionSheet.titleFont = actionSheet.buttonFont;
+        actionSheet.titleEdgeInsets = UIEdgeInsetsMake(10, 0, 5, 0);
+    }
     [actionSheet show];
 }
 
