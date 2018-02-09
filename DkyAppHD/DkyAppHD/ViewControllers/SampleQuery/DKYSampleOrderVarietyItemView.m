@@ -796,9 +796,7 @@
     self.getPzsJsonParameter.mDimNew15Id = self.addProductApproveParameter.mDimNew15Id;
     self.getPzsJsonParameter.mDimNew16Id = self.addProductApproveParameter.mDimNew16Id;
     
-    if([self checkForupdateActionSheetOptions]){
-        [self getPzsJsonFromServer];
-    }
+    [self getPzsJsonFromServer];
 }
 
 - (void)updateColorSheet{
