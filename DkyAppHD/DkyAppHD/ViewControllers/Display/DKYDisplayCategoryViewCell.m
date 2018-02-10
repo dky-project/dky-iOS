@@ -414,7 +414,7 @@
             break;
         case 4:{
             // 品类
-            for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pzJsonstr) {
+            for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pinList) {
                 [item addObject:model.attribname];
             }
         }
@@ -506,15 +506,14 @@
         case 4:{
             // 品类
             if(index == 0){
-                self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = nil;
+                self.getProductListByGroupNoModel.addDpGroupApproveParam.mDim16Id = nil;
                 return;
             }
             
-            models = self.getProductListByGroupNoModel.pzJsonstr;
+            models = self.getProductListByGroupNoModel.pinList;
             DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
             
-            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id = model.ID;
-            
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDim16Id = @([model.ID integerValue]);
         }
             break;
         default:

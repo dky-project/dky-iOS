@@ -49,4 +49,9 @@
  */
 @property (nonatomic, strong) NSNumber *mDimNew16Id;
 
+/**
+ * 品类
+ */
+@property (nonatomic, strong) NSNumber *mDim16Id;
+
 @end

@@ -14,7 +14,9 @@
     return @{@"colorViewList" : @"DKYDahuoOrderColorModel",
              @"sizeViewList":@"DKYSizeViewListItemModel",
              @"pzJsonstr":@"DKYDimlistItemModel",
-             @"zxJsonstr":@"DKYDimlistItemModel"};
+             @"zxJsonstr":@"DKYDimlistItemModel",
+             @"pinList":@"DKYDimlistItemModel"
+             };
 }
 
 - (void)mj_keyValuesDidFinishConvertingToObject{
