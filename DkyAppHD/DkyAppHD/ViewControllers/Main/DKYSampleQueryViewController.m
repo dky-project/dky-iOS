@@ -103,6 +103,9 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
+            for(DKYSampleModel *model in samples){
+                model.isBuy = weakSelf.sampleQueryParameter.isBuy;
+            }
             [weakSelf.samples removeAllObjects];
             [weakSelf.samples addObjectsFromArray:samples];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -136,6 +139,9 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYSampleModel mj_objectArrayWithKeyValuesArray:page.items];
+            for(DKYSampleModel *model in samples){
+                model.isBuy = weakSelf.sampleQueryParameter.isBuy;
+            }
             [weakSelf.samples addObjectsFromArray:samples];
             weakSelf.pageNum++;
             [weakSelf.collectionView reloadData];

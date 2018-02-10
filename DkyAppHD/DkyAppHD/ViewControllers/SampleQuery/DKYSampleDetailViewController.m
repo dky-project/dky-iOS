@@ -15,6 +15,7 @@
 #import "DKYQueryPriceModel.h"
 #import "DKYSampleValueInfoModel.h"
 #import "DKYSampleDetailPriceViewCell.h"
+#import "DKYProductInfoParameter.h"
 
 @interface DKYSampleDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -59,8 +60,9 @@
 - (void)getProductInfoFromServer{
     WeakSelf(weakSelf);
     dispatch_group_enter(self.group);
-    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    DKYProductInfoParameter *p = [[DKYProductInfoParameter alloc] init];
     p.Id = @(self.sampleModel.mProductId);
+    p.isBuy = self.sampleModel.isBuy;
     
     [[DKYHttpRequestManager sharedInstance] getProductInfoWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];

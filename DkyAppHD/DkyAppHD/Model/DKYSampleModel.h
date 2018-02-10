@@ -25,4 +25,6 @@
 
 @property (nonatomic, assign) BOOL collected;
 
+@property (nonatomic, copy) NSString *isBuy;
+
 @end
