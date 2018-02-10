@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSNumber *iscollect;
 @property (nonatomic, copy) NSString *modifieddate;
 
+@property (nonatomic, copy) NSString *mDim16Text;
+
 // 客户端自己的属性
 @property (nonatomic, copy) NSString *sampleId;
 @property (nonatomic, strong) NSIndexPath *indexPath;

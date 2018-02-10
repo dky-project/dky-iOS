@@ -20,6 +20,7 @@
              @"yearList" : @"DKYDimNewListItemModel",
              @"zxList" : @"DKYDimNewListItemModel",
              @"zzList" : @"DKYDimNewListItemModel",
+             @"pinList" : @"DKYDimNewListItemModel",
              };
 }
 

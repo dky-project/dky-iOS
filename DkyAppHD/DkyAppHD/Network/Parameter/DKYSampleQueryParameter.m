@@ -16,6 +16,7 @@
     if (self) {
         self.isRecommend = @"N";
         self.isRank = @"N";
+        self.isBuy = @"N";
     }
     return self;
 }

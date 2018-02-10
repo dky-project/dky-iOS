@@ -111,7 +111,7 @@
 
 - (void)maijiaxiuBtnClicked:(UIButton*)sender{
     sender.selected = !sender.selected;
-    //self.sampleQueryParameter.isRank = sender.selected ? @"Y" : @"N";
+    self.sampleQueryParameter.isBuy = sender.selected ? @"Y" : @"N";
 }
 
 #pragma mark - private method
@@ -128,9 +128,9 @@
         }
             break;
         case 1:{
-            itemModels = self.dimNewListModel.bigClassList;
+            itemModels = self.dimNewListModel.pinList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
-            self.sampleQueryParameter.mDimNew11Id = model ? @(model.Id) : nil;
+            self.sampleQueryParameter.mDim16Id = model ? @(model.Id) : nil;
         }
             break;
         case 2:{
@@ -195,7 +195,7 @@
             originArray = self.dimNewListModel.sexList;
             break;
         case 1:
-            originArray = self.dimNewListModel.bigClassList;
+            originArray = self.dimNewListModel.pinList;
             break;
         case 2:
             originArray = self.dimNewListModel.pzList;

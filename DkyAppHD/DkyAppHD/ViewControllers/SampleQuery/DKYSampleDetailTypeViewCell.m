@@ -57,7 +57,7 @@
     self.cycleScrollView.imageURLStringsGroup = model.imgList;
     self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
     
-    NSString *name = [NSString stringWithFormat:@"款号：%@     品类：上衣",model.name];
+    NSString *name = [NSString stringWithFormat:@"款号：%@     品类：%@",model.name, model.mDim16Text];
     self.sampleTypeLabel.text = name;
     NSDictionary *dict = @{NSFontAttributeName : self.sampleTypeLabel.font,
                            NSForegroundColorAttributeName : self.sampleTypeLabel.textColor};

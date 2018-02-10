@@ -58,6 +58,12 @@
  * ID
  */
 @property (nonatomic, strong) NSNumber *mProductId;
+
+/**
+ * 品类
+ */
+@property (nonatomic, strong) NSNumber *mDim16Id;
+
 /**
  * 款号
  */
@@ -68,5 +74,8 @@
 
 // 销量排行
 @property (nonatomic, copy) NSString *isRank;
+
+// 买家秀
+@property (nonatomic, copy) NSString *isBuy;
 
 @end
