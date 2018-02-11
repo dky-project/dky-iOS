@@ -54,6 +54,8 @@
 		263CC1691E155A7E002FBB50 /* DKYHttpRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1681E155A7E002FBB50 /* DKYHttpRequestResult.m */; };
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
+		2643AD562030851E00F21913 /* DKYSampleOrderSLingItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643AD552030851E00F21913 /* DKYSampleOrderSLingItemView.m */; };
+		2643AD5920308BA500F21913 /* DKYSampleOrderOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643AD5820308BA500F21913 /* DKYSampleOrderOneView.m */; };
 		264C3C9B1F53057A00F47747 /* DKYGetProductPriceParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */; };
 		2658366F1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658366E1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m */; };
 		265836721FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265836711FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m */; };
@@ -463,6 +465,10 @@
 		263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestTool.m; sourceTree = "<group>"; };
 		263CC1731E155CED002FBB50 /* DKYHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHttpRequestManager.h; sourceTree = "<group>"; };
 		263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestManager.m; sourceTree = "<group>"; };
+		2643AD542030851E00F21913 /* DKYSampleOrderSLingItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderSLingItemView.h; sourceTree = "<group>"; };
+		2643AD552030851E00F21913 /* DKYSampleOrderSLingItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderSLingItemView.m; sourceTree = "<group>"; };
+		2643AD5720308BA500F21913 /* DKYSampleOrderOneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYSampleOrderOneView.h; sourceTree = "<group>"; };
+		2643AD5820308BA500F21913 /* DKYSampleOrderOneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYSampleOrderOneView.m; sourceTree = "<group>"; };
 		264C3C991F53057A00F47747 /* DKYGetProductPriceParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductPriceParameter.h; sourceTree = "<group>"; };
 		264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductPriceParameter.m; sourceTree = "<group>"; };
 		2658366D1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5FlowerTypeItemView.h; sourceTree = "<group>"; };
@@ -2282,8 +2288,12 @@
 				EBD116131EA4B63500AF6F5C /* DKYSampleOrderJianTypeItemView.m */,
 				EBB113321ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.h */,
 				EBB113331ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m */,
+				2643AD542030851E00F21913 /* DKYSampleOrderSLingItemView.h */,
+				2643AD552030851E00F21913 /* DKYSampleOrderSLingItemView.m */,
 				266A9B27202DDE3700F56879 /* DKYMultipleSelectPopupViewV2.h */,
 				266A9B28202DDE3700F56879 /* DKYMultipleSelectPopupViewV2.m */,
+				2643AD5720308BA500F21913 /* DKYSampleOrderOneView.h */,
+				2643AD5820308BA500F21913 /* DKYSampleOrderOneView.m */,
 			);
 			name = "样衣查询下单Item View";
 			sourceTree = "<group>";
@@ -2727,6 +2737,7 @@
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
 				EB9790711E221B6F00E2985C /* MMSheetView.m in Sources */,
 				EBD5E2791F319B8700B98F46 /* QMUIConfigurationTemplate.m in Sources */,
+				2643AD5920308BA500F21913 /* DKYSampleOrderOneView.m in Sources */,
 				263702CF1F650D01000991C5 /* DKYRecommendHeaderView.m in Sources */,
 				265836841FD44B4E00BAEA87 /* DKYTongkuan5AddMarkItemView.m in Sources */,
 				26DAD0CB1E1A2493008EE55F /* DKYNavigationController.m in Sources */,
@@ -2915,6 +2926,7 @@
 				263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */,
 				EBD825221F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m in Sources */,
 				EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */,
+				2643AD562030851E00F21913 /* DKYSampleOrderSLingItemView.m in Sources */,
 				26210BE31E59775300EB05D6 /* DKYCustomOrderTypeOneView.m in Sources */,
 				EB506C461E23B24C002A1423 /* KLCPopup.m in Sources */,
 				EBD115FC1EA4683D00AF6F5C /* DKYTongkuan5GenderItemView.m in Sources */,

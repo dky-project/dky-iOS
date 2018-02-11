@@ -494,7 +494,7 @@
         make.height.mas_equalTo(weakSelf.styleNumberTextField);
         make.top.mas_equalTo(weakSelf.styleNumberTextField);
         
-        make.left.mas_equalTo(weakSelf.rankBtn.mas_right).with.offset(kOptionViewMargin);
+        make.left.mas_equalTo(weakSelf.styleNumberTextField.mas_right).with.offset(kOptionViewMargin);
         make.width.mas_equalTo(kOptionViewHeight);
     }];
     self.rankBtn = btn;

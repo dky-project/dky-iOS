@@ -21,6 +21,7 @@
 #import "DKYGetSizeDataParameter.h"
 #import "DKYGetSizeDataModel.h"
 #import "DKYSampleOrderPatternItemView.h"
+#import "DKYSampleOrderSLingItemView.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 20;
@@ -61,6 +62,9 @@ static const CGFloat basicItemHeight = 45;
 
 // 袖型
 @property (nonatomic, weak) DKYSampleOrderXiuTypeItemView *xiuTypeView;
+
+// 领型
+@property (nonatomic, weak) DKYSampleOrderSLingItemView *lingItemView;
 
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 
@@ -374,6 +378,9 @@ static const CGFloat basicItemHeight = 45;
 
     // 第七大行,肩型
     [self setupJanTypeView];
+    
+    // 领型
+    [self setupLingItemView];
 }
 
 - (void)setupNumberView{
@@ -622,5 +629,24 @@ static const CGFloat basicItemHeight = 45;
     self.xiuTypeView.itemModel = itemModel;
 }
 
+- (void)setupLingItemView{
+    DKYSampleOrderSLingItemView *view = [[DKYSampleOrderSLingItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.lingItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.lingItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.styleNumberView);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
+        make.height.mas_equalTo(305);
+        make.top.mas_equalTo(weakSelf.xiuTypeView.mas_bottom).with.offset(vpadding);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"领";
+    itemModel.textFieldLeftOffset = 16;
+    itemModel.zoomed = YES;
+    self.lingItemView.itemModel = itemModel;
+}
 
 @end
