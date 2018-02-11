@@ -92,6 +92,7 @@
     if(self.cancelBtnClicked){
         self.cancelBtnClicked(self);
     }
+
     [self dismiss];
 }
 

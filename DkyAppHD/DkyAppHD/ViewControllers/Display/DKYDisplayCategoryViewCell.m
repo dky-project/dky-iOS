@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet QMUITextField *moneyTextField;
 @property (weak, nonatomic) IBOutlet DKYDisplayCollectButton *collectBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton *pinleiBtn;
 
 @property (nonatomic, strong) DKYGetSizeDataModel *getSizeDataModel;
 
@@ -411,6 +412,13 @@
             }
         }
             break;
+        case 4:{
+            // 品类
+            for (DKYDimlistItemModel *model in self.getProductListByGroupNoModel.pinList) {
+                [item addObject:model.attribname];
+            }
+        }
+            break;
           default:
             break;
     }
@@ -495,6 +503,19 @@
             [self getProductPriceFromServer];
         }
             break;
+        case 4:{
+            // 品类
+            if(index == 0){
+                self.getProductListByGroupNoModel.addDpGroupApproveParam.mDim16Id = nil;
+                return;
+            }
+            
+            models = self.getProductListByGroupNoModel.pinList;
+            DKYDimlistItemModel *model = [models objectOrNilAtIndex:index - 1];
+            
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDim16Id = @([model.ID integerValue]);
+        }
+            break;
         default:
             break;
     }
@@ -504,6 +525,7 @@
     if(self.getProductListByGroupNoModel.sum > 0){
         double sum = self.getProductListByGroupNoModel.sum * [self.getProductListByGroupNoModel.price doubleValue];
         NSString *sumMoney = [NSString formatRateStringWithRate:sum];
+        sumMoney = [NSString stringWithFormat:@"%@元",sumMoney];
         
         self.moneyLabel.text = sumMoney;
     }else{
@@ -522,6 +544,15 @@
     [self p_customSunview:self.titleLabel];
     
     self.group = dispatch_group_create();
+    
+    // 品类
+    [self p_customSunview:self.pinleiBtn];
+    self.pinleiBtn.originalTitle = [self.pinleiBtn currentTitle];
+    self.pinleiBtn.extraInfo = [self.pinleiBtn currentTitle];
+    self.pinleiBtn.tag = 4;
+    [self.pinleiBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        [weakSelf showOptionsPicker:weakSelf.pinleiBtn];
+    }];
     
     // 品种
     [self p_customSunview:self.pinzhongBtn];

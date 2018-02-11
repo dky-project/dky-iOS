@@ -13,6 +13,7 @@
 #import "DKYRecommendHeaderView.h"
 #import "DKYSampleModel.h"
 #import "DKYSampleDetailAllViewController.h"
+#import "DKYDisplayBigImaeViewCell.h"
 
 @interface DKYRecommendViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -28,6 +29,8 @@
 @property (nonatomic, assign) NSInteger gh_;
 
 @property (nonatomic, strong) NSMutableArray *samples;
+
+@property (nonatomic, copy) NSString *bigImageUrl;
 
 @end
 
@@ -60,6 +63,7 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             weakSelf.productList = [DKYGetProductListByGhModel mj_objectArrayWithKeyValuesArray:page.items];
+            weakSelf.bigImageUrl = [result.data objectForKey:@"bigImageUrl"];
             [weakSelf setupSanmples];
             
             weakSelf.pageNo = page.pageNo;
@@ -119,9 +123,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 0){
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-        
-        cell.backgroundColor = [UIColor randomColor];
+        DKYDisplayBigImaeViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYDisplayBigImaeViewCell class]) forIndexPath:indexPath];
+        cell.bigImageUrl = self.bigImageUrl;
+        cell.gh = self.gh;
         return cell;
     }
     
@@ -135,7 +139,7 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGSize size = CGSizeZero;
     if(indexPath.section == 0 && indexPath.item == 0) {
-        size = CGSizeMake(kScreenWidth - 26 * 2, 9 * (kScreenWidth - 26 * 2) / 20);
+        size = CGSizeMake(kScreenWidth - 26 * 2, 9 * (kScreenWidth - 26 * 2) / 20 + 15);
         return size;
     }
     
@@ -154,7 +158,7 @@
         return insets;
     }
     
-    insets = UIEdgeInsetsMake(28, 26, 0, 26);
+    insets = UIEdgeInsetsMake(12, 26, 0, 26);
     
     return insets;
 }
@@ -240,6 +244,9 @@
     
     [collectionView registerClass:[UICollectionViewCell class]forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
     [collectionView registerClass:[DKYRecommendSmallImageViewCell class] forCellWithReuseIdentifier:NSStringFromClass([DKYRecommendSmallImageViewCell class])];
+    
+//    [collectionView registerClass:[DKYDisplayBigImaeViewCell class] forCellWithReuseIdentifier:NSStringFromClass([DKYDisplayBigImaeViewCell class])];
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([DKYDisplayBigImaeViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([DKYDisplayBigImaeViewCell class])];
     
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {

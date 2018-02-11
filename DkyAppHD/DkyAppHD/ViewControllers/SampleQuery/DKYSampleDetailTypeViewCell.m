@@ -57,7 +57,7 @@
     self.cycleScrollView.imageURLStringsGroup = model.imgList;
     self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
     
-    NSString *name = [NSString stringWithFormat:@"款号：%@",model.name];
+    NSString *name = [NSString stringWithFormat:@"款号：%@     品类：%@",model.name, model.mDim16Text];
     self.sampleTypeLabel.text = name;
     NSDictionary *dict = @{NSFontAttributeName : self.sampleTypeLabel.font,
                            NSForegroundColorAttributeName : self.sampleTypeLabel.textColor};
@@ -67,6 +67,13 @@
     [attrName addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:range];
     [attrName addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHex:0x606060] range:range];
     [attrName addAttribute:NSBaselineOffsetAttributeName value:@4 range:range];
+    
+    range = [name rangeOfString:@"品类"];
+    range = NSMakeRange(range.location, range.length);
+    [attrName addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:range];
+    [attrName addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHex:0x606060] range:range];
+    [attrName addAttribute:NSBaselineOffsetAttributeName value:@4 range:range];
+    
     self.sampleTypeLabel.attributedText = attrName;
     
     self.genderLabel.text = [NSString stringWithFormat:@"性别 : %@",model.mDimNew13Text];

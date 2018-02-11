@@ -82,12 +82,20 @@
     if(!madeInfoByProductName) return;
     
     self.lengthView.textField.text = madeInfoByProductName.productMadeInfoView.ycValue;
+    self.bigView.optionsBtn.enabled = YES;
     
     if(madeInfoByProductName.productMadeInfoView.mDimNew22Id != 131 ||
        madeInfoByProductName.productMadeInfoView.mDimNew12Id != 55 ||
        (madeInfoByProductName.productMadeInfoView.mDimNew13Id == 20 &&
         madeInfoByProductName.productMadeInfoView.mDimNew15Id == 36)){
            [self.bigView.optionsBtn setTitle:madeInfoByProductName.productMadeInfoView.xwValue forState:UIControlStateNormal];
+           
+           if(self.madeInfoByProductName.productCusmptcateView.xwArrayList.count == 1 &&
+              self.addProductApproveParameter.xwValue != nil){
+               self.bigView.optionsBtn.enabled = NO;
+           }else{
+               self.bigView.optionsBtn.enabled = YES;
+           }
        }else{
            [self.bigView.optionsBtn setTitle:self.bigView.optionsBtn.originalTitle forState:UIControlStateNormal];
        }

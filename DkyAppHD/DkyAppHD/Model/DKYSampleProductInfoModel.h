@@ -77,4 +77,5 @@
 
 @property (nonatomic, assign) BOOL isBigOrder;
 
+@property (nonatomic, copy) NSString *mDim16Text;
 @end

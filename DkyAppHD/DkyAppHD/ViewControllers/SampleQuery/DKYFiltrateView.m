@@ -31,6 +31,8 @@
 
 @property (nonatomic, weak) UIButton *rankBtn;
 
+@property (nonatomic, weak) UIButton *maijiaxiuBtn;
+
 @end
 
 @implementation DKYFiltrateView
@@ -107,6 +109,11 @@
     self.sampleQueryParameter.isRank = sender.selected ? @"Y" : @"N";
 }
 
+- (void)maijiaxiuBtnClicked:(UIButton*)sender{
+    sender.selected = !sender.selected;
+    self.sampleQueryParameter.isBuy = sender.selected ? @"Y" : @"N";
+}
+
 #pragma mark - private method
 // index 表示哪一组
 // buttonIndex 组里哪一个被选中
@@ -121,9 +128,9 @@
         }
             break;
         case 1:{
-            itemModels = self.dimNewListModel.bigClassList;
+            itemModels = self.dimNewListModel.pinList;
             model = [itemModels objectOrNilAtIndex:buttonIndex];
-            self.sampleQueryParameter.mDimNew11Id = model ? @(model.Id) : nil;
+            self.sampleQueryParameter.mDim16Id = model ? @(model.Id) : nil;
         }
             break;
         case 2:{
@@ -188,7 +195,7 @@
             originArray = self.dimNewListModel.sexList;
             break;
         case 1:
-            originArray = self.dimNewListModel.bigClassList;
+            originArray = self.dimNewListModel.pinList;
             break;
         case 2:
             originArray = self.dimNewListModel.pzList;
@@ -236,6 +243,7 @@
     
     //[self setupRecommendBtn];
     //[self setupRankBtn];
+    [self setupMaijiaxiuBtn];
 //    [self test];
 }
 
@@ -303,7 +311,7 @@
         make.left.mas_equalTo(opention1.mas_right).with.offset(kOptionViewMargin);
         make.bottom.mas_equalTo(opention1);
     }];
-    opention2.title = @"大类";
+    opention2.title = @"品类";
     opention2.optionViewTaped = ^(DKYFiltrateOptionView *view){
         [weakSelf optionViewTaped:view];
     };
@@ -475,6 +483,22 @@
     }];
     self.rankBtn = btn;
     [btn setTitle:@"销量排行" forState:UIControlStateNormal];
+}
+
+- (void)setupMaijiaxiuBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eigh];
+    [self addSubview:btn];
+    [btn addTarget:self action:@selector(maijiaxiuBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(weakSelf.styleNumberTextField);
+        make.top.mas_equalTo(weakSelf.styleNumberTextField);
+        
+        make.left.mas_equalTo(weakSelf.rankBtn.mas_right).with.offset(kOptionViewMargin);
+        make.width.mas_equalTo(kOptionViewHeight);
+    }];
+    self.rankBtn = btn;
+    [btn setTitle:@"买家秀" forState:UIControlStateNormal];
 }
 
 - (void)test{

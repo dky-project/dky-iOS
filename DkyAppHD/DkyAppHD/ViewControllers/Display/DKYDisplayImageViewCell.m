@@ -30,6 +30,8 @@
 
 @property (nonatomic, strong) NSMutableArray *imageViews;
 
+@property (nonatomic, weak) UILabel *groupNoLabel;
+
 @end
 
 @implementation DKYDisplayImageViewCell
@@ -61,6 +63,19 @@
     }];
     
     self.smallImages = marr.copy;
+}
+
+- (void)setBigImageUrl:(NSString *)bigImageUrl{
+    _bigImageUrl = bigImageUrl;
+    if(bigImageUrl == nil) return;
+    
+    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:bigImageUrl]];
+}
+
+- (void)setGroupNo:(NSString *)groupNo{
+    _groupNo = [groupNo copy];
+    
+    self.groupNoLabel.text = [NSString stringWithFormat:@"搭配组：%@",groupNo];
 }
 
 - (void)layoutSubviews{
@@ -145,6 +160,7 @@
     self.backgroundColor = [UIColor whiteColor];
     
     [self setupBigImageView];
+    [self setupGroupNoLabel];
     [self setupGridView];
 }
 
@@ -166,9 +182,25 @@
     imageView.userInteractionEnabled = YES;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-        [weakSelf showPhotoBroseView:@[@"http://60.190.63.14:90/img/16-A008.jpg?random=78"] currentIndex:0 originView:weakSelf.bigImageView];
+        [weakSelf showPhotoBroseView:@[weakSelf.bigImageUrl] currentIndex:0 originView:weakSelf.bigImageView];
     }];
     [imageView addGestureRecognizer:tap];
+}
+
+- (void)setupGroupNoLabel{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.font = [UIFont systemFontOfSize:12];
+    label.textAlignment = NSTextAlignmentRight;
+    [self.contentView addSubview:label];
+    self.groupNoLabel = label;
+    
+    WeakSelf(weakSelf);
+    [self.groupNoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.bigImageView);
+        make.top.mas_equalTo(weakSelf.bigImageView.mas_bottom).with.offset(5);
+        make.bottom.mas_equalTo(weakSelf.contentView);
+        make.right.mas_equalTo(weakSelf.bigImageView);
+    }];
 }
 
 - (void)setupGridView{

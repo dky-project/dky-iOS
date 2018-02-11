@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,17 +20,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTw-H5-COk">
-                        <rect key="frame" x="529" y="0.0" width="67" height="40"/>
+                        <rect key="frame" x="548.5" y="3" width="60.5" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="ZlK-Qm-vcW"/>
-                            <constraint firstAttribute="width" constant="67" id="th8-8s-F3P"/>
+                            <constraint firstAttribute="width" constant="60.700000000000003" id="th8-8s-F3P"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afg-21-ehS">
-                        <rect key="frame" x="601.5" y="0.0" width="67" height="40"/>
+                        <rect key="frame" x="614.5" y="3" width="61" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                     <constraint firstItem="afg-21-ehS" firstAttribute="top" secondItem="xTw-H5-COk" secondAttribute="top" id="NLx-LD-QHa"/>
                     <constraint firstItem="xTw-H5-COk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Yiu-jG-tTb"/>
                     <constraint firstItem="afg-21-ehS" firstAttribute="leading" secondItem="xTw-H5-COk" secondAttribute="trailing" constant="5.7000000000000002" id="cYV-M3-Os7"/>
-                    <constraint firstItem="xTw-H5-COk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="529" id="jOp-nO-dZZ"/>
+                    <constraint firstItem="xTw-H5-COk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="548.5" id="jOp-nO-dZZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

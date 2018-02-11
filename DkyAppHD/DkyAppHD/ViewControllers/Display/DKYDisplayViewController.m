@@ -20,6 +20,7 @@
 #import "DKYAddProductDpGroupJsonParameter.h"
 #import "DKYAddProductDpGroupResponseModel.h"
 #import "DKYConfirmProductApproveParameter.h"
+#import "DKYMatchHeaderViewCell.h"
 
 @interface DKYDisplayViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -41,6 +42,8 @@
 @property (nonatomic, assign) NSInteger groupNo_;
 
 @property (nonatomic, strong) DKYAddProductDpGroupResponseModel *addProductDpGroupResponseModel;
+
+@property (nonatomic, copy) NSString *bigImageUrl;
 
 @end
 
@@ -72,6 +75,7 @@
             weakSelf.productList = [DKYGetProductListByGroupNoModel mj_objectArrayWithKeyValuesArray:page.items];
             weakSelf.pageNo = page.pageNo;
             weakSelf.totalPageNum = page.totalPageNum;
+            weakSelf.bigImageUrl = [result.data objectForKey:@"bigImageUrl"];
             
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -105,8 +109,8 @@
             weakSelf.totalPageNum = page.totalPageNum;
             weakSelf.groupNo_ = [weakSelf.getProductListByGroupNoParameterEx.groupNo integerValue];
             
-            [weakSelf setupCustomTitle:[NSString stringWithFormat:@"%@",@(weakSelf.groupNo_)]];
-            
+//            [weakSelf setupCustomTitle:[NSString stringWithFormat:@"%@",@(weakSelf.groupNo_)]];
+            weakSelf.bigImageUrl = [result.data objectForKey:@"bigImageUrl"];
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -318,7 +322,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(section == 0) return self.productList ? 1 : 0;
     
-    return self.productList.count > 0 ? self.productList.count + 1 : 0;
+    return self.productList.count > 0 ? self.productList.count + 2 : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -332,7 +336,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 : 550;
+    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 + 17 : 550 + 17;
+    
+    if(indexPath.section == 1 && indexPath.row == 0) return 45;
     
     return 60;
 }
@@ -341,24 +347,31 @@
     if(indexPath.section == 0 && indexPath.row == 0){
         DKYDisplayImageViewCell *cell = [DKYDisplayImageViewCell displayImageViewCellWithTableView:tableView];
         cell.productList = self.productList;
+        cell.bigImageUrl = self.bigImageUrl;
+        cell.groupNo = self.groupNo;
         return cell;
     }
     
-    if(indexPath.section == 1 && indexPath.row == self.productList.count){
+    if(indexPath.section == 1 && indexPath.row == self.productList.count + 1){
         DKYDisplaySumViewCell *cell = [DKYDisplaySumViewCell displaySumViewCellWithTableView:tableView];
         cell.productList = self.productList;
         return cell;
     }
     
-    DKYGetProductListByGroupNoModel *model = [self.productList objectAtIndex:indexPath.row];
+    if(indexPath.section == 1 && indexPath.row == 0){
+        DKYMatchHeaderViewCell *cell = [DKYMatchHeaderViewCell matchHeaderViewCellWithTableView:tableView];
+        return cell;
+    }
+    
+    DKYGetProductListByGroupNoModel *model = [self.productList objectAtIndex:indexPath.row - 1];
     if(model.isBigOrder){
         DKYDisplayCategoryDahuoViewCell *cell = [DKYDisplayCategoryDahuoViewCell displayCategoryDahuoViewCellWithTableView:tableView];
-        cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row];
+        cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row - 1];
         return cell;
     }
 
     DKYDisplayCategoryViewCell *cell = [DKYDisplayCategoryViewCell displayCategoryViewCellWithTableView:tableView];
-    cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row];
+    cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row - 1];
     return cell;
 }
 
@@ -370,7 +383,8 @@
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:self.groupNo];
+    [self setupCustomTitle:@"搭配"];
+    
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
@@ -489,7 +503,7 @@
 - (void)setupCustomTitle:(NSString*)title;
 {
     UILabel *titleLabel = [[UILabel alloc]init];
-    titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    titleLabel.font = [UIFont boldSystemFontOfSize:15];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     

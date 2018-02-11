@@ -20,5 +20,6 @@
 @property (nonatomic, strong) NSArray * yearList;
 @property (nonatomic, strong) NSArray * zxList;
 @property (nonatomic, strong) NSArray * zzList;
+@property (nonatomic, copy) NSArray *pinList;
 
 @end

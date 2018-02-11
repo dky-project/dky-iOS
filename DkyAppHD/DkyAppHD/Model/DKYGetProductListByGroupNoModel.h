@@ -37,6 +37,8 @@
 
 @property (nonatomic, strong) NSArray *zxJsonstr;
 
+@property (nonatomic, copy) NSArray *pinList;
+
 // 客户端自己的属性
 @property (nonatomic, assign) BOOL isCollected;
 
