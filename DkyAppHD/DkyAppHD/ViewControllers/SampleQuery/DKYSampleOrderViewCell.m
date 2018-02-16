@@ -638,7 +638,7 @@ static const CGFloat basicItemHeight = 45;
     [self.lingItemView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.styleNumberView);
         make.right.mas_equalTo(weakSelf.contentView).with.offset(-leftOffset);
-        make.height.mas_equalTo(305);
+        make.height.mas_equalTo(345);
         make.top.mas_equalTo(weakSelf.xiuTypeView.mas_bottom).with.offset(vpadding);
     }];
     

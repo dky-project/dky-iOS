@@ -34,4 +34,6 @@
 
 @property (nonatomic, assign) BOOL zoomed;
 
+@property (nonatomic, strong) UIFont *zoomedFont;
+
 @end

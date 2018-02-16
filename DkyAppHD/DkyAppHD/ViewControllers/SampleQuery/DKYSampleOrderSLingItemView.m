@@ -522,17 +522,19 @@
 - (void)commonInit{
     [self setupTitleLabel];
     [self setupOptionsBtn];
-
     [self setupOneView];
-//    [self setupSizeView];
-//    [self setupLbcsBtn];
-//    [self setupLbBtn];
-//    [self setupTextField];
-//
-//    [self setupLxBtn];
-//    [self setupLikouView];
-//    [self setupOtherMarkView];
-//    [self setupMarkView];
+    
+    [self setupSizeView];
+    
+    [self setupLbcsBtn];
+    [self setupLbBtn];
+    [self setupTextField];
+
+    [self setupLxBtn];
+    [self setupLikouView];
+    [self setupOtherMarkView];
+    
+    [self setupMarkView];
 }
 
 - (void)setupTitleLabel{
@@ -605,10 +607,10 @@
     
     WeakSelf(weakSelf);
     [self.sizeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.oneView.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(DKYCustomOrderItemWidth);
-        make.top.mas_equalTo(weakSelf.titleLabel);
+        make.width.mas_equalTo(140 + 145 + 30);
+        make.top.mas_equalTo(weakSelf.optionsBtn.mas_bottom).with.offset(20);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -618,19 +620,20 @@
     itemModel.textFieldDidEditing = ^(UITextField* textField){
         weakSelf.addProductApproveParameter.lingCcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
+    itemModel.zoomed = YES;
     self.sizeView.itemModel = itemModel;
 }
 
 - (void)setupLbcsBtn{
     WeakSelf(weakSelf);
-    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(DKYCustomOrderItemWidth);
-        make.top.mas_equalTo(weakSelf.titleLabel.mas_bottom).with.offset(20);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
+        make.top.mas_equalTo(weakSelf.sizeView.mas_bottom).with.offset(20);
     }];
     self.lbcBtn = btn;
     [btn setTitle:@"点击选择领边层" forState:UIControlStateNormal];
@@ -643,13 +646,13 @@
 
 - (void)setupLbBtn{
     WeakSelf(weakSelf);
-    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.lbcBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.lbcBtn.mas_right).with.offset(30);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
         make.top.mas_equalTo(weakSelf.lbcBtn);
     }];
     self.lbBtn = btn;
@@ -669,7 +672,7 @@
     textField.layer.borderColor = [UIColor colorWithHex:0x666666].CGColor;
     textField.layer.borderWidth = 1;
     
-    textField.font = [UIFont systemFontOfSize:14];
+    textField.font = [UIFont systemFontOfSize:26];
     textField.textColor = [UIColor colorWithHex:0x666666];
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.backgroundColor = [UIColor whiteColor];
@@ -686,22 +689,22 @@
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.lbBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.lbBtn.mas_right).with.offset(30);
         make.top.mas_equalTo(weakSelf.lbBtn);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
     }];
 }
 
 - (void)setupLxBtn{
     WeakSelf(weakSelf);
-    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Six];
+    UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Eleven];
     [self addSubview:btn];
     [btn addTarget:self action:@selector(optionsBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
         make.top.mas_equalTo(weakSelf.lbcBtn.mas_bottom).with.offset(20);
     }];
     self.lxBtn = btn;
@@ -720,9 +723,9 @@
     
     WeakSelf(weakSelf);
     [self.likouView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.lxBtn.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.lxBtn.mas_right).with.offset(30);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
         make.top.mas_equalTo(weakSelf.lxBtn);
     }];
     
@@ -732,6 +735,7 @@
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.lxsx4Value = textField.text;
     };
+    itemModel.zoomed = YES;
     self.likouView.itemModel = itemModel;
 }
 
@@ -742,9 +746,9 @@
     
     WeakSelf(weakSelf);
     [self.otherMarkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.likouView.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.likouView.mas_right).with.offset(30);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.width.mas_equalTo(DKYCustomOrderItemWidth);
+        make.width.mas_equalTo(weakSelf.optionsBtn);
         make.top.mas_equalTo(weakSelf.lxBtn);
     }];
     
@@ -757,6 +761,8 @@
         }
         weakSelf.addProductApproveParameter.qtLingOther = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
     };
+    itemModel.zoomedFont = [UIFont systemFontOfSize:16];
+    itemModel.zoomed = YES;
     self.otherMarkView.itemModel = itemModel;
     
     self.otherMarkView.textField.enabled = NO;
@@ -769,10 +775,10 @@
     
     WeakSelf(weakSelf);
     [self.markView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.otherMarkView.mas_right).with.offset(DKYCustomOrderItemMargin);
+        make.left.mas_equalTo(weakSelf.optionsBtn);
         make.height.mas_equalTo(weakSelf.titleLabel);
-        make.right.mas_equalTo(weakSelf.sizeView);
-        make.top.mas_equalTo(weakSelf.lxBtn);
+        make.width.mas_equalTo(weakSelf.sizeView);
+        make.top.mas_equalTo(weakSelf.lxBtn.mas_bottom).with.offset(20);
     }];
     
     DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
@@ -784,6 +790,7 @@
         }
         weakSelf.addProductApproveParameter.lxsx5Value = textField.text;
     };
+    itemModel.zoomed = YES;
     self.markView.itemModel = itemModel;
 }
 
