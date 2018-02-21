@@ -96,6 +96,7 @@ static const CGFloat basicItemHeight = 45;
 
 - (void)fetchAddProductApproveInfo{
     [self.patternItemView fetchAddProductApproveInfo];
+    [self.lingItemView fetchAddProductApproveInfo];
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -136,6 +137,9 @@ static const CGFloat basicItemHeight = 45;
     self.sizeView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.jianTypeItemView.customOrderDimList = productApproveTitleModel.dimListModel;
     self.patternItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    self.lingItemView.customOrderDimList = productApproveTitleModel.dimListModel;
+    
+    self.lingItemView.staticDimListModel = productApproveTitleModel.staticDimListModel;
     
     DKYCustomOrderItemModel *model = self.numberView.itemModel;
     model.content = productApproveTitleModel.no;
@@ -154,6 +158,7 @@ static const CGFloat basicItemHeight = 45;
     self.jianTypeItemView.addProductApproveParameter = addProductApproveParameter;
     self.xiuTypeView.addProductApproveParameter = addProductApproveParameter;
     self.patternItemView.addProductApproveParameter = addProductApproveParameter;
+    self.lingItemView.addProductApproveParameter = addProductApproveParameter;
     
     // 设置默认值
     addProductApproveParameter.mobile = self.phoneNumberView.itemModel.content;
@@ -243,6 +248,7 @@ static const CGFloat basicItemHeight = 45;
     self.varietyView.madeInfoByProductName = self.madeInfoByProductName;
     self.jianTypeItemView.madeInfoByProductName = self.madeInfoByProductName;
     self.patternItemView.madeInfoByProductName = self.madeInfoByProductName;
+    self.lingItemView.madeInfoByProductName = self.madeInfoByProductName;
 }
 
 // 款号输入之后，有默认回来的参数，先进行赋值
@@ -347,6 +353,7 @@ static const CGFloat basicItemHeight = 45;
 - (void)dealwithMDimNew12IdSelected{
     [self.jianTypeItemView dealwithMDimNew12IdSelected];
     [self.xiuTypeView dealwithMDimNew12IdSelected];
+    [self.lingItemView dealwithMDimNew12IdSelected];
 }
 
 #pragma mark - UI

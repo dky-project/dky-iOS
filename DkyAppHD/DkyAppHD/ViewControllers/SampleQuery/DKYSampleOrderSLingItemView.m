@@ -384,32 +384,6 @@
     }
     [self.optionsBtn setTitle:model.attribname forState:UIControlStateNormal];
     self.addProductApproveParameter.lingValue = model.attribname;
-    //    switch (index) {
-    //        case 1:{
-    //            // 领边
-    //            self.lbcBtn.enabled = NO;
-    //            self.lbBtn.enabled = NO;
-    //            self.sizeView.textField.enabled = NO;
-    //        }
-    //            break;
-    //        case 2:{
-    //            // 领型
-    //            self.lxBtn.enabled = NO;
-    //        }
-    //            break;
-    //
-    //        case 3:{
-    //            // 完全
-    //            self.lbcBtn.enabled = NO;
-    //            self.lbBtn.enabled = NO;
-    //            self.lxBtn.enabled = NO;
-    //            self.sizeView.textField.enabled = NO;
-    //        }
-    //            break;
-    //
-    //        default:
-    //            break;
-    //    }
 }
 
 - (void)actionSheetSelected:(NSInteger)tag index:(NSInteger)index{
@@ -594,6 +568,7 @@
     itemModel.title = @"同";
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
+    itemModel.zoomed = YES;
     self.oneView.itemModel = itemModel;
     
     [self.oneView.textField addTarget:self action:@selector(oneViewLeftTextFieldEditing:) forControlEvents:UIControlEventEditingChanged];

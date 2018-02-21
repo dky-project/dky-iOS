@@ -94,6 +94,11 @@
             make.width.mas_equalTo(textFrame.size.width + 2);
         }];
     }
+    
+    if(itemModel.zoomed){
+        self.textField.font = [UIFont systemFontOfSize:26];
+        self.textField2.font = [UIFont systemFontOfSize:26];
+    }
 }
 
 #pragma mark - mark
