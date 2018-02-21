@@ -108,7 +108,7 @@
     [self setupSampleQueryVc];
     
     // 定制下单
-    [self setupCustomOrderVc];
+    //[self setupCustomOrderVc];
     
     // 收藏列表
     [self setupCollectListVc];
