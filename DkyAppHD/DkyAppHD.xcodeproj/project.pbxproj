@@ -3160,7 +3160,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARFBJ33Y9T;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ./DkyAppHD/Application/PrefixHeader.pch;
 				INFOPLIST_FILE = DkyAppHD/Info.plist;
@@ -3180,7 +3181,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARFBJ33Y9T;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ./DkyAppHD/Application/PrefixHeader.pch;
 				INFOPLIST_FILE = DkyAppHD/Info.plist;
