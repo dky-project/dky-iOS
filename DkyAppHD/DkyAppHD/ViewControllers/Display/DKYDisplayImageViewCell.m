@@ -181,6 +181,8 @@
         make.width.mas_equalTo(kSmallImageWidth * 2 + kMargin);
     }];
     
+    [self.bigImageView sd_setShowActivityIndicatorView:YES];
+    [self.bigImageView sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
     //self.bigImageView.backgroundColor = [UIColor randomColor];
     
     imageView.userInteractionEnabled = YES;

@@ -43,6 +43,8 @@
 }
 
 - (void)commonInit{
+    [self.bigImageView sd_setShowActivityIndicatorView:YES];
+    [self.bigImageView sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
     //self.bigImageView.backgroundColor = [UIColor randomColor];
 }
 
