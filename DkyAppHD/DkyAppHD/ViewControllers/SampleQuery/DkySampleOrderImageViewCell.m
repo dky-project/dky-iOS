@@ -56,11 +56,15 @@
     imageUrl = [imgUrlList objectOrNilAtIndex:1];
     if([imageUrl isNotBlank]){
         [self.displayImageView2 sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+        self.displayImageView2.contentMode = UIViewContentModeScaleAspectFill;
+        self.displayImageView2.clipsToBounds = YES;
     }
     
     imageUrl = [imgUrlList objectOrNilAtIndex:2];
     if([imageUrl isNotBlank]){
         [self.displayImageView3 sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+        self.displayImageView3.contentMode = UIViewContentModeScaleAspectFill;
+        self.displayImageView3.clipsToBounds = YES;
     }
 }
 
@@ -86,23 +90,27 @@
     imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:imageView];
     self.displayImageView2 = imageView;
+    self.displayImageView2.contentMode = UIViewContentModeScaleAspectFill;
+    self.displayImageView2.clipsToBounds = YES;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.displayImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(380);
         make.top.mas_equalTo(weakSelf.displayImageView.mas_bottom).with.offset(10);
-        make.left.mas_equalTo(weakSelf.contentView);
-        make.right.mas_equalTo(weakSelf.contentView);
+        make.left.mas_equalTo(weakSelf.contentView).with.offset(8);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-8);
     }];
     
     imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:imageView];
     self.displayImageView3 = imageView;
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.displayImageView3.contentMode = UIViewContentModeScaleAspectFill;
+    self.displayImageView3.clipsToBounds = YES;
+    imageView.contentMode = UIViewContentModeScaleToFill;
     [self.displayImageView3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(380);
         make.top.mas_equalTo(weakSelf.displayImageView2.mas_bottom).with.offset(10);
-        make.left.mas_equalTo(weakSelf.contentView);
-        make.right.mas_equalTo(weakSelf.contentView);
+        make.left.mas_equalTo(weakSelf.contentView).with.offset(8);
+        make.right.mas_equalTo(weakSelf.contentView).with.offset(-8);
     }];
 }
 
