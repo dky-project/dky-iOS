@@ -89,7 +89,39 @@
     
     self.xcView.textField.text = madeInfoByProductName.productMadeInfoView.xcValue;
     
-    self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame || ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame && [madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]));
+    self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame ||
+        ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame &&
+         [madeInfoByProductName.productMadeInfoView.xcValue isNotBlank])||
+        madeInfoByProductName.productMadeInfoView.mDimNew22Id == 131);
+    
+    if(self.xcView.textField.enabled){
+        if(madeInfoByProductName.productMadeInfoView.mDimNew12Id == 57||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 55||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 355||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 56||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 58||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 59||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 65||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 369||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 64||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 63||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id== 62||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 68||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 307||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 308||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 309||
+           madeInfoByProductName.productMadeInfoView.mDimNew12Id == 61||
+           ((madeInfoByProductName.productMadeInfoView.mDimNew13Id == 364||
+             madeInfoByProductName.productMadeInfoView.mDimNew13Id  == 365)&&
+            (madeInfoByProductName.productMadeInfoView.mDimNew12Id == 367||
+             madeInfoByProductName.productMadeInfoView.mDimNew12Id == 368))){
+                self.canEdit = NO;
+                DLog(@"disabled");
+            }else{
+                self.canEdit = YES;
+                DLog(@"enabled");
+            }
+    }
 }
 
 - (void)dealwithMDimNew12IdSelected{
