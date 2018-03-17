@@ -37,7 +37,7 @@
 #pragma mark - UI
 
 - (void)commonInit{
-    
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 @end

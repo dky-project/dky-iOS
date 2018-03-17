@@ -29,7 +29,12 @@
 - (void)setBigImageUrl:(NSString *)bigImageUrl{
     _bigImageUrl = [bigImageUrl copy];
     
-    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:bigImageUrl]];
+    WeakSelf(weakSelf);
+    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:bigImageUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if(error){
+            weakSelf.bigImageView.image = [UIImage imageWithColor:[UIColor randomColor]];
+        }
+    }];
 }
 
 - (void)setGh:(NSString *)gh{
@@ -38,7 +43,9 @@
 }
 
 - (void)commonInit{
-    self.bigImageView.backgroundColor = [UIColor randomColor];
+    [self.bigImageView sd_setShowActivityIndicatorView:YES];
+    [self.bigImageView sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    //self.bigImageView.backgroundColor = [UIColor randomColor];
 }
 
 @end

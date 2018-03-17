@@ -70,6 +70,7 @@
 #import "AFNetworking.h"
 #import "NSString+URL.h"
 #import "UIAlertController+Blocks.h"
+#import "UIView+WebCache.h"
 #endif
 
 
