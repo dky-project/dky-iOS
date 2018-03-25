@@ -243,7 +243,6 @@
     
     [self setupLogoutBtn];
     
-    [self.navigationItem setLeftBarButtonItems:nil];
     [self setupCollectionView];
 }
 
@@ -358,7 +357,7 @@
     TWNavBtnItem *rightBtnItem = [[TWNavBtnItem alloc]init];
     
     rightBtnItem.itemType = TWNavBtnItemType_Text;
-    rightBtnItem.title = @"退出";
+    rightBtnItem.title = @"注销";
     rightBtnItem.normalImage = nil;
     rightBtnItem.hilightedImage = nil;
     self.rightBtnItem = rightBtnItem;

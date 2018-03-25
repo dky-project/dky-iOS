@@ -45,6 +45,11 @@
 //
 //@property (nonatomic, strong) NSArray *bigClassEnums;
 
+// 返回按钮回调的block
+@property (nonatomic, copy)TWBaseViewControllerRightBtnClickedBlock rightBtnClicked;
+
+@property (nonatomic, strong) TWNavBtnItem *rightBtnItem;
+
 // 测试数据
 @property (nonatomic, assign) NSInteger sampleCount;
 
@@ -84,6 +89,18 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+
+- (void)rightBtnClicked:(UIButton*)sender{
+    if(self.rightBtnClicked){
+        self.rightBtnClicked(sender);
+    }
+}
+
+- (void)setRightBtnItem:(TWNavBtnItem *)rightBtnItem{
+    _rightBtnItem = rightBtnItem;
+    
+    [self setupRightButton];
 }
 
 #pragma mark - 网络请求
@@ -405,6 +422,8 @@
     [self setupSearchView];
     [self setupFiltrateView];
     
+    [self setupLogoutBtn];
+    
 //    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
 //    for (int i = 1; i < 6; ++i) {
 //        NSString *imageName = [NSString stringWithFormat:@"sampleImage%@",@(i)];
@@ -530,6 +549,94 @@
                                            context:nil];;
     titleLabel.text = title;
     self.navigationItem.titleView = titleLabel;
+}
+
+- (void)setupLogoutBtn{
+    TWNavBtnItem *rightBtnItem = [[TWNavBtnItem alloc]init];
+    
+    rightBtnItem.itemType = TWNavBtnItemType_Text;
+    rightBtnItem.title = @"注销";
+    rightBtnItem.normalImage = nil;
+    rightBtnItem.hilightedImage = nil;
+    self.rightBtnItem = rightBtnItem;
+    
+    self.rightBtnClicked = ^(UIButton *sender) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+    };
+}
+
+- (void)setupRightButton
+{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIFont *font = self.rightBtnItem.titleFont;
+    btn.titleLabel.font = font;
+    btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    [btn setTitleColor:self.rightBtnItem.normalTitleColor forState:UIControlStateNormal];
+    [btn setTitle:self.rightBtnItem.title forState:UIControlStateNormal];
+    [btn setTitle:self.rightBtnItem.title forState:UIControlStateHighlighted];
+    
+    UIImage *image = self.rightBtnItem.normalImage;
+    if(image){
+        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [btn setImage:image forState:UIControlStateNormal];
+    }
+    
+    UIImage *himage = self.rightBtnItem.hilightedImage;
+    himage = [himage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    if(himage){
+        [btn setImage:himage forState:UIControlStateHighlighted];
+    }
+    
+    [btn addTarget:self action:@selector(rightBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    btn.backgroundColor = [UIColor clearColor];
+    
+    UIBarButtonItem *flexSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    CGRect textFrame = CGRectMake(0, 6, 40, 40);
+    
+    
+    switch (self.rightBtnItem.itemType) {
+        case TWNavBtnItemType_Text:{
+            CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+            UIColor *foregroundColor = self.rightBtnItem.normalTitleColor;
+            NSDictionary *attributes = @{NSFontAttributeName : font,
+                                         NSForegroundColorAttributeName: foregroundColor};
+            NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+            CGRect titleFrame = [self.rightBtnItem.title boundingRectWithSize:size
+                                                                      options:options
+                                                                   attributes:attributes
+                                                                      context:nil];
+            textFrame.size.width = MAX(textFrame.size.width, titleFrame.size.width);
+        }
+            break;
+        case TWNavBtnItemType_ImageAndText:{
+            CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+            UIColor *foregroundColor = self.rightBtnItem.normalTitleColor;
+            NSDictionary *attributes = @{NSFontAttributeName : font,
+                                         NSForegroundColorAttributeName: foregroundColor};
+            NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+            CGRect titleFrame = [self.rightBtnItem.title boundingRectWithSize:size
+                                                                      options:options
+                                                                   attributes:attributes
+                                                                      context:nil];
+            CGSize imageSize = self.rightBtnItem.normalImage.size;
+            textFrame.size.width += (titleFrame.size.width + imageSize.width + self.rightBtnItem.titleOffsetX);
+        }
+            break;
+        case TWNavBtnItemType_Unset:
+        case TWNavBtnItemType_Image:
+            break;
+        default:
+            break;
+    }
+    
+    btn.frame = textFrame;
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, self.rightBtnItem.titleOffsetX, 0, 0);
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    
+    flexSpacer.width = (self.rightBtnItem.offetX - 16);  // right btn 的x坐标为10,
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:flexSpacer,rightItem, nil]];
 }
 
 #pragma mark - collectionView delegate & datasource
