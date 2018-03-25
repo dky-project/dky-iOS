@@ -102,13 +102,13 @@
 - (void)addAllChildVcs
 {
     // 首页
-    [self setupHomeVc];
+    //[self setupHomeVc];
     
     // 样衣查询
     [self setupSampleQueryVc];
     
     // 定制下单
-    [self setupCustomOrderVc];
+    //[self setupCustomOrderVc];
     
     // 收藏列表
     [self setupCollectListVc];
@@ -116,14 +116,14 @@
     // 订单查询
     [self setupOrderInqueryVc];
     
-    // 推荐功能
+    // 陈列功能
     [self setupRecommendVc];
     
-    // 陈列功能
+    // 搭配功能
     [self setupDisplayVc];
     
     // 帮助
-    [self setupHelpVc];
+    //[self setupHelpVc];
 }
 
 - (void)setupHomeVc{
