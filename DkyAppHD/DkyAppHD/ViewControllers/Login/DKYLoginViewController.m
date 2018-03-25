@@ -10,6 +10,7 @@
 #import "DKYTabBarViewController.h"
 #import "UINavigationController+WXSTransition.h"
 #import "DKYLoginUserRequestParameter.h"
+#import "AppDelegate.h"
 
 @interface DKYLoginViewController ()
 
@@ -80,7 +81,8 @@
         transition.animationType = WXSTransitionAnimationTypeBrickOpenHorizontal;
         transition.animationTime = 1.0;
     } completion:^{
-        
+        AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        app.window.rootViewController = mainVc;
     }];
 }
 
