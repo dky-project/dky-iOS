@@ -69,6 +69,7 @@
     self.sampleQueryParameter.mDimNew25Id = nil;
     self.sampleQueryParameter.mDimNew9Id = nil;
     self.sampleQueryParameter.mDim13Id = nil;
+    self.sampleQueryParameter.mDim16Id = nil;
 //    self.selectedBigClas = nil;
 //    self.selectedSex = nil;
 }
