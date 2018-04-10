@@ -18,6 +18,8 @@
 //------------------------------------系统版本-------------------------------------------
 #define IOS_VERSION          [[[UIDevice currentDevice] systemVersion] floatValue]
 
+#define IS_IOS_11_OR_LATER    ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
+
 #define IS_IOS_10_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
 #define IS_IOS_9_OR_PREVIOUS  ([[[UIDevice currentDevice] systemVersion] floatValue] < 10.0)
 

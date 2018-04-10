@@ -21,7 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     // 假登陆
 //    [[DKYAccountManager sharedInstance] saveAccessToken:@"fakeLogin"];
 //    [[DKYAccountManager sharedInstance] deleteAccesToken];
@@ -86,6 +85,7 @@
     
     // 弹出登录界面
     DKYLoginViewController *loginVc = (DKYLoginViewController*)[UIStoryboard viewControllerWithClass:[DKYLoginViewController class]];
+    loginVc.fromLogout = YES;
     [self.window.rootViewController presentViewController:loginVc animated:YES completion:^(){
         
     }];
