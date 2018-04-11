@@ -6,12 +6,24 @@
 #import "CALayer+QMUI.h"
 #endif
 
+#if __has_include("NSArray+QMUI.h")
+#import "NSArray+QMUI.h"
+#endif
+
 #if __has_include("NSAttributedString+QMUI.h")
 #import "NSAttributedString+QMUI.h"
 #endif
 
+#if __has_include("NSNumber+QMUI.h")
+#import "NSNumber+QMUI.h"
+#endif
+
 #if __has_include("NSObject+QMUI.h")
 #import "NSObject+QMUI.h"
+#endif
+
+#if __has_include("NSObject+QMUIMultipleDelegates.h")
+#import "NSObject+QMUIMultipleDelegates.h"
 #endif
 
 #if __has_include("NSParagraphStyle+QMUI.h")
@@ -50,6 +62,14 @@
 #import "QMUICellHeightCache.h"
 #endif
 
+#if __has_include("QMUICellHeightKeyCache.h")
+#import "QMUICellHeightKeyCache.h"
+#endif
+
+#if __has_include("QMUICellSizeKeyCache.h")
+#import "QMUICellSizeKeyCache.h"
+#endif
+
 #if __has_include("QMUICollectionViewPagingLayout.h")
 #import "QMUICollectionViewPagingLayout.h"
 #endif
@@ -80,6 +100,10 @@
 
 #if __has_include("QMUIDialogViewController.h")
 #import "QMUIDialogViewController.h"
+#endif
+
+#if __has_include("QMUIEmotionInputManager.h")
+#import "QMUIEmotionInputManager.h"
 #endif
 
 #if __has_include("QMUIEmotionView.h")
@@ -134,6 +158,26 @@
 #import "QMUILabel.h"
 #endif
 
+#if __has_include("QMUILog.h")
+#import "QMUILog.h"
+#endif
+
+#if __has_include("QMUILogItem.h")
+#import "QMUILogItem.h"
+#endif
+
+#if __has_include("QMUILogManagerViewController.h")
+#import "QMUILogManagerViewController.h"
+#endif
+
+#if __has_include("QMUILogNameManager.h")
+#import "QMUILogNameManager.h"
+#endif
+
+#if __has_include("QMUILogger.h")
+#import "QMUILogger.h"
+#endif
+
 #if __has_include("QMUIMarqueeLabel.h")
 #import "QMUIMarqueeLabel.h"
 #endif
@@ -144,6 +188,10 @@
 
 #if __has_include("QMUIMoreOperationController.h")
 #import "QMUIMoreOperationController.h"
+#endif
+
+#if __has_include("QMUIMultipleDelegates.h")
+#import "QMUIMultipleDelegates.h"
 #endif
 
 #if __has_include("QMUINavigationController.h")
@@ -168,10 +216,6 @@
 
 #if __has_include("QMUIPopupMenuView.h")
 #import "QMUIPopupMenuView.h"
-#endif
-
-#if __has_include("QMUIQQEmotionManager.h")
-#import "QMUIQQEmotionManager.h"
 #endif
 
 #if __has_include("QMUISearchBar.h")
@@ -208,6 +252,10 @@
 
 #if __has_include("QMUITableViewCell.h")
 #import "QMUITableViewCell.h"
+#endif
+
+#if __has_include("QMUITableViewHeaderFooterView.h")
+#import "QMUITableViewHeaderFooterView.h"
 #endif
 
 #if __has_include("QMUITableViewProtocols.h")
@@ -270,6 +318,10 @@
 #import "UICollectionView+QMUI.h"
 #endif
 
+#if __has_include("UICollectionView+QMUICellSizeKeyCache.h")
+#import "UICollectionView+QMUICellSizeKeyCache.h"
+#endif
+
 #if __has_include("UIColor+QMUI.h")
 #import "UIColor+QMUI.h"
 #endif
@@ -330,6 +382,10 @@
 #import "UITableView+QMUI.h"
 #endif
 
+#if __has_include("UITableView+QMUICellHeightKeyCache.h")
+#import "UITableView+QMUICellHeightKeyCache.h"
+#endif
+
 #if __has_include("UITableView+QMUIStaticCell.h")
 #import "UITableView+QMUIStaticCell.h"
 #endif
@@ -353,4 +409,3 @@
 #if __has_include("UIWindow+QMUI.h")
 #import "UIWindow+QMUI.h"
 #endif
-

@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUISearchBar.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUISearchBar.h

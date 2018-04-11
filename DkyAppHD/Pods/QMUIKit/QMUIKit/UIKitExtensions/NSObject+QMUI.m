@@ -13,18 +13,20 @@
 @implementation NSObject (QMUI)
 
 - (BOOL)qmui_hasOverrideMethod:(SEL)selector ofSuperclass:(Class)superclass {
-    if (![[self class] isSubclassOfClass:superclass]) {
-//        NSLog(@"%s, %@ 并非 %@ 的父类", __func__, NSStringFromClass(superclass), NSStringFromClass([self class]));
+    return [NSObject qmui_hasOverrideMethod:selector forClass:self.class ofSuperclass:superclass];
+}
+
++ (BOOL)qmui_hasOverrideMethod:(SEL)selector forClass:(Class)aClass ofSuperclass:(Class)superclass {
+    if (![aClass isSubclassOfClass:superclass]) {
         return NO;
     }
     
     if (![superclass instancesRespondToSelector:selector]) {
-//        NSLog(@"%s, 父类 %@ 自己本来就无法响应 %@ 方法", __func__, NSStringFromClass(superclass), NSStringFromSelector(selector));
         return NO;
     }
     
     Method superclassMethod = class_getInstanceMethod(superclass, selector);
-    Method instanceMethod = class_getInstanceMethod([self class], selector);
+    Method instanceMethod = class_getInstanceMethod(aClass, selector);
     if (!instanceMethod || instanceMethod == superclassMethod) {
         return NO;
     }

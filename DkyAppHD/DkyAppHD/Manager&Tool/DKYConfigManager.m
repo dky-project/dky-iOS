@@ -39,10 +39,6 @@
     config.cancelButtonTitle  = @"清除";
     config.destructiveButtonIndexSet = [NSIndexSet indexSetWithIndex:0];
     
-    // 启动 QMUI 的样式配置模板
-    [QMUIConfigurationTemplate setupConfigurationTemplate];
-    
-    
     // 实时打印设备内存信息
 #ifdef DEBUG
     [NSTimer scheduledTimerWithTimeInterval:50.0 block:^(NSTimer * _Nonnull timer) {
