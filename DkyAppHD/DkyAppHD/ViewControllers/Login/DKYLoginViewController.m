@@ -75,12 +75,25 @@
 #pragma mark - private method
 
 - (void)loginSuccessful{
-    if(IS_IOS_11_OR_LATER && self.fromLogout){
-        [self dismissViewControllerAnimated:YES completion:^{
+    WeakSelf(weakSelf);
+    if(IS_IOS_11_OR_LATER ){
+        if(weakSelf.fromLogout){
+            [self dismissViewControllerAnimated:YES completion:^{
+                AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                UITabBarController *main =(UITabBarController*) app.window.rootViewController;
+                if(weakSelf.fromLogout){
+                    main.selectedIndex = 0;
+                }
+            }];
+        }else{
+            DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
             AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            UITabBarController *main =(UITabBarController*) app.window.rootViewController;
-            main.selectedIndex = 0;
-        }];
+            app.window.rootViewController = mainVc;
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
+        
         return;
     }
     DKYTabBarViewController *mainVc = (DKYTabBarViewController*)[UIStoryboard viewControllerWithClass:[DKYTabBarViewController class]];
