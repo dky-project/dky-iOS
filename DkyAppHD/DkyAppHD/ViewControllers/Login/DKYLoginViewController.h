@@ -10,4 +10,6 @@
 
 @interface DKYLoginViewController : UIViewController
 
+@property (nonatomic, assign) BOOL fromLogout;
+
 @end
