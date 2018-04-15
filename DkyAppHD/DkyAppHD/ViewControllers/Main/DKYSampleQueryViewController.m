@@ -422,7 +422,7 @@
     [self setupSearchView];
     [self setupFiltrateView];
     
-    //[self setupLogoutBtn];
+    [self setupLogoutBtn];
     
 //    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
 //    for (int i = 1; i < 6; ++i) {
