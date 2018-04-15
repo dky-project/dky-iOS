@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/ToastView/QMUIToastView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/ToastView/QMUIToastView.h
