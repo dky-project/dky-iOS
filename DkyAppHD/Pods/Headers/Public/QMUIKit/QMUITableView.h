@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUITableView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUITableView.h

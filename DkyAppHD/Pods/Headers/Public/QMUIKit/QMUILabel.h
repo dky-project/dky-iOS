@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUILabel.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUILabel.h

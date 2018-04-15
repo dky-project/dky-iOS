@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUICollectionViewPagingLayout.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUICollectionViewPagingLayout.h
