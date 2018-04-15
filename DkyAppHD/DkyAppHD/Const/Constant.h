@@ -16,6 +16,8 @@
 #define iPhone6p ([UIScreen mainScreen].bounds.size.height > 667)
 
 //------------------------------------系统版本-------------------------------------------
+#define IS_IOS_11_OR_LATER    ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
+
 #define IOS_VERSION          [[[UIDevice currentDevice] systemVersion] floatValue]
 
 #define IS_IOS_10_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)

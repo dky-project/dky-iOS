@@ -86,6 +86,7 @@
     
     // 弹出登录界面
     DKYLoginViewController *loginVc = (DKYLoginViewController*)[UIStoryboard viewControllerWithClass:[DKYLoginViewController class]];
+    loginVc.fromLogout = YES;
     [self.window.rootViewController presentViewController:loginVc animated:YES completion:^(){
         
     }];
