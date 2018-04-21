@@ -408,6 +408,7 @@ static const CGFloat basicItemHeight = 45;
     };
     itemModel.content = @"样衣五";
     itemModel.zoomed = YES;
+    itemModel.enabled = NO;
     self.clientView.itemModel = itemModel;
 }
 
