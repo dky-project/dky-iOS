@@ -68,7 +68,7 @@
     self.sourceOfSampleLabel.text = itemModel.pdt;
     
     self.sizeLabel.text = itemModel.xwValue;
-    self.lengthLabel.text = itemModel.ycValue;
+    //self.lengthLabel.text = itemModel.ycValue;
     
     self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
     
@@ -132,10 +132,10 @@
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.sizeLabel);
     }];
     
-    [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(weakSelf.contentView);
-        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.lengthLabel);
-    }];
+//    [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(weakSelf.contentView);
+//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.lengthLabel);
+//    }];
     
     [self.orderAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(weakSelf.contentView);
@@ -193,7 +193,7 @@
     [self setupSourceOfSampleLabel];
     [self setupColorLabel];
     [self setupSizeLabel];
-    [self setupLengthLabel];
+    //[self setupLengthLabel];
     
     [self setupOrderAmountLabel];
     [self setupCountLabel];

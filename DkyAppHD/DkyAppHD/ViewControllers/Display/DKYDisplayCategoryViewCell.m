@@ -382,7 +382,7 @@
     [self.superview endEditing:YES];
     
     NSMutableArray *item = @[].mutableCopy;
-
+    NSString *deleteTitle = kDeleteTitle;
     switch (sender.tag) {
         case 0:{
             // 品种
@@ -396,6 +396,7 @@
             for (DKYDahuoOrderColorModel *model in self.getProductListByGroupNoModel.colorViewList) {
                 [item addObject:model.colorName];
             }
+            deleteTitle = @"自选颜色";
         }
             break;
         case 2:{
@@ -425,13 +426,15 @@
 
     WeakSelf(weakSelf);
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
-                                             cancelButtonTitle:kDeleteTitle
+                                             cancelButtonTitle:deleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex != 0){
                                                                [sender setTitle:[item objectOrNilAtIndex:buttonIndex - 1] forState:UIControlStateNormal];
                                                            }else{
-                                                               [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
+                                                               if(sender.tag != 1){
+                                                                   [sender setTitle:sender.originalTitle forState:UIControlStateNormal];
+                                                               }
                                                            }
                                                            [weakSelf actionSheetSelected:sender.tag index:buttonIndex];
                                                        }
@@ -465,7 +468,7 @@
         case 1:{
             // 颜色
             if(index == 0){
-                self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
+                //self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
                 return;
             }
             

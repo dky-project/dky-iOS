@@ -97,7 +97,7 @@
     [self setupSourceOfSampleLabel];
     [self setupColorLabel];
     [self setupSizeLabel];
-    [self setupLengthLabel];
+    //[self setupLengthLabel];
     
     [self setupOrderAmountLabel];
     [self setupCountLabel];
@@ -179,7 +179,9 @@
     WeakSelf(weakSelf);
     self.orderAmountLabel = [self createLabelWithName:@"订单金额"];
     [self.orderAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(60);
+//        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(60);
+//        make.centerY.mas_equalTo(weakSelf.imageView);
+        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(60);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
