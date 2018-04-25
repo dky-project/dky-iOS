@@ -168,6 +168,7 @@
         DKYSampleDetailAllViewController *vc = [[DKYSampleDetailAllViewController alloc] init];
         vc.samples = self.samples;
         vc.currentIndex = indexPath.item;
+        vc.issource = @2;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

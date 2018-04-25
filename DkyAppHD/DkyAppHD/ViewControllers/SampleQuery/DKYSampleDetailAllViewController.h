@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) NSMutableArray *samples;
 
+@property (nonatomic, strong) NSNumber *issource;
+
 @end

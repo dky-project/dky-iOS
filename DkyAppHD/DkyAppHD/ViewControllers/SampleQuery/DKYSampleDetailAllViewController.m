@@ -55,7 +55,8 @@
         DKYSampleProductInfoModel *model = vc.sampleProductInfo;
         
         if(!model.isBigOrder){
-            [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];
+            DKYSampleOrderPopupView *pop = [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];
+            pop.issource = weakSelf.issource;
         }else{
             NSDictionary *params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer],
                                      @"productName":model.name};

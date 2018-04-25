@@ -54,6 +54,12 @@
     }
 }
 
+- (void)sourceLabelTapped:(UITapGestureRecognizer*)ges{
+    if(self.sourceBlock){
+        self.sourceBlock(self);
+    }
+}
+
 - (IBAction)batchPreviewBtnClicked:(UIButton *)sender {
     if(self.batchPreviewBtnClicked){
         self.batchPreviewBtnClicked(self);
@@ -101,6 +107,9 @@
     
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(auditStatusLabelTapped:)];
     [self.auditStatusLabel addGestureRecognizer:tap];
+    
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
+    [self.sourceLabel addGestureRecognizer:tap];
 }
 
 - (UUDatePicker*)datePicker{

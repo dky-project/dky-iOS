@@ -19,4 +19,6 @@
 
 @property(nonatomic,strong)DKYSampleProductInfoModel *sampleProductInfo;
 
+@property (nonatomic, strong) NSNumber *issource;
+
 @end

@@ -52,6 +52,14 @@ typedef NS_ENUM(NSInteger, DKYOrderAuditStatusType) {
     DKYOrderAuditStatusType_Fail = -1,
 };
 
+// 样衣来源
+typedef NS_ENUM(NSInteger, DKYOrderSourceType) {
+    DKYOrderSourceType_Unset = 0,
+    DKYOrderSourceType_Other = 1,
+    DKYOrderSourceType_Display = 2,
+    DKYOrderSourceType_Match= 3,
+};
+
 // 定制订单页面，按钮枚举
 typedef NS_ENUM(NSInteger, DKYCustomOrderActionsType) {
     DKYCustomOrderActionsType_Unset = 0,

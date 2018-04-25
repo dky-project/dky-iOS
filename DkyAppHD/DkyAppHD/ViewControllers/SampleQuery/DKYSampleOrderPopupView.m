@@ -282,6 +282,8 @@
     }
     
     self.addProductApproveParameter.orderNo = self.productApproveTitle.orderNo;
+    
+    self.addProductApproveParameter.issource = self.issource;
 }
 
 - (BOOL)checkForAddProductApprove{

@@ -391,6 +391,10 @@
  */
 @property (nonatomic, strong) NSNumber *mDimNew41Id;
 
+/**
+ *   来源
+ */
+@property (nonatomic, strong) NSNumber *issource;
 
 #pragma mark mark - 客户端自己的属性，逻辑用
 // 表示是否要有挂件袖肥的值

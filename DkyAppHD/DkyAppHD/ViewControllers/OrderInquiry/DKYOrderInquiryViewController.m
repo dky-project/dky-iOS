@@ -39,7 +39,11 @@
 
 @property (nonatomic, strong) NSArray *orderAuditStatusModels;
 
+@property (nonatomic, strong) NSArray *sourceModels;
+
 @property (nonatomic, strong) DKYOrderInqueryTotalMapModel *orderInqueryTotalMapModel;
+
+@property (nonatomic, strong) DKYOrderAuditStatusModel *sourceModel;
 
 // 查询的4个条件
 @property (nonatomic, strong) DKYOrderAuditStatusModel *selectedOrderAuditStatusModel;
@@ -83,6 +87,8 @@
     p.pdt = self.pdt;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
     
+    p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
+    
     [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
@@ -125,6 +131,8 @@
     p.czDate = self.czDate;
     p.customer = self.customer;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
+    
+    p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
     
     [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -257,6 +265,28 @@
     [sheetView show];
 }
 
+- (void)showSourceSelectedPicker{
+    WeakSelf(weakSelf);
+    [self.view endEditing:YES];
+    MMPopupItemHandler block = ^(NSInteger index){
+        weakSelf.sourceModel = [weakSelf.sourceModels objectOrNilAtIndex:index];
+        
+        NSString *displayName = [NSString stringWithFormat:@"  %@",weakSelf.sourceModel.statusName ?:@""];
+        weakSelf.headerView.sourceLabel.text = displayName;
+    };
+    
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.sourceModels.count + 1];
+    for (DKYOrderAuditStatusModel *model in self.sourceModels) {
+        [items addObject:MMItemMake(model.statusName, MMItemTypeNormal, block)];
+    }
+    
+    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"来源"
+                                                          items:[items copy]];
+    //    sheetView.attachedView = self.view;
+    [MMPopupWindow sharedWindow].touchWildToHide = YES;
+    [sheetView show];
+}
+
 - (void)showOrderPreview{
 //    DKYOrderBrowseViewController *vc = [[DKYOrderBrowseViewController alloc] init];
 //    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -304,6 +334,10 @@
     
     header.auditStatusBlock = ^(id sender){
         [weakSelf showAuditStatusSelectedPicker];
+    };
+    
+    header.sourceBlock = ^(id sender) {
+        [weakSelf showSourceSelectedPicker];
     };
     
     header.batchPreviewBtnClicked = ^(id sender){
@@ -501,6 +535,17 @@
         _orderAuditStatusModels = @[model1,model2,model3];
     }
     return _orderAuditStatusModels;
+}
+
+//sourceModels
+- (NSArray*)sourceModels{
+    if(_sourceModels == nil){
+        DKYOrderAuditStatusModel *model1 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"其他" code:1];
+        DKYOrderAuditStatusModel *model2 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"陈列" code:2];
+        DKYOrderAuditStatusModel *model3 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"搭配" code:3];
+        _sourceModels = @[model1,model2,model3];
+    }
+    return _sourceModels;
 }
 
 - (NSMutableArray*)selectedOrders{
