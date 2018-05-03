@@ -39,6 +39,11 @@
 
 @property (nonatomic, copy) NSArray *pinList;
 
+/**
+ * 颜色组
+ */
+@property (nonatomic, strong) NSArray *colorRangeViewList;
+
 // 客户端自己的属性
 @property (nonatomic, assign) BOOL isCollected;
 

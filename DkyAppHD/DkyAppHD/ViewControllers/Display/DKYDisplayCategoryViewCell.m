@@ -19,6 +19,7 @@
 #import "NSString+Utility.h"
 #import "DKYGetProductPriceParameter.h"
 #import "DKYGetPzsJsonParameter.h"
+#import "DKYMultipleSelectPopupViewV3.h"
 
 @interface DKYDisplayCategoryViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -393,9 +394,12 @@
             break;
         case 1:{
             // 颜色
-            for (DKYDahuoOrderColorModel *model in self.getProductListByGroupNoModel.colorViewList) {
-                [item addObject:model.colorName];
+            NSArray* models = self.getProductListByGroupNoModel.colorRangeViewList;
+            
+            for (NSDictionary *dict in models) {
+                [item addObject:[dict objectForKey:@"colorName"]];
             }
+            
             deleteTitle = @"自选颜色";
         }
             break;
@@ -469,11 +473,14 @@
             // 颜色
             if(index == 0){
                 //self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
+                [self showMultipleSelectPopupView];
                 return;
             }
             
-            DKYDahuoOrderColorModel *model =  [self.getProductListByGroupNoModel.colorViewList objectOrNilAtIndex:index - 1];
-            self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = model.colorName;
+            NSDictionary* model =  [self.getProductListByGroupNoModel.colorRangeViewList objectOrNilAtIndex:index - 1];
+            NSString *color = [model objectForKey:@"colorName"];
+            color = [color stringByReplacingOccurrencesOfString:@"," withString:@";"];
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = color;
         }
             break;
         case 2:{
@@ -522,6 +529,26 @@
         default:
             break;
     }
+}
+
+- (void)showMultipleSelectPopupView{
+    DKYMultipleSelectPopupViewV3 *pop = [DKYMultipleSelectPopupViewV3 show];
+    pop.addDpGroupApproveParam = self.getProductListByGroupNoModel.addDpGroupApproveParam;
+    pop.colorViewList = self.getProductListByGroupNoModel.colorViewList;
+    WeakSelf(weakSelf);
+    
+    pop.confirmBtnClicked = ^(NSMutableArray *selectedColors) {
+        NSMutableString *selectedColor = [NSMutableString string];
+        NSMutableArray *clrRangeArray = [NSMutableArray array];
+        
+        for (DKYDahuoOrderColorModel *color in selectedColors) {
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+            [clrRangeArray addObject:color.colorName];
+        }
+       
+        [weakSelf.colorBtn setTitle:selectedColor forState:UIControlStateNormal];
+    };
 }
 
 - (void)updateWhenSumChanged{

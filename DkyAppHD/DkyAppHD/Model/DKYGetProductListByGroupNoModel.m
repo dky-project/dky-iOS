@@ -8,7 +8,7 @@
 
 #import "DKYGetProductListByGroupNoModel.h"
 
-@implementation DKYGetProductListByGroupNoModel
+@implementation  DKYGetProductListByGroupNoModel
 
 + (NSDictionary*)mj_objectClassInArray{
     return @{@"colorViewList" : @"DKYDahuoOrderColorModel",
