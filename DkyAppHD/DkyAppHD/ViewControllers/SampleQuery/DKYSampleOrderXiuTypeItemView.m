@@ -191,7 +191,7 @@
     self.xcView.textField.text = model.xc;
     
     self.addProductApproveParameter.defaultXcValue = [self.xcView.textField.text isNotBlank] ? @([self.xcView.textField.text doubleValue]) : nil;
-    self.addProductApproveParameter.xcValue = [self.xcView.textField.text isNotBlank] ? @([self.xcView.textField.text doubleValue]) : nil;
+    self.addProductApproveParameter.xcValue = [self.xcView.textField.text isNotBlank] ? self.xcView.textField.text: nil;
 }
 
 - (void)clear{
@@ -571,7 +571,13 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.xcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
+        weakSelf.addProductApproveParameter.xcValue = [textField.text isNotBlank] ? textField.text  : nil;
+        NSRange range = [textField.text rangeOfString:@"+"];
+        if(range.location != NSNotFound){
+            weakSelf.addProductApproveParameter.xcLeftValue = [textField.text substringToIndex:range.location];
+        }else{
+            weakSelf.addProductApproveParameter.xcLeftValue = textField.text;
+        }
     };
     itemModel.zoomed = YES;
     self.xcView.itemModel = itemModel;

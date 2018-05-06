@@ -235,10 +235,11 @@
  */
 @property (nonatomic, copy) NSString *qtxxValue2;
 /**
- *  袖长
+ * 袖长cm
  */
-@property (nonatomic, strong) NSNumber *xcValue;
+@property (nonatomic, copy) NSString * xcValue;
 
+@property (nonatomic, copy) NSString *xcLeftValue;
 
 
 /**

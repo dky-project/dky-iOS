@@ -597,7 +597,7 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.mDimNew9Id1 = self.madeInfoByProductName.productMadeInfoView.mDimNew9Id2 ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id2): nil;
     self.addProductApproveParameter.mDimNew9Id2 = self.madeInfoByProductName.productMadeInfoView.mDimNew9Id3 ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id3): nil;
     if([self.madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]){
-        self.addProductApproveParameter.xcValue = @([self.madeInfoByProductName.productMadeInfoView.xcValue doubleValue]);
+        self.addProductApproveParameter.xcValue = self.madeInfoByProductName.productMadeInfoView.xcValue;
     }
     self.addProductApproveParameter.qtxxValue = self.madeInfoByProductName.productMadeInfoView.qtxRemark;
     self.addProductApproveParameter.qtxxValue1 = self.madeInfoByProductName.productMadeInfoView.qtxRemark2;
@@ -647,7 +647,7 @@ static const CGFloat basicItemHeight = 30;
     
     self.addProductApproveParameter.defaultHzxc1Value = self.addProductApproveParameter.hzxc1Value;
     self.addProductApproveParameter.defaultYcValue = @([self.addProductApproveParameter.ycValue doubleValue]);
-    self.addProductApproveParameter.defaultXcValue = self.addProductApproveParameter.xcValue;
+    self.addProductApproveParameter.defaultXcValue = @([self.addProductApproveParameter.xcLeftValue doubleValue]);
 }
 
 - (void)dealwithMDimNew12IdSelected{

@@ -42,6 +42,20 @@
     if(self.clrRange.length > 0){
         self.clrRangeArray = [self.clrRange componentsSeparatedByString:@","];
     }
+    
+    NSRange range = [self.xcValue rangeOfString:@"+"];
+    if(range.location == NSNotFound){
+        self.xcHasAdd = NO;
+        self.xcLeftValue = self.xcValue;
+        self.xcRightValue = nil;
+    }else{
+        NSString *prefix = [self.xcValue substringToIndex:range.location];
+        NSString *suffix = [self.xcValue substringFromIndex:range.location];
+        
+        self.xcHasAdd = YES;
+        self.xcLeftValue = prefix;
+        self.xcRightValue = suffix;
+    }
 }
 
 @end

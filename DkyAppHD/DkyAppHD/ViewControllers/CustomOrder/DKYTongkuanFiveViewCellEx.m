@@ -311,7 +311,7 @@ static const CGFloat basicItemHeight = 30;
     self.addProductApproveParameter.mDimNew9Id1 = self.madeInfoByProductName.productMadeInfoView.mDimNew9Id2 ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id2): nil;
     self.addProductApproveParameter.mDimNew9Id2 = self.madeInfoByProductName.productMadeInfoView.mDimNew9Id3 ? @(self.madeInfoByProductName.productMadeInfoView.mDimNew9Id3): nil;
     if([self.madeInfoByProductName.productMadeInfoView.xcValue isNotBlank]){
-        self.addProductApproveParameter.xcValue = @([self.madeInfoByProductName.productMadeInfoView.xcValue doubleValue]);
+        self.addProductApproveParameter.xcValue = self.madeInfoByProductName.productMadeInfoView.xcValue;
     }
     
     // 袖边
