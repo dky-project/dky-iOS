@@ -35,6 +35,11 @@
  */
 @property (nonatomic, copy) NSString *xcValue;
 /**
+ *  袖长
+ */
+@property (nonatomic, copy) NSString *xcLeftValue;
+
+/**
  * 颜色名称
  */
 @property (nonatomic, copy) NSString *colorArr;

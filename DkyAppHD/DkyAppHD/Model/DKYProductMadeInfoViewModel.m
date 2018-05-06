@@ -44,7 +44,7 @@
     }
     
     NSRange range = [self.xcValue rangeOfString:@"+"];
-    if(range.location == NSNotFound){
+    if(self.xcValue == nil || range.location == NSNotFound){
         self.xcHasAdd = NO;
         self.xcLeftValue = self.xcValue;
         self.xcRightValue = nil;

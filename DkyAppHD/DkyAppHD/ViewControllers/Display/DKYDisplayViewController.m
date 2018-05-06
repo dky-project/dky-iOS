@@ -289,7 +289,7 @@
                 
                 // 袖长
                 if(!model.isBigOrder &&model.defaultXcValue){
-                    double value1 = [model.addDpGroupApproveParam.xcValue doubleValue];
+                    double value1 = [model.addDpGroupApproveParam.xcLeftValue doubleValue];
                     double value2 = [model.defaultXcValue doubleValue];
                     
                     if(fabs(value1 - value2) > 4){

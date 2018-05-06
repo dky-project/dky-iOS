@@ -23,6 +23,21 @@
     self.isCollected = (!([self.iscollect integerValue] == 1));
     self.isBigOrder = ([self.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame);
     
+    NSRange range = [self.xcValue rangeOfString:@"+"];
+    
+    if(self.xcValue == nil || range.location == NSNotFound){
+        self.xcHasAdd = NO;
+        self.xcLeftValue = self.xcValue;
+        self.xcRightValue = nil;
+    }else{
+        NSString *prefix = [self.xcValue substringToIndex:range.location];
+        NSString *suffix = [self.xcValue substringFromIndex:range.location];
+        
+        self.xcHasAdd = YES;
+        self.xcLeftValue = prefix;
+        self.xcRightValue = suffix;
+    }
+    
     if(self.isBigOrder){
         self.addDpGroupBmptParam = [[DKYAddDpGroupBmptParamModel alloc] init];
         self.addDpGroupBmptParam.mProductId = self.mProductId;
@@ -36,7 +51,7 @@
         self.addDpGroupApproveParam.ycValue = self.ycValue;
         self.addDpGroupApproveParam.mDimNew16Id = self.mDimNew16Id;
         self.addDpGroupApproveParam.xcValue = self.xcValue;
-        self.defaultXcValue = self.xcValue;
+        self.defaultXcValue = self.xcLeftValue;
     }
 }
 

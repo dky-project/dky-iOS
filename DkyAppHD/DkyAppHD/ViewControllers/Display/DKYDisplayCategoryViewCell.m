@@ -105,9 +105,24 @@
     }
     
     self.collectBtn.selected = getProductListByGroupNoModel.isCollected;
-    
+
     // 袖长
-    self.xcTextField.text = getProductListByGroupNoModel.xcValue;
+    if(getProductListByGroupNoModel.xcHasAdd){
+        self.xcTextField.rightViewMode = UITextFieldViewModeAlways;
+        CGRect frame = CGRectMake(0, 0, 20, 40);
+        UILabel *label = [[UILabel alloc]initWithFrame:frame];
+        label.textColor = self.xcTextField.textColor;
+        label.font = [UIFont systemFontOfSize:14];
+        
+        label.text = getProductListByGroupNoModel.xcRightValue;
+        
+        self.xcTextField.rightView = label;
+    }else{
+        self.xcTextField.rightViewMode = UITextFieldViewModeNever;
+        self.xcTextField.rightView = nil;
+    }
+    
+    self.xcTextField.text = getProductListByGroupNoModel.xcLeftValue;
     
     [self updateWhenSumChanged];
 }
@@ -275,7 +290,7 @@
     p.mDimNew14Id = @([self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id integerValue]);
     p.mDimNew16Id = self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew16Id;
     p.xwValue = self.getProductListByGroupNoModel.addDpGroupApproveParam.xwValue;
-    p.xcValue = self.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue;
+    p.xcValue = self.getProductListByGroupNoModel.addDpGroupApproveParam.xcLeftValue;
     p.ycValue = self.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue;
     
     [[DKYHttpRequestManager sharedInstance] getProductPriceWithParameter:p Success:^(NSInteger statusCode, id data) {
@@ -630,7 +645,13 @@
     // 袖长
     [self p_customSunview:self.xcTextField];
     [self.xcTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
-        weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = sender.text;
+        NSString *xcValue = nil;
+        xcValue = sender.text;
+        weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcLeftValue = xcValue;
+        if(weakSelf.getProductListByGroupNoModel.xcHasAdd){
+            xcValue = [xcValue stringByAppendingString:weakSelf.getProductListByGroupNoModel.xcRightValue];
+        }
+        weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = xcValue;
         [weakSelf getProductPriceFromServer];
     }];
     
