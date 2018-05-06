@@ -237,9 +237,9 @@
 /**
  *  袖长
  */
-@property (nonatomic, strong) NSNumber *xcValue;
+@property (nonatomic, copy) NSString *xcValue;
 
-
+@property (nonatomic, copy) NSString *xcLeftValue;
 
 /**
  *  袖边

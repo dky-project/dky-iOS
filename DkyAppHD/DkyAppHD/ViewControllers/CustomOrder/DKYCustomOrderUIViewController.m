@@ -351,7 +351,7 @@
     
     if(self.addProductApproveParameter.defaultXcValue){
         double value1 = [self.addProductApproveParameter.defaultXcValue doubleValue];
-        double value2 = [self.addProductApproveParameter.xcValue doubleValue];
+        double value2 = [self.addProductApproveParameter.xcLeftValue doubleValue];
         
         if(fabs(value1 - value2) >= 4){
             [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];

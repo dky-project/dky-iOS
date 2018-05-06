@@ -87,7 +87,18 @@
     [self clear];
     if(madeInfoByProductName == nil)  return;
     
-    self.xcView.textField.text = madeInfoByProductName.productMadeInfoView.xcValue;
+    if(madeInfoByProductName.productMadeInfoView.xcHasAdd){
+        self.xcView.itemModel.showRightView = YES;
+        self.xcView.itemModel.rightText = madeInfoByProductName.productMadeInfoView.xcRightValue;
+        self.xcView.itemModel = self.xcView.itemModel;
+        
+        self.xcView.textField.text = madeInfoByProductName.productMadeInfoView.xcLeftValue;
+    }else{
+        self.xcView.itemModel.showRightView = NO;
+        self.xcView.itemModel = self.xcView.itemModel;
+        self.xcView.textField.text = madeInfoByProductName.productMadeInfoView.xcValue;
+    }
+    
     
     self.xcView.textField.enabled = !([madeInfoByProductName.productCusmptcateView.isXcAffix caseInsensitiveCompare:@"Y"] == NSOrderedSame ||
         ([madeInfoByProductName.productMadeInfoView.sizeType caseInsensitiveCompare:@"GD"] == NSOrderedSame &&
@@ -202,7 +213,7 @@
     self.xcView.textField.text = model.xc;
     
     self.addProductApproveParameter.defaultXcValue = [self.xcView.textField.text isNotBlank] ? @([self.xcView.textField.text doubleValue]) : nil;
-    self.addProductApproveParameter.xcValue = [self.xcView.textField.text isNotBlank] ? @([self.xcView.textField.text doubleValue]) : nil;
+    self.addProductApproveParameter.xcValue = [self.xcView.textField.text isNotBlank] ? self.xcView.textField.text : nil;
 }
 
 - (void)clear{
@@ -582,7 +593,14 @@
     itemModel.subText = @"cm";
     itemModel.keyboardType = UIKeyboardTypeNumberPad;
     itemModel.textFieldDidEditing = ^(UITextField *textField){
-        weakSelf.addProductApproveParameter.xcValue = [textField.text isNotBlank] ? @([textField.text doubleValue]) : nil;
+        NSString *xcValue = nil;
+        xcValue = textField.text;
+        weakSelf.addProductApproveParameter.xcLeftValue = xcValue;
+        if(weakSelf.madeInfoByProductName.productMadeInfoView.xcHasAdd){
+            xcValue = [xcValue stringByAppendingString:weakSelf.madeInfoByProductName.productMadeInfoView.xcRightValue];
+        }
+        
+        weakSelf.addProductApproveParameter.xcValue = xcValue;
     };
     itemModel.zoomed = YES;
     self.xcView.itemModel = itemModel;

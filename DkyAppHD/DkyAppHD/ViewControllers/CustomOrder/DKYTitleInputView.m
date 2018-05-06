@@ -93,6 +93,22 @@
         [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     }
     
+    if(itemModel.showRightView){
+        self.textField.rightViewMode = UITextFieldViewModeAlways;
+        CGRect frame = CGRectMake(0, 0, 40, 60);
+        UILabel *label = [[UILabel alloc]initWithFrame:frame];
+        label.textColor = [UIColor colorWithHex:333333];
+        float font = itemModel.zoomed ? 26 : 14;
+        label.font = [UIFont systemFontOfSize:font];
+        
+        label.text = itemModel.rightText;
+
+        self.textField.rightView = label;
+    }else{
+        self.textField.rightViewMode = UITextFieldViewModeNever;
+        self.textField.rightView = nil;
+    }
+    
     self.textField.enabled = itemModel.enabled;
 }
 
@@ -102,7 +118,7 @@
     leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
     self.textField.leftView = leftView;
     
-    if(self.textField.rightViewMode == UITextFieldViewModeAlways){
+    if(self.itemModel.showRightView == NO && self.textField.rightViewMode == UITextFieldViewModeAlways){
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 12, 24)];
         imageView.contentMode = UIViewContentModeLeft;
         imageView.image = [UIImage imageNamed:@"lock"];

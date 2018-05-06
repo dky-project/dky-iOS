@@ -176,9 +176,18 @@
 
 /**
  * 袖长cm
+ * 88+6
  */
 @property (nonatomic, copy) NSString * xcValue;
 
+// 是否是 这种形式的数据 88+6
+@property (nonatomic, assign) BOOL xcHasAdd;
+
+// 88
+@property (nonatomic, copy) NSString *xcLeftValue;
+
+// 6
+@property (nonatomic, copy) NSString *xcRightValue;
 
 /**
  * 袖边

@@ -34,4 +34,7 @@
 
 @property (nonatomic, assign) BOOL zoomed;
 
+@property(nonatomic, assign) BOOL showRightView;
+@property (nonatomic, copy) NSString *rightText;
+
 @end
