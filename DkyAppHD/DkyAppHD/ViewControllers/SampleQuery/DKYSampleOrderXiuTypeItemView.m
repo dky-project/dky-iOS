@@ -603,6 +603,7 @@
         weakSelf.addProductApproveParameter.xcValue = xcValue;
     };
     itemModel.zoomed = YES;
+    itemModel.onlyNumber = YES;
     self.xcView.itemModel = itemModel;
 }
 

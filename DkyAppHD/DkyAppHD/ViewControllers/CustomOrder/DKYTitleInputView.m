@@ -9,7 +9,7 @@
 #import "DKYTitleInputView.h"
 #import "DKYCustomOrderItemModel.h"
 
-@interface DKYTitleInputView ()
+@interface DKYTitleInputView ()<UITextFieldDelegate>
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
@@ -140,6 +140,28 @@
     }
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(self.itemModel.onlyNumber == NO) return YES;
+    
+    return [self validateNumber:string];
+}
+
+- (BOOL)validateNumber:(NSString*)number {
+    BOOL res = YES;
+    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    int i = 0;
+    while (i < number.length) {
+        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
+        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+        if (range.length == 0) {
+            res = NO;
+            break;
+        }
+        i++;
+    }
+    return res;
+}
+
 #pragma mark - mark
 - (void)commonInit{
     [self setupTitleLabel];
@@ -197,6 +219,7 @@
     textField.leftViewMode = UITextFieldViewModeAlways;
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    textField.delegate = self;
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
