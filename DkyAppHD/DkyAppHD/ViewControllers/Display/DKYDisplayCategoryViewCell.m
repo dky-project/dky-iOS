@@ -461,6 +461,10 @@
     actionSheet.scrolling = item.count > 10;
     actionSheet.visibleButtonCount = 10;
     actionSheet.destructiveButtonIndexSet = [NSIndexSet indexSetWithIndex:0];
+    if(sender.tag == 1){
+        actionSheet.titleFont = actionSheet.buttonFont;
+        actionSheet.titleEdgeInsets = UIEdgeInsetsMake(10, 0, 5, 0);
+    }
     [actionSheet show];
 }
 
@@ -620,7 +624,7 @@
     // 颜色
     [self p_customSunview:self.colorBtn];
     self.colorBtn.originalTitle = [self.colorBtn currentTitle];
-    self.colorBtn.extraInfo = [self.colorBtn currentTitle];
+    self.colorBtn.extraInfo = @"设计师推荐色";
     self.colorBtn.tag = 1;
     [self.colorBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         [weakSelf showOptionsPicker:weakSelf.colorBtn];
