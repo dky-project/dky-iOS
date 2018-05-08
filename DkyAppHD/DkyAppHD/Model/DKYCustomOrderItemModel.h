@@ -36,4 +36,9 @@
 
 @property (nonatomic, strong) UIFont *zoomedFont;
 
+@property(nonatomic, assign) BOOL showRightView;
+@property (nonatomic, copy) NSString *rightText;
+
+@property (nonatomic, assign) BOOL onlyNumber;;
+
 @end

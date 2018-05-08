@@ -644,6 +644,7 @@
     itemModel.textFieldDidEditing = ^(UITextField *textField){
         weakSelf.addProductApproveParameter.xcValue = [textField.text isNotBlank] ? textField.text : nil;
     };
+    
     self.xcView.itemModel = itemModel;
 }
 

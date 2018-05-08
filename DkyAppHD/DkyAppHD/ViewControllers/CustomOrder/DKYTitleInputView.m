@@ -9,7 +9,7 @@
 #import "DKYTitleInputView.h"
 #import "DKYCustomOrderItemModel.h"
 
-@interface DKYTitleInputView ()
+@interface DKYTitleInputView ()<UITextFieldDelegate>
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
@@ -93,6 +93,22 @@
         [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     }
     
+    if(itemModel.showRightView){
+        self.textField.rightViewMode = UITextFieldViewModeAlways;
+        CGRect frame = CGRectMake(0, 0, 40, 60);
+        UILabel *label = [[UILabel alloc]initWithFrame:frame];
+        label.textColor = [UIColor colorWithHex:333333];
+        float font = itemModel.zoomed ? 26 : 14;
+        label.font = [UIFont systemFontOfSize:font];
+        
+        label.text = itemModel.rightText;
+        
+        self.textField.rightView = label;
+    }else{
+        self.textField.rightViewMode = UITextFieldViewModeNever;
+        self.textField.rightView = nil;
+    }
+    
     self.textField.enabled = itemModel.enabled;
 }
 
@@ -102,7 +118,7 @@
     leftView.frame = CGRectMake(0, 0, 10, self.textField.mj_h);
     self.textField.leftView = leftView;
     
-    if(self.textField.rightViewMode == UITextFieldViewModeAlways){
+    if(self.itemModel.showRightView == NO && self.textField.rightViewMode == UITextFieldViewModeAlways){
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 12, 24)];
         imageView.contentMode = UIViewContentModeLeft;
         imageView.image = [UIImage imageNamed:@"lock"];
@@ -122,6 +138,28 @@
     if(self.itemModel.textFieldDidEditing){
         self.itemModel.textFieldDidEditing(textField);
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(self.itemModel.onlyNumber == NO) return YES;
+    
+    return [self validateNumber:string];
+}
+
+- (BOOL)validateNumber:(NSString*)number {
+    BOOL res = YES;
+    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    int i = 0;
+    while (i < number.length) {
+        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
+        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+        if (range.length == 0) {
+            res = NO;
+            break;
+        }
+        i++;
+    }
+    return res;
 }
 
 #pragma mark - mark
@@ -181,6 +219,7 @@
     textField.leftViewMode = UITextFieldViewModeAlways;
     textField.background = [UIImage imageWithColor:[UIColor clearColor]];
     textField.disabledBackground = [UIImage imageWithColor:[UIColor colorWithHex:0xF0F0F0]];
+    textField.delegate = self;
     
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
