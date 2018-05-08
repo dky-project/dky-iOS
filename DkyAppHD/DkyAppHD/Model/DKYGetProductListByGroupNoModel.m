@@ -51,6 +51,7 @@
         self.addDpGroupApproveParam.ycValue = self.ycValue;
         self.addDpGroupApproveParam.mDimNew16Id = self.mDimNew16Id;
         self.addDpGroupApproveParam.xcValue = self.xcValue;
+        self.addDpGroupApproveParam.xcLeftValue = self.xcLeftValue;
         self.defaultXcValue = self.xcLeftValue;
     }
 }
