@@ -19,6 +19,8 @@
 
 @property (nonatomic, copy) BlockWithSender deleteBtnClicked;
 
+@property (nonatomic, copy) BlockWithSender sourceBlock;
+
 @property (weak, nonatomic) IBOutlet UITextField *kuanhaoTextField;
 @property (weak, nonatomic) IBOutlet UITextField *sizeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *colorTextField;
@@ -27,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UIButton *batchPreviewBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 
 @property (weak, nonatomic) IBOutlet DKYDahuoOrderInfoHeaderView *bottomHeaderView;
 @property (weak, nonatomic) IBOutlet DKYDahuoOrderInfoHeaderView *headerView;

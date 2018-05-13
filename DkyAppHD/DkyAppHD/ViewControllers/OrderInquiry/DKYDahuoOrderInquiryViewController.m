@@ -31,6 +31,9 @@
 
 @property (nonatomic, assign) NSInteger pageNum;
 
+@property (nonatomic, strong) NSArray *sourceModels;
+@property (nonatomic, strong) DKYOrderAuditStatusModel *sourceModel;
+
 // 查询的3个条件
 /**
  * 款号
@@ -82,6 +85,7 @@
     p.colorName = self.colorName;
     p.sizeName = self.sizeName;
     
+    p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
     
     [[DKYHttpRequestManager sharedInstance] productApproveBmptPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -222,6 +226,28 @@
     }];
 }
 
+- (void)showSourceSelectedPicker{
+    WeakSelf(weakSelf);
+    [self.view endEditing:YES];
+    MMPopupItemHandler block = ^(NSInteger index){
+        weakSelf.sourceModel = [weakSelf.sourceModels objectOrNilAtIndex:index];
+        
+        NSString *displayName = [NSString stringWithFormat:@"  %@",weakSelf.sourceModel.statusName ?:@""];
+        weakSelf.headerView.sourceLabel.text = displayName;
+    };
+    
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.sourceModels.count + 1];
+    for (DKYOrderAuditStatusModel *model in self.sourceModels) {
+        [items addObject:MMItemMake(model.statusName, MMItemTypeNormal, block)];
+    }
+    
+    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"来源"
+                                                          items:[items copy]];
+    //    sheetView.attachedView = self.view;
+    [MMPopupWindow sharedWindow].touchWildToHide = YES;
+    [sheetView show];
+}
+
 #pragma mark - private method
 
 - (void)showOrderPreview{
@@ -256,6 +282,10 @@
         make.height.mas_equalTo(300);
     }];
 
+    header.sourceBlock = ^(id sender) {
+        [weakSelf showSourceSelectedPicker];
+    };
+    
     header.batchPreviewBtnClicked = ^(id sender){
         if(weakSelf.selectedOrders.count == 0){
             [DKYHUDTool showInfoWithStatus:@"请至少选择一条订单记录"];
@@ -416,5 +446,15 @@
     return _selectedOrders;
 }
 
+//sourceModels
+- (NSArray*)sourceModels{
+    if(_sourceModels == nil){
+        DKYOrderAuditStatusModel *model1 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"其他" code:1];
+        DKYOrderAuditStatusModel *model2 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"陈列" code:2];
+        DKYOrderAuditStatusModel *model3 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"搭配" code:3];
+        _sourceModels = @[model1,model2,model3];
+    }
+    return _sourceModels;
+}
 
 @end

@@ -56,6 +56,12 @@
     }
 }
 
+- (void)sourceLabelTapped:(UITapGestureRecognizer*)ges{
+    if(self.sourceBlock){
+        self.sourceBlock(self);
+    }
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
@@ -85,6 +91,9 @@
     [self.findBtn setBackgroundImage:image forState:UIControlStateNormal];
     [self.deleteBtn setBackgroundImage:image forState:UIControlStateNormal];
     [self.batchPreviewBtn setBackgroundImage:image forState:UIControlStateNormal];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
+    [self.sourceLabel addGestureRecognizer:tap];
 }
 
 - (UUDatePicker*)datePicker{
