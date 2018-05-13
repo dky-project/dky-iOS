@@ -35,5 +35,9 @@
  */
 @property (nonatomic, strong) NSNumber *sum;
 
+/**
+ * 样衣来源
+ */
+@property (nonatomic, copy) NSNumber *issource;
 
 @end

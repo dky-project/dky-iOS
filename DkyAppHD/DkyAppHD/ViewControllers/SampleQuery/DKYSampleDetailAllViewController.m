@@ -58,8 +58,16 @@
             DKYSampleOrderPopupView *pop = [DKYSampleOrderPopupView showWithSampleProductInfoModel:model];
             pop.issource = weakSelf.issource;
         }else{
-            NSDictionary *params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer],
-                                     @"productName":model.name};
+            NSDictionary *params = nil;
+            if([self.issource integerValue] == 2){
+                params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer],
+                           @"productName":model.name,
+                           @"issource" : self.issource
+                           };
+            }else{
+                params = @{@"accessToken":[[DKYAccountManager sharedInstance] getAccessTokenWithNoBearer],
+                           @"productName":model.name};
+            }
             
             NSString *url = [NSString addQueryParametersUrl:[NSString stringWithFormat:@"%@%@",BASE_URL,kOrderHtmlUrl] parameters:params];
             

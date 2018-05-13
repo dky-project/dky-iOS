@@ -59,4 +59,9 @@
  */
 @property (nonatomic, strong) NSNumber *mDim16Id;
 
+/**
+ * 样衣来源
+ */
+@property (nonatomic, copy) NSNumber *issource;
+
 @end

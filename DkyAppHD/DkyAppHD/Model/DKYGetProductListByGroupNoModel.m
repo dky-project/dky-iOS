@@ -42,6 +42,7 @@
         self.addDpGroupBmptParam = [[DKYAddDpGroupBmptParamModel alloc] init];
         self.addDpGroupBmptParam.mProductId = self.mProductId;
         self.addDpGroupBmptParam.pdt = self.productName;
+        self.addDpGroupBmptParam.issource = @3;
     }else{
         self.addDpGroupApproveParam = [[DKYAddDpGroupApproveParamModel alloc] init];
         self.addDpGroupApproveParam.mProductId = self.mProductId;
@@ -53,6 +54,7 @@
         self.addDpGroupApproveParam.xcValue = self.xcValue;
         self.addDpGroupApproveParam.xcLeftValue = self.xcLeftValue;
         self.defaultXcValue = self.xcLeftValue;
+        self.addDpGroupApproveParam.issource = @3;
     }
 }
 

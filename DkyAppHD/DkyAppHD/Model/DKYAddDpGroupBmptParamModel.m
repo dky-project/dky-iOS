@@ -10,4 +10,13 @@
 
 @implementation DKYAddDpGroupBmptParamModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.issource = @3;
+    }
+    return self;
+}
+
 @end
