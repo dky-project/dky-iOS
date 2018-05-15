@@ -114,7 +114,7 @@
     [self setupCollectListVc];
     
     // 订单查询
-    //[self setupOrderInqueryVc];
+    [self setupOrderInqueryVc];
     
     // 推荐功能
     //[self setupRecommendVc];

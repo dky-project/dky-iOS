@@ -30,4 +30,9 @@
  */
 @property (nonatomic, copy) NSNumber *isapprove;
 
+/**
+ * 来源
+ */
+@property (nonatomic, strong) NSNumber *issource;
+
 @end

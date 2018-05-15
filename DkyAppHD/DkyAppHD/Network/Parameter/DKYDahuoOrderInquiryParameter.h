@@ -25,4 +25,9 @@
  */
 @property (nonatomic, copy) NSString *sizeName;
 
+/**
+ * 来源
+ */
+@property (nonatomic, strong) NSNumber *issource;
+
 @end
