@@ -47,7 +47,7 @@
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
-    NSArray *titleList = @[@"毛衫类",@"其他类"];
+    NSArray *titleList = @[@""];
     return titleList;
 }
 
@@ -56,28 +56,17 @@
     UIButton *menuItem = [magicView dequeueReusableItemWithIdentifier:itemIdentifier];
     if (!menuItem) {
         menuItem = [UIButton buttonWithType:UIButtonTypeCustom];
-        [menuItem setTitleColor:RGBCOLOR(50, 50, 50) forState:UIControlStateNormal];
-        [menuItem setTitleColor:[UIColor colorWithHex:0x3C3362] forState:UIControlStateSelected];
-        menuItem.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:15.f];
     }
     return menuItem;
 }
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
-    UIViewController *viewController = nil;
-    if(pageIndex == 0){
-        static NSString *gridId = @"CustomOrderInquery.identifier";
-        viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
-        if (!viewController) {
-            viewController = [[DKYOrderInquiryViewController alloc] init];
-        }
-    }else if(pageIndex == 1){
-        static NSString *gridId = @"DahuoInkueqy.identifier";
-        viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
-        if (!viewController) {
-            viewController = [[DKYDahuoOrderInquiryViewController alloc] init];
-        }
-    }    return viewController;
+    static NSString *gridId = @"CustomOrderInquery.identifier";
+    UIViewController *viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
+    if (!viewController) {
+        viewController = [[DKYOrderInquiryViewController alloc] init];
+    }
+    return viewController;
 }
 
 #pragma mark - VTMagicViewDelegate
@@ -100,13 +89,7 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
-    self.magicView.itemScale = 1.2;
-    self.magicView.headerHeight = 40;
-    self.magicView.navigationHeight = 44;
-    self.magicView.headerView.backgroundColor = RGBCOLOR(243, 40, 47);
-    self.magicView.navigationColor = [UIColor whiteColor];
-    self.magicView.layoutStyle = VTLayoutStyleCenter;
-    self.magicView.sliderColor = [UIColor colorWithHex:0x3C3362];
+    self.magicView.navigationHeight = 0;
     self.magicView.delegate = self;
     self.magicView.dataSource = self;
     [self.magicView reloadData];

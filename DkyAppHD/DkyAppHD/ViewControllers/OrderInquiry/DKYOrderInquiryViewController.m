@@ -234,35 +234,8 @@
 #pragma mark - private method
 
 - (void)showFaxDateSelectedPicker{
-    //        DKYDatePickerView *pic = [[DKYDatePickerView alloc] init];
-    //        pic.doneBlock = ^(DKYDatePickerView *picker, DkyButtonStatusType type){
-    //            DLog(@"%@",picker.selectedDate);
-    //        };
-    //        [pic show];
     [self.view endEditing:YES];
     [self.datePickView show];
-}
-
-- (void)showAuditStatusSelectedPicker{
-    WeakSelf(weakSelf);
-    [self.view endEditing:YES];
-    MMPopupItemHandler block = ^(NSInteger index){
-        weakSelf.selectedOrderAuditStatusModel = [weakSelf.orderAuditStatusModels objectOrNilAtIndex:index];
-        
-        NSString *displayName = [NSString stringWithFormat:@"  %@",weakSelf.selectedOrderAuditStatusModel.statusName ?:@""];
-        weakSelf.headerView.auditStatusLabel.text = displayName;
-    };
-    
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.orderAuditStatusModels.count + 1];
-    for (DKYOrderAuditStatusModel *model in self.orderAuditStatusModels) {
-        [items addObject:MMItemMake(model.statusName, MMItemTypeNormal, block)];
-    }
-    
-    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"审核状态"
-                                                          items:[items copy]];
-//    sheetView.attachedView = self.view;
-    [MMPopupWindow sharedWindow].touchWildToHide = YES;
-    [sheetView show];
 }
 
 - (void)showSourceSelectedPicker{
@@ -325,15 +298,11 @@
         make.left.mas_equalTo(weakSelf.view);
         make.right.mas_equalTo(weakSelf.view);
         make.top.mas_equalTo(weakSelf.view).with.offset(0);
-        make.height.mas_equalTo(300);
+        make.height.mas_equalTo(260);
     }];
     
     header.faxDateBlock = ^(id sender){
         [weakSelf showFaxDateSelectedPicker];
-    };
-    
-    header.auditStatusBlock = ^(id sender){
-        [weakSelf showAuditStatusSelectedPicker];
     };
     
     header.sourceBlock = ^(id sender) {
@@ -349,8 +318,6 @@
     };
     
     header.findBtnClicked = ^(id sender){
-        weakSelf.pdt = weakSelf.headerView.sampleTextField.text;
-        weakSelf.customer =weakSelf.headerView.clientTextField.text;
         if(weakSelf.pdt .length == 0){
             weakSelf.pdt = nil;
         }
@@ -361,15 +328,6 @@
     };
     
     header.deleteBtnClicked = ^(id sender){
-//        weakSelf.headerView.faxDateLabel.text = @"";
-//        weakSelf.headerView.clientTextField.text = @"";
-//        weakSelf.headerView.sampleTextField.text = @"";
-//        weakSelf.headerView.auditStatusLabel.text = @"";
-//        weakSelf.selectedOrderAuditStatusModel = nil;
-//        weakSelf.czDate = nil;
-//        weakSelf.customer = nil;
-//        weakSelf.pdt = nil;
-        
         [weakSelf updateProductApproveToServer];
     };
     
