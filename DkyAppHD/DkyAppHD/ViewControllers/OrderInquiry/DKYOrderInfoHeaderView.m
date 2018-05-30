@@ -9,6 +9,8 @@
 #import "DKYOrderInfoHeaderView.h"
 #import "DKYOrderInqueryTotalMapModel.h"
 
+#define kLeftMargin         55
+
 @interface DKYOrderInfoHeaderView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -97,7 +99,7 @@
     [self setupSourceOfSampleLabel];
     [self setupColorLabel];
     [self setupSizeLabel];
-    //[self setupLengthLabel];
+    [self setupLengthLabel];
     
     [self setupOrderAmountLabel];
     [self setupCountLabel];
@@ -134,7 +136,7 @@
     WeakSelf(weakSelf);
     self.pictureLabel = [self createLabelWithName:@"图片"];
     [self.pictureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -143,7 +145,7 @@
     WeakSelf(weakSelf);
     self.sourceOfSampleLabel = [self createLabelWithName:@"款号"];
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -152,25 +154,25 @@
     WeakSelf(weakSelf);
     self.colorLabel = [self createLabelWithName:@"颜色"];
     [self.colorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
 - (void)setupSizeLabel{
     WeakSelf(weakSelf);
-    self.sizeLabel = [self createLabelWithName:@"大"];
+    self.sizeLabel = [self createLabelWithName:@"尺寸"];
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.colorLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.colorLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
 - (void)setupLengthLabel{
     WeakSelf(weakSelf);
-    self.lengthLabel = [self createLabelWithName:@"长"];
+    self.lengthLabel = [self createLabelWithName:@"来源"];
     [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -179,9 +181,9 @@
     WeakSelf(weakSelf);
     self.orderAmountLabel = [self createLabelWithName:@"订单金额"];
     [self.orderAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(60);
+//        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(kLeftMargin);
 //        make.centerY.mas_equalTo(weakSelf.imageView);
-        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -190,7 +192,7 @@
     WeakSelf(weakSelf);
     self.countLabel = [self createLabelWithName:@"数量"];
     [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.orderAmountLabel.mas_right).with.offset(60);
+        make.left.mas_equalTo(weakSelf.orderAmountLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -229,7 +231,7 @@
 //    WeakSelf(weakSelf);
 //    self.serialNumberLabel = [self createLabelWithName:@"编号"];
 //    [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(60);
+//        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(kLeftMargin);
 //        make.centerY.mas_equalTo(weakSelf);
 //    }];
 //}
