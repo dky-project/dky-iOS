@@ -25,10 +25,13 @@
 
 @property (nonatomic, copy) BlockWithSender deleteBtnClicked;
 
+@property (weak, nonatomic) IBOutlet UITextField *sampleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *clientTextField;
 @property (weak, nonatomic) IBOutlet UIButton *findBtn;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UIButton *batchPreviewBtn;
 @property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *auditStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 
 @property (weak, nonatomic) IBOutlet DKYOrderInfoHeaderView *bottomHeaderView;
