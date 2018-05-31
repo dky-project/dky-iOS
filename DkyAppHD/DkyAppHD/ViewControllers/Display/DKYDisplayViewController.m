@@ -130,6 +130,7 @@
 
 - (void)addProductDpGroup{
     WeakSelf(weakSelf);
+
     [DKYHUDTool show];
     DKYAddProductDpGroupParameter *p = [[DKYAddProductDpGroupParameter alloc] init];
     p.version = nil;
@@ -165,15 +166,15 @@
             
             [UIAlertController showAlertInViewController:weakSelf
                                                withTitle:@"提示"
-                                                 message:@"保存成功！"
-                                       cancelButtonTitle:@"关闭"
+                                                 message:@"是否确认下单"
+                                       cancelButtonTitle:@"是"
                                   destructiveButtonTitle:nil
-                                       otherButtonTitles:@[@"确认下单"]
+                                       otherButtonTitles:@[@"否"]
                                                 tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
                                                     if (buttonIndex == controller.cancelButtonIndex) {
-                                                        
-                                                    } else if (buttonIndex >= controller.firstOtherButtonIndex) {
                                                         [weakSelf confirmProductApproveToServer];
+                                                    } else if (buttonIndex >= controller.firstOtherButtonIndex) {
+                                                        
                                                     }
                                                 }];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -485,16 +486,16 @@
         make.top.mas_equalTo(weakSelf.tableView.mas_bottom);
     }];
     
-    actionView.confirmBtnClicked = ^(UIButton* sender){
-        if(![weakSelf checkForConfirm]) return ;
-        
-        [weakSelf confirmProductApproveToServer];
-    };
+//    actionView.confirmBtnClicked = ^(UIButton* sender){
+//        if(![weakSelf checkForConfirm]) return ;
+//
+//        [weakSelf confirmProductApproveToServer];
+//    };
     
     actionView.saveBtnClicked = ^(UIButton *sender){
         // 1.检查参数
         if(![weakSelf checkForSave]) return;
-        
+
         // 2.调用接口
         [weakSelf addProductDpGroup];
     };

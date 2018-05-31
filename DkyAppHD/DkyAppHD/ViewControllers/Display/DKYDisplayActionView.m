@@ -58,7 +58,7 @@
     UIButton *btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
     [self addSubview:btn];
     self.saveBtn = btn;
-    [self.saveBtn setTitle:@"保存下单" forState:UIControlStateNormal];
+    [self.saveBtn setTitle:@"确认下单" forState:UIControlStateNormal];
     
     [btn addTarget:self action:@selector(saveBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -69,17 +69,17 @@
     }];
     
     
-     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
-    [self addSubview:btn];
-    self.confirmOrderBtn = btn;
-    [self.confirmOrderBtn setTitle:@"确认下单" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(confirmOrderBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.confirmOrderBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(weakSelf.saveBtn);
-        make.right.mas_equalTo(weakSelf).with.offset(-72);
-        make.bottom.mas_equalTo(weakSelf.saveBtn);
-    }];
+//     btn = [UIButton buttonWithCustomType:UIButtonCustomType_Seven];
+//    [self addSubview:btn];
+//    self.confirmOrderBtn = btn;
+//    [self.confirmOrderBtn setTitle:@"确认下单" forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(confirmOrderBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//
+//    [self.confirmOrderBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.size.mas_equalTo(weakSelf.saveBtn);
+//        make.right.mas_equalTo(weakSelf).with.offset(-72);
+//        make.bottom.mas_equalTo(weakSelf.saveBtn);
+//    }];
 }
 
 @end
