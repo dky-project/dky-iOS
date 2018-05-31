@@ -666,7 +666,6 @@
         
         [weakSelf updateWhenSumChanged];
         
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:@{@"amount" : sender.text}];
         [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAmountChangedNotification object:nil userInfo:nil];
     }];
     

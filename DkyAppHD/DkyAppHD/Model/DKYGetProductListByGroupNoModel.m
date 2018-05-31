@@ -56,6 +56,7 @@
         self.defaultXcValue = self.xcLeftValue;
         self.addDpGroupApproveParam.issource = @3;
     }
+    self.sum = 1;
 }
 
 - (void)setSum:(NSInteger)sum{
