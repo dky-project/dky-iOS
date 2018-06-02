@@ -158,7 +158,7 @@
 
 - (void)setupSizeLabel{
     WeakSelf(weakSelf);
-    self.sizeLabel = [self createLabelWithName:@"大"];
+    self.sizeLabel = [self createLabelWithName:@"尺寸"];
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.colorLabel.mas_right).with.offset(45);
         make.centerY.mas_equalTo(weakSelf.imageView);
