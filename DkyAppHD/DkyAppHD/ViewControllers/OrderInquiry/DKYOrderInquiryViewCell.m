@@ -81,6 +81,33 @@
     self.clientLabel.text = itemModel.customer;
     self.faxDateLabel.text = itemModel.displayFaxDate;
     self.styleLabel.text = itemModel.mDimNew12Text;
+    
+    UIColor *textColor = nil;
+    switch (itemModel.status) {
+        case DKYOrderAuditStatusType_Auding:
+            textColor = [UIColor colorWithHex:0x333333];
+            break;
+        case DKYOrderAuditStatusType_Success:
+            textColor = [UIColor greenColor];
+            break;
+        case DKYOrderAuditStatusType_Fail:
+            textColor = [UIColor redColor];
+            break;
+        default:
+            textColor = [UIColor colorWithHex:0x333333];
+            break;
+    }
+    
+    self.sourceOfSampleLabel.textColor = textColor;
+    
+    self.sizeLabel.textColor = textColor;
+    self.orderAmountLabel.textColor= textColor;
+    self.countLabel.textColor = textColor;
+    self.colorLabel.textColor = textColor;
+    
+    self.clientLabel.textColor = textColor;
+    self.faxDateLabel.textColor = textColor;
+    self.styleLabel.textColor = textColor;
 }
 
 - (void)drawRect:(CGRect)rect{
