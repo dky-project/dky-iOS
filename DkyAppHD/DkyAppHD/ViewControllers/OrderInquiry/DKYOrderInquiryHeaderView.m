@@ -60,6 +60,12 @@
     }
 }
 
+-(void)sizeLabelTapped:(UITapGestureRecognizer*)ges{
+    if(self.sizeBlock){
+        self.sizeBlock(self);
+    }
+}
+
 - (IBAction)batchPreviewBtnClicked:(UIButton *)sender {
     if(self.batchPreviewBtnClicked){
         self.batchPreviewBtnClicked(self);
@@ -94,7 +100,7 @@
     self.sampleTextField.leftView = placeholderView;
     
     self.clientTextField.placeholder = @"客户";
-    self.sampleTextField.placeholder = @"样衣";
+    self.sampleTextField.placeholder = @"款号";
     
     UIImage *image = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(120, 38)];
     image = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
@@ -110,6 +116,9 @@
     
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
     [self.sourceLabel addGestureRecognizer:tap];
+    
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sizeLabelTapped:)];
+    [self.sizeLabel addGestureRecognizer:tap];
 }
 
 - (UUDatePicker*)datePicker{

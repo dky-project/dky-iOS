@@ -19,6 +19,8 @@
 
 @property (nonatomic, copy) BlockWithSender sourceBlock;
 
+@property (nonatomic, copy) BlockWithSender sizeBlock;
+
 @property (nonatomic, copy) BlockWithSender batchPreviewBtnClicked;
 
 @property (nonatomic, copy) BlockWithSender findBtnClicked;
@@ -33,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *auditStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 
 @property (weak, nonatomic) IBOutlet DKYOrderInfoHeaderView *bottomHeaderView;
 @property (weak, nonatomic) IBOutlet DKYOrderInfoHeaderView *headerView;
