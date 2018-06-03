@@ -78,6 +78,7 @@
 		26A7C3701E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A7C36F1E5B3345004A4A12 /* DKYCustomOrderFlowerTypeItemView.m */; };
 		26BB9A591E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */; };
 		26C660B9209B551F0058B61E /* DKYMultipleSelectPopupViewV3.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C660B8209B551F0058B61E /* DKYMultipleSelectPopupViewV3.m */; };
+		26C94A5B20C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C94A5A20C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.m */; };
 		26D2C9E61EF5683C008EABAA /* DKYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D2C9E51EF5683C008EABAA /* DKYSearchView.m */; };
 		26DAD0C21E1A1923008EE55F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C11E1A1923008EE55F /* UINavigationBar+Awesome.m */; };
 		26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DAD0C71E1A1C30008EE55F /* UIViewController+Utlity.m */; };
@@ -511,6 +512,8 @@
 		26BB9A581E57468C00E425D5 /* DKYTextFieldAndTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYTextFieldAndTextFieldView.m; sourceTree = "<group>"; };
 		26C660B7209B551F0058B61E /* DKYMultipleSelectPopupViewV3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYMultipleSelectPopupViewV3.h; sourceTree = "<group>"; };
 		26C660B8209B551F0058B61E /* DKYMultipleSelectPopupViewV3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupViewV3.m; sourceTree = "<group>"; };
+		26C94A5920C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailGanweiViewCell.h; sourceTree = "<group>"; };
+		26C94A5A20C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailGanweiViewCell.m; sourceTree = "<group>"; };
 		26D2C9E41EF5683C008EABAA /* DKYSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSearchView.h; sourceTree = "<group>"; };
 		26D2C9E51EF5683C008EABAA /* DKYSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSearchView.m; sourceTree = "<group>"; };
 		26DAD0C01E1A1923008EE55F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
@@ -1273,6 +1276,8 @@
 				EBD116061EA4AB2E00AF6F5C /* DKYSampleOrderViewCell.m */,
 				2670F9D61F2B87F800D579B1 /* DkySampleOrderImageViewCell.h */,
 				2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */,
+				26C94A5920C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.h */,
+				26C94A5A20C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.m */,
 				EBD116081EA4AEA600AF6F5C /* 样衣查询下单Item View */,
 			);
 			name = View;
@@ -2704,6 +2709,7 @@
 				EBA7310D1F21E00600FEFD69 /* PYPhotoBrowserConst.m in Sources */,
 				EBA731071F21E00600FEFD69 /* UIView+PYExtension.m in Sources */,
 				EBD694B11E277B4700F365C3 /* RxWebViewNavigationViewController.m in Sources */,
+				26C94A5B20C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
 				EB506C341E23706F002A1423 /* DKYBootImageModel.m in Sources */,

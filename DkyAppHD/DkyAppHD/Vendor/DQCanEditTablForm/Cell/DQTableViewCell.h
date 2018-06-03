@@ -20,5 +20,6 @@
 
 @property (nonatomic, assign) BOOL hideBottomLine;
 
+// 自己加的
 @property (nonatomic, assign) DKYFormType formType;
 @end

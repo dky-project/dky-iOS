@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -66,26 +66,26 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领子 : 圆领" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FA-zr-EdW" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="88" width="69" height="17"/>
+                                <rect key="frame" x="53" y="74" width="69" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示 : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="197-iU-atV" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="126" width="662" height="17"/>
+                                <rect key="frame" x="53" y="107" width="662" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计说明 : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzJ-yK-w3r" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="158" width="662" height="17"/>
+                                <rect key="frame" x="53" y="139" width="662" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="样衣默认信息" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51g-zn-OPJ">
-                                <rect key="frame" x="53" y="190" width="86" height="17"/>
+                                <rect key="frame" x="53" y="182" width="86" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="杆位:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byf-d7-HLt" customClass="TTTAttributedLabel">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="杆位:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byf-d7-HLt" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="53" y="63" width="34" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -98,14 +98,14 @@
                             <constraint firstItem="3FA-zr-EdW" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="4dO-B7-v4u"/>
                             <constraint firstItem="jzJ-yK-w3r" firstAttribute="top" secondItem="197-iU-atV" secondAttribute="bottom" constant="15" id="6Rc-9j-dEn"/>
                             <constraint firstItem="jzJ-yK-w3r" firstAttribute="trailing" secondItem="197-iU-atV" secondAttribute="trailing" id="8dH-qj-W03"/>
-                            <constraint firstItem="51g-zn-OPJ" firstAttribute="top" secondItem="jzJ-yK-w3r" secondAttribute="bottom" constant="15" id="9MS-yt-0WJ"/>
+                            <constraint firstItem="51g-zn-OPJ" firstAttribute="top" secondItem="jzJ-yK-w3r" secondAttribute="bottom" constant="26" id="9MS-yt-0WJ"/>
                             <constraint firstItem="h7K-1n-5Gl" firstAttribute="top" secondItem="bp6-Ax-xct" secondAttribute="top" constant="38" id="AId-Rz-Hs9"/>
-                            <constraint firstItem="197-iU-atV" firstAttribute="top" secondItem="3FA-zr-EdW" secondAttribute="bottom" constant="21" id="CKR-Bj-M7R"/>
+                            <constraint firstItem="197-iU-atV" firstAttribute="top" secondItem="3FA-zr-EdW" secondAttribute="bottom" constant="16" id="CKR-Bj-M7R"/>
                             <constraint firstAttribute="bottom" secondItem="3DD-b2-gV9" secondAttribute="bottom" id="HPw-MD-bcR"/>
                             <constraint firstItem="51g-zn-OPJ" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="J98-9i-KHJ"/>
                             <constraint firstItem="byf-d7-HLt" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="K5F-mA-69S"/>
                             <constraint firstItem="OCe-VJ-uwo" firstAttribute="leading" secondItem="3DD-b2-gV9" secondAttribute="trailing" constant="26.5" id="Kur-id-ezi"/>
-                            <constraint firstItem="3FA-zr-EdW" firstAttribute="top" secondItem="byf-d7-HLt" secondAttribute="bottom" constant="8" id="P77-nw-t5o"/>
+                            <constraint firstItem="3FA-zr-EdW" firstAttribute="top" secondItem="byf-d7-HLt" secondAttribute="bottom" constant="-6" id="P77-nw-t5o"/>
                             <constraint firstAttribute="height" constant="210" id="T16-Pf-ce2"/>
                             <constraint firstItem="h7K-1n-5Gl" firstAttribute="leading" secondItem="bp6-Ax-xct" secondAttribute="leading" constant="53" id="WVW-8Q-cug"/>
                             <constraint firstItem="jzJ-yK-w3r" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="eZc-95-Vb7"/>

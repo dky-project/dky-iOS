@@ -16,6 +16,7 @@
 #import "DKYSampleValueInfoModel.h"
 #import "DKYSampleDetailPriceViewCell.h"
 #import "DKYProductInfoParameter.h"
+#import "DKYSampleDetailGanweiViewCell.h"
 
 @interface DKYSampleDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -32,6 +33,8 @@
 @property (nonatomic, strong) NSArray *sampleValueArray;
 
 @property (nonatomic, strong) NSArray *defaultValueArray;
+
+@property (nonatomic, copy) NSArray *ganweiArray;
 
 @end
 
@@ -234,6 +237,17 @@
     self.defaultValueArray = @[pz,zx,ys,xw,yc,xc];
 }
 
+- (void)setupGanweiArray{
+    NSArray *column1 = @[@"颜色",@"杆位"];
+    NSArray *column2 = @[@"黑色1",@"杆位1"];
+    NSArray *column3 = @[@"黑色2",@"杆位2"];
+    NSArray *column4 = @[@"黑色3",@"杆位3"];
+    NSArray *column5 = @[@"黑色4",@"杆位4"];
+    NSArray *column6 = @[@"黑色5",@"杆位5"];
+    
+    self.ganweiArray = @[column1,column2,column3,column4,column5,column6];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
@@ -248,16 +262,19 @@
     [self.tableView registerNib:[UINib nibWithNibName:identify bundle:nil] forCellReuseIdentifier:identify];
     [self.tableView registerClass:[DQTableViewCell class] forCellReuseIdentifier:NSStringFromClass([DQTableViewCell class])];
     [self.tableView registerClass:[DKYSampleDetailPriceViewCell class] forCellReuseIdentifier:NSStringFromClass([DKYSampleDetailPriceViewCell class])];
+    [self.tableView registerClass:[DKYSampleDetailGanweiViewCell class] forCellReuseIdentifier:NSStringFromClass([DKYSampleDetailGanweiViewCell class])];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
 //    self.tableView.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
 //    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self setupGanweiArray];
 }
 
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 4 + 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -280,13 +297,19 @@
             identifier = NSStringFromClass([DQTableViewCell class]);
             break;
         case 2:
+            identifier = NSStringFromClass([DKYSampleDetailGanweiViewCell class]);
+            break;
+        case 3:
+            identifier = NSStringFromClass([DQTableViewCell class]);
+            break;
+        case 4:
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 identifier = NSStringFromClass([DKYSampleDetailPriceViewCell class]);
             }else{
                 identifier = NSStringFromClass([DQTableViewCell class]);
             }
             break;
-        case 3:
+        case 5:
             identifier = NSStringFromClass([DQTableViewCell class]);
             break;
         default:
@@ -298,7 +321,7 @@
         if(indexPath.row == 0){
             DKYSampleDetailTypeViewCell *newCell = (DKYSampleDetailTypeViewCell*)cell;
             newCell.model = weakSelf.sampleProductInfo;
-        }else if (indexPath.row == 2){
+        }else if (indexPath.row == 4){
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 DKYSampleDetailPriceViewCell *newcell = (DKYSampleDetailPriceViewCell*)cell;
                 newcell.sampleProductInfo = self.sampleProductInfo;
@@ -307,15 +330,20 @@
                 newcell.fd_enforceFrameLayout = YES;
                 newcell.DataArr = [self.priceArray mutableCopy];
             }
-        }else {
+        }else if(indexPath.row == 2){
+            
+        }else{
             DQTableViewCell *newcell = (DQTableViewCell*)cell;
             newcell.fd_enforceFrameLayout = YES;
             
             if(indexPath.row == 1){
                 newcell.formType = DKYFormType_TypeTwo;
                 newcell.DataArr = [self.defaultValueArray mutableCopy];
-            }else{
+            }else if(indexPath.row == 5){
                 newcell.DataArr = [self.sampleValueArray mutableCopy];
+            }else{
+                // row = 3
+                
             }
         }
     }];
@@ -334,14 +362,23 @@
             break;
         case 1:{
             DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
-            
             cell.formType = DKYFormType_TypeTwo;
             cell.DataArr = [self.defaultValueArray mutableCopy];
             cell.hideBottomLine = YES;
             return cell;
         }
             break;
-        case 2:{
+        case 2:
+            cell = [DKYSampleDetailGanweiViewCell sampleDetailGanweiViewCellWithTableView:tableView];
+            break;
+        case 3:{
+            DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+            cell.formType = DKYFormType_TypeTwo;
+            cell.DataArr = [self.ganweiArray mutableCopy];
+            cell.hideBottomLine = YES;
+            return cell;
+        }
+        case 4:{
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 DKYSampleDetailPriceViewCell *cell = [DKYSampleDetailPriceViewCell sampleDetailPriceViewCellWithTableView:tableView];
                 cell.sampleProductInfo = self.sampleProductInfo;
@@ -354,7 +391,7 @@
             }
         }
             break;
-        case 3:{
+        case 5:{
             DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
             
             cell.DataArr = [self.sampleValueArray mutableCopy];
