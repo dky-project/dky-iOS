@@ -43,18 +43,20 @@
 
 @property (nonatomic, strong) DKYOrderInqueryTotalMapModel *orderInqueryTotalMapModel;
 
-@property (nonatomic, strong) DKYOrderAuditStatusModel *sourceModel;
-
-// 查询的4个条件
-@property (nonatomic, strong) DKYOrderAuditStatusModel *selectedOrderAuditStatusModel;
-@property (nonatomic, copy) NSString *czDate;
-@property (nonatomic, copy) NSString *customer;
-@property (nonatomic, copy) NSString *pdt;
-
 // 批量预览的数据
 @property (nonatomic, strong) NSMutableArray *selectedOrders;
 
 @property (nonatomic, strong) NSArray *detailOrders;
+
+// 查询的2个条件
+@property (nonatomic, copy) NSString *kh;
+@property (nonatomic, strong) DKYOrderAuditStatusModel *sourceModel;
+
+// 查询的4个条件
+@property (nonatomic, strong) DKYOrderAuditStatusModel *selectedOrderAuditStatusModel;
+//@property (nonatomic, copy) NSString *czDate;
+//@property (nonatomic, copy) NSString *customer;
+//@property (nonatomic, copy) NSString *pdt;
 
 @end
 
@@ -82,9 +84,7 @@
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
     p.pageSize = @(kPageSize);
-    p.czDate = self.czDate;
-    p.customer = self.customer;
-    p.pdt = self.pdt;
+    
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
     
     p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
@@ -128,8 +128,6 @@
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
-    p.czDate = self.czDate;
-    p.customer = self.customer;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
     
     p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
@@ -261,13 +259,6 @@
 }
 
 - (void)showOrderPreview{
-//    DKYOrderBrowseViewController *vc = [[DKYOrderBrowseViewController alloc] init];
-//    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    vc.modalPresentationStyle = UIModalPresentationPopover;
-//    vc.preferredContentSize = CGSizeMake(514, 610);
-//    UIPopoverPresentationController *popover = vc.popoverPresentationController;
-//    popover.sourceView = self.view;
-//    [self presentViewController:vc animated:YES completion:nil];
     [self.view endEditing:YES];
     DKYOrderBrowseView *browseView = [DKYOrderBrowseView show];
     browseView.detailOrders = self.detailOrders;
@@ -301,10 +292,6 @@
         make.height.mas_equalTo(260);
     }];
     
-    header.faxDateBlock = ^(id sender){
-        [weakSelf showFaxDateSelectedPicker];
-    };
-    
     header.sourceBlock = ^(id sender) {
         [weakSelf showSourceSelectedPicker];
     };
@@ -318,11 +305,10 @@
     };
     
     header.findBtnClicked = ^(id sender){
-        if(weakSelf.pdt .length == 0){
-            weakSelf.pdt = nil;
-        }
-        if(weakSelf.customer.length == 0){
-            weakSelf.customer = nil;
+        weakSelf.kh = weakSelf.headerView.kuanhaoTextField.text;
+
+        if(weakSelf.kh.length == 0){
+            weakSelf.kh = nil;
         }
         [weakSelf.tableView.mj_header beginRefreshing];
     };
@@ -452,9 +438,9 @@
 
 //确定时间
 - (void)determine:(NSDate *)date{
-    DLog(@"选中时间 = %@",[self.datePickView stringFromDate:date]);
-    self.czDate = [self.datePickView stringFromDate:date];
-    self.headerView.faxDateLabel.text = [NSString stringWithFormat:@"   %@",self.czDate];
+//    DLog(@"选中时间 = %@",[self.datePickView stringFromDate:date]);
+//    self.czDate = [self.datePickView stringFromDate:date];
+//    self.headerView.faxDateLabel.text = [NSString stringWithFormat:@"   %@",self.czDate];
 }
 
 #pragma mark - get & set method

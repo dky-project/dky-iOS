@@ -77,16 +77,21 @@
 - (void)commonInit{
     self.autoresizingMask = UIViewAutoresizingNone;
     
+    UIView *placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    placeholderView.backgroundColor = [UIColor whiteColor];
+    self.kuanhaoTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.kuanhaoTextField.leftView = placeholderView;
+  
+    self.kuanhaoTextField.placeholder = @"款号";
+
+    
     UIImage *image = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(120, 38)];
     image = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
     [self.findBtn setBackgroundImage:image forState:UIControlStateNormal];
     [self.deleteBtn setBackgroundImage:image forState:UIControlStateNormal];
     [self.batchPreviewBtn setBackgroundImage:image forState:UIControlStateNormal];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(faxDateLabelTapped:)];
-    [self.faxDateLabel addGestureRecognizer:tap];
-    
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
     [self.sourceLabel addGestureRecognizer:tap];
 }
 
