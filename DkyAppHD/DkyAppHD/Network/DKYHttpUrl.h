@@ -65,6 +65,8 @@
 
 // 订单查询
 #define kProductApproveUrl              @"productApprove/page"          // 订单查询
+#define kProductApproveMergePageUrl     @"productApprove/mergePage"      // 订单查询
+
 #define kProductApproveInfoListUrl      @"productApprove/productApproveInfoList"  // 订单详细信息查询
 #define kUpdateProductApproveUrl        @"productApprove/updateProductApprove"    // 删除订单
 

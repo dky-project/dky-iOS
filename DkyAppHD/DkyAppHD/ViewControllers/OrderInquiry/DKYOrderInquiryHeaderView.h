@@ -34,8 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *batchPreviewBtn;
 @property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *auditStatusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (weak, nonatomic) IBOutlet UITextField *sizeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *colorTextField;
 
 @property (weak, nonatomic) IBOutlet DKYOrderInfoHeaderView *bottomHeaderView;
 @property (weak, nonatomic) IBOutlet DKYOrderInfoHeaderView *headerView;

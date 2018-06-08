@@ -114,11 +114,11 @@
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(auditStatusLabelTapped:)];
     [self.auditStatusLabel addGestureRecognizer:tap];
     
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
-    [self.sourceLabel addGestureRecognizer:tap];
-    
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sizeLabelTapped:)];
-    [self.sizeLabel addGestureRecognizer:tap];
+//    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
+//    [self.sourceLabel addGestureRecognizer:tap];
+//    
+//    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sizeLabelTapped:)];
+//    [self.sizeLabel addGestureRecognizer:tap];
 }
 
 - (UUDatePicker*)datePicker{

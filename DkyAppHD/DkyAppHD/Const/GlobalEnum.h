@@ -47,8 +47,8 @@ typedef NS_ENUM(NSInteger, DkyOrderBrowserLineViewType) {
 // 订单查询审核状态
 typedef NS_ENUM(NSInteger, DKYOrderAuditStatusType) {
     DKYOrderAuditStatusType_Unset = 0,
-    DKYOrderAuditStatusType_Auding,
-    DKYOrderAuditStatusType_Success,
+    DKYOrderAuditStatusType_Auding = 1,
+    DKYOrderAuditStatusType_Success = 2,
     DKYOrderAuditStatusType_Fail = -1,
 };
 

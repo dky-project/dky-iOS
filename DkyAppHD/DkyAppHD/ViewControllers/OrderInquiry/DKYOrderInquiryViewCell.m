@@ -63,27 +63,25 @@
 - (void)setItemModel:(DKYOrderItemModel *)itemModel{
     _itemModel = itemModel;
     
-    //self.orderNumberLabel.text = itemModel.displayID;
-    
     self.sourceOfSampleLabel.text = itemModel.pdt;
-    
-    self.sizeLabel.text = itemModel.xwValue;
-    //self.lengthLabel.text = itemModel.ycValue;
+    self.sizeLabel.text = itemModel.sizeName;
     
     self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
     
     self.orderAmountLabel.text = itemModel.totalAmount;
-    self.countLabel.text = itemModel.sum;
+    self.countLabel.text = itemModel.qty;
     [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.imgUrl]];
     
     self.colorLabel.text = itemModel.colorName;
     
     self.clientLabel.text = itemModel.customer;
     self.faxDateLabel.text = itemModel.displayFaxDate;
-    self.styleLabel.text = itemModel.mDimNew12Text;
+    
+    // 编号
+    self.styleLabel.text = itemModel.displayNo1;
     
     UIColor *textColor = nil;
-    switch (itemModel.status) {
+    switch (itemModel.isapprove) {
         case DKYOrderAuditStatusType_Auding:
             textColor = [UIColor colorWithHex:0x333333];
             break;

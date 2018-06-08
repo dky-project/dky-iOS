@@ -23,6 +23,7 @@
 #import "DKYOrderItemDetailModel.h"
 #import "DKYOrderInqueryPageModel.h"
 #import "DKYOrderInqueryTotalMapModel.h"
+#import "DKYOrderInqueryMergeParameter.h"
 
 @interface DKYOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
 
@@ -48,8 +49,11 @@
 // 查询的4个条件
 @property (nonatomic, strong) DKYOrderAuditStatusModel *selectedOrderAuditStatusModel;
 @property (nonatomic, copy) NSString *czDate;
+
 @property (nonatomic, copy) NSString *customer;
 @property (nonatomic, copy) NSString *pdt;
+@property (nonatomic, copy) NSString *color;
+@property (nonatomic, copy) NSString *size;
 
 // 批量预览的数据
 @property (nonatomic, strong) NSMutableArray *selectedOrders;
@@ -65,8 +69,6 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
-//    self.headerView.clientTextField.text = @"陈";
-//    self.headerView.sampleTextField.text = @"2326";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,8 +79,7 @@
 #pragma mark - 网络请求
 - (void)productApprovePageFromServer{
     WeakSelf(weakSelf);
-//    dispatch_group_enter(self.group);
-    DKYOrderInquiryParameter *p = [[DKYOrderInquiryParameter alloc] init];
+    DKYOrderInqueryMergeParameter *p = [[DKYOrderInqueryMergeParameter alloc] init];
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
     p.pageSize = @(kPageSize);
@@ -86,10 +87,10 @@
     p.customer = self.customer;
     p.pdt = self.pdt;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
+    p.colorName = self.color;
+    p.size = self.size;
     
-    p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
-    
-    [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.tableView.mj_header endRefreshing];
@@ -124,7 +125,7 @@
 - (void)loadMoreProductApprovePageFromServer{
     WeakSelf(weakSelf);
     //    dispatch_group_enter(self.group);
-    DKYOrderInquiryParameter *p = [[DKYOrderInquiryParameter alloc] init];
+    DKYOrderInqueryMergeParameter *p = [[DKYOrderInqueryMergeParameter alloc] init];
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
@@ -132,9 +133,10 @@
     p.customer = self.customer;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
     
-    p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
+    p.colorName = self.color;
+    p.size = self.size;
     
-    [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.tableView.mj_footer endRefreshing];
@@ -272,7 +274,7 @@
         weakSelf.sourceModel = [weakSelf.sourceModels objectOrNilAtIndex:index];
         
         NSString *displayName = [NSString stringWithFormat:@"  %@",weakSelf.sourceModel.statusName ?:@""];
-        weakSelf.headerView.sourceLabel.text = displayName;
+        //weakSelf.headerView.sourceLabel.text = displayName;
     };
     
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.sourceModels.count + 1];
@@ -336,10 +338,6 @@
         [weakSelf showAuditStatusSelectedPicker];
     };
     
-    header.sourceBlock = ^(id sender) {
-        [weakSelf showSourceSelectedPicker];
-    };
-    
     header.batchPreviewBtnClicked = ^(id sender){
         if(weakSelf.selectedOrders.count == 0){
             [DKYHUDTool showInfoWithStatus:@"请至少选择一条订单记录"];
@@ -351,25 +349,25 @@
     header.findBtnClicked = ^(id sender){
         weakSelf.pdt = weakSelf.headerView.sampleTextField.text;
         weakSelf.customer =weakSelf.headerView.clientTextField.text;
-        if(weakSelf.pdt .length == 0){
+        weakSelf.color = weakSelf.headerView.colorTextField.text;
+        weakSelf.size = weakSelf.headerView.sizeTextField.text;
+        if(weakSelf.pdt.length == 0){
             weakSelf.pdt = nil;
         }
         if(weakSelf.customer.length == 0){
             weakSelf.customer = nil;
         }
+        if(weakSelf.color.length == 0){
+            weakSelf.color = nil;
+        }
+        if(weakSelf.size.length == 0){
+            weakSelf.size = nil;
+        }
+        
         [weakSelf.tableView.mj_header beginRefreshing];
     };
     
     header.deleteBtnClicked = ^(id sender){
-//        weakSelf.headerView.faxDateLabel.text = @"";
-//        weakSelf.headerView.clientTextField.text = @"";
-//        weakSelf.headerView.sampleTextField.text = @"";
-//        weakSelf.headerView.auditStatusLabel.text = @"";
-//        weakSelf.selectedOrderAuditStatusModel = nil;
-//        weakSelf.czDate = nil;
-//        weakSelf.customer = nil;
-//        weakSelf.pdt = nil;
-        
         [weakSelf updateProductApproveToServer];
     };
     
