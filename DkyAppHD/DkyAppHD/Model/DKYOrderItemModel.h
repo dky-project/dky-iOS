@@ -67,6 +67,11 @@
  */
 @property (nonatomic, copy) NSString *bigImgUrl;
 
+/**
+ * 样衣来源
+ */
+@property (nonatomic, copy) NSString *issourceText;
+
 
 // 客户端自己属性
 @property (nonatomic, copy) NSString *displayID;

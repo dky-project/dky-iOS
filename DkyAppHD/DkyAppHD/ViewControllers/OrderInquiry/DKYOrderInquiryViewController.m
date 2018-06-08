@@ -23,6 +23,7 @@
 #import "DKYOrderItemDetailModel.h"
 #import "DKYOrderInqueryPageModel.h"
 #import "DKYOrderInqueryTotalMapModel.h"
+#import "DKYOrderInqueryMergeParameter.h"
 
 @interface DKYOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
 
@@ -67,8 +68,6 @@
     // Do any additional setup after loading the view.
     
     [self commonInit];
-//    self.headerView.clientTextField.text = @"陈";
-//    self.headerView.sampleTextField.text = @"2326";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,17 +78,15 @@
 #pragma mark - 网络请求
 - (void)productApprovePageFromServer{
     WeakSelf(weakSelf);
-//    dispatch_group_enter(self.group);
-    DKYOrderInquiryParameter *p = [[DKYOrderInquiryParameter alloc] init];
+    DKYOrderInqueryMergeParameter *p = [[DKYOrderInqueryMergeParameter alloc] init];
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
     p.pageSize = @(kPageSize);
     
-    p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
-    
     p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
+    p.pdt = self.kh;
     
-    [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.tableView.mj_header endRefreshing];
@@ -128,11 +125,11 @@
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
-    p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
-    
+
     p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
+    p.pdt = self.kh;
     
-    [[DKYHttpRequestManager sharedInstance] productApprovePageWithParameter:p Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.tableView.mj_footer endRefreshing];
