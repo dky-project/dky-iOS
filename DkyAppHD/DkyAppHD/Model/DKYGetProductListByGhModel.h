@@ -26,6 +26,8 @@
 
 @property (nonatomic, copy) NSString *mptbelongtype;
 
+@property (nonatomic, copy) NSString * groupNo;
+
 // 客户端自己的属性
 @property (nonatomic, assign) BOOL isCollected;
 

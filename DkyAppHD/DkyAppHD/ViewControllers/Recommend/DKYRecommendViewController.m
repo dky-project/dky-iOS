@@ -14,6 +14,7 @@
 #import "DKYSampleModel.h"
 #import "DKYSampleDetailAllViewController.h"
 #import "DKYDisplayBigImaeViewCell.h"
+#include "DKYDisplayViewController.h"
 
 @interface DKYRecommendViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -165,10 +166,17 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 1){
-        DKYSampleDetailAllViewController *vc = [[DKYSampleDetailAllViewController alloc] init];
-        vc.samples = self.samples;
-        vc.currentIndex = indexPath.item;
-        vc.issource = @2;
+//        DKYSampleDetailAllViewController *vc = [[DKYSampleDetailAllViewController alloc] init];
+//        vc.samples = self.samples;
+//        vc.currentIndex = indexPath.item;
+//        vc.issource = @2;
+//        [self.navigationController pushViewController:vc animated:YES];
+        
+        DKYDisplayViewController *vc = [[DKYDisplayViewController alloc] init];
+        DKYGetProductListByGhModel *model = [self.productList objectOrNilAtIndex:indexPath.item];
+        
+        model.groupNo = @"1";
+        vc.groupNo = model.groupNo;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

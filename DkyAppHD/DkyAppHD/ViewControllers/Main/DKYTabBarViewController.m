@@ -120,7 +120,7 @@
     [self setupRecommendVc];
     
     // 搭配功能
-    [self setupDisplayVc];
+    //[self setupDisplayVc];
     
     // 帮助
     //[self setupHelpVc];
