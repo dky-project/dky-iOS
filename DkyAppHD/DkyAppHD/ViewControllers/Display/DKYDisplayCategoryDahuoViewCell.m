@@ -70,6 +70,20 @@
     
     self.amountTextField.text = getProductListByGroupNoModel.sumText;
     
+    NSString *defaulColor = nil;
+    for(NSDictionary *obj in getProductListByGroupNoModel.colorRangeViewList){
+        NSString *isDefault = [obj objectForKey:@"isDefault"];
+        if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+            defaulColor = [obj objectForKey:@"colorName"];
+            break;
+        }
+    }
+    
+    [self.colorBtn setTitle:defaulColor forState:UIControlStateNormal];
+    defaulColor = [defaulColor stringByReplacingOccurrencesOfString:@"," withString:@";"];
+    self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
+
+    
     [self updateWhenSumChanged];
 }
 
