@@ -239,11 +239,11 @@
 
 - (void)setupGanweiArray{
     NSArray *column1 = @[@"颜色",@"杆位"];
-    NSArray *column2 = @[@"黑色1",@"杆位1"];
-    NSArray *column3 = @[@"黑色2",@"杆位2"];
-    NSArray *column4 = @[@"黑色3",@"杆位3"];
-    NSArray *column5 = @[@"黑色4",@"杆位4"];
-    NSArray *column6 = @[@"黑色5",@"杆位5"];
+    NSArray *column2 = @[@"",@""];
+    NSArray *column3 = @[@"",@""];
+    NSArray *column4 = @[@"",@""];
+    NSArray *column5 = @[@"",@""];
+    NSArray *column6 = @[@"",@""];
     
     self.ganweiArray = @[column1,column2,column3,column4,column5,column6];
 }
