@@ -140,7 +140,7 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGSize size = CGSizeZero;
     if(indexPath.section == 0 && indexPath.item == 0) {
-        size = CGSizeMake(kScreenWidth - 26 * 2, 9 * (kScreenWidth - 26 * 2) / 20 + 15);
+        size = CGSizeMake(683, 512 + 17);
         return size;
     }
     
