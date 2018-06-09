@@ -67,4 +67,6 @@
 
 @property (nonatomic, strong) NSString *defaultXcValue;
 
+@property (nonatomic, assign, getter=isChoosed) BOOL choosed;
+
 @end

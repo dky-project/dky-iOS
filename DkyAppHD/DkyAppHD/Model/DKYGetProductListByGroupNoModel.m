@@ -57,6 +57,8 @@
         self.addDpGroupApproveParam.issource = @3;
     }
     self.sum = 1;
+    
+    self.choosed = YES;
 }
 
 - (void)setSum:(NSInteger)sum{

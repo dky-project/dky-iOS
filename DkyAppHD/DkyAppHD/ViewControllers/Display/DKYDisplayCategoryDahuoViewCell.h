@@ -15,4 +15,6 @@
 
 @property (nonatomic, strong) DKYGetProductListByGroupNoModel *getProductListByGroupNoModel;
 
+- (void)selectStatusChanged;
+
 @end

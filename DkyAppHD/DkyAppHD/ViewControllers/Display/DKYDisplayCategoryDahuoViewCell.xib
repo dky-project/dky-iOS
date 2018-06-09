@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -81,6 +81,13 @@
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VOP-Sh-JJO">
+                        <rect key="frame" x="12" y="12.5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="3wR-pm-Z5T"/>
+                            <constraint firstAttribute="width" constant="15" id="vql-Nf-SDK"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="dvZ-QM-ywm" firstAttribute="width" secondItem="r75-ya-9xB" secondAttribute="width" id="0Z8-uB-gfU"/>
@@ -103,6 +110,7 @@
                     <constraint firstItem="7K1-s1-phU" firstAttribute="width" secondItem="cKE-nm-wwc" secondAttribute="width" id="SPb-2q-tQd"/>
                     <constraint firstItem="8iq-hq-dYf" firstAttribute="leading" secondItem="fti-4o-n2c" secondAttribute="leading" constant="548.5" id="TdO-s6-dPY"/>
                     <constraint firstItem="8iq-hq-dYf" firstAttribute="top" secondItem="uwV-l6-GFI" secondAttribute="top" id="U7O-eG-Lil"/>
+                    <constraint firstItem="VOP-Sh-JJO" firstAttribute="centerY" secondItem="uwV-l6-GFI" secondAttribute="centerY" id="VB3-eX-zd5"/>
                     <constraint firstItem="r75-ya-9xB" firstAttribute="width" secondItem="8iq-hq-dYf" secondAttribute="width" id="VuF-ZN-TLX"/>
                     <constraint firstItem="8iq-hq-dYf" firstAttribute="height" secondItem="uwV-l6-GFI" secondAttribute="height" id="Ygc-Sg-hoF"/>
                     <constraint firstItem="cKE-nm-wwc" firstAttribute="leading" secondItem="f2z-Gh-7MF" secondAttribute="trailing" constant="4" id="YzQ-rJ-AaO"/>
@@ -113,6 +121,7 @@
                     <constraint firstItem="f2z-Gh-7MF" firstAttribute="height" secondItem="uwV-l6-GFI" secondAttribute="height" id="dMi-bR-NY7"/>
                     <constraint firstItem="dvZ-QM-ywm" firstAttribute="top" secondItem="r75-ya-9xB" secondAttribute="top" id="dRu-9T-c96"/>
                     <constraint firstItem="cKE-nm-wwc" firstAttribute="height" secondItem="f2z-Gh-7MF" secondAttribute="height" id="feB-Bt-UFe"/>
+                    <constraint firstItem="VOP-Sh-JJO" firstAttribute="leading" secondItem="fti-4o-n2c" secondAttribute="leading" constant="12" id="gUc-QM-Lkg"/>
                     <constraint firstItem="8n6-KX-2E8" firstAttribute="width" secondItem="cKE-nm-wwc" secondAttribute="width" id="keM-XH-kvB"/>
                     <constraint firstItem="sT2-hT-Waw" firstAttribute="top" secondItem="7K1-s1-phU" secondAttribute="top" id="tJH-r7-iY2"/>
                     <constraint firstItem="dvZ-QM-ywm" firstAttribute="height" secondItem="r75-ya-9xB" secondAttribute="height" id="u9r-E1-fGm"/>
@@ -125,6 +134,7 @@
                 <outlet property="colorBtn" destination="f2z-Gh-7MF" id="XlP-Fs-aJR"/>
                 <outlet property="lengthBtn" destination="7K1-s1-phU" id="Moo-Po-UBC"/>
                 <outlet property="moneyLabel" destination="r75-ya-9xB" id="fwD-Mt-jg8"/>
+                <outlet property="rectImageView" destination="VOP-Sh-JJO" id="6Dd-MJ-YS0"/>
                 <outlet property="sizeBtn" destination="cKE-nm-wwc" id="Es4-q8-796"/>
                 <outlet property="titleLabel" destination="uwV-l6-GFI" id="hi9-6c-3te"/>
                 <outlet property="xcTextField" destination="sT2-hT-Waw" id="9fq-fU-M9N"/>

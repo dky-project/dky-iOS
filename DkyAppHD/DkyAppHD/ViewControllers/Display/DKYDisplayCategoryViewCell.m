@@ -36,10 +36,16 @@
 @property (weak, nonatomic) IBOutlet DKYDisplayCollectButton *collectBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *pinleiBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *rectImageView;
 
 @property (nonatomic, strong) DKYGetSizeDataModel *getSizeDataModel;
 
 @property (nonatomic, strong) dispatch_group_t group;
+
+// image
+@property (nonatomic, strong) UIImage *normalImage;
+
+@property (nonatomic, copy) UIImage *selectedImage;
 
 @end
 
@@ -53,6 +59,12 @@
         cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([DKYDisplayCategoryViewCell class]) owner:self options:nil].lastObject;
     }
     return cell;
+}
+
+- (void)selectStatusChanged{
+    self.getProductListByGroupNoModel.choosed = !self.getProductListByGroupNoModel.isChoosed;
+    
+    self.rectImageView.image = self.getProductListByGroupNoModel.isChoosed ? self.selectedImage : self.normalImage;
 }
 
 - (void)awakeFromNib {
@@ -137,6 +149,7 @@
     defaulColor = [defaulColor stringByReplacingOccurrencesOfString:@"," withString:@";"];
     self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
     
+    self.rectImageView.image = self.getProductListByGroupNoModel.isChoosed ? self.selectedImage : self.normalImage;
     [self updateWhenSumChanged];
 }
 
@@ -698,6 +711,12 @@
             [weakSelf addProductCollectToServer];
         }
     }];
+    
+    UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
+    self.normalImage = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
+    self.selectedImage = [UIImage imageWithColor:[UIColor colorWithHex:0x3c3562] size:CGSizeMake(11, 11)];
+    self.rectImageView.image = self.selectedImage;
+    self.rectImageView.contentMode = UIViewContentModeCenter;
 }
 
 - (void)p_customSunview:(UIView*)view{

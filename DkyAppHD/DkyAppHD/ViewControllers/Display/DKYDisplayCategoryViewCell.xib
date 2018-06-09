@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -97,6 +97,13 @@
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SQs-iF-B5X">
+                        <rect key="frame" x="12" y="12.5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="YCY-yZ-YNB"/>
+                            <constraint firstAttribute="height" constant="15" id="y31-6B-qfU"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4Ux-W0-nH5" firstAttribute="height" secondItem="hlu-te-mfX" secondAttribute="height" id="27i-ew-w4j"/>
@@ -113,6 +120,7 @@
                     <constraint firstItem="mxa-62-xNH" firstAttribute="top" secondItem="x7a-vE-Oj7" secondAttribute="top" id="DbX-wy-O4L"/>
                     <constraint firstItem="RIQ-kt-qkM" firstAttribute="leading" secondItem="cFe-wV-9sg" secondAttribute="trailing" constant="4" id="HmZ-G6-hEL"/>
                     <constraint firstItem="cFe-wV-9sg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="IgI-6H-1Hp"/>
+                    <constraint firstItem="SQs-iF-B5X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="J4d-LQ-cd7"/>
                     <constraint firstItem="r50-02-sdV" firstAttribute="top" secondItem="cFe-wV-9sg" secondAttribute="top" id="JjT-CI-Mtp"/>
                     <constraint firstItem="hlu-te-mfX" firstAttribute="width" secondItem="om3-jr-Hw8" secondAttribute="width" id="LFH-Dv-hR8"/>
                     <constraint firstItem="hlu-te-mfX" firstAttribute="top" secondItem="om3-jr-Hw8" secondAttribute="top" id="LXW-JK-i6y"/>
@@ -132,6 +140,7 @@
                     <constraint firstItem="JRE-Av-Bd7" firstAttribute="height" secondItem="vWC-Td-xEn" secondAttribute="height" id="VaR-5R-aeM"/>
                     <constraint firstItem="nZi-wi-sls" firstAttribute="leading" secondItem="JRE-Av-Bd7" secondAttribute="trailing" constant="4" id="WEr-sc-aiN"/>
                     <constraint firstItem="mxa-62-xNH" firstAttribute="width" secondItem="x7a-vE-Oj7" secondAttribute="width" id="ZvU-0V-RFU"/>
+                    <constraint firstItem="SQs-iF-B5X" firstAttribute="centerY" secondItem="cFe-wV-9sg" secondAttribute="centerY" id="hlj-x6-EX1"/>
                     <constraint firstItem="RIQ-kt-qkM" firstAttribute="top" secondItem="cFe-wV-9sg" secondAttribute="top" id="mzs-HY-9g8"/>
                     <constraint firstItem="nZi-wi-sls" firstAttribute="width" secondItem="JRE-Av-Bd7" secondAttribute="width" id="ota-ck-xbk"/>
                     <constraint firstItem="JRE-Av-Bd7" firstAttribute="width" secondItem="vWC-Td-xEn" secondAttribute="width" id="otv-ak-kuO"/>
@@ -150,6 +159,7 @@
                 <outlet property="moneyLabel" destination="JRE-Av-Bd7" id="4OM-KJ-JYJ"/>
                 <outlet property="pinleiBtn" destination="RIQ-kt-qkM" id="d5Q-li-oO8"/>
                 <outlet property="pinzhongBtn" destination="x7a-vE-Oj7" id="c96-dk-Vhc"/>
+                <outlet property="rectImageView" destination="SQs-iF-B5X" id="eGC-rV-IVK"/>
                 <outlet property="sizeBtn" destination="om3-jr-Hw8" id="VZL-LH-p4r"/>
                 <outlet property="titleLabel" destination="cFe-wV-9sg" id="QwQ-TS-him"/>
                 <outlet property="xcTextField" destination="4Ux-W0-nH5" id="h7v-dG-TKH"/>

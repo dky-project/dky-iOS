@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        self.issource = @3;
+        self.issource = @2;
     }
     return self;
 }

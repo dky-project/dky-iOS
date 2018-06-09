@@ -17,4 +17,6 @@
 
 @property (nonatomic, copy) BlockWithSender amountTextFieldChanged;
 
+- (void)selectStatusChanged;
+
 @end

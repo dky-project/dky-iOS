@@ -139,12 +139,11 @@
     NSMutableArray *arr2 = [NSMutableArray array];
     
     for (DKYGetProductListByGroupNoModel *model in self.productList) {
-        if(model.sum > 0){
+        if(model.isChoosed && model.sum > 0){
             if(model.isBigOrder){
                 [arr2 addObject:model.addDpGroupBmptParam];
             }else{
-                if(model.sum)
-                    [arr1 addObject:model.addDpGroupApproveParam];
+                [arr1 addObject:model.addDpGroupApproveParam];
             }
         }
     }
@@ -253,7 +252,7 @@
 //            return NO;
 //        }
 //        
-        if(model.isBigOrder){
+        if(model.iscollect && model.isBigOrder){
             if(model.sum > 0){
                 if(!model.addDpGroupBmptParam.colorId){
                     [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
@@ -266,7 +265,7 @@
                 }
             }
         }else{
-            if(model.sum > 0){
+            if(model.isChoosed && model.sum > 0){
                 if(![model.addDpGroupApproveParam.mDimNew14Id isNotBlank]){
                     [DKYHUDTool showInfoWithStatus:@"品种不能为空！"];
                     return NO;
@@ -377,14 +376,23 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if(indexPath.section == 1){
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if([cell isKindOfClass:[DKYDisplayCategoryViewCell class]]){
+            DKYDisplayCategoryViewCell *newCell = (DKYDisplayCategoryViewCell*)cell;
+            [newCell selectStatusChanged];
+        }else if([cell isKindOfClass:[DKYDisplayCategoryDahuoViewCell class]]){
+            DKYDisplayCategoryDahuoViewCell *newCell = (DKYDisplayCategoryDahuoViewCell*)cell;
+            [newCell selectStatusChanged];
+        }
+    }
 }
 
 #pragma mark - UI
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:@"搭配"];
+    [self setupCustomTitle:@"陈列"];
     
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
