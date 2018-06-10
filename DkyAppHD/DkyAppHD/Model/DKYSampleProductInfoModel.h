@@ -70,6 +70,11 @@
 
 @property (nonatomic, copy) NSString *gw;
 
+/**
+ * 杆位表格
+ */
+@property (nonatomic, strong) NSDictionary *gwView;
+
 // 客户端自己的属性
 @property (nonatomic, strong) NSNumber *mProductId;
 

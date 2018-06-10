@@ -76,6 +76,7 @@
             weakSelf.sampleProductInfo.pdt = weakSelf.sampleModel.name;
             
             [self setupDefaultValueArray];
+            [self setupGanweiArray];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -238,14 +239,29 @@
 }
 
 - (void)setupGanweiArray{
+    NSMutableArray *ganwei = [NSMutableArray arrayWithCapacity:6];
     NSArray *column1 = @[@"颜色",@"杆位"];
-    NSArray *column2 = @[@"",@""];
-    NSArray *column3 = @[@"",@""];
-    NSArray *column4 = @[@"",@""];
-    NSArray *column5 = @[@"",@""];
-    NSArray *column6 = @[@"",@""];
+    [ganwei addObject:column1];
     
-    self.ganweiArray = @[column1,column2,column3,column4,column5,column6];
+    NSString *gw_key = @"gw";
+    NSString *color_key = @"m_color";
+    for(int i = 0; i < 5; ++i){
+        NSString *key = [NSString stringWithFormat:@"%@%@",gw_key,@(i + 1)];
+        NSString *gw = [self.sampleProductInfo.gwView objectForKey:key];
+        if(gw == nil){
+            gw = @"";
+        }
+        
+        key = [NSString stringWithFormat:@"%@%@",color_key,@(i + 1)];
+        NSString *color = [self.sampleProductInfo.gwView objectForKey:key];
+        if(color == nil){
+            color = @"";
+        }
+        NSArray *group = @[color, gw];
+        [ganwei addObject:group];
+    }
+    
+    self.ganweiArray = [ganwei mutableCopy];
 }
 
 #pragma mark - UI
@@ -267,8 +283,6 @@
     self.tableView.showsVerticalScrollIndicator = NO;
 //    self.tableView.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
 //    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    [self setupGanweiArray];
 }
 
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource

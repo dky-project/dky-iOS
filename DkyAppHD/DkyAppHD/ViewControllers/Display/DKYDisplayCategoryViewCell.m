@@ -150,6 +150,10 @@
     self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
     
     self.rectImageView.image = self.getProductListByGroupNoModel.isChoosed ? self.selectedImage : self.normalImage;
+    
+    // 品类
+    [self.pinleiBtn setTitle:self.getProductListByGroupNoModel.mDim16Id forState:UIControlStateNormal];
+    
     [self updateWhenSumChanged];
 }
 
@@ -625,9 +629,10 @@
     self.pinleiBtn.originalTitle = [self.pinleiBtn currentTitle];
     self.pinleiBtn.extraInfo = [self.pinleiBtn currentTitle];
     self.pinleiBtn.tag = 4;
-    [self.pinleiBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        [weakSelf showOptionsPicker:weakSelf.pinleiBtn];
-    }];
+//    [self.pinleiBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+//        [weakSelf showOptionsPicker:weakSelf.pinleiBtn];
+//    }];
+    self.pinleiBtn.enabled = NO;
     
     // 品种
     [self p_customSunview:self.pinzhongBtn];

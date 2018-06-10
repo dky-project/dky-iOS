@@ -54,6 +54,11 @@
  */
 @property (nonatomic, strong) NSArray *colorRangeViewList;
 
+/**
+ * 品类默认值
+ */
+@property (nonatomic, copy) NSString *mDim16Id;
+
 // 客户端自己的属性
 @property (nonatomic, assign) BOOL isCollected;
 

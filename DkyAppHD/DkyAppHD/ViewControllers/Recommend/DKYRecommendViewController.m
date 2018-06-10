@@ -174,8 +174,7 @@
         
         DKYDisplayViewController *vc = [[DKYDisplayViewController alloc] init];
         DKYGetProductListByGhModel *model = [self.productList objectOrNilAtIndex:indexPath.item];
-        
-        model.groupNo = @"1";
+    
         vc.groupNo = model.groupNo;
         [self.navigationController pushViewController:vc animated:YES];
     }
