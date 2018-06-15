@@ -8,7 +8,6 @@
 
 #import "QMUIAlertController.h"
 #import "QMUICore.h"
-#import "QMUIModalPresentationViewController.h"
 #import "QMUIButton.h"
 #import "QMUITextField.h"
 #import "UIView+QMUI.h"
@@ -61,14 +60,14 @@ static NSUInteger alertControllerCount = 0;
 @property(nonatomic, strong) QMUIAlertButtonWrapView *buttonWrapView;
 @property(nonatomic, copy, readwrite) NSString *title;
 @property(nonatomic, assign, readwrite) QMUIAlertActionStyle style;
-@property(nonatomic, copy) void (^handler)(QMUIAlertAction *action);
+@property(nonatomic, copy) void (^handler)(QMUIAlertController *aAlertController, QMUIAlertAction *action);
 @property(nonatomic, weak) id<QMUIAlertActionDelegate> delegate;
 
 @end
 
 @implementation QMUIAlertAction
 
-+ (instancetype)actionWithTitle:(NSString *)title style:(QMUIAlertActionStyle)style handler:(void (^)(QMUIAlertAction *action))handler {
++ (instancetype)actionWithTitle:(NSString *)title style:(QMUIAlertActionStyle)style handler:(void (^)(__kindof QMUIAlertController *, QMUIAlertAction *))handler {
     QMUIAlertAction *alertAction = [[QMUIAlertAction alloc] init];
     alertAction.title = title;
     alertAction.style = style;
@@ -201,7 +200,12 @@ static QMUIAlertController *alertControllerAppearance;
 @property(nonatomic, strong) NSMutableArray<UITextField *> *alertTextFields;
 
 @property(nonatomic, assign) CGFloat keyboardHeight;
-@property(nonatomic, assign) BOOL isShowing;
+
+/// 调用 showWithAnimated 时置为 YES，在 show 动画结束时置为 NO
+@property(nonatomic, assign) BOOL willShow;
+
+/// 在 show 动画结束时置为 YES，在 hide 动画结束时置为 NO
+@property(nonatomic, assign) BOOL showing;
 
 // 保护 showing 的过程中调用 hide 无效
 @property(nonatomic, assign) BOOL isNeedsHideAfterAlertShowed;
@@ -218,19 +222,19 @@ static QMUIAlertController *alertControllerAppearance;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        [self didInitialized];
+        [self didInitialize];
     }
     return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        [self didInitialized];
+        [self didInitialize];
     }
     return self;
 }
 
-- (void)didInitialized {
+- (void)didInitialize {
     if (alertControllerAppearance) {
         self.alertContentMargin = [QMUIAlertController appearance].alertContentMargin;
         self.alertContentMaximumWidth = [QMUIAlertController appearance].alertContentMaximumWidth;
@@ -465,7 +469,6 @@ static QMUIAlertController *alertControllerAppearance;
     self = [self init];
     if (self) {
     
-        self.isShowing = NO;
         self.shouldRespondMaskViewTouch = preferredStyle == QMUIAlertControllerStyleActionSheet;
         
         self.alertActions = [[NSMutableArray alloc] init];
@@ -834,9 +837,11 @@ static QMUIAlertController *alertControllerAppearance;
 }
 
 - (void)showWithAnimated:(BOOL)animated {
-    if (self.isShowing) {
+    if (self.willShow || self.showing) {
         return;
     }
+    self.willShow = YES;
+    
     if (self.alertTextFields.count > 0) {
         [self.alertTextFields.firstObject becomeFirstResponder];
     }
@@ -860,7 +865,8 @@ static QMUIAlertController *alertControllerAppearance;
     
     [self.modalPresentationViewController showWithAnimated:animated completion:^(BOOL finished) {
         weakSelf.maskView.alpha = 1;
-        weakSelf.isShowing = YES;
+        weakSelf.willShow = NO;
+        weakSelf.showing = YES;
         if (self.isNeedsHideAfterAlertShowed) {
             [self hideWithAnimated:self.isAnimatedForHideAfterAlertShowed];
             self.isNeedsHideAfterAlertShowed = NO;
@@ -880,7 +886,11 @@ static QMUIAlertController *alertControllerAppearance;
 }
 
 - (void)hideWithAnimated:(BOOL)animated completion:(void (^)(void))completion {
-    if (!self.isShowing) {
+    if ([self.delegate respondsToSelector:@selector(shouldHideAlertController:)] && ![self.delegate shouldHideAlertController:self]) {
+        return;
+    }
+    
+    if (self.willShow && !self.showing) {
         self.isNeedsHideAfterAlertShowed = YES;
         self.isAnimatedForHideAfterAlertShowed = animated;
         return;
@@ -894,7 +904,8 @@ static QMUIAlertController *alertControllerAppearance;
     
     [self.modalPresentationViewController hideWithAnimated:animated completion:^(BOOL finished) {
         weakSelf.modalPresentationViewController = nil;
-        weakSelf.isShowing = NO;
+        weakSelf.willShow = NO;
+        weakSelf.showing = NO;
         weakSelf.maskView.alpha = 0;
         if (self.preferredStyle == QMUIAlertControllerStyleAlert) {
             weakSelf.containerView.alpha = 0;
@@ -1101,16 +1112,25 @@ static QMUIAlertController *alertControllerAppearance;
 - (void)didClickAlertAction:(QMUIAlertAction *)alertAction {
     [self hideWithAnimated:YES completion:^{
         if (alertAction.handler) {
-            alertAction.handler(alertAction);
+            alertAction.handler(self, alertAction);
             alertAction.handler = nil;
         }
     }];
 }
 
+#pragma mark - <QMUIModalPresentationComponentProtocol>
+
+- (void)hideModalPresentationComponent {
+    [self hideWithAnimated:NO completion:NULL];
+}
+
 #pragma mark - <QMUIModalPresentationViewControllerDelegate>
 
-- (void)requestHideAllModalPresentationViewController {
-    [self hideWithAnimated:NO completion:NULL];
+- (BOOL)shouldHideModalPresentationViewController:(QMUIModalPresentationViewController *)controller {
+    if ([self.delegate respondsToSelector:@selector(shouldHideAlertController:)]) {
+        return [self.delegate shouldHideAlertController:self];
+    }
+    return YES;
 }
 
 #pragma mark - <QMUITextFieldDelegate>

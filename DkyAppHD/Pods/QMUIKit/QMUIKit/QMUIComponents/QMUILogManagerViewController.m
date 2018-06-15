@@ -17,6 +17,7 @@
 #import "UITableView+QMUI.h"
 #import "QMUITableViewCell.h"
 #import "QMUISearchController.h"
+#import "UIBarItem+QMUI.h"
 
 @interface QMUILogManagerViewController ()
 
@@ -27,8 +28,8 @@
 
 @implementation QMUILogManagerViewController
 
-- (void)didInitializedWithStyle:(UITableViewStyle)style {
-    [super didInitializedWithStyle:style];
+- (void)didInitializeWithStyle:(UITableViewStyle)style {
+    [super didInitializeWithStyle:style];
     self.rowCountWhenShowSearchBar = 10;
 }
 
@@ -42,8 +43,8 @@
     [self checkEmptyView];
 }
 
-- (void)setNavigationItemsIsInEditMode:(BOOL)isInEditMode animated:(BOOL)animated {
-    [super setNavigationItemsIsInEditMode:isInEditMode animated:animated];
+- (void)setupNavigationItems {
+    [super setupNavigationItems];
     if (self.allNames.count) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(handleMenuItemEvent)];
     } else {
@@ -118,7 +119,7 @@
     } else {
         [self hideEmptyView];
     }
-    [self setNavigationItemsIsInEditMode:NO animated:NO];
+    [self setupNavigationItems];
 }
 
 - (NSArray<NSString *> *)sortedLogNameArray {
@@ -152,26 +153,26 @@
     menuView.maximumWidth = 124;
     menuView.safetyMarginsOfSuperview = UIEdgeInsetsSetRight(menuView.safetyMarginsOfSuperview, 6);
     menuView.items = @[
-                       [QMUIPopupMenuItem itemWithImage:nil title:@"开启全部" handler:^{
+                       [QMUIPopupMenuItem itemWithImage:nil title:@"开启全部" handler:^(QMUIPopupMenuView *aMenuView, QMUIPopupMenuItem *aItem) {
                            for (NSString *logName in self.allNames) {
                                [[QMUILogger sharedInstance].logNameManager setEnabled:YES forLogName:logName];
                            }
                            [self reloadData];
-                           [menuView hideWithAnimated:YES];
+                           [aMenuView hideWithAnimated:YES];
                        }],
-                       [QMUIPopupMenuItem itemWithImage:nil title:@"禁用全部" handler:^{
+                       [QMUIPopupMenuItem itemWithImage:nil title:@"禁用全部" handler:^(QMUIPopupMenuView *aMenuView, QMUIPopupMenuItem *aItem) {
                            for (NSString *logName in self.allNames) {
                                [[QMUILogger sharedInstance].logNameManager setEnabled:NO forLogName:logName];
                            }
                            [self reloadData];
-                           [menuView hideWithAnimated:YES];
+                           [aMenuView hideWithAnimated:YES];
                        }],
-                       [QMUIPopupMenuItem itemWithImage:nil title:@"清空全部" handler:^{
+                       [QMUIPopupMenuItem itemWithImage:nil title:@"清空全部" handler:^(QMUIPopupMenuView *aMenuView, QMUIPopupMenuItem *aItem) {
                            [[QMUILogger sharedInstance].logNameManager removeAllNames];
                            [self reloadData];
-                           [menuView hideWithAnimated:YES];
+                           [aMenuView hideWithAnimated:YES];
                        }]];
-    [menuView layoutWithTargetView:[self.navigationItem.rightBarButtonItem valueForKey:@"view"]];
+    [menuView layoutWithTargetView:self.navigationItem.rightBarButtonItem.qmui_view];
     [menuView showWithAnimated:YES];
 }
 
