@@ -9,7 +9,7 @@
 #import "DKYOrderInfoHeaderView.h"
 #import "DKYOrderInqueryTotalMapModel.h"
 
-#define kLeftMargin         55
+#define kLeftMargin        30
 
 @interface DKYOrderInfoHeaderView ()
 
@@ -127,7 +127,8 @@
     WeakSelf(weakSelf);
     self.orderNumberLabel = [self createLabelWithName:@"序号"];
     [self.orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.imageView.mas_right).with.offset(48);
+        // 48放大之前
+        make.left.mas_equalTo(weakSelf.imageView.mas_right).with.offset(30);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -218,7 +219,7 @@
 - (UILabel*)createLabelWithName:(NSString*)name{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont systemFontOfSize:12];
+    label.font = [UIFont systemFontOfSize:24];
     label.textAlignment = NSTextAlignmentCenter;
     [label sizeToFit];
     

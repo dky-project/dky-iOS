@@ -286,7 +286,7 @@
         make.left.mas_equalTo(weakSelf.view);
         make.right.mas_equalTo(weakSelf.view);
         make.top.mas_equalTo(weakSelf.view).with.offset(0);
-        make.height.mas_equalTo(260);
+        make.height.mas_equalTo(280);
     }];
     
     header.sourceBlock = ^(id sender) {

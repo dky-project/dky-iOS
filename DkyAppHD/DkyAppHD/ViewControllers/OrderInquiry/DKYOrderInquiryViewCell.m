@@ -296,7 +296,7 @@
 - (UILabel*)createLabelWithName:(NSString*)name{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor colorWithHex:0x333333];
-    label.font = [UIFont systemFontOfSize:12];
+    label.font = [UIFont systemFontOfSize:21];
     label.textAlignment = NSTextAlignmentCenter;
     [label sizeToFit];
     
