@@ -27,6 +27,7 @@
 		26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BFE1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m */; };
 		26210C021E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */; };
 		26210C051E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */; };
+		2630C5BB20D4E93800C4A698 /* DKYOrderInqueySearchColorPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2630C5BA20D4E93800C4A698 /* DKYOrderInqueySearchColorPopupView.m */; };
 		2637029B1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */; };
 		2637029F1F62DF1A000991C5 /* DKYGetProductListByGhParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637029E1F62DF1A000991C5 /* DKYGetProductListByGhParameter.m */; };
 		263702A21F62E567000991C5 /* DKYRecommendEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702A11F62E567000991C5 /* DKYRecommendEntryViewController.m */; };
@@ -412,6 +413,8 @@
 		26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupViewCell.m; sourceTree = "<group>"; };
 		26210C031E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYMultipleSelectPopupItemModel.h; sourceTree = "<group>"; };
 		26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupItemModel.m; sourceTree = "<group>"; };
+		2630C5B920D4E93800C4A698 /* DKYOrderInqueySearchColorPopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYOrderInqueySearchColorPopupView.h; sourceTree = "<group>"; };
+		2630C5BA20D4E93800C4A698 /* DKYOrderInqueySearchColorPopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYOrderInqueySearchColorPopupView.m; sourceTree = "<group>"; };
 		263702991F585BD2000991C5 /* DKYRecommendSmallImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendSmallImageViewCell.h; sourceTree = "<group>"; };
 		2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendSmallImageViewCell.m; sourceTree = "<group>"; };
 		2637029D1F62DF1A000991C5 /* DKYGetProductListByGhParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGhParameter.h; sourceTree = "<group>"; };
@@ -1702,6 +1705,8 @@
 				EBB0FB9B1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib */,
 				EBB0FB9D1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.h */,
 				EBB0FB9E1F302B3700BCD57C /* DKYDahuoOrderInquiryViewCell.m */,
+				2630C5B920D4E93800C4A698 /* DKYOrderInqueySearchColorPopupView.h */,
+				2630C5BA20D4E93800C4A698 /* DKYOrderInqueySearchColorPopupView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2727,6 +2732,7 @@
 				EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */,
 				26E42A8F1F7BEB0F00E976BD /* DKYOrderInqueryPageModel.m in Sources */,
 				26DAD0CE1E1A2F82008EE55F /* DKYSampleQueryViewController.m in Sources */,
+				2630C5BB20D4E93800C4A698 /* DKYOrderInqueySearchColorPopupView.m in Sources */,
 				EBC300511E1CA0C700F602E6 /* TADotView.m in Sources */,
 				EB9790711E221B6F00E2985C /* MMSheetView.m in Sources */,
 				EBD5E2791F319B8700B98F46 /* QMUIConfigurationTemplate.m in Sources */,

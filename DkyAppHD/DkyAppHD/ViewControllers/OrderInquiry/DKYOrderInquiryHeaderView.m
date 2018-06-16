@@ -99,8 +99,14 @@
     self.sampleTextField.leftViewMode = UITextFieldViewModeAlways;
     self.sampleTextField.leftView = placeholderView;
     
+    placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    placeholderView.backgroundColor = [UIColor whiteColor];
+    self.colorTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.colorTextField.leftView = placeholderView;
+    
     self.clientTextField.placeholder = @"客户";
     self.sampleTextField.placeholder = @"款号";
+    self.colorTextField.placeholder = @"选择颜色";
     
     UIImage *image = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(120, 38)];
     image = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
@@ -114,9 +120,18 @@
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(auditStatusLabelTapped:)];
     [self.auditStatusLabel addGestureRecognizer:tap];
     
-//    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
-//    [self.sourceLabel addGestureRecognizer:tap];
-//    
+    
+    self.clientTextField.enabled = NO;
+    UIView *corver = [[UIView alloc] initWithFrame:CGRectZero];
+    corver.backgroundColor = [UIColor clearColor];
+    [self addSubview:corver];
+    WeakSelf(weakSelf);
+    [corver mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(weakSelf.colorTextField).insets(UIEdgeInsetsZero);
+    }];
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
+    [corver addGestureRecognizer:tap];
+//
 //    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sizeLabelTapped:)];
 //    [self.sizeLabel addGestureRecognizer:tap];
 }

@@ -24,6 +24,7 @@
 #import "DKYOrderInqueryPageModel.h"
 #import "DKYOrderInqueryTotalMapModel.h"
 #import "DKYOrderInqueryMergeParameter.h"
+#import "DKYOrderInqueySearchColorPopupView.h"
 
 @interface DKYOrderInquiryViewController ()<UITableViewDelegate,UITableViewDataSource,WGBDatePickerViewDelegate>
 
@@ -336,6 +337,10 @@
     
     header.auditStatusBlock = ^(id sender){
         [weakSelf showAuditStatusSelectedPicker];
+    };
+    
+    header.sourceBlock = ^(id sender) {
+        [DKYOrderInqueySearchColorPopupView show];
     };
     
     header.batchPreviewBtnClicked = ^(id sender){
