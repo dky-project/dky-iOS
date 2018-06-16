@@ -8,6 +8,7 @@
 
 #import "QMUIHelper.h"
 #import "QMUICore.h"
+#import "NSNumber+QMUI.h"
 #import <AVFoundation/AVFoundation.h>
 #import <math.h>
 
@@ -102,7 +103,7 @@ NSString *const QMUIResourcesMainBundleName = @"QMUIResources.bundle";
 
 + (CGFloat)heightForDynamicTypeCell:(NSArray *)heights {
     NSNumber *index = [QMUIHelper preferredContentSizeLevel];
-    return [((NSNumber *)[heights objectAtIndex:[index intValue]]) floatValue];
+    return [((NSNumber *)[heights objectAtIndex:[index intValue]]) qmui_CGFloatValue];
 }
 @end
 
@@ -137,7 +138,7 @@ static char kAssociatedObjectKey_LastKeyboardHeight;
 }
 
 - (CGFloat)lastKeyboardHeight {
-    return [((NSNumber *)objc_getAssociatedObject(self, &kAssociatedObjectKey_LastKeyboardHeight)) floatValue];
+    return [((NSNumber *)objc_getAssociatedObject(self, &kAssociatedObjectKey_LastKeyboardHeight)) qmui_CGFloatValue];
 }
 
 + (CGFloat)lastKeyboardHeightInApplicationWindowWhenVisible {
@@ -555,20 +556,6 @@ NSString *const QMUISpringAnimationKey = @"QMUISpringAnimationKey";
 
 + (BOOL)isCurrentSystemLowerThanVersion:(NSString *)targetVersion {
     return [QMUIHelper compareSystemVersion:[[UIDevice currentDevice] systemVersion] toVersion:targetVersion] == NSOrderedAscending;
-}
-
-@end
-
-@implementation QMUIHelper (Runtime)
-
-+ (SEL)setterFromGetter:(SEL)getter {
-    NSString *getterString = NSStringFromSelector(getter);
-    NSMutableString *setterString = [[NSMutableString alloc] initWithString:@"set"];
-    [setterString appendString:[getterString substringToIndex:1].uppercaseString];
-    [setterString appendString:[getterString substringFromIndex:1]];
-    [setterString appendString:@":"];
-    SEL setter = NSSelectorFromString(setterString);
-    return setter;
 }
 
 @end

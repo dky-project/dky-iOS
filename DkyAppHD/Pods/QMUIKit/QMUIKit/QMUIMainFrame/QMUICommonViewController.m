@@ -37,19 +37,19 @@
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        [self didInitialized];
+        [self didInitialize];
     }
     return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        [self didInitialized];
+        [self didInitialize];
     }
     return self;
 }
 
-- (void)didInitialized {
+- (void)didInitialize {
     self.titleView = [[QMUINavigationTitleView alloc] init];
     self.titleView.title = self.title;// 从 storyboard 初始化的话，可能带有 self.title 的值
     
@@ -99,8 +99,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setNavigationItemsIsInEditMode:NO animated:NO];
-    [self setToolbarItemsIsInEditMode:NO animated:NO];
+    [self setupNavigationItems];
+    [self setupToolbarItems];
 }
 
 - (void)dealloc {
@@ -192,7 +192,11 @@
     return self.supportedOrientationMask;
 }
 
-#pragma mark - 键盘交互
+#pragma mark - HomeIndicator
+
+- (BOOL)prefersHomeIndicatorAutoHidden {
+    return NO;
+}
 
 #pragma mark - <QMUINavigationControllerDelegate>
 
@@ -210,8 +214,8 @@
 
 - (void)viewControllerKeepingAppearWhenSetViewControllersWithAnimated:(BOOL)animated {
     // 通常和 viewWillAppear: 里做的事情保持一致
-    [self setNavigationItemsIsInEditMode:NO animated:NO];
-    [self setToolbarItemsIsInEditMode:NO animated:NO];
+    [self setupNavigationItems];
+    [self setupToolbarItems];
 }
 
 @end
@@ -222,12 +226,12 @@
     // 子类重写
 }
 
-- (void)setNavigationItemsIsInEditMode:(BOOL)isInEditMode animated:(BOOL)animated {
+- (void)setupNavigationItems {
     // 子类重写
     self.navigationItem.titleView = self.titleView;
 }
 
-- (void)setToolbarItemsIsInEditMode:(BOOL)isInEditMode animated:(BOOL)animated {
+- (void)setupToolbarItems {
     // 子类重写
 }
 

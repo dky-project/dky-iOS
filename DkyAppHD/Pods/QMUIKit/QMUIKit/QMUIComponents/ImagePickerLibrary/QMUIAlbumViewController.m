@@ -8,10 +8,11 @@
 
 #import "QMUIAlbumViewController.h"
 #import "QMUICore.h"
-#import "QMUIButton.h"
+#import "QMUINavigationButton.h"
 #import "UIView+QMUI.h"
 #import "QMUIAssetsManager.h"
 #import "QMUIImagePickerViewController.h"
+#import "QMUIImagePickerHelper.h"
 #import <Photos/PHPhotoLibrary.h>
 #import <Photos/PHAsset.h>
 #import <Photos/PHFetchOptions.h>
@@ -47,8 +48,8 @@ const UIEdgeInsets QMUIAlbumTableViewCellDefaultAlbumNameInsets = {0, 8, 0, 4};
     });
 }
 
-- (void)didInitializedWithStyle:(UITableViewCellStyle)style {
-    [super didInitializedWithStyle:style];
+- (void)didInitializeWithStyle:(UITableViewCellStyle)style {
+    [super didInitializeWithStyle:style];
     self.albumImageSize = [QMUIAlbumTableViewCell appearance].albumImageSize;
     self.albumImageMarginLeft = [QMUIAlbumTableViewCell appearance].albumImageMarginLeft;
     self.albumNameFontSize = [QMUIAlbumTableViewCell appearance].albumNameFontSize;
@@ -114,13 +115,16 @@ static QMUIAlbumViewController *albumViewControllerAppearance;
 
 #pragma mark - QMUIAlbumViewController
 
-@implementation QMUIAlbumViewController {
-    QMUIImagePickerViewController *_imagePickerViewController;
-    NSMutableArray<QMUIAssetsGroup *> *_albumsArray;
-}
+@interface QMUIAlbumViewController ()
 
-- (void)didInitialized {
-    [super didInitialized];
+@property(nonatomic, strong) NSMutableArray<QMUIAssetsGroup *> *albumsArray;
+@property(nonatomic, strong) QMUIImagePickerViewController *imagePickerViewController;
+@end
+
+@implementation QMUIAlbumViewController
+
+- (void)didInitialize {
+    [super didInitialize];
     _shouldShowDefaultLoadingView = YES;
     if (albumViewControllerAppearance) {
         // 避免 albumViewControllerAppearance init 时走到这里来，导致死循环
@@ -128,12 +132,12 @@ static QMUIAlbumViewController *albumViewControllerAppearance;
     }
 }
 
-- (void)setNavigationItemsIsInEditMode:(BOOL)isInEditMode animated:(BOOL)animated {
-    [super setNavigationItemsIsInEditMode:isInEditMode animated:animated];
+- (void)setupNavigationItems {
+    [super setupNavigationItems];
     if (!self.title) {
         self.title = @"照片";
     }
-    self.navigationItem.rightBarButtonItem = [QMUINavigationButton barButtonItemWithType:QMUINavigationButtonTypeNormal title:@"取消" position:QMUINavigationButtonPositionRight target:self action:@selector(handleCancelSelectAlbum:)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithTitle:@"取消" target:self action:@selector(handleCancelSelectAlbum:)];
 }
 
 - (void)initTableView {
@@ -156,7 +160,7 @@ static QMUIAlbumViewController *albumViewControllerAppearance;
         }
         [self showEmptyViewWithText:tipString detailText:nil buttonTitle:nil buttonAction:nil];
     } else {
-        _albumsArray = [[NSMutableArray alloc] init];
+        self.albumsArray = [[NSMutableArray alloc] init];
         // 获取相册列表较为耗时，交给子线程去处理，因此这里需要显示 Loading
         if ([self.albumViewControllerDelegate respondsToSelector:@selector(albumViewControllerWillStartLoading:)]) {
             [self.albumViewControllerDelegate albumViewControllerWillStartLoading:self];
@@ -165,13 +169,15 @@ static QMUIAlbumViewController *albumViewControllerAppearance;
             [self showEmptyViewWithLoading];
         }
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            __weak __typeof(self)weakSelf = self;
             [[QMUIAssetsManager sharedInstance] enumerateAllAlbumsWithAlbumContentType:self.contentType usingBlock:^(QMUIAssetsGroup *resultAssetsGroup) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // 这里需要对 UI 进行操作，因此放回主线程处理
+                    __strong __typeof(weakSelf)strongSelf = weakSelf;
                     if (resultAssetsGroup) {
-                        [_albumsArray addObject:resultAssetsGroup];
+                        [strongSelf.albumsArray addObject:resultAssetsGroup];
                     } else {
-                        [self refreshAlbumAndShowEmptyTipIfNeed];
+                        [strongSelf refreshAlbumAndShowEmptyTipIfNeed];
                     }
                 });
             }];
@@ -180,7 +186,7 @@ static QMUIAlbumViewController *albumViewControllerAppearance;
 }
 
 - (void)refreshAlbumAndShowEmptyTipIfNeed {
-    if ([_albumsArray count] > 0) {
+    if ([self.albumsArray count] > 0) {
         if ([self.albumViewControllerDelegate respondsToSelector:@selector(albumViewControllerWillFinishLoading:)]) {
             [self.albumViewControllerDelegate albumViewControllerWillFinishLoading:self];
         }
@@ -194,10 +200,28 @@ static QMUIAlbumViewController *albumViewControllerAppearance;
     }
 }
 
+- (void)pickAlbumsGroup:(QMUIAssetsGroup *)assetsGroup animated:(BOOL)animated {
+    if (!assetsGroup) return;
+    
+    if (!self.imagePickerViewController) {
+        self.imagePickerViewController = [self.albumViewControllerDelegate imagePickerViewControllerForAlbumViewController:self];
+    }
+    NSAssert(self.imagePickerViewController, @"self.%@ 必须实现 %@ 并返回一个 %@ 对象", NSStringFromSelector(@selector(albumViewControllerDelegate)), NSStringFromSelector(@selector(imagePickerViewControllerForAlbumViewController:)), NSStringFromClass([QMUIImagePickerViewController class]));
+    
+    [self.imagePickerViewController refreshWithAssetsGroup:assetsGroup];
+    self.imagePickerViewController.title = [assetsGroup name];
+    [self.navigationController pushViewController:self.imagePickerViewController animated:animated];
+}
+
+- (void)pickLastAlbumGroupDirectlyIfCan {
+    QMUIAssetsGroup *assetsGroup = [QMUIImagePickerHelper assetsGroupOfLastPickerAlbumWithUserIdentify:nil];
+    [self pickAlbumsGroup:assetsGroup animated:NO];
+}
+
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_albumsArray count];
+    return [self.albumsArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -208,10 +232,10 @@ static QMUIAlbumViewController *albumViewControllerAppearance;
     static NSString *kCellIdentifer = @"cell";
     QMUIAlbumTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifer];
     if (!cell) {
-        cell = [[QMUIAlbumTableViewCell alloc] initForTableView:self.tableView withStyle:UITableViewCellStyleSubtitle reuseIdentifier:kCellIdentifer];
+        cell = [[QMUIAlbumTableViewCell alloc] initForTableView:tableView withStyle:UITableViewCellStyleSubtitle reuseIdentifier:kCellIdentifer];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    QMUIAssetsGroup *assetsGroup = [_albumsArray objectAtIndex:indexPath.row];
+    QMUIAssetsGroup *assetsGroup = [self.albumsArray objectAtIndex:indexPath.row];
     // 显示相册缩略图
     cell.imageView.image = [assetsGroup posterImageWithSize:CGSizeMake(self.albumTableViewCellHeight, self.albumTableViewCellHeight)];
     // 显示相册名称
@@ -223,21 +247,15 @@ static QMUIAlbumViewController *albumViewControllerAppearance;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!_imagePickerViewController) {
-        _imagePickerViewController = [self.albumViewControllerDelegate imagePickerViewControllerForAlbumViewController:self];
-    }
-    NSAssert(_imagePickerViewController, @"self.%@ 必须实现 %@ 并返回一个 %@ 对象", NSStringFromSelector(@selector(albumViewControllerDelegate)), NSStringFromSelector(@selector(imagePickerViewControllerForAlbumViewController:)), NSStringFromClass([QMUIImagePickerViewController class]));
-    QMUIAssetsGroup *assetsGroup = [_albumsArray objectAtIndex:indexPath.row];
-    [_imagePickerViewController refreshWithAssetsGroup:assetsGroup];
-    _imagePickerViewController.title = [assetsGroup name];
-    [self.navigationController pushViewController:_imagePickerViewController animated:YES];
+    [self pickAlbumsGroup:self.albumsArray[indexPath.row] animated:YES];
 }
 
 - (void)handleCancelSelectAlbum:(id)sender {
-    [self.navigationController dismissViewControllerAnimated:YES completion:^(void) {
+    [self dismissViewControllerAnimated:YES completion:^(void) {
         if (self.albumViewControllerDelegate && [self.albumViewControllerDelegate respondsToSelector:@selector(albumViewControllerDidCancel:)]) {
             [self.albumViewControllerDelegate albumViewControllerDidCancel:self]; 
         }
+        [self.imagePickerViewController.selectedImageAssetArray removeAllObjects];
     }];
 }
 
