@@ -27,6 +27,7 @@
 		26210BFF1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210BFE1E59B61600EB05D6 /* DKYCustomOrderMatchItemView.m */; };
 		26210C021E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */; };
 		26210C051E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */; };
+		2630C5BF20D5438600C4A698 /* DKYDataAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2630C5BE20D5438600C4A698 /* DKYDataAnalysisViewController.m */; };
 		2637029B1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */; };
 		2637029F1F62DF1A000991C5 /* DKYGetProductListByGhParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637029E1F62DF1A000991C5 /* DKYGetProductListByGhParameter.m */; };
 		263702A21F62E567000991C5 /* DKYRecommendEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702A11F62E567000991C5 /* DKYRecommendEntryViewController.m */; };
@@ -411,6 +412,8 @@
 		26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupViewCell.m; sourceTree = "<group>"; };
 		26210C031E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYMultipleSelectPopupItemModel.h; sourceTree = "<group>"; };
 		26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupItemModel.m; sourceTree = "<group>"; };
+		2630C5BD20D5438600C4A698 /* DKYDataAnalysisViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYDataAnalysisViewController.h; sourceTree = "<group>"; };
+		2630C5BE20D5438600C4A698 /* DKYDataAnalysisViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYDataAnalysisViewController.m; sourceTree = "<group>"; };
 		263702991F585BD2000991C5 /* DKYRecommendSmallImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendSmallImageViewCell.h; sourceTree = "<group>"; };
 		2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendSmallImageViewCell.m; sourceTree = "<group>"; };
 		2637029D1F62DF1A000991C5 /* DKYGetProductListByGhParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGhParameter.h; sourceTree = "<group>"; };
@@ -1115,6 +1118,15 @@
 				EB3F2BDD1EC98244007F1A89 /* DKYOrderBrowseModel.m */,
 			);
 			name = "定制订单";
+			sourceTree = "<group>";
+		};
+		2630C5BC20D5428500C4A698 /* DataAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				2630C5BD20D5438600C4A698 /* DKYDataAnalysisViewController.h */,
+				2630C5BE20D5438600C4A698 /* DKYDataAnalysisViewController.m */,
+			);
+			path = DataAnalysis;
 			sourceTree = "<group>";
 		};
 		2637029C1F5A452B000991C5 /* Views */ = {
@@ -2107,6 +2119,7 @@
 				EB95107D1E15FC2C008708EF /* OrderInquiry */,
 				EBB0FBA11F3049B200BCD57C /* Display */,
 				EBD5E26D1F316BEC00B98F46 /* Recommend */,
+				2630C5BC20D5428500C4A698 /* DataAnalysis */,
 				266A9B23202C91B700F56879 /* Help */,
 				EB95117E1E16408C008708EF /* Login */,
 				EBD694B31E277D5100F365C3 /* Webview */,
@@ -2830,6 +2843,7 @@
 				268BC24B1E6477D60042E16D /* MDHTMLLabel.m in Sources */,
 				EBB480AF1E5BDA8800AC36D0 /* DKYCustomOrderTangzhuItemView.m in Sources */,
 				26210BE01E59740A00EB05D6 /* DKYCustomOrderLingItemView.m in Sources */,
+				2630C5BF20D5438600C4A698 /* DKYDataAnalysisViewController.m in Sources */,
 				EB16D0FB1E56F25000939072 /* DKYTitleInputView.m in Sources */,
 				EBCBE11F1F3D9751008D7A3C /* DKYDisplayCollectButton.m in Sources */,
 				EB6DFFD51F3ABAF0004C7CC4 /* DKYGetProductListByGroupNoModel.m in Sources */,

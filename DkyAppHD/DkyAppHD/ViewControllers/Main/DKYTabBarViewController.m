@@ -21,6 +21,7 @@
 #import "DKYRecommendEntryViewController.h"
 #import "DKYDisplayEntryViewController.h"
 #import "DKYHelpViewController.h"
+#import "DKYDataAnalysisViewController.h"
 
 @interface DKYTabBarViewController ()<UITabBarControllerDelegate>
 
@@ -32,6 +33,7 @@
 @property (nonatomic, weak) DKYRecommendEntryViewController *recommendVc;
 @property (nonatomic, weak) DKYDisplayEntryViewController *displayVc;
 @property (nonatomic, weak) DKYHelpViewController *helpVc;
+@property (nonatomic, weak) DKYDataAnalysisViewController *dataVc;
 @end
 
 @implementation DKYTabBarViewController
@@ -119,6 +121,9 @@
     // 陈列功能
     [self setupRecommendVc];
     
+    // 数据分析
+    [self setupDataAnalysisVc];
+    
     // 搭配功能
     //[self setupDisplayVc];
     
@@ -167,6 +172,13 @@
     self.recommendVc = recommendVc;
 }
 
+- (void)setupDataAnalysisVc{
+    DKYDataAnalysisViewController *dataVc = [[DKYDataAnalysisViewController alloc] init];
+    
+    [self addOneChlildVcV2:dataVc title:@"数据分析" imageName:@"tabbar-dataanalysis" selectedImageName:@"tabbar-dataanalysis"];
+    self.dataVc = dataVc;
+}
+
 - (void)setupDisplayVc{
 //    DKYDisplayViewController *displayVc = [[DKYDisplayViewController alloc] init];
     DKYDisplayEntryViewController *displayVc = [[DKYDisplayEntryViewController alloc] init];
@@ -213,6 +225,37 @@
     
     // 添加为tabbar控制器的子控制器
     DKYNavigationController *nav = [[DKYNavigationController alloc] initWithRootViewController:childVc];
+    [self addChildViewController:nav];
+}
+
+- (void)addOneChlildVcV2:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName
+{
+    // 设置标题
+    childVc.title = title;
+    
+    // 设置图标
+    childVc.tabBarItem.image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    // 设置tabBarItem的普通文字颜色
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor colorWithHex:0x353535];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+    [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    
+    // 设置tabBarItem的选中文字颜色
+    NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
+    selectedTextAttrs[NSForegroundColorAttributeName] = [UIColor colorWithHex:0x515151];
+    [childVc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
+    
+    // 设置选中的图标
+    UIImage *selectedImage = [UIImage imageNamed:selectedImageName];
+    // 声明这张图片用原图(别渲染)
+    selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+    childVc.tabBarItem.selectedImage = selectedImage;
+    
+    // 添加为tabbar控制器的子控制器
+    QMUINavigationController *nav = [[QMUINavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
 }
 
