@@ -58,6 +58,16 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="波段：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmH-aU-pKe" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="411" y="74" width="43" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系列：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwy-t2-DMd" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="411" y="107" width="43" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3DD-b2-gV9" userLabel="centern line">
                                 <rect key="frame" x="384" y="0.0" width="1" height="210"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -91,6 +101,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上货时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ux-3n-Shg" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="411" y="139" width="72" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -108,12 +123,18 @@
                             <constraint firstItem="3FA-zr-EdW" firstAttribute="top" secondItem="byf-d7-HLt" secondAttribute="bottom" constant="-6" id="P77-nw-t5o"/>
                             <constraint firstAttribute="height" constant="210" id="T16-Pf-ce2"/>
                             <constraint firstItem="h7K-1n-5Gl" firstAttribute="leading" secondItem="bp6-Ax-xct" secondAttribute="leading" constant="53" id="WVW-8Q-cug"/>
+                            <constraint firstItem="PmH-aU-pKe" firstAttribute="leading" secondItem="OCe-VJ-uwo" secondAttribute="leading" id="cNI-ts-VEW"/>
+                            <constraint firstItem="PmH-aU-pKe" firstAttribute="top" secondItem="3FA-zr-EdW" secondAttribute="top" id="cOg-0o-eyW"/>
+                            <constraint firstItem="6ux-3n-Shg" firstAttribute="top" secondItem="jzJ-yK-w3r" secondAttribute="top" id="eBV-bh-PcT"/>
                             <constraint firstItem="jzJ-yK-w3r" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="eZc-95-Vb7"/>
+                            <constraint firstItem="Xwy-t2-DMd" firstAttribute="top" secondItem="197-iU-atV" secondAttribute="top" id="lnQ-vX-n3b"/>
+                            <constraint firstItem="Xwy-t2-DMd" firstAttribute="leading" secondItem="OCe-VJ-uwo" secondAttribute="leading" id="oyO-5d-L83"/>
                             <constraint firstAttribute="trailing" secondItem="197-iU-atV" secondAttribute="trailing" constant="53" id="q0v-KO-pyJ"/>
                             <constraint firstItem="OCe-VJ-uwo" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="top" id="qMH-Ds-LBd"/>
                             <constraint firstItem="197-iU-atV" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="tUN-HM-DKu"/>
                             <constraint firstItem="3DD-b2-gV9" firstAttribute="centerX" secondItem="bp6-Ax-xct" secondAttribute="centerX" id="w6d-M5-m8Y"/>
                             <constraint firstItem="byf-d7-HLt" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="bottom" constant="8" id="xQw-tT-fA9"/>
+                            <constraint firstItem="6ux-3n-Shg" firstAttribute="leading" secondItem="OCe-VJ-uwo" secondAttribute="leading" id="zwZ-kI-I6I"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -133,14 +154,17 @@
             <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="allTypeLabel" destination="OCe-VJ-uwo" id="HVX-oG-XQZ"/>
+                <outlet property="boduanLabel" destination="PmH-aU-pKe" id="SDY-NO-7xd"/>
                 <outlet property="collarTypeLabel" destination="3FA-zr-EdW" id="55o-54-qtz"/>
                 <outlet property="cycleScrollViewHeightCst" destination="fhp-6F-KTi" id="bMI-dj-UHP"/>
                 <outlet property="designDescriptionLabel" destination="jzJ-yK-w3r" id="kUT-0x-bCZ"/>
                 <outlet property="ganweiLabel" destination="byf-d7-HLt" id="4PS-L3-48g"/>
                 <outlet property="genderLabel" destination="h7K-1n-5Gl" id="mYR-Tt-a6U"/>
                 <outlet property="hintLabel" destination="197-iU-atV" id="SDP-Mz-RIS"/>
+                <outlet property="onSellTimeLabel" destination="6ux-3n-Shg" id="3bl-OG-mbR"/>
                 <outlet property="placehlderView" destination="2Y1-nO-2o0" id="Q61-co-LjC"/>
                 <outlet property="sampleTypeLabel" destination="Tm4-Ob-2an" id="voe-Cp-pz2"/>
+                <outlet property="seriesLabel" destination="Xwy-t2-DMd" id="9wL-gR-E8C"/>
             </connections>
             <point key="canvasLocation" x="36" y="-407.5"/>
         </tableViewCell>

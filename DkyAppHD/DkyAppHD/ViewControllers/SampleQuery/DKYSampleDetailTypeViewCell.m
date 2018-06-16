@@ -22,8 +22,12 @@
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *collarTypeLabel;
 @property (weak, nonatomic) IBOutlet UIView *placehlderView;
 
-@property (nonatomic, weak) SDCycleScrollView *cycleScrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cycleScrollViewHeightCst;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *boduanLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *seriesLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *onSellTimeLabel;
+
+@property (nonatomic, weak) SDCycleScrollView *cycleScrollView;
 
 @end
 @implementation DKYSampleDetailTypeViewCell
@@ -82,12 +86,6 @@
         return mutableAttributedString;
     }];
     
-//    self.ganweiLabel.text = [NSString stringWithFormat:@"杆位 : %@",model.gw];
-//    [self.ganweiLabel setText:self.ganweiLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-//        [self formatMutableAttributedString:mutableAttributedString];
-//        return mutableAttributedString;
-//    }];
-    
     self.allTypeLabel.text = [NSString stringWithFormat:@"所属类别 : %@",model.mptbelongtypeText];
     
     [self.allTypeLabel setText:self.allTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
@@ -115,6 +113,33 @@
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
     }];
+    
+    // 波段
+    self.boduanLabel.text = [NSString stringWithFormat:@"波段 : %@",model.mDim14Text];
+    [self.boduanLabel setText:self.boduanLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    // 系列
+    self.seriesLabel.text = [NSString stringWithFormat:@"系列 : %@",model.mDim13Text];
+    [self.seriesLabel setText:self.seriesLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    // 上货时间
+    self.onSellTimeLabel.text = [NSString stringWithFormat:@"上货时间 : %@",model.marketDate];
+    [self.onSellTimeLabel setText:self.onSellTimeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    //    self.ganweiLabel.text = [NSString stringWithFormat:@"杆位 : %@",model.gw];
+    //    [self.ganweiLabel setText:self.ganweiLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+    //        [self formatMutableAttributedString:mutableAttributedString];
+    //        return mutableAttributedString;
+    //    }];
 }
 
 #pragma mark - SDCycleScrollViewDelegate

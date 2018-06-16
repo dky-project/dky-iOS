@@ -75,6 +75,21 @@
  */
 @property (nonatomic, strong) NSDictionary *gwView;
 
+/**
+ * 波段
+ */
+@property (nonatomic, copy) NSString * mDim14Text;
+
+/**
+ * 系列
+ */
+@property (nonatomic, copy) NSString *mDim13Text;
+
+/**
+ * 上货时间
+ */
+@property (nonatomic, copy) NSString *marketDate;
+
 // 客户端自己的属性
 @property (nonatomic, strong) NSNumber *mProductId;
 

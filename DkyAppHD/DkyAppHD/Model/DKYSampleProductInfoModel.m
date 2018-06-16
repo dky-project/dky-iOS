@@ -50,6 +50,18 @@
         self.gw = @"";
     }
     
+    if(!self.mDim14Text){
+        self.mDim14Text = @"";
+    }
+    
+    if(!self.mDim13Text){
+        self.mDim13Text = @"";
+    }
+    
+    if(!self.marketDate){
+        self.marketDate = @"";
+    }
+    
     self.isBigOrder = ([self.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame);
 }
 
