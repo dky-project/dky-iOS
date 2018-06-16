@@ -7,8 +7,11 @@
 //
 
 #import "DKYDataAnalysisViewController.h"
+#import "DKYDataAnalysisSummarizingView.h"
 
 @interface DKYDataAnalysisViewController ()
+
+@property (nonatomic, weak) DKYDataAnalysisSummarizingView *header;
 
 @end
 
@@ -27,10 +30,22 @@
 -(void)didInitialize{
     [super didInitialize];
 
-
-    self.view.backgroundColor = [UIColor randomColor];
+    [self commonInit];
 }
 
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    WeakSelf(weakSelf);
+    [self.header mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(200);
+        make.top.mas_equalTo(0);
+    }];
+}
+
+#pragma mark - delegate
 - (nullable UIImage *)navigationBarBackgroundImage{
     return [UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]];
 }
@@ -39,4 +54,16 @@
     return [UIColor whiteColor];
 }
 
+#pragma common init
+- (void)commonInit{
+    self.view.backgroundColor = [UIColor randomColor];
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
+    [self setupHeaderView];
+}
+
+- (void)setupHeaderView{
+    DKYDataAnalysisSummarizingView *view = [[DKYDataAnalysisSummarizingView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:view];
+    self.header = view;
+}
 @end

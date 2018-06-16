@@ -28,6 +28,7 @@
 		26210C021E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C011E59C1E800EB05D6 /* DKYMultipleSelectPopupViewCell.m */; };
 		26210C051E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */; };
 		2630C5BF20D5438600C4A698 /* DKYDataAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2630C5BE20D5438600C4A698 /* DKYDataAnalysisViewController.m */; };
+		2630C5C320D54E8400C4A698 /* DKYDataAnalysisSummarizingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2630C5C220D54E8400C4A698 /* DKYDataAnalysisSummarizingView.m */; };
 		2637029B1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */; };
 		2637029F1F62DF1A000991C5 /* DKYGetProductListByGhParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2637029E1F62DF1A000991C5 /* DKYGetProductListByGhParameter.m */; };
 		263702A21F62E567000991C5 /* DKYRecommendEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702A11F62E567000991C5 /* DKYRecommendEntryViewController.m */; };
@@ -414,6 +415,8 @@
 		26210C041E59C48100EB05D6 /* DKYMultipleSelectPopupItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMultipleSelectPopupItemModel.m; sourceTree = "<group>"; };
 		2630C5BD20D5438600C4A698 /* DKYDataAnalysisViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYDataAnalysisViewController.h; sourceTree = "<group>"; };
 		2630C5BE20D5438600C4A698 /* DKYDataAnalysisViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYDataAnalysisViewController.m; sourceTree = "<group>"; };
+		2630C5C120D54E8400C4A698 /* DKYDataAnalysisSummarizingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYDataAnalysisSummarizingView.h; sourceTree = "<group>"; };
+		2630C5C220D54E8400C4A698 /* DKYDataAnalysisSummarizingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYDataAnalysisSummarizingView.m; sourceTree = "<group>"; };
 		263702991F585BD2000991C5 /* DKYRecommendSmallImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYRecommendSmallImageViewCell.h; sourceTree = "<group>"; };
 		2637029A1F585BD2000991C5 /* DKYRecommendSmallImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYRecommendSmallImageViewCell.m; sourceTree = "<group>"; };
 		2637029D1F62DF1A000991C5 /* DKYGetProductListByGhParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListByGhParameter.h; sourceTree = "<group>"; };
@@ -1125,8 +1128,18 @@
 			children = (
 				2630C5BD20D5438600C4A698 /* DKYDataAnalysisViewController.h */,
 				2630C5BE20D5438600C4A698 /* DKYDataAnalysisViewController.m */,
+				2630C5C020D54DE600C4A698 /* View */,
 			);
 			path = DataAnalysis;
+			sourceTree = "<group>";
+		};
+		2630C5C020D54DE600C4A698 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2630C5C120D54E8400C4A698 /* DKYDataAnalysisSummarizingView.h */,
+				2630C5C220D54E8400C4A698 /* DKYDataAnalysisSummarizingView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2637029C1F5A452B000991C5 /* Views */ = {
@@ -2679,6 +2692,7 @@
 				EBD5E27F1F31A67600B98F46 /* NSString+URL.m in Sources */,
 				263702D21F652C9A000991C5 /* DKYGetProductGroupPageParameter.m in Sources */,
 				26BDCEA820CAC8E500BAB0B9 /* DKYOrderInqueryMergeParameter.m in Sources */,
+				2630C5C320D54E8400C4A698 /* DKYDataAnalysisSummarizingView.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,
 				EB97F2B91E25C36A00BDC705 /* DQFormCollectionViewCell.m in Sources */,
 				EBD115F31EA4637F00AF6F5C /* DKYTongkuan5JingSizeItemView.m in Sources */,
