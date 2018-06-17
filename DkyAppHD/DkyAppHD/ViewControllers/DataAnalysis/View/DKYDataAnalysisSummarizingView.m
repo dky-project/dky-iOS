@@ -8,6 +8,8 @@
 
 #import "DKYDataAnalysisSummarizingView.h"
 
+#define kFont       (24)
+
 @interface DKYDataAnalysisSummarizingView()
 
 @property (nonatomic, weak) TTTAttributedLabel *orderSumLabel;
@@ -42,6 +44,7 @@
 }
 
 - (void)commonInit{
+    self.backgroundColor = [UIColor whiteColor];
     [self setupLables];
     
     [self setData];
@@ -84,7 +87,7 @@
     NSRange range = [mutableAttributedString.string rangeOfString:@":"];
     if(range.location != NSNotFound){
         range = NSMakeRange(range.location + 1, mutableAttributedString.string.length - range.location - 1);
-        [mutableAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:range];
+        [mutableAttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:22] range:range];
         [mutableAttributedString addAttribute:(NSString*)kCTForegroundColorAttributeName value:(id)[UIColor colorWithHex:0x333333].CGColor range:range];
     }
 }
@@ -92,31 +95,31 @@
 - (void)setupLables{
     TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont boldSystemFontOfSize:18];
+    label.font = [UIFont boldSystemFontOfSize:kFont];
     [self addSubview:label];
     self.orderSumLabel = label;
     
     label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont boldSystemFontOfSize:18];
+    label.font = [UIFont boldSystemFontOfSize:kFont];
     [self addSubview:label];
     self.sellAmountSumLabel = label;
     
     label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont boldSystemFontOfSize:18];
+    label.font = [UIFont boldSystemFontOfSize:kFont];
     [self addSubview:label];
     self.discountOrRebateLabel = label;
     
     label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont boldSystemFontOfSize:18];
+    label.font = [UIFont boldSystemFontOfSize:kFont];
     [self addSubview:label];
     self.originalPriceLabel = label;
     
     label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont boldSystemFontOfSize:18];
+    label.font = [UIFont boldSystemFontOfSize:kFont];
     [self addSubview:label];
     self.rebateAmountLabel = label;
     
@@ -134,7 +137,7 @@
     
     [self.discountOrRebateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.orderSumLabel);
-        make.top.mas_equalTo(weakSelf.orderSumLabel.mas_bottom).with.offset(12);
+        make.top.mas_equalTo(weakSelf.orderSumLabel.mas_bottom).with.offset(24);
     }];
     
     [self.originalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -144,7 +147,7 @@
     
     [self.rebateAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.orderSumLabel);
-        make.top.mas_equalTo(weakSelf.discountOrRebateLabel.mas_bottom).with.offset(12);
+        make.top.mas_equalTo(weakSelf.discountOrRebateLabel.mas_bottom).with.offset(24);
     }];
 }
 
