@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self getDataAnalysisListFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +44,32 @@
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(200);
         make.top.mas_equalTo(0);
+    }];
+}
+
+#pragma mark - api
+- (void)getDataAnalysisListFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    
+    [[DKYHttpRequestManager sharedInstance] getDataAnalysisListPageWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
 

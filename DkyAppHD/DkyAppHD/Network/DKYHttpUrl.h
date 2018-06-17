@@ -92,4 +92,6 @@
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
 
+#define kGetDataAnalysisListUrl         @"productApprove/getDataAnalysisList"   // 数据分析接口
+
 #endif /* DKYHttpUrl_h */

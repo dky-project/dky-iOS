@@ -74,6 +74,8 @@
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
 		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
 		268BC24B1E6477D60042E16D /* MDHTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 268BC24A1E6477D60042E16D /* MDHTMLLabel.m */; };
+		26928D3120D646E600662AA9 /* DKYGetDataAnalysisListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26928D3020D646E600662AA9 /* DKYGetDataAnalysisListModel.m */; };
+		26928D3420D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26928D3320D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.m */; };
 		26A6FA5A1E61878300376194 /* NSObject+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A6FA591E61878300376194 /* NSObject+Utility.m */; };
 		26A6FA5D1E61A08700376194 /* DKYDimNewListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A6FA5C1E61A08700376194 /* DKYDimNewListModel.m */; };
 		26A6FA601E61A13C00376194 /* DKYDimNewListItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A6FA5F1E61A13C00376194 /* DKYDimNewListItemModel.m */; };
@@ -507,6 +509,10 @@
 		267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemTwoView.xib; sourceTree = "<group>"; };
 		268BC2491E6477D60042E16D /* MDHTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDHTMLLabel.h; sourceTree = "<group>"; };
 		268BC24A1E6477D60042E16D /* MDHTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDHTMLLabel.m; sourceTree = "<group>"; };
+		26928D2F20D646E600662AA9 /* DKYGetDataAnalysisListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYGetDataAnalysisListModel.h; sourceTree = "<group>"; };
+		26928D3020D646E600662AA9 /* DKYGetDataAnalysisListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYGetDataAnalysisListModel.m; sourceTree = "<group>"; };
+		26928D3220D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYGetDataAnalysisListTotalModel.h; sourceTree = "<group>"; };
+		26928D3320D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYGetDataAnalysisListTotalModel.m; sourceTree = "<group>"; };
 		26A6FA581E61878300376194 /* NSObject+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utility.h"; sourceTree = "<group>"; };
 		26A6FA591E61878300376194 /* NSObject+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utility.m"; sourceTree = "<group>"; };
 		26A6FA5B1E61A08700376194 /* DKYDimNewListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYDimNewListModel.h; sourceTree = "<group>"; };
@@ -1142,6 +1148,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2630C5C420D6465B00C4A698 /* 数据分析 */ = {
+			isa = PBXGroup;
+			children = (
+				26928D2F20D646E600662AA9 /* DKYGetDataAnalysisListModel.h */,
+				26928D3020D646E600662AA9 /* DKYGetDataAnalysisListModel.m */,
+				26928D3220D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.h */,
+				26928D3320D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.m */,
+			);
+			name = "数据分析";
+			sourceTree = "<group>";
+		};
 		2637029C1F5A452B000991C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1484,6 +1501,7 @@
 				EB9BBB9B1E2470F200939007 /* 订单查询 */,
 				2620D6DF1E55F16700BC0668 /* 定制订单 */,
 				EB6DFFD21F3ABAC7004C7CC4 /* 搭配(原陈列) */,
+				2630C5C420D6465B00C4A698 /* 数据分析 */,
 				263702B91F6432D1000991C5 /* 推荐 */,
 				EB506C301E23706F002A1423 /* DKYPageModel.h */,
 				EB506C311E23706F002A1423 /* DKYPageModel.m */,
@@ -2727,6 +2745,7 @@
 				EBC300641E1CCC0A00F602E6 /* JXTAlertController.m in Sources */,
 				EB97906B1E221B6F00E2985C /* MMDateView.m in Sources */,
 				EBA351791E811D9700D89BFA /* DKYStaticDimListModel.m in Sources */,
+				26928D3420D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.m in Sources */,
 				EB9790501E22118500E2985C /* WGBDatePickerView.m in Sources */,
 				26210BF31E59A3F000EB05D6 /* DKYCustomOrderSpecialCraftItemView.m in Sources */,
 				EB9ACBCE1E5EB8A30007517C /* DKYMadeInfoByProductNameModel.m in Sources */,
@@ -2990,6 +3009,7 @@
 				263702CC1F650C36000991C5 /* DKYRecommendFilterView.m in Sources */,
 				263702DB1F65377B000991C5 /* DKYGetProductGroupPageModel.m in Sources */,
 				EBB1133A1ED433BC0028FC17 /* DKYCommonTool.m in Sources */,
+				26928D3120D646E600662AA9 /* DKYGetDataAnalysisListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
