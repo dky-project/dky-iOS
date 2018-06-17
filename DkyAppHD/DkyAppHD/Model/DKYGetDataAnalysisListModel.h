@@ -18,14 +18,14 @@
 @property (nonatomic, copy) NSArray *MPTBELONGTYPE;
 
 /*
- *  所属类别
- */
-@property (nonatomic, copy) NSArray *MPTBELONGTYPE;
-
-/*
  *  品种
  */
 @property (nonatomic, copy) NSArray *DIMFLAG_NEW14;
+
+/*
+ *  品类
+ */
+@property (nonatomic, copy) NSArray *DIMFLAG_16;
 
 /*
  *  系列

@@ -8,10 +8,13 @@
 
 #import "DKYDataAnalysisViewController.h"
 #import "DKYDataAnalysisSummarizingView.h"
+#import "DKYGetDataAnalysisListModel.h"
 
 @interface DKYDataAnalysisViewController ()
 
 @property (nonatomic, weak) DKYDataAnalysisSummarizingView *header;
+
+@property (nonatomic, strong) DKYGetDataAnalysisListModel *getDataAnalysisListModel;
 
 @end
 
@@ -56,7 +59,9 @@
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-
+            weakSelf.getDataAnalysisListModel = [DKYGetDataAnalysisListModel mj_objectWithKeyValues:result.data];
+            
+            
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
