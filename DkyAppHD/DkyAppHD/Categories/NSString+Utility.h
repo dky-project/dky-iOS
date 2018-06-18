@@ -46,4 +46,13 @@
 + (NSString*)formatRateStringWithRate:(CGFloat)rate;
 
 + (BOOL)isEmptyString:(NSString*)str;
+
+/**
+ *  返回金额格式
+ *  末尾去零，5.00，去掉0
+ *  @param num num description
+ *
+ *  @return return value description
+ */
++ (NSString*)formatMoneyStringWithNumberEx:(double)num;
 @end

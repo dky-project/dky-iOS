@@ -13,7 +13,7 @@
 /*
  *  下单总数
  */
-@property (nonatomic, strong) NSNumber *qty;
+@property (nonatomic, strong) NSNumber *QTY;
 
 /*
  *  零售总金额
@@ -34,5 +34,13 @@
  *  进货价总金额
  */
 @property (nonatomic, strong) NSNumber *AFTERAMOUNT;
+
+/*
+ *  类型
+ */
+@property (nonatomic, assign) NSInteger storeType;
+
+// 客户端自己属性
+@property (nonatomic, assign, getter=isZmd) BOOL zmd;
 
 @end

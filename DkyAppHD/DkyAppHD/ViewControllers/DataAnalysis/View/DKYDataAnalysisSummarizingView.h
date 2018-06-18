@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKYGetDataAnalysisListModel;
 @interface DKYDataAnalysisSummarizingView : UIView
+
+@property (nonatomic, strong) DKYGetDataAnalysisListModel *getDataAnalysisListModel;
 
 @end

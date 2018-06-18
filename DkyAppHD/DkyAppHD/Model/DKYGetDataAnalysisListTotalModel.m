@@ -10,4 +10,8 @@
 
 @implementation DKYGetDataAnalysisListTotalModel
 
+- (void)mj_keyValuesDidFinishConvertingToObject{
+    self.zmd = (self.storeType == 7);
+}
+
 @end

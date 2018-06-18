@@ -7,6 +7,7 @@
 //
 
 #import "DKYDataAnalysisSummarizingView.h"
+#import "DKYGetDataAnalysisListModel.h"
 
 #define kFont       (24)
 
@@ -46,8 +47,57 @@
 - (void)commonInit{
     self.backgroundColor = [UIColor whiteColor];
     [self setupLables];
+}
+
+- (void)setGetDataAnalysisListModel:(DKYGetDataAnalysisListModel *)getDataAnalysisListModel{
+    _getDataAnalysisListModel = getDataAnalysisListModel;
     
-    [self setData];
+    if(getDataAnalysisListModel == nil) return;
+    
+    self.orderSumLabel.text = [NSString stringWithFormat:@"下单总数 : %@件",getDataAnalysisListModel.total.QTY];
+    [self.orderSumLabel setText:self.orderSumLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    self.sellAmountSumLabel.text = [NSString stringWithFormat:@"零售总金额 : %@元",getDataAnalysisListModel.total.TOTALAMOUNT];
+    [self.sellAmountSumLabel setText:self.sellAmountSumLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    self.originalPriceLabel.text = [NSString stringWithFormat:@"进货价总金额 : %@元",getDataAnalysisListModel.total.AFTERAMOUNT];
+    [self.originalPriceLabel setText:self.originalPriceLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    if(getDataAnalysisListModel.total.isZmd){
+        self.discountOrRebateLabel.text = [NSString stringWithFormat:@"专卖店-折扣 : %@折",getDataAnalysisListModel.total.GHPRICE];
+        [self.discountOrRebateLabel setText:self.discountOrRebateLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+            [self formatMutableAttributedString:mutableAttributedString];
+            return mutableAttributedString;
+        }];
+        
+        self.rebateAmountLabel.hidden = YES;
+    }else{
+        self.discountOrRebateLabel.text = [NSString stringWithFormat:@"加盟店-返利 : %@元/件",getDataAnalysisListModel.total.FLPRICE];
+        [self.discountOrRebateLabel setText:self.discountOrRebateLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+            [self formatMutableAttributedString:mutableAttributedString];
+            return mutableAttributedString;
+        }];
+        
+        self.rebateAmountLabel.hidden = NO;
+        
+        CGFloat totalMoney = [getDataAnalysisListModel.total.FLPRICE floatValue] * [getDataAnalysisListModel.total.QTY floatValue];
+        
+        NSString *moneyStr = [NSString formatMoneyStringWithNumberEx:totalMoney];
+        self.rebateAmountLabel.text = [NSString stringWithFormat:@"返利总额 : %@元",moneyStr];
+        [self.rebateAmountLabel setText:self.rebateAmountLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+            [self formatMutableAttributedString:mutableAttributedString];
+            return mutableAttributedString;
+        }];
+    }
 }
 
 - (void)setData{

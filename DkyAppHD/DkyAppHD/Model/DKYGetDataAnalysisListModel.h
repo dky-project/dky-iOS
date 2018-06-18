@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class DKYGetDataAnalysisListTotalModel;
+#import "DKYGetDataAnalysisListTotalModel.h"
 
 @interface DKYGetDataAnalysisListModel : NSObject
 

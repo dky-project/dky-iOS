@@ -201,4 +201,27 @@
     return NO;
 }
 
++ (NSString*)formatMoneyStringWithNumberEx:(double)num{
+    NSString *string = [NSString stringWithFormat:@"%.2f",num];
+    
+    NSRange range = [string rangeOfString:@"."];
+    NSInteger location = range.location;
+    if(location != NSNotFound)
+    {
+        while (string.length > location) {
+            NSString *lastChar = [string substringWithRange:NSMakeRange(string.length-1, 1)];
+            if ([lastChar isEqualToString:@"0"] || [lastChar isEqualToString:@"."]) {
+                string = [string substringToIndex:string.length-1];
+            }
+            else
+            {
+                break;
+            }
+        }
+        return string;
+    }
+    
+    return string;
+}
+
 @end

@@ -28,8 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self getDataAnalysisListFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,23 +41,19 @@
     [self setupGanweiArray];
 
     [self commonInit];
+    
+    [self getDataAnalysisListFromServer];
 }
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     
     WeakSelf(weakSelf);
-    [self.header mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.height.mas_equalTo(200);
-        make.top.mas_equalTo(0);
-    }];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        make.top.mas_equalTo(weakSelf.header.mas_bottom);
+        make.top.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
     }];
 }
@@ -75,6 +69,14 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.getDataAnalysisListModel = [DKYGetDataAnalysisListModel mj_objectWithKeyValues:result.data];
             
+            weakSelf.getDataAnalysisListModel.total = [[DKYGetDataAnalysisListTotalModel alloc] init];
+            weakSelf.getDataAnalysisListModel.total.storeType = 7;
+            weakSelf.getDataAnalysisListModel.total.TOTALAMOUNT = @2575776 ;
+            weakSelf.getDataAnalysisListModel.total.QTY = @2589;
+            weakSelf.getDataAnalysisListModel.total.AFTERAMOUNT = @927279.36;
+            weakSelf.getDataAnalysisListModel.total.GHPRICE = @36;
+            
+            weakSelf.header.getDataAnalysisListModel = weakSelf.getDataAnalysisListModel;
             
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -90,6 +92,18 @@
         [DKYHUDTool dismiss];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
+    
+//    weakSelf.getDataAnalysisListModel = [[DKYGetDataAnalysisListModel alloc] init];
+//    
+//    weakSelf.getDataAnalysisListModel.total = [[DKYGetDataAnalysisListTotalModel alloc] init];
+//    weakSelf.getDataAnalysisListModel.total.storeType = 7;
+//    weakSelf.getDataAnalysisListModel.total.TOTALAMOUNT = @2575776 ;
+//    weakSelf.getDataAnalysisListModel.total.QTY = @2589;
+//    weakSelf.getDataAnalysisListModel.total.AFTERAMOUNT = @927279.36;
+//    weakSelf.getDataAnalysisListModel.total.GHPRICE = @36;
+//    weakSelf.getDataAnalysisListModel.total.zmd = YES;
+//    
+//    weakSelf.header.getDataAnalysisListModel = weakSelf.getDataAnalysisListModel;
 }
 
 #pragma mark - delegate
@@ -178,13 +192,12 @@
 #pragma common init
 - (void)commonInit{
     self.edgesForExtendedLayout = UIRectEdgeBottom;
-    [self setupHeaderView];
     [self setupTableView];
 }
 
 - (void)setupHeaderView{
-    DKYDataAnalysisSummarizingView *view = [[DKYDataAnalysisSummarizingView alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:view];
+    DKYDataAnalysisSummarizingView *view = [[DKYDataAnalysisSummarizingView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+    self.tableView.tableHeaderView = view;
     self.header = view;
 }
 
@@ -199,5 +212,7 @@
     [self.view addSubview:tableView];
     
     [self.tableView registerClass:[DQTableViewCell class] forCellReuseIdentifier:NSStringFromClass([DQTableViewCell class])];
+    
+    [self setupHeaderView];
 }
 @end
