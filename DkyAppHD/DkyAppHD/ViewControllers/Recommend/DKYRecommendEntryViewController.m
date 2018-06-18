@@ -68,6 +68,7 @@
     
     DKYGetProductListGhPageParameter *p = [[DKYGetProductListGhPageParameter alloc] init];
     p.gh = self.filtrateView.name;
+    p.hallName = self.filtrateView.hallName;
     p.pageSize = @(kPageSize);
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
@@ -107,6 +108,7 @@
     
     DKYGetProductListGhPageParameter *p = [[DKYGetProductListGhPageParameter alloc] init];
     p.gh = self.filtrateView.name;
+    p.hallName = self.filtrateView.hallName;
     p.pageSize = @(kPageSize);
     NSInteger pageNo = self.pageNum;
     p.pageNo = @(++pageNo);
@@ -222,6 +224,7 @@
     DKYRecommendViewController *vc = [[DKYRecommendViewController alloc] init];
     DKYGetProductListGhPageModel *model = [self.productList objectOrNilAtIndex:indexPath.item];
     vc.gh = model.gh;
+    vc.hallName = model.hallName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark - UI

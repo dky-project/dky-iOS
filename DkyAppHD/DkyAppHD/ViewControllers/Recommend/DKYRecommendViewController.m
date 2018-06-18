@@ -57,6 +57,7 @@
     [DKYHUDTool show];
     DKYGetProductListByGhParameter *p = [[DKYGetProductListByGhParameter alloc] init];
     p.gh = self.gh;
+    p.hallName = self.hallName;
     
     [[DKYHttpRequestManager sharedInstance] getProductListByGhWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];

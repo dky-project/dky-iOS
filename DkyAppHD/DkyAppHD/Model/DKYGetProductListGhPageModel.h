@@ -21,4 +21,6 @@
 @property (nonatomic, strong) NSNumber *no5ProductId;
 @property (nonatomic, strong) NSNumber *no6ProductId;
 
+@property (nonatomic, copy) NSString *hallName;
+
 @end

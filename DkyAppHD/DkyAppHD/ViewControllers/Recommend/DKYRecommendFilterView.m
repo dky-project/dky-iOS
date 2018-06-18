@@ -19,6 +19,8 @@
 
 @property (nonatomic, weak) UITextField *textField;
 
+@property (nonatomic, weak) UITextField *thTextField;
+
 @end
 
 
@@ -40,10 +42,18 @@
     return self.textField.text;
 }
 
+- (NSString*)hallName{
+    if([NSString isEmptyString:self.thTextField.text]){
+        return nil;
+    }
+    return self.thTextField.text;
+}
+
 #pragma mark - action method
 
 - (void)oneKeyClearBtnClicked:(UIButton*)sender{
     self.textField.text = nil;
+    self.thTextField.text = nil;
 }
 
 #pragma mark - UI
@@ -55,6 +65,7 @@
     [self setupFilterConditionLabel];
     [self setupOneKeyClearBtn];
     [self setupTextField];
+    [self setupThTextField];
 }
 
 - (void)setupFilterConditionLabel{
@@ -129,6 +140,43 @@
     WeakSelf(weakSelf);
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(30);
+        make.top.mas_equalTo(weakSelf.filterConditionLabel.mas_bottom).with.offset(8);
+        make.height.mas_equalTo(35);
+        make.width.mas_equalTo(254);
+    }];
+}
+
+- (void)setupThTextField{
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
+    [self addSubview:textField];
+    self.thTextField = textField;
+    
+    textField.layer.borderColor = [UIColor colorWithHex:0x3C3362].CGColor;
+    textField.layer.borderWidth = 1;
+    
+    textField.font = [UIFont systemFontOfSize:15];
+    textField.textColor = [UIColor colorWithHex:0x666666];
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.backgroundColor = [UIColor whiteColor];
+    
+    textField.placeholder = @"请输入厅号";
+    
+    NSDictionary *dict = @{NSForegroundColorAttributeName : [UIColor colorWithHex:0x999999],
+                           NSFontAttributeName : [UIFont systemFontOfSize:12],
+                           NSBaselineOffsetAttributeName : @(-1)};
+    
+    NSAttributedString *searchPlaceholder = [[NSAttributedString alloc] initWithString:textField.placeholder attributes:dict];
+    textField.attributedPlaceholder = searchPlaceholder;
+    
+    UIImageView *searchImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_search"]];
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    searchImageView.frame = CGRectMake(0, 0, 41, 28);
+    searchImageView.contentMode = UIViewContentModeCenter;
+    textField.leftView = searchImageView;
+    
+    WeakSelf(weakSelf);
+    [self.thTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.textField.mas_right).with.offset(30);
         make.top.mas_equalTo(weakSelf.filterConditionLabel.mas_bottom).with.offset(8);
         make.height.mas_equalTo(35);
         make.width.mas_equalTo(254);

@@ -12,4 +12,6 @@
 
 @property (nonatomic, copy) NSString *gh;
 
+@property (nonatomic, copy) NSString *hallName;
+
 @end
