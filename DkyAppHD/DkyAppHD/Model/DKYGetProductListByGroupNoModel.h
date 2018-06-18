@@ -59,6 +59,10 @@
  */
 @property (nonatomic, copy) NSString *mDim16Id;
 
+@property (nonatomic, strong) NSNumber *mDimNew22Id;
+
+@property (nonatomic, copy) NSString *hzxcValue;
+
 // 客户端自己的属性
 @property (nonatomic, assign) BOOL isCollected;
 

@@ -9,6 +9,7 @@
 #import "DKYSampleOrderJianTypeItemView.h"
 #import "DKYTitleSelectView.h"
 #import "DKYTitleInputView.h"
+#import "DKYGetSizeDataModel.h"
 
 @interface DKYSampleOrderJianTypeItemView ()
 
@@ -148,6 +149,14 @@
        }else{
            [self dealwithMDimNew12IdSelected];
        }
+}
+
+- (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
+    if(model == nil) return;
+    
+    self.gyxcView.textField.text = model.hzxcValue;
+    
+    self.addProductApproveParameter.hzxc1Value = [self.gyxcView.textField.text isNotBlank] ? @([self.gyxcView.textField.text doubleValue]) : nil;
 }
 
 - (void)clear{

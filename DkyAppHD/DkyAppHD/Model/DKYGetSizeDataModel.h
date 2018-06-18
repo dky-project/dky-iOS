@@ -18,4 +18,6 @@
 
 @property (nonatomic, copy) NSString *xc;
 
+@property (nonatomic, copy) NSString *hzxcValue;
+
 @end

@@ -200,6 +200,7 @@ static const CGFloat basicItemHeight = 45;
             weakSelf.getSizeDataModel = [DKYGetSizeDataModel mj_objectWithKeyValues:result.data];
             [weakSelf.sizeView dealWithXwValueSelected:weakSelf.getSizeDataModel];
             [weakSelf.xiuTypeView dealWithXwValueSelected:weakSelf.getSizeDataModel];
+            [weakSelf.jianTypeItemView dealWithXwValueSelected:weakSelf.getSizeDataModel];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];

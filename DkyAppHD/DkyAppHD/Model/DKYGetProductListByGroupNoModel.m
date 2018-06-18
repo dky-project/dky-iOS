@@ -25,17 +25,23 @@
     
     NSRange range = [self.xcValue rangeOfString:@"+"];
     
-    if(self.xcValue == nil || range.location == NSNotFound){
+    if([self.mDimNew22Id integerValue] == 131){
         self.xcHasAdd = NO;
-        self.xcLeftValue = self.xcValue;
         self.xcRightValue = nil;
+        self.xcLeftValue = self.hzxcValue;
     }else{
-        NSString *prefix = [self.xcValue substringToIndex:range.location];
-        NSString *suffix = [self.xcValue substringFromIndex:range.location];
-        
-        self.xcHasAdd = YES;
-        self.xcLeftValue = prefix;
-        self.xcRightValue = suffix;
+        if(self.xcValue == nil || range.location == NSNotFound){
+            self.xcHasAdd = NO;
+            self.xcLeftValue = self.xcValue;
+            self.xcRightValue = nil;
+        }else{
+            NSString *prefix = [self.xcValue substringToIndex:range.location];
+            NSString *suffix = [self.xcValue substringFromIndex:range.location];
+            
+            self.xcHasAdd = YES;
+            self.xcLeftValue = prefix;
+            self.xcRightValue = suffix;
+        }
     }
     
     if(self.isBigOrder){
