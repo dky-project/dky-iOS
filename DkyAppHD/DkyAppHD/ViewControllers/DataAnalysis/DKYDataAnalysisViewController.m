@@ -96,10 +96,12 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
+        [weakSelf.tableView.mj_header endRefreshing];
         [DKYHUDTool dismiss];
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
         [DKYHUDTool dismiss];
+        [weakSelf.tableView.mj_header endRefreshing];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
 }
@@ -414,5 +416,11 @@
     [self.tableView registerClass:[DQTableViewCell class] forCellReuseIdentifier:NSStringFromClass([DQTableViewCell class])];
     
     [self setupHeaderView];
+    
+    WeakSelf(weakSelf);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //Call this Block When enter the refresh status automatically
+        [weakSelf getDataAnalysisListFromServer];
+    }];
 }
 @end
