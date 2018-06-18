@@ -10,4 +10,15 @@
 
 @implementation DKYGetDataAnalysisListModel
 
++ (NSDictionary*)mj_objectClassInArray{
+    return @{@"MPTBELONGTYPE":@"DKYGetDataAnalysisFormItemModel",
+             @"DIMFLAG_NEW14":@"DKYGetDataAnalysisFormItemModel",
+             @"DIMFLAG_16":@"DKYGetDataAnalysisFormItemModel",
+             @"DIMFLAG_13":@"DKYGetDataAnalysisFormItemModel",
+             @"DIMFLAG_NEW13":@"DKYGetDataAnalysisFormItemModel",
+             @"DIMFLAG_14":@"DKYGetDataAnalysisFormItemModel",
+             @"DIMFLAG_NEW16":@"DKYGetDataAnalysisFormItemModel",
+             };
+}
+
 @end

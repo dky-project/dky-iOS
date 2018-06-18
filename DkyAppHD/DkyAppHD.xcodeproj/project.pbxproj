@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		157E3D5E49F6D5353573ED36 /* libPods-DkyAppHD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */; };
 		2609BD531E7D56380063D6FF /* DKYMptApproveSaveParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609BD521E7D56380063D6FF /* DKYMptApproveSaveParameter.m */; };
+		260F319F20D73A3100A5D213 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 260F319E20D73A3100A5D213 /* data.json */; };
+		260F31A220D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 260F31A120D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.m */; };
 		261EA3DA1F9100FD008F8962 /* UIDevice+LCActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 261EA3D71F9100FC008F8962 /* UIDevice+LCActionSheet.m */; };
 		261EA3DB1F9100FD008F8962 /* LCActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261EA3D81F9100FC008F8962 /* LCActionSheetViewController.m */; };
 		2620D6DE1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2620D6DD1E55E90900BC0668 /* DKYCustomOrderBusinessCell.m */; };
@@ -379,6 +381,9 @@
 /* Begin PBXFileReference section */
 		2609BD511E7D56380063D6FF /* DKYMptApproveSaveParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYMptApproveSaveParameter.h; sourceTree = "<group>"; };
 		2609BD521E7D56380063D6FF /* DKYMptApproveSaveParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMptApproveSaveParameter.m; sourceTree = "<group>"; };
+		260F319E20D73A3100A5D213 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		260F31A020D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYGetDataAnalysisFormItemModel.h; sourceTree = "<group>"; };
+		260F31A120D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYGetDataAnalysisFormItemModel.m; sourceTree = "<group>"; };
 		261EA3D61F9100FC008F8962 /* UIDevice+LCActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+LCActionSheet.h"; sourceTree = "<group>"; };
 		261EA3D71F9100FC008F8962 /* UIDevice+LCActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+LCActionSheet.m"; sourceTree = "<group>"; };
 		261EA3D81F9100FC008F8962 /* LCActionSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCActionSheetViewController.m; sourceTree = "<group>"; };
@@ -1155,6 +1160,8 @@
 				26928D3020D646E600662AA9 /* DKYGetDataAnalysisListModel.m */,
 				26928D3220D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.h */,
 				26928D3320D6473F00662AA9 /* DKYGetDataAnalysisListTotalModel.m */,
+				260F31A020D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.h */,
+				260F31A120D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.m */,
 			);
 			name = "数据分析";
 			sourceTree = "<group>";
@@ -1275,6 +1282,7 @@
 		26928D3520D72A6C00662AA9 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				260F319E20D73A3100A5D213 /* data.json */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -2630,6 +2638,7 @@
 				EBB0FB9C1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib in Resources */,
 				EBBF214B1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib in Resources */,
 				EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */,
+				260F319F20D73A3100A5D213 /* data.json in Resources */,
 				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
 				EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */,
 				EB9884CE1E28658900BAFADE /* SXDetails.css in Resources */,
@@ -2933,6 +2942,7 @@
 				EBD1160B1EA4AEEC00AF6F5C /* DKYSampleOrderVarietyItemView.m in Sources */,
 				2637029F1F62DF1A000991C5 /* DKYGetProductListByGhParameter.m in Sources */,
 				EB3F2BDE1EC98244007F1A89 /* DKYOrderBrowseModel.m in Sources */,
+				260F31A220D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.m in Sources */,
 				263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */,
 				EBA90E951E52E2EF00EA539E /* TWScrollView.m in Sources */,
 				EBD304A51F20AE6400CA400C /* DACircularProgressView.m in Sources */,

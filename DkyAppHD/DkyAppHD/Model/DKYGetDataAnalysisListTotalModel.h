@@ -38,7 +38,7 @@
 /*
  *  类型
  */
-@property (nonatomic, assign) NSInteger storeType;
+@property (nonatomic, assign) NSInteger STORETYPE;
 
 // 客户端自己属性
 @property (nonatomic, assign, getter=isZmd) BOOL zmd;

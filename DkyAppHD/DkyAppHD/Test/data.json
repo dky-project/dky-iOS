@@ -1,0 +1,342 @@
+{
+    "code": 200,
+    "msg": "成功",
+    "data": {
+        "MPTBELONGTYPE": [
+            {
+                "id": 223,
+                "zxQty": 2800,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "64%",
+                "attribname": "特殊款"
+            },
+            {
+                "id": 530,
+                "zxQty": 1236,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "28%",
+                "attribname": "基础款"
+            }
+        ],
+        "total": {
+            "TOTALAMOUNT": 2575776,
+            "QTY": 2589,
+            "STORETYPE": 7,
+            "AFTERAMOUNT": 927279.36,
+            "GHPRICE": 0.36
+        },
+        "DIMFLAG_NEW13": [
+            {
+                "id": 0,
+                "code": "Y06",
+                "bfb": "5%",
+                "attribname": "女孩"
+            },
+            {
+                "id": 0,
+                "code": "Y06",
+                "bfb": "1%",
+                "attribname": "女婴"
+            },
+            {
+                "id": 0,
+                "code": "Y06",
+                "bfb": "21%",
+                "attribname": "男"
+            },
+            {
+                "id": 0,
+                "code": "Y06",
+                "bfb": "0%",
+                "attribname": "男婴"
+            },
+            {
+                "id": 0,
+                "code": "Y06",
+                "bfb": "3%",
+                "attribname": "男孩"
+            },
+            {
+                "id": 0,
+                "code": "Y06",
+                "bfb": "69%",
+                "attribname": "女"
+            }
+        ],
+        "DIMFLAG_14": [],
+        "DIMFLAG_13": [],
+        "DIMFLAG_16": [],
+        "DIMFLAG_NEW14": [
+            {
+                "id": 81,
+                "zxQty": 180,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "4%",
+                "attribname": "精纺羊绒"
+            },
+            {
+                "id": 113,
+                "zxQty": 37,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "1%",
+                "attribname": "苎麻丝光"
+            },
+            {
+                "id": 381,
+                "zxQty": 1,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "透明丝"
+            },
+            {
+                "id": 459,
+                "zxQty": 102,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "2%",
+                "attribname": "贝贝羊绒"
+            },
+            {
+                "id": 469,
+                "zxQty": 26,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "1%",
+                "attribname": "慕黛尔"
+            },
+            {
+                "id": 530,
+                "zxQty": 14,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "圣爽麻"
+            },
+            {
+                "id": 574,
+                "zxQty": 2,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "精纺纯绒"
+            },
+            {
+                "id": 835,
+                "zxQty": 127,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "3%",
+                "attribname": "DA绒"
+            },
+            {
+                "id": 837,
+                "zxQty": 44,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "1%",
+                "attribname": "48支纯绒"
+            },
+            {
+                "id": 845,
+                "zxQty": 17,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "品麻"
+            },
+            {
+                "id": 997,
+                "zxQty": 4,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "清风"
+            },
+            {
+                "id": 1207,
+                "zxQty": 1,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "羊绒"
+            },
+            {
+                "id": 1230,
+                "zxQty": 94,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "2%",
+                "attribname": "TSW"
+            },
+            {
+                "id": 1236,
+                "zxQty": 700,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "16%",
+                "attribname": "精纺羊毛"
+            },
+            {
+                "id": 1385,
+                "zxQty": 12,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "高丝"
+            },
+            {
+                "id": 1635,
+                "zxQty": 2,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "精纺丝绒"
+            },
+            {
+                "id": 1808,
+                "zxQty": 26,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "1%",
+                "attribname": "包芯纱"
+            },
+            {
+                "id": 2016,
+                "zxQty": 2507,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "57%",
+                "attribname": "纯绒"
+            },
+            {
+                "id": 2038,
+                "zxQty": 21,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "丹尼尔"
+            },
+            {
+                "id": 2450,
+                "zxQty": 143,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "3%",
+                "attribname": "克什米尔"
+            },
+            {
+                "id": 2482,
+                "zxQty": 18,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "丝绮"
+            },
+            {
+                "id": 2579,
+                "zxQty": 87,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "2%",
+                "attribname": "绒棉"
+            },
+            {
+                "id": 2823,
+                "zxQty": 30,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "1%",
+                "attribname": "索菲亚"
+            },
+            {
+                "id": 2855,
+                "zxQty": 56,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "1%",
+                "attribname": "牦牛绒"
+            },
+            {
+                "id": 2888,
+                "zxQty": 2,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "0%",
+                "attribname": "聚酯纤维"
+            },
+            {
+                "id": 2890,
+                "zxQty": 95,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "2%",
+                "attribname": "双曲"
+            },
+            {
+                "id": 2985,
+                "zxQty": 48,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "1%",
+                "attribname": "拉纳"
+            }
+        ],
+        "DIMFLAG_NEW16": [
+            {
+                "id": 28,
+                "zxQty": 246,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "6%",
+                "attribname": "5G"
+            },
+            {
+                "id": 38,
+                "zxQty": 2183,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "50%",
+                "attribname": "12G"
+            },
+            {
+                "id": 41,
+                "zxQty": 1102,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "25%",
+                "attribname": "16G"
+            },
+            {
+                "id": 42,
+                "zxQty": 720,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "16%",
+                "attribname": "7G"
+            },
+            {
+                "id": 769,
+                "zxQty": 34,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "1%",
+                "attribname": "3G"
+            },
+            {
+                "id": 896,
+                "zxQty": 111,
+                "code": "Y06",
+                "allSum": 4396,
+                "bfb": "3%",
+                "proportion": "11%",
+                "attribname": "6G"
+            }
+        ]
+    },
+    "success": true
+}
