@@ -152,7 +152,14 @@
     self.rectImageView.image = self.getProductListByGroupNoModel.isChoosed ? self.selectedImage : self.normalImage;
     
     // 品类
-    [self.pinleiBtn setTitle:self.getProductListByGroupNoModel.mDim16Id forState:UIControlStateNormal];
+    NSInteger mDim16Id = [self.getProductListByGroupNoModel.mDim16Id integerValue];
+    
+    for(DKYDimlistItemModel *item in self.getProductListByGroupNoModel.pinList){
+        if(mDim16Id == [item.ID integerValue]){
+            [self.pinleiBtn setTitle:item.attribname forState:UIControlStateNormal];
+            break;
+        }
+    }
     
     [self updateWhenSumChanged];
 }
