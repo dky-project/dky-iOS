@@ -33,6 +33,8 @@
 
 @property (nonatomic, copy) NSString *bigImageUrl;
 
+@property (nonatomic, copy) NSArray *ghList;
+
 @end
 
 @implementation DKYRecommendViewController
@@ -71,7 +73,17 @@
             weakSelf.pageNo = page.pageNo;
             weakSelf.totalPageNum = page.totalPageNum;
             
-            weakSelf.gh_ = [p.gh integerValue];
+            weakSelf.ghList = page.ghList;
+            weakSelf.gh = p.gh;
+            
+            NSInteger index = 0;
+            for(NSString* gp in page.ghList){
+                if([weakSelf.gh isEqualToString:gp]){
+                    weakSelf.gh_ = index;
+                    break;
+                }
+                ++index;
+            }
             
             [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -185,10 +197,10 @@
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:@"陈列"];
+    [self setupCustomTitle:@"FAB下单"];
     
     self.pageNo = 1;
-    self.gh_ = [self.gh integerValue];
+    //self.gh_ = [self.gh integerValue];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
@@ -217,8 +229,9 @@
         
         NSInteger gh = self.gh_;
         --gh;
+        if(gh < 0 || gh > self.ghList.count) return;
         
-        self.gh = [NSString stringWithFormat:@"%@",@(gh)];
+        self.gh = [self.ghList objectAtIndex:gh];
         
         [self getProductListByGhFromServer];
     };
@@ -230,7 +243,9 @@
         NSInteger gh = self.gh_;
         ++gh;
         
-        self.gh = [NSString stringWithFormat:@"%@",@(gh)];
+        if(gh < 0 || gh > self.ghList.count) return;
+        
+        self.gh = [self.ghList objectAtIndex:gh];
         [self getProductListByGhFromServer];
     };
 }

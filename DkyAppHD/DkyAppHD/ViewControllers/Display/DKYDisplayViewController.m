@@ -41,6 +41,8 @@
 
 @property (nonatomic, assign) NSInteger groupNo_;
 
+@property (nonatomic, copy) NSArray *groupNoList;
+
 @property (nonatomic, strong) DKYAddProductDpGroupResponseModel *addProductDpGroupResponseModel;
 
 @property (nonatomic, copy) NSString *bigImageUrl;
@@ -107,9 +109,18 @@
             weakSelf.productList = [DKYGetProductListByGroupNoModel mj_objectArrayWithKeyValuesArray:page.items];
             weakSelf.pageNo = page.pageNo;
             weakSelf.totalPageNum = page.totalPageNum;
-            weakSelf.groupNo_ = [weakSelf.getProductListByGroupNoParameterEx.groupNo integerValue];
+            weakSelf.groupNoList = page.groupNoList;
+            weakSelf.groupNo = weakSelf.getProductListByGroupNoParameterEx.groupNo;
             
-//            [weakSelf setupCustomTitle:[NSString stringWithFormat:@"%@",@(weakSelf.groupNo_)]];
+            NSInteger index = 0;
+            for(NSString* gp in page.groupNoList){
+                if([weakSelf.groupNo isEqualToString:gp]){
+                    weakSelf.groupNo_ = index;
+                    break;
+                }
+                ++index;
+            }
+
             weakSelf.bigImageUrl = [result.data objectForKey:@"bigImageUrl"];
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
@@ -392,7 +403,7 @@
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:@"陈列"];
+    [self setupCustomTitle:@"FAB下单"];
     
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
@@ -404,7 +415,7 @@
     [self setupActionView];
     
     self.pageNo = 1;
-    self.groupNo_ = [self.groupNo integerValue];
+    //self.groupNo_ = [self.groupNo integerValue];
     
     self.getProductListByGroupNoParameterEx.pageNo = @(self.pageNo);
     
@@ -445,8 +456,9 @@
     self.headerView.preBtnClicked = ^(id sender) {
         NSInteger groupNo = self.groupNo_;
         --groupNo;
+        if(groupNo <0 && groupNo > self.groupNoList.count) return;
         
-        weakSelf.getProductListByGroupNoParameterEx.groupNo = [NSString stringWithFormat:@"%@",@(groupNo)];
+        weakSelf.getProductListByGroupNoParameterEx.groupNo = [self.groupNoList objectAtIndex:groupNo];
         
         
         [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
@@ -456,7 +468,9 @@
         NSInteger groupNo = self.groupNo_;
         ++groupNo;
         
-        weakSelf.getProductListByGroupNoParameterEx.groupNo = [NSString stringWithFormat:@"%@",@(groupNo)];
+        if(groupNo <0 && groupNo > self.groupNoList.count) return;
+        
+        weakSelf.getProductListByGroupNoParameterEx.groupNo = [self.groupNoList objectAtIndex:groupNo];
         
         [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
     };

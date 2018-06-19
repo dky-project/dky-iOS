@@ -25,4 +25,7 @@
 @property (nonatomic, assign) NSInteger total;
 @property (nonatomic, assign) NSInteger totalPageNum;
 
+@property (nonatomic, copy) NSArray *groupNoList;
+@property (nonatomic, copy) NSArray *ghList;
+
 @end

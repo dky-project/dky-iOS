@@ -106,7 +106,10 @@
     // 首页
     //[self setupHomeVc];
     
-    // 样衣查询
+    // FAB下单功能
+    [self setupRecommendVc];
+    
+    // 单品下单
     [self setupSampleQueryVc];
     
     // 定制下单
@@ -117,9 +120,6 @@
     
     // 订单查询
     [self setupOrderInqueryVc];
-    
-    // 陈列功能
-    [self setupRecommendVc];
     
     // 数据分析
     [self setupDataAnalysisVc];
@@ -139,7 +139,7 @@
 
 - (void)setupSampleQueryVc{
     DKYSampleQueryViewController *sampleQueryVc = [[DKYSampleQueryViewController alloc] init];
-    [self addOneChlildVc:sampleQueryVc title:@"样衣查询" imageName:@"tabbar_sample" selectedImageName:@"tabbar_sample"];
+    [self addOneChlildVc:sampleQueryVc title:@"单品下单" imageName:@"tabbar_sample" selectedImageName:@"tabbar_sample"];
     self.sampleQueryVc = sampleQueryVc;
 }
 
@@ -168,7 +168,7 @@
 - (void)setupRecommendVc{
 //    DKYRecommendViewController *recommendVc = [[DKYRecommendViewController alloc] init];
     DKYRecommendEntryViewController *recommendVc = [[DKYRecommendEntryViewController alloc] init];
-    [self addOneChlildVc:recommendVc title:@"陈列" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
+    [self addOneChlildVc:recommendVc title:@"FAB下单" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
     self.recommendVc = recommendVc;
 }
 
