@@ -79,13 +79,13 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.getDataAnalysisListModel = [DKYGetDataAnalysisListModel mj_objectWithKeyValues:result.data];
             
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-            // 将文件数据化
-            NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-            // 对数据进行JSON格式化并返回字典形式
-            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            NSDictionary *da = [result objectForKey:@"data"];
-            weakSelf.getDataAnalysisListModel = [DKYGetDataAnalysisListModel mj_objectWithKeyValues:da];
+//            NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+//            // 将文件数据化
+//            NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+//            // 对数据进行JSON格式化并返回字典形式
+//            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+//            NSDictionary *da = [result objectForKey:@"data"];
+//            weakSelf.getDataAnalysisListModel = [DKYGetDataAnalysisListModel mj_objectWithKeyValues:da];
             
             [weakSelf updateUI];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
