@@ -326,6 +326,7 @@
     // 收藏
     [self p_customSunview:self.collectBtn];
     [self.collectBtn customButtonWithTypeEx:UIButtonCustomType_Thirteen];
+    self.collectBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.collectBtn setTitle:@"收藏" forState:UIControlStateNormal];
     [self.collectBtn setTitle:@"取消收藏" forState:UIControlStateSelected];
     [self.collectBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
