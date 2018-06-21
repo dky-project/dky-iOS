@@ -122,6 +122,7 @@
             }
 
             weakSelf.bigImageUrl = [result.data objectForKey:@"bigImageUrl"];
+            weakSelf.headerView.groupNo = weakSelf.groupNo;
             [weakSelf.tableView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -347,7 +348,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 + 17 : 550 + 17;
+    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 : 550;
     
     if(indexPath.section == 1 && indexPath.row == 0) return 45;
     
@@ -359,7 +360,6 @@
         DKYDisplayImageViewCell *cell = [DKYDisplayImageViewCell displayImageViewCellWithTableView:tableView];
         cell.productList = self.productList;
         cell.bigImageUrl = self.bigImageUrl;
-        cell.groupNo = self.groupNo;
         return cell;
     }
     

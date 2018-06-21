@@ -164,7 +164,7 @@
     self.backgroundColor = [UIColor whiteColor];
     
     [self setupBigImageView];
-    [self setupGroupNoLabel];
+    //[self setupGroupNoLabel];
     [self setupGridView];
 }
 

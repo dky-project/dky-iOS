@@ -19,6 +19,8 @@
 
 @property (nonatomic, weak) UIButton *nextBtn;
 
+@property (nonatomic, weak) UILabel *groupNoLabel;
+
 @end
 
 @implementation DKYDisplayHeaderView
@@ -37,6 +39,12 @@
     self.getProductListByGroupNoParameter.groupNo = nil;
 }
 
+- (void)setGroupNo:(NSString *)groupNo{
+    _groupNo = [groupNo copy];
+    
+    self.groupNoLabel.text = [NSString stringWithFormat:@"搭配组：%@",groupNo];
+}
+
 #pragma mark - UI
 - (void)commonInit{
 //    [self setupGroupNumberTextField];
@@ -44,6 +52,7 @@
     
     [self setupPreBtn];
     [self setupNextBtn];
+    [self setupGroupNoLabel];
 }
 
 - (void)setupGroupNumberTextField{
@@ -146,6 +155,22 @@
         if(weakSelf.nextBtnClicked){
             weakSelf.nextBtnClicked(nil);
         }
+    }];
+}
+
+- (void)setupGroupNoLabel{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.font = [UIFont systemFontOfSize:24];
+    label.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:label];
+    self.groupNoLabel = label;
+    
+    WeakSelf(weakSelf);
+    [self.groupNoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf);
+        make.bottom.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf);
+        make.left.mas_equalTo(weakSelf.nextBtn.mas_right).with.offset(88);
     }];
 }
 
