@@ -40,4 +40,10 @@
  */
 @property (nonatomic, copy) NSNumber *issource;
 
+/**
+ * 品类
+ */
+@property (nonatomic, strong) NSNumber *mDim16Id;
+
+
 @end

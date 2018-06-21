@@ -12,6 +12,7 @@
 #import "DKYSizeViewListItemModel.h"
 #import "DKYDisplayCollectButton.h"
 #import "DKYProductCollectParameter.h"
+#import "DKYDimlistItemModel.h"
 
 @interface DKYDisplayCategoryDahuoViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet QMUITextField *moneyTextField;
 @property (weak, nonatomic) IBOutlet DKYDisplayCollectButton *collectBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *rectImageView;
+@property (weak, nonatomic) IBOutlet UIButton *pinleiBtn;
 
 // image
 @property (nonatomic, strong) UIImage *normalImage;
@@ -94,6 +96,17 @@
     self.getProductListByGroupNoModel.addDpGroupBmptParam.colorId = @(defaultColor.colorId);
 
     self.rectImageView.image = self.getProductListByGroupNoModel.isChoosed ? self.selectedImage : self.normalImage;
+    
+    // 品类
+    NSInteger mDim16Id = [self.getProductListByGroupNoModel.mDim16Id integerValue];
+    
+    for(DKYDimlistItemModel *item in self.getProductListByGroupNoModel.pinList){
+        if(mDim16Id == [item.ID integerValue]){
+            [self.pinleiBtn setTitle:item.attribname forState:UIControlStateNormal];
+            self.getProductListByGroupNoModel.addDpGroupBmptParam.mDim16Id = @(mDim16Id);
+            break;
+        }
+    }
     
     [self updateWhenSumChanged];
 }
@@ -272,6 +285,13 @@
     self.titleLabel.adjustsFontSizeToFitWidth = YES;
     
     [self p_customSunview:self.titleLabel];
+    
+    // 品类
+    [self p_customSunview:self.pinleiBtn];
+    self.pinleiBtn.originalTitle = [self.pinleiBtn currentTitle];
+    self.pinleiBtn.extraInfo = [self.pinleiBtn currentTitle];
+    self.pinleiBtn.tag = 4;
+    self.pinleiBtn.enabled = NO;
     
     // 颜色
     [self p_customSunview:self.colorBtn];

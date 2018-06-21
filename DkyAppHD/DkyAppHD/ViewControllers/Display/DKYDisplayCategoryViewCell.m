@@ -157,6 +157,7 @@
     for(DKYDimlistItemModel *item in self.getProductListByGroupNoModel.pinList){
         if(mDim16Id == [item.ID integerValue]){
             [self.pinleiBtn setTitle:item.attribname forState:UIControlStateNormal];
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.mDim16Id = @(mDim16Id);
             break;
         }
     }
