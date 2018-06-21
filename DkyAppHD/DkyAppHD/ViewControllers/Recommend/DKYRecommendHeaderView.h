@@ -17,4 +17,6 @@
 
 - (void)clear;
 
+@property (nonatomic, copy) NSString *gh;
+
 @end

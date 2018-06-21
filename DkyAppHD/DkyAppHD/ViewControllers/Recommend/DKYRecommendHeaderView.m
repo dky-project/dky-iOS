@@ -14,6 +14,8 @@
 
 @property (nonatomic, weak) UIButton *nextBtn;
 
+@property (weak, nonatomic) UILabel *gwLabel;
+
 @end
 
 @implementation DKYRecommendHeaderView
@@ -32,10 +34,16 @@
     
 }
 
+- (void)setGh:(NSString *)gh{
+    _gh = [gh copy];
+    self.gwLabel.text = [NSString stringWithFormat:@"杆位：%@",gh];
+}
+
 #pragma mark - UI
 - (void)commonInit{
     [self setupPreBtn];
     [self setupNextBtn];
+    [self setupGroupNoLabel];
 }
 
 - (void)setupPreBtn{
@@ -80,5 +88,20 @@
     }];
 }
 
+- (void)setupGroupNoLabel{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.font = [UIFont systemFontOfSize:24];
+    label.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:label];
+    self.gwLabel = label;
+    
+    WeakSelf(weakSelf);
+    [self.gwLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf);
+        make.bottom.mas_equalTo(weakSelf);
+        make.centerY.mas_equalTo(weakSelf);
+        make.left.mas_equalTo(weakSelf.nextBtn.mas_right).with.offset(88);
+    }];
+}
 
 @end

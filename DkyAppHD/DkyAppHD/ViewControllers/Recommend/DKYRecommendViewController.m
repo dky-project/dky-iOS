@@ -85,6 +85,7 @@
                 ++index;
             }
             
+            weakSelf.headerView.gh = weakSelf.gh;
             [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -139,7 +140,6 @@
     if(indexPath.section == 0){
         DKYDisplayBigImaeViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DKYDisplayBigImaeViewCell class]) forIndexPath:indexPath];
         cell.bigImageUrl = self.bigImageUrl;
-        cell.gh = self.gh;
         return cell;
     }
     
@@ -153,7 +153,7 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGSize size = CGSizeZero;
     if(indexPath.section == 0 && indexPath.item == 0) {
-        size = CGSizeMake(683, 512 + 17);
+        size = CGSizeMake(683, 512);
         return size;
     }
     
