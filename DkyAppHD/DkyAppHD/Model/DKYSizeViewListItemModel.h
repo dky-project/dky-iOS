@@ -17,4 +17,6 @@
 
 @property (nonatomic, copy) NSString *sizeName;
 
+@property (nonatomic, copy) NSString *isDefault;
+
 @end

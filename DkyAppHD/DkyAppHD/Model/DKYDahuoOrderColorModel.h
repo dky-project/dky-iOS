@@ -21,6 +21,8 @@
 
 @property (nonatomic, assign) NSInteger colorId;
 
+@property (nonatomic, copy) NSString *isDefault;
+
 // 客户端自己的属性
 @property (nonatomic, assign) BOOL selected;
 @property (nonatomic, assign) NSInteger selectedCount;

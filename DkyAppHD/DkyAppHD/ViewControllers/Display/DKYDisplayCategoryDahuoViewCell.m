@@ -82,18 +82,16 @@
     
     self.amountTextField.text = getProductListByGroupNoModel.sumText;
     
-    NSString *defaulColor = nil;
-    for(NSDictionary *obj in getProductListByGroupNoModel.colorRangeViewList){
-        NSString *isDefault = [obj objectForKey:@"isDefault"];
-        if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
-            defaulColor = [obj objectForKey:@"colorName"];
+    DKYDahuoOrderColorModel *defaultColor;
+    for(DKYDahuoOrderColorModel *color in getProductListByGroupNoModel.colorViewList){
+        if(color.isDefault != nil && [color.isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+            defaultColor = color;
             break;
         }
     }
     
-    [self.colorBtn setTitle:defaulColor forState:UIControlStateNormal];
-    defaulColor = [defaulColor stringByReplacingOccurrencesOfString:@"," withString:@";"];
-    self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
+    [self.colorBtn setTitle:defaultColor.colorName forState:UIControlStateNormal];
+    self.getProductListByGroupNoModel.addDpGroupBmptParam.colorId = @(defaultColor.colorId);
 
     self.rectImageView.image = self.getProductListByGroupNoModel.isChoosed ? self.selectedImage : self.normalImage;
     

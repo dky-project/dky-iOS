@@ -7,6 +7,7 @@
 //
 
 #import "DKYGetProductListByGroupNoModel.h"
+#import "DKYSizeViewListItemModel.h"
 
 @implementation  DKYGetProductListByGroupNoModel
 
@@ -49,6 +50,13 @@
         self.addDpGroupBmptParam.mProductId = self.mProductId;
         self.addDpGroupBmptParam.pdt = self.productName;
         self.addDpGroupBmptParam.issource = @3;
+        
+        for(DKYSizeViewListItemModel *model in self.sizeViewList){
+            if(model.isDefault != nil && [model.isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+                self.addDpGroupBmptParam.sizeId = model.sizeId;
+                break;
+            }
+        }
     }else{
         self.addDpGroupApproveParam = [[DKYAddDpGroupApproveParamModel alloc] init];
         self.addDpGroupApproveParam.mProductId = self.mProductId;
