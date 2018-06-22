@@ -383,6 +383,7 @@
 
     DKYDisplayCategoryViewCell *cell = [DKYDisplayCategoryViewCell displayCategoryViewCellWithTableView:tableView];
     cell.getProductListByGroupNoModel = [self.productList objectAtIndex:indexPath.row - 1];
+    cell.groupNo = self.groupNo;
     return cell;
 }
 

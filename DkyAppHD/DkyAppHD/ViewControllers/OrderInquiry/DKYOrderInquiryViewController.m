@@ -481,10 +481,9 @@
 //sourceModels
 - (NSArray*)sourceModels{
     if(_sourceModels == nil){
-        DKYOrderAuditStatusModel *model1 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"其他" code:1];
-        DKYOrderAuditStatusModel *model2 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"陈列" code:2];
-        DKYOrderAuditStatusModel *model3 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"搭配" code:3];
-        _sourceModels = @[model1,model2,model3];
+        DKYOrderAuditStatusModel *model1 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"单品下单" code:1];
+        DKYOrderAuditStatusModel *model2 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"套系下单" code:3];
+        _sourceModels = @[model1,model2];
     }
     return _sourceModels;
 }

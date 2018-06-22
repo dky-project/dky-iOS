@@ -19,4 +19,6 @@
 
 - (void)selectStatusChanged;
 
+@property (nonatomic, copy) NSString *groupNo;
+
 @end

@@ -138,7 +138,8 @@
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-            weakSelf.dimListModels = [DKYColorDimListModel mj_objectArrayWithKeyValuesArray:result.data];
+            NSArray *colorViewList = [result.data objectForKey:@"colorViewList"];
+            weakSelf.dimListModels = [DKYColorDimListModel mj_objectArrayWithKeyValuesArray:colorViewList];
             [weakSelf setupSampleValueArray];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面

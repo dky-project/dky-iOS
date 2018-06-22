@@ -14,4 +14,6 @@
 
 @property (nonatomic, copy) NSString *mDimNew14Id;
 
+@property (nonatomic, copy) NSString *groupNo;
+
 @end

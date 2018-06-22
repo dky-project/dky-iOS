@@ -146,7 +146,6 @@
     }
     
     [self.colorBtn setTitle:defaulColor forState:UIControlStateNormal];
-    defaulColor = [defaulColor stringByReplacingOccurrencesOfString:@"," withString:@";"];
     self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
     
     self.rectImageView.image = self.getProductListByGroupNoModel.isChoosed ? self.selectedImage : self.normalImage;
@@ -211,28 +210,44 @@
     DKYGetColorDimListParameter *p = [[DKYGetColorDimListParameter alloc] init];
     p.mProductId = weakSelf.getProductListByGroupNoModel.mProductId;
     p.mDimNew14Id = self.getProductListByGroupNoModel.addDpGroupApproveParam.mDimNew14Id;
+    p.groupNo = self.groupNo;
     
     [[DKYHttpRequestManager sharedInstance] getColorDimListWithParameter:p Success:^(NSInteger statusCode, id data) {
         [DKYHUDTool dismiss];
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-            NSArray *array = [DKYDahuoOrderColorModel mj_objectArrayWithKeyValuesArray:result.data];
+            NSArray *colorViewList = [result.data objectForKey:@"colorViewList"];
+            NSArray *colorRangeViewList = [result.data objectForKey:@"colorRangeViewList"];
+            NSArray *array = [DKYDahuoOrderColorModel mj_objectArrayWithKeyValuesArray:colorViewList];
             weakSelf.getProductListByGroupNoModel.colorViewList = array;
+            weakSelf.getProductListByGroupNoModel.colorRangeViewList = colorRangeViewList;
             
-            if([weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr isNotBlank]){
-                bool mached = NO;
-                for(DKYDahuoOrderColorModel *color in array){
-                    if([color.colorName isEqualToString:weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr]){
-                        mached = YES;
-                        break;
-                    }
-                }
-                if(!mached){
-                    weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
-                    [weakSelf.colorBtn setTitle:weakSelf.colorBtn.originalTitle forState:UIControlStateNormal];
+            NSString *defaulColor = nil;
+            for(NSDictionary *obj in weakSelf.getProductListByGroupNoModel.colorRangeViewList){
+                NSString *isDefault = [obj objectForKey:@"isDefault"];
+                if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+                    defaulColor = [obj objectForKey:@"colorName"];
+                    break;
                 }
             }
+            
+            [self.colorBtn setTitle:defaulColor forState:UIControlStateNormal];
+            self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
+            
+//            if([weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr isNotBlank]){
+//                bool mached = NO;
+//                for(DKYDahuoOrderColorModel *color in array){
+//                    if([color.colorName isEqualToString:weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr]){
+//                        mached = YES;
+//                        break;
+//                    }
+//                }
+//                if(!mached){
+//                    weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
+//                    [weakSelf.colorBtn setTitle:weakSelf.colorBtn.originalTitle forState:UIControlStateNormal];
+//                }
+//            }
             
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -536,7 +551,6 @@
             
             NSDictionary* model =  [self.getProductListByGroupNoModel.colorRangeViewList objectOrNilAtIndex:index - 1];
             NSString *color = [model objectForKey:@"colorName"];
-            color = [color stringByReplacingOccurrencesOfString:@"," withString:@";"];
             self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = color;
         }
             break;

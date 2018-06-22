@@ -59,6 +59,9 @@
     
     NSMutableArray *marr = [NSMutableArray arrayWithCapacity:productList.count];
     [self.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(obj.imgUrl == nil){
+            obj.imgUrl = @"";
+        }
         [marr addObject:obj.imgUrl];
     }];
     
