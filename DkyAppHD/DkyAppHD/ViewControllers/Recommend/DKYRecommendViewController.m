@@ -229,7 +229,7 @@
         
         NSInteger gh = self.gh_;
         --gh;
-        if(gh < 0 || gh > self.ghList.count) return;
+        if(gh < 0 || gh >= self.ghList.count) return;
         
         self.gh = [self.ghList objectAtIndex:gh];
         
@@ -243,7 +243,7 @@
         NSInteger gh = self.gh_;
         ++gh;
         
-        if(gh < 0 || gh > self.ghList.count) return;
+        if(gh < 0 || gh >= self.ghList.count) return;
         
         self.gh = [self.ghList objectAtIndex:gh];
         [self getProductListByGhFromServer];

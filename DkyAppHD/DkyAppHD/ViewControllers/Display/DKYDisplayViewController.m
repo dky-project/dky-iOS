@@ -457,7 +457,7 @@
     self.headerView.preBtnClicked = ^(id sender) {
         NSInteger groupNo = self.groupNo_;
         --groupNo;
-        if(groupNo <0 && groupNo > self.groupNoList.count) return;
+        if(groupNo <0 || groupNo >= self.groupNoList.count) return;
         
         weakSelf.getProductListByGroupNoParameterEx.groupNo = [self.groupNoList objectAtIndex:groupNo];
         
@@ -469,7 +469,7 @@
         NSInteger groupNo = self.groupNo_;
         ++groupNo;
         
-        if(groupNo <0 && groupNo > self.groupNoList.count) return;
+        if(groupNo <0 || groupNo >= self.groupNoList.count) return;
         
         weakSelf.getProductListByGroupNoParameterEx.groupNo = [self.groupNoList objectAtIndex:groupNo];
         
