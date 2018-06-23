@@ -136,17 +136,19 @@
     
     self.xcTextField.text = getProductListByGroupNoModel.xcLeftValue;
     
-    NSString *defaulColor = nil;
-    for(NSDictionary *obj in getProductListByGroupNoModel.colorRangeViewList){
-        NSString *isDefault = [obj objectForKey:@"isDefault"];
-        if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
-            defaulColor = [obj objectForKey:@"colorName"];
-            break;
-        }
-    }
+    [self updateColor];
     
-    [self.colorBtn setTitle:defaulColor forState:UIControlStateNormal];
-    self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
+//    NSString *defaulColor = nil;
+//    for(NSDictionary *obj in getProductListByGroupNoModel.colorRangeViewList){
+//        NSString *isDefault = [obj objectForKey:@"isDefault"];
+//        if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+//            defaulColor = [obj objectForKey:@"colorName"];
+//            break;
+//        }
+//    }
+//
+//    [self.colorBtn setTitle:defaulColor forState:UIControlStateNormal];
+//    self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
     
     self.rectImageView.image = self.getProductListByGroupNoModel.isChoosed ? self.selectedImage : self.normalImage;
     
@@ -245,17 +247,19 @@
             weakSelf.getProductListByGroupNoModel.colorViewList = array;
             weakSelf.getProductListByGroupNoModel.colorRangeViewList = colorRangeViewList;
             
-            NSString *defaulColor = nil;
-            for(NSDictionary *obj in weakSelf.getProductListByGroupNoModel.colorRangeViewList){
-                NSString *isDefault = [obj objectForKey:@"isDefault"];
-                if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
-                    defaulColor = [obj objectForKey:@"colorName"];
-                    break;
-                }
-            }
+            [self updateColor];
             
-            [self.colorBtn setTitle:defaulColor forState:UIControlStateNormal];
-            self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
+//            NSString *defaulColor = nil;
+//            for(NSDictionary *obj in weakSelf.getProductListByGroupNoModel.colorRangeViewList){
+//                NSString *isDefault = [obj objectForKey:@"isDefault"];
+//                if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+//                    defaulColor = [obj objectForKey:@"colorName"];
+//                    break;
+//                }
+//            }
+//
+//            [self.colorBtn setTitle:defaulColor forState:UIControlStateNormal];
+//            self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = defaulColor;
             
 //            if([weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr isNotBlank]){
 //                bool mached = NO;
@@ -431,6 +435,70 @@
     }];
 }
 
+- (void)updateColor{
+    if(self.getProductListByGroupNoModel.colorRangeViewList.count > 0){
+        NSString *defaulColor = nil;
+        for(NSDictionary *obj in self.getProductListByGroupNoModel.colorRangeViewList){
+            NSString *isDefault = [obj objectForKey:@"isDefault"];
+            if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+                defaulColor = [obj objectForKey:@"colorName"];
+                break;
+            }
+        }
+        
+        // 解析选中颜色，取出()前面
+        NSArray *temp = [defaulColor componentsSeparatedByString:@";"];
+        
+        NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
+        
+        for (NSString *item in temp) {
+            NSRange range = [item rangeOfString:@"("];
+            NSString *colorName = nil;
+            if(range.location != NSNotFound){
+                colorName = [item substringToIndex:range.location];
+            }else{
+                colorName = item;
+            }
+            
+            [colors addObject:colorName];
+        }
+        
+        [self colorGroupSelected:colors.copy];
+        
+        DLog(@"colors = %@",colors);
+    }else{
+        [self.colorBtn setTitle:@"" forState:UIControlStateNormal];
+    }
+}
+
+- (void)colorGroupSelected:(NSArray*)selectedColors{
+    NSMutableString *selectedColor = [NSMutableString string];
+    
+    for (NSString *colorName in selectedColors) {
+        BOOL match = NO;
+        DKYDahuoOrderColorModel *color  = nil;
+        for (color in self.getProductListByGroupNoModel.colorViewList) {
+            if([color.colorName isEqualToString:colorName]){
+                match = YES;
+                break;
+            }
+        }
+        if(match){
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
+            [selectedColor appendString:oneColor];
+        }
+    }
+    
+    if(selectedColor.length == 0){
+        self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
+    }else{
+        self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = selectedColor;
+    }
+    
+
+    [self.colorBtn setTitle:selectedColor forState:UIControlStateNormal];
+}
+
 - (void)pinzhongChanged{
     [DKYHUDTool show];
     
@@ -584,7 +652,24 @@
             
             NSDictionary* model =  [self.getProductListByGroupNoModel.colorRangeViewList objectOrNilAtIndex:index - 1];
             NSString *color = [model objectForKey:@"colorName"];
-            self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = color;
+            
+            // 解析选中颜色，取出()前面
+            NSArray *temp = [color componentsSeparatedByString:@";"];
+            NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
+            
+            for (NSString *item in temp) {
+                NSRange range = [item rangeOfString:@"("];
+                NSString *colorName = nil;
+                if(range.location != NSNotFound){
+                    colorName = [item substringToIndex:range.location];
+                }else{
+                    colorName = item;
+                }
+                
+                [colors addObject:colorName];
+            }
+            
+            [self colorGroupSelected:colors.copy];
         }
             break;
         case 2:{

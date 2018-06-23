@@ -89,6 +89,9 @@
 #define kGetProductListByGhUrl  @"product/getProductListByGh"  // 陈列
 #define kGetProductListGhPageUrl    @"product/getProductListGhPage"  // 陈列外壳，列表
 
+// 全部收藏
+#define kAddProductAllCollectUrl       @"productCollect/addProductBatchCollect"
+
 // 登陆
 #define kLoginUserUrl                   @"user/loginUser"               // 登陆
 

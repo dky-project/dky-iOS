@@ -9,6 +9,7 @@
 #import "DKYDisplaySumViewCell.h"
 #import "DKYGetProductListByGroupNoModel.h"
 #import "DKYDisplayCollectButton.h"
+#import "DKYAllCollectParameter.h"
 
 @interface DKYDisplaySumViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *ammountSumLabel;
@@ -83,23 +84,81 @@
 
 #pragma mark - api
 -(void)collectAll{
-    [self.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.isCollected = YES;
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    DKYAllCollectParameter *p = [[DKYAllCollectParameter alloc] init];
+    
+    NSMutableArray *mids = [NSMutableArray arrayWithCapacity:self.productList.count];
+    for (DKYGetProductListByGroupNoModel *item in self.productList) {
+        [mids addObject:item.mProductId];
+    }
+    p.productIds = [mids copy];
+    p.cancel = @"Y";
+    
+    [[DKYHttpRequestManager sharedInstance] addProductAllCollectWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            [weakSelf.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.isCollected = YES;
+            }];
+            
+            weakSelf.collectBtn.selected = YES;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAllCollectChangedNotification object:nil userInfo:nil];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
-    
-    self.collectBtn.selected = YES;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAllCollectChangedNotification object:nil userInfo:nil];
 }
 
 - (void)cancleCollectAll{
-    [self.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.isCollected = NO;
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    DKYAllCollectParameter *p = [[DKYAllCollectParameter alloc] init];
+    
+    NSMutableArray *mids = [NSMutableArray arrayWithCapacity:self.productList.count];
+    for (DKYGetProductListByGroupNoModel *item in self.productList) {
+        [mids addObject:item.mProductId];
+    }
+    p.productIds = [mids copy];
+    p.cancel = @"N";
+    
+    [[DKYHttpRequestManager sharedInstance] addProductAllCollectWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            [weakSelf.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.isCollected = NO;
+            }];
+            
+            weakSelf.collectBtn.selected = NO;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAllCollectChangedNotification object:nil userInfo:nil];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        [DKYHUDTool dismiss];
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool dismiss];
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
-    
-    self.collectBtn.selected = NO;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAllCollectChangedNotification object:nil userInfo:nil];
 }
 
 #pragma mark - UI

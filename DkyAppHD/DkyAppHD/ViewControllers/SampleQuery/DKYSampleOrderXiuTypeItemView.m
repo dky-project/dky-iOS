@@ -210,10 +210,26 @@
 - (void)dealWithXwValueSelected:(DKYGetSizeDataModel*)model{
     if(model == nil) return;
     
-    self.xcView.textField.text = model.xc;
+    NSString *xc = model.xc;
+    NSRange range = [xc rangeOfString:@"+"];
+    if(xc == nil || range.location == NSNotFound){
+        self.madeInfoByProductName.productMadeInfoView.xcHasAdd = NO;
+        self.madeInfoByProductName.productMadeInfoView.xcLeftValue = xc;
+        self.madeInfoByProductName.productMadeInfoView.xcRightValue = nil;
+    }else{
+        NSString *prefix = [xc substringToIndex:range.location];
+        NSString *suffix = [xc substringFromIndex:range.location];
+        
+        self.madeInfoByProductName.productMadeInfoView.xcHasAdd = YES;
+        self.madeInfoByProductName.productMadeInfoView.xcLeftValue = prefix;
+        self.madeInfoByProductName.productMadeInfoView.xcRightValue = suffix;
+    }
     
-    self.addProductApproveParameter.defaultXcValue = [self.xcView.textField.text isNotBlank] ? @([self.xcView.textField.text doubleValue]) : nil;
-    self.addProductApproveParameter.xcValue = [self.xcView.textField.text isNotBlank] ? self.xcView.textField.text : nil;
+    self.xcView.textField.text = xc;
+    
+    self.addProductApproveParameter.xcLeftValue = self.madeInfoByProductName.productMadeInfoView.xcLeftValue;
+    self.addProductApproveParameter.defaultXcValue = @([self.madeInfoByProductName.productMadeInfoView.xcLeftValue integerValue]);
+    self.addProductApproveParameter.xcValue = xc;
 }
 
 - (void)clear{
