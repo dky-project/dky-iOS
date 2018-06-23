@@ -186,7 +186,21 @@
             weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue = weakSelf.getSizeDataModel.yc;
             weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = weakSelf.getSizeDataModel.xc;
             
-            weakSelf.getProductListByGroupNoModel.defaultXcValue = weakSelf.getSizeDataModel.xc;
+            NSRange range = [weakSelf.getSizeDataModel.xc rangeOfString:@"+"];
+            if(weakSelf.getSizeDataModel.xc == nil || range.location == NSNotFound){
+                weakSelf.getProductListByGroupNoModel.xcHasAdd = NO;
+                weakSelf.getProductListByGroupNoModel.xcLeftValue = weakSelf.getSizeDataModel.xc;
+                weakSelf.getProductListByGroupNoModel.xcRightValue = nil;
+            }else{
+                NSString *prefix = [weakSelf.getSizeDataModel.xc substringToIndex:range.location];
+                NSString *suffix = [weakSelf.getSizeDataModel.xc substringFromIndex:range.location];
+                
+                weakSelf.getProductListByGroupNoModel.xcHasAdd = YES;
+                weakSelf.getProductListByGroupNoModel.xcLeftValue = prefix;
+                weakSelf.getProductListByGroupNoModel.xcRightValue = suffix;
+            }
+            
+            weakSelf.getProductListByGroupNoModel.defaultXcValue = weakSelf.getProductListByGroupNoModel.xcLeftValue;
             weakSelf.getProductListByGroupNoModel.defaultYcValue = weakSelf.getSizeDataModel.yc;
             
             [weakSelf getProductPriceFromServer];
@@ -709,11 +723,23 @@
     [self.xcTextField addBlockForControlEvents:UIControlEventEditingChanged block:^(UITextField*  _Nonnull sender) {
         NSString *xcValue = nil;
         xcValue = sender.text;
-        weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcLeftValue = xcValue;
+        
+        // 有+号
         if(weakSelf.getProductListByGroupNoModel.xcHasAdd){
-            xcValue = [xcValue stringByAppendingString:weakSelf.getProductListByGroupNoModel.xcRightValue];
+            weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = xcValue;
+            NSRange range = [xcValue rangeOfString:@"+"];
+            if(range.location != NSNotFound){
+                NSString *prefix = [xcValue substringToIndex:range.location];
+                weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcLeftValue = prefix;
+            }else{
+                weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcLeftValue = xcValue;
+            }
+        }else{
+            // 没+号
+            weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = xcValue;
+            weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcLeftValue = xcValue;
         }
-        weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = xcValue;
+        
         [weakSelf getProductPriceFromServer];
     }];
     

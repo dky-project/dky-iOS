@@ -24,13 +24,12 @@
     self.isCollected = (!([self.iscollect integerValue] == 1));
     self.isBigOrder = ([self.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame);
     
-    NSRange range = [self.xcValue rangeOfString:@"+"];
-    
     if([self.mDimNew22Id integerValue] == 131){
         self.xcHasAdd = NO;
         self.xcRightValue = nil;
         self.xcLeftValue = self.hzxcValue;
     }else{
+        NSRange range = [self.xcValue rangeOfString:@"+"];
         if(self.xcValue == nil || range.location == NSNotFound){
             self.xcHasAdd = NO;
             self.xcLeftValue = self.xcValue;
