@@ -12,6 +12,7 @@
 #import "DKYDahuoOrderColorModel.h"
 #import "DKYGetColorListRequestParameter.h"
 #import "DKYMultipleSelectPopupViewV2.h"
+#import "DKYGetColorDimListParameter.h"
 
 @interface DKYSampleOrderVarietyItemView ()
 
@@ -304,6 +305,67 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
             [DKYHUDTool showErrorWithStatus:result.msg];
         }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+    }];
+}
+
+- (void)getColorDimListFromServer{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    DKYGetColorDimListParameter *p = [[DKYGetColorDimListParameter alloc] init];
+    p.mProductId = weakSelf.madeInfoByProductName.productMadeInfoView.productId;
+    p.mDimNew14Id = [NSString stringWithFormat:@"%@",self.addProductApproveParameter.mDimNew14Id];
+    
+    [[DKYHttpRequestManager sharedInstance] getColorDimListWithParameter:p Success:^(NSInteger statusCode, id data) {
+        [DKYHUDTool dismiss];
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            NSArray *colorViewList = [result.data objectForKey:@"colorViewList"];
+            NSArray *colorRangeViewList = [result.data objectForKey:@"colorRangeViewList"];
+            NSArray *array = [DKYDahuoOrderColorModel mj_objectArrayWithKeyValuesArray:colorViewList];
+            weakSelf.madeInfoByProductName.displayColorViewList  = array;
+            weakSelf.madeInfoByProductName.colorRangeViewList = colorRangeViewList;
+            
+            NSString *defaulColor = nil;
+            for(NSDictionary *obj in self.madeInfoByProductName.colorRangeViewList){
+                NSString *isDefault = [obj objectForKey:@"isDefault"];
+                if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+                    defaulColor = [obj objectForKey:@"colorName"];
+                    break;
+                }
+            }
+            
+            // 解析选中颜色，取出()前面
+            NSArray *temp = [defaulColor componentsSeparatedByString:@";"];
+            NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
+            
+            for (NSString *item in temp) {
+                NSRange range = [item rangeOfString:@"("];
+                NSString *colorName = nil;
+                if(range.location != NSNotFound){
+                    colorName = [item substringToIndex:range.location];
+                }else{
+                    colorName = item;
+                }
+                
+                [colors addObject:colorName];
+            }
+            
+            [weakSelf colorGroupSelected:colors.copy];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [DKYHUDTool dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            [DKYHUDTool dismiss];
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
@@ -741,6 +803,7 @@
         
         self.addProductApproveParameter.colorArr = [clrRangeArray componentsJoinedByString:@";"];
     }else{
+        self.addProductApproveParameter.colorValue = nil;
         self.addProductApproveParameter.colorArr = nil;
     }
     
@@ -766,7 +829,7 @@
 - (void)updateColorSheet{
     self.getColorListRequestParameter.mDimNew14Id = self.addProductApproveParameter.mDimNew14Id;
     
-    [self getColorListFromServer];
+    [self getColorDimListFromServer];
 }
 
 - (BOOL)checkForupdateActionSheetOptions{
