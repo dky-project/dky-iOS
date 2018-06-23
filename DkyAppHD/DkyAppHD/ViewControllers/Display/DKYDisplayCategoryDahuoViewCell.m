@@ -180,6 +180,10 @@
     
 }
 
+- (void)allCollectChanged:(NSNotification*)notification{
+    
+}
+
 #pragma mark - private method
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
@@ -283,6 +287,8 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.titleLabel.adjustsFontSizeToFitWidth = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allCollectChanged:) name:kDisplayAllCollectChangedNotification object:nil];
     
     [self p_customSunview:self.titleLabel];
     

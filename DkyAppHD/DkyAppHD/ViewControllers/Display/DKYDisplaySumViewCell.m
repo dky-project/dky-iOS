@@ -8,10 +8,12 @@
 
 #import "DKYDisplaySumViewCell.h"
 #import "DKYGetProductListByGroupNoModel.h"
+#import "DKYDisplayCollectButton.h"
 
 @interface DKYDisplaySumViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *ammountSumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *moneySumLabel;
+@property (weak, nonatomic) IBOutlet DKYDisplayCollectButton *collectBtn;
 
 @end
 
@@ -37,10 +39,15 @@
     _productList = productList;
     
     [self updateSum];
+    [self updateCollectStatus];
 }
 
 - (void)amuntTextFieldChanged:(NSNotification*)notification{
     [self updateSum];
+}
+
+- (void)oneCollectChanged:(NSNotification*)notification{
+    
 }
 
 - (void)updateSum{
@@ -59,16 +66,58 @@
     self.moneySumLabel.text = (sum > 0) ? sumMoneyText : @"合计";
 }
 
+- (void)updateCollectStatus{
+    BOOL isAllCollect = NO;
+    __block BOOL flag = NO;
+    [self.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(obj.isCollected == NO){
+            *stop = YES;
+            flag = YES;
+        }
+    }];
+    
+    isAllCollect = !flag;
+    
+    self.collectBtn.selected = isAllCollect;
+}
+
+#pragma mark - api
+-(void)collectAll{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAllCollectChangedNotification object:nil userInfo:nil];
+}
+
+- (void)cancleCollectAll{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAllCollectChangedNotification object:nil userInfo:nil];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(amuntTextFieldChanged:) name:kDisplayAmountChangedNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(oneCollectChanged:) name:kDisplayOneCollectChangedNotification object:nil];
     
     [self p_customSunview:self.ammountSumLabel];
     [self p_customSunview:self.moneySumLabel];
+    
+    // 收藏
+    [self p_customSunview:self.collectBtn];
+    [self.collectBtn customButtonWithTypeEx:UIButtonCustomType_Thirteen];
+    self.collectBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    [self.collectBtn setTitle:@"全部收藏" forState:UIControlStateNormal];
+    [self.collectBtn setTitle:@"取消收藏" forState:UIControlStateSelected];
+    
+    WeakSelf(weakSelf);
+    [self.collectBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        if(weakSelf.selected){
+            // 说明全部被收藏了，按钮此时是取消全部收藏
+            [weakSelf cancleCollectAll];
+        }else{
+            [weakSelf collectAll];
+        }
+    }];
 }
 
 - (void)p_customSunview:(UIView*)view{

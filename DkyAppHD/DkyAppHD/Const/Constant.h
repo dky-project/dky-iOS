@@ -73,5 +73,9 @@ typedef void(^BlockWithSenderAndModel)(id sender, id model);
 
 #define kDisplayAmountChangedNotification   @"DisplayAmountChangedNotification"
 
+#define kDisplayOneCollectChangedNotification   @"DisplayOneCollectChangedNotification"
+
+#define kDisplayAllCollectChangedNotification   @"DisplayAllCollectChangedNotification"
+
 
 #endif /* Constant_h */

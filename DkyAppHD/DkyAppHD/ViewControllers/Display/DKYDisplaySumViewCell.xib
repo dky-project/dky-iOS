@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,11 +35,22 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc8-6p-sss" customClass="DKYDisplayCollectButton">
+                        <rect key="frame" x="679.5" y="3" width="61" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="全部收藏">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="afg-21-ehS" firstAttribute="height" secondItem="xTw-H5-COk" secondAttribute="height" id="0Mk-Gc-tYf"/>
+                    <constraint firstItem="dc8-6p-sss" firstAttribute="width" secondItem="afg-21-ehS" secondAttribute="width" id="2Lx-hS-sbZ"/>
+                    <constraint firstItem="dc8-6p-sss" firstAttribute="height" secondItem="afg-21-ehS" secondAttribute="height" id="4qk-Cg-vZp"/>
                     <constraint firstItem="afg-21-ehS" firstAttribute="width" secondItem="xTw-H5-COk" secondAttribute="width" id="6WU-X6-FPR"/>
+                    <constraint firstItem="dc8-6p-sss" firstAttribute="leading" secondItem="afg-21-ehS" secondAttribute="trailing" constant="4" id="CHq-0m-7at"/>
                     <constraint firstItem="afg-21-ehS" firstAttribute="top" secondItem="xTw-H5-COk" secondAttribute="top" id="NLx-LD-QHa"/>
+                    <constraint firstItem="dc8-6p-sss" firstAttribute="top" secondItem="afg-21-ehS" secondAttribute="top" id="YdY-w9-r5N"/>
                     <constraint firstItem="xTw-H5-COk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Yiu-jG-tTb"/>
                     <constraint firstItem="afg-21-ehS" firstAttribute="leading" secondItem="xTw-H5-COk" secondAttribute="trailing" constant="5.7000000000000002" id="cYV-M3-Os7"/>
                     <constraint firstItem="xTw-H5-COk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="548.5" id="jOp-nO-dZZ"/>
@@ -47,6 +58,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="ammountSumLabel" destination="xTw-H5-COk" id="PIu-SY-zyu"/>
+                <outlet property="collectBtn" destination="dc8-6p-sss" id="aWj-Qo-FhY"/>
                 <outlet property="moneySumLabel" destination="afg-21-ehS" id="SAq-p2-gXS"/>
             </connections>
         </tableViewCell>

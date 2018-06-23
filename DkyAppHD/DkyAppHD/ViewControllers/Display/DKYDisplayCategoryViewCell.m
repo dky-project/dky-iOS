@@ -461,6 +461,10 @@
     
 }
 
+- (void)allCollectChanged:(NSNotification*)notification{
+    
+}
+
 #pragma mark - private method
 - (void)showOptionsPicker:(UIButton *)sender{
     [self.superview endEditing:YES];
@@ -664,6 +668,8 @@
     [self p_customSunview:self.titleLabel];
     
     self.group = dispatch_group_create();
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(allCollectChanged:) name:kDisplayAllCollectChangedNotification object:nil];
     
     // 品类
     [self p_customSunview:self.pinleiBtn];
