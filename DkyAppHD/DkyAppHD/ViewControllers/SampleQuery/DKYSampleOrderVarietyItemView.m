@@ -171,11 +171,17 @@
     }
     
     if(self.madeInfoByProductName.colorRangeViewList.count > 0){
-        NSDictionary *model =[self.madeInfoByProductName.colorRangeViewList firstObject];
-        NSString *color = [model objectForKey:@"colorName"];
+        NSString *defaulColor = nil;
+        for(NSDictionary *obj in self.madeInfoByProductName.colorRangeViewList){
+            NSString *isDefault = [obj objectForKey:@"isDefault"];
+            if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+                defaulColor = [obj objectForKey:@"colorName"];
+                break;
+            }
+        }
         
         // 解析选中颜色，取出()前面
-        NSArray *temp = [color componentsSeparatedByString:@","];
+        NSArray *temp = [defaulColor componentsSeparatedByString:@";"];
         
         NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
         
