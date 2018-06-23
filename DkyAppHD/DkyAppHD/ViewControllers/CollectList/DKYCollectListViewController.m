@@ -490,11 +490,14 @@
     self.rightBtnItem = rightBtnItem;
     
     self.rightBtnClicked = ^(UIButton *sender) {
-        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:kNoText style:QMUIAlertActionStyleCancel handler:NULL];
+        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:kNoText style:QMUIAlertActionStyleDefault handler:NULL];
+        
         QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:kYesText style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController *aAlertController, QMUIAlertAction *action) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
         }];
+        
         QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:kHintText message:kSignOutContent preferredStyle:QMUIAlertControllerStyleAlert];
+        
         [alertController addAction:action1];
         [alertController addAction:action2];
         [alertController showWithAnimated:YES];

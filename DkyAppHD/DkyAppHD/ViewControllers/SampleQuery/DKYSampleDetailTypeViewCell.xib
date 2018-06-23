@@ -59,12 +59,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="波段：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmH-aU-pKe" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="411" y="74" width="43" height="17"/>
+                                <rect key="frame" x="53" y="82" width="43" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系列：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwy-t2-DMd" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="411" y="107" width="43" height="17"/>
+                                <rect key="frame" x="411" y="82" width="43" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -75,34 +75,13 @@
                                     <constraint firstAttribute="width" constant="1" id="HqO-SF-VfE"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领子 : 圆领" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FA-zr-EdW" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="74" width="69" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示 : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="197-iU-atV" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="107" width="662" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计说明 : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzJ-yK-w3r" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="139" width="662" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="样衣默认信息" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51g-zn-OPJ">
                                 <rect key="frame" x="53" y="182" width="86" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="杆位:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byf-d7-HLt" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="63" width="34" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上货时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ux-3n-Shg" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="411" y="139" width="72" height="17"/>
+                                <rect key="frame" x="53" y="130" width="72" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -110,31 +89,21 @@
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3DD-b2-gV9" firstAttribute="top" secondItem="bp6-Ax-xct" secondAttribute="top" id="4Pk-sk-Ncs"/>
-                            <constraint firstItem="3FA-zr-EdW" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="4dO-B7-v4u"/>
-                            <constraint firstItem="jzJ-yK-w3r" firstAttribute="top" secondItem="197-iU-atV" secondAttribute="bottom" constant="15" id="6Rc-9j-dEn"/>
-                            <constraint firstItem="jzJ-yK-w3r" firstAttribute="trailing" secondItem="197-iU-atV" secondAttribute="trailing" id="8dH-qj-W03"/>
-                            <constraint firstItem="51g-zn-OPJ" firstAttribute="top" secondItem="jzJ-yK-w3r" secondAttribute="bottom" constant="26" id="9MS-yt-0WJ"/>
+                            <constraint firstItem="6ux-3n-Shg" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="4oH-Gr-WgG"/>
                             <constraint firstItem="h7K-1n-5Gl" firstAttribute="top" secondItem="bp6-Ax-xct" secondAttribute="top" constant="38" id="AId-Rz-Hs9"/>
-                            <constraint firstItem="197-iU-atV" firstAttribute="top" secondItem="3FA-zr-EdW" secondAttribute="bottom" constant="16" id="CKR-Bj-M7R"/>
+                            <constraint firstItem="PmH-aU-pKe" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="Eq4-eY-zTV"/>
+                            <constraint firstItem="6ux-3n-Shg" firstAttribute="top" secondItem="PmH-aU-pKe" secondAttribute="bottom" constant="31" id="G0V-Tl-hiN"/>
                             <constraint firstAttribute="bottom" secondItem="3DD-b2-gV9" secondAttribute="bottom" id="HPw-MD-bcR"/>
                             <constraint firstItem="51g-zn-OPJ" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="J98-9i-KHJ"/>
-                            <constraint firstItem="byf-d7-HLt" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="K5F-mA-69S"/>
                             <constraint firstItem="OCe-VJ-uwo" firstAttribute="leading" secondItem="3DD-b2-gV9" secondAttribute="trailing" constant="26.5" id="Kur-id-ezi"/>
-                            <constraint firstItem="3FA-zr-EdW" firstAttribute="top" secondItem="byf-d7-HLt" secondAttribute="bottom" constant="-6" id="P77-nw-t5o"/>
+                            <constraint firstItem="51g-zn-OPJ" firstAttribute="top" secondItem="6ux-3n-Shg" secondAttribute="bottom" constant="35" id="M4o-Qx-ZOW"/>
                             <constraint firstAttribute="height" constant="210" id="T16-Pf-ce2"/>
                             <constraint firstItem="h7K-1n-5Gl" firstAttribute="leading" secondItem="bp6-Ax-xct" secondAttribute="leading" constant="53" id="WVW-8Q-cug"/>
-                            <constraint firstItem="PmH-aU-pKe" firstAttribute="leading" secondItem="OCe-VJ-uwo" secondAttribute="leading" id="cNI-ts-VEW"/>
-                            <constraint firstItem="PmH-aU-pKe" firstAttribute="top" secondItem="3FA-zr-EdW" secondAttribute="top" id="cOg-0o-eyW"/>
-                            <constraint firstItem="6ux-3n-Shg" firstAttribute="top" secondItem="jzJ-yK-w3r" secondAttribute="top" id="eBV-bh-PcT"/>
-                            <constraint firstItem="jzJ-yK-w3r" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="eZc-95-Vb7"/>
-                            <constraint firstItem="Xwy-t2-DMd" firstAttribute="top" secondItem="197-iU-atV" secondAttribute="top" id="lnQ-vX-n3b"/>
+                            <constraint firstItem="PmH-aU-pKe" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="bottom" constant="27" id="ly7-hK-5Db"/>
                             <constraint firstItem="Xwy-t2-DMd" firstAttribute="leading" secondItem="OCe-VJ-uwo" secondAttribute="leading" id="oyO-5d-L83"/>
-                            <constraint firstAttribute="trailing" secondItem="197-iU-atV" secondAttribute="trailing" constant="53" id="q0v-KO-pyJ"/>
                             <constraint firstItem="OCe-VJ-uwo" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="top" id="qMH-Ds-LBd"/>
-                            <constraint firstItem="197-iU-atV" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="tUN-HM-DKu"/>
                             <constraint firstItem="3DD-b2-gV9" firstAttribute="centerX" secondItem="bp6-Ax-xct" secondAttribute="centerX" id="w6d-M5-m8Y"/>
-                            <constraint firstItem="byf-d7-HLt" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="bottom" constant="8" id="xQw-tT-fA9"/>
-                            <constraint firstItem="6ux-3n-Shg" firstAttribute="leading" secondItem="OCe-VJ-uwo" secondAttribute="leading" id="zwZ-kI-I6I"/>
+                            <constraint firstItem="Xwy-t2-DMd" firstAttribute="top" secondItem="PmH-aU-pKe" secondAttribute="top" id="xwc-eJ-5RH"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -155,12 +124,8 @@
             <connections>
                 <outlet property="allTypeLabel" destination="OCe-VJ-uwo" id="HVX-oG-XQZ"/>
                 <outlet property="boduanLabel" destination="PmH-aU-pKe" id="SDY-NO-7xd"/>
-                <outlet property="collarTypeLabel" destination="3FA-zr-EdW" id="55o-54-qtz"/>
                 <outlet property="cycleScrollViewHeightCst" destination="fhp-6F-KTi" id="bMI-dj-UHP"/>
-                <outlet property="designDescriptionLabel" destination="jzJ-yK-w3r" id="kUT-0x-bCZ"/>
-                <outlet property="ganweiLabel" destination="byf-d7-HLt" id="4PS-L3-48g"/>
                 <outlet property="genderLabel" destination="h7K-1n-5Gl" id="mYR-Tt-a6U"/>
-                <outlet property="hintLabel" destination="197-iU-atV" id="SDP-Mz-RIS"/>
                 <outlet property="onSellTimeLabel" destination="6ux-3n-Shg" id="3bl-OG-mbR"/>
                 <outlet property="placehlderView" destination="2Y1-nO-2o0" id="Q61-co-LjC"/>
                 <outlet property="sampleTypeLabel" destination="Tm4-Ob-2an" id="voe-Cp-pz2"/>

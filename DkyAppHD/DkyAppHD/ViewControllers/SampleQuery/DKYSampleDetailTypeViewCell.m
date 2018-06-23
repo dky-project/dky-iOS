@@ -13,13 +13,9 @@
 
 @interface DKYSampleDetailTypeViewCell ()<SDCycleScrollViewDelegate,PYPhotoBrowseViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sampleTypeLabel;
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *ganweiLabel;
 
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *hintLabel;
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *designDescriptionLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *genderLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *allTypeLabel;
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *collarTypeLabel;
 @property (weak, nonatomic) IBOutlet UIView *placehlderView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cycleScrollViewHeightCst;
@@ -93,27 +89,6 @@
         return mutableAttributedString;
     }];
     
-    self.collarTypeLabel.text = [NSString stringWithFormat:@"领子 : %@",model.description4];
-    
-    [self.collarTypeLabel setText:self.collarTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-        [self formatMutableAttributedString:mutableAttributedString];
-        return mutableAttributedString;
-    }];
-    
-    self.hintLabel.text = [NSString stringWithFormat:@"温馨提示 : %@",model.description3];
-    
-    [self.hintLabel setText:self.hintLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-        [self formatMutableAttributedString:mutableAttributedString];
-        return mutableAttributedString;
-    }];
-    
-
-    self.designDescriptionLabel.text = [NSString stringWithFormat:@"设计说明 : %@",model.description5];
-    [self.designDescriptionLabel setText:self.designDescriptionLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-        [self formatMutableAttributedString:mutableAttributedString];
-        return mutableAttributedString;
-    }];
-    
     // 波段
     self.boduanLabel.text = [NSString stringWithFormat:@"波段 : %@",model.mDim14Text];
     [self.boduanLabel setText:self.boduanLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
@@ -134,12 +109,6 @@
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
     }];
-    
-    //    self.ganweiLabel.text = [NSString stringWithFormat:@"杆位 : %@",model.gw];
-    //    [self.ganweiLabel setText:self.ganweiLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-    //        [self formatMutableAttributedString:mutableAttributedString];
-    //        return mutableAttributedString;
-    //    }];
 }
 
 #pragma mark - SDCycleScrollViewDelegate
@@ -216,14 +185,9 @@
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.hintLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
-    self.hintLabel.lineSpacing = 5.0;
-    self.hintLabel.numberOfLines = 0;
-
-    
-    self.designDescriptionLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
-    self.designDescriptionLabel.lineSpacing = 5.0;
-    self.designDescriptionLabel.numberOfLines = 0;
+//    self.hintLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
+//    self.hintLabel.lineSpacing = 5.0;
+//    self.hintLabel.numberOfLines = 0;
     
     self.cycleScrollViewHeightCst.constant = 880;
     

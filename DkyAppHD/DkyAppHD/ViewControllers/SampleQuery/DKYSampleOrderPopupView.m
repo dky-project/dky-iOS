@@ -221,7 +221,6 @@
                 [weakSelf confirmProductApproveToServer:sender];
             } cancelBtnBlock:^(DKYOrderBrowsePopupView* sender) {
                 DLog(@"取消");
-                [weakSelf clearDataAndUI];
                 [sender dismiss];
             }];
             pop.orderBrowseModel = weakSelf.orderBrowseModel;
@@ -246,7 +245,7 @@
     WeakSelf(weakSelf);
     [DKYHUDTool show];
     [self getProductApproveTitleFromServer];
-    [self getColorDimListFromServer];
+    //[self getColorDimListFromServer];
     
     dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
         [DKYHUDTool dismiss];
@@ -372,7 +371,7 @@
     
     self.group = dispatch_group_create();
 
-    [self setupSampleValueArray];
+    //[self setupSampleValueArray];
     
     [self setupTitleView];
     [self setupTitleLabel];
@@ -429,7 +428,6 @@
         make.bottom.mas_equalTo(weakSelf);
     }];
     
-    [self.tableView registerClass:[DQTableViewCell class] forCellReuseIdentifier:NSStringFromClass([DQTableViewCell class])];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -469,14 +467,14 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == 0) return 630;
     
-    if(indexPath.row == 1) return 30 + (self.dimListModels.count + 1) * 30;
+//    if(indexPath.row == 1) return 30 + (self.dimListModels.count + 1) * 30;
     
     return 400;
 }
@@ -492,20 +490,22 @@
         
         cell.imageBlock = ^(id sender) {
             weakSelf.imageUrl = sender;
-            [weakSelf.tableView reloadRow:2 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
+            [weakSelf.tableView reloadRow:1 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
         };
-        return cell;
-    }else if(indexPath.row == 1){
-        DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
-        cell.formType = DKYFormType_TypeOne;
-        cell.DataArr = (self.dimListModels.count > 1)? [self.sampleValueArray mutableCopy] : nil;
-        cell.hideBottomLine = YES;
         return cell;
     }else{
         DkySampleOrderImageViewCell *cell = [DkySampleOrderImageViewCell sampleOrderImageViewCellWithTableView:tableView];
         cell.imageUrl = self.imageUrl;
         return cell;
     }
+    
+//    else if(indexPath.row == 1){
+//        DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+//        cell.formType = DKYFormType_TypeOne;
+//        cell.DataArr = (self.dimListModels.count > 1)? [self.sampleValueArray mutableCopy] : nil;
+//        cell.hideBottomLine = YES;
+//        return cell;
+//    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
