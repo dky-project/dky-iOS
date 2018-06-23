@@ -37,7 +37,7 @@
         make.left.mas_equalTo(weakSelf);
         make.right.mas_equalTo(weakSelf);
         make.bottom.mas_equalTo(weakSelf);
-        make.height.mas_equalTo(12);
+        make.height.mas_equalTo(18);
     }];
     
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -83,7 +83,7 @@
 
 - (void)setupTitleLabel{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
-    label.font = [UIFont systemFontOfSize:12];
+    label.font = [UIFont systemFontOfSize:18];
     label.textColor = [UIColor colorWithHex:0x333333];
     label.textAlignment = NSTextAlignmentCenter;
     

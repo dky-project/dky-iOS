@@ -359,7 +359,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 825 : 550;
+    if(indexPath.section == 0 && indexPath.row == 0) return (self.productList.count >4) ? 842 : 562;
     
     if(indexPath.section == 1 && indexPath.row == 0) return 45;
     

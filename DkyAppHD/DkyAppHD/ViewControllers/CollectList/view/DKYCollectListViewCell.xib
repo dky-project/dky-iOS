@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,8 +25,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DKY0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufe-wH-WyT">
-                        <rect key="frame" x="164" y="269" width="42" height="11"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <rect key="frame" x="135.5" y="268.5" width="70.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEN'S WEAR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4a5-KH-Dic">
@@ -79,7 +79,7 @@
                 <constraint firstItem="5U8-Wn-uBa" firstAttribute="centerX" secondItem="Meb-Y3-8Xa" secondAttribute="centerX" id="bVR-fO-yfo"/>
                 <constraint firstAttribute="trailing" secondItem="0dX-yB-Kp5" secondAttribute="trailing" id="erX-tz-ZCd"/>
                 <constraint firstItem="4a5-KH-Dic" firstAttribute="leading" secondItem="Meb-Y3-8Xa" secondAttribute="leading" constant="12" id="fnI-y1-ohc"/>
-                <constraint firstAttribute="bottom" secondItem="Ufe-wH-WyT" secondAttribute="bottom" constant="10" id="hbU-vR-u3W"/>
+                <constraint firstAttribute="bottom" secondItem="Ufe-wH-WyT" secondAttribute="bottom" constant="2" id="hbU-vR-u3W"/>
                 <constraint firstItem="Xrp-cF-jvk" firstAttribute="leading" secondItem="4a5-KH-Dic" secondAttribute="leading" id="mxZ-Uo-CEP"/>
             </constraints>
             <connections>

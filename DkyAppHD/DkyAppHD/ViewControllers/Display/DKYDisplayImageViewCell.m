@@ -12,7 +12,7 @@
 #import "PYPhotoBrowser.h"
 
 #define kSmallImageWidth           (174.5)
-#define kSmallImageHeight          (273.5)
+#define kSmallImageHeight          (280)
 #define kMargin                    (2)
 
 @interface DKYDisplayImageViewCell ()<PYPhotoBrowseViewDelegate>

@@ -158,7 +158,7 @@
     }
     
     
-    size = CGSizeMake(174, 273.5);
+    size = CGSizeMake(174, 280);
     
     return size;
 }
