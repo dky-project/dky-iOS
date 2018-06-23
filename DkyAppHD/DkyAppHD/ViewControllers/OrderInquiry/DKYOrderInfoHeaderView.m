@@ -173,7 +173,7 @@
     WeakSelf(weakSelf);
     self.lengthLabel = [self createLabelWithName:@"来源"];
     [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(kLeftMargin);
+        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(kLeftMargin + 20);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -219,7 +219,7 @@
 - (UILabel*)createLabelWithName:(NSString*)name{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont systemFontOfSize:24];
+    label.font = [UIFont systemFontOfSize:23];
     label.textAlignment = NSTextAlignmentCenter;
     [label sizeToFit];
     

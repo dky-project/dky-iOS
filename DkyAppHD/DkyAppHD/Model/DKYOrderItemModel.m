@@ -15,7 +15,7 @@
 }
 
 - (void)mj_keyValuesDidFinishConvertingToObject{
-    self.displayID = [NSString stringWithFormat:@"%@",@(self.Id)];
+    //self.displayID = [NSString stringWithFormat:@"%@",@(self.Id)];
     self.displayNo1 = [NSString stringWithFormat:@"%@",@(self.no1)];
     
     

@@ -94,6 +94,10 @@
             DKYOrderInqueryPageModel *page = [DKYOrderInqueryPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYOrderItemModel mj_objectArrayWithKeyValuesArray:page.items];
             
+            [samples enumerateObjectsUsingBlock:^(DKYOrderItemModel* obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.displayID = [NSString stringWithFormat:@"%@",@(idx+1)];
+            }];
+            
             weakSelf.orderInqueryTotalMapModel = page.totalMap;
             
             [weakSelf.selectedOrders removeAllObjects];
@@ -137,6 +141,12 @@
             DKYOrderInqueryPageModel *page = [DKYOrderInqueryPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYOrderItemModel mj_objectArrayWithKeyValuesArray:page.items];
             weakSelf.orderInqueryTotalMapModel = page.totalMap;
+            
+            NSInteger lastOrder = weakSelf.orders.count;
+            [samples enumerateObjectsUsingBlock:^(DKYOrderItemModel* obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                obj.displayID = [NSString stringWithFormat:@"%@",@(idx+1 + lastOrder)];
+            }];
+            
             [weakSelf.orders addObjectsFromArray:samples];
             weakSelf.pageNum++;
             [weakSelf.tableView reloadData];
