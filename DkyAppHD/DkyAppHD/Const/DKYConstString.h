@@ -22,5 +22,11 @@
 
 #define kSelectCanEdit              @"选中可编辑"
 
+#define kSignOutText                @"切换账号"
+#define kSignOutContent             @"是否切换账号"
+#define kNoText                     @"否"
+#define kYesText                    @"是"
+#define kHintText                   @"提示"
+
 
 #endif /* DKYConstString_h */
