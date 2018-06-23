@@ -79,4 +79,7 @@
 @property (nonatomic, copy) NSString *displayFaxDate;
 @property (nonatomic, assign) BOOL selected;
 
+// 序号
+@property (nonatomic, copy) NSString *order;
+
 @end

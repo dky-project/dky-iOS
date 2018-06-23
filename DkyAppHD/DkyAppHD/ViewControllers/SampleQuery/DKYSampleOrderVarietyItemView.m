@@ -747,7 +747,7 @@
             NSString *color = [colorGroup objectForKey:@"colorName"];
             
             // 解析选中颜色，取出()前面
-            NSArray *temp = [color componentsSeparatedByString:@","];
+            NSArray *temp = [color componentsSeparatedByString:@";"];
             
             NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
             
