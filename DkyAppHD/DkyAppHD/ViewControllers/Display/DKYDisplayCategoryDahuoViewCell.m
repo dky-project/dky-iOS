@@ -128,6 +128,7 @@
             
             weakSelf.getProductListByGroupNoModel.isCollected = !weakSelf.getProductListByGroupNoModel.isCollected;
             weakSelf.collectBtn.selected = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayOneCollectChangedNotification object:nil userInfo:nil];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -160,6 +161,7 @@
             
             weakSelf.getProductListByGroupNoModel.isCollected = !weakSelf.getProductListByGroupNoModel.isCollected;
             weakSelf.collectBtn.selected = YES;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayOneCollectChangedNotification object:nil userInfo:nil];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -181,7 +183,7 @@
 }
 
 - (void)allCollectChanged:(NSNotification*)notification{
-    
+    self.collectBtn.selected = self.getProductListByGroupNoModel.isCollected;
 }
 
 #pragma mark - private method

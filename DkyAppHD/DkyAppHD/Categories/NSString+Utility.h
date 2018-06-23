@@ -55,4 +55,7 @@
  *  @return return value description
  */
 + (NSString*)formatMoneyStringWithNumberEx:(double)num;
+
+// 判断字符串是否是数字
++ (BOOL)isNum:(NSString *)checkedNumString;
 @end

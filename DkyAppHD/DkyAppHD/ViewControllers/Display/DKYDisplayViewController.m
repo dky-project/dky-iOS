@@ -311,7 +311,7 @@
                 }
                 
                 // 衣长
-                if(!model.isBigOrder && model.defaultYcValue){
+                if(!model.isBigOrder && model.defaultYcValue && [NSString isNum:model.defaultYcValue]){
                     double value1 = [model.addDpGroupApproveParam.ycValue doubleValue];
                     double value2 = [model.defaultYcValue doubleValue];
                     

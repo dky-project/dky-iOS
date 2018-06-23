@@ -180,20 +180,27 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.getSizeDataModel = [DKYGetSizeDataModel mj_objectWithKeyValues:result.data];
             
+            NSString *xc = @"";
+            if([self.getProductListByGroupNoModel.mDimNew22Id integerValue] == 131){
+                xc = weakSelf.getSizeDataModel.hzxcValue;
+            }else{
+                xc = weakSelf.getSizeDataModel.xc;
+            }
+            
             weakSelf.lengthTextFied.text = weakSelf.getSizeDataModel.yc;
-            weakSelf.xcTextField.text = weakSelf.getSizeDataModel.xc;
+            weakSelf.xcTextField.text = xc;
             
             weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.ycValue = weakSelf.getSizeDataModel.yc;
-            weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = weakSelf.getSizeDataModel.xc;
+            weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = xc;
             
-            NSRange range = [weakSelf.getSizeDataModel.xc rangeOfString:@"+"];
+            NSRange range = [xc rangeOfString:@"+"];
             if(weakSelf.getSizeDataModel.xc == nil || range.location == NSNotFound){
                 weakSelf.getProductListByGroupNoModel.xcHasAdd = NO;
-                weakSelf.getProductListByGroupNoModel.xcLeftValue = weakSelf.getSizeDataModel.xc;
+                weakSelf.getProductListByGroupNoModel.xcLeftValue = xc;
                 weakSelf.getProductListByGroupNoModel.xcRightValue = nil;
             }else{
-                NSString *prefix = [weakSelf.getSizeDataModel.xc substringToIndex:range.location];
-                NSString *suffix = [weakSelf.getSizeDataModel.xc substringFromIndex:range.location];
+                NSString *prefix = [xc substringToIndex:range.location];
+                NSString *suffix = [xc substringFromIndex:range.location];
                 
                 weakSelf.getProductListByGroupNoModel.xcHasAdd = YES;
                 weakSelf.getProductListByGroupNoModel.xcLeftValue = prefix;
@@ -298,6 +305,8 @@
             
             weakSelf.getProductListByGroupNoModel.isCollected = !weakSelf.getProductListByGroupNoModel.isCollected;
             weakSelf.collectBtn.selected = NO;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayOneCollectChangedNotification object:nil userInfo:nil];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -330,6 +339,7 @@
             
             weakSelf.getProductListByGroupNoModel.isCollected = !weakSelf.getProductListByGroupNoModel.isCollected;
             weakSelf.collectBtn.selected = YES;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayOneCollectChangedNotification object:nil userInfo:nil];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -462,7 +472,7 @@
 }
 
 - (void)allCollectChanged:(NSNotification*)notification{
-    
+    self.collectBtn.selected = self.getProductListByGroupNoModel.isCollected;
 }
 
 #pragma mark - private method

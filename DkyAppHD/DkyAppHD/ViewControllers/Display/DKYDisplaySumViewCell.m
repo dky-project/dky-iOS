@@ -47,7 +47,7 @@
 }
 
 - (void)oneCollectChanged:(NSNotification*)notification{
-    
+    [self updateCollectStatus];
 }
 
 - (void)updateSum{
@@ -83,10 +83,22 @@
 
 #pragma mark - api
 -(void)collectAll{
+    [self.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.isCollected = YES;
+    }];
+    
+    self.collectBtn.selected = YES;
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAllCollectChangedNotification object:nil userInfo:nil];
 }
 
 - (void)cancleCollectAll{
+    [self.productList enumerateObjectsUsingBlock:^(DKYGetProductListByGroupNoModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.isCollected = NO;
+    }];
+    
+    self.collectBtn.selected = NO;
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kDisplayAllCollectChangedNotification object:nil userInfo:nil];
 }
 
@@ -107,11 +119,11 @@
     [self.collectBtn customButtonWithTypeEx:UIButtonCustomType_Thirteen];
     self.collectBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.collectBtn setTitle:@"全部收藏" forState:UIControlStateNormal];
-    [self.collectBtn setTitle:@"取消收藏" forState:UIControlStateSelected];
+    [self.collectBtn setTitle:@"全部取消收藏" forState:UIControlStateSelected];
     
     WeakSelf(weakSelf);
     [self.collectBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        if(weakSelf.selected){
+        if(weakSelf.collectBtn.selected){
             // 说明全部被收藏了，按钮此时是取消全部收藏
             [weakSelf cancleCollectAll];
         }else{

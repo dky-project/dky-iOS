@@ -64,7 +64,12 @@
         self.addDpGroupApproveParam.xwValue = self.xwValue;
         self.addDpGroupApproveParam.ycValue = self.ycValue;
         self.addDpGroupApproveParam.mDimNew16Id = self.mDimNew16Id;
-        self.addDpGroupApproveParam.xcValue = self.xcValue;
+        if([self.mDimNew22Id integerValue] == 131){
+            self.addDpGroupApproveParam.xcValue = self.hzxcValue;
+        }else{
+            self.addDpGroupApproveParam.xcValue = self.xcValue;
+        }
+        
         self.addDpGroupApproveParam.xcLeftValue = self.xcLeftValue;
         self.defaultXcValue = self.xcLeftValue;
         self.addDpGroupApproveParam.issource = @3;
