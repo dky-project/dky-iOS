@@ -551,7 +551,11 @@
     
     DLog(@"sender.extraInfo = %@",sender.extraInfo);
     WeakSelf(weakSelf);
-    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:sender.extraInfo
+    NSString *title = sender.extraInfo;
+    if(sender.tag == 5 && item.count == 0){
+        title = nil;
+    }
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:title
                                              cancelButtonTitle:deleteTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
