@@ -187,6 +187,7 @@
             weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcValue = weakSelf.getSizeDataModel.xc;
             
             weakSelf.getProductListByGroupNoModel.defaultXcValue = weakSelf.getSizeDataModel.xc;
+            weakSelf.getProductListByGroupNoModel.defaultYcValue = weakSelf.getSizeDataModel.yc;
             
             [weakSelf getProductPriceFromServer];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {

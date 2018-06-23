@@ -75,6 +75,7 @@
 @property (nonatomic, copy) NSString *sumText;
 
 @property (nonatomic, strong) NSString *defaultXcValue;
+@property (nonatomic, strong) NSString *defaultYcValue;
 
 @property (nonatomic, assign, getter=isChoosed) BOOL choosed;
 

@@ -309,6 +309,17 @@
                         return NO;
                     }
                 }
+                
+                // 衣长
+                if(!model.isBigOrder && model.defaultYcValue){
+                    double value1 = [model.addDpGroupApproveParam.ycValue doubleValue];
+                    double value2 = [model.defaultYcValue doubleValue];
+                    
+                    if(fabs(value1 - value2) > 4){
+                        [DKYHUDTool showInfoWithStatus:@"衣长+-4公分变化"];
+                        return NO;
+                    }
+                }
             }
         }
 }

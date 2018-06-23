@@ -69,6 +69,7 @@
         self.addDpGroupApproveParam.xcLeftValue = self.xcLeftValue;
         self.defaultXcValue = self.xcLeftValue;
         self.addDpGroupApproveParam.issource = @3;
+        self.defaultYcValue = self.ycValue;
     }
     self.sum = 1;
     
