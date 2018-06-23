@@ -21,6 +21,10 @@
 
 @property (nonatomic, weak) UITextField *thTextField;
 
+@property (nonatomic, weak) UIButton *thBtn;
+
+@property (nonatomic, copy) NSArray *thArrays;
+
 @end
 
 
@@ -42,18 +46,53 @@
     return self.textField.text;
 }
 
-- (NSString*)hallName{
-    if([NSString isEmptyString:self.thTextField.text]){
-        return nil;
-    }
-    return self.thTextField.text;
-}
-
 #pragma mark - action method
 
 - (void)oneKeyClearBtnClicked:(UIButton*)sender{
     self.textField.text = nil;
-    self.thTextField.text = nil;
+    self.hallName = nil;
+    [self.thBtn setTitle:@"点击选择厅号" forState:UIControlStateNormal];
+}
+
+- (void)optionViewTaped:(UIButton*)btn{
+    WeakSelf(weakSelf);
+    UIViewController *vc = [self viewController];
+    
+    NSArray *array = self.thArrays;
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+    [vc jxt_showActionSheetWithTitle:nil
+                             message:@"选择厅号"
+                   appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+                       for (NSString *op in array) {
+                           alertMaker.addActionDefaultTitle(op);
+                       }
+                       alertMaker.addActionCancelTitle(@"cancel");
+                   } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+                       
+                       if ([action.title isEqualToString:@"cancel"]) {
+                           DLog(@"cancel");
+                       }else{
+                           [weakSelf actionSheetSelected:btn.tag buttonIndex:buttonIndex];
+                       }
+                   } sourceView:btn];
+#pragma clang diagnostic pop
+}
+
+#pragma mark - private method
+// index 表示哪一组
+// buttonIndex 组里哪一个被选中
+- (void)actionSheetSelected:(NSInteger)index buttonIndex:(NSInteger)buttonIndex{
+    switch (index) {
+        case 1:{
+            self.hallName = [self.thArrays objectAtIndex:buttonIndex];
+            [self.thBtn setTitle:self.hallName forState:UIControlStateNormal];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - UI
@@ -65,7 +104,8 @@
     [self setupFilterConditionLabel];
     [self setupOneKeyClearBtn];
     [self setupTextField];
-    [self setupThTextField];
+    [self setupThBtn];
+    //[self setupThTextField];
 }
 
 - (void)setupFilterConditionLabel{
@@ -146,6 +186,33 @@
     }];
 }
 
+- (void)setupThBtn{
+    WeakSelf(weakSelf);
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:btn];
+    self.thBtn = btn;
+    [self.thBtn customButtonWithTypeEx:UIButtonCustomType_Thirteen];
+    self.thBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.thBtn.layer.borderColor = [UIColor colorWithHex:0x3C3362].CGColor;
+    self.thBtn.layer.borderWidth = 1;
+    self.thBtn.tag = 1;
+    
+    [self.thBtn setTitle:@"点击选择厅号" forState:UIControlStateNormal];
+    [self.thBtn setTitleColor:[UIColor colorWithHex:0x3C3362] forState:UIControlStateNormal];
+    self.thBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.thBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        [weakSelf optionViewTaped:sender];
+    }];
+    
+
+    [self.thBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.textField.mas_right).with.offset(30);
+        make.top.mas_equalTo(weakSelf.filterConditionLabel.mas_bottom).with.offset(8);
+        make.height.mas_equalTo(35);
+        make.width.mas_equalTo(254);
+    }];
+}
+
 - (void)setupThTextField{
     UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
     [self addSubview:textField];
@@ -181,6 +248,13 @@
         make.height.mas_equalTo(35);
         make.width.mas_equalTo(254);
     }];
+}
+
+- (NSArray*)thArrays{
+    if(_thArrays == nil){
+        _thArrays = @[@"一号厅", @"二号厅", @"三号厅",@"四号厅"];
+    }
+    return _thArrays;
 }
 
 @end
