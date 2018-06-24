@@ -472,7 +472,7 @@
 }
 
 - (void)colorGroupSelected:(NSArray*)selectedColors{
-    NSMutableString *selectedColor = [NSMutableString string];
+    NSMutableArray *selectedColor = [NSMutableArray array];
     
     for (NSString *colorName in selectedColors) {
         BOOL match = NO;
@@ -484,19 +484,21 @@
             }
         }
         if(match){
-            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-            [selectedColor appendString:oneColor];
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@)",color.colorName,color.colorDesc];
+            [selectedColor addObject:oneColor];
         }
     }
     
-    if(selectedColor.length == 0){
+    NSString *color = [selectedColor componentsJoinedByString:@";"];
+    
+    if(selectedColor.count == 0){
         self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = nil;
     }else{
-        self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = selectedColor;
+        self.getProductListByGroupNoModel.addDpGroupApproveParam.colorArr = color;
     }
     
 
-    [self.colorBtn setTitle:selectedColor forState:UIControlStateNormal];
+    [self.colorBtn setTitle:color forState:UIControlStateNormal];
 }
 
 - (void)pinzhongChanged{
@@ -727,16 +729,15 @@
     WeakSelf(weakSelf);
     
     pop.confirmBtnClicked = ^(NSMutableArray *selectedColors) {
-        NSMutableString *selectedColor = [NSMutableString string];
-        NSMutableArray *clrRangeArray = [NSMutableArray array];
+        NSMutableArray *selectedColor = [NSMutableArray array];
         
         for (DKYDahuoOrderColorModel *color in selectedColors) {
-            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-            [selectedColor appendString:oneColor];
-            [clrRangeArray addObject:color.colorName];
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@)",color.colorName,color.colorDesc];
+            [selectedColor addObject:oneColor];
         }
-       
-        [weakSelf.colorBtn setTitle:selectedColor forState:UIControlStateNormal];
+        
+        NSString *color = [selectedColor componentsJoinedByString:@";"];
+        [weakSelf.colorBtn setTitle:color forState:UIControlStateNormal];
     };
 }
 

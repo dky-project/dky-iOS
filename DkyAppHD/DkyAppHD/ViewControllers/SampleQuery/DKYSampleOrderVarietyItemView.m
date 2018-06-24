@@ -277,13 +277,13 @@
                 }
             }
             
-            NSMutableString *selectedColor = [NSMutableString string];
+            NSMutableArray *selectedColor = [NSMutableArray array];
             for (DKYDahuoOrderColorModel *color in selectedModels) {
-                NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-                [selectedColor appendString:oneColor];
+                NSString *oneColor = [NSString stringWithFormat:@"%@(%@)",color.colorName,color.colorDesc];
+                [selectedColor addObject:oneColor];
             }
             
-            self.selectedColorView.text = selectedColor;
+            self.selectedColorView.text = [selectedColor componentsJoinedByString:@";"];
             
             // 刷新参数
             self.addProductApproveParameter.colorValue = nil;
@@ -773,7 +773,7 @@
 }
 
 - (void)colorGroupSelected:(NSArray*)selectedColors{
-    NSMutableString *selectedColor = [NSMutableString string];
+    NSMutableArray *selectedColor = [NSMutableArray array];
     NSMutableArray *clrRangeArray = [NSMutableArray array];
     NSMutableArray *selectedColorModels = [NSMutableArray array];
 
@@ -787,14 +787,14 @@
             }
         }
         if(match){
-            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-            [selectedColor appendString:oneColor];
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@)",color.colorName,color.colorDesc];
+            [selectedColor addObject:oneColor];
             
             [clrRangeArray addObject:color.colorName];
             [selectedColorModels addObject:color];
         }
     }
-    
+    NSString *color = [selectedColor componentsJoinedByString:@";"];
     if(selectedColorModels.count > 0){
         // 主色
         DKYDahuoOrderColorModel *model = [selectedColorModels objectOrNilAtIndex:0];
@@ -807,7 +807,7 @@
         self.addProductApproveParameter.colorArr = nil;
     }
     
-    self.selectedColorView.text = selectedColor;
+    self.selectedColorView.text = color;
 }
 
 - (void)dealWithmDimNew15IdSelected{
@@ -855,16 +855,16 @@
     WeakSelf(weakSelf);
 
     pop.confirmBtnClicked = ^(NSMutableArray *selectedColors) {
-        NSMutableString *selectedColor = [NSMutableString string];
+        NSMutableArray *selectedColor = [NSMutableArray array];
         NSMutableArray *clrRangeArray = [NSMutableArray array];
         
         for (DKYDahuoOrderColorModel *color in selectedColors) {
-            NSString *oneColor = [NSString stringWithFormat:@"%@(%@); ",color.colorName,color.colorDesc];
-            [selectedColor appendString:oneColor];
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@)",color.colorName,color.colorDesc];
+            [selectedColor addObject:oneColor];
             [clrRangeArray addObject:color.colorName];
         }
         weakSelf.madeInfoByProductName.productMadeInfoView.clrRangeArray = [clrRangeArray copy];
-        weakSelf.selectedColorView.text = selectedColor;
+        weakSelf.selectedColorView.text = [selectedColor componentsJoinedByString:@";"];
     };
 }
 #pragma mark - mark

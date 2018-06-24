@@ -197,7 +197,7 @@
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:@"FAB下单"];
+    [self setupCustomTitle:@"套系下单"];
     
     self.pageNo = 1;
     //self.gh_ = [self.gh integerValue];

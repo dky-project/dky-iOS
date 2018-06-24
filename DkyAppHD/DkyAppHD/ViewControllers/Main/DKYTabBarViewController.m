@@ -106,7 +106,7 @@
     // 首页
     //[self setupHomeVc];
     
-    // FAB下单功能
+    // 套系下单功能
     [self setupRecommendVc];
     
     // 单品下单
@@ -168,7 +168,7 @@
 - (void)setupRecommendVc{
 //    DKYRecommendViewController *recommendVc = [[DKYRecommendViewController alloc] init];
     DKYRecommendEntryViewController *recommendVc = [[DKYRecommendEntryViewController alloc] init];
-    [self addOneChlildVc:recommendVc title:@"FAB下单" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
+    [self addOneChlildVc:recommendVc title:@"套系下单" imageName:@"tabbar_recommend" selectedImageName:@"tabbar_recommend"];
     self.recommendVc = recommendVc;
 }
 

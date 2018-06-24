@@ -29,7 +29,6 @@
     // 全局配置
     [DKYConfigManager config];
     
-    
     // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNotLogin:) name:kUserNotLoginNotification object:nil];
     
