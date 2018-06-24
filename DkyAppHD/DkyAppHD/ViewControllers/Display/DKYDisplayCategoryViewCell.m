@@ -305,7 +305,7 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             // 生成订单成功
-            [DKYHUDTool showSuccessWithStatus:@"取消收藏成功!"];
+            //[DKYHUDTool showSuccessWithStatus:@"取消收藏成功!"];
             
             weakSelf.getProductListByGroupNoModel.isCollected = !weakSelf.getProductListByGroupNoModel.isCollected;
             weakSelf.collectBtn.selected = NO;
@@ -339,7 +339,7 @@
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             // 生成订单成功
-            [DKYHUDTool showSuccessWithStatus:@"收藏成功!"];
+            //[DKYHUDTool showSuccessWithStatus:@"收藏成功!"];
             
             weakSelf.getProductListByGroupNoModel.isCollected = !weakSelf.getProductListByGroupNoModel.isCollected;
             weakSelf.collectBtn.selected = YES;
