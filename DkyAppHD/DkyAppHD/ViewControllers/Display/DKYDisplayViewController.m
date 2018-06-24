@@ -258,69 +258,63 @@
     }
     
     for (DKYGetProductListByGroupNoModel *model in self.productList) {
-//        NSInteger sum = model.sum;
-//        if(sum == 0){
-//            [DKYHUDTool showInfoWithStatus:@"数量为0！"];
-//            return NO;
-//        }
-//        
-        if(model.iscollect && model.isBigOrder){
-            if(model.sum > 0){
-                if(!model.addDpGroupBmptParam.colorId){
-                    [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
-                    return NO;
-                }
-                
-                if(!model.addDpGroupBmptParam.sizeId){
-                    [DKYHUDTool showInfoWithStatus:@"尺寸不能为空！"];
-                    return NO;
-                }
+        if(model.isChoosed == NO) continue;
+        if(model.sum <=0 )continue;
+        
+        if(model.isBigOrder){
+            if(!model.addDpGroupBmptParam.colorId){
+                [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
+                return NO;
+            }
+            
+            if(!model.addDpGroupBmptParam.sizeId){
+                [DKYHUDTool showInfoWithStatus:@"尺寸不能为空！"];
+                return NO;
             }
         }else{
-            if(model.isChoosed && model.sum > 0){
-                if(![model.addDpGroupApproveParam.mDimNew14Id isNotBlank]){
-                    [DKYHUDTool showInfoWithStatus:@"品种不能为空！"];
+            if(![model.addDpGroupApproveParam.mDimNew14Id isNotBlank]){
+                [DKYHUDTool showInfoWithStatus:@"品种不能为空！"];
+                return NO;
+            }
+            
+            if(![model.addDpGroupApproveParam.colorArr isNotBlank]){
+                [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
+                return NO;
+            }
+            
+            
+            if(![model.addDpGroupApproveParam.xwValue isNotBlank]){
+                [DKYHUDTool showInfoWithStatus:@"胸围不能为空！"];
+                return NO;
+            }
+            
+            if(![model.addDpGroupApproveParam.ycValue isNotBlank]){
+                [DKYHUDTool showInfoWithStatus:@"衣长不能为空！"];
+                return NO;
+            }
+            
+            // 袖长
+            if(!model.isBigOrder &&model.defaultXcValue){
+                double value1 = [model.addDpGroupApproveParam.xcLeftValue doubleValue];
+                double value2 = [model.defaultXcValue doubleValue];
+                
+                if(fabs(value1 - value2) > 4){
+                    [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
                     return NO;
-                }
-                
-                if(![model.addDpGroupApproveParam.colorArr isNotBlank]){
-                    [DKYHUDTool showInfoWithStatus:@"颜色不能为空！"];
-                    return NO;
-                }
-    
-                
-                if(![model.addDpGroupApproveParam.xwValue isNotBlank]){
-                    [DKYHUDTool showInfoWithStatus:@"胸围不能为空！"];
-                    return NO;
-                }
-                
-                if(![model.addDpGroupApproveParam.ycValue isNotBlank]){
-                    [DKYHUDTool showInfoWithStatus:@"衣长不能为空！"];
-                    return NO;
-                }
-                
-                // 袖长
-                if(!model.isBigOrder &&model.defaultXcValue){
-                    double value1 = [model.addDpGroupApproveParam.xcLeftValue doubleValue];
-                    double value2 = [model.defaultXcValue doubleValue];
-                    
-                    if(fabs(value1 - value2) > 4){
-                        [DKYHUDTool showInfoWithStatus:@"袖长+-4公分变化"];
-                        return NO;
-                    }
-                }
-                
-                // 衣长
-                if(!model.isBigOrder && model.defaultYcValue && [NSString isNum:model.defaultYcValue]){
-                    double value1 = [model.addDpGroupApproveParam.ycValue doubleValue];
-                    double value2 = [model.defaultYcValue doubleValue];
-                    
-                    if(fabs(value1 - value2) > 4){
-                        [DKYHUDTool showInfoWithStatus:@"衣长+-4公分变化"];
-                        return NO;
-                    }
                 }
             }
+            
+            // 衣长
+            if(!model.isBigOrder && model.defaultYcValue && [NSString isNum:model.defaultYcValue]){
+                double value1 = [model.addDpGroupApproveParam.ycValue doubleValue];
+                double value2 = [model.defaultYcValue doubleValue];
+                
+                if(fabs(value1 - value2) > 4){
+                    [DKYHUDTool showInfoWithStatus:@"衣长+-4公分变化"];
+                    return NO;
+                }
+            }
+
         }
 }
 
