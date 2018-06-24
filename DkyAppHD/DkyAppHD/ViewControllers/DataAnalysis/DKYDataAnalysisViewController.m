@@ -127,6 +127,9 @@
     [col1 addObject:@"所属类别"];
     
     for(DKYGetDataAnalysisFormItemModel *item in data){
+        if(item.attribname == nil){
+            item.attribname = @"";
+        }
         [col1 addObject:item.attribname];
     }
     
@@ -146,6 +149,9 @@
     [col1 addObject:@"品种"];
     
     for(DKYGetDataAnalysisFormItemModel *item in data){
+        if(item.attribname == nil){
+            item.attribname = @"";
+        }
         [col1 addObject:item.attribname];
     }
     
@@ -165,6 +171,9 @@
     [col1 addObject:@"品类"];
     
     for(DKYGetDataAnalysisFormItemModel *item in data){
+        if(item.attribname == nil){
+            item.attribname = @"";
+        }
         [col1 addObject:item.attribname];
     }
     
@@ -184,6 +193,9 @@
     [col1 addObject:@"系列"];
     
     for(DKYGetDataAnalysisFormItemModel *item in data){
+        if(item.attribname == nil){
+            item.attribname = @"";
+        }
         [col1 addObject:item.attribname];
     }
     
@@ -203,6 +215,9 @@
     [col1 addObject:@"性别"];
     
     for(DKYGetDataAnalysisFormItemModel *item in data){
+        if(item.attribname == nil){
+            item.attribname = @"";
+        }
         [col1 addObject:item.attribname];
     }
     
@@ -222,6 +237,9 @@
     [col1 addObject:@"波段"];
     
     for(DKYGetDataAnalysisFormItemModel *item in data){
+        if(item.attribname == nil){
+            item.attribname = @"";
+        }
         [col1 addObject:item.attribname];
     }
     
@@ -241,6 +259,9 @@
     [col1 addObject:@"针型"];
     
     for(DKYGetDataAnalysisFormItemModel *item in data){
+        if(item.attribname == nil){
+            item.attribname = @"";
+        }
         [col1 addObject:item.attribname];
     }
     

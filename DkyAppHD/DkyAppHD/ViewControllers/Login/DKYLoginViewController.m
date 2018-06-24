@@ -45,6 +45,8 @@
     p.email = self.userNameTextField.text;
     p.password = self.passwordTextField.text;
     
+    [self.view endEditing:YES];
+    
 #pragma warning - 去掉延时代码
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[DKYHttpRequestManager sharedInstance] LoginUserWithParameter:p Success:^(NSInteger statusCode, id data) {
