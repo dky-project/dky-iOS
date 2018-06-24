@@ -223,13 +223,13 @@
             [DKYHUDTool showSuccessWithStatus:@"确认下单成功!"];
             
             weakSelf.addProductDpGroupResponseModel = nil;
-            [weakSelf.headerView clear];
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                weakSelf.pageNo = 1;
-                weakSelf.getProductListByGroupNoParameterEx.pageNo = @(self.pageNo);
-                [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
-            });
+            //[weakSelf.headerView clear];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                weakSelf.pageNo = 1;
+//                weakSelf.getProductListByGroupNoParameterEx.pageNo = @(self.pageNo);
+//                [weakSelf getProductListByGroupNoFromServerForNextAndPrev];
+//            });
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
