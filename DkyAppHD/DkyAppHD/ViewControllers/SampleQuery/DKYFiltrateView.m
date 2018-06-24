@@ -242,9 +242,9 @@
     
     [self setupStyleNumberTextField];
     
-    [self setupRecommendBtn];
+    //[self setupRecommendBtn];
     [self setupRankBtn];
-    [self setupMaijiaxiuBtn];
+    //[self setupMaijiaxiuBtn];
 //    [self test];
 }
 
@@ -476,10 +476,15 @@
     [self addSubview:btn];
     [btn addTarget:self action:@selector(rankBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(weakSelf.styleNumberTextField);
+//        make.top.mas_equalTo(weakSelf.styleNumberTextField);
+//
+//        make.left.mas_equalTo(weakSelf.recommendBtn.mas_right).with.offset(kOptionViewMargin);
+//        make.width.mas_equalTo(kOptionViewHeight);
         make.height.mas_equalTo(weakSelf.styleNumberTextField);
         make.top.mas_equalTo(weakSelf.styleNumberTextField);
         
-        make.left.mas_equalTo(weakSelf.recommendBtn.mas_right).with.offset(kOptionViewMargin);
+        make.left.mas_equalTo(weakSelf.styleNumberTextField.mas_right).with.offset(kOptionViewMargin);
         make.width.mas_equalTo(kOptionViewHeight);
     }];
     self.rankBtn = btn;
