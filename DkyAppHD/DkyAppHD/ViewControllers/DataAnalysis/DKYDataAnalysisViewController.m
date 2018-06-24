@@ -79,14 +79,6 @@
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.getDataAnalysisListModel = [DKYGetDataAnalysisListModel mj_objectWithKeyValues:result.data];
             
-//            NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-//            // 将文件数据化
-//            NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-//            // 对数据进行JSON格式化并返回字典形式
-//            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-//            NSDictionary *da = [result objectForKey:@"data"];
-//            weakSelf.getDataAnalysisListModel = [DKYGetDataAnalysisListModel mj_objectWithKeyValues:da];
-            
             [weakSelf updateUI];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
@@ -264,20 +256,22 @@
 - (NSArray*)makeCommonFormCol:(NSArray*)dataArray{
     NSMutableArray *col2 = [NSMutableArray array];
     NSMutableArray *col3 = [NSMutableArray array];
-    NSMutableArray *col4 = [NSMutableArray array];
     
     [col2 addObject:@"订单件数"];
     [col3 addObject:@"占比(订单件数/下单总数)"];
-    [col4 addObject:@"推荐比例(维护固定取值)"];
+    
     
     for(DKYGetDataAnalysisFormItemModel *item in dataArray){
         NSString *count = [NSString stringWithFormat:@"%@件",item.zxQty];
         [col2 addObject:count];
         [col3 addObject:item.bfb];
-        [col4 addObject:item.proportion];
     }
     
-    return @[[col2 copy],[col3 copy],[col4 copy]];
+//    NSMutableArray *col4 = [NSMutableArray array];
+//    [col4 addObject:@"推荐比例(维护固定取值)"];
+//    [col4 addObject:item.proportion];
+    
+    return @[[col2 copy],[col3 copy]];
 }
 
 #pragma mark - delegate
@@ -422,5 +416,15 @@
         //Call this Block When enter the refresh status automatically
         [weakSelf getDataAnalysisListFromServer];
     }];
+}
+
+- (void)testData{
+    //            NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    //            // 将文件数据化
+    //            NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    //            // 对数据进行JSON格式化并返回字典形式
+    //            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    //            NSDictionary *da = [result objectForKey:@"data"];
+    //            weakSelf.getDataAnalysisListModel = [DKYGetDataAnalysisListModel mj_objectWithKeyValues:da];
 }
 @end
