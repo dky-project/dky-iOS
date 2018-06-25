@@ -12,7 +12,7 @@
 // 主机
 //#define BASE_URL       @"http://122.227.138.34:99/dky-web/"
 
-#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
+//#define BASE_URL       @"http://60.190.63.14:99/dky-web/"
 
 //#define BASE_URL     @"http://192.168.68.155:99/dky-web/"
 
@@ -21,7 +21,7 @@
 //#define BASE_URL     @"http://192.168.3.171:8080/dky-web/"
 //#define BASE_URL     @"http://192.168.3.76:7071/dky-web/"
 
-//#define   BASE_URL     @"http://192.168.68.155:8090/dky-web/"
+#define   BASE_URL     @"http://192.168.68.155:8090/dky-web/"
 
 
 
