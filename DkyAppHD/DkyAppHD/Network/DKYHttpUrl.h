@@ -21,6 +21,9 @@
 //#define BASE_URL     @"http://192.168.3.171:8080/dky-web/"
 //#define BASE_URL     @"http://192.168.3.76:7071/dky-web/"
 
+//#define   BASE_URL     @"http://192.168.68.155:8090/dky-web/"
+
+
 
 // 接口
 #define kQueryValidUrl                  @"boot/queryValid"              // 查询启动页
