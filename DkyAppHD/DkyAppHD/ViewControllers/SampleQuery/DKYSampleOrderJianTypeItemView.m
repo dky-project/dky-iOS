@@ -157,6 +157,7 @@
     self.gyxcView.textField.text = model.hzxcValue;
     
     self.addProductApproveParameter.hzxc1Value = [self.gyxcView.textField.text isNotBlank] ? @([self.gyxcView.textField.text doubleValue]) : nil;
+    self.addProductApproveParameter.defaultHzxc1Value = model.hzxcValue;
 }
 
 - (void)clear{
