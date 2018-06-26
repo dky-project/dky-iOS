@@ -8,6 +8,7 @@
 
 #import "DKYGetProductListByGroupNoModel.h"
 #import "DKYSizeViewListItemModel.h"
+#import "DKYDahuoOrderColorModel.h"
 
 @implementation  DKYGetProductListByGroupNoModel
 
@@ -56,6 +57,7 @@
                 break;
             }
         }
+        //[self updateColorBigOrder];
     }else{
         self.addDpGroupApproveParam = [[DKYAddDpGroupApproveParamModel alloc] init];
         self.addDpGroupApproveParam.mProductId = self.mProductId;
@@ -74,6 +76,8 @@
         self.defaultXcValue = self.xcLeftValue;
         self.addDpGroupApproveParam.issource = @3;
         self.defaultYcValue = self.ycValue;
+        
+        //[self updateColor];
     }
     self.sum = 1;
     
@@ -91,6 +95,79 @@
         }else{
             self.addDpGroupApproveParam.sum = @(sum);
         }
+    }
+}
+
+- (void)updateColorBigOrder{
+    DKYDahuoOrderColorModel *defaultColor;
+    for(DKYDahuoOrderColorModel *color in self.colorViewList){
+        if(color.isDefault != nil && [color.isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+            defaultColor = color;
+            break;
+        }
+    }
+    
+    self.addDpGroupBmptParam.colorId = @(defaultColor.colorId);
+}
+
+- (void)updateColor{
+    if(self.colorRangeViewList.count > 0){
+        NSString *defaulColor = nil;
+        for(NSDictionary *obj in self.colorRangeViewList){
+            NSString *isDefault = [obj objectForKey:@"isDefault"];
+            if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+                defaulColor = [obj objectForKey:@"colorName"];
+                break;
+            }
+        }
+        
+        // 解析选中颜色，取出()前面
+        NSArray *temp = [defaulColor componentsSeparatedByString:@";"];
+        
+        NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
+        
+        for (NSString *item in temp) {
+            NSRange range = [item rangeOfString:@"("];
+            NSString *colorName = nil;
+            if(range.location != NSNotFound){
+                colorName = [item substringToIndex:range.location];
+            }else{
+                colorName = item;
+            }
+            
+            [colors addObject:colorName];
+        }
+        
+        [self colorGroupSelected:colors.copy];
+    }else{
+        self.addDpGroupApproveParam.colorArr = nil;
+    }
+}
+
+- (void)colorGroupSelected:(NSArray*)selectedColors{
+    NSMutableArray *selectedColor = [NSMutableArray array];
+    
+    for (NSString *colorName in selectedColors) {
+        BOOL match = NO;
+        DKYDahuoOrderColorModel *color  = nil;
+        for (color in self.colorViewList) {
+            if([color.colorName isEqualToString:colorName]){
+                match = YES;
+                break;
+            }
+        }
+        if(match){
+            NSString *oneColor = [NSString stringWithFormat:@"%@(%@)",color.colorName,color.colorDesc];
+            [selectedColor addObject:oneColor];
+        }
+    }
+    
+    NSString *color = [selectedColor componentsJoinedByString:@";"];
+    
+    if(selectedColor.count == 0){
+        self.addDpGroupApproveParam.colorArr = nil;
+    }else{
+        self.addDpGroupApproveParam.colorArr = color;
     }
 }
 

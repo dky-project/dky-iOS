@@ -294,7 +294,7 @@
             }
             
             // 袖长
-            if(!model.isBigOrder &&model.defaultXcValue){
+            if(model.defaultXcValue &&[NSString isNum:model.defaultXcValue]){
                 double value1 = [model.addDpGroupApproveParam.xcLeftValue doubleValue];
                 double value2 = [model.defaultXcValue doubleValue];
                 
@@ -305,7 +305,7 @@
             }
             
             // 衣长
-            if(!model.isBigOrder && model.defaultYcValue && [NSString isNum:model.defaultYcValue]){
+            if(model.defaultYcValue && [NSString isNum:model.defaultYcValue]){
                 double value1 = [model.addDpGroupApproveParam.ycValue doubleValue];
                 double value2 = [model.defaultYcValue doubleValue];
                 

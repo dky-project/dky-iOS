@@ -252,7 +252,7 @@
     
     self.xcView.textField.text = model.xc;
     
-    self.addProductApproveParameter.defaultXcValue = [self.xcView.textField.text isNotBlank]? @([self.xcView.textField.text doubleValue]) : nil;
+    self.addProductApproveParameter.defaultXcValue = self.xcView.textField.text;
     self.addProductApproveParameter.xcValue = [self.xcView.textField.text isNotBlank] ?self.xcView.textField.text : nil;
 }
 

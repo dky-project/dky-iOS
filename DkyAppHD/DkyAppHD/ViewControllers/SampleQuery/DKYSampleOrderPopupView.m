@@ -314,7 +314,7 @@
         return NO;
     }
     
-    if(self.addProductApproveParameter.defaultHzxc1Value){
+    if(self.addProductApproveParameter.defaultHzxc1Value && [NSString isNum:self.addProductApproveParameter.defaultHzxc1Value]){
         double value1 = [self.addProductApproveParameter.defaultHzxc1Value doubleValue];
         double value2 = [self.addProductApproveParameter.hzxc1Value doubleValue];
         
@@ -324,7 +324,7 @@
         }
     }
     
-    if(self.addProductApproveParameter.defaultYcValue){
+    if(self.addProductApproveParameter.defaultYcValue && [NSString isNum:self.addProductApproveParameter.defaultYcValue]){
         double value1 = [self.addProductApproveParameter.defaultYcValue doubleValue];
         double value2 = [self.addProductApproveParameter.ycValue doubleValue];
         
@@ -334,7 +334,7 @@
         }
     }
     
-    if(self.addProductApproveParameter.defaultXcValue){
+    if(self.addProductApproveParameter.defaultXcValue && [NSString isNum:self.addProductApproveParameter.defaultXcValue]){
         double value1 = [self.addProductApproveParameter.defaultXcValue doubleValue];
         double value2 = [self.addProductApproveParameter.xcLeftValue doubleValue];
 

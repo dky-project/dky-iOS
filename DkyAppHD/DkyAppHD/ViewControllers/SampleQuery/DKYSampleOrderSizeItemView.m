@@ -210,7 +210,7 @@
     
     self.lengthView.textField.text = model.yc;
     
-    self.addProductApproveParameter.defaultYcValue = @([model.yc doubleValue]);
+    self.addProductApproveParameter.defaultYcValue = model.yc;
     self.addProductApproveParameter.ycValue = self.lengthView.textField.text;
 }
 
