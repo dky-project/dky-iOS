@@ -228,7 +228,7 @@
     self.xcView.textField.text = xc;
     
     self.addProductApproveParameter.xcLeftValue = self.madeInfoByProductName.productMadeInfoView.xcLeftValue;
-    self.addProductApproveParameter.defaultXcValue = @([self.madeInfoByProductName.productMadeInfoView.xcLeftValue integerValue]);
+    self.addProductApproveParameter.defaultXcValue = self.madeInfoByProductName.productMadeInfoView.xcLeftValue;
     self.addProductApproveParameter.xcValue = xc;
 }
 

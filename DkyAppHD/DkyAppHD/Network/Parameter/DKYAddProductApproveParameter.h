@@ -400,11 +400,11 @@
 // 表示是否要有挂件袖肥的值
 @property (nonatomic, assign) BOOL needGjxf;
 
-@property (nonatomic, strong) NSNumber *defaultXcValue;
+@property (nonatomic, copy) NSString *defaultXcValue;
 
-@property (nonatomic, strong) NSNumber *defaultYcValue;
+@property (nonatomic, copy) NSString *defaultYcValue;
 
-@property (nonatomic, strong) NSNumber *defaultHzxc1Value;
+@property (nonatomic, copy) NSString *defaultHzxc1Value;
 
 /**
  表示是多选的，还是颜色组选的

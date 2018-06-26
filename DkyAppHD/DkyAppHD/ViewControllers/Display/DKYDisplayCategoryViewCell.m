@@ -200,6 +200,7 @@
                 weakSelf.getProductListByGroupNoModel.xcHasAdd = NO;
                 weakSelf.getProductListByGroupNoModel.xcLeftValue = xc;
                 weakSelf.getProductListByGroupNoModel.xcRightValue = nil;
+                weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcLeftValue =xc;
             }else{
                 NSString *prefix = [xc substringToIndex:range.location];
                 NSString *suffix = [xc substringFromIndex:range.location];
@@ -207,6 +208,7 @@
                 weakSelf.getProductListByGroupNoModel.xcHasAdd = YES;
                 weakSelf.getProductListByGroupNoModel.xcLeftValue = prefix;
                 weakSelf.getProductListByGroupNoModel.xcRightValue = suffix;
+                weakSelf.getProductListByGroupNoModel.addDpGroupApproveParam.xcLeftValue = prefix;
             }
             
             weakSelf.getProductListByGroupNoModel.defaultXcValue = weakSelf.getProductListByGroupNoModel.xcLeftValue;
