@@ -107,7 +107,7 @@
     //[self setupHomeVc];
     
     // 套系下单功能
-    [self setupRecommendVc];
+    //[self setupRecommendVc];
     
     // 单品下单
     [self setupSampleQueryVc];
@@ -122,7 +122,7 @@
     [self setupOrderInqueryVc];
     
     // 数据分析
-    [self setupDataAnalysisVc];
+    //[self setupDataAnalysisVc];
     
     // 搭配功能
     //[self setupDisplayVc];
