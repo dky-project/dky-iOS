@@ -47,6 +47,7 @@
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
+    //NSArray *titleList = @[@"毛衫类",@"其他类"];
     NSArray *titleList = @[@""];
     return titleList;
 }
@@ -119,23 +120,13 @@
     TWNavBtnItem *rightBtnItem = [[TWNavBtnItem alloc]init];
     
     rightBtnItem.itemType = TWNavBtnItemType_Text;
-    rightBtnItem.title = kSignOutText;
+    rightBtnItem.title = @"注销";
     rightBtnItem.normalImage = nil;
     rightBtnItem.hilightedImage = nil;
     self.rightBtnItem = rightBtnItem;
     
     self.rightBtnClicked = ^(UIButton *sender) {
-        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:kNoText style:QMUIAlertActionStyleDefault handler:NULL];
-        
-        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:kYesText style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController *aAlertController, QMUIAlertAction *action) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
-        }];
-        
-        QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:kHintText message:kSignOutContent preferredStyle:QMUIAlertControllerStyleAlert];
-        
-        [alertController addAction:action1];
-        [alertController addAction:action2];
-        [alertController showWithAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
     };
 }
 
@@ -180,7 +171,7 @@
                                                                       options:options
                                                                    attributes:attributes
                                                                       context:nil];
-            textFrame.size.width = MAX(textFrame.size.width, titleFrame.size.width + 1 + self.rightBtnItem.titleOffsetX);
+            textFrame.size.width = MAX(textFrame.size.width, titleFrame.size.width);
         }
             break;
         case TWNavBtnItemType_ImageAndText:{

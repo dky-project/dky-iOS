@@ -72,6 +72,14 @@
  */
 @property (nonatomic, copy) NSString *issourceText;
 
+/**
+ * 订单状态
+ 红色：审核不通过
+ 绿色：审核通过
+ 黑色：审核中
+ */
+@property (nonatomic, assign) DKYOrderAuditStatusType isapprove;
+
 
 // 客户端自己属性
 @property (nonatomic, copy) NSString *displayID;

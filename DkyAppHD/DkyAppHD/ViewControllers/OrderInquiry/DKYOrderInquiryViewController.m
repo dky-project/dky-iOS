@@ -44,20 +44,21 @@
 
 @property (nonatomic, strong) DKYOrderInqueryTotalMapModel *orderInqueryTotalMapModel;
 
-// 批量预览的数据
-@property (nonatomic, strong) NSMutableArray *selectedOrders;
-
-@property (nonatomic, strong) NSArray *detailOrders;
-
-// 查询的2个条件
-@property (nonatomic, copy) NSString *kh;
 @property (nonatomic, strong) DKYOrderAuditStatusModel *sourceModel;
 
 // 查询的4个条件
 @property (nonatomic, strong) DKYOrderAuditStatusModel *selectedOrderAuditStatusModel;
-//@property (nonatomic, copy) NSString *czDate;
-//@property (nonatomic, copy) NSString *customer;
-//@property (nonatomic, copy) NSString *pdt;
+@property (nonatomic, copy) NSString *czDate;
+
+@property (nonatomic, copy) NSString *customer;
+@property (nonatomic, copy) NSString *pdt;
+@property (nonatomic, copy) NSString *color;
+@property (nonatomic, copy) NSString *size;
+
+// 批量预览的数据
+@property (nonatomic, strong) NSMutableArray *selectedOrders;
+
+@property (nonatomic, strong) NSArray *detailOrders;
 
 @end
 
@@ -82,9 +83,12 @@
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
     p.pageSize = @(kPageSize);
-    
-    p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
-    p.pdt = self.kh;
+    p.czDate = self.czDate;
+    p.customer = self.customer;
+    p.pdt = self.pdt;
+    p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
+    p.colorName = self.color;
+    p.size = self.size;
     
     [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -93,10 +97,6 @@
         if (retCode == DkyHttpResponseCode_Success) {
             DKYOrderInqueryPageModel *page = [DKYOrderInqueryPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYOrderItemModel mj_objectArrayWithKeyValuesArray:page.items];
-            
-            [samples enumerateObjectsUsingBlock:^(DKYOrderItemModel* obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                obj.displayID = [NSString stringWithFormat:@"%@",@(idx+1)];
-            }];
             
             weakSelf.orderInqueryTotalMapModel = page.totalMap;
             
@@ -125,13 +125,16 @@
 - (void)loadMoreProductApprovePageFromServer{
     WeakSelf(weakSelf);
     //    dispatch_group_enter(self.group);
-    DKYOrderInquiryParameter *p = [[DKYOrderInquiryParameter alloc] init];
+    DKYOrderInqueryMergeParameter *p = [[DKYOrderInqueryMergeParameter alloc] init];
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
-
-    p.issource = self.sourceModel ? @(self.sourceModel.statusCode) : nil;
-    p.pdt = self.kh;
+    p.czDate = self.czDate;
+    p.customer = self.customer;
+    p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
+    
+    p.colorName = self.color;
+    p.size = self.size;
     
     [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -141,12 +144,6 @@
             DKYOrderInqueryPageModel *page = [DKYOrderInqueryPageModel mj_objectWithKeyValues:result.data];
             NSArray *samples = [DKYOrderItemModel mj_objectArrayWithKeyValuesArray:page.items];
             weakSelf.orderInqueryTotalMapModel = page.totalMap;
-            
-            NSInteger lastOrder = weakSelf.orders.count;
-            [samples enumerateObjectsUsingBlock:^(DKYOrderItemModel* obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                obj.displayID = [NSString stringWithFormat:@"%@",@(idx+1 + lastOrder)];
-            }];
-            
             [weakSelf.orders addObjectsFromArray:samples];
             weakSelf.pageNum++;
             [weakSelf.tableView reloadData];
@@ -239,8 +236,35 @@
 #pragma mark - private method
 
 - (void)showFaxDateSelectedPicker{
+    //        DKYDatePickerView *pic = [[DKYDatePickerView alloc] init];
+    //        pic.doneBlock = ^(DKYDatePickerView *picker, DkyButtonStatusType type){
+    //            DLog(@"%@",picker.selectedDate);
+    //        };
+    //        [pic show];
     [self.view endEditing:YES];
     [self.datePickView show];
+}
+
+- (void)showAuditStatusSelectedPicker{
+    WeakSelf(weakSelf);
+    [self.view endEditing:YES];
+    MMPopupItemHandler block = ^(NSInteger index){
+        weakSelf.selectedOrderAuditStatusModel = [weakSelf.orderAuditStatusModels objectOrNilAtIndex:index];
+        
+        NSString *displayName = [NSString stringWithFormat:@"  %@",weakSelf.selectedOrderAuditStatusModel.statusName ?:@""];
+        weakSelf.headerView.auditStatusLabel.text = displayName;
+    };
+    
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.orderAuditStatusModels.count + 1];
+    for (DKYOrderAuditStatusModel *model in self.orderAuditStatusModels) {
+        [items addObject:MMItemMake(model.statusName, MMItemTypeNormal, block)];
+    }
+    
+    MMSheetView *sheetView = [[MMSheetView alloc] initWithTitle:@"审核状态"
+                                                          items:[items copy]];
+//    sheetView.attachedView = self.view;
+    [MMPopupWindow sharedWindow].touchWildToHide = YES;
+    [sheetView show];
 }
 
 - (void)showSourceSelectedPicker{
@@ -250,7 +274,7 @@
         weakSelf.sourceModel = [weakSelf.sourceModels objectOrNilAtIndex:index];
         
         NSString *displayName = [NSString stringWithFormat:@"  %@",weakSelf.sourceModel.statusName ?:@""];
-        weakSelf.headerView.sourceLabel.text = displayName;
+        //weakSelf.headerView.sourceLabel.text = displayName;
     };
     
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.sourceModels.count + 1];
@@ -266,6 +290,13 @@
 }
 
 - (void)showOrderPreview{
+//    DKYOrderBrowseViewController *vc = [[DKYOrderBrowseViewController alloc] init];
+//    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    vc.modalPresentationStyle = UIModalPresentationPopover;
+//    vc.preferredContentSize = CGSizeMake(514, 610);
+//    UIPopoverPresentationController *popover = vc.popoverPresentationController;
+//    popover.sourceView = self.view;
+//    [self presentViewController:vc animated:YES completion:nil];
     [self.view endEditing:YES];
     DKYOrderBrowseView *browseView = [DKYOrderBrowseView show];
     browseView.detailOrders = self.detailOrders;
@@ -296,11 +327,15 @@
         make.left.mas_equalTo(weakSelf.view);
         make.right.mas_equalTo(weakSelf.view);
         make.top.mas_equalTo(weakSelf.view).with.offset(0);
-        make.height.mas_equalTo(280);
+        make.height.mas_equalTo(300);
     }];
     
-    header.sourceBlock = ^(id sender) {
-        [weakSelf showSourceSelectedPicker];
+    header.faxDateBlock = ^(id sender){
+        [weakSelf showFaxDateSelectedPicker];
+    };
+    
+    header.auditStatusBlock = ^(id sender){
+        [weakSelf showAuditStatusSelectedPicker];
     };
     
     header.batchPreviewBtnClicked = ^(id sender){
@@ -312,11 +347,23 @@
     };
     
     header.findBtnClicked = ^(id sender){
-        weakSelf.kh = weakSelf.headerView.kuanhaoTextField.text;
-
-        if(weakSelf.kh.length == 0){
-            weakSelf.kh = nil;
+        weakSelf.pdt = weakSelf.headerView.sampleTextField.text;
+        weakSelf.customer =weakSelf.headerView.clientTextField.text;
+        weakSelf.color = weakSelf.headerView.colorTextField.text;
+        weakSelf.size = weakSelf.headerView.sizeTextField.text;
+        if(weakSelf.pdt.length == 0){
+            weakSelf.pdt = nil;
         }
+        if(weakSelf.customer.length == 0){
+            weakSelf.customer = nil;
+        }
+        if(weakSelf.color.length == 0){
+            weakSelf.color = nil;
+        }
+        if(weakSelf.size.length == 0){
+            weakSelf.size = nil;
+        }
+        
         [weakSelf.tableView.mj_header beginRefreshing];
     };
     
@@ -445,9 +492,9 @@
 
 //确定时间
 - (void)determine:(NSDate *)date{
-//    DLog(@"选中时间 = %@",[self.datePickView stringFromDate:date]);
-//    self.czDate = [self.datePickView stringFromDate:date];
-//    self.headerView.faxDateLabel.text = [NSString stringWithFormat:@"   %@",self.czDate];
+    DLog(@"选中时间 = %@",[self.datePickView stringFromDate:date]);
+    self.czDate = [self.datePickView stringFromDate:date];
+    self.headerView.faxDateLabel.text = [NSString stringWithFormat:@"   %@",self.czDate];
 }
 
 #pragma mark - get & set method
@@ -491,9 +538,10 @@
 //sourceModels
 - (NSArray*)sourceModels{
     if(_sourceModels == nil){
-        DKYOrderAuditStatusModel *model1 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"单品下单" code:1];
-        DKYOrderAuditStatusModel *model2 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"套系下单" code:3];
-        _sourceModels = @[model1,model2];
+        DKYOrderAuditStatusModel *model1 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"其他" code:1];
+        DKYOrderAuditStatusModel *model2 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"陈列" code:2];
+        DKYOrderAuditStatusModel *model3 = [DKYOrderAuditStatusModel orderAuditStatusModelMakeWithName:@"搭配" code:3];
+        _sourceModels = @[model1,model2,model3];
     }
     return _sourceModels;
 }

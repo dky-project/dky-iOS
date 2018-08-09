@@ -107,7 +107,7 @@
     //[self setupHomeVc];
     
     // 套系下单功能
-    //[self setupRecommendVc];
+    [self setupRecommendVc];
     
     // 单品下单
     [self setupSampleQueryVc];

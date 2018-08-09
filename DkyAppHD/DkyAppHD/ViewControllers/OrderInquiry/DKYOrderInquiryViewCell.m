@@ -15,7 +15,10 @@
 @interface DKYOrderInquiryViewCell ()<PYPhotoBrowseViewDelegate>
 
 @property (weak, nonatomic) UIImageView *rectImageView;
-@property (weak, nonatomic) UILabel *orderNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *faxDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *styleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *clientLabel;
+//@property (weak, nonatomic) UILabel *orderNumberLabel;
 
 @property (weak, nonatomic) UILabel *sourceOfSampleLabel;
 @property (weak, nonatomic) UILabel *sizeLabel;
@@ -28,9 +31,6 @@
 @property (nonatomic, weak) UILabel *colorLabel;
 
 //@property (weak, nonatomic) UILabel *serialNumberLabel;
-//@property (weak, nonatomic) UILabel *clientLabel;
-//@property (weak, nonatomic) UILabel *faxDateLabel;
-//@property (weak, nonatomic) UILabel *styleLabel;
 
 // image
 @property (nonatomic, strong) UIImage *normalImage;
@@ -63,12 +63,8 @@
 - (void)setItemModel:(DKYOrderItemModel *)itemModel{
     _itemModel = itemModel;
     
-    self.orderNumberLabel.text = itemModel.displayID;
-    
     self.sourceOfSampleLabel.text = itemModel.pdt;
-    
     self.sizeLabel.text = itemModel.sizeName;
-    self.lengthLabel.text = itemModel.issourceText;
     
     self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
     
@@ -78,10 +74,38 @@
     
     self.colorLabel.text = itemModel.colorName;
     
-//    self.serialNumberLabel.text = itemModel.displayNo1;
-//    self.clientLabel.text = itemModel.customer;
-//    self.faxDateLabel.text = itemModel.displayFaxDate;
-//    self.styleLabel.text = itemModel.mDimNew12Text;
+    self.clientLabel.text = itemModel.customer;
+    self.faxDateLabel.text = itemModel.displayFaxDate;
+    
+    // 编号
+    self.styleLabel.text = itemModel.displayNo1;
+    
+    UIColor *textColor = nil;
+    switch (itemModel.isapprove) {
+        case DKYOrderAuditStatusType_Auding:
+            textColor = [UIColor colorWithHex:0x333333];
+            break;
+        case DKYOrderAuditStatusType_Success:
+            textColor = [UIColor greenColor];
+            break;
+        case DKYOrderAuditStatusType_Fail:
+            textColor = [UIColor redColor];
+            break;
+        default:
+            textColor = [UIColor colorWithHex:0x333333];
+            break;
+    }
+    
+    self.sourceOfSampleLabel.textColor = textColor;
+    
+    self.sizeLabel.textColor = textColor;
+    self.orderAmountLabel.textColor= textColor;
+    self.countLabel.textColor = textColor;
+    self.colorLabel.textColor = textColor;
+    
+    self.clientLabel.textColor = textColor;
+    self.faxDateLabel.textColor = textColor;
+    self.styleLabel.textColor = textColor;
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -112,9 +136,19 @@
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.rectImageView);
     }];
     
-    [self.orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(weakSelf.contentView);
-        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.orderNumberLabel);
+        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.clientLabel);
+    }];
+
+    [self.faxDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(weakSelf.contentView);
+        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.faxDateLabel);
+    }];
+
+    [self.styleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(weakSelf.contentView);
+        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.styleLabel);
     }];
     
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -132,10 +166,10 @@
         make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.sizeLabel);
     }];
     
-    [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(weakSelf.contentView);
-        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.lengthLabel);
-    }];
+//    [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(weakSelf.contentView);
+//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.lengthLabel);
+//    }];
     
     [self.orderAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(weakSelf.contentView);
@@ -157,21 +191,13 @@
 //        make.centerY.mas_equalTo(weakSelf.contentView);
 //        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.serialNumberLabel);
 //    }];
-//    
-//    [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.mas_equalTo(weakSelf.contentView);
-//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.clientLabel);
-//    }];
-//    
-//    [self.faxDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.mas_equalTo(weakSelf.contentView);
-//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.faxDateLabel);
-//    }];
-//    
-//    [self.styleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.mas_equalTo(weakSelf.contentView);
-//        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.styleLabel);
-//    }];
+//
+    
+    //    [self.orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.centerY.mas_equalTo(weakSelf.contentView);
+    //        make.centerX.mas_equalTo(weakSelf.headerView.bottomHeaderView.orderNumberLabel);
+    //    }];
+
 }
 
 #pragma mark - PYPhotoBrowseViewDelegate
@@ -188,12 +214,17 @@
     self.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
     
     [self setupRectImageView];
-    [self setupOrderNumberLabel];
+    
+    [self setupFaxDateLabel];
+    [self setupStyleLabel];
+    [self setupClientLabel];
+    
+    //[self setupOrderNumberLabel];
     
     [self setupSourceOfSampleLabel];
     [self setupColorLabel];
     [self setupSizeLabel];
-    [self setupLengthLabel];
+    //[self setupLengthLabel];
     
     [self setupOrderAmountLabel];
     [self setupCountLabel];
@@ -201,9 +232,6 @@
     [self setupPictureLabel];
     
 //    [self setupSerialNumberLabel];
-//    [self setupClientLabel];
-//    [self setupFaxDateLabel];
-//    [self setupStyleLabel];
 }
 
 - (void)setupRectImageView{
@@ -212,8 +240,8 @@
     UIImage *image = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(11, 11)];
     self.normalImage = [image imageByRoundCornerRadius:0 borderWidth:0.5 borderColor:[UIColor blackColor]];
     
-    self.selectedImage = [UIImage imageNamed:@"select_icon"];
-//    self.selectedImage = [UIImage imageWithColor:[UIColor colorWithHex:0x3c3562] size:CGSizeMake(11, 11)];
+//    self.selectedImage = [UIImage imageNamed:@"select_icon"];
+    self.selectedImage = [UIImage imageWithColor:[UIColor colorWithHex:0x3c3562] size:CGSizeMake(11, 11)];
     
     imageView.image = self.normalImage;
     imageView.contentMode = UIViewContentModeCenter;
@@ -221,8 +249,20 @@
     self.rectImageView = imageView;
 }
 
-- (void)setupOrderNumberLabel{
-    self.orderNumberLabel = [self createLabelWithName:@""];
+//- (void)setupOrderNumberLabel{
+//    self.orderNumberLabel = [self createLabelWithName:@""];
+//}
+
+- (void)setupClientLabel{
+    self.clientLabel = [self createLabelWithName:@""];
+}
+
+- (void)setupFaxDateLabel{
+    self.faxDateLabel = [self createLabelWithName:@""];
+}
+
+- (void)setupStyleLabel{
+    self.styleLabel = [self createLabelWithName:@""];
 }
 
 - (void)setupSourceOfSampleLabel{
@@ -296,7 +336,7 @@
 - (UILabel*)createLabelWithName:(NSString*)name{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor colorWithHex:0x333333];
-    label.font = [UIFont systemFontOfSize:21];
+    label.font = [UIFont systemFontOfSize:12];
     label.textAlignment = NSTextAlignmentCenter;
     [label sizeToFit];
     
@@ -308,18 +348,6 @@
 
 //- (void)setupSerialNumberLabel{
 //    self.serialNumberLabel = [self createLabelWithName:@""];
-//}
-//
-//- (void)setupClientLabel{
-//    self.clientLabel = [self createLabelWithName:@""];
-//}
-//
-//- (void)setupFaxDateLabel{
-//    self.faxDateLabel = [self createLabelWithName:@""];
-//}
-//
-//- (void)setupStyleLabel{
-//    self.styleLabel = [self createLabelWithName:@""];
 //}
 
 @end

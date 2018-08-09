@@ -9,7 +9,7 @@
 #import "DKYOrderInfoHeaderView.h"
 #import "DKYOrderInqueryTotalMapModel.h"
 
-#define kLeftMargin        30
+#define kLeftMargin     (38)
 
 @interface DKYOrderInfoHeaderView ()
 
@@ -90,16 +90,18 @@
     self.imageView.contentMode = UIViewContentModeCenter;
     self.imageView.image = self.normalImage;
     
-    
-    
-    [self setupOrderNumberLabel];
+    [self setupFaxDateLabel];
+    [self setupStyleLabel];
     
     [self setupPictureLabel];
-    
     [self setupSourceOfSampleLabel];
+    
+    [self setupClientLabel];
+    
     [self setupColorLabel];
+    
     [self setupSizeLabel];
-    [self setupLengthLabel];
+    //[self setupLengthLabel];
     
     [self setupOrderAmountLabel];
     [self setupCountLabel];
@@ -108,9 +110,6 @@
     [self setupAmountSumLabel];
     
 //  [self setupSerialNumberLabel];
-//    [self setupClientLabel];
-//    [self setupFaxDateLabel];
-//    [self setupStyleLabel];
     
     WeakSelf(weakSelf);
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
@@ -123,21 +122,20 @@
     [self addGestureRecognizer:tap];
 }
 
-- (void)setupOrderNumberLabel{
-    WeakSelf(weakSelf);
-    self.orderNumberLabel = [self createLabelWithName:@"序号"];
-    [self.orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        // 48放大之前
-        make.left.mas_equalTo(weakSelf.imageView.mas_right).with.offset(30);
-        make.centerY.mas_equalTo(weakSelf.imageView);
-    }];
-}
+//- (void)setupOrderNumberLabel{
+//    WeakSelf(weakSelf);
+//    self.orderNumberLabel = [self createLabelWithName:@"序号"];
+//    [self.orderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(weakSelf.imageView.mas_right).with.offset(48);
+//        make.centerY.mas_equalTo(weakSelf.imageView);
+//    }];
+//}
 
 - (void)setupPictureLabel{
     WeakSelf(weakSelf);
     self.pictureLabel = [self createLabelWithName:@"图片"];
     [self.pictureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(kLeftMargin);
+        make.left.mas_equalTo(weakSelf.styleLabel.mas_right).with.offset(40);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -146,7 +144,7 @@
     WeakSelf(weakSelf);
     self.sourceOfSampleLabel = [self createLabelWithName:@"款号"];
     [self.sourceOfSampleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(kLeftMargin);
+        make.left.mas_equalTo(weakSelf.pictureLabel.mas_right).with.offset(40);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -155,25 +153,25 @@
     WeakSelf(weakSelf);
     self.colorLabel = [self createLabelWithName:@"颜色"];
     [self.colorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(kLeftMargin);
+        make.left.mas_equalTo(weakSelf.clientLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
 - (void)setupSizeLabel{
     WeakSelf(weakSelf);
-    self.sizeLabel = [self createLabelWithName:@"尺寸"];
+    self.sizeLabel = [self createLabelWithName:@"衣大"];
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.colorLabel.mas_right).with.offset(kLeftMargin);
+        make.left.mas_equalTo(weakSelf.colorLabel.mas_right).with.offset(45);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
 
 - (void)setupLengthLabel{
     WeakSelf(weakSelf);
-    self.lengthLabel = [self createLabelWithName:@"来源"];
+    self.lengthLabel = [self createLabelWithName:@"长"];
     [self.lengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(kLeftMargin + 20);
+        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(45);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -182,9 +180,9 @@
     WeakSelf(weakSelf);
     self.orderAmountLabel = [self createLabelWithName:@"订单金额"];
     [self.orderAmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(kLeftMargin);
+//        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(60);
 //        make.centerY.mas_equalTo(weakSelf.imageView);
-        make.left.mas_equalTo(weakSelf.lengthLabel.mas_right).with.offset(kLeftMargin);
+        make.left.mas_equalTo(weakSelf.sizeLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);
     }];
 }
@@ -219,7 +217,7 @@
 - (UILabel*)createLabelWithName:(NSString*)name{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont systemFontOfSize:23];
+    label.font = [UIFont systemFontOfSize:12];
     label.textAlignment = NSTextAlignmentCenter;
     [label sizeToFit];
     
@@ -228,40 +226,41 @@
     return label;
 }
 
+- (void)setupFaxDateLabel{
+    WeakSelf(weakSelf);
+    self.faxDateLabel = [self createLabelWithName:@"传真日期"];
+    [self.faxDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.imageView.mas_right).with.offset(48);
+        make.centerY.mas_equalTo(weakSelf.imageView);
+    }];
+}
+
+- (void)setupStyleLabel{
+    WeakSelf(weakSelf);
+    self.styleLabel = [self createLabelWithName:@"编号"];
+    [self.styleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.faxDateLabel.mas_right).with.offset(kLeftMargin);
+        make.centerY.mas_equalTo(weakSelf.imageView);
+    }];
+}
+
+- (void)setupClientLabel{
+    WeakSelf(weakSelf);
+    self.clientLabel = [self createLabelWithName:@"性别"];
+    [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(kLeftMargin);
+        make.centerY.mas_equalTo(weakSelf.imageView);
+    }];
+}
+
 //- (void)setupSerialNumberLabel{
 //    WeakSelf(weakSelf);
 //    self.serialNumberLabel = [self createLabelWithName:@"编号"];
 //    [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(kLeftMargin);
+//        make.left.mas_equalTo(weakSelf.orderNumberLabel.mas_right).with.offset(60);
 //        make.centerY.mas_equalTo(weakSelf);
 //    }];
 //}
 
-//- (void)setupClientLabel{
-//    WeakSelf(weakSelf);
-//    self.clientLabel = [self createLabelWithName:@"客户"];
-//    [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(45);
-//        make.centerY.mas_equalTo(weakSelf);
-//    }];
-//}
-
-//- (void)setupFaxDateLabel{
-//    WeakSelf(weakSelf);
-//    self.faxDateLabel = [self createLabelWithName:@"传真日期"];
-//    [self.faxDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.clientLabel.mas_right).with.offset(45);
-//        make.centerY.mas_equalTo(weakSelf);
-//    }];
-//}
-
-//- (void)setupStyleLabel{
-//    WeakSelf(weakSelf);
-//    self.styleLabel = [self createLabelWithName:@"式样"];
-//    [self.styleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.faxDateLabel.mas_right).with.offset(45);
-//        make.centerY.mas_equalTo(weakSelf);
-//    }];
-//}
 
 @end
