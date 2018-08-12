@@ -75,6 +75,8 @@
 		2670F9D81F2B87F800D579B1 /* DkySampleOrderImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2670F9D71F2B87F800D579B1 /* DkySampleOrderImageViewCell.m */; };
 		267CED4C1E20EF2F00ED5872 /* DKYHomeItemTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */; };
 		267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */; };
+		26851347211EAB77008779FD /* DKYOrderBrowserViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 26851345211EAB77008779FD /* DKYOrderBrowserViewCell2.m */; };
+		26851348211EAB77008779FD /* DKYOrderBrowserViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26851346211EAB77008779FD /* DKYOrderBrowserViewCell2.xib */; };
 		268BC24B1E6477D60042E16D /* MDHTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 268BC24A1E6477D60042E16D /* MDHTMLLabel.m */; };
 		2691AD9320DE8653007B7F98 /* DKYAllCollectParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2691AD9220DE8653007B7F98 /* DKYAllCollectParameter.m */; };
 		26928D3120D646E600662AA9 /* DKYGetDataAnalysisListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26928D3020D646E600662AA9 /* DKYGetDataAnalysisListModel.m */; };
@@ -513,6 +515,9 @@
 		267CED4A1E20EF2E00ED5872 /* DKYHomeItemTwoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYHomeItemTwoView.h; sourceTree = "<group>"; };
 		267CED4B1E20EF2F00ED5872 /* DKYHomeItemTwoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHomeItemTwoView.m; sourceTree = "<group>"; };
 		267CED4D1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYHomeItemTwoView.xib; sourceTree = "<group>"; };
+		26851344211EAB77008779FD /* DKYOrderBrowserViewCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserViewCell2.h; sourceTree = "<group>"; };
+		26851345211EAB77008779FD /* DKYOrderBrowserViewCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserViewCell2.m; sourceTree = "<group>"; };
+		26851346211EAB77008779FD /* DKYOrderBrowserViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYOrderBrowserViewCell2.xib; sourceTree = "<group>"; };
 		268BC2491E6477D60042E16D /* MDHTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDHTMLLabel.h; sourceTree = "<group>"; };
 		268BC24A1E6477D60042E16D /* MDHTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDHTMLLabel.m; sourceTree = "<group>"; };
 		2691AD9120DE8653007B7F98 /* DKYAllCollectParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYAllCollectParameter.h; sourceTree = "<group>"; };
@@ -1751,6 +1756,9 @@
 				EB506C4B1E23BD81002A1423 /* DKYOrderBrowserViewCell.h */,
 				EB506C4C1E23BD81002A1423 /* DKYOrderBrowserViewCell.m */,
 				EB506C4D1E23BD81002A1423 /* DKYOrderBrowserViewCell.xib */,
+				26851344211EAB77008779FD /* DKYOrderBrowserViewCell2.h */,
+				26851345211EAB77008779FD /* DKYOrderBrowserViewCell2.m */,
+				26851346211EAB77008779FD /* DKYOrderBrowserViewCell2.xib */,
 				EB506C501E23C133002A1423 /* DKYOrderBrowserLineView.h */,
 				EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */,
 				EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */,
@@ -2616,6 +2624,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26851348211EAB77008779FD /* DKYOrderBrowserViewCell2.xib in Resources */,
 				EBB0FB971F30277000BCD57C /* DKYDahuoOrderInquiryHeaderView.xib in Resources */,
 				263702C11F64FD3E000991C5 /* DKYDisplayEntryViewCell.xib in Resources */,
 				EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */,
@@ -2827,6 +2836,7 @@
 				263702A21F62E567000991C5 /* DKYRecommendEntryViewController.m in Sources */,
 				EBBF21391F32B3D70047471B /* DKYDisplaySmallImageView.m in Sources */,
 				EB195B9A1E5C41CE00116048 /* LCActionSheetConfig.m in Sources */,
+				26851347211EAB77008779FD /* DKYOrderBrowserViewCell2.m in Sources */,
 				EBB113341ED41F940028FC17 /* DKYSampleOrderXiuTypeItemView.m in Sources */,
 				EB9511B11E164444008708EF /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				EB16D0FE1E56F73F00939072 /* DKYTitleSelectView.m in Sources */,

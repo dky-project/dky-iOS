@@ -9,6 +9,7 @@
 #import "DKYOrderBrowseView.h"
 #import "KLCPopup.h"
 #import "DKYOrderBrowserViewCell.h"
+#import "DKYOrderBrowserViewCell2.h"
 
 @interface DKYOrderBrowseView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -146,18 +147,24 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.detailOrders.count;
+    //return self.detailOrders.count;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    return 200;
     return 350;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
+    //DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
+    //cell.itemModel = [self.detailOrders objectOrNilAtIndex:indexPath.row];
+    
+    DKYOrderBrowserViewCell2 *cell = [DKYOrderBrowserViewCell2 orderBrowserViewCellWithTableView:tableView];
     cell.itemModel = [self.detailOrders objectOrNilAtIndex:indexPath.row];
+    
     return cell;
 }
 
