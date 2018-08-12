@@ -14,6 +14,10 @@
     self.displayNo1 = [NSString stringWithFormat:@"%@",@(self.no1)];
     
     self.displayFhDate = [self.fhDate stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+    
+    self.displayqty = [NSString stringWithFormat:@"%@",@(self.qty)];
+    
+    
 }
 
 

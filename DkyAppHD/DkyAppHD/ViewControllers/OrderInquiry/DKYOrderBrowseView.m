@@ -10,6 +10,7 @@
 #import "KLCPopup.h"
 #import "DKYOrderBrowserViewCell.h"
 #import "DKYOrderBrowserViewCell2.h"
+#import "DKYOrderItemDetailModel.h"
 
 @interface DKYOrderBrowseView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -147,24 +148,29 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return self.detailOrders.count;
-    return 2;
+    return self.detailOrders.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
-    return 350;
+    DKYOrderItemDetailModel *model = [self.detailOrders objectAtIndex:indexPath.row];
+    
+    return model.isBigOrder ? 200 : 350;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
-    //cell.itemModel = [self.detailOrders objectOrNilAtIndex:indexPath.row];
+    DKYOrderItemDetailModel *model = [self.detailOrders objectAtIndex:indexPath.row];
+    if(model.isBigOrder){
+        DKYOrderBrowserViewCell2 *cell = [DKYOrderBrowserViewCell2 orderBrowserViewCellWithTableView:tableView];
+        cell.itemModel = model;
     
-    DKYOrderBrowserViewCell2 *cell = [DKYOrderBrowserViewCell2 orderBrowserViewCellWithTableView:tableView];
-    cell.itemModel = [self.detailOrders objectOrNilAtIndex:indexPath.row];
+        return cell;
+    }
     
+    DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
+    cell.itemModel = model;
+
     return cell;
 }
 

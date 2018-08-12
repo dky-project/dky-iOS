@@ -134,6 +134,8 @@
         [self setLayoutMargins:UIEdgeInsetsZero];
     }
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     [self setLineView];
 }
 

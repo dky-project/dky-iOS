@@ -48,19 +48,19 @@
     NSString *orderNum = [NSString stringWithFormat:@"订单编号：%@",itemModel.displayNo1];
     self.orderNumberLabel.text = orderNum;
     
-    self.line1.itemModel.firstContent = @"11111";
-    self.line1.itemModel.secondContent = @"11111";
+    self.line1.itemModel.firstContent = itemModel.jgNo;
+    self.line1.itemModel.secondContent = itemModel.fair;
     self.line1.itemModel = self.line1.itemModel;
     
-    self.line2.itemModel.firstContent = @"222222";
-    self.line2.itemModel.secondContent = @"222222";
+    self.line2.itemModel.firstContent = itemModel.productName;
+    self.line2.itemModel.secondContent = itemModel.colorName;
     self.line2.itemModel = self.line2.itemModel;
     
-    self.line3.itemModel.firstContent = @"333333";
+    self.line3.itemModel.firstContent = itemModel.sizeName;
     self.line3.itemModel = self.line3.itemModel;
     
-    self.line4.itemModel.firstContent = @"666666";
-    self.line4.itemModel.secondContent = @"666666";
+    self.line4.itemModel.firstContent = itemModel.displayqty;
+    self.line4.itemModel.secondContent = itemModel.pricelist;
     self.line4.itemModel = self.line4.itemModel;
 }
 
@@ -94,6 +94,7 @@
         [self setLayoutMargins:UIEdgeInsetsZero];
     }
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self setLineView];
 }
 

@@ -74,7 +74,7 @@
     
     self.colorLabel.text = itemModel.colorName;
     
-    self.clientLabel.text = itemModel.customer;
+    self.clientLabel.text = itemModel.sexName;
     self.faxDateLabel.text = itemModel.displayFaxDate;
     
     // 编号

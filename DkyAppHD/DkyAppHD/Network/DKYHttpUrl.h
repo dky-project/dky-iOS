@@ -74,6 +74,8 @@
 
 #define kProductApproveBmptPageUrl      @"productApprove/bmptPage"              // 大货订单查询
 
+#define kProductApproveMergeInfoListUrl @"productApprove/productApproveMergeInfoList" // 订单详细信息查询
+
 // 收藏
 #define kProductCollectPageUrl          @"productCollect/page"                  // 收藏列表
 #define kAddProductCollectUrl           @"productCollect/addProductCollect"     // 添加收藏

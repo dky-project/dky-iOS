@@ -80,6 +80,8 @@
  */
 @property (nonatomic, assign) DKYOrderAuditStatusType isapprove;
 
+@property (nonatomic, copy) NSString *sexName;
+
 
 // 客户端自己属性
 @property (nonatomic, copy) NSString *displayID;

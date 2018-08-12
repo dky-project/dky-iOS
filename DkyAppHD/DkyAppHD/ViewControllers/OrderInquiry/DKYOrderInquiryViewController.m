@@ -124,6 +124,7 @@
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
     p.czDate = self.czDate;
+    p.pdt = self.pdt;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
     
     [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
@@ -166,11 +167,24 @@
     }
     p.ids = [mids copy];
     
-    [[DKYHttpRequestManager sharedInstance] productApproveInfoListWithParameter:p Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] productApproveMergeInfoListWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
-            weakSelf.detailOrders = [DKYOrderItemDetailModel mj_objectArrayWithKeyValuesArray:result.data];
+            NSArray *bmpt = [result.data objectForKey:@"bmpt"];
+            NSArray *product = [result.data objectForKey:@"product"];
+            
+            NSArray *bmptModels = [DKYOrderItemDetailModel mj_objectArrayWithKeyValuesArray:bmpt];
+            for(DKYOrderItemDetailModel *model in bmptModels){
+                model.isBigOrder = YES;
+            }
+            
+            NSArray *productModels = [DKYOrderItemDetailModel mj_objectArrayWithKeyValuesArray:product];
+            
+            NSMutableArray *detailOrders = [NSMutableArray arrayWithArray:productModels];
+            [detailOrders addObjectsFromArray:bmptModels];
+            
+            weakSelf.detailOrders = detailOrders;
             [weakSelf showOrderPreview];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面

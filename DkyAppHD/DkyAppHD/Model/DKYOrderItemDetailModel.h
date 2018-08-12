@@ -100,9 +100,43 @@
  */
 @property (nonatomic, copy) NSString *remark;
 
+
+// bmpt
+
+@property (nonatomic, assign) BOOL isBigOrder;
+
+/**
+ * 款号
+ */
+@property (nonatomic, copy) NSString *productName;
+
+/**
+ * 颜色
+ */
+@property (nonatomic, copy) NSString *colorName;
+
+/**
+ * 尺寸
+ */
+@property (nonatomic, copy) NSString *sizeName;
+/**
+ * 数量
+ */
+@property (nonatomic, assign) NSInteger qty;
+/**
+ * 性质
+ */
+@property (nonatomic, copy) NSString *fair;
+/**
+ * 标准价
+ */
+@property (nonatomic, copy) NSString *pricelist;
+
 // 客户端自己属性
 @property (nonatomic, copy) NSString *displayNo1;
 
 @property (nonatomic, copy) NSString *displayFhDate;
+
+@property (nonatomic, copy) NSString *displayqty;
 
 @end
