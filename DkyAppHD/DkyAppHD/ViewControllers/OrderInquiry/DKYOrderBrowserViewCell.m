@@ -25,9 +25,10 @@
 @property (nonatomic, weak) DKYOrderBrowserLineView *line8;
 @property (nonatomic, weak) DKYOrderBrowserLineView *line9;
 @property (nonatomic, weak) DKYOrderBrowserLineView *line10;
-@property (nonatomic, weak) DKYOrderBrowserLineView *line11;
-@property (nonatomic, weak) DKYOrderBrowserLineView *line12;
-@property (nonatomic, weak) DKYOrderBrowserLineView *line13;
+
+//@property (nonatomic, weak) DKYOrderBrowserLineView *line11;
+//@property (nonatomic, weak) DKYOrderBrowserLineView *line12;
+//@property (nonatomic, weak) DKYOrderBrowserLineView *line13;
 @end
 
 @implementation DKYOrderBrowserViewCell
@@ -61,47 +62,48 @@
     self.line1.itemModel.secondContent = itemModel.displayFhDate;
     self.line1.itemModel = self.line1.itemModel;
     
-    self.line2.itemModel.firstContent = itemModel.productValue;
-    self.line2.itemModel.secondContent = itemModel.customer;
+    self.line2.itemModel.firstContent = itemModel.customer;
     self.line2.itemModel = self.line2.itemModel;
     
-    self.line3.itemModel.firstContent = itemModel.colorArr;
+    self.line3.itemModel.firstContent = itemModel.pdt;
+    self.line3.itemModel.secondContent = itemModel.mDimNew12Text;
     self.line3.itemModel = self.line3.itemModel;
     
-    self.line4.itemModel.firstContent = itemModel.xwValue;
-    self.line4.itemModel.secondContent = itemModel.ycValue;
+    self.line4.itemModel.firstContent = itemModel.colorArr;
+    self.line4.itemModel.secondContent = itemModel.mDimNew16Text;
     self.line4.itemModel = self.line4.itemModel;
     
-    self.line5.itemModel.firstContent = itemModel.jkValue;
-    self.line5.itemModel.secondContent = itemModel.xcValue;
+    self.line5.itemModel.firstContent = itemModel.xwValue;
+    self.line5.itemModel.secondContent = itemModel.ycValue;
     self.line5.itemModel = self.line5.itemModel;
     
-    self.line6.itemModel.firstContent = itemModel.mDimNew10Text;
-    self.line6.itemModel.secondContent = itemModel.mDimNew32Text;
+    self.line6.itemModel.firstContent = itemModel.xcValue;
     self.line6.itemModel = self.line6.itemModel;
     
-    self.line7.itemModel.firstContent = itemModel.lingValue;
+    self.line7.itemModel.firstContent = itemModel.mDimNew22Text;
+    self.line7.itemModel.secondContent = itemModel.jkValue;
     self.line7.itemModel = self.line7.itemModel;
     
-    self.line8.itemModel.firstContent = itemModel.mDimNew12Text;
+    self.line8.itemModel.firstContent = itemModel.huax;
+    self.line8.itemModel.secondContent = itemModel.bxText;
     self.line8.itemModel = self.line8.itemModel;
     
-    self.line9.itemModel.firstContent = itemModel.fuj;
+    self.line9.itemModel.firstContent = itemModel.mDimNew10Text;
+    self.line9.itemModel.secondContent = itemModel.mDimNew32Text;
     self.line9.itemModel = self.line9.itemModel;
     
-    self.line10.itemModel.firstContent = itemModel.xxTxt;
-    self.line10.itemModel.secondContent = itemModel.dTxt;
+    self.line10.itemModel.firstContent = itemModel.lingValue;
     self.line10.itemModel = self.line10.itemModel;
     
-    self.line11.itemModel.firstContent = itemModel.hdTxt;
-    self.line11.itemModel.secondContent = itemModel.jxwValue;
-    self.line11.itemModel = self.line11.itemModel;
-    
-    self.line12.itemModel.firstContent = itemModel.sjxcValue;
-    self.line12.itemModel = self.line12.itemModel;
-    
-    self.line13.itemModel.firstContent = itemModel.remark;
-    self.line13.itemModel = self.line13.itemModel;
+//    self.line11.itemModel.firstContent = itemModel.hdTxt;
+//    self.line11.itemModel.secondContent = itemModel.jxwValue;
+//    self.line11.itemModel = self.line11.itemModel;
+//    
+//    self.line12.itemModel.firstContent = itemModel.sjxcValue;
+//    self.line12.itemModel = self.line12.itemModel;
+//    
+//    self.line13.itemModel.firstContent = itemModel.remark;
+//    self.line13.itemModel = self.line13.itemModel;
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -147,7 +149,7 @@
     [self.line1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.contentView);
         make.right.mas_equalTo(weakSelf.contentView);
-        make.height.mas_equalTo(17);
+        make.height.mas_equalTo(20);
         make.top.mas_equalTo(weakSelf).with.offset(71);
     }];
     
@@ -159,82 +161,77 @@
     
     self.line2 = [self createViewWithPrevView:self.line1];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"品名";
-    itemModel.secondTitle = @"名";
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
+    itemModel.firstTitle = @"姓名";
     self.line2.itemModel = itemModel;
     
     self.line3 = [self createViewWithPrevView:self.line2];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Left;
-    itemModel.firstTitle = @"颜色";
+    itemModel.type = DkyOrderBrowserLineViewType_Both;
+    itemModel.firstTitle = @"款号";
+    itemModel.secondTitle = @"式样";
     self.line3.itemModel = itemModel;
     
     self.line4 = [self createViewWithPrevView:self.line3];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"大";
-    itemModel.secondTitle = @"长";
+    itemModel.firstTitle = @"颜色";
+    itemModel.secondTitle = @"针型";
     self.line4.itemModel = itemModel;
     
     self.line5 = [self createViewWithPrevView:self.line4];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"肩";
-    itemModel.secondTitle = @"袖";
+    itemModel.firstTitle = @"大";
+    itemModel.secondTitle = @"衣长";
     self.line5.itemModel = itemModel;
     
     self.line6 = [self createViewWithPrevView:self.line5];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"下边";
-    itemModel.secondTitle = @"袖口";
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
+    itemModel.firstTitle = @"袖长";
     self.line6.itemModel = itemModel;
     
     self.line7 = [self createViewWithPrevView:self.line6];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Left;
-    itemModel.firstTitle = @"领";
+    itemModel.type = DkyOrderBrowserLineViewType_Both;
+    itemModel.firstTitle = @"肩型";
+    itemModel.secondTitle = @"肩款";
     self.line7.itemModel = itemModel;
     
     self.line8 = [self createViewWithPrevView:self.line7];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Left;
-    itemModel.firstTitle = @"式样";
+    itemModel.type = DkyOrderBrowserLineViewType_Both;
+    itemModel.firstTitle = @"花型";
+    itemModel.secondTitle = @"版型";
     self.line8.itemModel = itemModel;
     
     self.line9 = [self createViewWithPrevView:self.line8];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Left;
-    itemModel.firstTitle = @"附件";
+    itemModel.type = DkyOrderBrowserLineViewType_Both;
+    itemModel.firstTitle = @"下边";
+    itemModel.secondTitle = @"袖口";
     self.line9.itemModel = itemModel;
+    
+//    self.line11 = [self createViewWithPrevView:self.line10];
+//    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+//    itemModel.type = DkyOrderBrowserLineViewType_Both;
+//    itemModel.firstTitle = @"后道";
+//    itemModel.secondTitle = @"净胸围";
+//    self.line11.itemModel = itemModel;
+//
+//    self.line12 = [self createViewWithPrevView:self.line11];
+//    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+//    itemModel.type = DkyOrderBrowserLineViewType_Left;
+//    itemModel.firstTitle = @"实际袖长";
+//    self.line12.itemModel = itemModel;
     
     self.line10 = [self createViewWithPrevView:self.line9];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"袖型";
-    itemModel.secondTitle = @"袋子";
-    self.line10.itemModel = itemModel;
-    
-    self.line11 = [self createViewWithPrevView:self.line10];
-    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"后道";
-    itemModel.secondTitle = @"净胸围";
-    self.line11.itemModel = itemModel;
-    
-    self.line12 = [self createViewWithPrevView:self.line11];
-    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Left;
-    itemModel.firstTitle = @"实际袖长";
-    self.line12.itemModel = itemModel;
-    
-    self.line13 = [self createViewWithPrevView:self.line12];
-    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Left;
-    itemModel.firstTitle = @"备注";
+    itemModel.firstTitle = @"领";
     itemModel.showBottomLine = NO;
-    self.line13.itemModel = itemModel;
+    self.line10.itemModel = itemModel;
 }
 
 - (DKYOrderBrowserLineView*)createViewWithPrevView:(DKYOrderBrowserLineView*)preView{
@@ -244,7 +241,7 @@
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.contentView);
         make.right.mas_equalTo(weakSelf.contentView);
-        make.height.mas_equalTo(17);
+        make.height.mas_equalTo(preView);
         make.top.mas_equalTo(preView.mas_bottom);
     }];
     return view;

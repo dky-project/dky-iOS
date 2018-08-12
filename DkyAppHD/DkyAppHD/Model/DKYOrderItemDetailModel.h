@@ -100,6 +100,32 @@
  */
 @property (nonatomic, copy) NSString *remark;
 
+/**
+ * 款号
+ */
+@property (nonatomic, copy) NSString *pdt;
+
+/**
+ * 针型
+ */
+@property (nonatomic, copy) NSString *mDimNew16Text;
+
+/**
+ * 肩型
+ */
+@property (nonatomic, copy) NSString *mDimNew22Text;
+
+/**
+ * 花型
+ */
+@property (nonatomic, copy) NSString *huax;
+
+/**
+ * 版型
+ */
+@property (nonatomic, copy) NSString *bxText;
+
+
 
 // bmpt
 

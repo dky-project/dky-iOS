@@ -155,7 +155,7 @@
 {
     DKYOrderItemDetailModel *model = [self.detailOrders objectAtIndex:indexPath.row];
     
-    return model.isBigOrder ? 200 : 350;
+    return model.isBigOrder ? 200 : 300;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
