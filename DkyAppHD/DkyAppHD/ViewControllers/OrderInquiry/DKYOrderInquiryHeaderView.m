@@ -54,18 +54,6 @@
     }
 }
 
-- (void)sourceLabelTapped:(UITapGestureRecognizer*)ges{
-    if(self.sourceBlock){
-        self.sourceBlock(self);
-    }
-}
-
--(void)sizeLabelTapped:(UITapGestureRecognizer*)ges{
-    if(self.sizeBlock){
-        self.sizeBlock(self);
-    }
-}
-
 - (IBAction)batchPreviewBtnClicked:(UIButton *)sender {
     if(self.batchPreviewBtnClicked){
         self.batchPreviewBtnClicked(self);
@@ -91,15 +79,11 @@
     
     UIView *placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     placeholderView.backgroundColor = [UIColor whiteColor];
-    self.clientTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.clientTextField.leftView = placeholderView;
-    
     placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     placeholderView.backgroundColor = [UIColor whiteColor];
     self.sampleTextField.leftViewMode = UITextFieldViewModeAlways;
     self.sampleTextField.leftView = placeholderView;
     
-    self.clientTextField.placeholder = @"客户";
     self.sampleTextField.placeholder = @"款号";
     
     UIImage *image = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(120, 38)];
@@ -113,12 +97,6 @@
     
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(auditStatusLabelTapped:)];
     [self.auditStatusLabel addGestureRecognizer:tap];
-    
-//    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sourceLabelTapped:)];
-//    [self.sourceLabel addGestureRecognizer:tap];
-//    
-//    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sizeLabelTapped:)];
-//    [self.sizeLabel addGestureRecognizer:tap];
 }
 
 - (UUDatePicker*)datePicker{

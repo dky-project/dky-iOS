@@ -48,12 +48,9 @@
 
 // 查询的4个条件
 @property (nonatomic, strong) DKYOrderAuditStatusModel *selectedOrderAuditStatusModel;
-@property (nonatomic, copy) NSString *czDate;
 
-@property (nonatomic, copy) NSString *customer;
+@property (nonatomic, copy) NSString *czDate;
 @property (nonatomic, copy) NSString *pdt;
-@property (nonatomic, copy) NSString *color;
-@property (nonatomic, copy) NSString *size;
 
 // 批量预览的数据
 @property (nonatomic, strong) NSMutableArray *selectedOrders;
@@ -84,11 +81,8 @@
     p.pageNo = @(self.pageNum);
     p.pageSize = @(kPageSize);
     p.czDate = self.czDate;
-    p.customer = self.customer;
     p.pdt = self.pdt;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
-    p.colorName = self.color;
-    p.size = self.size;
     
     [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -130,11 +124,7 @@
     p.pageNo = @(++pageNum);
     p.pageSize = @(kPageSize);
     p.czDate = self.czDate;
-    p.customer = self.customer;
     p.isapprove = self.selectedOrderAuditStatusModel ? @(self.selectedOrderAuditStatusModel.statusCode) : nil;
-    
-    p.colorName = self.color;
-    p.size = self.size;
     
     [[DKYHttpRequestManager sharedInstance] productApproveMergePageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -348,20 +338,8 @@
     
     header.findBtnClicked = ^(id sender){
         weakSelf.pdt = weakSelf.headerView.sampleTextField.text;
-        weakSelf.customer =weakSelf.headerView.clientTextField.text;
-        weakSelf.color = weakSelf.headerView.colorTextField.text;
-        weakSelf.size = weakSelf.headerView.sizeTextField.text;
         if(weakSelf.pdt.length == 0){
             weakSelf.pdt = nil;
-        }
-        if(weakSelf.customer.length == 0){
-            weakSelf.customer = nil;
-        }
-        if(weakSelf.color.length == 0){
-            weakSelf.color = nil;
-        }
-        if(weakSelf.size.length == 0){
-            weakSelf.size = nil;
         }
         
         [weakSelf.tableView.mj_header beginRefreshing];
