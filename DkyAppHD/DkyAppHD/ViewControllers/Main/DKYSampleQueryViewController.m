@@ -424,12 +424,11 @@
     
     [self setupLogoutBtn];
     
-//    [self.navigationController.navigationBar tw_hideNavigantionBarBottomLine:YES];
-//    for (int i = 1; i < 6; ++i) {
-//        NSString *imageName = [NSString stringWithFormat:@"sampleImage%@",@(i)];
-//        UIImage *image = [UIImage imageNamed:imageName];
-//        [self.samples addObject:image];
-//    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUI:) name:kUpdateSampleQueryCollectStatusNotification object:nil];
+}
+
+- (void)updateUI:(NSNotification*)no{
+    [self.collectionView reloadData];
 }
 
 - (void)setupCollectionView{
