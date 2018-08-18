@@ -86,7 +86,7 @@
             textColor = [UIColor colorWithHex:0x333333];
             break;
         case DKYOrderAuditStatusType_Success:
-            textColor = [UIColor greenColor];
+            textColor = [UIColor colorWithHex:0x197E1C];
             break;
         case DKYOrderAuditStatusType_Fail:
             textColor = [UIColor redColor];
