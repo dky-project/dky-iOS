@@ -408,7 +408,7 @@ static const CGFloat basicItemHeight = 45;
         // 客户号
         weakSelf.addProductApproveParameter.customer = textField.text;
     };
-    itemModel.content = @"YYW";
+    itemModel.content = nil;
     itemModel.zoomed = YES;
     itemModel.enabled = NO;
     self.clientView.itemModel = itemModel;
