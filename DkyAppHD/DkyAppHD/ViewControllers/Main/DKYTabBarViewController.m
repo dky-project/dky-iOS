@@ -106,11 +106,11 @@
     // 首页
     //[self setupHomeVc];
     
-    // 套系下单功能
-    [self setupRecommendVc];
-    
     // 单品下单
     [self setupSampleQueryVc];
+    
+    // 套系下单功能
+    [self setupRecommendVc];
     
     // 定制下单
     //[self setupCustomOrderVc];
