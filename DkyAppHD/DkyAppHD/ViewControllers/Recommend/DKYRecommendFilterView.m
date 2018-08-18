@@ -23,8 +23,6 @@
 
 @property (nonatomic, weak) UIButton *thBtn;
 
-@property (nonatomic, copy) NSArray *thArrays;
-
 @end
 
 

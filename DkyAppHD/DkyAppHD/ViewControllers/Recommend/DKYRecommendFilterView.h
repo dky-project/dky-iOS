@@ -14,4 +14,6 @@
 
 @property (nonatomic, copy) NSString *hallName;
 
+@property (nonatomic, copy) NSArray *thArrays;
+
 @end
