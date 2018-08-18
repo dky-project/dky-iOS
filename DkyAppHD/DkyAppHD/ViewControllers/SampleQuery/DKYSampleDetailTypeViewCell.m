@@ -15,13 +15,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *sampleTypeLabel;
 
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *genderLabel;
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *allTypeLabel;
 @property (weak, nonatomic) IBOutlet UIView *placehlderView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cycleScrollViewHeightCst;
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *boduanLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *seriesLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *onSellTimeLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeightCst;
 
 @property (nonatomic, weak) SDCycleScrollView *cycleScrollView;
 
@@ -82,20 +81,6 @@
         return mutableAttributedString;
     }];
     
-    self.allTypeLabel.text = [NSString stringWithFormat:@"所属类别 : %@",model.mptbelongtypeText];
-    
-    [self.allTypeLabel setText:self.allTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-        [self formatMutableAttributedString:mutableAttributedString];
-        return mutableAttributedString;
-    }];
-    
-    // 波段
-    self.boduanLabel.text = [NSString stringWithFormat:@"波段 : %@",model.mDim14Text];
-    [self.boduanLabel setText:self.boduanLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-        [self formatMutableAttributedString:mutableAttributedString];
-        return mutableAttributedString;
-    }];
-    
     // 系列
     self.seriesLabel.text = [NSString stringWithFormat:@"系列 : %@",model.mDim13Text];
     [self.seriesLabel setText:self.seriesLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
@@ -103,8 +88,8 @@
         return mutableAttributedString;
     }];
     
-    // 上货时间
-    self.onSellTimeLabel.text = [NSString stringWithFormat:@"上货时间 : %@",model.marketDate];
+    // 设计说明
+    self.onSellTimeLabel.text = [NSString stringWithFormat:@"设计说明 : %@",model.description5];
     [self.onSellTimeLabel setText:self.onSellTimeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
@@ -190,6 +175,7 @@
 //    self.hintLabel.numberOfLines = 0;
     
     self.cycleScrollViewHeightCst.constant = 880;
+    self.bottomViewHeightCst.constant = 180;
     
     [self setupBannerView];
 }

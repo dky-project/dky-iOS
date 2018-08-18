@@ -311,17 +311,17 @@
             identifier = NSStringFromClass([DQTableViewCell class]);
             break;
         case 2:
-            identifier = NSStringFromClass([DKYSampleDetailGanweiViewCell class]);
-            break;
-        case 3:
             identifier = NSStringFromClass([DQTableViewCell class]);
             break;
-        case 4:
+        case 3:
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 identifier = NSStringFromClass([DKYSampleDetailPriceViewCell class]);
             }else{
                 identifier = NSStringFromClass([DQTableViewCell class]);
             }
+            break;
+        case 4:
+            identifier = NSStringFromClass([DKYSampleDetailGanweiViewCell class]);
             break;
         case 5:
             identifier = NSStringFromClass([DQTableViewCell class]);
@@ -335,7 +335,7 @@
         if(indexPath.row == 0){
             DKYSampleDetailTypeViewCell *newCell = (DKYSampleDetailTypeViewCell*)cell;
             newCell.model = weakSelf.sampleProductInfo;
-        }else if (indexPath.row == 4){
+        }else if (indexPath.row == 3){
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 DKYSampleDetailPriceViewCell *newcell = (DKYSampleDetailPriceViewCell*)cell;
                 newcell.sampleProductInfo = self.sampleProductInfo;
@@ -344,8 +344,6 @@
                 newcell.fd_enforceFrameLayout = YES;
                 newcell.DataArr = [self.priceArray mutableCopy];
             }
-        }else if(indexPath.row == 2){
-            
         }else{
             DQTableViewCell *newcell = (DQTableViewCell*)cell;
             newcell.fd_enforceFrameLayout = YES;
@@ -353,11 +351,12 @@
             if(indexPath.row == 1){
                 newcell.formType = DKYFormType_TypeTwo;
                 newcell.DataArr = [self.defaultValueArray mutableCopy];
-            }else if(indexPath.row == 5){
+            }else if(indexPath.row == 2){
+                newcell.formType = DKYFormType_TypeTwo;
                 newcell.DataArr = [self.sampleValueArray mutableCopy];
-            }else{
-                // row = 3
-                
+            }else if(indexPath.row == 5){
+                newcell.formType = DKYFormType_TypeTwo;
+                newcell.DataArr = [self.ganweiArray mutableCopy];
             }
         }
     }];
@@ -382,38 +381,39 @@
             return cell;
         }
             break;
-        case 2:
-            cell = [DKYSampleDetailGanweiViewCell sampleDetailGanweiViewCellWithTableView:tableView];
-            break;
-        case 3:{
+        case 2:{
             DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+            
             cell.formType = DKYFormType_TypeTwo;
-            cell.DataArr = [self.ganweiArray mutableCopy];
+            cell.DataArr = [self.sampleValueArray mutableCopy];
             cell.hideBottomLine = YES;
+            
             return cell;
         }
-        case 4:{
+            break;
+        case 3:{
             if([self.sampleProductInfo.mptbelongtype caseInsensitiveCompare:@"c"] == NSOrderedSame){
                 DKYSampleDetailPriceViewCell *cell = [DKYSampleDetailPriceViewCell sampleDetailPriceViewCellWithTableView:tableView];
                 cell.sampleProductInfo = self.sampleProductInfo;
                 return cell;
             }else{
                 DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
-    
+                
                 cell.DataArr = [self.priceArray mutableCopy];
                 return cell;
             }
         }
             break;
+        case 4:
+            cell = [DKYSampleDetailGanweiViewCell sampleDetailGanweiViewCellWithTableView:tableView];
+            break;
         case 5:{
             DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
-            
-            cell.DataArr = [self.sampleValueArray mutableCopy];
+            cell.formType = DKYFormType_TypeTwo;
+            cell.DataArr = [self.ganweiArray mutableCopy];
             cell.hideBottomLine = YES;
             return cell;
         }
-            break;
-            
         default:
             break;
     }

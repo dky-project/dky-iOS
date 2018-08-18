@@ -47,6 +47,7 @@
 
 #pragma mark - UI
 - (void)commonInit{
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self setupTitleLabel];
     [self setupPriceLabel];
     [self setupLine];
