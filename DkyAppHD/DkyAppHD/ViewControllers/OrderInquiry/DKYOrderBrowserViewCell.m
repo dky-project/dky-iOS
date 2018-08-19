@@ -85,7 +85,7 @@
     self.line7.itemModel = self.line7.itemModel;
     
     self.line8.itemModel.firstContent = itemModel.huax;
-    self.line8.itemModel.secondContent = itemModel.bxText;
+    //self.line8.itemModel.secondContent = itemModel.bxText;
     self.line8.itemModel = self.line8.itemModel;
     
     self.line9.itemModel.firstContent = itemModel.mDimNew10Text;
@@ -201,9 +201,9 @@
     
     self.line8 = [self createViewWithPrevView:self.line7];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Both;
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
     itemModel.firstTitle = @"花型";
-    itemModel.secondTitle = @"版型";
+    //itemModel.secondTitle = @"版型";
     self.line8.itemModel = itemModel;
     
     self.line9 = [self createViewWithPrevView:self.line8];

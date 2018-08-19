@@ -54,6 +54,10 @@
 
 - (void)optionViewTaped:(UIButton*)btn{
     WeakSelf(weakSelf);
+    if(self.thArrays == nil || self.thArrays.count == 0) {
+        [DKYHUDTool showErrorWithStatus:@"获取厅号列表失败，请后台设置数据或者下拉数据刷新!"];
+        return;
+    }
     UIViewController *vc = [self viewController];
     
     NSArray *array = self.thArrays;
@@ -64,7 +68,9 @@
                              message:@"选择厅号"
                    appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
                        for (NSString *op in array) {
-                           alertMaker.addActionDefaultTitle(op);
+                           if([op isKindOfClass:[NSString class]]){
+                               alertMaker.addActionDefaultTitle(op);
+                           }
                        }
                        alertMaker.addActionCancelTitle(@"cancel");
                    } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
@@ -246,13 +252,6 @@
         make.height.mas_equalTo(35);
         make.width.mas_equalTo(254);
     }];
-}
-
-- (NSArray*)thArrays{
-    if(_thArrays == nil){
-        _thArrays = @[@"一号厅", @"二号厅", @"三号厅",@"四号厅"];
-    }
-    return _thArrays;
 }
 
 @end

@@ -246,7 +246,7 @@
 
 - (void)setupClientLabel{
     WeakSelf(weakSelf);
-    self.clientLabel = [self createLabelWithName:@"性别"];
+    self.clientLabel = [self createLabelWithName:@"姓名"];
     [self.clientLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.sourceOfSampleLabel.mas_right).with.offset(kLeftMargin);
         make.centerY.mas_equalTo(weakSelf.imageView);

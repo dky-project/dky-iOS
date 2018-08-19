@@ -23,4 +23,6 @@
 
 @property (nonatomic, copy) NSString *hallName;
 
+@property (nonatomic, copy) NSString *attribname;
+
 @end

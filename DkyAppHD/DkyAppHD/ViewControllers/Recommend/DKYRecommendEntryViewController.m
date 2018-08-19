@@ -33,6 +33,8 @@
 
 @property (nonatomic, strong) TWNavBtnItem *rightBtnItem;
 
+@property (nonatomic, strong) dispatch_group_t group;
+
 @end
 
 @implementation DKYRecommendEntryViewController
@@ -64,7 +66,8 @@
 #pragma mark - 网络请求
 - (void)getProductListGhPageFromServer{
     WeakSelf(weakSelf);
-    [DKYHUDTool show];
+
+    dispatch_group_enter(self.group);
     
     DKYGetProductListGhPageParameter *p = [[DKYGetProductListGhPageParameter alloc] init];
     p.gh = self.filtrateView.name;
@@ -77,14 +80,11 @@
     [[DKYHttpRequestManager sharedInstance] getProductListGhPageWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
-        [weakSelf.collectionView.mj_header endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
             NSArray* array = [DKYGetProductListGhPageModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.productList removeAllObjects];
             [weakSelf.productList addObjectsFromArray:array];
-            
-            [weakSelf.collectionView reloadData];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -93,12 +93,11 @@
             NSString *retMsg = result.msg;
             [DKYHUDTool showErrorWithStatus:retMsg];
         }
-        [DKYHUDTool dismiss];
+        dispatch_group_leave(weakSelf.group);
     } failure:^(NSError *error) {
         DLog(@"Error = %@",error.description);
-        [weakSelf.collectionView.mj_header endRefreshing];
-        [DKYHUDTool dismiss];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
     }];
 }
 
@@ -142,6 +141,46 @@
         [DKYHUDTool dismiss];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
+}
+
+-(void)getAttribnameListFromServe{
+    WeakSelf(weakSelf);
+    
+    dispatch_group_enter(self.group);
+    
+    [[DKYHttpRequestManager sharedInstance] getAttribnameListWithParameter:nil Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.filtrateView.thArrays = result.data;
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        dispatch_group_leave(weakSelf.group);
+    } failure:^(NSError *error) {
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
+    }];
+}
+
+- (void)doHttpRequest{
+    WeakSelf(weakSelf);
+    [DKYHUDTool show];
+    
+    [self getProductListGhPageFromServer];
+    [self getAttribnameListFromServe];
+    
+    dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
+        [DKYHUDTool dismiss];
+        [weakSelf.collectionView.mj_header endRefreshing];
+        [weakSelf.collectionView reloadData];
+    });
 }
 
 #pragma mark - action method
@@ -231,6 +270,8 @@
 - (void)commonInit{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.group = dispatch_group_create();
+    
     [self setupCustomTitle:@"套系下单"];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
@@ -278,7 +319,7 @@
 -(void)setupRefreshControl{
     WeakSelf(weakSelf);
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
-        [weakSelf getProductListGhPageFromServer];
+        [weakSelf doHttpRequest];
     }];
     header.lastUpdatedTimeKey = [NSString stringWithFormat:@"%@Key",[self class]];
     self.collectionView.mj_header = header;

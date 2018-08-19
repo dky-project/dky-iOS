@@ -33,7 +33,7 @@
     [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     //    self.sampleNameLabel.text = itemModel.name;
-    self.sampleIdLabel.text = [NSString stringWithFormat:@"%@  %@",itemModel.name, nil];
+    self.sampleIdLabel.text = [NSString stringWithFormat:@"%@  %@",itemModel.name, itemModel.mDim16Text];
 }
 
 - (IBAction)cancelBtnClicked:(UIButton *)sender {
