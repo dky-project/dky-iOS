@@ -21,6 +21,8 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
 
 @property (nonatomic, weak) UIView *bottomLine;
 
+@property (nonatomic, weak) UILabel *titleLabel;
+
 @end
 @implementation DQTableViewCell
 + (instancetype)tableViewCellWithTableView:(UITableView *)tableView{
@@ -52,6 +54,24 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
     self.bottomLine.hidden = hideBottomLine;
 }
 
+- (void)setTitle:(NSString *)title{
+    _title = [title copy];
+    if(self.titleLabel == nil){
+        [self setupTitleLabel];
+    }
+    
+    self.titleLabel.text = title;
+    
+    UIView *sub = self.contentView;
+    double topPadding = 15;
+    if(title.length > 0){
+        topPadding = 40;
+    }
+    [self.DQCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sub.mas_top).offset(topPadding);
+    }];
+}
+
 - (void)DQAddSubViewFunction{
     UIView *sub = self.contentView;
     self.DQCollectionView = [[DQFormCollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
@@ -71,6 +91,24 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
     self.DQCollectionView.delegate = self;
     [self.DQCollectionView registerClass:[DQFormCollectionViewCell class] forCellWithReuseIdentifier:DQCollectionCellID];
 
+}
+
+- (void)setupTitleLabel{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.font = [UIFont boldSystemFontOfSize:14];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentLeft;
+    
+    [self.contentView addSubview:label];
+    self.titleLabel = label;
+    WeakSelf(weakSelf);
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.contentView).with.offset(53);
+        make.top.mas_equalTo(weakSelf.contentView).with.offset(10);
+        make.height.mas_equalTo(14);
+    }];
+    
+    label.text = self.title;
 }
 
 - (void)setupLine{
@@ -225,7 +263,11 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
 
 - (CGSize)sizeThatFits:(CGSize)size {
     NSArray *array = [self.DataArr firstObject];
-    return CGSizeMake(size.width, array.count * 30 + 30 + 0.5);
+    NSInteger extra = 0;
+    if(self.title.length > 0){
+        extra = 25;
+    }
+    return CGSizeMake(size.width, array.count * 30 + 30 + 0.5 + extra);
 }
 
 @end

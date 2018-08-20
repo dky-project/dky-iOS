@@ -53,7 +53,7 @@
     _orderInqueryTotalMapModel = orderInqueryTotalMapModel;
     
     self.amountSumLabel.text = [NSString stringWithFormat:@"%@",orderInqueryTotalMapModel.TOTALCOUNT ? : @0];
-    self.moneySumLabel.text = [NSString stringWithFormat:@"%@",orderInqueryTotalMapModel.TOTALAMOUNT ? : @0];
+    self.moneySumLabel.text = [NSString stringWithFormat:@"¥%@",orderInqueryTotalMapModel.TOTALAMOUNT ? : @0];
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -160,7 +160,7 @@
 
 - (void)setupSizeLabel{
     WeakSelf(weakSelf);
-    self.sizeLabel = [self createLabelWithName:@"衣大"];
+    self.sizeLabel = [self createLabelWithName:@"尺寸"];
     [self.sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.colorLabel.mas_right).with.offset(45);
         make.centerY.mas_equalTo(weakSelf.imageView);

@@ -14,6 +14,8 @@
 - (instancetype) initWithTitle:(NSString*)title
                          items:(NSArray*)items;
 
+@property (nonatomic, copy) BlockWithSender cancelBlock;
+
 @end
 
 

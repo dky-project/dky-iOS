@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *genderLabel;
 @property (weak, nonatomic) IBOutlet UIView *placehlderView;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *hintLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cycleScrollViewHeightCst;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *seriesLabel;
@@ -91,6 +92,13 @@
     // 设计说明
     self.onSellTimeLabel.text = [NSString stringWithFormat:@"设计说明 : %@",model.description5];
     [self.onSellTimeLabel setText:self.onSellTimeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    // 温馨提示
+    self.hintLabel.text = [NSString stringWithFormat:@"温馨提示 : %@",model.description3];
+    [self.hintLabel setText:self.hintLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
     }];
@@ -175,7 +183,7 @@
 //    self.hintLabel.numberOfLines = 0;
     
     self.cycleScrollViewHeightCst.constant = 880;
-    self.bottomViewHeightCst.constant = 180;
+    self.bottomViewHeightCst.constant = 200;
     
     [self setupBannerView];
 }

@@ -22,4 +22,7 @@
 
 // 自己加的
 @property (nonatomic, assign) DKYFormType formType;
+
+// title
+@property (nonatomic, copy) NSString *title;
 @end

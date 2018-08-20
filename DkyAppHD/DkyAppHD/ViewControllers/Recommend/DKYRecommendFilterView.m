@@ -65,7 +65,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
     [vc jxt_showActionSheetWithTitle:nil
-                             message:@"选择厅号"
+                             message:@"选择系列"
                    appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
                        for (NSString *op in array) {
                            if([op isKindOfClass:[NSString class]]){
@@ -201,7 +201,7 @@
     self.thBtn.layer.borderWidth = 1;
     self.thBtn.tag = 1;
     
-    [self.thBtn setTitle:@"点击选择厅号" forState:UIControlStateNormal];
+    [self.thBtn setTitle:@"点击选择系列" forState:UIControlStateNormal];
     [self.thBtn setTitleColor:[UIColor colorWithHex:0x3C3362] forState:UIControlStateNormal];
     self.thBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.thBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {

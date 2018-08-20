@@ -288,7 +288,7 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4 + 2;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -321,9 +321,6 @@
             }
             break;
         case 4:
-            identifier = NSStringFromClass([DKYSampleDetailGanweiViewCell class]);
-            break;
-        case 5:
             identifier = NSStringFromClass([DQTableViewCell class]);
             break;
         default:
@@ -343,6 +340,7 @@
                 DQTableViewCell *newcell = (DQTableViewCell*)cell;
                 newcell.fd_enforceFrameLayout = YES;
                 newcell.DataArr = [self.priceArray mutableCopy];
+                newcell.title = @"价格";
             }
         }else{
             DQTableViewCell *newcell = (DQTableViewCell*)cell;
@@ -351,12 +349,15 @@
             if(indexPath.row == 1){
                 newcell.formType = DKYFormType_TypeTwo;
                 newcell.DataArr = [self.defaultValueArray mutableCopy];
+                newcell.title = nil;
             }else if(indexPath.row == 2){
                 newcell.formType = DKYFormType_TypeTwo;
                 newcell.DataArr = [self.sampleValueArray mutableCopy];
-            }else if(indexPath.row == 5){
+                newcell.title = @"尺寸规格表";
+            }else if(indexPath.row == 4){
                 newcell.formType = DKYFormType_TypeTwo;
                 newcell.DataArr = [self.ganweiArray mutableCopy];
+                newcell.title = @"杆位";
             }
         }
     }];
@@ -378,6 +379,7 @@
             cell.formType = DKYFormType_TypeTwo;
             cell.DataArr = [self.defaultValueArray mutableCopy];
             cell.hideBottomLine = YES;
+            cell.title = nil;
             return cell;
         }
             break;
@@ -387,6 +389,7 @@
             cell.formType = DKYFormType_TypeTwo;
             cell.DataArr = [self.sampleValueArray mutableCopy];
             cell.hideBottomLine = YES;
+            cell.title = @"尺寸规格表";
             
             return cell;
         }
@@ -400,18 +403,17 @@
                 DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
                 
                 cell.DataArr = [self.priceArray mutableCopy];
+                cell.title = @"价格";
                 return cell;
             }
         }
             break;
-        case 4:
-            cell = [DKYSampleDetailGanweiViewCell sampleDetailGanweiViewCellWithTableView:tableView];
-            break;
-        case 5:{
+        case 4:{
             DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
             cell.formType = DKYFormType_TypeTwo;
             cell.DataArr = [self.ganweiArray mutableCopy];
             cell.hideBottomLine = YES;
+            cell.title = @"杆位";
             return cell;
         }
         default:

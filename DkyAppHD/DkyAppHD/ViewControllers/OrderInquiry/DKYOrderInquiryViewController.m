@@ -268,6 +268,10 @@
                                                           items:[items copy]];
 //    sheetView.attachedView = self.view;
     [MMPopupWindow sharedWindow].touchWildToHide = YES;
+    sheetView.cancelBlock = ^(id sender) {
+        self.selectedOrderAuditStatusModel = nil;
+        weakSelf.headerView.auditStatusLabel.text = nil;
+    };
     [sheetView show];
 }
 

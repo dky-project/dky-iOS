@@ -60,7 +60,7 @@
     self.line3.itemModel = self.line3.itemModel;
     
     self.line4.itemModel.firstContent = itemModel.displayqty;
-    self.line4.itemModel.secondContent = itemModel.pricelist;
+    self.line4.itemModel.secondContent = [NSString stringWithFormat:@"¥%@",itemModel.pricelist];
     self.line4.itemModel = self.line4.itemModel;
 }
 

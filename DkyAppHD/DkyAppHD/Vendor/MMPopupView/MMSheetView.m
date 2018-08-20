@@ -154,6 +154,9 @@
 
 - (void)actionCancel
 {
+    if(self.cancelBlock){
+        self.cancelBlock(self);
+    }
     [self hide];
 }
 
