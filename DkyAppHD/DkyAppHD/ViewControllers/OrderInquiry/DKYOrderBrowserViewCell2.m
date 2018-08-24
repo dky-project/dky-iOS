@@ -19,6 +19,12 @@
 @property (nonatomic, weak) DKYOrderBrowserLineView *line2;
 @property (nonatomic, weak) DKYOrderBrowserLineView *line3;
 @property (nonatomic, weak) DKYOrderBrowserLineView *line4;
+@property (nonatomic, weak) DKYOrderBrowserLineView *line5;
+@property (nonatomic, weak) DKYOrderBrowserLineView *line6;
+@property (nonatomic, weak) DKYOrderBrowserLineView *line7;
+@property (nonatomic, weak) DKYOrderBrowserLineView *line8;
+@property (nonatomic, weak) DKYOrderBrowserLineView *line9;
+@property (nonatomic, weak) DKYOrderBrowserLineView *line10;
 @end
 
 @implementation DKYOrderBrowserViewCell2
@@ -49,19 +55,40 @@
     self.orderNumberLabel.text = orderNum;
     
     self.line1.itemModel.firstContent = itemModel.jgNo;
-    self.line1.itemModel.secondContent = itemModel.fair;
+    self.line1.itemModel.secondContent = itemModel.displayFhDate;
     self.line1.itemModel = self.line1.itemModel;
     
-    self.line2.itemModel.firstContent = itemModel.productName;
-    self.line2.itemModel.secondContent = itemModel.colorName;
+    self.line2.itemModel.firstContent = itemModel.customer;
+    self.line2.itemModel.secondContent = itemModel.mDimNew13Text;
     self.line2.itemModel = self.line2.itemModel;
     
-    self.line3.itemModel.firstContent = itemModel.sizeName;
+    self.line3.itemModel.firstContent = itemModel.pdt;
+    self.line3.itemModel.secondContent = itemModel.mDimNew12Text;
     self.line3.itemModel = self.line3.itemModel;
     
-    self.line4.itemModel.firstContent = itemModel.displayqty;
-    self.line4.itemModel.secondContent = [NSString stringWithFormat:@"¥%@",itemModel.pricelist];
+    self.line4.itemModel.firstContent = itemModel.colorArr;
+    self.line4.itemModel.secondContent = itemModel.mDimNew16Text;
     self.line4.itemModel = self.line4.itemModel;
+    
+    self.line5.itemModel.firstContent = itemModel.xwValue;
+    self.line5.itemModel.secondContent = itemModel.ycValue;
+    self.line5.itemModel = self.line5.itemModel;
+    
+    self.line6.itemModel.firstContent = itemModel.mDimNew22Text;
+    self.line6.itemModel.secondContent = itemModel.jkValue;
+    self.line6.itemModel = self.line6.itemModel;
+    
+    self.line7.itemModel.firstContent = itemModel.xTxt;
+    self.line7.itemModel = self.line7.itemModel;
+    
+    self.line8.itemModel.firstContent = itemModel.huax;
+    self.line8.itemModel = self.line8.itemModel;
+    
+    self.line9.itemModel.firstContent = itemModel.mDimNew10Text;
+    self.line9.itemModel = self.line9.itemModel;
+    
+    self.line10.itemModel.firstContent = itemModel.lingValue;
+    self.line10.itemModel = self.line10.itemModel;
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -106,35 +133,75 @@
     [self.line1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.contentView);
         make.right.mas_equalTo(weakSelf.contentView);
-        make.height.mas_equalTo(25);
+        make.height.mas_equalTo(20);
         make.top.mas_equalTo(weakSelf).with.offset(71);
     }];
     
     DKYOrderBrowserLineItemModel *itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Both;
     itemModel.firstTitle = @"机构号";
-    itemModel.secondTitle = @"性质";
+    itemModel.secondTitle = @"交期";
     self.line1.itemModel = itemModel;
     
     self.line2 = [self createViewWithPrevView:self.line1];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"款号";
-    itemModel.secondTitle = @"颜色";
+    itemModel.firstTitle = @"姓名";
+    itemModel.secondTitle = @"性别";
     self.line2.itemModel = itemModel;
     
     self.line3 = [self createViewWithPrevView:self.line2];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Left;
-    itemModel.firstTitle = @"尺码";
+    itemModel.type = DkyOrderBrowserLineViewType_Both;
+    itemModel.firstTitle = @"款号";
+    itemModel.secondTitle = @"式样";
     self.line3.itemModel = itemModel;
     
     self.line4 = [self createViewWithPrevView:self.line3];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"数量";
-    itemModel.secondTitle = @"标准价";
+    itemModel.firstTitle = @"颜色";
+    itemModel.secondTitle = @"针型";
     self.line4.itemModel = itemModel;
+    
+    self.line5 = [self createViewWithPrevView:self.line4];
+    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+    itemModel.type = DkyOrderBrowserLineViewType_Both;
+    itemModel.firstTitle = @"胸围";
+    itemModel.secondTitle = @"衣长";
+    self.line5.itemModel = itemModel;
+    
+    self.line6 = [self createViewWithPrevView:self.line5];
+    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+    itemModel.type = DkyOrderBrowserLineViewType_Both;
+    itemModel.firstTitle = @"肩型";
+    itemModel.secondTitle = @"肩款";
+    self.line6.itemModel = itemModel;
+    
+    self.line7 = [self createViewWithPrevView:self.line6];
+    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
+    itemModel.firstTitle = @"袖边";
+    self.line7.itemModel = itemModel;
+    
+    self.line8 = [self createViewWithPrevView:self.line7];
+    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
+    itemModel.firstTitle = @"花型";
+    self.line8.itemModel = itemModel;
+    
+    self.line9 = [self createViewWithPrevView:self.line8];
+    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
+    itemModel.firstTitle = @"下边";
+    self.line9.itemModel = itemModel;
+    
+    self.line10 = [self createViewWithPrevView:self.line9];
+    itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
+    itemModel.firstTitle = @"领";
+    itemModel.showBottomLine = NO;
+    self.line10.itemModel = itemModel;
 }
 
 - (DKYOrderBrowserLineView*)createViewWithPrevView:(DKYOrderBrowserLineView*)preView{

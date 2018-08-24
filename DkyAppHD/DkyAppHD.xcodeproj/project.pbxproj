@@ -103,6 +103,10 @@
 		26E42A921F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E42A911F7BEB4D00E976BD /* DKYOrderInqueryTotalMapModel.m */; };
 		26E780681E7D52DD0023FAD0 /* DKYVipNameParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */; };
 		26E870A81EA320F4005A6F7F /* DKYCustomOrderAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */; };
+		26EA6FBE2130354E00A6E3BC /* DKYOrderBrowserViewCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EA6FBC2130354D00A6E3BC /* DKYOrderBrowserViewCell3.m */; };
+		26EA6FBF2130354E00A6E3BC /* DKYOrderBrowserViewCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EA6FBD2130354D00A6E3BC /* DKYOrderBrowserViewCell3.xib */; };
+		26EA6FC32130356400A6E3BC /* DKYOrderBrowserViewCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EA6FC12130356400A6E3BC /* DKYOrderBrowserViewCell4.m */; };
+		26EA6FC42130356400A6E3BC /* DKYOrderBrowserViewCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EA6FC22130356400A6E3BC /* DKYOrderBrowserViewCell4.xib */; };
 		26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC02961E751D0700469C5C /* NSString+STRegex.m */; };
 		26F69A64202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */; };
 		26F69A65202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */; };
@@ -569,6 +573,12 @@
 		26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYVipNameParameter.m; sourceTree = "<group>"; };
 		26E870A61EA320F4005A6F7F /* DKYCustomOrderAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYCustomOrderAllViewController.h; sourceTree = "<group>"; };
 		26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderAllViewController.m; sourceTree = "<group>"; };
+		26EA6FBB2130354D00A6E3BC /* DKYOrderBrowserViewCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserViewCell3.h; sourceTree = "<group>"; };
+		26EA6FBC2130354D00A6E3BC /* DKYOrderBrowserViewCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserViewCell3.m; sourceTree = "<group>"; };
+		26EA6FBD2130354D00A6E3BC /* DKYOrderBrowserViewCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYOrderBrowserViewCell3.xib; sourceTree = "<group>"; };
+		26EA6FC02130356400A6E3BC /* DKYOrderBrowserViewCell4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserViewCell4.h; sourceTree = "<group>"; };
+		26EA6FC12130356400A6E3BC /* DKYOrderBrowserViewCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserViewCell4.m; sourceTree = "<group>"; };
+		26EA6FC22130356400A6E3BC /* DKYOrderBrowserViewCell4.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYOrderBrowserViewCell4.xib; sourceTree = "<group>"; };
 		26EC02951E751D0700469C5C /* NSString+STRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STRegex.h"; sourceTree = "<group>"; };
 		26EC02961E751D0700469C5C /* NSString+STRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+STRegex.m"; sourceTree = "<group>"; };
 		26F69A61202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYDisplayBigImaeViewCell.h; sourceTree = "<group>"; };
@@ -1759,6 +1769,12 @@
 				26851344211EAB77008779FD /* DKYOrderBrowserViewCell2.h */,
 				26851345211EAB77008779FD /* DKYOrderBrowserViewCell2.m */,
 				26851346211EAB77008779FD /* DKYOrderBrowserViewCell2.xib */,
+				26EA6FBB2130354D00A6E3BC /* DKYOrderBrowserViewCell3.h */,
+				26EA6FBC2130354D00A6E3BC /* DKYOrderBrowserViewCell3.m */,
+				26EA6FBD2130354D00A6E3BC /* DKYOrderBrowserViewCell3.xib */,
+				26EA6FC02130356400A6E3BC /* DKYOrderBrowserViewCell4.h */,
+				26EA6FC12130356400A6E3BC /* DKYOrderBrowserViewCell4.m */,
+				26EA6FC22130356400A6E3BC /* DKYOrderBrowserViewCell4.xib */,
 				EB506C501E23C133002A1423 /* DKYOrderBrowserLineView.h */,
 				EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */,
 				EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */,
@@ -2627,6 +2643,7 @@
 				26851348211EAB77008779FD /* DKYOrderBrowserViewCell2.xib in Resources */,
 				EBB0FB971F30277000BCD57C /* DKYDahuoOrderInquiryHeaderView.xib in Resources */,
 				263702C11F64FD3E000991C5 /* DKYDisplayEntryViewCell.xib in Resources */,
+				26EA6FBF2130354E00A6E3BC /* DKYOrderBrowserViewCell3.xib in Resources */,
 				EBABE8B11E14E45200B4C568 /* LaunchScreen.storyboard in Resources */,
 				EBABE8E71E15120500B4C568 /* Localization.strings in Resources */,
 				267CED4E1E20EF5F00ED5872 /* DKYHomeItemTwoView.xib in Resources */,
@@ -2645,6 +2662,7 @@
 				EBC3007F1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib in Resources */,
 				EB97907E1E22373500E2985C /* DKYOrderInfoHeaderView.xib in Resources */,
 				EB3F2BDB1EC97227007F1A89 /* DKYOrderBrowsePopupViewCell.xib in Resources */,
+				26EA6FC42130356400A6E3BC /* DKYOrderBrowserViewCell4.xib in Resources */,
 				263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */,
 				EBD694D31E2785BB00F365C3 /* TOWebViewControllerLocalizable.strings in Resources */,
 				26F69A65202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib in Resources */,
@@ -2762,6 +2780,7 @@
 				265836721FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m in Sources */,
 				EB9511A41E164444008708EF /* UINavigationController+WXSTransition.m in Sources */,
 				EBA731081F21E00600FEFD69 /* PYPhotosNavigationController.m in Sources */,
+				26EA6FBE2130354E00A6E3BC /* DKYOrderBrowserViewCell3.m in Sources */,
 				EB9790951E2245A000E2985C /* YYCache+Utility.m in Sources */,
 				EBD694D81E2785BB00F365C3 /* TOActivitySafari.m in Sources */,
 				EBA9807D1ECD8B050080FC79 /* DKYTongkuanFiveViewCell.m in Sources */,
@@ -2889,6 +2908,7 @@
 				EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */,
 				EB506C401E23A8B8002A1423 /* DKYOrderBrowseViewController.m in Sources */,
 				26210BDA1E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m in Sources */,
+				26EA6FC32130356400A6E3BC /* DKYOrderBrowserViewCell4.m in Sources */,
 				EBD3049F1F20AE5F00CA400C /* FLAnimatedImageView.m in Sources */,
 				266A9B2C202F3BA600F56879 /* DKYProductInfoParameter.m in Sources */,
 				EBA731131F21E00600FEFD69 /* PYPhotoView.m in Sources */,

@@ -171,19 +171,8 @@
         self.fourthBtn.enabled = YES;
     }
     
-    if(self.madeInfoByProductName.colorRangeViewList.count > 0){
-        NSString *defaulColor = nil;
-        for(NSDictionary *obj in self.madeInfoByProductName.colorRangeViewList){
-            NSString *isDefault = [obj objectForKey:@"isDefault"];
-            if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
-                defaulColor = [obj objectForKey:@"colorName"];
-                break;
-            }
-        }
-        
-        // 解析选中颜色，取出()前面
-        NSArray *temp = [defaulColor componentsSeparatedByString:@";"];
-        
+    if(self.madeInfoByProductName.productMadeInfoView.isColorDefault){
+        NSArray *temp = [self.madeInfoByProductName.productMadeInfoView.clrRange componentsSeparatedByString:@","];
         NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
         
         for (NSString *item in temp) {
@@ -199,8 +188,38 @@
         }
         
         [self colorGroupSelected:colors.copy];
-        
-        DLog(@"colors = %@",colors);
+    }else{
+        if(self.madeInfoByProductName.colorRangeViewList.count > 0){
+            NSString *defaulColor = nil;
+            for(NSDictionary *obj in self.madeInfoByProductName.colorRangeViewList){
+                NSString *isDefault = [obj objectForKey:@"isDefault"];
+                if(isDefault != nil && [isDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+                    defaulColor = [obj objectForKey:@"colorName"];
+                    break;
+                }
+            }
+            
+            // 解析选中颜色，取出()前面
+            NSArray *temp = [defaulColor componentsSeparatedByString:@";"];
+            
+            NSMutableArray *colors = [NSMutableArray arrayWithCapacity:temp.count];
+            
+            for (NSString *item in temp) {
+                NSRange range = [item rangeOfString:@"("];
+                NSString *colorName = nil;
+                if(range.location != NSNotFound){
+                    colorName = [item substringToIndex:range.location];
+                }else{
+                    colorName = item;
+                }
+                
+                [colors addObject:colorName];
+            }
+            
+            [self colorGroupSelected:colors.copy];
+            
+            DLog(@"colors = %@",colors);
+        }
     }
 }
 

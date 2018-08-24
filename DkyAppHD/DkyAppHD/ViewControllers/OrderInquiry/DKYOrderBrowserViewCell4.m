@@ -1,17 +1,17 @@
 //
-//  DKYOrderBrowserViewCell.m
+//  DKYOrderBrowserViewCell4.m
 //  DkyAppHD
 //
-//  Created by HaKim on 17/1/9.
-//  Copyright © 2017年 haKim. All rights reserved.
+//  Created by 胡金丽 on 2018/8/24.
+//  Copyright © 2018年 haKim. All rights reserved.
 //
 
-#import "DKYOrderBrowserViewCell.h"
+#import "DKYOrderBrowserViewCell4.h"
 #import "DKYOrderBrowserLineView.h"
 #import "DKYOrderBrowserLineItemModel.h"
 #import "DKYOrderItemDetailModel.h"
 
-@interface DKYOrderBrowserViewCell ()
+@interface DKYOrderBrowserViewCell4 ()
 @property (weak, nonatomic) IBOutlet UILabel *orderNumberLabel;
 
 @property (nonatomic, weak) DKYOrderBrowserLineView *line1;
@@ -28,11 +28,11 @@
 
 @end
 
-@implementation DKYOrderBrowserViewCell
+@implementation DKYOrderBrowserViewCell4
 
 + (instancetype)orderBrowserViewCellWithTableView:(UITableView *)tableView{
-    static NSString *cellID = @"DKYOrderBrowserViewCell";
-    DKYOrderBrowserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    static NSString *cellID = @"DKYOrderBrowserViewCell4";
+    DKYOrderBrowserViewCell4 *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if(cell == nil)
     {
         cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil].lastObject;
@@ -76,7 +76,7 @@
     self.line5.itemModel = self.line5.itemModel;
     
     self.line6.itemModel.firstContent = itemModel.xxTxt;
-    self.line6.itemModel.secondContent = itemModel.xcValue;
+    self.line6.itemModel.secondContent = itemModel.hzxcValue;
     self.line6.itemModel = self.line6.itemModel;
     
     self.line7.itemModel.firstContent = itemModel.mDimNew22Text;
@@ -179,7 +179,7 @@
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Both;
     itemModel.firstTitle = @"袖型";
-    itemModel.secondTitle = @"袖长";
+    itemModel.secondTitle = @"工艺袖长";
     self.line6.itemModel = itemModel;
     
     self.line7 = [self createViewWithPrevView:self.line6];

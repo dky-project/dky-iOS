@@ -389,4 +389,9 @@
 @property (nonatomic, copy) NSString * zzJsonstr;
 @property (nonatomic, copy) NSArray *zzJsonArray;
 
+@property (nonatomic, copy) NSString *colorDefault;
+
+// 客户端属性
+@property (nonatomic, assign) BOOL isColorDefault;
+
 @end

@@ -125,6 +125,26 @@
  */
 @property (nonatomic, copy) NSString *bxText;
 
+/**
+ *  列表显示的样式
+ */
+@property (nonatomic, assign) NSInteger viewType;
+
+/**
+ * 工艺袖长
+ */
+@property (nonatomic, copy) NSString *hzxcValue;
+
+/**
+ * 性别
+ */
+@property (nonatomic, copy) NSString *mDimNew13Text;
+
+/**
+ * 袖边
+ */
+@property (nonatomic, copy) NSString *xTxt;
+
 
 
 // bmpt

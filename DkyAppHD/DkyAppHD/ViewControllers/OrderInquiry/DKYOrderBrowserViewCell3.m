@@ -1,17 +1,17 @@
 //
-//  DKYOrderBrowserViewCell.m
+//  DKYOrderBrowserViewCell3.m
 //  DkyAppHD
 //
-//  Created by HaKim on 17/1/9.
-//  Copyright © 2017年 haKim. All rights reserved.
+//  Created by 胡金丽 on 2018/8/24.
+//  Copyright © 2018年 haKim. All rights reserved.
 //
 
-#import "DKYOrderBrowserViewCell.h"
+#import "DKYOrderBrowserViewCell3.h"
 #import "DKYOrderBrowserLineView.h"
 #import "DKYOrderBrowserLineItemModel.h"
 #import "DKYOrderItemDetailModel.h"
 
-@interface DKYOrderBrowserViewCell ()
+@interface DKYOrderBrowserViewCell3 ()
 @property (weak, nonatomic) IBOutlet UILabel *orderNumberLabel;
 
 @property (nonatomic, weak) DKYOrderBrowserLineView *line1;
@@ -25,14 +25,13 @@
 @property (nonatomic, weak) DKYOrderBrowserLineView *line8;
 @property (nonatomic, weak) DKYOrderBrowserLineView *line9;
 @property (nonatomic, weak) DKYOrderBrowserLineView *line10;
-
 @end
 
-@implementation DKYOrderBrowserViewCell
+@implementation DKYOrderBrowserViewCell3
 
 + (instancetype)orderBrowserViewCellWithTableView:(UITableView *)tableView{
-    static NSString *cellID = @"DKYOrderBrowserViewCell";
-    DKYOrderBrowserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    static NSString *cellID = @"DKYOrderBrowserViewCell3";
+    DKYOrderBrowserViewCell3 *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if(cell == nil)
     {
         cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil].lastObject;
@@ -75,12 +74,11 @@
     self.line5.itemModel.secondContent = itemModel.ycValue;
     self.line5.itemModel = self.line5.itemModel;
     
-    self.line6.itemModel.firstContent = itemModel.xxTxt;
-    self.line6.itemModel.secondContent = itemModel.xcValue;
+    self.line6.itemModel.firstContent = itemModel.mDimNew22Text;
     self.line6.itemModel = self.line6.itemModel;
     
-    self.line7.itemModel.firstContent = itemModel.mDimNew22Text;
-    self.line7.itemModel.secondContent = itemModel.jkValue;
+    self.line7.itemModel.firstContent = itemModel.xxTxt;
+    self.line7.itemModel.secondContent = itemModel.hzxcValue;
     self.line7.itemModel = self.line7.itemModel;
     
     self.line8.itemModel.firstContent = itemModel.huax;
@@ -125,7 +123,6 @@
     }
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     [self setLineView];
 }
 
@@ -177,16 +174,15 @@
     
     self.line6 = [self createViewWithPrevView:self.line5];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
-    itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"袖型";
-    itemModel.secondTitle = @"袖长";
+    itemModel.type = DkyOrderBrowserLineViewType_Left;
+    itemModel.firstTitle = @"肩型";
     self.line6.itemModel = itemModel;
     
     self.line7 = [self createViewWithPrevView:self.line6];
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Both;
-    itemModel.firstTitle = @"肩型";
-    itemModel.secondTitle = @"肩款";
+    itemModel.firstTitle = @"袖型";
+    itemModel.secondTitle = @"工艺袖长";
     self.line7.itemModel = itemModel;
     
     self.line8 = [self createViewWithPrevView:self.line7];

@@ -56,6 +56,12 @@
         self.xcLeftValue = prefix;
         self.xcRightValue = suffix;
     }
+    
+    if([self.colorDefault caseInsensitiveCompare:@"Y"] == NSOrderedSame){
+        self.isColorDefault = YES;
+    }else{
+        self.isColorDefault = NO;
+    }
 }
 
 @end
