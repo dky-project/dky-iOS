@@ -107,6 +107,8 @@
 		26EA6FBF2130354E00A6E3BC /* DKYOrderBrowserViewCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EA6FBD2130354D00A6E3BC /* DKYOrderBrowserViewCell3.xib */; };
 		26EA6FC32130356400A6E3BC /* DKYOrderBrowserViewCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EA6FC12130356400A6E3BC /* DKYOrderBrowserViewCell4.m */; };
 		26EA6FC42130356400A6E3BC /* DKYOrderBrowserViewCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EA6FC22130356400A6E3BC /* DKYOrderBrowserViewCell4.xib */; };
+		26EA6FC82131904C00A6E3BC /* DKYOrderBrowserViewCell5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EA6FC62131904B00A6E3BC /* DKYOrderBrowserViewCell5.xib */; };
+		26EA6FC92131904C00A6E3BC /* DKYOrderBrowserViewCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EA6FC72131904C00A6E3BC /* DKYOrderBrowserViewCell5.m */; };
 		26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC02961E751D0700469C5C /* NSString+STRegex.m */; };
 		26F69A64202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */; };
 		26F69A65202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */; };
@@ -579,6 +581,9 @@
 		26EA6FC02130356400A6E3BC /* DKYOrderBrowserViewCell4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserViewCell4.h; sourceTree = "<group>"; };
 		26EA6FC12130356400A6E3BC /* DKYOrderBrowserViewCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserViewCell4.m; sourceTree = "<group>"; };
 		26EA6FC22130356400A6E3BC /* DKYOrderBrowserViewCell4.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYOrderBrowserViewCell4.xib; sourceTree = "<group>"; };
+		26EA6FC52131904B00A6E3BC /* DKYOrderBrowserViewCell5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYOrderBrowserViewCell5.h; sourceTree = "<group>"; };
+		26EA6FC62131904B00A6E3BC /* DKYOrderBrowserViewCell5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYOrderBrowserViewCell5.xib; sourceTree = "<group>"; };
+		26EA6FC72131904C00A6E3BC /* DKYOrderBrowserViewCell5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYOrderBrowserViewCell5.m; sourceTree = "<group>"; };
 		26EC02951E751D0700469C5C /* NSString+STRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STRegex.h"; sourceTree = "<group>"; };
 		26EC02961E751D0700469C5C /* NSString+STRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+STRegex.m"; sourceTree = "<group>"; };
 		26F69A61202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYDisplayBigImaeViewCell.h; sourceTree = "<group>"; };
@@ -1775,6 +1780,9 @@
 				26EA6FC02130356400A6E3BC /* DKYOrderBrowserViewCell4.h */,
 				26EA6FC12130356400A6E3BC /* DKYOrderBrowserViewCell4.m */,
 				26EA6FC22130356400A6E3BC /* DKYOrderBrowserViewCell4.xib */,
+				26EA6FC52131904B00A6E3BC /* DKYOrderBrowserViewCell5.h */,
+				26EA6FC72131904C00A6E3BC /* DKYOrderBrowserViewCell5.m */,
+				26EA6FC62131904B00A6E3BC /* DKYOrderBrowserViewCell5.xib */,
 				EB506C501E23C133002A1423 /* DKYOrderBrowserLineView.h */,
 				EB506C511E23C133002A1423 /* DKYOrderBrowserLineView.m */,
 				EB506C531E23C141002A1423 /* DKYOrderBrowserLineView.xib */,
@@ -2675,6 +2683,7 @@
 				EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */,
 				EB9884CE1E28658900BAFADE /* SXDetails.css in Resources */,
 				EBABE8AC1E14E45200B4C568 /* Main.storyboard in Resources */,
+				26EA6FC82131904C00A6E3BC /* DKYOrderBrowserViewCell5.xib in Resources */,
 				EBBF213E1F32B8BF0047471B /* DKYDisplayCategoryViewCell.xib in Resources */,
 				EB41AC4D1E1F9E7F0015A7CF /* DKYHomeItemView.xib in Resources */,
 			);
@@ -2868,6 +2877,7 @@
 				EB9ACBD41E5EB8FD0007517C /* DKYDahuoOrderSizeModel.m in Sources */,
 				26E780681E7D52DD0023FAD0 /* DKYVipNameParameter.m in Sources */,
 				EBD115E61EA4583700AF6F5C /* DKYTongkuanFiveViewController.m in Sources */,
+				26EA6FC92131904C00A6E3BC /* DKYOrderBrowserViewCell5.m in Sources */,
 				EB9511AE1E164444008708EF /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				EBCBE11C1F3D5DDE008D7A3C /* DKYSizeViewListItemModel.m in Sources */,
 				26A6FA601E61A13C00376194 /* DKYDimNewListItemModel.m in Sources */,

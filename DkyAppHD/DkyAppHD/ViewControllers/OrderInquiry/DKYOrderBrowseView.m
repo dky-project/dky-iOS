@@ -12,6 +12,7 @@
 #import "DKYOrderBrowserViewCell2.h"
 #import "DKYOrderBrowserViewCell3.h"
 #import "DKYOrderBrowserViewCell4.h"
+#import "DKYOrderBrowserViewCell5.h"
 #import "DKYOrderItemDetailModel.h"
 
 @interface DKYOrderBrowseView ()<UITableViewDelegate,UITableViewDataSource>
@@ -155,46 +156,57 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  280;
+    DKYOrderItemDetailModel *model = [self.detailOrders objectAtIndex:indexPath.row];
+    
+    return model.isBigOrder ? 180 : 280;
+
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DKYOrderItemDetailModel *model = [self.detailOrders objectAtIndex:indexPath.row];
     UITableViewCell *tcell = nil;
-    switch (model.viewType) {
-        case 1:{
-            DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
-            cell.itemModel = model;
-            tcell = cell;
+    
+    if(model.isBigOrder){
+        DKYOrderBrowserViewCell5 *cell = [DKYOrderBrowserViewCell5 orderBrowserViewCellWithTableView:tableView];
+        cell.itemModel = model;
+        tcell = cell;
+    }else{
+        switch (model.viewType) {
+            case 1:{
+                DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
+                cell.itemModel = model;
+                tcell = cell;
+            }
+                break;
+            case 2:{
+                DKYOrderBrowserViewCell2 *cell = [DKYOrderBrowserViewCell2 orderBrowserViewCellWithTableView:tableView];
+                cell.itemModel = model;
+                tcell = cell;
+            }
+                break;
+            case 3:{
+                DKYOrderBrowserViewCell3 *cell = [DKYOrderBrowserViewCell3 orderBrowserViewCellWithTableView:tableView];
+                cell.itemModel = model;
+                tcell = cell;
+            }
+                break;
+            case 4:{
+                DKYOrderBrowserViewCell4 *cell = [DKYOrderBrowserViewCell4 orderBrowserViewCellWithTableView:tableView];
+                cell.itemModel = model;
+                tcell = cell;
+            }
+                break;
+                
+            default:{
+                DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
+                cell.itemModel = model;
+                tcell = cell;
+            }
+                break;
         }
-            break;
-        case 2:{
-            DKYOrderBrowserViewCell2 *cell = [DKYOrderBrowserViewCell2 orderBrowserViewCellWithTableView:tableView];
-            cell.itemModel = model;
-            tcell = cell;
-        }
-            break;
-        case 3:{
-            DKYOrderBrowserViewCell3 *cell = [DKYOrderBrowserViewCell3 orderBrowserViewCellWithTableView:tableView];
-            cell.itemModel = model;
-            tcell = cell;
-        }
-            break;
-        case 4:{
-            DKYOrderBrowserViewCell4 *cell = [DKYOrderBrowserViewCell4 orderBrowserViewCellWithTableView:tableView];
-            cell.itemModel = model;
-            tcell = cell;
-        }
-            break;
-            
-        default:{
-            DKYOrderBrowserViewCell *cell = [DKYOrderBrowserViewCell orderBrowserViewCellWithTableView:tableView];
-            cell.itemModel = model;
-            tcell = cell;
-        }
-            break;
     }
+    
     return tcell;
 }
 
