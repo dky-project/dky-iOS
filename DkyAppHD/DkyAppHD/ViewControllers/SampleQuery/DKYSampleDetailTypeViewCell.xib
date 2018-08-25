@@ -70,13 +70,13 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计说明：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ux-3n-Shg" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="73" width="72" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计说明：" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ux-3n-Shg" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="53" y="73" width="683" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-43-Iea" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="53" y="130" width="72" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示：" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-43-Iea" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="53" y="130" width="683" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -90,13 +90,15 @@
                             <constraint firstAttribute="bottom" secondItem="3DD-b2-gV9" secondAttribute="bottom" id="HPw-MD-bcR"/>
                             <constraint firstItem="Uqg-43-Iea" firstAttribute="leading" secondItem="6ux-3n-Shg" secondAttribute="leading" id="Iqx-wW-cMe"/>
                             <constraint firstItem="51g-zn-OPJ" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="J98-9i-KHJ"/>
-                            <constraint firstItem="51g-zn-OPJ" firstAttribute="top" secondItem="6ux-3n-Shg" secondAttribute="bottom" constant="95" id="M4o-Qx-ZOW"/>
+                            <constraint firstItem="Uqg-43-Iea" firstAttribute="trailing" secondItem="6ux-3n-Shg" secondAttribute="trailing" id="Jxl-Vp-fjL"/>
                             <constraint firstAttribute="height" constant="210" id="T16-Pf-ce2"/>
-                            <constraint firstItem="Uqg-43-Iea" firstAttribute="top" secondItem="6ux-3n-Shg" secondAttribute="bottom" constant="40" id="UPR-N0-2rL"/>
                             <constraint firstItem="h7K-1n-5Gl" firstAttribute="leading" secondItem="bp6-Ax-xct" secondAttribute="leading" constant="53" id="WVW-8Q-cug"/>
+                            <constraint firstItem="Uqg-43-Iea" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="bottom" constant="75" id="YbP-9y-fGC"/>
+                            <constraint firstAttribute="trailing" secondItem="6ux-3n-Shg" secondAttribute="trailing" constant="32" id="f13-St-6PH"/>
                             <constraint firstItem="Xwy-t2-DMd" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="top" id="oOl-ZG-Igf"/>
                             <constraint firstItem="Xwy-t2-DMd" firstAttribute="leading" secondItem="3DD-b2-gV9" secondAttribute="trailing" constant="26.5" id="q8K-1u-rPe"/>
                             <constraint firstItem="3DD-b2-gV9" firstAttribute="centerX" secondItem="bp6-Ax-xct" secondAttribute="centerX" id="w6d-M5-m8Y"/>
+                            <constraint firstItem="51g-zn-OPJ" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="bottom" constant="130" id="xQ5-m4-lZu"/>
                         </constraints>
                     </view>
                 </subviews>

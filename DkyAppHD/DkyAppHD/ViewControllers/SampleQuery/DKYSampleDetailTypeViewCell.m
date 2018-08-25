@@ -183,7 +183,7 @@
 //    self.hintLabel.numberOfLines = 0;
     
     self.cycleScrollViewHeightCst.constant = 880;
-    self.bottomViewHeightCst.constant = 200;
+    //self.bottomViewHeightCst.constant = 200;
     
     [self setupBannerView];
 }

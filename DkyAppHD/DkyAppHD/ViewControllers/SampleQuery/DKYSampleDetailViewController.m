@@ -402,6 +402,7 @@
             }else{
                 DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
                 
+                cell.formType = DKYFormType_TypeTwo;
                 cell.DataArr = [self.priceArray mutableCopy];
                 cell.title = @"价格";
                 return cell;
