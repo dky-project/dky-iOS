@@ -86,11 +86,11 @@
     self.line8.itemModel.firstContent = itemModel.huax;
     self.line8.itemModel = self.line8.itemModel;
     
-    self.line9.itemModel.firstContent = itemModel.mDimNew10Text;
-    self.line9.itemModel.secondContent = itemModel.mDimNew32Text;
+    self.line9.itemModel.firstContent = itemModel.xbTxt;
+    self.line9.itemModel.secondContent = itemModel.xkTxt;
     self.line9.itemModel = self.line9.itemModel;
     
-    self.line10.itemModel.firstContent = itemModel.lingValue;
+    self.line10.itemModel.firstContent = itemModel.lTxt;
     self.line10.itemModel = self.line10.itemModel;
 }
 
@@ -186,7 +186,7 @@
     itemModel = [[DKYOrderBrowserLineItemModel alloc] init];
     itemModel.type = DkyOrderBrowserLineViewType_Both;
     itemModel.firstTitle = @"肩型";
-    itemModel.secondTitle = @"肩款";
+    itemModel.secondTitle = @"肩宽";
     self.line7.itemModel = itemModel;
     
     self.line8 = [self createViewWithPrevView:self.line7];

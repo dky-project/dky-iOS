@@ -145,6 +145,20 @@
  */
 @property (nonatomic, copy) NSString *xTxt;
 
+/**
+ * 新袖口
+ */
+@property (nonatomic, copy) NSString *xkTxt;
+
+/**
+ * 新下边
+ */
+@property (nonatomic, copy) NSString *xbTxt;
+
+/**
+ * 领
+ */
+@property (nonatomic, copy) NSString *lTxt;
 
 
 // bmpt
