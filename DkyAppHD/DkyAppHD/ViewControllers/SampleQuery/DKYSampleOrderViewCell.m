@@ -410,7 +410,7 @@ static const CGFloat basicItemHeight = 45;
     };
     itemModel.content = nil;
     itemModel.zoomed = YES;
-    itemModel.enabled = NO;
+    //itemModel.enabled = NO;
     self.clientView.itemModel = itemModel;
 }
 
