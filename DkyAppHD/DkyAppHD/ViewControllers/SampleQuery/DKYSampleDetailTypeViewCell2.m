@@ -1,17 +1,17 @@
 //
-//  DKYSampleDetailTypeViewCell.m
+//  DKYSampleDetailTypeViewCell2.m
 //  DkyAppHD
 //
-//  Created by HaKim on 17/1/4.
-//  Copyright © 2017年 haKim. All rights reserved.
+//  Created by 胡金丽 on 2018/8/26.
+//  Copyright © 2018年 haKim. All rights reserved.
 //
 
-#import "DKYSampleDetailTypeViewCell.h"
+#import "DKYSampleDetailTypeViewCell2.h"
 #import "SDCycleScrollView.h"
 #import "DKYSampleProductInfoModel.h"
 #import "PYPhotoBrowser.h"
 
-@interface DKYSampleDetailTypeViewCell ()<SDCycleScrollViewDelegate,PYPhotoBrowseViewDelegate>
+@interface DKYSampleDetailTypeViewCell2 ()<SDCycleScrollViewDelegate,PYPhotoBrowseViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *sampleTypeLabel;
 
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *genderLabel;
@@ -26,7 +26,7 @@
 @property (nonatomic, weak) SDCycleScrollView *cycleScrollView;
 
 @end
-@implementation DKYSampleDetailTypeViewCell
+@implementation DKYSampleDetailTypeViewCell2
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -36,11 +36,11 @@
 }
 
 + (instancetype)sampleDetailTypeViewCellWithTableView:(UITableView *)tableView{
-    static NSString *cellID = @"DKYSampleDetailTypeViewCell";
-    DKYSampleDetailTypeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    static NSString *cellID = @"DKYSampleDetailTypeViewCell2";
+    DKYSampleDetailTypeViewCell2 *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if(cell == nil)
     {
-        cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([DKYSampleDetailTypeViewCell class]) owner:self options:nil].lastObject;
+        cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([DKYSampleDetailTypeViewCell2 class]) owner:self options:nil].lastObject;
     }
     return cell;
 }
@@ -97,7 +97,7 @@
     }];
     
     // 温馨提示
-    self.hintLabel.text = [NSString stringWithFormat:@"定制温馨提示 : %@",model.description3];
+    self.hintLabel.text = [NSString stringWithFormat:@"制温馨提示 : %@",model.description3];
     [self.hintLabel setText:self.hintLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
@@ -119,7 +119,7 @@
     
     // 2.2 设置初始化图片下标（即当前点击第几张图片）
     photoBroseView.currentIndex = index;
-
+    
     CGRect frameFormWindow = [cycleScrollView.superview convertRect:cycleScrollView.frame toView:[UIApplication sharedApplication].keyWindow];
     photoBroseView.frameFormWindow = frameFormWindow;
     photoBroseView.frameToWindow = frameFormWindow;
@@ -165,7 +165,7 @@
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
                                                            if(buttonIndex == 1){
-                                                            // 保存到相册
+                                                               // 保存到相册
                                                                UIImageWriteToSavedPhotosAlbum(image, self, @selector(image: didFinishSavingWithError: contextInfo:), nil);
                                                            }
                                                        }
@@ -182,9 +182,9 @@
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-//    self.hintLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
-//    self.hintLabel.lineSpacing = 5.0;
-//    self.hintLabel.numberOfLines = 0;
+    //    self.hintLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
+    //    self.hintLabel.lineSpacing = 5.0;
+    //    self.hintLabel.numberOfLines = 0;
     
     self.cycleScrollViewHeightCst.constant = 880;
     //self.bottomViewHeightCst.constant = 200;

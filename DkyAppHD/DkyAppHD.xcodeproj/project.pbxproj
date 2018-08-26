@@ -47,6 +47,9 @@
 		263702D81F65321B000991C5 /* DKYGetProductListGhPageParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702D71F65321B000991C5 /* DKYGetProductListGhPageParameter.m */; };
 		263702DB1F65377B000991C5 /* DKYGetProductGroupPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702DA1F65377B000991C5 /* DKYGetProductGroupPageModel.m */; };
 		263702DE1F655BC2000991C5 /* DKYGetProductListGhPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 263702DD1F655BC2000991C5 /* DKYGetProductListGhPageModel.m */; };
+		263BF2162132BFE90087D831 /* DKYSampleDetailViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BF2152132BFE90087D831 /* DKYSampleDetailViewController2.m */; };
+		263BF21A2132C1A60087D831 /* DKYSampleDetailTypeViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BF2182132C1A60087D831 /* DKYSampleDetailTypeViewCell2.m */; };
+		263BF21B2132C1A60087D831 /* DKYSampleDetailTypeViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263BF2192132C1A60087D831 /* DKYSampleDetailTypeViewCell2.xib */; };
 		263CC1541E1555E7002FBB50 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */; };
 		263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */; };
 		263CC1591E1555E7002FBB50 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1431E1555E7002FBB50 /* NSString+Utility.m */; };
@@ -463,6 +466,11 @@
 		263702DA1F65377B000991C5 /* DKYGetProductGroupPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductGroupPageModel.m; sourceTree = "<group>"; };
 		263702DC1F655BC2000991C5 /* DKYGetProductListGhPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductListGhPageModel.h; sourceTree = "<group>"; };
 		263702DD1F655BC2000991C5 /* DKYGetProductListGhPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductListGhPageModel.m; sourceTree = "<group>"; };
+		263BF2142132BFE80087D831 /* DKYSampleDetailViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailViewController2.h; sourceTree = "<group>"; };
+		263BF2152132BFE90087D831 /* DKYSampleDetailViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailViewController2.m; sourceTree = "<group>"; };
+		263BF2172132C1A60087D831 /* DKYSampleDetailTypeViewCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailTypeViewCell2.h; sourceTree = "<group>"; };
+		263BF2182132C1A60087D831 /* DKYSampleDetailTypeViewCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailTypeViewCell2.m; sourceTree = "<group>"; };
+		263BF2192132C1A60087D831 /* DKYSampleDetailTypeViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYSampleDetailTypeViewCell2.xib; sourceTree = "<group>"; };
 		263CC1391E1555E7002FBB50 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
 		263CC13A1E1555E7002FBB50 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
 		263CC13B1E1555E7002FBB50 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1351,6 +1359,9 @@
 				EBC3007B1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.h */,
 				EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */,
 				EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */,
+				263BF2172132C1A60087D831 /* DKYSampleDetailTypeViewCell2.h */,
+				263BF2182132C1A60087D831 /* DKYSampleDetailTypeViewCell2.m */,
+				263BF2192132C1A60087D831 /* DKYSampleDetailTypeViewCell2.xib */,
 				EBB3BAF71E63F2240097D1CE /* DKYSampleDetailPriceViewCell.h */,
 				EBB3BAF81E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m */,
 				EBD116021EA49D7400AF6F5C /* DKYSampleOrderPopupView.h */,
@@ -1679,6 +1690,8 @@
 				26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */,
 				EBC300701E1CDC8500F602E6 /* DKYSampleDetailViewController.h */,
 				EBC300711E1CDC8500F602E6 /* DKYSampleDetailViewController.m */,
+				263BF2142132BFE80087D831 /* DKYSampleDetailViewController2.h */,
+				263BF2152132BFE90087D831 /* DKYSampleDetailViewController2.m */,
 				2662907E1E9D03F300886274 /* DKYSampleDetailAllViewController.h */,
 				2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */,
 				26DAD0DE1E1A4804008EE55F /* View */,
@@ -2673,6 +2686,7 @@
 				26EA6FC42130356400A6E3BC /* DKYOrderBrowserViewCell4.xib in Resources */,
 				263CC1551E1555E7002FBB50 /* MBProgressHUD.bundle in Resources */,
 				EBD694D31E2785BB00F365C3 /* TOWebViewControllerLocalizable.strings in Resources */,
+				263BF21B2132C1A60087D831 /* DKYSampleDetailTypeViewCell2.xib in Resources */,
 				26F69A65202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib in Resources */,
 				EBABE8AE1E14E45200B4C568 /* Assets.xcassets in Resources */,
 				EBB0FB9C1F30293600BCD57C /* DKYDahuoOrderInfoHeaderView.xib in Resources */,
@@ -2847,6 +2861,7 @@
 				26DAD0D51E1A4188008EE55F /* DKYConfigManager.m in Sources */,
 				EB9790781E222A7900E2985C /* DKYHttpRequestParameter.m in Sources */,
 				EB16D0F41E56EC2100939072 /* DKYCustomOrderPatternItemView.m in Sources */,
+				263BF2162132BFE90087D831 /* DKYSampleDetailViewController2.m in Sources */,
 				EB97906F1E221B6F00E2985C /* MMPopupView.m in Sources */,
 				EBA404D41ED66BEC00901483 /* DKYGetSizeDataParameter.m in Sources */,
 				EB97F2B81E25C36A00BDC705 /* DQCanEditTableViewCell.m in Sources */,
@@ -3007,6 +3022,7 @@
 				EB9511B21E164444008708EF /* WXSTransitionManager.m in Sources */,
 				263702BC1F643308000991C5 /* DKYGetProductListByGhModel.m in Sources */,
 				EBB59ECE1E56B90C00F88A4C /* DKYCustomOrderGenderItemView.m in Sources */,
+				263BF21A2132C1A60087D831 /* DKYSampleDetailTypeViewCell2.m in Sources */,
 				EB506C361E23706F002A1423 /* DKYPageModel.m in Sources */,
 				263CC1611E1555E7002FBB50 /* UIView+TWExtension.m in Sources */,
 				EBD694D61E2785BB00F365C3 /* NJKWebViewProgressView.m in Sources */,

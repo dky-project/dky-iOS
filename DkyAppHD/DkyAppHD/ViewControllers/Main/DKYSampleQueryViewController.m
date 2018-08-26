@@ -18,6 +18,7 @@
 #import "DKYDimNewListModel.h"
 #import "DKYSampleDetailAllViewController.h"
 #import "DKYProductCollectParameter.h"
+#import "DKYSampleDetailViewController2.h"
 
 @interface DKYSampleQueryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
