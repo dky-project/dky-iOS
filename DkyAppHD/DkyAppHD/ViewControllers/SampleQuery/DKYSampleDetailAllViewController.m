@@ -232,7 +232,6 @@
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
     DKYSampleModel *sampleModel = [self.samples objectAtIndex:pageIndex];
-    sampleModel.isDh = YES;
     if(sampleModel.isDh){
         static NSString *gridId = @"sample2.identifier";
         DKYSampleDetailViewController2 *viewController = [magicView dequeueReusablePageWithIdentifier:gridId];

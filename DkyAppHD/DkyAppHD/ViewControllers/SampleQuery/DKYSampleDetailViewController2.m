@@ -75,8 +75,9 @@
             weakSelf.sampleProductInfo.mProductId = @(weakSelf.sampleModel.mProductId);
             weakSelf.sampleProductInfo.pdt = weakSelf.sampleModel.name;
             
-            [self setupDefaultValueArray];
-            [self setupGanweiArray];
+            [weakSelf setupSampleValueArray];
+            [weakSelf setupDefaultValueArray];
+            [weakSelf setupGanweiArray];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -153,7 +154,7 @@
     [DKYHUDTool show];
     [self getProductInfoFromServer];
     [self queryPriceListFromServer];
-    [self queryValueFromServer];
+    //[self queryValueFromServer];
     
     dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
         [DKYHUDTool dismiss];
@@ -186,26 +187,34 @@
 }
 
 - (void)setupSampleValueArray{
-    NSMutableArray *yc = [NSMutableArray arrayWithCapacity:self.sampleValues.count];
-    [yc addObject:@"衣长"];
+    NSMutableArray *arr1 = [NSMutableArray arrayWithCapacity:1];
+    [arr1 addObject:@"  "];
     
-    NSMutableArray *xc = [NSMutableArray arrayWithCapacity:self.sampleValues.count];
-    [xc addObject:@"袖长"];
+    NSMutableArray *arr2 = [NSMutableArray arrayWithCapacity:1];
+    [arr2 addObject:@"  "];
     
-    NSMutableArray *jk = [NSMutableArray arrayWithCapacity:self.sampleValues.count];
-    [jk addObject:@"肩宽"];
+    NSMutableArray *arr3 = [NSMutableArray arrayWithCapacity:1];
+    [arr3 addObject:@"  "];
     
-    NSMutableArray *xw = [NSMutableArray arrayWithCapacity:self.sampleValues.count];
-    [xw addObject:@"胸围"];
+    NSMutableArray *arr4 = [NSMutableArray arrayWithCapacity:1];
+    [arr4 addObject:@"  "];
     
-    for (DKYSampleValueInfoModel *model in self.sampleValues) {
-        [yc addObject:model.ycValue];
-        [xc addObject:model.xcValue];
-        [jk addObject:model.jkValue];
-        [xw addObject:model.xwValue];
+    NSMutableArray *arr5 = [NSMutableArray arrayWithCapacity:1];
+    [arr5 addObject:@"  "];
+    
+    NSMutableArray *arr6 = [NSMutableArray arrayWithCapacity:1];
+    [arr6 addObject:@"  "];
+    
+    if(self.sampleProductInfo.sizeList.count > 0){
+        arr1[0] = [self.sampleProductInfo.sizeList objectOrNilAtIndex:0] ? : @"  ";
+        arr2[0] = [self.sampleProductInfo.sizeList objectOrNilAtIndex:1] ? : @"  ";
+        arr3[0] = [self.sampleProductInfo.sizeList objectOrNilAtIndex:2] ? : @"  ";
+        arr4[0] = [self.sampleProductInfo.sizeList objectOrNilAtIndex:3] ? : @"  ";
+        arr5[0] = [self.sampleProductInfo.sizeList objectOrNilAtIndex:4] ? : @"  ";
+        arr6[0] = [self.sampleProductInfo.sizeList objectOrNilAtIndex:5] ? : @"  ";
     }
     
-    self.sampleValueArray = @[[xw copy],[yc copy],[xc copy],[jk copy]];
+    self.sampleValueArray = @[[arr1 copy],[arr2 copy],[arr3 copy],[arr4 copy],[arr5 copy],[arr6 copy]];
 }
 
 - (void)setupDefaultValueArray{
