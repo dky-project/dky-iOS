@@ -37,6 +37,7 @@
 #define kNavigationBarHeight       (64)
 
 #define kPageSize                   (20)
+#define kPageSize2                  (50)
 #define iOS_VER [[[UIDevice currentDevice] systemVersion] floatValue]
 
 #define WeakSelf(weakSelf)      __weak __typeof(&*self)weakSelf = self;

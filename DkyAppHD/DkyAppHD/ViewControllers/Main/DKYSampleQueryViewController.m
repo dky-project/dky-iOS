@@ -110,7 +110,7 @@
     DKYSampleQueryParameter *p = self.sampleQueryParameter;
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
-    p.pageSize = @(kPageSize);
+    p.pageSize = @(kPageSize2);
     p.name = self.filtrateView.name;
 
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
@@ -146,7 +146,7 @@
     DKYSampleQueryParameter *p = self.sampleQueryParameter;
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
-    p.pageSize = @(kPageSize);
+    p.pageSize = @(kPageSize2);
     p.name = self.filtrateView.name;
     
     [[DKYHttpRequestManager sharedInstance] productPageWithParameter:p Success:^(NSInteger statusCode, id data) {
