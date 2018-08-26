@@ -12,6 +12,7 @@
 #import "DKYSampleProductInfoModel.h"
 #import "DKYSampleModel.h"
 #import "DKYProductCollectParameter.h"
+#import "DKYSampleDetailViewController2.h"
 
 @interface DKYSampleDetailAllViewController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 
@@ -230,14 +231,27 @@
 }
 
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex {
-    static NSString *gridId = @"sample.identifier";
-    DKYSampleDetailViewController *viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
-    if (!viewController) {
-        viewController = (DKYSampleDetailViewController*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController class]];
+    DKYSampleModel *sampleModel = [self.samples objectAtIndex:pageIndex];
+    sampleModel.isDh = YES;
+    if(sampleModel.isDh){
+        static NSString *gridId = @"sample2.identifier";
+        DKYSampleDetailViewController2 *viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
+        if (!viewController) {
+            viewController = (DKYSampleDetailViewController2*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController2 class]];
+        }
+        ;
+        viewController.sampleModel = sampleModel;
+        return viewController;
+    }else{
+        static NSString *gridId = @"sample.identifier";
+        DKYSampleDetailViewController *viewController = [magicView dequeueReusablePageWithIdentifier:gridId];
+        if (!viewController) {
+            viewController = (DKYSampleDetailViewController*)[UIStoryboard viewControllerWithClass:[DKYSampleDetailViewController class]];
+        }
+        DLog(@"DKYSampleDetailViewController = %@",viewController);
+        viewController.sampleModel = sampleModel;
+        return viewController;
     }
-    DLog(@"DKYSampleDetailViewController = %@",viewController);
-    viewController.sampleModel = [self.samples objectOrNilAtIndex:pageIndex];
-    return viewController;
 }
 
 - (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex{
