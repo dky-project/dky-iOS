@@ -59,7 +59,6 @@
 // 图片单击
 - (void)imagePageDidChanged:(NSNotification *)notification
 {
-    
     // 取出选中图片
     NSDictionary *userInfo = notification.userInfo;
     PYPhotoView *photoView = userInfo[PYImagePageDidChangedNotification];
@@ -89,7 +88,7 @@
     lastWindow.rootViewController = photosReader;
     
     // 设置窗口级别(最高级)
-    lastWindow.windowLevel = UIWindowLevelAlert;
+    lastWindow.windowLevel = UIWindowLevelStatusBar;
     // 呈现在某一个window上
     [self.photosReader showPhotosToWindow:lastWindow];
 }

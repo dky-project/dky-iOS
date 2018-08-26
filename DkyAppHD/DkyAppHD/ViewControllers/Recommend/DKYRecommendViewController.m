@@ -178,19 +178,49 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 0){
+        DKYDisplayBigImaeViewCell *cell = (DKYDisplayBigImaeViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        [self showOptionsPicker:cell.image];
+    }
+    
     if(indexPath.section == 1){
-//        DKYSampleDetailAllViewController *vc = [[DKYSampleDetailAllViewController alloc] init];
-//        vc.samples = self.samples;
-//        vc.currentIndex = indexPath.item;
-//        vc.issource = @2;
-//        [self.navigationController pushViewController:vc animated:YES];
-        
         DKYDisplayViewController *vc = [[DKYDisplayViewController alloc] init];
         DKYGetProductListByGhModel *model = [self.productList objectOrNilAtIndex:indexPath.item];
     
         vc.groupNo = model.groupNo;
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (void)showOptionsPicker:(UIImage*)image{
+    NSMutableArray *item = @[@"保存图片到相册"].mutableCopy;
+    
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:nil
+                                             cancelButtonTitle:kCancelTitle
+                                                       clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+                                                           if(buttonIndex == 1){
+                                                               // 保存到相册
+                                                               UIImageWriteToSavedPhotosAlbum(image, self, @selector(image: didFinishSavingWithError: contextInfo:), nil);
+                                                           }
+                                                       }
+                                         otherButtonTitleArray:item];
+    actionSheet.scrolling = item.count > 10;
+    actionSheet.visibleButtonCount = 10;
+    actionSheet.destructiveButtonIndexSet = [NSIndexSet indexSetWithIndex:0];
+    [actionSheet show];
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(error){
+                [MBProgressHUD showError:@"保存失败"] ;
+            }else{
+                [MBProgressHUD showSuccess:@"保存成功"];
+            }
+        });
+    });
 }
 
 #pragma mark - UI

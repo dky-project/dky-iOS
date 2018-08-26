@@ -14,4 +14,6 @@
 
 @property (nonatomic, copy) NSString *gh;
 
+@property (nonatomic, weak, readonly) UIImage *image;
+
 @end

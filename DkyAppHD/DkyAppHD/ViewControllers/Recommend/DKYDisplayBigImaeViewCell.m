@@ -42,6 +42,10 @@
     self.gwLabel.text = [NSString stringWithFormat:@"杆位：%@",gh];
 }
 
+- (UIImage*)image{
+    return self.bigImageView.image;
+}
+
 - (void)commonInit{
     [self.bigImageView sd_setShowActivityIndicatorView:YES];
     [self.bigImageView sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];

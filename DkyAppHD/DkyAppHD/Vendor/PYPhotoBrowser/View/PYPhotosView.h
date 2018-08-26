@@ -77,8 +77,8 @@ typedef NS_ENUM(NSInteger, PYPhotosViewPageType) { // 分页类型
 @property (nonatomic, copy) NSArray<NSString *> *thumbnailUrls;
 /** 网络图片地址数组（原图） */
 @property (nonatomic, copy) NSArray<NSString *> *originalUrls;
-/** 本地相册图片(注意：存的是UIImage)数组(默认最多为九张,当传入图片数组长度超过九张时，取前九张) */
-@property (nonatomic, strong) NSMutableArray<UIImage *> *images;
+/** 本地相册图片(注意：存的是UIImage或者NSString)数组(默认最多为九张,当传入图片数组长度超过九张时，取前九张) */
+@property (nonatomic, strong) NSMutableArray *images;
 
 /** 所有图片的状态（默认为已发布状态） */
 @property (nonatomic, assign) PYPhotosViewState photosState;
@@ -102,6 +102,10 @@ typedef NS_ENUM(NSInteger, PYPhotosViewPageType) { // 分页类型
 @property (nonatomic, assign) NSInteger photosMaxCol;
 /** 当图片上传前，最多上传的张数，默认为9 */
 @property (nonatomic, assign) NSInteger imagesMaxCountWhenWillCompose;
+/** 当图片只有一张时, 图片是否充满photosView, 默认：NO */
+@property (nonatomic, assign) BOOL oneImageFullFrame;
+/** 当图片原图加载完毕，原图是否替换预览图, 默认：YES */
+@property (nonatomic, assign) BOOL replaceThumbnailWhenOriginalDownloaded;
 
 /** 当屏幕旋转时，是否自动旋转图片 默认为YES */
 @property (nonatomic, assign) BOOL autoRotateImage;
@@ -144,5 +148,7 @@ typedef NS_ENUM(NSInteger, PYPhotosViewPageType) { // 分页类型
  * images : 新的图片数组
  */
 - (void)reloadDataWithImages:(NSMutableArray<UIImage *> *)images;
+/** 根据图片个数刷新界面尺寸 */
+- (void)refreshContentSizeWithPhotoCount:(NSInteger)photoCount;
 
 @end

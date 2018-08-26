@@ -10,6 +10,7 @@
 #import "PYPhotoCell.h"
 #import "PYPhoto.h"
 #import "PYPhotoBrowserConst.h"
+#import "UIImageView+WebCache.h"
 
 @interface PYPhotosPreviewController ()<UIActionSheetDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -18,7 +19,6 @@
 
 /** 记录statusBar是否隐藏 */
 @property (nonatomic, assign, getter=isStatusBarHidden) BOOL statusBarHidden;
-
 /** 是否正在执行动画 */
 @property (nonatomic, assign, getter=isNavBarAnimating) BOOL navBarAnimating;
 
@@ -147,6 +147,7 @@
     
     // 移除数组中的某个元素
     [self.selectedPhotoView.photosView.images removeObjectAtIndex:page];
+    [self.selectedPhotoView.photosView refreshContentSizeWithPhotoCount:self.selectedPhotoView.photosView.images.count];
     // 移除cell
     [currentCell removeFromSuperview];
     // 刷新cell
@@ -193,12 +194,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     PYPhotoCell *cell  = [PYPhotoCell cellWithCollectionView:collectionView indexPath:indexPath];
-    UIImage *image = self.selectedPhotoView.images[indexPath.item];
+    id image = self.selectedPhotoView.images[indexPath.item];
     if ([image isKindOfClass:[UIImage class]]) {
         cell.image = image;
     } else if ([image isKindOfClass:[PYPhoto class]]) {
         cell.photo = (PYPhoto*)image;
+    } else if ([image isKindOfClass:[NSString class]]) {
+        [cell.photoView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:PYPlaceholderImage];
     }
+    
     cell.photoView.isPreview = YES;
     return cell;
 }

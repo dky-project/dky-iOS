@@ -68,7 +68,6 @@
         pageLabel.textAlignment = NSTextAlignmentCenter;
         _pageLabel = pageLabel;
     }
-    
     // 判断是否显示_pageLabel
     // 取出指示类型
     _pageLabel.hidden = self.selectedPhotoView.photosView.hiddenPageControl || (self.selectedPhotoView.photosView.pageType == PYPhotosViewPageTypeControll && _pageControl.numberOfPages < 10);
@@ -154,7 +153,6 @@
         // 转移坐标系
         copyView.frame = [[self.window.showFromView superview] convertRect:self.window.showFromView.frame toView:window];
     }
-    
     if (!CGRectEqualToRect(self.window.frameFormWindow, CGRectZero)) {
         copyView.frame = self.window.frameFormWindow;
     }
@@ -175,7 +173,7 @@
         self.scaling = YES;
         // 放大图片
         copyView.py_width = self.collectionView.py_width - ((UICollectionViewFlowLayout *)self.collectionViewLayout).minimumLineSpacing;
-        copyView.py_height = PYScreenW * imageSize.height / imageSize.width;
+        copyView.py_height = imageSize.width == 0 ? copyView.py_width : (PYScreenW * imageSize.height / imageSize.width);
         copyView.center = CGPointMake(PYScreenW * 0.5, PYScreenH * 0.5);
         self.collectionView.alpha = 1.0;
     } completion:^(BOOL finished) {
@@ -451,6 +449,7 @@
     NSInteger page = self.collectionView.contentOffset.x / self.collectionView.py_width + 0.5;
     // 避免数组越界
     self.pageControl.currentPage = page >= self.pageControl.numberOfPages ? self.pageControl.numberOfPages - 1 : page;
+    self.window.currentIndex = self.pageControl.currentPage;
     // 取出photosView
     PYPhotosView *photosView = self.selectedPhotoView.photosView;
     if (page <= (photosView.subviews.count - 1))

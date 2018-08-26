@@ -142,7 +142,7 @@
 
 - (void)photoBrowseView:(PYPhotoBrowseView *)photoBrowseView didLongPressImage:(UIImage *)image index:(NSInteger)index{
     // 长按图片浏览器，相应的时间，类似微信，弹出一个action sheet，有相应的操作。
-//    [self showOptionsPicker];
+    [self showOptionsPicker:image];
 }
 
 #pragma mark - private method
@@ -155,15 +155,19 @@
     }
 }
 
-- (void)showOptionsPicker{
+- (void)showOptionsPicker:(UIImage*)image{
     [self.superview endEditing:YES];
     
-    NSMutableArray *item = @[@"收藏",@"保存图片"].mutableCopy;
+    NSMutableArray *item = @[@"保存图片到相册"].mutableCopy;
     
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:nil
                                              cancelButtonTitle:kCancelTitle
                                                        clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
                                                            DLog(@"buttonIndex = %@ clicked",@(buttonIndex));
+                                                           if(buttonIndex == 1){
+                                                            // 保存到相册
+                                                               UIImageWriteToSavedPhotosAlbum(image, self, @selector(image: didFinishSavingWithError: contextInfo:), nil);
+                                                           }
                                                        }
                                          otherButtonTitleArray:item];
     actionSheet.scrolling = item.count > 10;
@@ -201,6 +205,19 @@
     [self.cycleScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(error){
+                [MBProgressHUD showError:@"保存失败"] ;
+            }else{
+                [MBProgressHUD showSuccess:@"保存成功"];
+            }
+        });
+    });
 }
 
 @end

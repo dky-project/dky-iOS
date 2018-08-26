@@ -51,7 +51,7 @@
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
     hud.mode = MBProgressHUDModeCustomView;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:1.0];
+    [hud hideAnimated:YES afterDelay:1.5];
 }
 
 #pragma mark 显示错误信息

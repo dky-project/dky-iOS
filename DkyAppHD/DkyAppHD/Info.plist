@@ -27,13 +27,13 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>是否允许旦可韵使用你的相机？</string>
 	<key>NSMainNibFile~ipad</key>
 	<string>Main</string>
+    <key>NSCameraUsageDescription</key>
+    <string>是否允许旦可韵使用你的相机？</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>是否允许旦可韵访问您的麦克风？</string>
-	<key>NSPhotoLibraryUsageDescription</key>
+	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>是否允许旦可韵访问你的相册？</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>

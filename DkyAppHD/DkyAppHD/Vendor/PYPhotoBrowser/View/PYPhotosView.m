@@ -11,6 +11,7 @@
 #import "PYPhotosViewController.h"
 #import "PYPhotosReaderController.h"
 #import "PYPhotosPreviewController.h"
+#import "UIImageView+WebCache.h"
 NS_ASSUME_NONNULL_BEGIN
 @interface PYPhotosView()
 
@@ -78,6 +79,8 @@ static NSInteger _photosViewCount;
     self.autoLayoutWithWeChatSytle = YES;
     self.showDuration = 0.5;
     self.hiddenDuration = 0.5;
+    self.oneImageFullFrame = NO;
+    self.replaceThumbnailWhenOriginalDownloaded = YES;
 }
 
 + (instancetype)photosView
@@ -279,7 +282,7 @@ static NSInteger _photosViewCount;
     self.py_size = CGSizeMake(width, size.height);
 }
 
-- (void)setImages:(NSMutableArray<UIImage *> *)images
+- (void)setImages:(NSMutableArray *)images
 {
     // 图片大于规定数字（取前九张）
     if (images.count > self.imagesMaxCountWhenWillCompose) {
@@ -320,11 +323,13 @@ static NSInteger _photosViewCount;
         if (i < imageCount) {
             photoView.hidden = NO;
             // 设置图片
-            UIImage *image = images[i];
+            id image = images[i];
             if ([image isKindOfClass:[UIImage class]]) {
                 photoView.image = image;
             } else if ([image isKindOfClass:[PYPhoto class]]) {
                 photoView.photo = (PYPhoto *)image;
+            } else if ([image isKindOfClass:[NSString class]]) {
+                [photoView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:PYPlaceholderImage];
             }
         }else{
             photoView.hidden = YES;
@@ -412,9 +417,22 @@ static NSInteger _photosViewCount;
 }
 
 /** 根据新的图片（未发布）刷新界面 */
-- (void)reloadDataWithImages:(NSMutableArray<UIImage *> *)images
+- (void)reloadDataWithImages:(NSMutableArray *)images
 {
     [self setImages:images];
+}
+
+/** 根据图片个数刷新界面尺寸 */
+- (void)refreshContentSizeWithPhotoCount:(NSInteger)photoCount {
+    // 设置contentSize和 self.size
+    // 取出size
+    CGSize size = [self sizeWithPhotoCount:photoCount photosState:self.photosState];
+    self.contentSize = size;
+    CGFloat width = size.width + self.py_x > PYScreenW ? PYScreenW - self.py_x : size.width;
+    self.py_size = CGSizeMake(width, size.height);
+    
+    // 刷新
+    [self layoutSubviews];
 }
 
 /** 根据图片个数和图片状态自动计算出大小 */
@@ -435,7 +453,7 @@ static NSInteger _photosViewCount;
         if (count < self.imagesMaxCountWhenWillCompose) count ++;
     }
     // 如果图片为一张，则图片的大小和photosView一致
-    if (count == 1 && !CGSizeEqualToSize(self.bounds.size, CGSizeMake(self.photoMargin, self.photoMargin))) {
+    if (count == 1 && self.oneImageFullFrame && !CGSizeEqualToSize(self.bounds.size, CGSizeMake(self.photoMargin, self.photoMargin))) {
         return self.bounds.size;
     }
     cols = (count >= maxCount) ? maxCount : count;
@@ -461,7 +479,7 @@ static NSInteger _photosViewCount;
         maxCol = 2;
     }
     // 当图片为一张时，图片大小和photosView一致
-    if (self.photos.count == 1) {
+    if (self.photos.count == 1 && self.oneImageFullFrame) {
         PYPhotoView *photoView = self.subviews[0];
         photoView.frame = self.bounds;
         self.contentSize = self.bounds.size;
