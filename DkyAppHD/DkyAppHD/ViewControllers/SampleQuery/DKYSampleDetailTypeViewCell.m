@@ -97,7 +97,7 @@
     }];
     
     // 温馨提示
-    self.hintLabel.text = [NSString stringWithFormat:@"温馨提示 : %@",model.description3];
+    self.hintLabel.text = [NSString stringWithFormat:@"温定制温馨提示 : %@",model.description3];
     [self.hintLabel setText:self.hintLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
