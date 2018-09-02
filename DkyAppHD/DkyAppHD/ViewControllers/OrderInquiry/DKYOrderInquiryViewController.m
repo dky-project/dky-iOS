@@ -495,10 +495,15 @@
 
 #pragma mark - get & set method
 - (WGBDatePickerView *)datePickView{
+    WeakSelf(weakSelf);
     if (!_datePickView) {
         _datePickView =[[WGBDatePickerView alloc] initWithFrame:self.view.bounds type:UIDatePickerModeDate];
         _datePickView.delegate = self;
         _datePickView.title =@"传真日期";
+        _datePickView.cancelBlock = ^{
+            weakSelf.czDate = nil;
+            weakSelf.headerView.faxDateLabel.text = @"";
+        };
     }
     return _datePickView;
 }

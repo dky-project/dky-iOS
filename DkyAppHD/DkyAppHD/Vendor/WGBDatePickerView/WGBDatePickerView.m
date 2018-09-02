@@ -176,6 +176,9 @@
 }
 
 - (void)handleDateTopViewLeft {
+    if(self.cancelBlock){
+        self.cancelBlock();
+    }
     [self end];
 }
 

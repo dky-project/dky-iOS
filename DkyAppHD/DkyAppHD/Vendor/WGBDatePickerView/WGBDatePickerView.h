@@ -28,6 +28,7 @@
 //和代理应运而生的block
 @property (nonatomic,copy) void(^changeTimeBlock) (NSDate *date);
 @property (nonatomic,copy) void(^determineBlock) (NSDate *date);
+@property (nonatomic,copy) void(^cancelBlock) (void);
 
 //显示
 - (void)show;
