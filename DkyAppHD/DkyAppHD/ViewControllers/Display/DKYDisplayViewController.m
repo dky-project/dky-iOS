@@ -124,6 +124,8 @@
             weakSelf.bigImageUrl = [result.data objectForKey:@"bigImageUrl"];
             weakSelf.headerView.groupNo = weakSelf.groupNo;
             [weakSelf.tableView reloadData];
+            
+            [weakSelf.tableView scrollToRow:weakSelf.productList.count + 1 inSection:1 atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
