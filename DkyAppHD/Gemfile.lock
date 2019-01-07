@@ -54,7 +54,7 @@ GEM
       xcodeproj (>= 1.4.4, < 2.0.0)
       xcpretty (>= 0.2.4, < 1.0.0)
       xcpretty-travis-formatter (>= 0.0.3)
-    fastlane-plugin-pgyer (0.2.1)
+    fastlane-plugin-pgyer (0.2.2)
     gh_inspector (1.0.3)
     google-api-client (0.9.28)
       addressable (~> 2.3)
@@ -136,4 +136,4 @@ DEPENDENCIES
   fastlane-plugin-pgyer
 
 BUNDLED WITH
-   1.15.1
+   1.16.0
