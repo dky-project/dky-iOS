@@ -174,6 +174,9 @@
     
     self.userNameTextField.text = @"X31";
     self.passwordTextField.text = @"123";
+    
+    self.userNameTextField.text = @"Y06";
+    self.passwordTextField.text = @"88150669";
 #endif
 }
 
