@@ -63,6 +63,8 @@
     }
     
     self.isBigOrder = ([self.mptbelongtype caseInsensitiveCompare:@"C"] == NSOrderedSame);
+    
+    self.isDh = ([self.dlValue caseInsensitiveCompare:@"DH"] == NSOrderedSame);
 }
 
 @end

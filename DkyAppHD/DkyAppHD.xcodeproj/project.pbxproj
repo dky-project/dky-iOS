@@ -102,6 +102,9 @@
 		26E780681E7D52DD0023FAD0 /* DKYVipNameParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E780671E7D52DD0023FAD0 /* DKYVipNameParameter.m */; };
 		26E870A81EA320F4005A6F7F /* DKYCustomOrderAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */; };
 		26EC02971E751D0700469C5C /* NSString+STRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC02961E751D0700469C5C /* NSString+STRegex.m */; };
+		26F1E0BA21E4EA1A00FE68E2 /* DKYSampleDetailViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F1E0B921E4EA1A00FE68E2 /* DKYSampleDetailViewController2.m */; };
+		26F1E0BE21E4EA7600FE68E2 /* DKYSampleDetailTypeViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F1E0BC21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.xib */; };
+		26F1E0BF21E4EA7600FE68E2 /* DKYSampleDetailTypeViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F1E0BD21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.m */; };
 		26F69A64202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */; };
 		26F69A65202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */; };
 		26F69A69202B4EDC00CDB858 /* DKYMatchHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F69A67202B4EDC00CDB858 /* DKYMatchHeaderViewCell.m */; };
@@ -566,6 +569,11 @@
 		26E870A71EA320F4005A6F7F /* DKYCustomOrderAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYCustomOrderAllViewController.m; sourceTree = "<group>"; };
 		26EC02951E751D0700469C5C /* NSString+STRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STRegex.h"; sourceTree = "<group>"; };
 		26EC02961E751D0700469C5C /* NSString+STRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+STRegex.m"; sourceTree = "<group>"; };
+		26F1E0B821E4EA1A00FE68E2 /* DKYSampleDetailViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailViewController2.h; sourceTree = "<group>"; };
+		26F1E0B921E4EA1A00FE68E2 /* DKYSampleDetailViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailViewController2.m; sourceTree = "<group>"; };
+		26F1E0BB21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYSampleDetailTypeViewCell2.h; sourceTree = "<group>"; };
+		26F1E0BC21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKYSampleDetailTypeViewCell2.xib; sourceTree = "<group>"; };
+		26F1E0BD21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYSampleDetailTypeViewCell2.m; sourceTree = "<group>"; };
 		26F69A61202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYDisplayBigImaeViewCell.h; sourceTree = "<group>"; };
 		26F69A62202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYDisplayBigImaeViewCell.m; sourceTree = "<group>"; };
 		26F69A63202B3E8700CDB858 /* DKYDisplayBigImaeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKYDisplayBigImaeViewCell.xib; sourceTree = "<group>"; };
@@ -1319,6 +1327,9 @@
 		26DAD0DE1E1A4804008EE55F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				26F1E0BB21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.h */,
+				26F1E0BD21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.m */,
+				26F1E0BC21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.xib */,
 				26DAD0D91E1A47F9008EE55F /* DKYSampleQueryViewCell.h */,
 				26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */,
 				26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */,
@@ -1655,6 +1666,8 @@
 		EB95107F1E15FC2C008708EF /* SampleQuery */ = {
 			isa = PBXGroup;
 			children = (
+				26F1E0B821E4EA1A00FE68E2 /* DKYSampleDetailViewController2.h */,
+				26F1E0B921E4EA1A00FE68E2 /* DKYSampleDetailViewController2.m */,
 				26DAD0CC1E1A2F82008EE55F /* DKYSampleQueryViewController.h */,
 				26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */,
 				EBC300701E1CDC8500F602E6 /* DKYSampleDetailViewController.h */,
@@ -2644,6 +2657,7 @@
 				EBBF214B1F32D2C70047471B /* DKYDisplayCategoryDahuoViewCell.xib in Resources */,
 				EBD694A31E27629D00F365C3 /* DKYHomeItemTwoViewCell.xib in Resources */,
 				260F319F20D73A3100A5D213 /* data.json in Resources */,
+				26F1E0BE21E4EA7600FE68E2 /* DKYSampleDetailTypeViewCell2.xib in Resources */,
 				26DAD0DD1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib in Resources */,
 				EB02E88D1ECC2EB6006C5354 /* DKYCollectListViewCell.xib in Resources */,
 				EB9884CE1E28658900BAFADE /* SXDetails.css in Resources */,
@@ -2731,6 +2745,7 @@
 				EB506C471E23B24C002A1423 /* TWBackgroundView.m in Sources */,
 				EBD5E27F1F31A67600B98F46 /* NSString+URL.m in Sources */,
 				263702D21F652C9A000991C5 /* DKYGetProductGroupPageParameter.m in Sources */,
+				26F1E0BA21E4EA1A00FE68E2 /* DKYSampleDetailViewController2.m in Sources */,
 				26BDCEA820CAC8E500BAB0B9 /* DKYOrderInqueryMergeParameter.m in Sources */,
 				2630C5C320D54E8400C4A698 /* DKYDataAnalysisSummarizingView.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,
@@ -2780,6 +2795,7 @@
 				26DAD0DC1E1A47F9008EE55F /* DKYSampleQueryViewCell.m in Sources */,
 				26A6FA5D1E61A08700376194 /* DKYDimNewListModel.m in Sources */,
 				263702A51F62E7DD000991C5 /* DKYDisplayEntryViewController.m in Sources */,
+				26F1E0BF21E4EA7600FE68E2 /* DKYSampleDetailTypeViewCell2.m in Sources */,
 				EBA7310D1F21E00600FEFD69 /* PYPhotoBrowserConst.m in Sources */,
 				EBA731071F21E00600FEFD69 /* UIView+PYExtension.m in Sources */,
 				EBD694B11E277B4700F365C3 /* RxWebViewNavigationViewController.m in Sources */,
