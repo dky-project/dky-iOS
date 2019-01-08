@@ -90,6 +90,10 @@
  */
 @property (nonatomic, copy) NSString *marketDate;
 
+@property (nonatomic, copy) NSString *dlValue;
+
+@property (nonatomic, copy) NSArray *sizeList;
+
 // 客户端自己的属性
 @property (nonatomic, strong) NSNumber *mProductId;
 
@@ -98,4 +102,6 @@
 @property (nonatomic, assign) BOOL isBigOrder;
 
 @property (nonatomic, copy) NSString *mDim16Text;
+
+@property (nonatomic, assign) BOOL isDh;
 @end

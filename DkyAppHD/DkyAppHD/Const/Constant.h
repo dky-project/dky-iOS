@@ -77,5 +77,6 @@ typedef void(^BlockWithSenderAndModel)(id sender, id model);
 
 #define kDisplayAllCollectChangedNotification   @"DisplayAllCollectChangedNotification"
 
+#define kUpdateSampleQueryCollectStatusNotification @"UpdateSampleQueryCollectStatusNotification"
 
 #endif /* Constant_h */
