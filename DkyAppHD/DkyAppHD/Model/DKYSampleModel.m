@@ -14,6 +14,8 @@
     self.sampleId = [NSString stringWithFormat:@"%@",@(self.mProductId)];
     
     self.collected = ([self.iscollect integerValue] == 2) ? YES : NO;
+    
+    self.isDh = ([self.dlValue caseInsensitiveCompare:@"DH"] == NSOrderedSame);
 }
 
 @end
