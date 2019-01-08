@@ -111,8 +111,8 @@ desc "打包成企业版ipa,并且上传到蒲公英"
 # 上传蒲公英
     desc = options[:desc]
     UI.message("上传蒲公英")
-    UI.message("安装密码: 123456");
-    pgyer(api_key: "f63b993e5bb04a11ed6ae9b75014c1a8", user_key: "85826194e455eacffc58a9137b466341", password: "123456", install_type: "2", update_description: "更新版本")
+    UI.message("安装密码: dky2018");
+    pgyer(api_key: "f63b993e5bb04a11ed6ae9b75014c1a8", user_key: "85826194e455eacffc58a9137b466341", password: "dky2018", install_type: "2", update_description: "更新版本")
     # do some other stuff here
 end
 
