@@ -116,7 +116,8 @@
     [self.desigonDescriptionLabel setText:self.desigonDescriptionLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
-    }];}
+    }];
+}
 
 #pragma mark - SDCycleScrollViewDelegate
 
