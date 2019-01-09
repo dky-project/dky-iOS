@@ -807,7 +807,7 @@
 		081ACBFE1820D6F5983276D6FC7E905F /* UIActionSheet+Blocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks-dummy.m"; sourceTree = "<group>"; };
 		08270387B0ED5C93969E94C42A099F3E /* UIImageView+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+QMUI.h"; path = "QMUIKit/UIKitExtensions/UIImageView+QMUI.h"; sourceTree = "<group>"; };
 		086704FE601CC59FBE2F830839853A72 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
-		08D70905A58B36378342440024DD6DF2 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		08D70905A58B36378342440024DD6DF2 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F170619F2215EB38B6B33705ED97C7 /* UIColor+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+QMUI.h"; path = "QMUIKit/UIKitExtensions/UIColor+QMUI.h"; sourceTree = "<group>"; };
 		0A556C6856F50A5ED96CE723C7B2E3E1 /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstants.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
 		0B4D2293D1C1760F2DDAB54BB58E55CE /* QMUIGhostButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIGhostButton.m; path = QMUIKit/QMUIComponents/QMUIButton/QMUIGhostButton.m; sourceTree = "<group>"; };
@@ -904,7 +904,7 @@
 		2E28E1E01A231FE04CD4FDC19A74C06D /* QMUIPieProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUIPieProgressView.h; path = QMUIKit/QMUIComponents/QMUIPieProgressView.h; sourceTree = "<group>"; };
 		2F4AF01563D52EE79FA10DEEC4A27092 /* QMUICollectionViewPagingLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUICollectionViewPagingLayout.m; path = QMUIKit/QMUIComponents/QMUICollectionViewPagingLayout.m; sourceTree = "<group>"; };
 		2FCFB8CD3877120B4F3AE0A76C8D7BE9 /* SDWebImageCodersManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCodersManager.h; path = SDWebImage/SDWebImageCodersManager.h; sourceTree = "<group>"; };
-		3093973BC92D2B0BC36D46DE6758E55A /* libTTTAttributedLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libTTTAttributedLabel.a; path = libTTTAttributedLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3093973BC92D2B0BC36D46DE6758E55A /* libTTTAttributedLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTTTAttributedLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		30990947723A84EDF92D0F240CBE94D1 /* UITabBarItem+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITabBarItem+QMUI.h"; path = "QMUIKit/UIKitExtensions/UITabBarItem+QMUI.h"; sourceTree = "<group>"; };
 		30BDCA2D57A54C87AF0314ABCDA8CD27 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		317162AD1AAECAD34B00CC9F5B51FA94 /* UIBezierPath+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBezierPath+QMUI.h"; path = "QMUIKit/UIKitExtensions/UIBezierPath+QMUI.h"; sourceTree = "<group>"; };
@@ -919,7 +919,7 @@
 		3400E8FA5F6D3D7DFBAF9EB0CB7111FD /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		34250ABEA278271EFB2B2384EE7CFD41 /* QMUIConfigurationMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUIConfigurationMacros.h; path = QMUIKit/QMUICore/QMUIConfigurationMacros.h; sourceTree = "<group>"; };
 		35C7107706DD9EC2A6CB066775844056 /* NSArray+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+QMUI.h"; path = "QMUIKit/UIKitExtensions/NSArray+QMUI.h"; sourceTree = "<group>"; };
-		35E4AE749C235EDC220CD90DC75F0DB3 /* libMJExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMJExtension.a; path = libMJExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		35E4AE749C235EDC220CD90DC75F0DB3 /* libMJExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMJExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E7CCDE394844A43CDDA90D66E50622 /* QMUIFillButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIFillButton.m; path = QMUIKit/QMUIComponents/QMUIButton/QMUIFillButton.m; sourceTree = "<group>"; };
 		365345BAE85B39D1B76F2A3DDC57DB41 /* QMUIMultipleDelegates.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUIMultipleDelegates.h; path = QMUIKit/QMUIComponents/QMUIMultipleDelegates/QMUIMultipleDelegates.h; sourceTree = "<group>"; };
 		367BAFCEF5A336A90E124D815C12ADBE /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
@@ -962,7 +962,7 @@
 		436BBB01C7D0FA8BB6F56C549B94F9F3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		4428DE30220534CAF06A0E11A301696C /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoNormalFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
 		44F75725E5F1E00883BF20CCE078AB0F /* QMUIHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIHelper.m; path = QMUIKit/QMUICore/QMUIHelper.m; sourceTree = "<group>"; };
-		45E6AE381169A1E6146341E43721FC86 /* libVTMagic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libVTMagic.a; path = libVTMagic.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		45E6AE381169A1E6146341E43721FC86 /* libVTMagic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVTMagic.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E99F6DAAFC02C6CB772DE3BFA20C9D /* iCarousel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iCarousel.xcconfig; sourceTree = "<group>"; };
 		46141865FE66C22BED5400CF5A19EE97 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		4675DF5EA31C996E3BB07DE965B177D3 /* NSThread+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSThread+YYAdd.h"; path = "YYCategories/Foundation/NSThread+YYAdd.h"; sourceTree = "<group>"; };
@@ -996,7 +996,7 @@
 		510F10888D568118E241B66677EDA9F7 /* QMUIAlertController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIAlertController.m; path = QMUIKit/QMUIComponents/QMUIAlertController.m; sourceTree = "<group>"; };
 		517FB2DDAC6A9C0A6E0F43EB5C738601 /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIViewController+Additions.h"; path = "IQKeyboardManager/Categories/IQUIViewController+Additions.h"; sourceTree = "<group>"; };
 		51A74C50179ABA129CEAF28AB81B13BB /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
-		51D5A79DC0BF2A47F47BBD0525C28EDA /* libSAMKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSAMKeychain.a; path = libSAMKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		51D5A79DC0BF2A47F47BBD0525C28EDA /* libSAMKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSAMKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5213D2CCCAF8F3E1FA2E662480140F57 /* MJPropertyKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJPropertyKey.h; path = MJExtension/MJPropertyKey.h; sourceTree = "<group>"; };
 		53112E4A056D6D77A4BFF48F8CF213E5 /* QMUIToastContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUIToastContentView.h; path = QMUIKit/QMUIComponents/ToastView/QMUIToastContentView.h; sourceTree = "<group>"; };
 		537504CB37559E0CFD76DD5A652F9F95 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
@@ -1051,13 +1051,13 @@
 		6B301C70944FD208DB1245220F69968A /* YYCategories.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYCategories.xcconfig; sourceTree = "<group>"; };
 		6BC2E176488745B3B5A399C8BE780699 /* SDWebImageCodersManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCodersManager.m; path = SDWebImage/SDWebImageCodersManager.m; sourceTree = "<group>"; };
 		6C499BC99019CAA3F854CE14FDB994BC /* QMUITabBarViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUITabBarViewController.m; path = QMUIKit/QMUIMainFrame/QMUITabBarViewController.m; sourceTree = "<group>"; };
-		6C64B0C90B98D94FF352A4544EA859EA /* libQMUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libQMUIKit.a; path = libQMUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C64B0C90B98D94FF352A4544EA859EA /* libQMUIKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQMUIKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C753ACB1109F6E70B10C07D1DAD58FF /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		6D1E549636CBF352FCC0E40E46F50462 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		6D688AA57E58B35C14C5F28D876B1541 /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
 		6DAB2BBAF41B05068FD81AA49BA50DD6 /* QMUISlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUISlider.m; path = QMUIKit/QMUIComponents/QMUISlider.m; sourceTree = "<group>"; };
 		6E3C86E03D9959BB3BF4D176E5FD308C /* UIViewController+VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+VTMagic.h"; path = "VTMagic/UIViewController+VTMagic.h"; sourceTree = "<group>"; };
-		6E73EBE07D2CBA95F2C26C2F03E63E12 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMJRefresh.a; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E73EBE07D2CBA95F2C26C2F03E63E12 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8376ABFD97B7CEC430B1280188CAB8 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		6E83BD91CBBF883E16C389A2C2BC93A9 /* UIScreen+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScreen+YYAdd.h"; path = "YYCategories/UIKit/UIScreen+YYAdd.h"; sourceTree = "<group>"; };
 		6E9B44ECB3229951070D2074B29B8E94 /* UIApplication+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+YYAdd.m"; path = "YYCategories/UIKit/UIApplication+YYAdd.m"; sourceTree = "<group>"; };
@@ -1067,7 +1067,7 @@
 		6F8F9EBF27E3FE7820AB34E8398E4614 /* UIGestureRecognizer+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+YYAdd.m"; path = "YYCategories/UIKit/UIGestureRecognizer+YYAdd.m"; sourceTree = "<group>"; };
 		6FE184C514B8837DBA7C4C3BF4E74658 /* QMUICellSizeKeyCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUICellSizeKeyCache.h; path = QMUIKit/QMUIComponents/QMUICellSizeKeyCache/QMUICellSizeKeyCache.h; sourceTree = "<group>"; };
 		70046E47046E5A44EA5D25EEAD3E79F7 /* QMUITableViewHeaderFooterView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUITableViewHeaderFooterView.h; path = QMUIKit/QMUIComponents/QMUITableViewHeaderFooterView.h; sourceTree = "<group>"; };
-		703477B209F289642D3D875ED5704961 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		703477B209F289642D3D875ED5704961 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		704770BAB5366132E26DB36560C59517 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+YYAdd.m"; path = "YYCategories/UIKit/UIControl+YYAdd.m"; sourceTree = "<group>"; };
 		704D4669F79EEA606DCD2E4910161FBB /* QMUIKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QMUIKit.xcconfig; sourceTree = "<group>"; };
 		70557E607172BE4F8841C2023D1F2EC9 /* RMPopoverPresentationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RMPopoverPresentationController.m; sourceTree = "<group>"; };
@@ -1085,7 +1085,7 @@
 		73A48389EF872636C8C53BFA16C890FB /* UIControl+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+YYAdd.h"; path = "YYCategories/UIKit/UIControl+YYAdd.h"; sourceTree = "<group>"; };
 		7478815B32C0F622BACE2161CA83BD09 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		74E108ABFEC63C79B9DC12878A4BBAE1 /* QMUILog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUILog.h; path = QMUIKit/QMUIComponents/Log/QMUILog.h; sourceTree = "<group>"; };
-		755A79D8CB0A53074F9A757E2F06FCD1 /* libUITableView+FDTemplateLayoutCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUITableView+FDTemplateLayoutCell.a"; path = "libUITableView+FDTemplateLayoutCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		755A79D8CB0A53074F9A757E2F06FCD1 /* libUITableView+FDTemplateLayoutCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUITableView+FDTemplateLayoutCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7586E7BACC900A7774AFF1E48CE20D52 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
 		760BEC752F05819EA09B1FD56EA7953F /* UIActivityIndicatorView+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+QMUI.h"; path = "QMUIKit/UIKitExtensions/UIActivityIndicatorView+QMUI.h"; sourceTree = "<group>"; };
 		762ECB682E0748A84333FC1EF4F2A616 /* UIBarItem+QMUIBadge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarItem+QMUIBadge.h"; path = "QMUIKit/QMUIComponents/QMUIBadge/UIBarItem+QMUIBadge.h"; sourceTree = "<group>"; };
@@ -1125,7 +1125,7 @@
 		825AA8DCD42391F6CFDDDAD8995A714E /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		82630550CFC6A9E59CA12535AF2E818C /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		8277E39D9E328012620D8C611DDC8125 /* NSNumber+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNumber+QMUI.h"; path = "QMUIKit/UIKitExtensions/NSNumber+QMUI.h"; sourceTree = "<group>"; };
-		82A244F019E230F59004FDABE979448F /* libRMUniversalAlert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRMUniversalAlert.a; path = libRMUniversalAlert.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		82A244F019E230F59004FDABE979448F /* libRMUniversalAlert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRMUniversalAlert.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C17C6D184D5241C5F90E62C76A18DC /* QMUICommonTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUICommonTableViewController.m; path = QMUIKit/QMUIMainFrame/QMUICommonTableViewController.m; sourceTree = "<group>"; };
 		8323B2FD533C2C7316B60B994DE0EA3D /* Pods-DkyAppHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DkyAppHD.debug.xcconfig"; sourceTree = "<group>"; };
 		8324D8C6D409AF8EC944A76638CAF2AB /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
@@ -1145,7 +1145,7 @@
 		8A249443F77F2EF0B8803823CF3C84C5 /* UIScrollView+QMUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+QMUI.m"; path = "QMUIKit/UIKitExtensions/UIScrollView+QMUI.m"; sourceTree = "<group>"; };
 		8B1E6FA8C063C6724C3973CA10B7EBBC /* YYKVStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYKVStorage.h; path = YYCache/YYKVStorage.h; sourceTree = "<group>"; };
 		8B2C8CC861B2AF36D14AA78D28F2C632 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		8B4178AB53CCEDB74E4DCBC8A8BF6356 /* libiCarousel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libiCarousel.a; path = libiCarousel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B4178AB53CCEDB74E4DCBC8A8BF6356 /* libiCarousel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiCarousel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5F5FF01BDE8FB28087C0C5F2BC820F /* UIGestureRecognizer+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+YYAdd.h"; path = "YYCategories/UIKit/UIGestureRecognizer+YYAdd.h"; sourceTree = "<group>"; };
 		8B94F001D5B58906E1AE75B3982E5430 /* IQTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTextView.h; path = IQKeyboardManager/IQTextView/IQTextView.h; sourceTree = "<group>"; };
 		8BB508F8BEA311FEAF2A1C1B4451E85D /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
@@ -1171,17 +1171,17 @@
 		92F0B2BAA7FC87072DF22904888B2E40 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		936E6327AED5F117AFDEB13E5E8CD8CE /* TTTAttributedLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TTTAttributedLabel-dummy.m"; sourceTree = "<group>"; };
 		9376F85AA92488AB8ACE6828857C3EBE /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93BB038D15D736B680DEEDE2B83D9A02 /* IQToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQToolbar.h; path = IQKeyboardManager/IQToolbar/IQToolbar.h; sourceTree = "<group>"; };
 		9477EA987180BF12FFE67E43DBF6E095 /* NSNotificationCenter+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+YYAdd.h"; path = "YYCategories/Foundation/NSNotificationCenter+YYAdd.h"; sourceTree = "<group>"; };
 		95CF12A7572E32999FA27D753AD95E9D /* QMUISearchController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUISearchController.h; path = QMUIKit/QMUIComponents/QMUISearchController.h; sourceTree = "<group>"; };
-		967F684D427870593B94F2995C15C61F /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libIQKeyboardManager.a; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		967F684D427870593B94F2995C15C61F /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96825C4882BFC69EB3D07019FCF02632 /* QMUITableViewHeaderFooterView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUITableViewHeaderFooterView.m; path = QMUIKit/QMUIComponents/QMUITableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		96B8A4A4A81DF8FE0E0D8CD02A28A8AF /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIScrollView+Additions.m"; path = "IQKeyboardManager/Categories/IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
 		96B9FA0536B2494C402ABD955006C804 /* YYDiskCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYDiskCache.m; path = YYCache/YYDiskCache.m; sourceTree = "<group>"; };
 		96CF168AF560219DA0C2D496BC290BDF /* SAMKeychainQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAMKeychainQuery.h; path = Sources/SAMKeychainQuery.h; sourceTree = "<group>"; };
 		96DF093205D4E32D7F64D5339CCF7F62 /* UIButton+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+QMUI.h"; path = "QMUIKit/UIKitExtensions/UIButton+QMUI.h"; sourceTree = "<group>"; };
-		970AD2D6590A4BBD3D2D165B0325AEF6 /* libYYCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYCache.a; path = libYYCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		970AD2D6590A4BBD3D2D165B0325AEF6 /* libYYCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYYCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9749ABCEFCFE969505F1621A83DC924D /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
 		9763E8646B66D0D66EA0788572AC910E /* QMUILogNameManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUILogNameManager.m; path = QMUIKit/QMUIComponents/Log/QMUILogNameManager.m; sourceTree = "<group>"; };
 		9836C66371A60C9F50A8BAF7950D4D1C /* QMUILabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUILabel.m; path = QMUIKit/QMUIComponents/QMUILabel.m; sourceTree = "<group>"; };
@@ -1206,7 +1206,7 @@
 		A27DCC4235635DDC0B89705789EA7A49 /* UIColor+VTMagic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+VTMagic.m"; path = "VTMagic/UIColor+VTMagic.m"; sourceTree = "<group>"; };
 		A296475CE140EA34A24ECCBDE32D31E8 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
 		A2F21975825A418DD504C502B85CF574 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		A331BFF80E762B8AFD4390ED71094843 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSVProgressHUD.a; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A331BFF80E762B8AFD4390ED71094843 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E37F26F281A671F5F24B23FE745B68 /* SAMKeychainQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAMKeychainQuery.m; path = Sources/SAMKeychainQuery.m; sourceTree = "<group>"; };
 		A428BAA67C9CEC8B88B425ED3D78DAB8 /* UITableView+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+QMUI.h"; path = "QMUIKit/UIKitExtensions/UITableView+QMUI.h"; sourceTree = "<group>"; };
 		A4745DB6F7B6843026D2984531D51250 /* QMUISegmentedControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUISegmentedControl.h; path = QMUIKit/QMUIComponents/QMUISegmentedControl.h; sourceTree = "<group>"; };
@@ -1226,12 +1226,12 @@
 		AAF6734DB11C79961EED942F03B4470B /* QMUIAlbumViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIAlbumViewController.m; path = QMUIKit/QMUIComponents/ImagePickerLibrary/QMUIAlbumViewController.m; sourceTree = "<group>"; };
 		AB59A9D4A989DFFDFA735AB50F0E4FE4 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		AB85F7778934B57CB06329E6F486DF76 /* QMUIImagePreviewViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIImagePreviewViewController.m; path = QMUIKit/QMUIComponents/QMUIImagePreviewViewController.m; sourceTree = "<group>"; };
-		ABC2DCB5C0107A316674C0EE1D9E6F75 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABC2DCB5C0107A316674C0EE1D9E6F75 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC85C75D15DEB1850997F30F6208104C /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		ACDC03DC037627EBD2D5D0FADC2BEBB3 /* UIView+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+YYAdd.m"; path = "YYCategories/UIKit/UIView+YYAdd.m"; sourceTree = "<group>"; };
 		AD127877EC2E9742C1E4A0A899A3B8DF /* QMUIPopupContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIPopupContainerView.m; path = QMUIKit/QMUIComponents/QMUIPopupContainerView.m; sourceTree = "<group>"; };
 		AD5D193FD19C98C60BCBD4CC37D681CD /* QMUIToastBackgroundView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIToastBackgroundView.m; path = QMUIKit/QMUIComponents/ToastView/QMUIToastBackgroundView.m; sourceTree = "<group>"; };
-		AD6BE8166C42485CF7B834BC56FE8A13 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDWebImage.a; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD6BE8166C42485CF7B834BC56FE8A13 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA4B68EB82A4149ECC1D7005D349313 /* UIDevice+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIDevice+YYAdd.h"; path = "YYCategories/UIKit/UIDevice+YYAdd.h"; sourceTree = "<group>"; };
 		AE3ECAD7C8FBA44B00862F921A1002DF /* NSAttributedString+QMUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+QMUI.m"; path = "QMUIKit/UIKitExtensions/NSAttributedString+QMUI.m"; sourceTree = "<group>"; };
 		AE4C5F25DC5CA0F8D0BD6FBE5EE0059C /* QMUIToolbarButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIToolbarButton.m; path = QMUIKit/QMUIComponents/QMUIButton/QMUIToolbarButton.m; sourceTree = "<group>"; };
@@ -1280,7 +1280,7 @@
 		BDC4714DB091BE8DEB8FF271804A256B /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		BDD3D3ADF275917CC26569FD11671868 /* UIViewController+QMUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+QMUI.m"; path = "QMUIKit/UIKitExtensions/UIViewController+QMUI.m"; sourceTree = "<group>"; };
 		BDD56F93C59B4ED252AA1856F77A0D74 /* QMUIToastContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMUIToastContentView.m; path = QMUIKit/QMUIComponents/ToastView/QMUIToastContentView.m; sourceTree = "<group>"; };
-		BE427A9CA5CF6794512E685DE82BF982 /* libUIAlertController+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUIAlertController+Blocks.a"; path = "libUIAlertController+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE427A9CA5CF6794512E685DE82BF982 /* libUIAlertController+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIAlertController+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB4F71BD5BC6BF3D59A5D973F0AF805 /* UILabel+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+QMUI.h"; path = "QMUIKit/UIKitExtensions/UILabel+QMUI.h"; sourceTree = "<group>"; };
 		C13E3B4BC6B0E4A67061948F076CC5A2 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJKeyValue.h"; path = "MJExtension/NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
 		C1E01FFF731A721A3F033B84FA63CB7D /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
@@ -1328,7 +1328,7 @@
 		D2B4AC1488A5CB7A95AFD5CCCBE9A084 /* YYMemoryCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYMemoryCache.m; path = YYCache/YYMemoryCache.m; sourceTree = "<group>"; };
 		D36B3FA5B58557103E1842A20EF05B78 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		D4E0A89848EDD46E3B72E56F235ACD24 /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
-		D4F5B431A2FBDBFD54098872EBB4540E /* libYYCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYCategories.a; path = libYYCategories.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4F5B431A2FBDBFD54098872EBB4540E /* libYYCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYYCategories.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D534AAD6ADDFCAAB180B7358CA2FF923 /* UIActionSheet+Blocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIActionSheet+Blocks.xcconfig"; sourceTree = "<group>"; };
 		D573BB77FC5EE58C4E1CCA678B252FD6 /* QMUICommonDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUICommonDefines.h; path = QMUIKit/QMUICore/QMUICommonDefines.h; sourceTree = "<group>"; };
 		D6328A9BC89B8F795CDB10E374585B30 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
@@ -1361,7 +1361,7 @@
 		E0FCC646B331B33F614BA2602C28A928 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		E13DC861FEAB04B6C80CC00B53F2B5BB /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		E180677F699F23CC1C6B1F73B17853E7 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
-		E1D27A34DF5C7274E8D5E334042F8EDD /* libUIAlertView+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUIAlertView+Blocks.a"; path = "libUIAlertView+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D27A34DF5C7274E8D5E334042F8EDD /* libUIAlertView+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIAlertView+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E0332423FD59CF46E25130F766E437 /* UIBarItem+QMUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarItem+QMUI.m"; path = "QMUIKit/UIKitExtensions/UIBarItem+QMUI.m"; sourceTree = "<group>"; };
 		E25728208499993C4E99296A9A0266E3 /* NSString+QMUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+QMUI.h"; path = "QMUIKit/UIKitExtensions/NSString+QMUI.h"; sourceTree = "<group>"; };
 		E26E3E503E6DD8E2D836593A87AD7F6F /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
@@ -1386,7 +1386,7 @@
 		EC118E111D47D7B78F68E761B06BE717 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
 		EC186C7E913752D675A17B864D48AF94 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		EC739F5CEFE54F4D418041C0462EA9EF /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
-		EC77B11EC7715882600AF3ABDEDB7459 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-DkyAppHD.a"; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC77B11EC7715882600AF3ABDEDB7459 /* libPods-DkyAppHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DkyAppHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9D712CD8027391DAF8D012FF31BA89 /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
 		ECC751D80F52403FF7B40CA2E6E0DC91 /* UIBarItem+QMUIBadge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarItem+QMUIBadge.m"; path = "QMUIKit/QMUIComponents/QMUIBadge/UIBarItem+QMUIBadge.m"; sourceTree = "<group>"; };
 		ECCBAAFD59D8F4CAD63AAEE652959F7F /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
@@ -1414,7 +1414,7 @@
 		F892D695C04EA0CC7A30F5ECA1F3C3BF /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJKeyValue.m"; path = "MJExtension/NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
 		F8CEE784EAFB92D4808AF330EE846373 /* UIBezierPath+QMUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+QMUI.m"; path = "QMUIKit/UIKitExtensions/UIBezierPath+QMUI.m"; sourceTree = "<group>"; };
 		F9321DC9800A148E43D1374E43D1DDBB /* UIAlertController+Blocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks-dummy.m"; sourceTree = "<group>"; };
-		F9B0E64531DB275A61C3362151A1ADC8 /* libUIActionSheet+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUIActionSheet+Blocks.a"; path = "libUIActionSheet+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9B0E64531DB275A61C3362151A1ADC8 /* libUIActionSheet+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIActionSheet+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7E7A8445A200ED06C57F26B956867B /* NSDictionary+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+YYAdd.h"; path = "YYCategories/Foundation/NSDictionary+YYAdd.h"; sourceTree = "<group>"; };
 		FAC9EE21FCAA5018587FC1D30327DC8B /* QMUIImagePreviewViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QMUIImagePreviewViewController.h; path = QMUIKit/QMUIComponents/QMUIImagePreviewViewController.h; sourceTree = "<group>"; };
 		FB21BE024506D272FD1FB9AA7EC6841A /* VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMagic.h; path = VTMagic/VTMagic.h; sourceTree = "<group>"; };
@@ -1882,7 +1882,6 @@
 				E26E3E503E6DD8E2D836593A87AD7F6F /* ViewController+MASAdditions.m */,
 				AE43B4C9193F4C9299E07A7D1D77C0CD /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -1904,7 +1903,6 @@
 				2F49FE19AE8B06F1148D6DDC3F4B00CF /* Resources */,
 				0022BFCEA97BB37E400D2E867177A488 /* Support Files */,
 			);
-			name = SAMKeychain;
 			path = SAMKeychain;
 			sourceTree = "<group>";
 		};
@@ -1996,7 +1994,6 @@
 				51A74C50179ABA129CEAF28AB81B13BB /* UIActionSheet+Blocks.m */,
 				0BD33723C48E3C0517E41545240C4F69 /* Support Files */,
 			);
-			name = "UIActionSheet+Blocks";
 			path = "UIActionSheet+Blocks";
 			sourceTree = "<group>";
 		};
@@ -2063,7 +2060,6 @@
 				C58CE63AC0D53E7C0346D80E2FBDA798 /* UITableView+FDTemplateLayoutCellDebug.m */,
 				8ED5EF2F4C95910F73CD659E6484CB43 /* Support Files */,
 			);
-			name = "UITableView+FDTemplateLayoutCell";
 			path = "UITableView+FDTemplateLayoutCell";
 			sourceTree = "<group>";
 		};
@@ -2126,7 +2122,6 @@
 				3B8FE5B884B7B8FF78EBD5DF0A279AE9 /* Core */,
 				96AEE0D618E14CEAB833F0A40C5D21B2 /* Support Files */,
 			);
-			name = VTMagic;
 			path = VTMagic;
 			sourceTree = "<group>";
 		};
@@ -2187,7 +2182,6 @@
 				FC81FCD974B3B025C1C1EB0A862DDF22 /* MBProgressHUD.m */,
 				3BD0AE5727E3898639807ACD29F9F196 /* Support Files */,
 			);
-			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -2217,7 +2211,6 @@
 				116919E3A280E110A33B46CEE54363A2 /* NSString+MJExtension.m */,
 				121A0B0C87DE84528B3BCCF9829B5F04 /* Support Files */,
 			);
-			name = MJExtension;
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
@@ -2452,7 +2445,6 @@
 				D6328A9BC89B8F795CDB10E374585B30 /* UIAlertView+Blocks.m */,
 				D89ED9075EB86F1C53A67309B46A29AF /* Support Files */,
 			);
-			name = "UIAlertView+Blocks";
 			path = "UIAlertView+Blocks";
 			sourceTree = "<group>";
 		};
@@ -2572,7 +2564,6 @@
 				DA979D8E4FAD2D893D23D0BD3F1E03A7 /* TTTAttributedLabel.m */,
 				4582913783C317E39C0D5A4E039B175C /* Support Files */,
 			);
-			name = TTTAttributedLabel;
 			path = TTTAttributedLabel;
 			sourceTree = "<group>";
 		};
@@ -2583,7 +2574,6 @@
 				227A0841D6057C25513BBFD2358E83D6 /* iCarousel.m */,
 				77A77CC3597EF9DDB5F4DEA8D15B97B5 /* Support Files */,
 			);
-			name = iCarousel;
 			path = iCarousel;
 			sourceTree = "<group>";
 		};
@@ -2607,7 +2597,6 @@
 				6CFE9C6FE8B2605C9D2D0331F6CE1C80 /* Support Files */,
 				E23F2234985BFEA70665649109C1375D /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -2749,7 +2738,6 @@
 				F38AA2794ED96DA34FAB3DE276A530A6 /* Core */,
 				4CCAAB9963017B8E5CC1E00EFA49662E /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -2762,7 +2750,6 @@
 				299FD9AE3E324CC940FFD59F02B758A8 /* RMUniversalAlert.m */,
 				A6B65C91F5E2D0B99289C50F90D7EBB2 /* Support Files */,
 			);
-			name = RMUniversalAlert;
 			path = RMUniversalAlert;
 			sourceTree = "<group>";
 		};
@@ -2831,7 +2818,6 @@
 				87BB815C6A71B5F5A84F3824777FA130 /* Resources */,
 				6A469A3F0846E108A68AF65D78749C68 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -2848,7 +2834,6 @@
 				D2B4AC1488A5CB7A95AFD5CCCBE9A084 /* YYMemoryCache.m */,
 				9C13F0106F55F3896C4A36EEE908AC81 /* Support Files */,
 			);
-			name = YYCache;
 			path = YYCache;
 			sourceTree = "<group>";
 		};
@@ -2916,7 +2901,6 @@
 				B3C312A1C7D9EFAB61866F0B558EBE0E /* no-arc */,
 				84E06C68C75CB54046A844FB2065DA52 /* Support Files */,
 			);
-			name = YYCategories;
 			path = YYCategories;
 			sourceTree = "<group>";
 		};
@@ -2954,7 +2938,6 @@
 				56129B0B4D5207C5FB358765D0D0FDF0 /* Resources */,
 				0E98DF038B648773CACAF858112101F3 /* Support Files */,
 			);
-			name = IQKeyboardManager;
 			path = IQKeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -2974,7 +2957,6 @@
 				3400E8FA5F6D3D7DFBAF9EB0CB7111FD /* UIAlertController+Blocks.m */,
 				2771AA69316F7F46F296C42CB619718C /* Support Files */,
 			);
-			name = "UIAlertController+Blocks";
 			path = "UIAlertController+Blocks";
 			sourceTree = "<group>";
 		};
@@ -3032,7 +3014,6 @@
 				52C0418EB4480D8B9C302DD48795678E /* QMUIResources */,
 				6A32E474B3A42E3A21E56A1E32DA1C2C /* Support Files */,
 			);
-			name = QMUIKit;
 			path = QMUIKit;
 			sourceTree = "<group>";
 		};
@@ -3059,7 +3040,6 @@
 				36ADBE787133767418321C8896FA58AB /* Resources */,
 				A8661BB724C1E286E41C77AB1823E87D /* Support Files */,
 			);
-			name = SVProgressHUD;
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -4057,7 +4037,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4675,7 +4655,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIActionSheet+Blocks/UIActionSheet+Blocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -4699,7 +4679,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/YYCache/YYCache-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -4723,7 +4703,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/VTMagic/VTMagic-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -4881,7 +4861,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIAlertController+Blocks/UIAlertController+Blocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -4905,7 +4885,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/VTMagic/VTMagic-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -4928,7 +4908,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -4953,7 +4933,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIAlertView+Blocks/UIAlertView+Blocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -4977,7 +4957,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/YYCategories/YYCategories-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5002,7 +4982,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/iCarousel/iCarousel-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5048,7 +5028,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5072,7 +5052,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5119,7 +5099,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5143,7 +5123,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5167,7 +5147,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SAMKeychain/SAMKeychain-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5214,7 +5194,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5260,7 +5240,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/YYCache/YYCache-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5308,7 +5288,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIActionSheet+Blocks/UIActionSheet+Blocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5331,7 +5311,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5354,7 +5334,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UITableView+FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5377,7 +5357,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIAlertController+Blocks/UIAlertController+Blocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5401,7 +5381,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/iCarousel/iCarousel-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5448,7 +5428,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SAMKeychain/SAMKeychain-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5471,7 +5451,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UITableView+FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5495,7 +5475,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5519,7 +5499,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIAlertView+Blocks/UIAlertView+Blocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5542,7 +5522,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/YYCategories/YYCategories-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5565,7 +5545,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/RMUniversalAlert/RMUniversalAlert-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5657,7 +5637,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/RMUniversalAlert/RMUniversalAlert-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5680,7 +5660,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5761,7 +5741,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
