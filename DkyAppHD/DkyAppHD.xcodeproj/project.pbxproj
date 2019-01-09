@@ -1327,9 +1327,6 @@
 		26DAD0DE1E1A4804008EE55F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				26F1E0BB21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.h */,
-				26F1E0BD21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.m */,
-				26F1E0BC21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.xib */,
 				26DAD0D91E1A47F9008EE55F /* DKYSampleQueryViewCell.h */,
 				26DAD0DA1E1A47F9008EE55F /* DKYSampleQueryViewCell.m */,
 				26DAD0DB1E1A47F9008EE55F /* DKYSampleQueryViewCell.xib */,
@@ -1342,6 +1339,9 @@
 				EBC3007B1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.h */,
 				EBC3007C1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.m */,
 				EBC3007D1E1CED7300F602E6 /* DKYSampleDetailTypeViewCell.xib */,
+				26F1E0BB21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.h */,
+				26F1E0BD21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.m */,
+				26F1E0BC21E4EA7500FE68E2 /* DKYSampleDetailTypeViewCell2.xib */,
 				EBB3BAF71E63F2240097D1CE /* DKYSampleDetailPriceViewCell.h */,
 				EBB3BAF81E63F2240097D1CE /* DKYSampleDetailPriceViewCell.m */,
 				EBD116021EA49D7400AF6F5C /* DKYSampleOrderPopupView.h */,
@@ -1666,12 +1666,12 @@
 		EB95107F1E15FC2C008708EF /* SampleQuery */ = {
 			isa = PBXGroup;
 			children = (
-				26F1E0B821E4EA1A00FE68E2 /* DKYSampleDetailViewController2.h */,
-				26F1E0B921E4EA1A00FE68E2 /* DKYSampleDetailViewController2.m */,
 				26DAD0CC1E1A2F82008EE55F /* DKYSampleQueryViewController.h */,
 				26DAD0CD1E1A2F82008EE55F /* DKYSampleQueryViewController.m */,
 				EBC300701E1CDC8500F602E6 /* DKYSampleDetailViewController.h */,
 				EBC300711E1CDC8500F602E6 /* DKYSampleDetailViewController.m */,
+				26F1E0B821E4EA1A00FE68E2 /* DKYSampleDetailViewController2.h */,
+				26F1E0B921E4EA1A00FE68E2 /* DKYSampleDetailViewController2.m */,
 				2662907E1E9D03F300886274 /* DKYSampleDetailAllViewController.h */,
 				2662907F1E9D03F300886274 /* DKYSampleDetailAllViewController.m */,
 				26DAD0DE1E1A4804008EE55F /* View */,

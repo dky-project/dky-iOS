@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -69,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3DD-b2-gV9" userLabel="centern line">
-                                <rect key="frame" x="384" y="0.0" width="1" height="210"/>
+                                <rect key="frame" x="383.5" y="0.0" width="1" height="210"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="HqO-SF-VfE"/>
@@ -85,6 +85,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计说明：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqw-kp-cD2" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="53" y="171" width="72" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -97,9 +102,11 @@
                             <constraint firstItem="51g-zn-OPJ" firstAttribute="leading" secondItem="h7K-1n-5Gl" secondAttribute="leading" id="J98-9i-KHJ"/>
                             <constraint firstItem="OCe-VJ-uwo" firstAttribute="leading" secondItem="3DD-b2-gV9" secondAttribute="trailing" constant="26.5" id="Kur-id-ezi"/>
                             <constraint firstItem="51g-zn-OPJ" firstAttribute="top" secondItem="6ux-3n-Shg" secondAttribute="bottom" constant="35" id="M4o-Qx-ZOW"/>
+                            <constraint firstItem="Fqw-kp-cD2" firstAttribute="top" secondItem="6ux-3n-Shg" secondAttribute="bottom" constant="24" id="OdT-eM-App"/>
                             <constraint firstAttribute="height" constant="210" id="T16-Pf-ce2"/>
                             <constraint firstItem="h7K-1n-5Gl" firstAttribute="leading" secondItem="bp6-Ax-xct" secondAttribute="leading" constant="53" id="WVW-8Q-cug"/>
                             <constraint firstItem="PmH-aU-pKe" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="bottom" constant="27" id="ly7-hK-5Db"/>
+                            <constraint firstItem="Fqw-kp-cD2" firstAttribute="leading" secondItem="6ux-3n-Shg" secondAttribute="leading" id="nWk-XI-G4y"/>
                             <constraint firstItem="Xwy-t2-DMd" firstAttribute="leading" secondItem="OCe-VJ-uwo" secondAttribute="leading" id="oyO-5d-L83"/>
                             <constraint firstItem="OCe-VJ-uwo" firstAttribute="top" secondItem="h7K-1n-5Gl" secondAttribute="top" id="qMH-Ds-LBd"/>
                             <constraint firstItem="3DD-b2-gV9" firstAttribute="centerX" secondItem="bp6-Ax-xct" secondAttribute="centerX" id="w6d-M5-m8Y"/>
