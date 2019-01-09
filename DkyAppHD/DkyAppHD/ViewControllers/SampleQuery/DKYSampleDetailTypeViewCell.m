@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *boduanLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *seriesLabel;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *onSellTimeLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *desigonDescriptionLabel;
 
 @property (nonatomic, weak) SDCycleScrollView *cycleScrollView;
 
@@ -106,6 +107,13 @@
     // 上货时间
     self.onSellTimeLabel.text = [NSString stringWithFormat:@"上货时间 : %@",model.marketDate];
     [self.onSellTimeLabel setText:self.onSellTimeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    // 设计说明
+    self.desigonDescriptionLabel.text = [NSString stringWithFormat:@"设计说明 : %@",model.description5];
+    [self.desigonDescriptionLabel setText:self.desigonDescriptionLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
     }];

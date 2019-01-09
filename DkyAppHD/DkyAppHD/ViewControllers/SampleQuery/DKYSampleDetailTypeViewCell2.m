@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeightCst;
 
 @property (nonatomic, weak) SDCycleScrollView *cycleScrollView;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *allTypeLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *boduanLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *designDescriptionLabel;
 
 @end
 @implementation DKYSampleDetailTypeViewCell2
@@ -82,6 +85,21 @@
         return mutableAttributedString;
     }];
     
+    // 所属类别
+    self.allTypeLabel.text = [NSString stringWithFormat:@"所属类别 : %@",model.mptbelongtypeText];
+    
+    [self.allTypeLabel setText:self.allTypeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    // 波段
+    self.boduanLabel.text = [NSString stringWithFormat:@"波段 : %@",model.mDim14Text];
+    [self.boduanLabel setText:self.boduanLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
     // 系列
     self.seriesLabel.text = [NSString stringWithFormat:@"系列 : %@",model.mDim13Text];
     [self.seriesLabel setText:self.seriesLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
@@ -89,9 +107,16 @@
         return mutableAttributedString;
     }];
     
-    // 设计说明
-    self.onSellTimeLabel.text = [NSString stringWithFormat:@"设计说明 : %@",model.description5];
+    // 上货时间
+    self.onSellTimeLabel.text = [NSString stringWithFormat:@"上货时间 : %@",model.marketDate];
     [self.onSellTimeLabel setText:self.onSellTimeLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    // 设计说明
+    self.designDescriptionLabel.text = [NSString stringWithFormat:@"设计说明 : %@",model.description5];
+    [self.designDescriptionLabel setText:self.designDescriptionLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
     }];
