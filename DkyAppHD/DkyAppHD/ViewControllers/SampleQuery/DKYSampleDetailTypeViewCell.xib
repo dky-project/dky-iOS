@@ -132,6 +132,7 @@
                 <outlet property="allTypeLabel" destination="OCe-VJ-uwo" id="HVX-oG-XQZ"/>
                 <outlet property="boduanLabel" destination="PmH-aU-pKe" id="SDY-NO-7xd"/>
                 <outlet property="cycleScrollViewHeightCst" destination="fhp-6F-KTi" id="bMI-dj-UHP"/>
+                <outlet property="desigonDescriptionLabel" destination="Fqw-kp-cD2" id="a9Y-NS-FQT"/>
                 <outlet property="genderLabel" destination="h7K-1n-5Gl" id="mYR-Tt-a6U"/>
                 <outlet property="onSellTimeLabel" destination="6ux-3n-Shg" id="3bl-OG-mbR"/>
                 <outlet property="placehlderView" destination="2Y1-nO-2o0" id="Q61-co-LjC"/>
