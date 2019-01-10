@@ -199,6 +199,9 @@
     
     self.cycleScrollViewHeightCst.constant = 880;
     
+    self.desigonDescriptionLabel.numberOfLines = 0;
+    self.desigonDescriptionLabel.lineSpacing = 2.5;
+    
     [self setupBannerView];
 }
 
