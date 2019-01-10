@@ -214,7 +214,7 @@
     
     self.cycleScrollViewHeightCst.constant = 880;
     //self.bottomViewHeightCst.constant = 200;
-    
+    self.designDescriptionLabel.numberOfLines = 0;
     [self setupBannerView];
 }
 
