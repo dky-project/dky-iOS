@@ -102,7 +102,7 @@
 #pragma mark - UI
 
 - (void)commonInit{
-    [self setupCustomTitle:@"产品详情"];
+    //[self setupCustomTitle:@"产品详情"];
     [self setupOrderBtn];
     [self setupCollectBtn];
     
@@ -212,6 +212,11 @@
     }
 }
 
+-(void)updateTitleView:(NSString*)jg{
+    NSString *title = [NSString stringWithFormat:@"%@  %@",jg,@"产品详情"];
+    [self setupCustomTitle:title];
+}
+
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
     NSMutableArray *titleList = [NSMutableArray array];
@@ -256,6 +261,7 @@
 - (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex{
     DKYSampleModel *sampleModel = [self.samples objectAtIndex:pageIndex];
     [self updateCollectBtn:sampleModel.collected];
+    [self updateTitleView:@"jg1234"];
 }
 
 
