@@ -56,6 +56,9 @@
             if (retCode == DkyHttpResponseCode_Success) {
                 [DKYHUDTool showSuccessWithStatus:@"登录成功"];
                 [[DKYAccountManager sharedInstance] saveAccessToken:result.data];
+                
+                [[DKYAccountManager sharedInstance] saveJgno:@"jg777"];
+                
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [weakSelf loginSuccessful];
                 });

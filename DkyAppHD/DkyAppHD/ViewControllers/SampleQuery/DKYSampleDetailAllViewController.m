@@ -13,6 +13,7 @@
 #import "DKYSampleModel.h"
 #import "DKYProductCollectParameter.h"
 #import "DKYSampleDetailViewController2.h"
+#import "DKYAccountManager.h"
 
 @interface DKYSampleDetailAllViewController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 
@@ -103,7 +104,9 @@
 
 - (void)commonInit{
     //[self setupCustomTitle:@"产品详情"];
-    [self updateTitleView:@"jg1234"];
+    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
+    [self updateTitleView:jgno];
+    
     [self setupOrderBtn];
     [self setupCollectBtn];
     
