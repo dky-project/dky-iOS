@@ -103,6 +103,7 @@
 
 - (void)commonInit{
     //[self setupCustomTitle:@"产品详情"];
+    [self updateTitleView:@"jg1234"];
     [self setupOrderBtn];
     [self setupCollectBtn];
     
@@ -261,7 +262,6 @@
 - (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex{
     DKYSampleModel *sampleModel = [self.samples objectAtIndex:pageIndex];
     [self updateCollectBtn:sampleModel.collected];
-    [self updateTitleView:@"jg1234"];
 }
 
 
