@@ -21,6 +21,8 @@
 
 @property (nonatomic, copy) NSString *dlValue;
 
+@property (nonatomic, assign) NSInteger mDimNew13Id;
+
 // 客户端自己的属性
 @property (nonatomic, copy) NSString *sampleId;
 @property (nonatomic, strong) NSIndexPath *indexPath;
