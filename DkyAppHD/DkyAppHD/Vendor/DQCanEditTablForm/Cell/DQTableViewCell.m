@@ -223,6 +223,22 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
             }
             self.contentView.backgroundColor = [UIColor colorWithHex:0xf1f1f1];
             break;
+        case DKYFormType_TypeFour:{
+            totalWidth = 768 - 64 * 2;
+            CGFloat lineWidth = totalWidth / DataArr.count;
+            for(NSInteger i = 0; i< lineWidth; ++i){
+                [mwidth addObject:@(lineWidth)];
+            }
+        }
+            break;
+        case DKYFormType_TypeFive:{
+            totalWidth = 768 - 32 * 2;
+            CGFloat lineWidth = totalWidth / DataArr.count;
+            for(NSInteger i = 0; i< lineWidth; ++i){
+                [mwidth addObject:@(lineWidth)];
+            }
+        }
+            break;
         default:
             
             self.contentView.backgroundColor = [UIColor whiteColor];
