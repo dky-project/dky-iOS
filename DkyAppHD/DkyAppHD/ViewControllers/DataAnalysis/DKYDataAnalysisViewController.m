@@ -40,6 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self commonInit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,10 +51,6 @@
 
 -(void)didInitialize{
     [super didInitialize];
-
-    [self commonInit];
-    
-    [self getDataAnalysisListFromServer];
 }
 
 - (void)viewDidLayoutSubviews{
@@ -409,7 +407,14 @@
 #pragma common init
 - (void)commonInit{
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
+    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, @"数据分析"];
+    self.title = title;
+    
     [self setupTableView];
+    
+    [self getDataAnalysisListFromServer];
 }
 
 - (void)setupHeaderView{
