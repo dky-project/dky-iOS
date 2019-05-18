@@ -77,6 +77,8 @@ typedef NS_ENUM(NSInteger, DKYFormType) {
     DKYFormType_TypeOne,
     DKYFormType_TypeTwo,    // 设置表格背景色没0xf1f1f1，非这个类型，为默认的白色
     DKYFormType_TypeThree,    // 基本类似DKYFormType_TypeTwo，宽度变宽，用于数据分析
+    DKYFormType_TypeFour, // 用于展示童装数据
+    DKYFormType_TypeFive, // 用于展示婴儿装数据
 };
 
 // 详情下单颜色选中类型

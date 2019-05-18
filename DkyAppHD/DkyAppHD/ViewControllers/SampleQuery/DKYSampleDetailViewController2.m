@@ -277,7 +277,7 @@
 
 - (void)commonInit{
     self.group = dispatch_group_create();
-    [self setupCustomTitle:@"产品详情"];
+    //[self setupCustomTitle:@"产品详情"];
     
     [self setupTableView];
 }

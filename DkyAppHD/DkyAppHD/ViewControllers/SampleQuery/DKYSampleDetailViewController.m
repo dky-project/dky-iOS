@@ -36,6 +36,9 @@
 
 @property (nonatomic, copy) NSArray *ganweiArray;
 
+@property (nonatomic, copy) NSArray *tongzhuangArray;
+
+@property (nonatomic, copy) NSArray *yingerzhuangArray;
 @end
 
 @implementation DKYSampleDetailViewController
@@ -66,6 +69,7 @@
     DKYProductInfoParameter *p = [[DKYProductInfoParameter alloc] init];
     p.Id = @(self.sampleModel.mProductId);
     p.isBuy = self.sampleModel.isBuy;
+    //p.Id = @(435411);
     
     [[DKYHttpRequestManager sharedInstance] getProductInfoWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -74,6 +78,7 @@
             weakSelf.sampleProductInfo = [DKYSampleProductInfoModel mj_objectWithKeyValues:result.data];
             weakSelf.sampleProductInfo.mProductId = @(weakSelf.sampleModel.mProductId);
             weakSelf.sampleProductInfo.pdt = weakSelf.sampleModel.name;
+            weakSelf.sampleProductInfo.mDimNew13Id = weakSelf.sampleModel.mDimNew13Id;
             
             [self setupDefaultValueArray];
             [self setupGanweiArray];
@@ -97,14 +102,22 @@
     dispatch_group_enter(self.group);
     DKYSampleQueryParameter *p = [[DKYSampleQueryParameter alloc] init];
     p.mProductId = @(self.sampleModel.mProductId);
-//    p.mProductId = @(3282);
+    //p.mProductId = @(435411);
     
     [[DKYHttpRequestManager sharedInstance] queryPriceListWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         if (retCode == DkyHttpResponseCode_Success) {
             weakSelf.queryPrices = [DKYQueryPriceModel mj_objectArrayWithKeyValuesArray:result.data];
-            [weakSelf setupPriceArray];
+            if(weakSelf.sampleModel.mDimNew13Id == 21 || weakSelf.sampleModel.mDimNew13Id == 20){
+                [weakSelf setupPriceArray];
+            }else if (weakSelf.sampleModel.mDimNew13Id == 249 || weakSelf.sampleModel.mDimNew13Id == 250){
+                // 童装
+                [weakSelf setupTongzhuangArray];
+            }else{
+                // 婴儿装
+                [weakSelf setupYingerzhuangArray];
+            }
         }else if (retCode == DkyHttpResponseCode_NotLogin) {
             // 用户未登录,弹出登录页面
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
@@ -264,11 +277,97 @@
     self.ganweiArray = [ganwei mutableCopy];
 }
 
+-(void)setupTongzhuangArray{
+    NSMutableArray *sex = [NSMutableArray arrayWithCapacity:2];
+    [sex addObject:@"性别"];
+    
+    NSMutableArray *type = [NSMutableArray arrayWithCapacity:2];
+    [type addObject:@"品种"];
+    
+    NSMutableArray *zhenType = [NSMutableArray arrayWithCapacity:2];
+    [zhenType addObject:@"针型"];
+    
+    NSMutableArray *group1 = [NSMutableArray arrayWithCapacity:2];
+    [group1 addObject:@"50以下"];
+    
+    NSMutableArray *group2 = [NSMutableArray arrayWithCapacity:2];
+    [group2 addObject:@"50-60"];
+    
+    NSMutableArray *group3 = [NSMutableArray arrayWithCapacity:2];
+    [group3 addObject:@"60-70"];
+    
+    NSMutableArray *group4 = [NSMutableArray arrayWithCapacity:2];
+    [group4 addObject:@"70-80"];
+    
+    NSMutableArray *group5 = [NSMutableArray arrayWithCapacity:2];
+    [group5 addObject:@"80以上"];
+    
+    for (DKYQueryPriceModel *model in self.queryPrices) {
+        [sex addObject:model.mDimNew13Text];
+        [type addObject:model.mDimNew14Text];
+        [zhenType addObject:model.mDimNew16Text];
+        [group1 addObject:[NSString formatRateStringWithRate:model.price]];
+        [group2 addObject:[NSString formatRateStringWithRate:model.price2]];
+        [group3 addObject:[NSString formatRateStringWithRate:model.price4]];
+        [group4 addObject:[NSString formatRateStringWithRate:model.price6]];
+        [group5 addObject:[NSString formatRateStringWithRate:model.price8]];
+    }
+    
+    self.tongzhuangArray = @[[sex copy],[type copy],[zhenType copy],[group1 copy],[group2 copy],[group3 copy],[group4 copy],[group5 copy]];
+}
+
+-(void)setupYingerzhuangArray{
+    NSMutableArray *sex = [NSMutableArray arrayWithCapacity:2];
+    [sex addObject:@"性别"];
+    
+    NSMutableArray *type = [NSMutableArray arrayWithCapacity:2];
+    [type addObject:@"品种"];
+    
+    NSMutableArray *zhenType = [NSMutableArray arrayWithCapacity:2];
+    [zhenType addObject:@"针型"];
+    
+    NSMutableArray *group1 = [NSMutableArray arrayWithCapacity:2];
+    [group1 addObject:@"3M"];
+    
+    NSMutableArray *group2 = [NSMutableArray arrayWithCapacity:2];
+    [group2 addObject:@"6M"];
+    
+    NSMutableArray *group3 = [NSMutableArray arrayWithCapacity:2];
+    [group3 addObject:@"9M"];
+    
+    NSMutableArray *group4 = [NSMutableArray arrayWithCapacity:2];
+    [group4 addObject:@"12M"];
+    
+    NSMutableArray *group5 = [NSMutableArray arrayWithCapacity:2];
+    [group5 addObject:@"24M"];
+    
+    NSMutableArray *group6 = [NSMutableArray arrayWithCapacity:2];
+    [group6 addObject:@"36M"];
+    
+    NSMutableArray *group7 = [NSMutableArray arrayWithCapacity:2];
+    [group7 addObject:@"48M"];
+    
+    for (DKYQueryPriceModel *model in self.queryPrices) {
+        [sex addObject:model.mDimNew13Text];
+        [type addObject:model.mDimNew14Text];
+        [zhenType addObject:model.mDimNew16Text];
+        [group1 addObject:[NSString formatRateStringWithRate:model.price]];
+        [group2 addObject:[NSString formatRateStringWithRate:model.price1]];
+        [group3 addObject:[NSString formatRateStringWithRate:model.price2]];
+        [group4 addObject:[NSString formatRateStringWithRate:model.price3]];
+        [group5 addObject:[NSString formatRateStringWithRate:model.price4]];
+        [group6 addObject:[NSString formatRateStringWithRate:model.price5]];
+        [group7 addObject:[NSString formatRateStringWithRate:model.price6]];
+    }
+    
+    self.yingerzhuangArray = @[[sex copy],[type copy],[zhenType copy],[group1 copy],[group2 copy],[group3 copy],[group4 copy],[group5 copy],[group6 copy],[group7 copy]];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
     self.group = dispatch_group_create();
-    [self setupCustomTitle:@"产品详情"];
+    //[self setupCustomTitle:@"产品详情"];
     
     [self setupTableView];
 }
@@ -340,9 +439,21 @@
                 DKYSampleDetailPriceViewCell *newcell = (DKYSampleDetailPriceViewCell*)cell;
                 newcell.sampleProductInfo = self.sampleProductInfo;
             }else{
-                DQTableViewCell *newcell = (DQTableViewCell*)cell;
-                newcell.fd_enforceFrameLayout = YES;
-                newcell.DataArr = [self.priceArray mutableCopy];
+                if(self.sampleProductInfo.mDimNew13Id == 21 || self.sampleProductInfo.mDimNew13Id == 20){
+                    DQTableViewCell *newcell = (DQTableViewCell*)cell;
+                    newcell.fd_enforceFrameLayout = YES;
+                    newcell.DataArr = [self.priceArray mutableCopy];
+                }else if (self.sampleProductInfo.mDimNew13Id == 249 || self.sampleProductInfo.mDimNew13Id == 250){
+                    // 童装
+                    DQTableViewCell *newcell = (DQTableViewCell*)cell;
+                    newcell.fd_enforceFrameLayout = YES;
+                    newcell.DataArr = [self.self.tongzhuangArray mutableCopy];
+                }else{
+                    // 婴儿装
+                    DQTableViewCell *newcell = (DQTableViewCell*)cell;
+                    newcell.fd_enforceFrameLayout = YES;
+                    newcell.DataArr = [self.self.yingerzhuangArray mutableCopy];
+                }
             }
         }else if(indexPath.row == 2){
             
@@ -398,10 +509,30 @@
                 cell.sampleProductInfo = self.sampleProductInfo;
                 return cell;
             }else{
-                DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
-    
-                cell.DataArr = [self.priceArray mutableCopy];
-                return cell;
+                //mDimNew13Id == 21 || mDimNew13Id == 20  表格保持不变
+                //mDimNew13Id == 249 || mDimNew13Id == 250 童装
+                //其他为婴儿
+                
+                if(self.sampleProductInfo.mDimNew13Id == 21 || self.sampleProductInfo.mDimNew13Id == 20){
+                    DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+                    
+                    cell.DataArr = [self.priceArray mutableCopy];
+                    return cell;
+                }else if (self.sampleProductInfo.mDimNew13Id == 249 || self.sampleProductInfo.mDimNew13Id == 250){
+                    // 童装
+                    DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+                    
+                    cell.formType = DKYFormType_TypeFour;
+                    cell.DataArr = [self.tongzhuangArray mutableCopy];
+                    return cell;
+                }else{
+                    // 婴儿装
+                    DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
+                    
+                    cell.formType = DKYFormType_TypeFive;
+                    cell.DataArr = [self.yingerzhuangArray mutableCopy];
+                    return cell;
+                }
             }
         }
             break;

@@ -27,4 +27,6 @@
 
 @property (nonatomic, strong) NSNumber *totalCount;
 
+@property (nonatomic, copy) NSString *jgno;
+
 @end
