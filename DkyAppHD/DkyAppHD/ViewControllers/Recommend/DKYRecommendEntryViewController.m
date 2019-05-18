@@ -272,7 +272,10 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.group = dispatch_group_create();
     
-    [self setupCustomTitle:@"套系下单"];
+    //[self setupCustomTitle:@"套系下单"];
+    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
+    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, @"套系下单"];
+    [self setupCustomTitle:title];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     

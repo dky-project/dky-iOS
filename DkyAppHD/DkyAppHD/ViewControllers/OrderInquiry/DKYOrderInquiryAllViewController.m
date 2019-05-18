@@ -86,7 +86,10 @@
 #pragma mark - UI
 - (void)commonInit{
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self setupCustomTitle:@"订单查询"];
+    //[self setupCustomTitle:@"订单查询"];
+    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
+    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, @"订单查询"];
+    [self setupCustomTitle:title];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
