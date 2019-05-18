@@ -17,6 +17,12 @@
 @property (nonatomic, strong) NSString * mDimNew16Text;
 @property (nonatomic, assign) NSInteger price;
 @property (nonatomic, assign) NSInteger price1;
+@property (nonatomic, assign) NSInteger price2;
+@property (nonatomic, assign) NSInteger price3;
+@property (nonatomic, assign) NSInteger price4;
+@property (nonatomic, assign) NSInteger price5;
+@property (nonatomic, assign) NSInteger price6;
+@property (nonatomic, assign) NSInteger price8;
 
 
 @property (nonatomic, assign) NSInteger mProductId;
