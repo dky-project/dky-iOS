@@ -82,6 +82,9 @@
     // 先清除本地的accessToken
     [[DKYAccountManager sharedInstance] deleteAccesToken];
     
+    // 清除 机构号
+    [[DKYAccountManager sharedInstance] deleteJgno];
+    
     // 弹出登录界面
     DKYLoginViewController *loginVc = (DKYLoginViewController*)[UIStoryboard viewControllerWithClass:[DKYLoginViewController class]];
     loginVc.fromLogout = YES;

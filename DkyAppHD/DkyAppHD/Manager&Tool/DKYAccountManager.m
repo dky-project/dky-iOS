@@ -16,6 +16,8 @@ static  NSString* const kSSKeychainCustID = @"DkyAPPCustID";
 static  NSString* const kSSKeychainAccessToken = @"DkyAccessToken";
 static  NSString* const kSSKeychainAccessTokenWithNoBearer = @"DkyAccessTokenWithNoBearer";
 
+// 机构号
+static  NSString* const kSSKeychainJGNO = @"DkyJGNO";
 
 static DKYAccountManager *sharedInstance = nil;
 
@@ -68,6 +70,18 @@ static DKYAccountManager *sharedInstance = nil;
     NSString *accessToken = [self getAccessToken];
     
     return (accessToken && ![accessToken isEqualToString:@""]);
+}
+
+- (NSString*)getJgno{
+    NSString *hgno = (NSString*)[[YYCache defaultCache] objectForKey:kSSKeychainJGNO];
+    return hgno;
+}
+
+- (void)saveJgno:(NSString*)jgno{
+    [[YYCache defaultCache] setObject:jgno forKey:kSSKeychainJGNO];}
+
+- (void)deleteJgno{
+    [[YYCache defaultCache] removeObjectForKey:kSSKeychainJGNO];
 }
 
 #pragma mark - 单例模式，获取DJDHttpRequestManager

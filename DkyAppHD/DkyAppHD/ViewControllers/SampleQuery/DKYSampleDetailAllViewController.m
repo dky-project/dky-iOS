@@ -13,6 +13,7 @@
 #import "DKYSampleModel.h"
 #import "DKYProductCollectParameter.h"
 #import "DKYSampleDetailViewController2.h"
+#import "DKYAccountManager.h"
 
 @interface DKYSampleDetailAllViewController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 
@@ -102,7 +103,10 @@
 #pragma mark - UI
 
 - (void)commonInit{
-    [self setupCustomTitle:@"产品详情"];
+    //[self setupCustomTitle:@"产品详情"];
+    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
+    [self updateTitleView:jgno];
+    
     [self setupOrderBtn];
     [self setupCollectBtn];
     
@@ -210,6 +214,11 @@
     }else{
         [self.collectBtn setTitle:@"收藏" forState:UIControlStateNormal];
     }
+}
+
+-(void)updateTitleView:(NSString*)jg{
+    NSString *title = [NSString stringWithFormat:@"%@  %@",jg,@"产品详情"];
+    [self setupCustomTitle:title];
 }
 
 #pragma mark - VTMagicViewDataSource

@@ -19,4 +19,9 @@
 - (NSString*)getAccessTokenWithNoBearer;
 - (void)deleteAccesToken;
 - (BOOL)isLogin;
+
+- (NSString*)getJgno;
+- (void)saveJgno:(NSString*)jgno;
+- (void)deleteJgno;
+
 @end

@@ -94,6 +94,8 @@
 
 @property (nonatomic, copy) NSArray *sizeList;
 
+@property (nonatomic, assign) NSInteger mDimNew13Id;
+
 // 客户端自己的属性
 @property (nonatomic, strong) NSNumber *mProductId;
 
