@@ -188,6 +188,8 @@
     
     self.cycleScrollViewHeightCst.constant = 880;
     //self.bottomViewHeightCst.constant = 200;
+    self.onSellTimeLabel.numberOfLines = 0;
+    self.onSellTimeLabel.lineSpacing = 2.5;
     
     [self setupBannerView];
 }
