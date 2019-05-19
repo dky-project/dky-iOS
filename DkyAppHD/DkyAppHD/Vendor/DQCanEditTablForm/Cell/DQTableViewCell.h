@@ -25,4 +25,7 @@
 
 // title
 @property (nonatomic, copy) NSString *title;
+
+// mark
+@property (nonatomic, copy) NSString *mark;
 @end
