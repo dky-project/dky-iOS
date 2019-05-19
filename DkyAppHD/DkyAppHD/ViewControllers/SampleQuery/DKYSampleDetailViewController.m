@@ -289,20 +289,20 @@
     [zhenType addObject:@"针型"];
     
     NSMutableArray *group1 = [NSMutableArray arrayWithCapacity:2];
-    [group1 addObject:@"50以下或S"];
+    [group1 addObject:@"胸围50及以下或S码"];
     
     NSMutableArray *group2 = [NSMutableArray arrayWithCapacity:2];
-    [group2 addObject:@"50-60或M"];
+    [group2 addObject:@"胸围51-60或M码"];
     
     NSMutableArray *group3 = [NSMutableArray arrayWithCapacity:2];
-    [group3 addObject:@"60-70或L"];
-    
+    [group3 addObject:@"胸围61-70或L码"];
+
     NSMutableArray *group4 = [NSMutableArray arrayWithCapacity:2];
-    [group4 addObject:@"70-80或XL"];
-    
+    [group4 addObject:@"胸围71-80或XL码"];
+
     NSMutableArray *group5 = [NSMutableArray arrayWithCapacity:2];
-    [group5 addObject:@"80以上"];
-    
+    [group5 addObject:@"81以上专卖店价(女装标准价)"];
+
     for (DKYQueryPriceModel *model in self.queryPrices) {
         [sex addObject:model.mDimNew13Text];
         [type addObject:model.mDimNew14Text];
@@ -441,18 +441,21 @@
                 if(self.sampleProductInfo.mDimNew13Id == 21 || self.sampleProductInfo.mDimNew13Id == 20){
                     DQTableViewCell *newcell = (DQTableViewCell*)cell;
                     newcell.fd_enforceFrameLayout = YES;
+                    newcell.mark = nil;
                     newcell.DataArr = [self.priceArray mutableCopy];
                     newcell.title = @"价格";
                 }else if (self.sampleProductInfo.mDimNew13Id == 249 || self.sampleProductInfo.mDimNew13Id == 250){
                     // 童装
                     DQTableViewCell *newcell = (DQTableViewCell*)cell;
                     newcell.fd_enforceFrameLayout = YES;
+                    newcell.mark = @"注意：衣长超出60cm的价同女装标准价格";
                     newcell.DataArr = [self.self.tongzhuangArray mutableCopy];
                     newcell.title = nil;
                 }else{
                     // 婴儿装
                     DQTableViewCell *newcell = (DQTableViewCell*)cell;
                     newcell.fd_enforceFrameLayout = YES;
+                    newcell.mark = nil;
                     newcell.DataArr = [self.self.yingerzhuangArray mutableCopy];
                     newcell.title = nil;
                 }
@@ -467,10 +470,12 @@
                 newcell.title = nil;
             }else if(indexPath.row == 2){
                 newcell.formType = DKYFormType_TypeTwo;
+                newcell.mark = nil;
                 newcell.DataArr = [self.sampleValueArray mutableCopy];
                 newcell.title = @"尺寸规格表";
             }else if(indexPath.row == 4){
                 newcell.formType = DKYFormType_TypeTwo;
+                newcell.mark = nil;
                 newcell.DataArr = [self.ganweiArray mutableCopy];
                 newcell.title = @"杆位";
             }
@@ -492,6 +497,7 @@
         case 1:{
             DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
             cell.formType = DKYFormType_TypeTwo;
+            cell.mark = nil;
             cell.DataArr = [self.defaultValueArray mutableCopy];
             cell.hideBottomLine = YES;
             cell.title = nil;
@@ -502,6 +508,7 @@
             DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
             
             cell.formType = DKYFormType_TypeTwo;
+            cell.mark = nil;
             cell.DataArr = [self.sampleValueArray mutableCopy];
             cell.hideBottomLine = YES;
             cell.title = @"尺寸规格表";
@@ -523,6 +530,7 @@
                     DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
                     
                     cell.formType = DKYFormType_TypeTwo;
+                    cell.mark = nil;
                     cell.DataArr = [self.priceArray mutableCopy];
                     cell.title = @"价格";
                     return cell;
@@ -531,6 +539,7 @@
                     DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
                     
                     cell.formType = DKYFormType_TypeFour;
+                    cell.mark = @"注意：衣长超出60cm的价同女装标准价格";
                     cell.DataArr = [self.tongzhuangArray mutableCopy];
                     cell.title = nil;
                     return cell;
@@ -539,6 +548,7 @@
                     DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
                     
                     cell.formType = DKYFormType_TypeFive;
+                    cell.mark = nil;
                     cell.DataArr = [self.yingerzhuangArray mutableCopy];
                     cell.title = nil;
                     return cell;

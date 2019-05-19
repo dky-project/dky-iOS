@@ -23,6 +23,8 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
 
 @property (nonatomic, weak) UILabel *titleLabel;
 
+@property (nonatomic, weak) UILabel *markLabel;
+
 @end
 @implementation DQTableViewCell
 + (instancetype)tableViewCellWithTableView:(UITableView *)tableView{
@@ -72,6 +74,24 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
     }];
 }
 
+- (void)setMark:(NSString *)mark{
+    _mark = [mark copy];
+    if(self.markLabel == nil){
+        [self setupMarkLabel];
+    }
+    
+    self.markLabel.text = mark;
+    
+    UIView *sub = self.contentView;
+    double topPadding = -15;
+    if(mark.length > 0){
+        topPadding = -40;
+    }
+    [self.DQCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(sub.mas_bottom).offset(topPadding);
+    }];
+}
+
 - (void)DQAddSubViewFunction{
     UIView *sub = self.contentView;
     self.DQCollectionView = [[DQFormCollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
@@ -109,6 +129,24 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
     }];
     
     label.text = self.title;
+}
+
+- (void)setupMarkLabel{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.font = [UIFont boldSystemFontOfSize:14];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentLeft;
+    
+    [self.contentView addSubview:label];
+    self.markLabel = label;
+    WeakSelf(weakSelf);
+    [self.markLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.contentView).with.offset(32);
+        make.bottom.mas_equalTo(weakSelf.contentView).with.offset(-10);
+        make.height.mas_equalTo(14);
+    }];
+    
+    label.text = self.mark;
 }
 
 - (void)setupLine{
@@ -218,16 +256,22 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
         case DKYFormType_TypeThree:
             totalWidth = 768 - 64 * 2;
             CGFloat lineWidth = totalWidth / DataArr.count;
-            for(NSInteger i = 0; i< lineWidth; ++i){
+            for(NSInteger i = 0; i< DataArr.count; ++i){
                 [mwidth addObject:@(lineWidth)];
             }
             self.contentView.backgroundColor = [UIColor colorWithHex:0xf1f1f1];
             break;
         case DKYFormType_TypeFour:{
-            totalWidth = 768 - 64 * 2;
+            totalWidth = 768 - 32 * 2;
             CGFloat lineWidth = totalWidth / DataArr.count;
-            for(NSInteger i = 0; i< lineWidth; ++i){
-                [mwidth addObject:@(lineWidth)];
+            for(NSInteger i = 0; i < DataArr.count; ++i){
+                if(i < 3){
+                    [mwidth addObject:@(lineWidth - 40)];
+                }else if(i != DataArr.count - 1){
+                    [mwidth addObject:@(lineWidth + 20)];
+                }else{
+                    [mwidth addObject:@(lineWidth + 40)];
+                }
             }
             self.contentView.backgroundColor = [UIColor colorWithHex:0xf1f1f1];
         }
@@ -286,7 +330,10 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
     NSInteger extra = 0;
     if(self.title.length > 0){
         extra = 25;
+    }else if(self.mark.length > 0){
+        extra = 25;
     }
+    
     return CGSizeMake(size.width, array.count * 30 + 30 + 0.5 + extra);
 }
 
