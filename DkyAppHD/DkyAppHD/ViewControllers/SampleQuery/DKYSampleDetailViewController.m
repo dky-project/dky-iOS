@@ -289,16 +289,16 @@
     [zhenType addObject:@"针型"];
     
     NSMutableArray *group1 = [NSMutableArray arrayWithCapacity:2];
-    [group1 addObject:@"50以下"];
+    [group1 addObject:@"50以下或S"];
     
     NSMutableArray *group2 = [NSMutableArray arrayWithCapacity:2];
-    [group2 addObject:@"50-60"];
+    [group2 addObject:@"50-60或M"];
     
     NSMutableArray *group3 = [NSMutableArray arrayWithCapacity:2];
-    [group3 addObject:@"60-70"];
+    [group3 addObject:@"60-70或L"];
     
     NSMutableArray *group4 = [NSMutableArray arrayWithCapacity:2];
-    [group4 addObject:@"70-80"];
+    [group4 addObject:@"70-80或XL"];
     
     NSMutableArray *group5 = [NSMutableArray arrayWithCapacity:2];
     [group5 addObject:@"80以上"];
@@ -327,41 +327,42 @@
     NSMutableArray *zhenType = [NSMutableArray arrayWithCapacity:2];
     [zhenType addObject:@"针型"];
     
-    NSMutableArray *group1 = [NSMutableArray arrayWithCapacity:2];
-    [group1 addObject:@"3M"];
-    
     NSMutableArray *group2 = [NSMutableArray arrayWithCapacity:2];
     [group2 addObject:@"6M"];
     
     NSMutableArray *group3 = [NSMutableArray arrayWithCapacity:2];
     [group3 addObject:@"9M"];
     
-    NSMutableArray *group4 = [NSMutableArray arrayWithCapacity:2];
-    [group4 addObject:@"12M"];
-    
-    NSMutableArray *group5 = [NSMutableArray arrayWithCapacity:2];
-    [group5 addObject:@"24M"];
-    
-    NSMutableArray *group6 = [NSMutableArray arrayWithCapacity:2];
-    [group6 addObject:@"36M"];
-    
-    NSMutableArray *group7 = [NSMutableArray arrayWithCapacity:2];
-    [group7 addObject:@"48M"];
+    //    NSMutableArray *group1 = [NSMutableArray arrayWithCapacity:2];
+    //    [group1 addObject:@"3M"];
+    //
+    //    NSMutableArray *group4 = [NSMutableArray arrayWithCapacity:2];
+    //    [group4 addObject:@"12M"];
+    //
+    //    NSMutableArray *group5 = [NSMutableArray arrayWithCapacity:2];
+    //    [group5 addObject:@"24M"];
+    //
+    //    NSMutableArray *group6 = [NSMutableArray arrayWithCapacity:2];
+    //    [group6 addObject:@"36M"];
+    //
+    //    NSMutableArray *group7 = [NSMutableArray arrayWithCapacity:2];
+    //    [group7 addObject:@"48M"];
     
     for (DKYQueryPriceModel *model in self.queryPrices) {
         [sex addObject:model.mDimNew13Text];
         [type addObject:model.mDimNew14Text];
         [zhenType addObject:model.mDimNew16Text];
-        [group1 addObject:[NSString formatRateStringWithRate:model.price]];
         [group2 addObject:[NSString formatRateStringWithRate:model.price1]];
         [group3 addObject:[NSString formatRateStringWithRate:model.price2]];
-        [group4 addObject:[NSString formatRateStringWithRate:model.price3]];
-        [group5 addObject:[NSString formatRateStringWithRate:model.price4]];
-        [group6 addObject:[NSString formatRateStringWithRate:model.price5]];
-        [group7 addObject:[NSString formatRateStringWithRate:model.price6]];
+        
+        //        [group1 addObject:[NSString formatRateStringWithRate:model.price]];
+        //        [group4 addObject:[NSString formatRateStringWithRate:model.price3]];
+        //        [group5 addObject:[NSString formatRateStringWithRate:model.price4]];
+        //        [group6 addObject:[NSString formatRateStringWithRate:model.price5]];
+        //        [group7 addObject:[NSString formatRateStringWithRate:model.price6]];
     }
     
-    self.yingerzhuangArray = @[[sex copy],[type copy],[zhenType copy],[group1 copy],[group2 copy],[group3 copy],[group4 copy],[group5 copy],[group6 copy],[group7 copy]];
+    self.yingerzhuangArray = @[[sex copy],[type copy],[zhenType copy],[group2 copy],[group3 copy]];
 }
 
 #pragma mark - UI

@@ -233,8 +233,10 @@ static NSString *DQCollectionCellID = @"DQCollectionCellID";
         }
             break;
         case DKYFormType_TypeFive:{
-            totalWidth = 768 - 32 * 2;
-            CGFloat lineWidth = totalWidth / DataArr.count;
+            //totalWidth = 768 - 64 * 2;
+            CGFloat lineWidth = 100;
+            totalWidth = lineWidth * DataArr.count;
+            
             for(NSInteger i = 0; i< lineWidth; ++i){
                 [mwidth addObject:@(lineWidth)];
             }
