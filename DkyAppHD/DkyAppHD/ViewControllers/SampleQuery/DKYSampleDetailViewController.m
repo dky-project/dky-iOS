@@ -530,7 +530,7 @@
                     // 婴儿装
                     DQTableViewCell *cell = [DQTableViewCell tableViewCellWithTableView:tableView];
                     
-                    //cell.formType = DKYFormType_TypeFive;
+                    cell.formType = DKYFormType_TypeFive;
                     cell.DataArr = [self.yingerzhuangArray mutableCopy];
                     return cell;
                 }
