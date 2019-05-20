@@ -69,6 +69,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
+    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, self.title];
+    [self setupCustomTitle:title];
+    
     if(self.notFirstLoad){
         [self doHttpRequest];
     }
@@ -357,9 +361,6 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
     //[self setupCustomTitle:self.title];
-    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
-    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, self.title];
-    [self setupCustomTitle:title];
     
     self.group = dispatch_group_create();
     
