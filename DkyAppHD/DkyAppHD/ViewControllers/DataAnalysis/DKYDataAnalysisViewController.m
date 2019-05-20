@@ -66,6 +66,14 @@
     }];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
+    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, @"数据分析"];
+    self.title = title;
+}
+
 #pragma mark - api
 - (void)getDataAnalysisListFromServer{
     WeakSelf(weakSelf);
@@ -407,10 +415,6 @@
 #pragma common init
 - (void)commonInit{
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
-    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, @"数据分析"];
-    self.title = title;
     
     [self setupTableView];
     
