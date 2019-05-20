@@ -128,13 +128,23 @@
     TWNavBtnItem *rightBtnItem = [[TWNavBtnItem alloc]init];
     
     rightBtnItem.itemType = TWNavBtnItemType_Text;
-    rightBtnItem.title = @"切换账号";
+    rightBtnItem.title = kSignOutText;
     rightBtnItem.normalImage = nil;
     rightBtnItem.hilightedImage = nil;
     self.rightBtnItem = rightBtnItem;
     
     self.rightBtnClicked = ^(UIButton *sender) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:kNoText style:QMUIAlertActionStyleDefault handler:NULL];
+        
+        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:kYesText style:QMUIAlertActionStyleDestructive handler:^(__kindof QMUIAlertController *aAlertController, QMUIAlertAction *action) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+        }];
+        
+        QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:kHintText message:kSignOutContent preferredStyle:QMUIAlertControllerStyleAlert];
+        
+        [alertController addAction:action1];
+        [alertController addAction:action2];
+        [alertController showWithAnimated:YES];
     };
 }
 
@@ -179,7 +189,7 @@
                                                                       options:options
                                                                    attributes:attributes
                                                                       context:nil];
-            textFrame.size.width = MAX(textFrame.size.width, titleFrame.size.width);
+            textFrame.size.width = MAX(textFrame.size.width, titleFrame.size.width + 1 + self.rightBtnItem.titleOffsetX);
         }
             break;
         case TWNavBtnItemType_ImageAndText:{
