@@ -62,6 +62,8 @@
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [weakSelf loginSuccessful];
                 });
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginNotification object:nil];
             }else if (retCode == DkyHttpResponseCode_NotLogin) {
                 // 用户未登录,弹出登录页面
                 [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
