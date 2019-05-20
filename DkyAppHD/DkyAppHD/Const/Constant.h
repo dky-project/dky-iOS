@@ -71,6 +71,8 @@ typedef void(^BlockWithSenderAndModel)(id sender, id model);
 //消息通知
 #define kUserNotLoginNotification @"UserNotLoginNotification"
 
+#define kUserLoginNotification @"UserLoginNotification"
+
 #define kDisplayAmountChangedNotification   @"DisplayAmountChangedNotification"
 
 #define kDisplayOneCollectChangedNotification   @"DisplayOneCollectChangedNotification"

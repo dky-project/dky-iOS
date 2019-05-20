@@ -412,6 +412,10 @@
     [ganwei addObject:column4];
 }
 
+- (void)userLogin:(NSNotification *)notification{
+    [self.tableView.mj_header beginRefreshing];
+}
+
 #pragma common init
 - (void)commonInit{
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -419,6 +423,8 @@
     [self setupTableView];
     
     [self getDataAnalysisListFromServer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogin:) name:kUserLoginNotification object:nil];
 }
 
 - (void)setupHeaderView{
