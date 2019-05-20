@@ -175,6 +175,12 @@
     self.userNameTextField.text = @"nea@burgeon.com.cn";
     self.passwordTextField.text = @"henlo.net";
     
+    self.userNameTextField.text = @"F06";
+    self.passwordTextField.text = @"123";
+    
+    self.userNameTextField.text = @"Y06";
+    self.passwordTextField.text = @"123";
+    
     self.userNameTextField.text = @"X31";
     self.passwordTextField.text = @"123";
 #endif
