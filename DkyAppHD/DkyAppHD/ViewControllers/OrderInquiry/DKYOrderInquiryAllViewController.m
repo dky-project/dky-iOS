@@ -28,6 +28,14 @@
     [self commonInit];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
+    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, @"订单查询"];
+    [self setupCustomTitle:title];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -86,10 +94,6 @@
 - (void)commonInit{
     self.edgesForExtendedLayout = UIRectEdgeNone;
     //[self setupCustomTitle:@"订单查询"];
-    
-    NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
-    NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, @"订单查询"];
-    [self setupCustomTitle:title];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
     
