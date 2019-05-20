@@ -310,6 +310,10 @@
     browseView.detailOrders = self.detailOrders;
 }
 
+- (void)userLogin:(NSNotification *)notification{
+    [self.tableView.mj_header beginRefreshing];
+}
+
 #pragma mark - UI
 
 - (void)commonInit{
@@ -321,6 +325,9 @@
     
     [self setupHeaderView];
     [self setupTableView];
+    
+    // 注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogin:) name:kUserLoginNotification object:nil];
 }
 
 - (void)setupHeaderView{
