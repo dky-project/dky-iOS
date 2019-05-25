@@ -71,7 +71,7 @@
     
     NSString* jgno = [[DKYAccountManager sharedInstance] getJgno];
     NSString *title = [NSString stringWithFormat:@"%@  %@",jgno, @"数据分析"];
-    self.title = title;
+    self.titleView.title = title;
 }
 
 #pragma mark - api
