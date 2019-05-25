@@ -72,7 +72,7 @@
     
     self.rectImageView.image = itemModel.selected ? self.selectedImage : self.normalImage;
     
-    self.orderAmountLabel.text = itemModel.totalAmount;
+    self.orderAmountLabel.text = [NSString stringWithFormat:@"￥%@",itemModel.totalAmount];
     self.countLabel.text = itemModel.qty;
     [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:itemModel.imgUrl]];
     
