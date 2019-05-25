@@ -328,10 +328,10 @@
     [zhenType addObject:@"针型"];
     
     NSMutableArray *group2 = [NSMutableArray arrayWithCapacity:2];
-    [group2 addObject:@"6M"];
+    [group2 addObject:@"价格6M"];
     
     NSMutableArray *group3 = [NSMutableArray arrayWithCapacity:2];
-    [group3 addObject:@"9M"];
+    [group3 addObject:@"价格9M"];
     
     //    NSMutableArray *group1 = [NSMutableArray arrayWithCapacity:2];
     //    [group1 addObject:@"3M"];
