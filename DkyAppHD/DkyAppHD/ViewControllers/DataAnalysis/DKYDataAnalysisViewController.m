@@ -106,11 +106,7 @@
 
 - (void)updateUI{
     [self makeFormData];
-    if(self.getDataAnalysisListModel.total.isZmd){
-        self.header.height = 160;
-    }else{
-        self.header.height = 200;
-    }
+    self.header.height = 200;
     self.header.getDataAnalysisListModel = self.getDataAnalysisListModel;
     
     [self.tableView reloadData];

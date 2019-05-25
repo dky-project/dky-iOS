@@ -72,32 +72,22 @@
         return mutableAttributedString;
     }];
     
-    if(getDataAnalysisListModel.total.isZmd){
-        self.discountOrRebateLabel.text = [NSString stringWithFormat:@"专卖店-折扣 : %@折",getDataAnalysisListModel.total.GHPRICE];
-        [self.discountOrRebateLabel setText:self.discountOrRebateLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-            [self formatMutableAttributedString:mutableAttributedString];
-            return mutableAttributedString;
-        }];
-        
-        self.rebateAmountLabel.hidden = YES;
-    }else{
-        self.discountOrRebateLabel.text = [NSString stringWithFormat:@"加盟店-返利 : %@元/件",getDataAnalysisListModel.total.FLPRICE];
-        [self.discountOrRebateLabel setText:self.discountOrRebateLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-            [self formatMutableAttributedString:mutableAttributedString];
-            return mutableAttributedString;
-        }];
-        
-        self.rebateAmountLabel.hidden = NO;
-        
-        CGFloat totalMoney = [getDataAnalysisListModel.total.FLPRICE floatValue] * [getDataAnalysisListModel.total.QTY floatValue];
-        
-        NSString *moneyStr = [NSString formatMoneyStringWithNumberEx:totalMoney];
-        self.rebateAmountLabel.text = [NSString stringWithFormat:@"返利总额 : %@元",moneyStr];
-        [self.rebateAmountLabel setText:self.rebateAmountLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-            [self formatMutableAttributedString:mutableAttributedString];
-            return mutableAttributedString;
-        }];
-    }
+    self.discountOrRebateLabel.text = [NSString stringWithFormat:@"返利 : %@元/件",getDataAnalysisListModel.total.FLPRICE];
+    [self.discountOrRebateLabel setText:self.discountOrRebateLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
+    
+    self.rebateAmountLabel.hidden = NO;
+    
+    CGFloat totalMoney = [getDataAnalysisListModel.total.FLPRICE floatValue] * [getDataAnalysisListModel.total.QTY floatValue];
+    
+    NSString *moneyStr = [NSString formatMoneyStringWithNumberEx:totalMoney];
+    self.rebateAmountLabel.text = [NSString stringWithFormat:@"返利总额 : %@元",moneyStr];
+    [self.rebateAmountLabel setText:self.rebateAmountLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        [self formatMutableAttributedString:mutableAttributedString];
+        return mutableAttributedString;
+    }];
 }
 
 - (void)setData{
