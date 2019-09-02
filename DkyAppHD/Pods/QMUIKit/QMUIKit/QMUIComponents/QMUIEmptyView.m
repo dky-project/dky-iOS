@@ -1,15 +1,24 @@
+/*****
+ * Tencent is pleased to support the open source community by making QMUI_iOS available.
+ * Copyright (C) 2016-2019 THL A29 Limited, a Tencent company. All rights reserved.
+ * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ * http://opensource.org/licenses/MIT
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ *****/
+
 //
 //  QMUIEmptyView.m
 //  qmui
 //
-//  Created by 李凯 on 2016/10/9.
-//  Copyright © 2016年 QMUI Team. All rights reserved.
+//  Created by QMUI Team on 2016/10/9.
 //
 
 #import "QMUIEmptyView.h"
 #import "QMUICore.h"
 #import "UIControl+QMUI.h"
 #import "NSParagraphStyle+QMUI.h"
+#import "UIView+QMUI.h"
+#import "QMUIButton.h"
 
 @interface QMUIEmptyView ()
 
@@ -81,7 +90,7 @@
     self.detailTextLabel.numberOfLines = 0;
     [self.contentView addSubview:self.detailTextLabel];
     
-    _actionButton = [[UIButton alloc] init];
+    _actionButton = [[QMUIButton alloc] init];
     self.actionButton.qmui_outsideEdge = UIEdgeInsetsMake(-20, -20, -20, -20);
     self.actionButton.qmui_automaticallyAdjustTouchHighlightedInScrollView = YES;
     [self.contentView addSubview:self.actionButton];
@@ -117,16 +126,12 @@
     }
     
     if (!self.textLabel.hidden) {
-        CGFloat labelWidth = CGRectGetWidth(self.contentView.bounds) - UIEdgeInsetsGetHorizontalValue(self.textLabelInsets);
-        CGSize labelSize = [self.textLabel sizeThatFits:CGSizeMake(labelWidth, CGFLOAT_MAX)];
-        self.textLabel.frame = CGRectFlatMake(self.textLabelInsets.left, originY + self.textLabelInsets.top, labelWidth, labelSize.height);
+        self.textLabel.frame = CGRectFlatMake(self.textLabelInsets.left, originY + self.textLabelInsets.top, CGRectGetWidth(self.contentView.bounds) - UIEdgeInsetsGetHorizontalValue(self.textLabelInsets), QMUIViewSelfSizingHeight);
         originY = CGRectGetMaxY(self.textLabel.frame) + self.textLabelInsets.bottom;
     }
     
     if (!self.detailTextLabel.hidden) {
-        CGFloat labelWidth = CGRectGetWidth(self.contentView.bounds) - UIEdgeInsetsGetHorizontalValue(self.detailTextLabelInsets);
-        CGSize labelSize = [self.detailTextLabel sizeThatFits:CGSizeMake(labelWidth, CGFLOAT_MAX)];
-        self.detailTextLabel.frame = CGRectFlatMake(self.detailTextLabelInsets.left, originY + self.detailTextLabelInsets.top, labelWidth, labelSize.height);
+        self.detailTextLabel.frame = CGRectFlatMake(self.detailTextLabelInsets.left, originY + self.detailTextLabelInsets.top, CGRectGetWidth(self.contentView.bounds) - UIEdgeInsetsGetHorizontalValue(self.detailTextLabelInsets), QMUIViewSelfSizingHeight);
         originY = CGRectGetMaxY(self.detailTextLabel.frame) + self.detailTextLabelInsets.bottom;
     }
     
@@ -297,7 +302,7 @@
     appearance.imageViewInsets = UIEdgeInsetsMake(0, 0, 36, 0);
     appearance.loadingViewInsets = UIEdgeInsetsMake(0, 0, 36, 0);
     appearance.textLabelInsets = UIEdgeInsetsMake(0, 0, 10, 0);
-    appearance.detailTextLabelInsets = UIEdgeInsetsMake(0, 0, 10, 0);
+    appearance.detailTextLabelInsets = UIEdgeInsetsMake(0, 0, 14, 0);
     appearance.actionButtonInsets = UIEdgeInsetsZero;
     appearance.verticalOffset = -30;
     

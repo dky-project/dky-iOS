@@ -1,9 +1,16 @@
+/*****
+ * Tencent is pleased to support the open source community by making QMUI_iOS available.
+ * Copyright (C) 2016-2019 THL A29 Limited, a Tencent company. All rights reserved.
+ * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ * http://opensource.org/licenses/MIT
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ *****/
+
 //
 //  QMUIConfigurationMacros.h
 //  qmui
 //
 //  Created by QMUI Team on 14-7-2.
-//  Copyright (c) 2014年 QMUI Team. All rights reserved.
 //
 
 #import "QMUIConfiguration.h"
@@ -20,6 +27,8 @@
 
 #define QMUICMI ({[[QMUIConfiguration sharedInstance] applyInitialTemplate];[QMUIConfiguration sharedInstance];})
 
+/// 标志当前项目是否正使用配置表功能
+#define QMUICMIActivated            [QMUICMI active]
 
 #pragma mark - Global Color
 
@@ -191,7 +200,6 @@
 
 #pragma mark - UIWindowLevel
 #define UIWindowLevelQMUIAlertView                      [QMUICMI windowLevelQMUIAlertView]
-#define UIWindowLevelQMUIImagePreviewView               [QMUICMI windowLevelQMUIImagePreviewView]
 
 #pragma mark - QMUILog
 #define ShouldPrintDefaultLog                           [QMUICMI shouldPrintDefaultLog]
@@ -214,6 +222,7 @@
 
 #pragma mark - Others
 
+#define AutomaticCustomNavigationBarTransitionStyle [QMUICMI automaticCustomNavigationBarTransitionStyle] // 界面 push/pop 时是否要自动根据两个界面的 barTintColor/backgroundImage/shadowImage 的样式差异来决定是否使用自定义的导航栏效果
 #define SupportedOrientationMask                        [QMUICMI supportedOrientationMask]          // 默认支持的横竖屏方向
 #define AutomaticallyRotateDeviceOrientation            [QMUICMI automaticallyRotateDeviceOrientation]  // 是否在界面切换或 viewController.supportedOrientationMask 发生变化时自动旋转屏幕，默认为 NO
 #define StatusbarStyleLightInitially                    [QMUICMI statusbarStyleLightInitially]      // 默认的状态栏内容是否使用白色，默认为NO，也即黑色
@@ -222,4 +231,7 @@
 #define PreventConcurrentNavigationControllerTransitions [QMUICMI preventConcurrentNavigationControllerTransitions] // PreventConcurrentNavigationControllerTransitions : 自动保护 QMUINavigationController 在上一次 push/pop 尚未结束的时候就进行下一次 push/pop 的行为，避免产生 crash
 #define NavigationBarHiddenInitially                    [QMUICMI navigationBarHiddenInitially]      // preferredNavigationBarHidden 的初始值，默认为NO
 #define ShouldFixTabBarTransitionBugInIPhoneX           [QMUICMI shouldFixTabBarTransitionBugInIPhoneX] // 是否需要自动修复 iOS 11 下，iPhone X 的设备在 push 界面时，tabBar 会瞬间往上跳的 bug
+#define ShouldFixTabBarButtonBugForAll                  [QMUICMI shouldFixTabBarButtonBugForAll] // 是否要对 iOS 12.1.2 及以后的版本也修复手势返回时 tabBarButton 布局错误的 bug(issue #410)，默认为 NO
+#define ShouldPrintQMUIWarnLogToConsole                 [QMUICMI shouldPrintQMUIWarnLogToConsole] // 是否在出现 QMUILogWarn 时自动把这些 log 以 QMUIConsole 的方式显示到设备屏幕上
+#define SendAnalyticsToQMUITeam                         [QMUICMI sendAnalyticsToQMUITeam] // 是否允许在 DEBUG 模式下上报 Bundle Identifier 和 Display Name 给 QMUI 统计用
 

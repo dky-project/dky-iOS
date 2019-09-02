@@ -1,9 +1,16 @@
+/*****
+ * Tencent is pleased to support the open source community by making QMUI_iOS available.
+ * Copyright (C) 2016-2019 THL A29 Limited, a Tencent company. All rights reserved.
+ * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ * http://opensource.org/licenses/MIT
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ *****/
+
 //
 //  QMUINavigationTitleView.m
 //  qmui
 //
 //  Created by QMUI Team on 14-7-2.
-//  Copyright (c) 2014年 QMUI Team. All rights reserved.
 //
 
 #import "QMUINavigationTitleView.h"
@@ -23,41 +30,42 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        ExchangeImplementations([self class], @selector(layoutSubviews), @selector(titleView_navigationBarLayoutSubviews));
+        OverrideImplementation([UINavigationBar class], @selector(layoutSubviews), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
+            return ^(UINavigationBar *selfObject) {
+                
+                // avoid superclass
+                if ([selfObject isKindOfClass:originClass]) {
+                    QMUINavigationTitleView *titleView = (QMUINavigationTitleView *)selfObject.topItem.titleView;
+                    
+                    if ([titleView isKindOfClass:[QMUINavigationTitleView class]]) {
+                        CGFloat titleViewMaximumWidth = CGRectGetWidth(titleView.bounds);// 初始状态下titleView会被设置为UINavigationBar允许的最大宽度
+                        CGSize titleViewSize = [titleView sizeThatFits:CGSizeMake(titleViewMaximumWidth, CGFLOAT_MAX)];
+                        titleViewSize.height = ceil(titleViewSize.height);// titleView的高度如果非pt整数，会导致计算出来的y值时多时少，所以干脆做一下pt取整，这个策略不要改，改了要重新测试push过程中titleView是否会跳动
+                        
+                        // 当在UINavigationBar里使用自定义的titleView时，就算titleView的sizeThatFits:返回正确的高度，navigationBar也不会帮你设置高度（但会帮你设置宽度），所以我们需要自己更新高度并且修正y值
+                        if (CGRectGetHeight(titleView.bounds) != titleViewSize.height) {
+                            CGFloat titleViewMinY = flat(CGRectGetMinY(titleView.frame) - ((titleViewSize.height - CGRectGetHeight(titleView.bounds)) / 2.0));// 系统对titleView的y值布局是flat，注意，不能改，改了要测试
+                            titleView.frame = CGRectMake(CGRectGetMinX(titleView.frame), titleViewMinY, MIN(titleViewMaximumWidth, titleViewSize.width), titleViewSize.height);
+                        }
+                        
+                        // iOS 11 之后（iOS 11 Beta 5 测试过） titleView 的布局发生了一些变化，如果不主动设置宽度，titleView 里的内容就可能无法完整展示
+                        if (@available(iOS 11, *)) {
+                            if (CGRectGetWidth(titleView.bounds) != titleViewSize.width) {
+                                titleView.frame = CGRectSetWidth(titleView.frame, titleViewSize.width);
+                            }
+                        }
+                    } else {
+                        titleView = nil;
+                    }
+                }
+                
+                // call super
+                void (*originSelectorIMP)(id, SEL);
+                originSelectorIMP = (void (*)(id, SEL))originalIMPProvider();
+                originSelectorIMP(selfObject, originCMD);
+            };
+        });
     });
-}
-
-- (void)titleView_navigationBarLayoutSubviews {
-    QMUINavigationTitleView *titleView = (QMUINavigationTitleView *)self.topItem.titleView;
-    
-    if ([titleView isKindOfClass:[QMUINavigationTitleView class]]) {
-        CGFloat titleViewMaximumWidth = CGRectGetWidth(titleView.bounds);// 初始状态下titleView会被设置为UINavigationBar允许的最大宽度
-        CGSize titleViewSize = [titleView sizeThatFits:CGSizeMake(titleViewMaximumWidth, CGFLOAT_MAX)];
-        titleViewSize.height = ceil(titleViewSize.height);// titleView的高度如果非pt整数，会导致计算出来的y值时多时少，所以干脆做一下pt取整，这个策略不要改，改了要重新测试push过程中titleView是否会跳动
-        
-        // 当在UINavigationBar里使用自定义的titleView时，就算titleView的sizeThatFits:返回正确的高度，navigationBar也不会帮你设置高度（但会帮你设置宽度），所以我们需要自己更新高度并且修正y值
-        if (CGRectGetHeight(titleView.bounds) != titleViewSize.height) {
-//            NSLog(@"【%@】修正布局前\ntitleView = %@", NSStringFromClass(titleView.class), titleView);
-            CGFloat titleViewMinY = flat(CGRectGetMinY(titleView.frame) - ((titleViewSize.height - CGRectGetHeight(titleView.bounds)) / 2.0));// 系统对titleView的y值布局是flat，注意，不能改，改了要测试
-            titleView.frame = CGRectMake(CGRectGetMinX(titleView.frame), titleViewMinY, fmin(titleViewMaximumWidth, titleViewSize.width), titleViewSize.height);
-//            NSLog(@"【%@】修正布局后\ntitleView = %@", NSStringFromClass(titleView.class), titleView);
-        }
-        
-        // iOS 11 之后（iOS 11 Beta 5 测试过） titleView 的布局发生了一些变化，如果不主动设置宽度，titleView 里的内容就可能无法完整展示
-        if (@available(iOS 11, *)) {
-            if (CGRectGetWidth(titleView.bounds) != titleViewSize.width) {
-                titleView.frame = CGRectSetWidth(titleView.frame, titleViewSize.width);
-            }
-        }
-    } else {
-        titleView = nil;
-    }
-    
-    [self titleView_navigationBarLayoutSubviews];
-    
-    if (titleView) {
-//        NSLog(@"【%@】系统布局后\ntitleView = %@", NSStringFromClass(titleView.class), titleView);
-    }
 }
 
 @end
@@ -111,13 +119,13 @@
         self.maximumWidth = appearance.maximumWidth;
         self.loadingViewSize = appearance.loadingViewSize;
         self.loadingViewMarginRight = appearance.loadingViewMarginRight;
-        self.horizontalTitleFont = appearance.horizontalTitleFont;
-        self.horizontalSubtitleFont = appearance.horizontalSubtitleFont;
+        self.horizontalTitleFont = appearance.horizontalTitleFont ?: [UINavigationBar appearance].titleTextAttributes[NSFontAttributeName];
+        self.horizontalSubtitleFont = appearance.horizontalSubtitleFont ?: self.horizontalTitleFont;
         self.verticalTitleFont = appearance.verticalTitleFont;
         self.verticalSubtitleFont = appearance.verticalSubtitleFont;
         self.accessoryViewOffset = appearance.accessoryViewOffset;
         self.subAccessoryViewOffset = appearance.subAccessoryViewOffset;
-        self.tintColor = NavBarTitleColor;
+        self.tintColor = QMUICMIActivated ? NavBarTitleColor : [UINavigationBar appearance].titleTextAttributes[NSForegroundColorAttributeName];
     }
     return self;
 }
@@ -224,7 +232,7 @@
             secondLineWidth += [self subAccessorySpacingSizeIfNeedesPlaceholder].width;
         }
         
-        size.width = fmax(firstLineWidth, secondLineWidth);
+        size.width = MAX(firstLineWidth, secondLineWidth);
         
         size.height = self.titleLabelSize.height + UIEdgeInsetsGetVerticalValue(self.titleEdgeInsetsIfShowingTitleLabel) + self.subtitleLabelSize.height + UIEdgeInsetsGetVerticalValue(self.subtitleEdgeInsetsIfShowingSubtitleLabel);
         return CGSizeFlatted(size);
@@ -232,21 +240,20 @@
         CGSize size = CGSizeZero;
         size.width = self.titleLabelSize.width + UIEdgeInsetsGetHorizontalValue(self.titleEdgeInsetsIfShowingTitleLabel) + self.subtitleLabelSize.width + UIEdgeInsetsGetHorizontalValue(self.subtitleEdgeInsetsIfShowingSubtitleLabel);
         size.width += [self loadingViewSpacingSizeIfNeedsPlaceholder].width + [self accessorySpacingSizeIfNeedesPlaceholder].width;
-        size.height = fmax(self.titleLabelSize.height + UIEdgeInsetsGetVerticalValue(self.titleEdgeInsetsIfShowingTitleLabel), self.subtitleLabelSize.height + UIEdgeInsetsGetVerticalValue(self.subtitleEdgeInsetsIfShowingSubtitleLabel));
-        size.height = fmax(size.height, [self loadingViewSpacingSizeIfNeedsPlaceholder].height);
-        size.height = fmax(size.height, [self accessorySpacingSizeIfNeedesPlaceholder].height);
+        size.height = MAX(self.titleLabelSize.height + UIEdgeInsetsGetVerticalValue(self.titleEdgeInsetsIfShowingTitleLabel), self.subtitleLabelSize.height + UIEdgeInsetsGetVerticalValue(self.subtitleEdgeInsetsIfShowingSubtitleLabel));
+        size.height = MAX(size.height, [self loadingViewSpacingSizeIfNeedsPlaceholder].height);
+        size.height = MAX(size.height, [self accessorySpacingSizeIfNeedesPlaceholder].height);
         return CGSizeFlatted(size);
     }
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
     CGSize resultSize = [self contentSize];
-    resultSize.width = fmin(resultSize.width, self.maximumWidth);
+    resultSize.width = MIN(resultSize.width, self.maximumWidth);
     return resultSize;
 }
 
 - (void)layoutSubviews {
-    
     if (CGSizeIsEmpty(self.bounds.size)) {
         return;
     }
@@ -261,8 +268,8 @@
     
     // 实际内容的size，小于等于maxSize
     CGSize contentSize = [self contentSize];
-    contentSize.width = fmin(maxSize.width, contentSize.width);
-    contentSize.height = fmin(maxSize.height, contentSize.height);
+    contentSize.width = MIN(maxSize.width, contentSize.width);
+    contentSize.height = MIN(maxSize.height, contentSize.height);
     
     // 计算左右两边的偏移值
     CGFloat offsetLeft = 0;
@@ -321,12 +328,12 @@
                 if (self.needsSubAccessoryPlaceholderSpace) {
                     // 副标题居中，accessoryView 在右边
                     CGFloat subtitleMaxWidth = subtitleWidth - [self subAccessorySpacingSizeIfNeedesPlaceholder].width;
-                    subtitleWidth = fmin(CGRectGetWidth(self.subtitleLabel.bounds), subtitleMaxWidth);
+                    subtitleWidth = MIN(CGRectGetWidth(self.subtitleLabel.bounds), subtitleMaxWidth);
                     subtitleMinX = (CGRectGetWidth(self.bounds) - subtitleWidth) / 2.0;
                 } else {
                     // 整体居中
                     CGFloat subtitleMaxWidth = subtitleWidth - [self subAccessorySpacingSize].width;
-                    subtitleWidth = fmin(CGRectGetWidth(self.subtitleLabel.bounds), subtitleMaxWidth);
+                    subtitleWidth = MIN(CGRectGetWidth(self.subtitleLabel.bounds), subtitleMaxWidth);
                     subtitleMinX = (CGRectGetWidth(self.bounds) - subtitleWidth - [self subAccessorySpacingSize].width) / 2.0;
                 }
             }
@@ -353,7 +360,7 @@
         if (isSubtitleLabelShowing) {
             maxX -= subtitleEdgeInsets.right;
             // 如果当前的 contentSize 就是以这个 label 的最大占位计算出来的，那么就不应该先计算 center 再计算偏移
-            CGFloat shouldSubtitleLabelCenterVertically = self.subtitleLabelSize.height + UIEdgeInsetsGetVerticalValue(subtitleEdgeInsets) < contentSize.height;
+            BOOL shouldSubtitleLabelCenterVertically = self.subtitleLabelSize.height + UIEdgeInsetsGetVerticalValue(subtitleEdgeInsets) < contentSize.height;
             CGFloat subtitleMinY = shouldSubtitleLabelCenterVertically ? CGFloatGetCenter(maxSize.height, self.subtitleLabelSize.height) + subtitleEdgeInsets.top - subtitleEdgeInsets.bottom : subtitleEdgeInsets.top;
             self.subtitleLabel.frame = CGRectFlatMake(maxX - self.subtitleLabelSize.width, subtitleMinY, self.subtitleLabelSize.width, self.subtitleLabelSize.height);
             maxX = CGRectGetMinX(self.subtitleLabel.frame) - subtitleEdgeInsets.left;
@@ -364,13 +371,27 @@
             minX += titleEdgeInsets.left;
             maxX -= titleEdgeInsets.right;
             // 如果当前的 contentSize 就是以这个 label 的最大占位计算出来的，那么就不应该先计算 center 再计算偏移
-            CGFloat shouldTitleLabelCenterVertically = self.titleLabelSize.height + UIEdgeInsetsGetVerticalValue(titleEdgeInsets) < contentSize.height;
+            BOOL shouldTitleLabelCenterVertically = self.titleLabelSize.height + UIEdgeInsetsGetVerticalValue(titleEdgeInsets) < contentSize.height;
             CGFloat titleLabelMinY = shouldTitleLabelCenterVertically ? CGFloatGetCenter(maxSize.height, self.titleLabelSize.height) + titleEdgeInsets.top - titleEdgeInsets.bottom : titleEdgeInsets.top;
             self.titleLabel.frame = CGRectFlatMake(minX, titleLabelMinY, maxX - minX, self.titleLabelSize.height);
         } else {
             self.titleLabel.frame = CGRectZero;
         }
     }
+    
+    // 上面的布局都是按 UIControlContentVerticalAlignmentTop 来计算的，所以这里根据实际的 contentVerticalAlignment 进行偏移
+    // 不支持 UIControlContentVerticalAlignmentFill
+    CGFloat offsetY = CGFloatGetCenter(maxSize.height, contentSize.height);
+    if (self.contentVerticalAlignment == UIControlContentVerticalAlignmentTop) {
+        offsetY = 0;
+    } else if (self.contentVerticalAlignment == UIControlContentVerticalAlignmentBottom) {
+        offsetY = maxSize.height - contentSize.height;
+    }
+    [self.subviews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!CGRectIsEmpty(obj.frame)) {
+            obj.frame = CGRectSetY(obj.frame, CGRectGetMinY(obj.frame) + offsetY);
+        }
+    }];
 }
 
 

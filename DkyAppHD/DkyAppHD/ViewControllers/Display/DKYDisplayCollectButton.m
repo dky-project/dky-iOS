@@ -14,9 +14,9 @@
     [super setSelected:selected];
     
     if(selected){
-        self.qmui_borderPosition = QMUIBorderViewPositionNone;
+        self.qmui_borderPosition = QMUIViewBorderPositionNone;
     }else{
-        self.qmui_borderPosition = QMUIBorderViewPositionTop | QMUIBorderViewPositionLeft | QMUIBorderViewPositionBottom | QMUIBorderViewPositionRight;
+        self.qmui_borderPosition = QMUIViewBorderPositionTop | QMUIViewBorderPositionLeft | QMUIViewBorderPositionBottom | QMUIViewBorderPositionRight;
         self.qmui_borderWidth = 1;
         self.qmui_borderColor = [UIColor colorWithHex:0x686868];
     }

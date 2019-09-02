@@ -355,7 +355,7 @@
 }
 
 - (void)p_customSunview:(UIView*)view{
-    view.qmui_borderPosition = QMUIBorderViewPositionTop | QMUIBorderViewPositionLeft | QMUIBorderViewPositionBottom | QMUIBorderViewPositionRight;
+    view.qmui_borderPosition = QMUIViewBorderPositionTop | QMUIViewBorderPositionLeft | QMUIViewBorderPositionBottom | QMUIViewBorderPositionRight;
     view.qmui_borderWidth = 1;
     view.qmui_borderColor = [UIColor colorWithHex:0x686868];
     
