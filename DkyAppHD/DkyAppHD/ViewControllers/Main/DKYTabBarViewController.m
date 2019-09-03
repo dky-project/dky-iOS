@@ -22,6 +22,7 @@
 #import "DKYDisplayEntryViewController.h"
 #import "DKYHelpViewController.h"
 #import "DKYDataAnalysisViewController.h"
+#import "DKYImageLisViewController.h"
 
 @interface DKYTabBarViewController ()<UITabBarControllerDelegate>
 
@@ -34,6 +35,8 @@
 @property (nonatomic, weak) DKYDisplayEntryViewController *displayVc;
 @property (nonatomic, weak) DKYHelpViewController *helpVc;
 @property (nonatomic, weak) DKYDataAnalysisViewController *dataVc;
+@property (nonatomic, weak) DKYImageLisViewController *imageVc;
+
 @end
 
 @implementation DKYTabBarViewController
@@ -129,6 +132,8 @@
     
     // 帮助
     //[self setupHelpVc];
+    
+    [self setupImageVc];
 }
 
 - (void)setupHomeVc{
@@ -194,6 +199,13 @@
     
     [self addOneChlildVc:helpVc title:@"帮助" imageName:@"tabbar_help" selectedImageName:@"tabbar_help"];
     self.helpVc = helpVc;
+}
+
+- (void)setupImageVc{
+    DKYImageLisViewController* imageVc = [[DKYImageLisViewController alloc] init];
+    
+    [self addOneChlildVc:imageVc title:@"图片" imageName:@"tabbar_help" selectedImageName:@"tabbar_help"];
+    self.imageVc = imageVc;
 }
 
 - (void)addOneChlildVc:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName
