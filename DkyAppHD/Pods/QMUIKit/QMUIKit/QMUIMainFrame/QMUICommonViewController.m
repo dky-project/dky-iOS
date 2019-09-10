@@ -1,9 +1,16 @@
+/*****
+ * Tencent is pleased to support the open source community by making QMUI_iOS available.
+ * Copyright (C) 2016-2019 THL A29 Limited, a Tencent company. All rights reserved.
+ * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ * http://opensource.org/licenses/MIT
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ *****/
+
 //
 //  QMUICommonViewController.m
 //  qmui
 //
 //  Created by QMUI Team on 14-6-22.
-//  Copyright (c) 2014年 QMUI Team. All rights reserved.
 //
 
 #import "QMUICommonViewController.h"
@@ -14,6 +21,7 @@
 #import "NSObject+QMUI.h"
 #import "UIViewController+QMUI.h"
 #import "UIGestureRecognizer+QMUI.h"
+#import "UIView+QMUI.h"
 
 @interface QMUIViewControllerHideKeyboardDelegateObject : NSObject <UIGestureRecognizerDelegate, QMUIKeyboardManagerDelegate>
 
@@ -42,7 +50,7 @@
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         [self didInitialize];
     }
@@ -52,6 +60,7 @@
 - (void)didInitialize {
     self.titleView = [[QMUINavigationTitleView alloc] init];
     self.titleView.title = self.title;// 从 storyboard 初始化的话，可能带有 self.title 的值
+    self.navigationItem.titleView = self.titleView;
     
     self.hidesBottomBarWhenPushed = HidesBottomBarWhenPushedInitially;
     
@@ -79,17 +88,31 @@
     }
     
     // 点击空白区域降下键盘 QMUICommonViewController (QMUIKeyboard)
-    
-    _hideKeyboadDelegateObject = [[QMUIViewControllerHideKeyboardDelegateObject alloc] initWithViewController:self];
-    
-    _hideKeyboardTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:nil action:NULL];
-    self.hideKeyboardTapGestureRecognizer.delegate = _hideKeyboadDelegateObject;
-    self.hideKeyboardTapGestureRecognizer.enabled = NO;
-    [self.view addGestureRecognizer:self.hideKeyboardTapGestureRecognizer];
-    
-    _hideKeyboardManager = [[QMUIKeyboardManager alloc] initWithDelegate:_hideKeyboadDelegateObject];
+    // 如果子类重写了才初始化这些对象（即便子类 return NO）
+    BOOL shouldEnabledKeyboardObject = [self qmui_hasOverrideMethod:@selector(shouldHideKeyboardWhenTouchInView:) ofSuperclass:[QMUICommonViewController class]];
+    if (shouldEnabledKeyboardObject) {
+        _hideKeyboadDelegateObject = [[QMUIViewControllerHideKeyboardDelegateObject alloc] initWithViewController:self];
+        
+        _hideKeyboardTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:nil action:NULL];
+        self.hideKeyboardTapGestureRecognizer.delegate = _hideKeyboadDelegateObject;
+        self.hideKeyboardTapGestureRecognizer.enabled = NO;
+        [self.view addGestureRecognizer:self.hideKeyboardTapGestureRecognizer];
+        
+        _hideKeyboardManager = [[QMUIKeyboardManager alloc] initWithDelegate:_hideKeyboadDelegateObject];
+    }
     
     [self initSubviews];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // fix iOS 11 and later, shouldHideKeyboardWhenTouchInView: will not work when calling becomeFirstResponder in UINavigationController.rootViewController.viewDidLoad
+    // https://github.com/Tencent/QMUI_iOS/issues/495
+    if (@available(iOS 11.0, *)) {
+        if (self.hideKeyboardManager && [QMUIKeyboardManager isKeyboardVisible]) {
+            self.hideKeyboardTapGestureRecognizer.enabled = YES;
+        }
+    }
 }
 
 - (void)viewDidLayoutSubviews {
@@ -101,11 +124,6 @@
     [super viewWillAppear:animated];
     [self setupNavigationItems];
     [self setupToolbarItems];
-}
-
-- (void)dealloc {
-    // iOS 9 以后，系统会在一个 object 被 release 的时候自动移除 observer，所以这句代码只为 iOS 8 使用
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 空列表视图 QMUIEmptyView
@@ -173,7 +191,7 @@
             CGSize newEmptyViewSize = self.emptyView.superview.bounds.size;
             CGSize oldEmptyViewSize = self.emptyView.frame.size;
             if (!CGSizeEqualToSize(newEmptyViewSize, oldEmptyViewSize)) {
-                self.emptyView.frame = CGRectMake(CGRectGetMinX(self.emptyView.frame), CGRectGetMinY(self.emptyView.frame), newEmptyViewSize.width, newEmptyViewSize.height);
+                self.emptyView.qmui_frameApplyTransform = CGRectFlatMake(CGRectGetMinX(self.emptyView.frame), CGRectGetMinY(self.emptyView.frame), newEmptyViewSize.width, newEmptyViewSize.height);
             }
             return YES;
         }
@@ -198,11 +216,73 @@
     return NO;
 }
 
+@end
+
+@implementation QMUICommonViewController (QMUISubclassingHooks)
+
+- (void)initSubviews {
+    // 子类重写
+}
+
+- (void)setupNavigationItems {
+    // 子类重写
+}
+
+- (void)setupToolbarItems {
+    // 子类重写
+}
+
+- (void)contentSizeCategoryDidChanged:(NSNotification *)notification {
+    // 子类重写
+}
+
+@end
+
+@implementation QMUICommonViewController (QMUINavigationController)
+
+- (void)updateNavigationBarAppearance {
+    
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    if (!navigationBar) return;
+    
+    BeginIgnoreDeprecatedWarning
+    if ([self respondsToSelector:@selector(shouldSetStatusBarStyleLight)]) {
+        if ([self shouldSetStatusBarStyleLight]) {
+            if ([[UIApplication sharedApplication] statusBarStyle] < UIStatusBarStyleLightContent) {
+                [QMUIHelper renderStatusBarStyleLight];
+            }
+        } else {
+            if ([[UIApplication sharedApplication] statusBarStyle] >= UIStatusBarStyleLightContent) {
+                [QMUIHelper renderStatusBarStyleDark];
+            }
+        }
+    }
+    EndIgnoreDeprecatedWarning
+    
+    if ([self respondsToSelector:@selector(navigationBarBackgroundImage)]) {
+        [navigationBar setBackgroundImage:[self navigationBarBackgroundImage] forBarMetrics:UIBarMetricsDefault];
+    }
+    if ([self respondsToSelector:@selector(navigationBarBarTintColor)]) {
+        navigationBar.barTintColor = [self navigationBarBarTintColor];
+    }
+    if ([self respondsToSelector:@selector(navigationBarShadowImage)]) {
+        navigationBar.shadowImage = [self navigationBarShadowImage];
+    }
+    if ([self respondsToSelector:@selector(navigationBarTintColor)]) {
+        navigationBar.tintColor = [self navigationBarTintColor];
+    }
+    if ([self respondsToSelector:@selector(titleViewTintColor)]) {
+        self.titleView.tintColor = [self titleViewTintColor];
+    }
+}
+
 #pragma mark - <QMUINavigationControllerDelegate>
 
+BeginIgnoreClangWarning(-Wdeprecated-implementations)
 - (BOOL)shouldSetStatusBarStyleLight {
     return StatusbarStyleLightInitially;
 }
+EndIgnoreClangWarning
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return StatusbarStyleLightInitially ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
@@ -216,27 +296,6 @@
     // 通常和 viewWillAppear: 里做的事情保持一致
     [self setupNavigationItems];
     [self setupToolbarItems];
-}
-
-@end
-
-@implementation QMUICommonViewController (QMUISubclassingHooks)
-
-- (void)initSubviews {
-    // 子类重写
-}
-
-- (void)setupNavigationItems {
-    // 子类重写
-    self.navigationItem.titleView = self.titleView;
-}
-
-- (void)setupToolbarItems {
-    // 子类重写
-}
-
-- (void)contentSizeCategoryDidChanged:(NSNotification *)notification {
-    // 子类重写
 }
 
 @end
@@ -295,8 +354,7 @@
 
 - (void)keyboardWillShowWithUserInfo:(QMUIKeyboardUserInfo *)keyboardUserInfo {
     if (![self.viewController qmui_isViewLoadedAndVisible]) return;
-    BOOL hasOverrideMethod = [self.viewController qmui_hasOverrideMethod:@selector(shouldHideKeyboardWhenTouchInView:) ofSuperclass:[QMUICommonViewController class]];
-    self.viewController.hideKeyboardTapGestureRecognizer.enabled = hasOverrideMethod;
+    self.viewController.hideKeyboardTapGestureRecognizer.enabled = YES;
 }
 
 - (void)keyboardWillHideWithUserInfo:(QMUIKeyboardUserInfo *)keyboardUserInfo {

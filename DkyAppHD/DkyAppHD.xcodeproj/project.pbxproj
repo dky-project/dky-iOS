@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		157E3D5E49F6D5353573ED36 /* libPods-DkyAppHD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022420CA6C15094DF0E7C2 /* libPods-DkyAppHD.a */; };
+		260327222327716200084A69 /* DKYFabricViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260327202327716200084A69 /* DKYFabricViewController.m */; };
 		2609BD531E7D56380063D6FF /* DKYMptApproveSaveParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609BD521E7D56380063D6FF /* DKYMptApproveSaveParameter.m */; };
 		260F319F20D73A3100A5D213 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 260F319E20D73A3100A5D213 /* data.json */; };
 		260F31A220D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 260F31A120D73F1100A5D213 /* DKYGetDataAnalysisFormItemModel.m */; };
@@ -383,6 +384,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2603271F2327716200084A69 /* DKYFabricViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYFabricViewController.h; sourceTree = "<group>"; };
+		260327202327716200084A69 /* DKYFabricViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYFabricViewController.m; sourceTree = "<group>"; };
 		2609BD511E7D56380063D6FF /* DKYMptApproveSaveParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYMptApproveSaveParameter.h; sourceTree = "<group>"; };
 		2609BD521E7D56380063D6FF /* DKYMptApproveSaveParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYMptApproveSaveParameter.m; sourceTree = "<group>"; };
 		260F319E20D73A3100A5D213 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -1114,6 +1117,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2603271E2327716200084A69 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				2603271F2327716200084A69 /* DKYFabricViewController.h */,
+				260327202327716200084A69 /* DKYFabricViewController.m */,
+				260327212327716200084A69 /* view */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		260327212327716200084A69 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		2620D6DF1E55F16700BC0668 /* 定制订单 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2185,6 +2205,7 @@
 				EBB0FBA11F3049B200BCD57C /* Display */,
 				EBD5E26D1F316BEC00B98F46 /* Recommend */,
 				2630C5BC20D5428500C4A698 /* DataAnalysis */,
+				2603271E2327716200084A69 /* Fabric */,
 				266A9B23202C91B700F56879 /* Help */,
 				EB95117E1E16408C008708EF /* Login */,
 				EBD694B31E277D5100F365C3 /* Webview */,
@@ -2598,6 +2619,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				de,
@@ -2801,6 +2823,7 @@
 				EBD694B11E277B4700F365C3 /* RxWebViewNavigationViewController.m in Sources */,
 				26C94A5B20C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
+				260327222327716200084A69 /* DKYFabricViewController.m in Sources */,
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
 				EB506C341E23706F002A1423 /* DKYBootImageModel.m in Sources */,
 				EBC300581E1CB06700F602E6 /* DKYFiltrateView.m in Sources */,

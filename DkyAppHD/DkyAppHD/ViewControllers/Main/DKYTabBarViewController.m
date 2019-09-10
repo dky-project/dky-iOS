@@ -22,6 +22,7 @@
 #import "DKYDisplayEntryViewController.h"
 #import "DKYHelpViewController.h"
 #import "DKYDataAnalysisViewController.h"
+#import "DKYFabricViewController.h"
 
 @interface DKYTabBarViewController ()<UITabBarControllerDelegate>
 
@@ -34,6 +35,7 @@
 @property (nonatomic, weak) DKYDisplayEntryViewController *displayVc;
 @property (nonatomic, weak) DKYHelpViewController *helpVc;
 @property (nonatomic, weak) DKYDataAnalysisViewController *dataVc;
+@property (nonatomic, weak) DKYFabricViewController *fabricVc;
 @end
 
 @implementation DKYTabBarViewController
@@ -129,6 +131,9 @@
     
     // 帮助
     //[self setupHelpVc];
+    
+    // 面料
+    [self setupFabricVc];
 }
 
 - (void)setupHomeVc{
@@ -194,6 +199,13 @@
     
     [self addOneChlildVc:helpVc title:@"帮助" imageName:@"tabbar_help" selectedImageName:@"tabbar_help"];
     self.helpVc = helpVc;
+}
+
+- (void)setupFabricVc{
+    DKYFabricViewController* fabricVc = [[DKYFabricViewController alloc] init];
+    
+    [self addOneChlildVc:fabricVc title:@"面料" imageName:@"tarbar_fabric" selectedImageName:@"tarbar_fabric"];
+    self.fabricVc = fabricVc;
 }
 
 - (void)addOneChlildVc:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName

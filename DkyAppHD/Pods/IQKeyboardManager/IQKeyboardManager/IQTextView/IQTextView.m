@@ -29,7 +29,7 @@
 
 @interface IQTextView ()
 
-@property(nonatomic, strong) UILabel *placeholderLabel;
+@property(nullable, nonatomic, strong) UILabel *placeholderLabel;
 
 @end
 
@@ -68,7 +68,7 @@
 
 -(void)refreshPlaceholder
 {
-    if([[self text] length])
+    if([[self text] length] || [[self attributedText] length])
     {
         [_placeholderLabel setAlpha:0];
     }
@@ -84,6 +84,12 @@
 - (void)setText:(NSString *)text
 {
     [super setText:text];
+    [self refreshPlaceholder];
+}
+
+-(void)setAttributedText:(NSAttributedString *)attributedText
+{
+    [super setAttributedText:attributedText];
     [self refreshPlaceholder];
 }
 
@@ -108,14 +114,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-
-    CGFloat offsetLeft = self.textContainerInset.left + self.textContainer.lineFragmentPadding;
-    CGFloat offsetRight = self.textContainerInset.right + self.textContainer.lineFragmentPadding;
-    CGFloat offsetTop = self.textContainerInset.top;
-    CGFloat offsetBottom = self.textContainerInset.bottom;
-
-    CGSize expectedSize = [self.placeholderLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.frame)-offsetLeft-offsetRight, CGRectGetHeight(self.frame)-offsetTop-offsetBottom)];
-    self.placeholderLabel.frame = CGRectMake(offsetLeft, offsetTop, expectedSize.width, expectedSize.height);
+    self.placeholderLabel.frame = [self placeholderExpectedFrame];
 }
 
 -(void)setPlaceholder:(NSString *)placeholder
@@ -126,10 +125,33 @@
     [self refreshPlaceholder];
 }
 
+-(void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder
+{
+    _attributedPlaceholder = attributedPlaceholder;
+    
+    self.placeholderLabel.attributedText = attributedPlaceholder;
+    [self refreshPlaceholder];
+}
+
 -(void)setPlaceholderTextColor:(UIColor*)placeholderTextColor
 {
     _placeholderTextColor = placeholderTextColor;
     self.placeholderLabel.textColor = placeholderTextColor;
+}
+
+-(UIEdgeInsets)placeholderInsets
+{
+    return UIEdgeInsetsMake(self.textContainerInset.top, self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.bottom, self.textContainerInset.right + self.textContainer.lineFragmentPadding);
+}
+
+-(CGRect)placeholderExpectedFrame
+{
+    UIEdgeInsets placeholderInsets = [self placeholderInsets];
+    CGFloat maxWidth = CGRectGetWidth(self.frame)-placeholderInsets.left-placeholderInsets.right;
+    
+    CGSize expectedSize = [self.placeholderLabel sizeThatFits:CGSizeMake(maxWidth, CGRectGetHeight(self.frame)-placeholderInsets.top-placeholderInsets.bottom)];
+    
+    return CGRectMake(placeholderInsets.left, placeholderInsets.top, maxWidth, expectedSize.height);
 }
 
 -(UILabel*)placeholderLabel
@@ -143,7 +165,16 @@
         _placeholderLabel.font = self.font;
         _placeholderLabel.textAlignment = self.textAlignment;
         _placeholderLabel.backgroundColor = [UIColor clearColor];
-        _placeholderLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
+        #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+            if (@available(iOS 13.0, *)) {
+                _placeholderLabel.textColor = [UIColor systemGrayColor];
+            } else
+        #endif
+            {
+        #if __IPHONE_OS_VERSION_MIN_REQUIRED < 130000
+                _placeholderLabel.textColor = [UIColor lightTextColor];
+        #endif
+            }
         _placeholderLabel.alpha = 0;
         [self addSubview:_placeholderLabel];
     }
@@ -156,6 +187,20 @@
 {
     [self refreshPlaceholder];
     return [super delegate];
+}
+
+-(CGSize)intrinsicContentSize
+{
+    if (self.hasText) {
+        return [super intrinsicContentSize];
+    }
+    
+    UIEdgeInsets placeholderInsets = [self placeholderInsets];
+    CGSize newSize = [super intrinsicContentSize];
+    
+    newSize.height = [self placeholderExpectedFrame].size.height + placeholderInsets.top + placeholderInsets.bottom;
+    
+    return newSize;
 }
 
 @end
