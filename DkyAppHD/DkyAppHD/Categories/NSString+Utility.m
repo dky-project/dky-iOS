@@ -232,4 +232,11 @@
     return YES;
 }
 
++ (NSString*)toString:(NSNumber*)numer{
+    NSString *dStr = [NSString stringWithFormat:@"%f", [numer doubleValue]];
+    NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dStr];
+
+    return [dn stringValue];
+}
+
 @end

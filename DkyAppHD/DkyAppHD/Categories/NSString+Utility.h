@@ -58,4 +58,6 @@
 
 // 判断字符串是否是数字
 + (BOOL)isNum:(NSString *)checkedNumString;
+
++ (NSString*)toString:(NSNumber*)numer;
 @end

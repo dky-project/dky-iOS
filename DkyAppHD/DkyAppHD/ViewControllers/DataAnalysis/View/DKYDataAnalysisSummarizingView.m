@@ -66,7 +66,7 @@
         return mutableAttributedString;
     }];
     
-    self.originalPriceLabel.text = [NSString stringWithFormat:@"进货价总金额 : %@元",getDataAnalysisListModel.total.AFTERAMOUNT];
+    self.originalPriceLabel.text = [NSString stringWithFormat:@"进货价总金额 : %@元",[NSString toString:getDataAnalysisListModel.total.AFTERAMOUNT]];
     [self.originalPriceLabel setText:self.originalPriceLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
