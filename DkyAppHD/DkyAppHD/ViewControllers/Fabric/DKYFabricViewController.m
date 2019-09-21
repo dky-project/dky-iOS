@@ -7,6 +7,9 @@
 //
 
 #import "DKYFabricViewController.h"
+#import "DkYFabricHeaderView.h"
+#import "FabricCollectionViewCell.h"
+#import "DKYFabricImageViewController.h"
 
 @interface DKYFabricViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -72,26 +75,61 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
+    FabricCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FabricCollectionViewCell class]) forIndexPath:indexPath];
    
-    cell.contentView.backgroundColor = [UIColor randomColor];
     
     return cell;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGSize size = CGSizeMake(220, 290);
+    CGSize size = CGSizeMake(170, 105);
     return size;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
+    minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 39;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
+    minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 21;
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    UIEdgeInsets insets = {28,26,0,26};
+    UIEdgeInsets insets = {0,90,0,90};
     return insets;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DKYFabricImageViewController *vc = [[DKYFabricImageViewController alloc] init];
+    [self.navigationController qmui_pushViewController:vc animated:YES completion:^{
+        
+    }];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    if(section == 0){
+        return CGSizeMake(SCREEN_WIDTH, 90);
+    }
     
+    return CGSizeMake(SCREEN_WIDTH, 84.5);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if([kind isEqual:UICollectionElementKindSectionHeader]){
+        DkYFabricHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([DkYFabricHeaderView class]) forIndexPath:indexPath];
+        
+        header.title = @"A类";
+        return header;
+    }
+    
+    return nil;
 }
 
 #pragma common init
@@ -118,6 +156,9 @@
     [self.view addSubview:collectionView];
     
     [collectionView registerClass:[UICollectionViewCell class]forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    [collectionView registerClass:[FabricCollectionViewCell class]forCellWithReuseIdentifier:NSStringFromClass([FabricCollectionViewCell class])];
+    
+    [collectionView registerClass:[DkYFabricHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([DkYFabricHeaderView class])];
     
     WeakSelf(weakSelf);
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
