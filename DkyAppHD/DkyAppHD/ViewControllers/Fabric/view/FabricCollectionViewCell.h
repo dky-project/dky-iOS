@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class DKYProductImgModel;
 @interface FabricCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic, weak) DKYProductImgModel *imgModel;
 
 @end
 

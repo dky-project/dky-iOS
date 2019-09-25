@@ -8,6 +8,7 @@
 
 #import "DKYFabricImageViewController.h"
 #import "SDCycleScrollView.h"
+#import "DKYProductImgModel.h"
 
 static NSString* const defaultRightBtnTitle = @"返回";
 
@@ -41,6 +42,8 @@ static NSString* const defaultRightBtnTitle = @"返回";
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
+    
+    self.cycleScrollView.imageURLStringsGroup  = self.productImgModel.detialImgList;
 }
 
 #pragma mark - delegate
@@ -80,7 +83,7 @@ static NSString* const defaultRightBtnTitle = @"返回";
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
     
-    self.cycleScrollView.imageURLStringsGroup = @[@"http://116.62.246.199:90/img_sl/19D074.jpg?modifieddate=1568104405000",@"http://116.62.246.199:90/img_sl/19D082.jpg?modifieddate=1568104405000"];
+//    self.cycleScrollView.imageURLStringsGroup = @[@"http://116.62.246.199:90/img_sl/19D074.jpg?modifieddate=1568104405000",@"http://116.62.246.199:90/img_sl/19D082.jpg?modifieddate=1568104405000"];
 }
 
 #pragma mark - 默认值设置

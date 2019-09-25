@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class DKYProductImgModel;
 @interface DKYFabricImageViewController : QMUICommonViewController
+
+@property (nonatomic, weak) DKYProductImgModel *productImgModel;
 
 @end
 
