@@ -102,4 +102,7 @@
 
 #define kGetDataAnalysisListUrl         @"productApprove/getDataAnalysisList"   // 数据分析接口
 
+// 面料
+#define kGetProductImgList              @"product/getProductImgList"
+
 #endif /* DKYHttpUrl_h */

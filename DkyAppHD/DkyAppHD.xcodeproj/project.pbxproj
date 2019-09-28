@@ -60,6 +60,11 @@
 		263CC16C1E155B04002FBB50 /* DKYHttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC16B1E155B04002FBB50 /* DKYHttpRequestTool.m */; };
 		263CC1751E155CED002FBB50 /* DKYHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */; };
 		264C3C9B1F53057A00F47747 /* DKYGetProductPriceParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */; };
+		26508390233EE2920090813C /* DKYFabricImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2650838F233EE2920090813C /* DKYFabricImageViewController.m */; };
+		26508396233EE29F0090813C /* DkYFabricHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26508394233EE29F0090813C /* DkYFabricHeaderView.m */; };
+		26508397233EE29F0090813C /* FabricCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26508395233EE29F0090813C /* FabricCollectionViewCell.m */; };
+		2650839D233EE3080090813C /* DKYProductImgCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2650839A233EE3080090813C /* DKYProductImgCategoryModel.m */; };
+		2650839E233EE3080090813C /* DKYProductImgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2650839B233EE3080090813C /* DKYProductImgModel.m */; };
 		2658366F1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658366E1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m */; };
 		265836721FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265836711FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.m */; };
 		265836751FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265836741FD4444700BAEA87 /* DKYTongkuan5KoudaiItemView.m */; };
@@ -487,6 +492,16 @@
 		263CC1741E155CED002FBB50 /* DKYHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYHttpRequestManager.m; sourceTree = "<group>"; };
 		264C3C991F53057A00F47747 /* DKYGetProductPriceParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYGetProductPriceParameter.h; sourceTree = "<group>"; };
 		264C3C9A1F53057A00F47747 /* DKYGetProductPriceParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYGetProductPriceParameter.m; sourceTree = "<group>"; };
+		2650838E233EE2910090813C /* DKYFabricImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYFabricImageViewController.h; sourceTree = "<group>"; };
+		2650838F233EE2920090813C /* DKYFabricImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYFabricImageViewController.m; sourceTree = "<group>"; };
+		26508392233EE29F0090813C /* FabricCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FabricCollectionViewCell.h; sourceTree = "<group>"; };
+		26508393233EE29F0090813C /* DkYFabricHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DkYFabricHeaderView.h; sourceTree = "<group>"; };
+		26508394233EE29F0090813C /* DkYFabricHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DkYFabricHeaderView.m; sourceTree = "<group>"; };
+		26508395233EE29F0090813C /* FabricCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FabricCollectionViewCell.m; sourceTree = "<group>"; };
+		26508399233EE3080090813C /* DKYProductImgCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYProductImgCategoryModel.h; sourceTree = "<group>"; };
+		2650839A233EE3080090813C /* DKYProductImgCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYProductImgCategoryModel.m; sourceTree = "<group>"; };
+		2650839B233EE3080090813C /* DKYProductImgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKYProductImgModel.m; sourceTree = "<group>"; };
+		2650839C233EE3080090813C /* DKYProductImgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKYProductImgModel.h; sourceTree = "<group>"; };
 		2658366D1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5FlowerTypeItemView.h; sourceTree = "<group>"; };
 		2658366E1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKYTongkuan5FlowerTypeItemView.m; sourceTree = "<group>"; };
 		265836701FD443DA00BAEA87 /* DKYTongkuan5TangzhuItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKYTongkuan5TangzhuItemView.h; sourceTree = "<group>"; };
@@ -1122,16 +1137,11 @@
 			children = (
 				2603271F2327716200084A69 /* DKYFabricViewController.h */,
 				260327202327716200084A69 /* DKYFabricViewController.m */,
-				260327212327716200084A69 /* view */,
+				2650838E233EE2910090813C /* DKYFabricImageViewController.h */,
+				2650838F233EE2920090813C /* DKYFabricImageViewController.m */,
+				26508391233EE29F0090813C /* view */,
 			);
 			path = Fabric;
-			sourceTree = "<group>";
-		};
-		260327212327716200084A69 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 		2620D6DF1E55F16700BC0668 /* 定制订单 */ = {
@@ -1266,6 +1276,28 @@
 				EBD5E27E1F31A67600B98F46 /* NSString+URL.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		26508391233EE29F0090813C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				26508392233EE29F0090813C /* FabricCollectionViewCell.h */,
+				26508393233EE29F0090813C /* DkYFabricHeaderView.h */,
+				26508394233EE29F0090813C /* DkYFabricHeaderView.m */,
+				26508395233EE29F0090813C /* FabricCollectionViewCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		26508398233EE2C90090813C /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				26508399233EE3080090813C /* DKYProductImgCategoryModel.h */,
+				2650839A233EE3080090813C /* DKYProductImgCategoryModel.m */,
+				2650839C233EE3080090813C /* DKYProductImgModel.h */,
+				2650839B233EE3080090813C /* DKYProductImgModel.m */,
+			);
+			name = Fabric;
 			sourceTree = "<group>";
 		};
 		266A9B23202C91B700F56879 /* Help */ = {
@@ -1552,6 +1584,7 @@
 				EB6DFFD21F3ABAC7004C7CC4 /* 搭配(原陈列) */,
 				2630C5C420D6465B00C4A698 /* 数据分析 */,
 				263702B91F6432D1000991C5 /* 推荐 */,
+				26508398233EE2C90090813C /* Fabric */,
 				EB506C301E23706F002A1423 /* DKYPageModel.h */,
 				EB506C311E23706F002A1423 /* DKYPageModel.m */,
 			);
@@ -2769,6 +2802,7 @@
 				263702D21F652C9A000991C5 /* DKYGetProductGroupPageParameter.m in Sources */,
 				26F1E0BA21E4EA1A00FE68E2 /* DKYSampleDetailViewController2.m in Sources */,
 				26BDCEA820CAC8E500BAB0B9 /* DKYOrderInqueryMergeParameter.m in Sources */,
+				2650839D233EE3080090813C /* DKYProductImgCategoryModel.m in Sources */,
 				2630C5C320D54E8400C4A698 /* DKYDataAnalysisSummarizingView.m in Sources */,
 				EB9790561E22158100E2985C /* UUDatePicker.m in Sources */,
 				EB97F2B91E25C36A00BDC705 /* DQFormCollectionViewCell.m in Sources */,
@@ -2793,6 +2827,7 @@
 				EB9790951E2245A000E2985C /* YYCache+Utility.m in Sources */,
 				EBD694D81E2785BB00F365C3 /* TOActivitySafari.m in Sources */,
 				EBA9807D1ECD8B050080FC79 /* DKYTongkuanFiveViewCell.m in Sources */,
+				26508390233EE2920090813C /* DKYFabricImageViewController.m in Sources */,
 				EBD3049E1F20AE5F00CA400C /* FLAnimatedImage.m in Sources */,
 				EBC300551E1CA0C700F602E6 /* UIView+SDExtension.m in Sources */,
 				2620D6E51E55FF6000BC0668 /* DKYDeliveryDateView.m in Sources */,
@@ -2823,6 +2858,7 @@
 				EBD694B11E277B4700F365C3 /* RxWebViewNavigationViewController.m in Sources */,
 				26C94A5B20C2BD8500CC3688 /* DKYSampleDetailGanweiViewCell.m in Sources */,
 				EBABE8DB1E150CA600B4C568 /* main.m in Sources */,
+				2650839E233EE3080090813C /* DKYProductImgModel.m in Sources */,
 				260327222327716200084A69 /* DKYFabricViewController.m in Sources */,
 				26DAD0C81E1A1C30008EE55F /* UIViewController+Utlity.m in Sources */,
 				EB506C341E23706F002A1423 /* DKYBootImageModel.m in Sources */,
@@ -2915,6 +2951,7 @@
 				EB9511B01E164444008708EF /* WXSTransitionManager+TypeTool.m in Sources */,
 				265836781FD444C900BAEA87 /* DKYTongkuan5AttachmentItemView.m in Sources */,
 				2658366F1FD4425300BAEA87 /* DKYTongkuan5FlowerTypeItemView.m in Sources */,
+				26508396233EE29F0090813C /* DkYFabricHeaderView.m in Sources */,
 				EB97F2CD1E2629E200BDC705 /* DKYOrderItemDetailModel.m in Sources */,
 				EB506C401E23A8B8002A1423 /* DKYOrderBrowseViewController.m in Sources */,
 				26210BDA1E596AA100EB05D6 /* DKYCustomOrderXiuTypeItemView.m in Sources */,
@@ -3024,6 +3061,7 @@
 				EBD825221F417EB4000C77E3 /* DKYAddDpGroupBmptParamModel.m in Sources */,
 				EB97F2C11E25EB4B00BDC705 /* DKYSampleValueInfoModel.m in Sources */,
 				26210BE31E59775300EB05D6 /* DKYCustomOrderTypeOneView.m in Sources */,
+				26508397233EE29F0090813C /* FabricCollectionViewCell.m in Sources */,
 				EB506C461E23B24C002A1423 /* KLCPopup.m in Sources */,
 				EBD115FC1EA4683D00AF6F5C /* DKYTongkuan5GenderItemView.m in Sources */,
 				EB9BBBA11E24CD3F00939007 /* DKYSexEnumModel.m in Sources */,
