@@ -210,8 +210,8 @@
 
 #pragma common init
 - (void)commonInit{
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-     self.automaticallyAdjustsScrollViewInsets = NO;
+    //self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupCollectionView];
 }
 
