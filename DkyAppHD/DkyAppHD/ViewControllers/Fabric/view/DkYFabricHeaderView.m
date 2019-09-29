@@ -47,13 +47,13 @@
 - (void)setupTitleLabel{
     TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont boldSystemFontOfSize:36];
+    label.font = [UIFont systemFontOfSize:35];
     [self addSubview:label];
     self.titleLabel = label;
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(92);
-        make.bottom.mas_equalTo(-4);
+        make.bottom.mas_equalTo(-6);
     }];
 }
 
