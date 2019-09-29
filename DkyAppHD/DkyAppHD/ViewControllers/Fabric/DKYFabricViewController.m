@@ -71,7 +71,7 @@
         
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
-            NSArray *prodcuts = [DKYProductImgCategoryModel mj_objectArrayWithKeyValuesArray:result.data];
+            NSArray *prodcuts = [DKYProductImgCategoryModel mj_objectArrayWithKeyValuesArray:page.items];
             [self.productImageList removeAllObjects];
             
             [self.productImageList addObjectsFromArray:prodcuts];
@@ -104,7 +104,7 @@
         [weakSelf.collectionView.mj_footer endRefreshing];
         if (retCode == DkyHttpResponseCode_Success) {
             DKYPageModel *page = [DKYPageModel mj_objectWithKeyValues:result.data];
-            NSArray *prodcuts = [DKYProductImgCategoryModel mj_objectArrayWithKeyValuesArray:result.data];
+            NSArray *prodcuts = [DKYProductImgCategoryModel mj_objectArrayWithKeyValuesArray:page.items];
             [weakSelf.productImageList addObjectsFromArray:prodcuts];
             weakSelf.pageNum++;
             [weakSelf.collectionView reloadData];
