@@ -60,7 +60,7 @@
 //        make.right.mas_equalTo(weakSelf.contentView);
 //    }];
     
-    self.imageView.image = [UIImage imageWithColor:[UIColor randomColor]];
+    //self.imageView.image = [UIImage imageWithColor:[UIColor randomColor]];
     //self.titleLabel.text = @"26S克什米尔";
 }
 

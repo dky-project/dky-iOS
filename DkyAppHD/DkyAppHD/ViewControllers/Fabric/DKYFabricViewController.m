@@ -28,30 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+     [self commonInit];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)didInitialize{
-    [super didInitialize];
-    
-    [self commonInit];
-}
-
-- (void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-    
-    WeakSelf(weakSelf);
-    
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.top.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
-    }];
 }
 
 #pragma mark - 网络接口
@@ -121,15 +104,6 @@
         [weakSelf.collectionView.mj_footer endRefreshing];
         [DKYHUDTool showErrorWithStatus:kNetworkError];
     }];
-}
-
-#pragma mark - delegate
-- (nullable UIImage *)navigationBarBackgroundImage{
-    return [UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]];
-}
-
-- (nullable UIColor *)titleViewTintColor{
-    return [UIColor whiteColor];
 }
 
 #pragma mark - collectionView delegate & datasource
@@ -210,6 +184,9 @@
 
 #pragma common init
 - (void)commonInit{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHex:0x2D2D33]] forBarMetrics:UIBarMetricsDefault];
+    [self setupCustomTitle:self.title];
+    
     //self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupCollectionView];
@@ -246,6 +223,7 @@
     }];
     
     self.collectionView = collectionView;
+    
     [self setupRefreshControl];
 }
 
@@ -264,6 +242,24 @@
     self.collectionView.mj_footer = footer;
     
     [self.collectionView.mj_header beginRefreshing];
+}
+
+- (void)setupCustomTitle:(NSString*)title;
+{
+    UILabel *titleLabel = [[UILabel alloc]init];
+    titleLabel.font = [UIFont systemFontOfSize:15];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName : titleLabel.font};
+    CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+    
+    titleLabel.frame = [title boundingRectWithSize:size
+                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                        attributes:attributes
+                                           context:nil];;
+    titleLabel.text = title;
+    self.navigationItem.titleView = titleLabel;
 }
 
 #pragma mark - getter
