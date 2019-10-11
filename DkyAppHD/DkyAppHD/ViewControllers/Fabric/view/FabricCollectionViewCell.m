@@ -33,7 +33,7 @@
     
     NSURL *imageUrl = [NSURL URLWithString:imgModel.imgUrl];
     
-    [self.imageView sd_setImageWithURL:imageUrl placeholderImage:self.imageView.image];
+    [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
 }
 
 - (void)commonInit{
