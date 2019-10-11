@@ -6,11 +6,11 @@
 //  Copyright © 2019 haKim. All rights reserved.
 //
 
-#import "QMUICommonViewController.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DKYFabricViewController : QMUICommonViewController
+@interface DKYFabricViewController : UIViewController
 
 @end
 

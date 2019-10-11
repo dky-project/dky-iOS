@@ -33,7 +33,7 @@
     
     NSURL *imageUrl = [NSURL URLWithString:imgModel.imgUrl];
     
-    [self.imageView sd_setImageWithURL:imageUrl placeholderImage:self.imageView.image];
+    [self.imageView sd_setImageWithURL:imageUrl placeholderImage:nil];
 }
 
 - (void)commonInit{
@@ -60,7 +60,7 @@
 //        make.right.mas_equalTo(weakSelf.contentView);
 //    }];
     
-    self.imageView.image = [UIImage imageWithColor:[UIColor randomColor]];
+    //self.imageView.image = [UIImage imageWithColor:[UIColor randomColor]];
     //self.titleLabel.text = @"26S克什米尔";
 }
 
