@@ -44,7 +44,7 @@
     DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
     self.pageNum = 1;
     p.pageNo = @(self.pageNum);
-    p.pageSize = @(kPageSize);
+    p.pageSize = @(100);
     
     [[DKYHttpRequestManager sharedInstance] getProductImgListwithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
@@ -79,7 +79,7 @@
     DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
     NSInteger pageNum = self.pageNum;
     p.pageNo = @(++pageNum);
-    p.pageSize = @(kPageSize);
+    p.pageSize = @(100);
     
     [[DKYHttpRequestManager sharedInstance] getProductImgListwithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
