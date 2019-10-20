@@ -63,7 +63,7 @@ static NSString* const defaultRightBtnTitle = @"返回";
 
 #pragma mark - ui
 - (void)commonInit{
-    self.title = @"面料";
+    self.title = @"色卡";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setupBannerView];
     //self.view.backgroundColor = [UIColor randomColor];
@@ -78,6 +78,7 @@ static NSString* const defaultRightBtnTitle = @"返回";
     cycleScrollView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     cycleScrollView.autoScroll = NO;
     cycleScrollView.backgroundColor = [UIColor whiteColor];
+    cycleScrollView.currentPageDotColor = [UIColor colorWithHex:0x3C3362];
     self.cycleScrollView = cycleScrollView;
     [self.cycleScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);

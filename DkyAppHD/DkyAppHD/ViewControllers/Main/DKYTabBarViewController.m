@@ -204,7 +204,7 @@
 - (void)setupFabricVc{
     DKYFabricViewController* fabricVc = [[DKYFabricViewController alloc] init];
     
-    [self addOneChlildVc:fabricVc title:@"面料" imageName:@"tarbar_fabric" selectedImageName:@"tarbar_fabric"];
+    [self addOneChlildVc:fabricVc title:@"色卡" imageName:@"tarbar_fabric" selectedImageName:@"tarbar_fabric"];
     self.fabricVc = fabricVc;
 }
 
