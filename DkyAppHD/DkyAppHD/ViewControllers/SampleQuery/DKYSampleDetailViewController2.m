@@ -54,6 +54,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.sampleProductInfo = nil;
+    [self.tableView reloadData];
     
     [self doHttpRequest];
 }
@@ -297,6 +299,8 @@
 #pragma mark - UITableView 的 UITableViewDelegate 和 UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(self.sampleProductInfo == nil) return 0;
+    
     return 4;
 }
 
