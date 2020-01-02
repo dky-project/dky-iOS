@@ -72,7 +72,7 @@
         return mutableAttributedString;
     }];
     
-    self.discountOrRebateLabel.text = [NSString stringWithFormat:@"返利 : %@元/件",getDataAnalysisListModel.total.FLPRICE];
+    self.discountOrRebateLabel.text = [NSString stringWithFormat:@"折扣 : %@",getDataAnalysisListModel.total.FLPRICE1];
     [self.discountOrRebateLabel setText:self.discountOrRebateLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
@@ -80,10 +80,10 @@
     
     self.rebateAmountLabel.hidden = NO;
     
-    CGFloat totalMoney = [getDataAnalysisListModel.total.FLPRICE floatValue] * [getDataAnalysisListModel.total.QTY floatValue];
+    //CGFloat totalMoney = [getDataAnalysisListModel.total.FLPRICE floatValue] * [getDataAnalysisListModel.total.QTY floatValue];
     
-    NSString *moneyStr = [NSString formatMoneyStringWithNumberEx:totalMoney];
-    self.rebateAmountLabel.text = [NSString stringWithFormat:@"返利总额 : %@元",moneyStr];
+   //NSString *moneyStr = [NSString formatMoneyStringWithNumberEx:totalMoney];
+    self.rebateAmountLabel.text = [NSString stringWithFormat:@"退货率 : %@", getDataAnalysisListModel.total.FLPRICE2];
     [self.rebateAmountLabel setText:self.rebateAmountLabel.text afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         [self formatMutableAttributedString:mutableAttributedString];
         return mutableAttributedString;
