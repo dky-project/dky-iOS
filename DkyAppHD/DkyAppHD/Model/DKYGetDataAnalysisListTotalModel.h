@@ -40,6 +40,10 @@
  */
 @property (nonatomic, assign) NSInteger STORETYPE;
 
+@property (nonatomic, copy) NSString *FLPRICE1;
+
+@property (nonatomic, copy) NSString *FLPRICE2;
+
 // 客户端自己属性
 @property (nonatomic, assign, getter=isZmd) BOOL zmd;
 
