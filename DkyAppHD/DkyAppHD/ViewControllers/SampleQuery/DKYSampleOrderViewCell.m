@@ -20,6 +20,8 @@
 #import "DKYSampleOrderJianTypeItemView.h"
 #import "DKYGetSizeDataParameter.h"
 #import "DKYGetSizeDataModel.h"
+#import "DKYSampleDiscountItemView.h"
+#import "DKYGetApproveTypeListModel.h"
 
 static const CGFloat topOffset = 30;
 static const CGFloat leftOffset = 20;
@@ -57,6 +59,9 @@ static const CGFloat basicItemHeight = 45;
 
 // 袖型
 @property (nonatomic, weak) DKYSampleOrderXiuTypeItemView *xiuTypeView;
+
+// 折扣
+@property (nonatomic, weak) DKYSampleDiscountItemView *discountItemView;
 
 @property (nonatomic, strong) DKYMadeInfoByProductNameModel *madeInfoByProductName;
 
@@ -147,6 +152,12 @@ static const CGFloat basicItemHeight = 45;
     addProductApproveParameter.customer = self.clientView.itemModel.content;
     addProductApproveParameter.pdt = self.styleNumberView.itemModel.content;
     addProductApproveParameter.no = self.numberView.itemModel.content;
+}
+
+- (void)setDiscountArray:(NSArray *)discountArray{
+    _discountArray = discountArray;
+    
+    self.discountItemView.discountArray = discountArray;
 }
 
 #pragma mark - 网络请求
@@ -334,8 +345,9 @@ static const CGFloat basicItemHeight = 45;
 - (void)commonInit{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    // 第一行 编号
+    // 第一行 编号, 折扣
     [self setupNumberView];
+    [self setupDiscountView];
     
     // 第二行 客户，手机号
     [self setupClientView];
@@ -387,6 +399,32 @@ static const CGFloat basicItemHeight = 45;
     self.numberView.itemModel = itemModel;
 }
 
+- (void)setupDiscountView{
+    DKYSampleDiscountItemView *view = [[DKYSampleDiscountItemView alloc] initWithFrame:CGRectZero];
+    [self.contentView addSubview:view];
+    self.discountItemView = view;
+    
+    WeakSelf(weakSelf);
+    [self.discountItemView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.numberView.mas_right).with.offset(hpadding);
+        make.width.mas_equalTo(weakSelf.numberView);
+        make.height.mas_equalTo(weakSelf.numberView);
+        make.top.mas_equalTo(weakSelf.numberView);
+    }];
+    
+    DKYCustomOrderItemModel *itemModel = [[DKYCustomOrderItemModel alloc] init];
+    itemModel.title = @"*折扣:";
+    itemModel.zoomed = YES;
+    self.discountItemView.itemModel = itemModel;
+    self.discountItemView.approve_type2Block = ^(id sender, NSInteger index){
+        if(index == 0){
+            weakSelf.addProductApproveParameter.approve_type2 = nil;
+        }else{
+            DKYGetApproveTypeListModel *model = [weakSelf.discountArray objectAtIndexedSubscript:index-1];
+            weakSelf.addProductApproveParameter.approve_type2 = model.value;
+        }
+    };
+}
 
 - (void)setupClientView{
     DKYCustomOrderTextFieldView *view = [[DKYCustomOrderTextFieldView alloc] initWithFrame:CGRectZero];

@@ -110,4 +110,7 @@
 // 面料
 #define kGetProductImgList              @"product/getProductImgList"
 
+// 单品下单 获取折扣
+#define kGetApproveTypeList             @"dimNew/getApproveTypeList"
+
 #endif /* DKYHttpUrl_h */

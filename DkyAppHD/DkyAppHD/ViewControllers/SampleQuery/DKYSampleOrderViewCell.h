@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) DKYAddProductApproveParameter *addProductApproveParameter;
 
+@property (nonatomic, strong) NSArray *discountArray;
+
 @property (nonatomic, copy) BlockWithSender imageBlock;
 
 @end

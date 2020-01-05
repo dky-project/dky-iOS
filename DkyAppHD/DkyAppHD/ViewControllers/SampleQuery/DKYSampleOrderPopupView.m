@@ -18,6 +18,7 @@
 #import "DKYGetColorDimListParameter.h"
 #import "DKYColorDimListModel.h"
 #import "DkySampleOrderImageViewCell.h"
+#import "DKYGetApproveTypeListModel.h"
 
 @interface DKYSampleOrderPopupView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -41,6 +42,8 @@
 
 @property (nonatomic, strong) NSArray *dimListModels;
 @property (nonatomic, strong) NSArray *sampleValueArray;
+
+@property (nonatomic, strong) NSArray *discountArray;
 
 @property (nonatomic, strong) dispatch_group_t group;
 
@@ -160,6 +163,35 @@
     }];
 }
 
+- (void)getApproveTypeListFromServer{
+    WeakSelf(weakSelf);
+    dispatch_group_enter(self.group);
+    DKYHttpRequestParameter *p = [[DKYHttpRequestParameter alloc] init];
+    
+    [[DKYHttpRequestManager sharedInstance] getApproveTypeListWithParameter:p Success:^(NSInteger statusCode, id data) {
+        DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
+        DkyHttpResponseCode retCode = [result.code integerValue];
+        if (retCode == DkyHttpResponseCode_Success) {
+            weakSelf.discountArray = [DKYGetApproveTypeListModel mj_objectArrayWithKeyValuesArray:result.data];
+        }else if (retCode == DkyHttpResponseCode_NotLogin) {
+            // 用户未登录,弹出登录页面
+            [DKYHUDTool dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserNotLoginNotification object:nil];
+            [DKYHUDTool showErrorWithStatus:result.msg];
+        }else{
+            [DKYHUDTool dismiss];
+            NSString *retMsg = result.msg;
+            [DKYHUDTool showErrorWithStatus:retMsg];
+        }
+        dispatch_group_leave(weakSelf.group);
+    } failure:^(NSError *error) {
+        [DKYHUDTool dismiss];
+        DLog(@"Error = %@",error.description);
+        [DKYHUDTool showErrorWithStatus:kNetworkError];
+        dispatch_group_leave(weakSelf.group);
+    }];
+}
+
 - (void)confirmProductApproveToServer:(DKYOrderBrowsePopupView*)sender{
     [DKYHUDTool show];
     
@@ -246,6 +278,7 @@
     [DKYHUDTool show];
     [self getProductApproveTitleFromServer];
     //[self getColorDimListFromServer];
+    [self getApproveTypeListFromServer];
     
     dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
         [DKYHUDTool dismiss];
@@ -487,6 +520,7 @@
         cell.sampleProductInfo = self.sampleProductInfo;
         cell.productApproveTitleModel = self.productApproveTitle;
         cell.addProductApproveParameter = self.addProductApproveParameter;
+        cell.discountArray = self.discountArray;
         
         cell.imageBlock = ^(id sender) {
             weakSelf.imageUrl = sender;

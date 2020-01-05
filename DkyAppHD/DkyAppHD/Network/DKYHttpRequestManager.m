@@ -181,8 +181,12 @@ static DKYHttpRequestManager *sharedInstance = nil;
     [self p_doPostWithAuthorizationToken:kGetAttribnameListUrl withParameter:parameter Success:success failure:failure];
 }
 
-- (void)getProductImgListwithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+- (void)getProductImgListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
     [self p_doPostWithAuthorizationToken:kGetProductImgList withParameter:parameter Success:success failure:failure];
+}
+
+- (void)getApproveTypeListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure{
+    [self p_doPostWithAuthorizationToken:kGetApproveTypeList withParameter:parameter Success:success failure:failure];
 }
 
 #pragma mark - private method

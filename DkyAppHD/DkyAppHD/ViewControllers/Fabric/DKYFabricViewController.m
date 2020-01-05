@@ -46,7 +46,7 @@
     p.pageNo = @(self.pageNum);
     p.pageSize = @(100);
     
-    [[DKYHttpRequestManager sharedInstance] getProductImgListwithParameter:p Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] getProductImgListWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         
@@ -81,7 +81,7 @@
     p.pageNo = @(++pageNum);
     p.pageSize = @(100);
     
-    [[DKYHttpRequestManager sharedInstance] getProductImgListwithParameter:p Success:^(NSInteger statusCode, id data) {
+    [[DKYHttpRequestManager sharedInstance] getProductImgListWithParameter:p Success:^(NSInteger statusCode, id data) {
         DKYHttpRequestResult *result = [DKYHttpRequestResult mj_objectWithKeyValues:data];
         DkyHttpResponseCode retCode = [result.code integerValue];
         [weakSelf.collectionView.mj_footer endRefreshing];

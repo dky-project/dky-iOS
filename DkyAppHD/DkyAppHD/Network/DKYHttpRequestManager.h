@@ -371,7 +371,16 @@
  *  @param success   success description
  *  @param failure   failure description
  */
-- (void)getProductImgListwithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+- (void)getProductImgListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
+
+/**
+ * 单品下单获取折扣
+ *
+ *  @param parameter parameter description
+ *  @param success   success description
+ *  @param failure   failure description
+ */
+- (void)getApproveTypeListWithParameter:(DKYHttpRequestParameter*)parameter Success:(DKYHttpRequestSuccessBlock)success failure:(DKYHttpRequestErrorBlock)failure;
 
 +(instancetype)sharedInstance;
 
